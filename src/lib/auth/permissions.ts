@@ -147,6 +147,19 @@ export type Permission =
   // TOIL (Time Off In Lieu) Tracking
   | 'toil:read'
   | 'toil:write'
+  // Org Structure (Departments / Positions / Branches)
+  | 'departments:read'
+  | 'departments:write'
+  | 'positions:read'
+  | 'positions:write'
+  | 'branches:read'
+  | 'branches:write'
+  // Audit (alias used by audit-log routes)
+  | 'audit:read'
+  | 'audit:write'
+  // Users
+  | 'users:read'
+  | 'users:write'
 
 /** Permission matrix — every role mapped to its allowed permissions */
 const ROLE_PERMISSIONS: Record<UserRole, Permission[]> = {
@@ -154,8 +167,12 @@ const ROLE_PERMISSIONS: Record<UserRole, Permission[]> = {
     // Full access to everything
     'employees:read', 'employees:write', 'employees:delete',
     'roles:read', 'roles:write',
+    'users:read', 'users:write',
+    'departments:read', 'departments:write',
+    'positions:read', 'positions:write',
+    'branches:read', 'branches:write',
     'payroll:read', 'payroll:write',
-    'audit_logs:read',
+    'audit_logs:read', 'audit:read', 'audit:write',
     'compliance:read', 'compliance:write',
     'documents:read', 'documents:write',
     'onboarding:read', 'onboarding:write',
@@ -198,8 +215,11 @@ const ROLE_PERMISSIONS: Record<UserRole, Permission[]> = {
 
   hr_officer: [
     'employees:read', 'employees:write',
-    'roles:read',
-    'audit_logs:read',
+    'roles:read', 'users:read',
+    'departments:read', 'departments:write',
+    'positions:read', 'positions:write',
+    'branches:read', 'branches:write',
+    'audit_logs:read', 'audit:read',
     'payroll:read', 'payroll:write',
     'compliance:read', 'compliance:write',
     'documents:read', 'documents:write',
@@ -242,7 +262,8 @@ const ROLE_PERMISSIONS: Record<UserRole, Permission[]> = {
 
   compliance_manager: [
     'employees:read',
-    'audit_logs:read',
+    'departments:read', 'positions:read', 'branches:read',
+    'audit_logs:read', 'audit:read',
     'compliance:read', 'compliance:write',
     'documents:read', 'documents:write',
     'whs:read', 'whs:write',
@@ -265,6 +286,7 @@ const ROLE_PERMISSIONS: Record<UserRole, Permission[]> = {
 
   operations_manager: [
     'employees:read',
+    'departments:read', 'positions:read', 'branches:read',
     'rostering:read', 'rostering:write',
     'timesheets:read', 'timesheets:write', 'timesheets:approve',
     'workforce_planning:read', 'workforce_planning:write',
@@ -322,7 +344,7 @@ const ROLE_PERMISSIONS: Record<UserRole, Permission[]> = {
   ],
 
   auditor: [
-    'audit_logs:read',
+    'audit_logs:read', 'audit:read',
     'compliance:read',
     'documents:read',
     'employees:read',
@@ -345,8 +367,10 @@ const ROLE_PERMISSIONS: Record<UserRole, Permission[]> = {
 
   it_admin: [
     'roles:read', 'roles:write',
-    'audit_logs:read',
+    'users:read', 'users:write',
+    'audit_logs:read', 'audit:read',
     'employees:read',
+    'departments:read', 'positions:read', 'branches:read',
     'assets:read', 'assets:write',
     'settings:read', 'settings:write',
   ],
