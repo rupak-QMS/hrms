@@ -97,7 +97,7 @@ export async function POST(req: NextRequest) {
       .insert(documents)
       .values({
         tenantId:      session.tenantId,
-        uploadedBy:    session.userId,
+        uploadedBy:    session.sub,
         employeeId:    data.employeeId ?? null,
         category:      data.category,
         title:         data.title,
