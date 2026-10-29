@@ -214,6 +214,7 @@ export default function EmployeeManagementPage() {
   const [statTotals, setStatTotals] = useState<{ active: number; inactive: number; ndis: number } | null>(null)
   // Tenant-specific flags
   const [isYPC, setIsYPC] = useState(false)
+  const [fetchError, setFetchError] = useState<string | null>(null)
 
   // Fetch screening expiry data + tenant config (for isYPC flag)
   useEffect(() => {
@@ -248,6 +249,7 @@ export default function EmployeeManagementPage() {
       const res  = await fetchWithAuth(`/api/tenant/employees?${params}`)
       if (res.status === 403) { setDenied(true); setLoading(false); return }
       const data = await res.json()
+      setFetchError(null)
       setSelected(new Set())
       setEmployees(data.employees ?? [])
       setTotalPages(data.pages ?? 1)
@@ -256,7 +258,7 @@ export default function EmployeeManagementPage() {
         setStatTotals({ active: data.activeCount, inactive: data.inactiveCount, ndis: data.ndisCount })
       }
     } catch {
-      setEmployees([])
+      setFetchError('Failed to load employees. Please try again.')
     } finally {
       setLoading(false)
     }
@@ -345,6 +347,26 @@ export default function EmployeeManagementPage() {
         <p className="text-sm text-gray-500 dark:text-gray-400 text-center max-w-xs">
           The employee directory is available to managers and above. View your own profile under <strong>My Profile</strong>.
         </p>
+      </div>
+    </div>
+  )
+
+  if (fetchError) return (
+    <div className="space-y-4">
+      <div>
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Employees</h1>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">Manage your workforce</p>
+      </div>
+      <div className="flex flex-col items-center justify-center h-64 card-premium gap-3">
+        <span className="text-4xl">⚠️</span>
+        <p className="text-gray-900 dark:text-white font-semibold">Unable to load employees</p>
+        <p className="text-sm text-gray-500 dark:text-gray-400 text-center max-w-xs">{fetchError}</p>
+        <button
+          onClick={() => { setFetchError(null); fetchEmployees() }}
+          className="mt-2 px-4 py-2 rounded-lg bg-brand-600 text-white text-sm font-medium hover:bg-brand-700 transition-colors"
+        >
+          Retry
+        </button>
       </div>
     </div>
   )

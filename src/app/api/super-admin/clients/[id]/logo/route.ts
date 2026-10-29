@@ -2,12 +2,17 @@ import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 import { tenants } from '@/lib/db/schema'
 import { eq } from 'drizzle-orm'
+import { getSession } from '@/lib/auth/session'
 
 type RouteContext = { params: Promise<{ id: string }> }
 
 // POST /api/super-admin/clients/[id]/logo
 // Body: { dataUrl: string } — base64 data URL (max ~500KB after base64 = ~375KB file)
 export async function POST(req: NextRequest, ctx: RouteContext) {
+  const session = await getSession()
+  if (!session || session.role !== 'super_admin') {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
   const { id } = await ctx.params
 
   try {
@@ -46,6 +51,10 @@ export async function POST(req: NextRequest, ctx: RouteContext) {
 
 // DELETE — remove logo
 export async function DELETE(_: NextRequest, ctx: RouteContext) {
+  const session = await getSession()
+  if (!session || session.role !== 'super_admin') {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
   const { id } = await ctx.params
   await db.update(tenants).set({ logoUrl: null, updatedAt: new Date() }).where(eq(tenants.id, id))
   return NextResponse.json({ ok: true })

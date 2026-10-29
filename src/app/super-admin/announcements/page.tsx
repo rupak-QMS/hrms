@@ -104,7 +104,7 @@ export default function AnnouncementsPage() {
     fetch('/api/super-admin/announcements')
       .then(r => r.json())
       .then(d => { setAnnouncements(d.announcements ?? []); setLoading(false) })
-      .catch(() => setLoading(false))
+      .catch(err => { setError('Unable to load announcements — please refresh.'); setLoading(false) })
   }
 
   useEffect(() => { load() }, [])

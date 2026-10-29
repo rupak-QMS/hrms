@@ -3,11 +3,16 @@ import { db } from '@/lib/db'
 import { users, tenants } from '@/lib/db/schema'
 import { eq, and } from 'drizzle-orm'
 import bcrypt from 'bcryptjs'
+import { getSession } from '@/lib/auth/session'
 
 type RouteContext = { params: Promise<{ id: string }> }
 
 // GET — list all users for a tenant
 export async function GET(_: NextRequest, ctx: RouteContext) {
+  const session = await getSession()
+  if (!session || session.role !== 'super_admin') {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
   const { id } = await ctx.params
   try {
     const tenantUsers = await db
@@ -32,6 +37,10 @@ export async function GET(_: NextRequest, ctx: RouteContext) {
 // POST — create a new user for a tenant
 // Body: { email, password, role }
 export async function POST(req: NextRequest, ctx: RouteContext) {
+  const session = await getSession()
+  if (!session || session.role !== 'super_admin') {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
   const { id } = await ctx.params
   try {
     const { email, password, role } = await req.json()
@@ -74,6 +83,10 @@ export async function POST(req: NextRequest, ctx: RouteContext) {
 // PATCH — toggle active / reset password
 // Body: { userId, isActive? } | { userId, newPassword? }
 export async function PATCH(req: NextRequest, ctx: RouteContext) {
+  const session = await getSession()
+  if (!session || session.role !== 'super_admin') {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
   const { id } = await ctx.params
   try {
     const { userId, isActive, newPassword, role } = await req.json()
@@ -97,6 +110,10 @@ export async function PATCH(req: NextRequest, ctx: RouteContext) {
 
 // DELETE — remove user
 export async function DELETE(req: NextRequest, ctx: RouteContext) {
+  const session = await getSession()
+  if (!session || session.role !== 'super_admin') {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
   const { id } = await ctx.params
   try {
     const { userId } = await req.json()

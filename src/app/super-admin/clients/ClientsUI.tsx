@@ -65,7 +65,7 @@ function ConfirmModal({ state, onConfirm, onCancel }: {
   )
 }
 
-export default function ClientsUI({ initialClients }: { initialClients: Client[] }) {
+export default function ClientsUI({ initialClients, dbError }: { initialClients: Client[]; dbError?: string | null }) {
   const [clients, setClients]             = useState<Client[]>(initialClients)
   const [search, setSearch]               = useState('')
   const [impersonating, setImpersonating] = useState<string | null>(null)
@@ -134,6 +134,12 @@ export default function ClientsUI({ initialClients }: { initialClients: Client[]
   return (
     <div className="space-y-6">
       <ConfirmModal state={confirm} onConfirm={handleConfirm} onCancel={() => setConfirm(null)} />
+
+      {dbError && (
+        <div className="rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 p-4 text-red-700 dark:text-red-400 text-sm">
+          {dbError}
+        </div>
+      )}
 
       <div className="flex items-center justify-between">
         <div>

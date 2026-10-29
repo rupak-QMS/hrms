@@ -34,6 +34,10 @@ export async function GET() {
 
 // POST — create a new super admin
 export async function POST(req: NextRequest) {
+  const session = await getSession()
+  if (!session || session.role !== 'super_admin') {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
   try {
     const { name, email, password } = await req.json()
 
@@ -67,6 +71,10 @@ export async function POST(req: NextRequest) {
 
 // PATCH — toggle active status
 export async function PATCH(req: NextRequest) {
+  const session = await getSession()
+  if (!session || session.role !== 'super_admin') {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
   try {
     const { id, isActive } = await req.json()
     const [updated] = await db
@@ -82,6 +90,10 @@ export async function PATCH(req: NextRequest) {
 
 // DELETE — remove a super admin
 export async function DELETE(req: NextRequest) {
+  const session = await getSession()
+  if (!session || session.role !== 'super_admin') {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
   try {
     const { id } = await req.json()
     await db.delete(superAdmins).where(eq(superAdmins.id, id))

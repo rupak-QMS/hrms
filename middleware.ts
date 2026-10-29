@@ -25,10 +25,13 @@ const REFRESH_THRESHOLD_SECS = 60 * 60 // 1 hour
 // Subdomains that identify the super admin portal (used in subdomain mode)
 const SUPER_ADMIN_SUBDOMAINS = ['superadmin', 'admin']
 
-// Subdomain → DB tenant slug mapping (used in subdomain mode)
+// Subdomain → DB tenant slug mapping.
+// Convention: subdomain IS the slug (set when creating tenant in Super Admin).
+// Add manual overrides here only for legacy subdomains that differ from their slug.
 const SUBDOMAIN_TENANT_MAP: Record<string, string> = {
-  yahwehcare: 'yahweh-care',
-  yahwehpc:   'yahweh-property-care',
+  yahwehcare: 'yahweh-care',          // legacy: subdomain differs from slug
+  yahwehpc:   'yahweh-property-care', // legacy: subdomain differs from slug
+  // New tenants: subdomain === slug, so no entry needed here
 }
 
 const PUBLIC_PATHS = [

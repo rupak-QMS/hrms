@@ -44,6 +44,7 @@ export default function AuditLogsPage() {
   const [logs, setLogs]       = useState<AuditLog[]>([])
   const [tenants, setTenants] = useState<Tenant[]>([])
   const [loading, setLoading] = useState(true)
+  const [fetchError, setFetchError] = useState<string | null>(null)
   const [page, setPage]       = useState(1)
   const [expanded, setExpanded] = useState<string | null>(null)
 
@@ -62,12 +63,19 @@ export default function AuditLogsPage() {
     if (to)       params.set('to',       to)
     params.set('page', String(p))
 
-    const res  = await fetch(`/api/super-admin/audit-logs?${params}`)
-    const data = await res.json()
-    setLogs(data.logs ?? [])
-    setTenants(data.tenants ?? [])
-    setPage(p)
-    setLoading(false)
+    try {
+      setFetchError(null)
+      const res  = await fetch(`/api/super-admin/audit-logs?${params}`)
+      if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      const data = await res.json()
+      setLogs(data.logs ?? [])
+      setTenants(data.tenants ?? [])
+      setPage(p)
+    } catch (err: any) {
+      setFetchError(err.message ?? 'Failed to load audit logs — please refresh.')
+    } finally {
+      setLoading(false)
+    }
   }, [search, tenantId, from, to])
 
   useEffect(() => { load(1) }, [load])
@@ -91,6 +99,12 @@ export default function AuditLogsPage() {
 
   return (
     <div className="space-y-6">
+      {fetchError && (
+        <div className="rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 p-4 text-red-700 dark:text-red-400 text-sm">
+          {fetchError}
+        </div>
+      )}
+
       <div className="flex items-center justify-between flex-wrap gap-3">
         <div>
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Platform Audit Log</h1>

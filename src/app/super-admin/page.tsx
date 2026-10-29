@@ -38,8 +38,9 @@ async function getPlatformData() {
       enabledModules: Number(enabledModulesResult[0]?.count ?? 0),
       mrr, recentLogs: recentLogsWithName, clients: clientsWithStatus,
     }
-  } catch {
-    return { totalClients: 0, activeClients: 0, enterprise: 0, professional: 0, starter: 0, totalUsers: 0, activeUsers: 0, enabledModules: 0, mrr: 0, recentLogs: [], clients: [] }
+  } catch (err) {
+    console.error('[SuperAdminDashboard] DB error:', err)
+    return { totalClients: 0, activeClients: 0, enterprise: 0, professional: 0, starter: 0, totalUsers: 0, activeUsers: 0, enabledModules: 0, mrr: 0, recentLogs: [], clients: [], dbError: true }
   }
 }
 
@@ -55,6 +56,11 @@ export default async function SuperAdminDashboard() {
   const d = await getPlatformData()
   return (
     <div className="space-y-6">
+      {d.dbError && (
+        <div className="rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 p-4 text-amber-800 dark:text-amber-300 text-sm">
+          ⚠️ Database temporarily unavailable — stats below may be incomplete. Please refresh the page.
+        </div>
+      )}
       <div>
         <h1 className="text-[22px] font-semibold tracking-tight text-foreground">Platform Dashboard</h1>
         <p className="text-[13px] text-muted-foreground mt-0.5">Manage all client tenants and platform settings</p>

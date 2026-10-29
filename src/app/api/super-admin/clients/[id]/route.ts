@@ -4,11 +4,16 @@ import { tenants, tenantModules, users } from '@/lib/db/schema'
 import { eq, and } from 'drizzle-orm'
 import { sendEmail, tenantEmailSettings } from '@/lib/email/resend'
 import { tenantSuspendedEmail, tenantReactivatedEmail, tenantTierChangedEmail } from '@/lib/email/templates'
+import { getSession } from '@/lib/auth/session'
 
 type RouteContext = { params: Promise<{ id: string }> }
 
 // GET /api/super-admin/clients/[id]
 export async function GET(_: NextRequest, ctx: RouteContext) {
+  const session = await getSession()
+  if (!session || session.role !== 'super_admin') {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
   const { id } = await ctx.params
   try {
     const [tenant] = await db.select().from(tenants).where(eq(tenants.id, id))
@@ -23,6 +28,10 @@ export async function GET(_: NextRequest, ctx: RouteContext) {
 
 // PATCH /api/super-admin/clients/[id] — update tenant
 export async function PATCH(req: NextRequest, ctx: RouteContext) {
+  const session = await getSession()
+  if (!session || session.role !== 'super_admin') {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
   const { id } = await ctx.params
   try {
     const body = await req.json()
@@ -101,6 +110,10 @@ export async function PATCH(req: NextRequest, ctx: RouteContext) {
 
 // DELETE /api/super-admin/clients/[id]
 export async function DELETE(_: NextRequest, ctx: RouteContext) {
+  const session = await getSession()
+  if (!session || session.role !== 'super_admin') {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
   const { id } = await ctx.params
   try {
     await db.delete(tenants).where(eq(tenants.id, id))

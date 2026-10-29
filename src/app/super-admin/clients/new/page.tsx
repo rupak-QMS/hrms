@@ -49,6 +49,8 @@ export default function NewClientPage() {
     city:               '',
     state:              '',
     postcode:           '',
+    // Subdomain (defaults to slug)
+    subdomain:          '',
     // Admin Account
     adminEmail:         '',
     adminPassword:      '',
@@ -97,6 +99,7 @@ export default function NewClientPage() {
       const payload: Record<string, unknown> = {
         name:         form.name,
         slug:         form.slug,
+        subdomain:    form.subdomain || form.slug,  // default subdomain = slug
         tier:         form.tier,
         primaryColor: form.primaryColor,
         adminEmail:   form.adminEmail || undefined,
@@ -193,9 +196,26 @@ export default function NewClientPage() {
             </div>
           </div>
 
+          {/* Custom subdomain */}
+          <div>
+            <label className={LABEL}>Custom Subdomain</label>
+            <div className="flex items-center gap-2">
+              <input
+                value={form.subdomain}
+                onChange={e => set('subdomain', e.target.value.toLowerCase().replace(/[^a-z0-9-]/g, ''))}
+                placeholder={form.slug || 'slug'}
+                className={INPUT}
+              />
+              <span className="text-xs text-gray-500 whitespace-nowrap dark:text-gray-400">.{'{your-domain}'}</span>
+            </div>
+            <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">
+              Leave blank to use the slug. Used for wildcard domain routing (e.g. <span className="text-purple-600 dark:text-purple-400">{form.subdomain || form.slug || 'slug'}.yahwehhrms.com.au</span>).
+            </p>
+          </div>
+
           {/* Vercel deployment subdomain */}
           <div>
-            <label className={LABEL}>Vercel Project / Subdomain</label>
+            <label className={LABEL}>Vercel Project Name</label>
             <div className="flex items-center gap-2">
               <input
                 value={form.vercelProjectName}

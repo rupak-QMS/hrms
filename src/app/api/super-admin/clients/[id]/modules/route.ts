@@ -2,11 +2,16 @@ import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 import { tenantModules } from '@/lib/db/schema'
 import { eq, and } from 'drizzle-orm'
+import { getSession } from '@/lib/auth/session'
 
 type RouteContext = { params: Promise<{ id: string }> }
 
 // GET — list all modules for a tenant
 export async function GET(_: NextRequest, ctx: RouteContext) {
+  const session = await getSession()
+  if (!session || session.role !== 'super_admin') {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
   const { id } = await ctx.params
   try {
     const modules = await db
@@ -24,6 +29,10 @@ export async function GET(_: NextRequest, ctx: RouteContext) {
 // PATCH — toggle a module on/off
 // Body: { moduleId: number, isEnabled: boolean }
 export async function PATCH(req: NextRequest, ctx: RouteContext) {
+  const session = await getSession()
+  if (!session || session.role !== 'super_admin') {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
   const { id } = await ctx.params
   try {
     const { moduleId, isEnabled } = await req.json()
@@ -48,6 +57,10 @@ export async function PATCH(req: NextRequest, ctx: RouteContext) {
 // POST — bulk update modules
 // Body: { modules: { moduleId: number, isEnabled: boolean }[] }
 export async function POST(req: NextRequest, ctx: RouteContext) {
+  const session = await getSession()
+  if (!session || session.role !== 'super_admin') {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
   const { id } = await ctx.params
   try {
     const { modules } = await req.json()

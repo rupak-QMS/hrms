@@ -36,13 +36,13 @@ const ALL_MODULES = [
   { id: 26, name: 'Asset & Equipment Register' },
   { id: 27, name: 'Rostering & Attendance Integration' },
   { id: 28, name: 'Payroll & Award Compliance Integration' },
-  { id: 29, name: 'Leave Management' },            // ← was missing
-  { id: 30, name: 'Public Holidays' },             // ← was missing
+  { id: 29, name: 'Leave Management' },
+  { id: 30, name: 'Public Holidays' },
 ]
 
 const STARTER_MODULES    = [1,2,3,4,5,6,7,8,9]
 const PRO_MODULES        = [...STARTER_MODULES, 10,11,12,13,14,15,16,17,18,19]
-const ENTERPRISE_MODULES = ALL_MODULES.map(m => m.id)  // now includes 29 & 30
+const ENTERPRISE_MODULES = ALL_MODULES.map(m => m.id)
 
 function getDefaultModules(tier: string): number[] {
   if (tier === 'professional') return PRO_MODULES
@@ -67,32 +67,32 @@ export async function GET() {
 
 // POST /api/super-admin/clients — create new tenant
 export async function POST(req: NextRequest) {
+  const session = await getSession()
+  if (!session || session.role !== 'super_admin') {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
   try {
     const body = await req.json()
     const {
       name, slug, tier = 'starter', primaryColor, logoUrl,
       enabledModules, adminEmail, adminPassword,
-      settings: incomingSettings,   // ← new: from enhanced new-client form
+      settings: incomingSettings,
     } = body
 
     if (!name || !slug) {
       return NextResponse.json({ error: 'name and slug are required' }, { status: 400 })
     }
 
-    // Merge caller-supplied settings with theme defaults so neither overwrites the other
     const settingsPayload = {
-      // Theme defaults
       theme: {
         primaryColor: primaryColor || '#1a4fff',
         logoUrl:      logoUrl || null,
         fontFamily:   'Inter',
         borderRadius: '0.5rem',
       },
-      // Country / currency / contact / address from the enhanced new-client form
       ...(incomingSettings ?? {}),
     }
 
-    // Create tenant
     const [tenant] = await db.insert(tenants).values({
       name,
       slug:         slug.toLowerCase().replace(/[^a-z0-9-]/g, '-'),
@@ -103,7 +103,6 @@ export async function POST(req: NextRequest) {
       isActive:     true,
     }).returning()
 
-    // Enable modules based on tier (or custom selection)
     const modulesToEnable = enabledModules ?? getDefaultModules(tier)
     const moduleRows = ALL_MODULES.map(m => ({
       tenantId: tenant.id,
@@ -114,7 +113,6 @@ export async function POST(req: NextRequest) {
 
     await db.insert(tenantModules).values(moduleRows)
 
-    // Create admin user if email + password supplied
     let adminUser = null
     if (adminEmail && adminPassword) {
       if (adminPassword.length < 8) {
@@ -131,7 +129,6 @@ export async function POST(req: NextRequest) {
       adminUser = u
     }
 
-    // ── Auto-create Vercel project for this tenant ─────────────────────────
     let deploymentUrl = body.deploymentUrl ?? null
     const vercelToken  = process.env.VERCEL_API_TOKEN
     const vercelTeamId = process.env.VERCEL_TEAM_ID
@@ -140,7 +137,6 @@ export async function POST(req: NextRequest) {
       try {
         const projectName = `${tenant.slug}-hrmsapp`
 
-        // Create project
         const createRes = await fetch(
           `https://api.vercel.com/v10/projects${vercelTeamId ? `?teamId=${vercelTeamId}` : ''}`,
           {
@@ -156,7 +152,6 @@ export async function POST(req: NextRequest) {
         const project = await createRes.json()
 
         if (project.id) {
-          // Set environment variables
           const envVars = [
             { key: 'NEXT_PUBLIC_TENANT_SLUG', value: tenant.slug,   target: ['production'] },
             { key: 'DATABASE_URL',            value: process.env.DATABASE_URL ?? '', target: ['production'] },
@@ -175,7 +170,6 @@ export async function POST(req: NextRequest) {
             },
           )
 
-          // Trigger deployment
           await fetch(
             `https://api.vercel.com/v13/deployments${vercelTeamId ? `?teamId=${vercelTeamId}` : ''}`,
             {
@@ -187,7 +181,6 @@ export async function POST(req: NextRequest) {
 
           deploymentUrl = `https://${projectName}.vercel.app`
 
-          // Store deployment URL in tenant settings
           await db.update(tenants)
             .set({ settings: { ...settingsPayload, deploymentUrl, vercelProjectId: project.id } })
             .where(eq(tenants.id, tenant.id))
@@ -196,13 +189,11 @@ export async function POST(req: NextRequest) {
         console.error('Vercel auto-create error (non-fatal):', vercelErr)
       }
     } else if (deploymentUrl) {
-      // Caller supplied a manual URL — store it
       await db.update(tenants)
         .set({ settings: { ...settingsPayload, deploymentUrl } })
         .where(eq(tenants.id, tenant.id))
     }
 
-    // Send welcome email to tenant admin
     if (adminEmail && adminUser) {
       const loginUrl = deploymentUrl ?? `https://${tenant.slug}-hrmsapp.vercel.app`
       const tmpl = newTenantOnboardedEmail({

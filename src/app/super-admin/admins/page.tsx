@@ -14,6 +14,7 @@ type Admin = {
 export default function AdminsPage() {
   const [admins,    setAdmins]    = useState<Admin[]>([])
   const [loading,   setLoading]   = useState(true)
+  const [fetchError, setFetchError] = useState('')
   const [showForm,  setShowForm]  = useState(false)
   const [saving,    setSaving]    = useState(false)
   const [formError, setFormError] = useState('')
@@ -24,6 +25,7 @@ export default function AdminsPage() {
     fetch('/api/super-admin/admins')
       .then(r => r.json())
       .then(d => { setAdmins(d.admins ?? []); setLoading(false) })
+      .catch(() => { setFetchError('Unable to load admins — please refresh.'); setLoading(false) })
   }, [])
 
   async function createAdmin(e: React.FormEvent) {
@@ -85,6 +87,12 @@ export default function AdminsPage() {
           {showForm ? 'Cancel' : '+ Add Admin'}
         </button>
       </div>
+
+      {fetchError && (
+        <div className="rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 p-4 text-red-700 dark:text-red-400 text-sm">
+          {fetchError}
+        </div>
+      )}
 
       {formSuccess && (
         <div className="bg-green-50 dark:bg-green-100 dark:bg-green-900/50 border border-green-300 dark:border-green-700 rounded-lg p-3 text-sm text-green-700 dark:text-green-300">{formSuccess}</div>
@@ -163,7 +171,7 @@ export default function AdminsPage() {
             </tr>
           </thead>
           <tbody>
-            {admins.length === 0 && (
+            {admins.length === 0 && !fetchError && (
               <tr>
                 <td colSpan={5} className="px-5 py-10 text-center text-gray-500 text-sm dark:text-gray-400">
                   No super admins found.{' '}
@@ -223,9 +231,12 @@ export default function AdminsPage() {
         </table>
       </div>
 
-      <div className="bg-amber-50 dark:bg-amber-950 border border-amber-200 dark:border-amber-800 rounded-xl p-4 text-xs text-amber-700 dark:text-amber-300">
-        ️ The last remaining admin cannot be deleted.
-      </div>
+      {/* Only show the warning when admins are loaded and there's exactly one */}
+      {admins.length === 1 && (
+        <div className="bg-amber-50 dark:bg-amber-950 border border-amber-200 dark:border-amber-800 rounded-xl p-4 text-xs text-amber-700 dark:text-amber-300">
+          ⚠️ The last remaining admin cannot be deleted.
+        </div>
+      )}
     </div>
   )
 }

@@ -4,12 +4,26 @@ import * as schema from './schema'
 
 const connectionString = process.env.DATABASE_URL || ''
 
-// For Vercel serverless: disable prefetch (required for transaction pooler).
-// max:1 ensures each cold-start lambda opens exactly ONE connection so we
-// don't exhaust Neon's 15-connection session-mode pool across three deployments.
-const client = postgres(connectionString, { prepare: false, max: 1 })
+// In development, Next.js HMR re-evaluates this module on every hot reload,
+// which would create a new postgres client (and new connections) each time,
+// quickly exhausting the 15-connection session pooler limit.
+// globalThis caching ensures only ONE client/db instance exists per process.
+const globalForDb = global as unknown as {
+  __pgClient: ReturnType<typeof postgres> | undefined
+  __db: ReturnType<typeof drizzle<typeof schema>> | undefined
+}
 
-export const db = drizzle(client, { schema })
+if (!globalForDb.__pgClient) {
+  globalForDb.__pgClient = postgres(connectionString, {
+    prepare: false,
+    max: 1,
+    idle_timeout: 30,
+  })
+}
 
-// Keep sql export for any raw queries (noop client for compatibility)
-export const sql = client
+if (!globalForDb.__db) {
+  globalForDb.__db = drizzle(globalForDb.__pgClient!, { schema })
+}
+
+export const sql = globalForDb.__pgClient!
+export const db = globalForDb.__db!
