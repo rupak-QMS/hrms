@@ -1,0 +1,395 @@
+/*
+ * Yahweh HRMS — Premium Design System v2
+ * Extends globals.css (Tailwind HSL tokens) with:
+ *  - Hex alias tokens for direct CSS use
+ *  - Plus Jakarta Sans / JetBrains Mono typography scale
+ *  - Mesh background (dark only)
+ *  - Enhanced sidebar, stat-card, badge-dot, and table polish
+ *  - Upgraded ThemeToggle pill
+ *  - Scrollbar refinement
+ *
+ * Dark mode: document.documentElement.classList.contains('dark')
+ * (Tailwind darkMode: ['class'] — matches existing codebase)
+ */
+
+/* ── Google Fonts preconnect (imported via layout.tsx next/font — this block
+      serves as the CSS fallback / doc reference only) ─────────────────────── */
+
+/* ── Design token aliases (hex, for non-Tailwind CSS) ───────────────────────
+   Light theme is the bare :root; dark overrides live in .dark :root
+   so both themes always have every token defined.                          */
+
+:root {
+  /* Surfaces */
+  --y-bg:        #F8FAFC;
+  --y-surface:   #FFFFFF;
+  --y-card:      #F1F5F9;
+  --y-border:    #E2E8F0;
+  --y-border2:   #CBD5E1;
+
+  /* Brand */
+  --y-brand:     #2563EB;
+  --y-brand-dim: #DBEAFE;
+  --y-brand-glow:#2563EB22;
+  --y-indigo:    #4F46E5;
+
+  /* Semantic */
+  --y-success:   #059669;
+  --y-warn:      #D97706;
+  --y-danger:    #DC2626;
+
+  /* Text */
+  --y-txt1:      #0F172A;
+  --y-txt2:      #475569;
+  --y-txt3:      #94A3B8;
+
+  /* Typography scale */
+  --y-font-display: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+  --y-font-body:    'Inter', system-ui, sans-serif;
+  --y-font-mono:    'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+
+  /* Radius */
+  --y-radius-sm:  6px;
+  --y-radius-md:  10px;
+  --y-radius-lg:  14px;
+  --y-radius-xl:  20px;
+
+  /* Shadows */
+  --y-shadow-card: 0 1px 3px rgba(15,23,42,0.06), 0 4px 12px rgba(15,23,42,0.04);
+  --y-shadow-pop:  0 8px 32px rgba(15,23,42,0.12), 0 2px 8px rgba(15,23,42,0.08);
+
+  /* Sidebar */
+  --y-sidebar-w:       240px;
+  --y-sidebar-w-col:   60px;
+  --y-header-h:        58px;
+
+  /* Mesh overlay — transparent in light */
+  --y-mesh-opacity: 0;
+}
+
+.dark {
+  --y-bg:        #080D1A;
+  --y-surface:   #0F172A;
+  --y-card:      #1E293B;
+  --y-border:    #1E293B;
+  --y-border2:   #334155;
+  --y-brand:     #3B82F6;
+  --y-brand-dim: #1E3A5F;
+  --y-brand-glow:#3B82F633;
+  --y-indigo:    #818CF8;
+  --y-success:   #10B981;
+  --y-warn:      #F59E0B;
+  --y-danger:    #F87171;
+  --y-txt1:      #F1F5F9;
+  --y-txt2:      #94A3B8;
+  --y-txt3:      #475569;
+  --y-shadow-card: 0 1px 3px rgba(0,0,0,0.4), 0 4px 12px rgba(0,0,0,0.25);
+  --y-shadow-pop:  0 8px 32px rgba(0,0,0,0.5), 0 2px 8px rgba(0,0,0,0.3);
+  --y-mesh-opacity: 1;
+}
+
+/* ── Typography application ──────────────────────────────────────────────── */
+
+body {
+  font-family: var(--y-font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Display headings */
+h1, h2,
+.font-display,
+.stat-value,
+.page-premium-title {
+  font-family: var(--y-font-display);
+}
+
+/* Monospace data */
+.font-mono,
+.emp-number,
+[data-empnum],
+code, pre {
+  font-family: var(--y-font-mono);
+  letter-spacing: -0.01em;
+}
+
+/* ── Mesh background (dark only, fixed overlay) ──────────────────────────── */
+
+.y-mesh-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: var(--y-mesh-opacity);
+  transition: opacity 0.3s ease;
+  background:
+    radial-gradient(ellipse 70% 60% at 20% 0%,  #1D4ED820 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 80% 100%, #4F46E518 0%, transparent 60%);
+}
+
+/* ── Scrollbars (enhanced) ───────────────────────────────────────────────── */
+
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--y-border2);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--y-txt3);
+}
+
+/* ── Sidebar enhancements ────────────────────────────────────────────────── */
+
+/* Smooth sidebar collapse/expand */
+[data-sidebar],
+.sidebar,
+aside[class*="sidebar"] {
+  will-change: transform;
+  transition: width 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Active nav item: left accent bar */
+.nav-item-active,
+[aria-current="page"] {
+  position: relative;
+  background: var(--y-brand-dim) !important;
+  color: var(--y-brand) !important;
+}
+.nav-item-active::before,
+[aria-current="page"]::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 20px;
+  background: var(--y-brand);
+  border-radius: 0 3px 3px 0;
+}
+
+/* Collapsed sidebar — hide text labels smoothly */
+.sidebar-collapsed .nav-label,
+.sidebar-collapsed .badge-count {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+  transition: opacity 0.15s, width 0.2s;
+}
+
+/* ── Header glass effect ─────────────────────────────────────────────────── */
+
+.y-header,
+header[class*="sticky"],
+header[class*="fixed"] {
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--y-border);
+}
+
+/* ── Stat card ───────────────────────────────────────────────────────────── */
+
+.stat-card {
+  background: var(--y-surface);
+  border: 1px solid var(--y-border);
+  border-radius: var(--y-radius-lg);
+  box-shadow: var(--y-shadow-card);
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.15s;
+}
+.stat-card:hover {
+  box-shadow: var(--y-shadow-pop);
+}
+
+.stat-value {
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--y-txt1);
+}
+
+.stat-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--y-txt3);
+  margin-top: 4px;
+}
+
+.stat-delta {
+  font-size: 11px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  margin-top: 8px;
+}
+.stat-delta.up   { color: var(--y-success); }
+.stat-delta.down { color: var(--y-danger); }
+
+.stat-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.stat-icon.blue   { background: var(--y-brand-dim); color: var(--y-brand); }
+.stat-icon.green  { background: #D1FAE5; color: var(--y-success); }
+.stat-icon.amber  { background: #FEF3C7; color: var(--y-warn); }
+.stat-icon.indigo { background: #EDE9FE; color: var(--y-indigo); }
+.dark .stat-icon.green  { background: #064E3B30; color: var(--y-success); }
+.dark .stat-icon.amber  { background: #78350F30; color: var(--y-warn); }
+.dark .stat-icon.indigo { background: #312E8130; color: var(--y-indigo); }
+
+/* ── Badge system (with dot) ─────────────────────────────────────────────── */
+
+.badge-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.badge.compliant     { background: #10B9811A; color: #059669; }
+.badge.compliant .badge-dot { background: #059669; }
+.badge.pending       { background: #F59E0B1A; color: #D97706; }
+.badge.pending .badge-dot   { background: #D97706; }
+.badge.non-compliant { background: #EF44441A; color: #DC2626; }
+.badge.non-compliant .badge-dot { background: #DC2626; }
+.badge.in-progress   { background: #818CF81A; color: #4F46E5; }
+.badge.in-progress .badge-dot   { background: #4F46E5; }
+.badge.role          { background: var(--y-brand-dim); color: var(--y-brand); }
+.badge.role .badge-dot           { background: var(--y-brand); }
+
+.dark .badge.compliant     { background: #10B98120; color: #34D399; }
+.dark .badge.compliant .badge-dot { background: #34D399; }
+.dark .badge.pending       { background: #F59E0B20; color: #FBBF24; }
+.dark .badge.pending .badge-dot   { background: #FBBF24; }
+.dark .badge.non-compliant { background: #EF444420; color: #F87171; }
+.dark .badge.non-compliant .badge-dot { background: #F87171; }
+.dark .badge.in-progress   { background: #818CF820; color: #A5B4FC; }
+.dark .badge.in-progress .badge-dot   { background: #A5B4FC; }
+
+/* ── Premium ThemeToggle pill ────────────────────────────────────────────── */
+
+.theme-toggle-pill {
+  display: inline-flex;
+  align-items: center;
+  width: 52px;
+  height: 28px;
+  border-radius: 99px;
+  background: var(--y-card);
+  border: 1.5px solid var(--y-border);
+  padding: 3px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  position: relative;
+}
+.theme-toggle-pill:focus-visible {
+  outline: 2px solid var(--y-brand);
+  outline-offset: 2px;
+}
+.theme-toggle-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--y-brand);
+  box-shadow: 0 2px 8px var(--y-brand-glow);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), background 0.2s;
+  transform: translateX(0);
+}
+.dark .theme-toggle-thumb {
+  transform: translateX(24px);
+}
+
+/* ── Form input (enhanced focus ring) ───────────────────────────────────── */
+
+.input-premium {
+  border: 1.5px solid var(--y-border);
+  background: var(--y-card);
+  color: var(--y-txt1);
+  border-radius: var(--y-radius-md);
+  padding: 8px 12px;
+  font-size: 13px;
+  line-height: 1.4;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  outline: none;
+  width: 100%;
+}
+.input-premium::placeholder {
+  color: var(--y-txt3);
+}
+.input-premium:focus {
+  border-color: var(--y-brand);
+  box-shadow: 0 0 0 3px var(--y-brand-glow);
+}
+
+/* ── Table enhancements ──────────────────────────────────────────────────── */
+
+.table-premium tbody tr {
+  transition: background 0.12s ease;
+}
+.table-premium tbody tr:hover {
+  background: var(--y-brand-glow);
+}
+
+/* ── Card elevation ──────────────────────────────────────────────────────── */
+
+.card-premium {
+  background: var(--y-surface);
+  border: 1px solid var(--y-border);
+  border-radius: var(--y-radius-lg);
+  box-shadow: var(--y-shadow-card);
+}
+.card-premium:hover {
+  box-shadow: var(--y-shadow-pop);
+}
+
+/* ── Tenant pill (header) ────────────────────────────────────────────────── */
+
+.tenant-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 99px;
+  background: var(--y-brand-dim);
+  color: var(--y-brand);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* ── Section labels ──────────────────────────────────────────────────────── */
+
+.section-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--y-txt3);
+}
+
+/* ── Accessibility: focus visible for all interactive elements ───────────── */
+
+:focus-visible {
+  outline: 2px solid var(--y-brand);
+  outline-offset: 2px;
+}
+
+/* ── Print: hide chrome, show content ───────────────────────────────────── */
+
+@media print {
+  .y-mesh-bg,
+  aside,
+  header,
+  .no-print { display: none !important; }
+  body { background: white; color: black; }
+}

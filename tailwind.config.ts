@@ -10,7 +10,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Yahweh brand palette — update with actual brand colours
+        // Yahweh brand palette
         brand: {
           50:  '#f0f4ff',
           100: '#dce6ff',
@@ -55,8 +55,8 @@ const config: Config = {
           foreground: 'hsl(var(--destructive-foreground))',
         },
         border: 'hsl(var(--border))',
-        input: 'hsl(var(--input))',
-        ring: 'hsl(var(--ring))',
+        input:  'hsl(var(--input))',
+        ring:   'hsl(var(--ring))',
         chart: {
           '1': 'hsl(var(--chart-1))',
           '2': 'hsl(var(--chart-2))',
@@ -71,7 +71,14 @@ const config: Config = {
         sm: 'calc(var(--radius) - 4px)',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        // Resolved at runtime from CSS variables set by next/font in layout.tsx
+        sans:    ['var(--font-inter)',    'Inter',              'system-ui', 'sans-serif'],
+        display: ['var(--font-jakarta)',  'Plus Jakarta Sans',  'Inter',     'system-ui', 'sans-serif'],
+        mono:    ['var(--font-mono)',     'JetBrains Mono',     'Fira Code', 'Consolas',  'monospace'],
+      },
+      boxShadow: {
+        card: '0 1px 3px rgba(15,23,42,0.06), 0 4px 12px rgba(15,23,42,0.04)',
+        pop:  '0 8px 32px rgba(15,23,42,0.12), 0 2px 8px rgba(15,23,42,0.08)',
       },
     },
   },
