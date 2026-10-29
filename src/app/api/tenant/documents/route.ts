@@ -1,9 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 import { documents, employees } from '@/lib/db/schema'
-import { eq, and, desc, gte, lte } from 'drizzle-orm'
+import { eq, and, asc, desc, ilike } from 'drizzle-orm'
 import { apiGuard } from '@/lib/auth/apiGuard'
-import { notifyRole } from '@/lib/notifications/notify'
+import { z } from 'zod'
+
+export const dynamic = 'force-dynamic'
 
 export async function GET(req: NextRequest) {
   try {
@@ -12,23 +14,18 @@ export async function GET(req: NextRequest) {
     const { session } = guard
 
     const { searchParams } = req.nextUrl
+    const employeeId = searchParams.get('employeeId')
     const category   = searchParams.get('category')
     const status     = searchParams.get('status')
-    const employeeId = searchParams.get('employeeId')
-
-    const expiring = searchParams.get('expiring') // '1' = expiring in 30 days
-
-    const today = new Date().toISOString().split('T')[0]
-    const in30  = new Date(Date.now() + 30 * 864e5).toISOString().split('T')[0]
+    const search     = searchParams.get('search')
+    const limit      = Math.min(Number(searchParams.get('limit') ?? 50), 200)
+    const offset     = Number(searchParams.get('offset') ?? 0)
 
     const conditions = [eq(documents.tenantId, session.tenantId)]
-    if (category)   conditions.push(eq(documents.category, category))
-    if (status)     conditions.push(eq(documents.status, status as 'active' | 'expired' | 'archived' | 'pending_review'))
     if (employeeId) conditions.push(eq(documents.employeeId, employeeId))
-    if (expiring === '1') {
-      conditions.push(gte(documents.expiryDate, today))
-      conditions.push(lte(documents.expiryDate, in30))
-    }
+    if (category)   conditions.push(eq(documents.category, category))
+    if (status)     conditions.push(eq(documents.status, status as any))
+    if (search)     conditions.push(ilike(documents.title, `%${search}%`))
 
     const rows = await db
       .select({
@@ -46,36 +43,42 @@ export async function GET(req: NextRequest) {
         version:       documents.version,
         createdAt:     documents.createdAt,
         updatedAt:     documents.updatedAt,
-        employeeFirstName: employees.firstName,
-        employeeLastName:  employees.lastName,
+        // employee name for display
+        firstName:     employees.firstName,
+        lastName:      employees.lastName,
+        employeeNumber: employees.employeeNumber,
       })
       .from(documents)
-      .leftJoin(employees, eq(documents.employeeId, employees.id))
+      .leftJoin(employees, and(
+        eq(employees.id, documents.employeeId!),
+        eq(employees.tenantId, documents.tenantId)
+      ))
       .where(and(...conditions))
       .orderBy(desc(documents.createdAt))
+      .limit(limit)
+      .offset(offset)
 
-    const all = await db
-      .select({ status: documents.status, expiryDate: documents.expiryDate, category: documents.category })
-      .from(documents)
-      .where(eq(documents.tenantId, session.tenantId))
-
-    const stats = {
-      total:        all.length,
-      active:       all.filter(d => d.status === 'active').length,
-      expired:      all.filter(d => d.status === 'expired' || (d.expiryDate && d.expiryDate < today)).length,
-      expiringSoon: all.filter(d => d.expiryDate && d.expiryDate >= today && d.expiryDate <= in30).length,
-      pendingReview: all.filter(d => d.status === 'pending_review').length,
-    }
-
-    // Unique categories
-    const categories = [...new Set(all.map(d => d.category))].sort()
-
-    return NextResponse.json({ documents: rows, stats, categories })
+    return NextResponse.json({
+      documents: rows,
+      pagination: { limit, offset, count: rows.length },
+    })
   } catch (err) {
-    console.error('GET /api/tenant/documents', err)
+    console.error('[documents GET]', err)
     return NextResponse.json({ error: 'Failed to fetch documents' }, { status: 500 })
   }
 }
+
+const CreateDocumentSchema = z.object({
+  employeeId:    z.string().uuid().optional(),
+  category:      z.string().min(1).max(100),
+  title:         z.string().min(1).max(300),
+  blobUrl:       z.string().url(),
+  fileName:      z.string().max(255).optional(),
+  fileSizeBytes: z.number().int().positive().optional(),
+  mimeType:      z.string().max(100).optional(),
+  expiryDate:    z.string().optional(),
+  notes:         z.string().optional(),
+})
 
 export async function POST(req: NextRequest) {
   try {
@@ -84,115 +87,32 @@ export async function POST(req: NextRequest) {
     const { session } = guard
 
     const body = await req.json()
-    const { title, category, blobUrl, employeeId, fileName, fileSizeBytes, mimeType, expiryDate, notes } = body
-    if (!title || !category || !blobUrl) {
-      return NextResponse.json({ error: 'title, category, blobUrl required' }, { status: 400 })
+    const parsed = CreateDocumentSchema.safeParse(body)
+    if (!parsed.success) {
+      return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 })
     }
+    const data = parsed.data
 
-    const [record] = await db.insert(documents).values({
-      tenantId:      session.tenantId,
-      title,
-      category,
-      blobUrl,
-      employeeId:    employeeId    || null,
-      fileName:      fileName      || null,
-      fileSizeBytes: fileSizeBytes || null,
-      mimeType:      mimeType      || null,
-      expiryDate:    expiryDate    || null,
-      notes:         notes         || null,
-      uploadedBy:    session.sub   ?? null,
-      status:        'active',
-      version:       1,
-    }).returning()
+    const [row] = await db
+      .insert(documents)
+      .values({
+        tenantId:      session.tenantId,
+        uploadedBy:    session.userId,
+        employeeId:    data.employeeId ?? null,
+        category:      data.category,
+        title:         data.title,
+        blobUrl:       data.blobUrl,
+        fileName:      data.fileName ?? null,
+        fileSizeBytes: data.fileSizeBytes ?? null,
+        mimeType:      data.mimeType ?? null,
+        expiryDate:    data.expiryDate ?? null,
+        notes:         data.notes ?? null,
+      })
+      .returning({ id: documents.id, createdAt: documents.createdAt })
 
-    // Notify HR if the document expires within 30 days
-    if (expiryDate) {
-      const msUntilExpiry = new Date(expiryDate).getTime() - Date.now()
-      const daysUntilExpiry = Math.ceil(msUntilExpiry / 864e5)
-      if (daysUntilExpiry >= 0 && daysUntilExpiry <= 30) {
-        notifyRole(session.tenantId, ['hr_officer', 'director', 'compliance_manager'], {
-          type:  'document',
-          title: `Document expiring in ${daysUntilExpiry} day${daysUntilExpiry === 1 ? '' : 's'}`,
-          body:  `"${title}" expires on ${expiryDate}.`,
-          link:  '/tenant/documents',
-        })
-      }
-    }
-
-    return NextResponse.json({ record }, { status: 201 })
+    return NextResponse.json({ document: row }, { status: 201 })
   } catch (err) {
-    console.error('POST /api/tenant/documents', err)
+    console.error('[documents POST]', err)
     return NextResponse.json({ error: 'Failed to create document' }, { status: 500 })
-  }
-}
-
-export async function PATCH(req: NextRequest) {
-  try {
-    const guard = await apiGuard('documents:write')
-    if (guard.error) return guard.error
-    const { session } = guard
-
-    const body = await req.json()
-    const { id, status, notes, expiryDate, title } = body
-    if (!id) return NextResponse.json({ error: 'id required' }, { status: 400 })
-
-    const updates: Record<string, unknown> = { updatedAt: new Date() }
-    if (status     !== undefined) updates.status     = status
-    if (notes      !== undefined) updates.notes      = notes
-    if (expiryDate !== undefined) updates.expiryDate = expiryDate
-    if (title      !== undefined) updates.title      = title
-
-    const [updated] = await db
-      .update(documents).set(updates)
-      .where(and(eq(documents.id, id), eq(documents.tenantId, session.tenantId)))
-      .returning()
-
-    // Notify on status change to expired, or new expiry within 30 days
-    if (updated) {
-      if (status === 'expired') {
-        notifyRole(session.tenantId, ['hr_officer', 'director', 'compliance_manager'], {
-          type:  'document',
-          title: 'Document marked as expired',
-          body:  `"${updated.title}" has been marked expired.`,
-          link:  '/tenant/documents',
-        })
-      } else if (expiryDate) {
-        const msUntilExpiry = new Date(expiryDate).getTime() - Date.now()
-        const daysUntilExpiry = Math.ceil(msUntilExpiry / 864e5)
-        if (daysUntilExpiry >= 0 && daysUntilExpiry <= 30) {
-          notifyRole(session.tenantId, ['hr_officer', 'director', 'compliance_manager'], {
-            type:  'document',
-            title: `Document expiring in ${daysUntilExpiry} day${daysUntilExpiry === 1 ? '' : 's'}`,
-            body:  `"${updated.title}" expires on ${expiryDate}.`,
-            link:  '/tenant/documents',
-          })
-        }
-      }
-    }
-
-    return NextResponse.json({ record: updated })
-  } catch (err) {
-    console.error('PATCH /api/tenant/documents', err)
-    return NextResponse.json({ error: 'Failed to update document' }, { status: 500 })
-  }
-}
-
-export async function DELETE(req: NextRequest) {
-  try {
-    const guard = await apiGuard('documents:write')
-    if (guard.error) return guard.error
-    const { session } = guard
-
-    const { searchParams } = req.nextUrl
-    const id = searchParams.get('id')
-    if (!id) return NextResponse.json({ error: 'id required' }, { status: 400 })
-
-    await db.delete(documents)
-      .where(and(eq(documents.id, id), eq(documents.tenantId, session.tenantId)))
-
-    return NextResponse.json({ ok: true })
-  } catch (err) {
-    console.error('DELETE /api/tenant/documents', err)
-    return NextResponse.json({ error: 'Failed to delete document' }, { status: 500 })
   }
 }
