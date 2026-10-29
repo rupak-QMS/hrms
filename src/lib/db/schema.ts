@@ -98,6 +98,7 @@ export const employees = pgTable('hrms_employees', {
   departmentId:     uuid('department_id'),
   positionId:       uuid('position_id'),
   managerId:        uuid('manager_id').references((): any => employees.id),
+  branchId:         uuid('branch_id'),
   employmentType:   employmentTypeEnum('employment_type').notNull(),
   awardClassification: varchar('award_classification', { length: 100 }),
   payLevel:         varchar('pay_level', { length: 50 }),
@@ -127,6 +128,26 @@ export const emergencyContacts = pgTable('hrms_emergency_contacts', {
   email:        varchar('email', { length: 255 }),
   isPrimary:    boolean('is_primary').notNull().default(false),
 })
+
+export const branches = pgTable('hrms_branches', {
+  id:        uuid('id').primaryKey().defaultRandom(),
+  tenantId:  uuid('tenant_id').notNull().references(() => tenants.id, { onDelete: 'cascade' }),
+  name:      varchar('name', { length: 200 }).notNull(),
+  code:      varchar('code', { length: 20 }),
+  address:   text('address'),
+  suburb:    varchar('suburb', { length: 100 }),
+  state:     varchar('state', { length: 50 }),
+  postcode:  varchar('postcode', { length: 10 }),
+  country:   varchar('country', { length: 100 }).default('Australia'),
+  phone:     varchar('phone', { length: 20 }),
+  email:     varchar('email', { length: 255 }),
+  managerId: uuid('manager_id'),
+  isActive:  boolean('is_active').notNull().default(true),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+  updatedAt: timestamp('updated_at').notNull().defaultNow(),
+}, (t) => ({
+  tenantIdx: index('branches_tenant_idx').on(t.tenantId),
+}))
 
 export const departments = pgTable('hrms_departments', {
   id:          uuid('id').primaryKey().defaultRandom(),
