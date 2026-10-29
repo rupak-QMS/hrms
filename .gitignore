@@ -53,6 +53,9 @@ next-env.d.ts
 /playwright-report
 /test-results
 
+# Playwright auth state — contains session tokens, never commit
+e2e/.auth/
+
 # Drizzle
 drizzle/meta/
 .env*
