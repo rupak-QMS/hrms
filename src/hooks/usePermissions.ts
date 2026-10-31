@@ -2,15 +2,12 @@
 /**
  * usePermissions — client-side permission checks based on the current user's role.
  *
- * The role is embedded in the JWT and exposed via /api/auth/me.
- * Use this hook to conditionally show/hide UI actions.
- *
- * Usage:
- *   const { can, role } = usePermissions()
- *   if (can('employees:write')) { ... }
+ * The role is fetched ONCE and cached in a module-level promise so that
+ * multiple PermissionGate / usePermissions instances on the same page
+ * share a single /api/auth/me call instead of firing one per component.
  */
 import { useState, useEffect } from 'react'
-import { hasPermission, getRolePermissions, ROLE_LABELS, type Permission, type UserRole } from '@/lib/auth/permissions'
+import { hasPermission, ROLE_LABELS, type Permission, type UserRole } from '@/lib/auth/permissions'
 
 type UsePermissionsReturn = {
   role:    string | null
@@ -21,16 +18,34 @@ type UsePermissionsReturn = {
   canAll:  (...permissions: Permission[]) => boolean
 }
 
+// ── Module-level singleton so every component shares one fetch ────────────────
+let _rolePromise: Promise<string | null> | null = null
+
+function fetchRole(): Promise<string | null> {
+  if (!_rolePromise) {
+    _rolePromise = fetch('/api/auth/me')
+      .then(r => (r.ok ? r.json() : null))
+      .then(d => d ? (d.userRole ?? d.role ?? null) : null)
+      .catch(() => null)
+  }
+  return _rolePromise
+}
+
+// Allow clearing the cache (e.g. after login/logout)
+export function clearRoleCache() {
+  _rolePromise = null
+}
+
 export function usePermissions(): UsePermissionsReturn {
   const [role, setRole]       = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetch('/api/auth/me')
-      .then(r => r.json())
-      .then(d => { setRole(d.userRole ?? d.role ?? null) })
-      .catch(() => {})
-      .finally(() => setLoading(false))
+    let cancelled = false
+    fetchRole().then(r => {
+      if (!cancelled) { setRole(r); setLoading(false) }
+    })
+    return () => { cancelled = true }
   }, [])
 
   return {

@@ -22,7 +22,7 @@ const rateLimitStore = new Map<string, WindowEntry>()
 
 const WINDOW_MS       = 60_000   // 1 minute
 const API_LIMIT       = 120      // general API requests per window
-const AUTH_LIMIT      = 10       // auth endpoint requests per window
+const AUTH_LIMIT      = process.env.NODE_ENV === 'development' ? 200 : 10  // auth endpoint requests per window
 
 function rateLimit(key: string, limit: number): { allowed: boolean; remaining: number; resetAt: number } {
   const now  = Date.now()
