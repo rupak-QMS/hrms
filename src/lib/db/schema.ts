@@ -1948,3 +1948,50 @@ export const employeeExperience = pgTable('hrms_employee_experience', {
   tenantIdx:   index('employee_experience_tenant_idx').on(t.tenantId),
   employeeIdx: index('employee_experience_employee_idx').on(t.employeeId),
 }))
+
+// ──────────────────────────────────────────────
+// Module 60 — Helpdesk / Support Tickets (SLA)
+// ──────────────────────────────────────────────
+
+export const ticketPriorityEnum = pgEnum('ticket_priority', ['low', 'medium', 'high', 'critical'])
+export const ticketStatusEnum   = pgEnum('ticket_status',   ['open', 'in_progress', 'pending', 'resolved', 'closed'])
+export const ticketCategoryEnum = pgEnum('ticket_category', ['it', 'hr', 'payroll', 'facilities', 'compliance', 'other'])
+
+// SLA targets in minutes by priority
+// critical=4h, high=8h, medium=24h, low=72h
+export const supportTickets = pgTable('hrms_support_tickets', {
+  id:             uuid('id').primaryKey().defaultRandom(),
+  tenantId:       uuid('tenant_id').notNull().references(() => tenants.id),
+  ticketNumber:   varchar('ticket_number', { length: 30 }).notNull(),
+  title:          varchar('title', { length: 255 }).notNull(),
+  description:    text('description').notNull(),
+  category:       ticketCategoryEnum('category').notNull().default('other'),
+  priority:       ticketPriorityEnum('priority').notNull().default('medium'),
+  status:         ticketStatusEnum('status').notNull().default('open'),
+  submittedBy:    uuid('submitted_by').references(() => employees.id),
+  assignedTo:     uuid('assigned_to').references(() => employees.id),
+  slaTargetMins:  integer('sla_target_mins').notNull().default(1440), // 24h default
+  slaBreached:    boolean('sla_breached').notNull().default(false),
+  resolvedAt:     timestamp('resolved_at'),
+  closedAt:       timestamp('closed_at'),
+  firstResponseAt: timestamp('first_response_at'),
+  createdAt:      timestamp('created_at').notNull().defaultNow(),
+  updatedAt:      timestamp('updated_at').notNull().defaultNow(),
+}, (t) => ({
+  tenantIdx:    index('support_tickets_tenant_idx').on(t.tenantId),
+  statusIdx:    index('support_tickets_status_idx').on(t.tenantId, t.status),
+  priorityIdx:  index('support_tickets_priority_idx').on(t.tenantId, t.priority),
+  numberIdx:    uniqueIndex('support_tickets_number_idx').on(t.tenantId, t.ticketNumber),
+}))
+
+export const ticketComments = pgTable('hrms_ticket_comments', {
+  id:         uuid('id').primaryKey().defaultRandom(),
+  tenantId:   uuid('tenant_id').notNull().references(() => tenants.id),
+  ticketId:   uuid('ticket_id').notNull().references(() => supportTickets.id, { onDelete: 'cascade' }),
+  authorId:   uuid('author_id').references(() => employees.id),
+  body:       text('body').notNull(),
+  isInternal: boolean('is_internal').notNull().default(false),
+  createdAt:  timestamp('created_at').notNull().defaultNow(),
+}, (t) => ({
+  ticketIdx: index('ticket_comments_ticket_idx').on(t.ticketId),
+}))

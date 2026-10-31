@@ -91,6 +91,7 @@ const NAV_ICONS: Record<string, IconName> = {
   'my-performance':     'chart-line',
   'my-leave':           'beach',
   'my-benefits':        'gift',
+  'helpdesk':           'ticket',
 }
 
 export default function TenantSidebar({

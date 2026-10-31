@@ -18,7 +18,7 @@ export type IconName =
   | 'pin' | 'building' | 'intake' | 'cost' | 'billing' | 'puzzle'
   | 'megaphone' | 'server' | 'admin' | 'screening' | 'promotions'
   | 'star' | 'flag' | 'link' | 'rostering' | 'timesheet' | 'arrow-right'
-  | 'password' | 'sparkle' | 'info' | 'mail' | 'database'
+  | 'password' | 'sparkle' | 'info' | 'mail' | 'database' | 'ticket'
 
 const PATHS: Record<IconName, JSX.Element> = {
   dashboard:      <><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></>,
@@ -95,6 +95,7 @@ const PATHS: Record<IconName, JSX.Element> = {
   info:           <><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></>,
   mail:           <><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></>,
   database:       <><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></>,
+  ticket:       <><path d="M20 12V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h7"/><path d="M15 17h6m-3-3v6"/><path d="M8 10h8M8 14h5"/></>,
 }
 
 type Props = {

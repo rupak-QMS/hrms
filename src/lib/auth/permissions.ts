@@ -160,6 +160,9 @@ export type Permission =
   // Users
   | 'users:read'
   | 'users:write'
+  // Helpdesk
+  | 'helpdesk:read'
+  | 'helpdesk:write'
 
 /** Permission matrix — every role mapped to its allowed permissions */
 const ROLE_PERMISSIONS: Record<UserRole, Permission[]> = {
@@ -168,6 +171,7 @@ const ROLE_PERMISSIONS: Record<UserRole, Permission[]> = {
     'employees:read', 'employees:write', 'employees:delete',
     'roles:read', 'roles:write',
     'users:read', 'users:write',
+    'helpdesk:read', 'helpdesk:write',
     'departments:read', 'departments:write',
     'positions:read', 'positions:write',
     'branches:read', 'branches:write',
@@ -182,6 +186,7 @@ const ROLE_PERMISSIONS: Record<UserRole, Permission[]> = {
     'performance:read', 'performance:write',
     'whs:read', 'whs:write',
     'grievances:read', 'grievances:write',
+    'helpdesk:read', 'helpdesk:write',
     'separation:read', 'separation:write',
     'supervision:read', 'supervision:write',
     'rostering:read', 'rostering:write',
@@ -282,6 +287,7 @@ const ROLE_PERMISSIONS: Record<UserRole, Permission[]> = {
     'superannuation:read',
     'salary_review:read',
     'toil:read',
+    'helpdesk:read', 'helpdesk:write',
   ],
 
   operations_manager: [
@@ -307,6 +313,7 @@ const ROLE_PERMISSIONS: Record<UserRole, Permission[]> = {
     'payroll_finance:read', 'payroll_finance:write',
     'reports_analytics:read', 'reports_analytics:write',
     'toil:read', 'toil:write',
+    'helpdesk:read', 'helpdesk:write',
   ],
 
   team_leader: [
@@ -326,6 +333,7 @@ const ROLE_PERMISSIONS: Record<UserRole, Permission[]> = {
     'self_service:read',
     'reports_analytics:read',
     'toil:read', 'toil:write',
+    'helpdesk:read', 'helpdesk:write',
   ],
 
   payroll_officer: [
@@ -391,6 +399,7 @@ const ROLE_PERMISSIONS: Record<UserRole, Permission[]> = {
     'expenses:read', 'expenses:write',      // submit and view own claims
     'self_service:read', 'self_service:write',
     'toil:read', 'toil:write',             // view own TOIL balance / request
+    'helpdesk:read', 'helpdesk:write',     // submit and view own tickets
   ],
 
   contractor: [
@@ -400,6 +409,7 @@ const ROLE_PERMISSIONS: Record<UserRole, Permission[]> = {
     'whs:read',
     'rostering:read',
     'timesheets:read', 'timesheets:write',
+    'helpdesk:read', 'helpdesk:write',
   ],
 }
 
