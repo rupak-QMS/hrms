@@ -78,6 +78,9 @@ export async function POST(req: NextRequest) {
   if (guard.error) return guard.error
   const { session } = guard
 
+  // ?dryRun=true validates rows and returns preview without inserting
+  const dryRun = req.nextUrl.searchParams.get('dryRun') === 'true'
+
   try {
     const formData = await req.formData()
     const file     = formData.get('file') as File | null
@@ -110,7 +113,8 @@ export async function POST(req: NextRequest) {
 
     const existingNumbers = new Set(existing.map(e => e.employeeNumber.toLowerCase()))
 
-    const results = { imported: 0, skipped: 0, errors: [] as string[] }
+    type PreviewRow = { row: number; employeeNumber: string; firstName: string; lastName: string; email: string; status: 'valid' | 'skipped'; reason?: string }
+    const results = { imported: 0, skipped: 0, errors: [] as string[], preview: [] as PreviewRow[] }
 
     for (let i = 0; i < rows.length; i++) {
       const row    = rows[i]
@@ -156,7 +160,9 @@ export async function POST(req: NextRequest) {
 
       // Skip duplicate employee numbers within this tenant
       if (existingNumbers.has(employeeNumber.toLowerCase())) {
-        results.errors.push(`Row ${rowNum}: employee_number "${employeeNumber}" already exists — skipped`)
+        const reason = `employee_number "${employeeNumber}" already exists`
+        results.errors.push(`Row ${rowNum}: ${reason} — skipped`)
+        results.preview.push({ row: rowNum, employeeNumber, firstName, lastName, email, status: 'skipped', reason })
         results.skipped++
         continue
       }
@@ -175,6 +181,15 @@ export async function POST(req: NextRequest) {
       const ordinaryHours         = toDecimal(row['ordinary_hours_per_week'] || '') ?? '38'
       const probationEndDate      = toDateStr(row['probation_end_date'] || '')
       const ndisWorker            = ['true', '1', 'yes'].includes((row['ndis_worker'] || '').toLowerCase())
+
+      // Record as valid in preview
+      results.preview.push({ row: rowNum, employeeNumber, firstName, lastName, email, status: 'valid' })
+
+      if (dryRun) {
+        existingNumbers.add(employeeNumber.toLowerCase())
+        results.imported++
+        continue
+      }
 
       try {
         await db.insert(employees).values({
@@ -212,6 +227,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({
       ok: true,
+      dryRun,
       ...results,
       total: rows.length,
     })

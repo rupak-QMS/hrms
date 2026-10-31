@@ -10,21 +10,41 @@ import PermissionGate from '@/components/auth/PermissionGate'
 
 // ── CSV Import Modal ─────────────────────────────────────────────────────────
 
+type PreviewRow = { row: number; employeeNumber: string; firstName: string; lastName: string; email: string; status: 'valid' | 'skipped'; reason?: string }
 type ImportResult = {
-  imported: number; skipped: number; total: number
-  errors: string[]
+  imported: number; skipped: number; total: number; dryRun?: boolean
+  errors: string[]; preview?: PreviewRow[]
 }
 
 function CsvImportModal({ onClose, onDone }: { onClose: () => void; onDone: () => void }) {
   const inputRef = useRef<HTMLInputElement>(null)
-  const [file,   setFile]   = useState<File | null>(null)
-  const [status, setStatus] = useState<'idle' | 'uploading' | 'done' | 'error'>('idle')
-  const [result, setResult] = useState<ImportResult | null>(null)
-  const [errMsg, setErrMsg] = useState('')
+  const [file,    setFile]    = useState<File | null>(null)
+  const [status,  setStatus]  = useState<'idle' | 'previewing' | 'importing' | 'done' | 'error'>('idle')
+  const [preview, setPreview] = useState<ImportResult | null>(null)
+  const [result,  setResult]  = useState<ImportResult | null>(null)
+  const [errMsg,  setErrMsg]  = useState('')
 
-  async function upload() {
+  async function runPreview() {
     if (!file) return
-    setStatus('uploading')
+    setStatus('previewing')
+    setErrMsg('')
+    const form = new FormData()
+    form.append('file', file)
+    try {
+      const res  = await fetchWithAuth('/api/tenant/employees/import?dryRun=true', { method: 'POST', body: form })
+      const data = await res.json()
+      if (!res.ok) { setErrMsg(data.error ?? 'Validation failed'); setStatus('error'); return }
+      setPreview(data)
+      setStatus('previewing')
+    } catch {
+      setErrMsg('Network error — please try again')
+      setStatus('error')
+    }
+  }
+
+  async function confirmImport() {
+    if (!file) return
+    setStatus('importing')
     setErrMsg('')
     const form = new FormData()
     form.append('file', file)
@@ -34,7 +54,7 @@ function CsvImportModal({ onClose, onDone }: { onClose: () => void; onDone: () =
       if (!res.ok) { setErrMsg(data.error ?? 'Upload failed'); setStatus('error'); return }
       setResult(data)
       setStatus('done')
-      if (data.imported > 0) onDone() // refresh table
+      if (data.imported > 0) onDone()
     } catch {
       setErrMsg('Network error — please try again')
       setStatus('error')
@@ -67,7 +87,7 @@ EMP001,Jane,Smith,jane.smith@example.com,full_time,2026-01-15,,+61400000001,Yahw
           {status === 'done' && result ? (
             <>
               <div className="text-center py-4">
-                <div className="text-5xl mb-3">{result.imported > 0 ? '' : '️'}</div>
+                <div className="text-5xl mb-3">{result.imported > 0 ? '✅' : '⚠️'}</div>
                 <p className="text-lg font-bold text-gray-900 dark:text-white">Import complete</p>
                 <div className="flex justify-center gap-6 mt-3 text-sm">
                   <span className="text-green-600 font-semibold">{result.imported} imported</span>
@@ -86,6 +106,64 @@ EMP001,Jane,Smith,jane.smith@example.com,full_time,2026-01-15,,+61400000001,Yahw
               <button onClick={onClose} className="w-full py-2.5 rounded-xl text-sm font-semibold text-white" style={{ background: 'var(--primary)' }}>
                 Close
               </button>
+            </>
+          ) : status === 'previewing' && preview ? (
+            <>
+              <div>
+                <p className="text-sm font-semibold text-gray-900 dark:text-white mb-1">Validation preview</p>
+                <div className="flex gap-4 text-xs mb-3">
+                  <span className="text-green-600 font-semibold">✓ {preview.imported} ready to import</span>
+                  {preview.skipped > 0 && <span className="text-amber-600 font-semibold">⚠ {preview.skipped} will be skipped</span>}
+                  <span className="text-gray-500">{preview.total} total rows</span>
+                </div>
+                <div className="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
+                  <table className="w-full text-xs">
+                    <thead className="bg-gray-50 dark:bg-gray-800 text-gray-500 dark:text-gray-400">
+                      <tr>
+                        <th className="text-left px-3 py-2">Row</th>
+                        <th className="text-left px-3 py-2">Employee #</th>
+                        <th className="text-left px-3 py-2">Name</th>
+                        <th className="text-left px-3 py-2">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-100 dark:divide-gray-800 max-h-40 overflow-y-auto">
+                      {(preview.preview ?? []).slice(0, 20).map(r => (
+                        <tr key={r.row} className={r.status === 'valid' ? '' : 'bg-amber-50 dark:bg-amber-900/10'}>
+                          <td className="px-3 py-1.5 text-gray-500">{r.row}</td>
+                          <td className="px-3 py-1.5 font-mono">{r.employeeNumber}</td>
+                          <td className="px-3 py-1.5">{r.firstName} {r.lastName}</td>
+                          <td className="px-3 py-1.5">
+                            {r.status === 'valid'
+                              ? <span className="text-green-600">✓ valid</span>
+                              : <span className="text-amber-600" title={r.reason}>⚠ skip</span>}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                  {(preview.preview?.length ?? 0) > 20 && (
+                    <p className="text-xs text-gray-400 px-3 py-2 border-t border-gray-100 dark:border-gray-800">
+                      …and {(preview.preview?.length ?? 0) - 20} more rows
+                    </p>
+                  )}
+                </div>
+              </div>
+              {preview.skipped > 0 && (
+                <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-xl p-3 max-h-28 overflow-y-auto">
+                  <p className="text-xs font-semibold text-amber-700 dark:text-amber-400 mb-1">Issues that will be skipped:</p>
+                  {preview.errors.map((e, i) => <p key={i} className="text-xs text-amber-700 dark:text-amber-300">{e}</p>)}
+                </div>
+              )}
+              <div className="flex gap-3">
+                <button onClick={() => { setPreview(null); setStatus('idle') }} className="flex-1 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+                  Back
+                </button>
+                {preview.imported > 0 && (
+                  <button onClick={confirmImport} className="flex-1 py-2.5 rounded-xl text-sm font-semibold text-white transition" style={{ background: 'var(--primary)' }}>
+                    Import {preview.imported} employee{preview.imported !== 1 ? 's' : ''}
+                  </button>
+                )}
+              </div>
             </>
           ) : (
             <>
@@ -140,8 +218,8 @@ EMP001,Jane,Smith,jane.smith@example.com,full_time,2026-01-15,,+61400000001,Yahw
                   Cancel
                 </button>
                 <button
-                  onClick={upload}
-                  disabled={!file || status === 'uploading'}
+                  onClick={runPreview}
+                  disabled={!file || status === 'importing'}
                   className="flex-1 py-2.5 rounded-xl text-sm font-semibold text-white disabled:opacity-50 transition hover:opacity-90"
                   style={{ background: 'var(--primary)' }}
                 >
