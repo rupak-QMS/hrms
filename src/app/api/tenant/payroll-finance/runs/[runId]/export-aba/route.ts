@@ -71,7 +71,7 @@ export async function GET(
       firstName:       payrollRunEntries.firstName,
       lastName:        payrollRunEntries.lastName,
       netPay:          payrollRunEntries.netPay,
-      bsb:             employees.bsb,
+      bsb:             employees.bankBsb,
       bankAccount:     employees.bankAccount,
       bankAccountName: employees.bankAccountName,
     })
@@ -119,7 +119,7 @@ export async function GET(
     const net = Math.round(Number(entry.netPay ?? 0) * 100) // cents
     if (net <= 0) continue
 
-    const empBsb     = (entry.bsb         ?? '000-000').replace(/[^0-9]/g, '').slice(0,6).padStart(6,'0')
+    const empBsb     = (entry.bankBsb         ?? '000-000').replace(/[^0-9]/g, '').slice(0,6).padStart(6,'0')
     const empAccount = (entry.bankAccount  ?? '000000000').replace(/[^0-9]/g, '').slice(0,9).padEnd(9,' ')
     const empName    = sanitise(`${entry.firstName ?? ''} ${entry.lastName ?? ''}`.trim()).slice(0,32).padEnd(32,' ')
     const lodgeName  = sanitise((entry.bankAccountName ?? empName).trim()).slice(0,16).padEnd(16,' ')
