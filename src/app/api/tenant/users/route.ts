@@ -70,8 +70,8 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'email, role and password are required' }, { status: 400 })
     }
 
-    const { hashPassword } = await import('@/lib/auth/password')
-    const passwordHash = await hashPassword(password)
+    const bcrypt = await import('bcryptjs')
+    const passwordHash = await bcrypt.hash(password, 12)
 
     const [row] = await db
       .insert(users)

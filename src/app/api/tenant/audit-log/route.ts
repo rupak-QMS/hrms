@@ -111,7 +111,7 @@ export async function POST(req: NextRequest) {
       .insert(auditLogs)
       .values({
         tenantId:   session.tenantId,
-        userId:     session.userId,
+        userId:     session.sub,
         action,
         resource,
         resourceId: resourceId ?? null,
