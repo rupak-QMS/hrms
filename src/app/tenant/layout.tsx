@@ -131,6 +131,7 @@ const MODULE_ROUTES: Record<number, { key: string; label: string }> = {
   56: { key: 'referral',               label: 'Referrals (ESS)' },
   57: { key: 'competency',             label: 'Competency Assessments' },
   58: { key: 'ess-announcements',      label: 'Announcements' },
+  59: { key: 'organisation',             label: 'Organisation' },
 }
 
 async function getTenantConfig(slug: string) {

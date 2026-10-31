@@ -52,6 +52,7 @@ export async function POST(
   const [finalised] = await db
     .update(payrollRuns)
     .set({
+      status: 'finalised',
       finalisedBy: email,
       finalisedAt: new Date(),
       updatedAt:   new Date(),
