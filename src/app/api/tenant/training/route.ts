@@ -3,6 +3,7 @@ import { db } from '@/lib/db'
 import { courses, trainingRecords, employees } from '@/lib/db/schema'
 import { eq, and, asc, desc, ilike } from 'drizzle-orm'
 import { apiGuard } from '@/lib/auth/apiGuard'
+import { writeAudit } from '@/lib/audit'
 import { z } from 'zod'
 
 export const dynamic = 'force-dynamic'
@@ -135,6 +136,13 @@ export async function POST(req: NextRequest) {
         validityMonths: data.validityMonths ?? null,
       })
       .returning({ id: courses.id, title: courses.title, createdAt: courses.createdAt })
+
+    writeAudit(req, session, {
+      action:     'course.create',
+      resource:   'course',
+      resourceId: row.id,
+      newValues:  { title: data.title, category: data.category ?? null, isMandatory: data.isMandatory },
+    })
 
     return NextResponse.json({ course: row }, { status: 201 })
   } catch (err) {

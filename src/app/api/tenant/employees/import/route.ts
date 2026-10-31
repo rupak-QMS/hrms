@@ -18,6 +18,7 @@ import { db } from '@/lib/db'
 import { employees } from '@/lib/db/schema'
 import { eq, and } from 'drizzle-orm'
 import { apiGuard } from '@/lib/auth/apiGuard'
+import { writeAudit } from '@/lib/audit'
 
 export const dynamic = 'force-dynamic'
 

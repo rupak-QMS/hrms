@@ -1,10 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
-import { superAdmins, users, tenants } from '@/lib/db/schema'
+import { superAdmins, users, tenants, auditLogs } from '@/lib/db/schema'
 import { eq, and } from 'drizzle-orm'
 import { signToken, signTempToken, verifyToken } from '@/lib/auth/jwt'
 import { sessionCookieOptions } from '@/lib/auth/session'
 import bcrypt from 'bcryptjs'
+
+function logAuth(req: NextRequest, tenantId: string, userId: string, action: string, extra?: Record<string, unknown>) {
+  const ipAddress = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? req.headers.get('x-real-ip') ?? null
+  const userAgent = req.headers.get('user-agent') ?? null
+  db.insert(auditLogs).values({ tenantId, userId, action, resource: 'auth', ipAddress, userAgent, newValues: extra ?? null })
+    .catch(err => console.error('[audit] login', err?.message))
+}
 
 export async function POST(req: NextRequest) {
   try {
@@ -111,6 +118,8 @@ export async function POST(req: NextRequest) {
     }
 
     const token = await signToken(jwtPayload)
+
+    logAuth(req, tenant.id, user.id, 'auth.login', { email: user.email, role: user.role })
 
     const res = NextResponse.json({ ok: true, role: 'tenant_user', redirectTo: '/tenant/dashboard' })
     res.cookies.set(sessionCookieOptions(token))

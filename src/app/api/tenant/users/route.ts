@@ -3,6 +3,7 @@ import { db } from '@/lib/db'
 import { users, employees } from '@/lib/db/schema'
 import { eq, and, asc, ilike } from 'drizzle-orm'
 import { apiGuard } from '@/lib/auth/apiGuard'
+import { writeAudit } from '@/lib/audit'
 
 export const dynamic = 'force-dynamic'
 
@@ -77,6 +78,13 @@ export async function POST(req: NextRequest) {
       .insert(users)
       .values({ tenantId: session.tenantId, email: email.trim().toLowerCase(), role, passwordHash, isActive: true })
       .returning({ id: users.id, email: users.email, role: users.role, isActive: users.isActive })
+
+    writeAudit(req, session, {
+      action:     'user.create',
+      resource:   'user',
+      resourceId: row.id,
+      newValues:  { email: row.email, role: row.role },
+    })
 
     return NextResponse.json({ user: row }, { status: 201 })
   } catch (err: any) {

@@ -3,6 +3,7 @@ import { db } from '@/lib/db'
 import { documents, employees } from '@/lib/db/schema'
 import { eq, and, asc, desc, ilike } from 'drizzle-orm'
 import { apiGuard } from '@/lib/auth/apiGuard'
+import { writeAudit } from '@/lib/audit'
 import { z } from 'zod'
 
 export const dynamic = 'force-dynamic'
@@ -109,6 +110,13 @@ export async function POST(req: NextRequest) {
         notes:         data.notes ?? null,
       })
       .returning({ id: documents.id, createdAt: documents.createdAt })
+
+    writeAudit(req, session, {
+      action:     'document.create',
+      resource:   'document',
+      resourceId: row.id,
+      newValues:  { title: data.title, category: data.category, employeeId: data.employeeId ?? null },
+    })
 
     return NextResponse.json({ document: row }, { status: 201 })
   } catch (err) {
