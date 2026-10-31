@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+const { withSentryConfig } = require('@sentry/nextjs')
+
 const nextConfig = {
   serverExternalPackages: [],
   images: {
@@ -30,11 +32,11 @@ const nextConfig = {
           // Allows Next.js inline scripts + Vercel analytics; tighten 'unsafe-eval' once deps allow
           value: [
             "default-src 'self'",
-            "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://vercel.live",
+            "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://vercel.live https://*.sentry.io",
             "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
             "font-src 'self' https://fonts.gstatic.com",
             "img-src 'self' data: blob: https://*.public.blob.vercel-storage.com https://avatars.githubusercontent.com",
-            "connect-src 'self' https://api.resend.com https://*.neon.tech https://vercel.live wss://ws-us3.pusher.com",
+            "connect-src 'self' https://api.resend.com https://*.neon.tech https://vercel.live wss://ws-us3.pusher.com https://*.sentry.io",
             "frame-ancestors 'none'",
             "base-uri 'self'",
             "form-action 'self'",
@@ -47,4 +49,11 @@ const nextConfig = {
 }
 // Root '/' is handled by src/app/page.tsx which redirects based on x-tenant-slug header.
 
-module.exports = nextConfig
+module.exports = withSentryConfig(nextConfig, {
+  // Sentry organisation and project are set via SENTRY_ORG / SENTRY_PROJECT env vars
+  // Source maps are uploaded to Sentry on every build (disabled in CI to keep build fast)
+  silent: true,
+  hideSourceMaps: true,
+  disableLogger: true,
+  automaticVercelMonitors: true,
+})
