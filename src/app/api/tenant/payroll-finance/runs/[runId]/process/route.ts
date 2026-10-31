@@ -65,7 +65,7 @@ export async function POST(
         employmentType: employees.employmentType,
         annualSalary:   employees.annualSalary,
         hourlyRate:     employees.hourlyRate,
-        hoursPerWeek:   employees.hoursPerWeek,
+        hoursPerWeek:   employees.ordinaryHoursPerWeek,
       })
       .from(employees)
       .where(and(

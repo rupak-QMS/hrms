@@ -133,7 +133,7 @@ export async function PUT(req: NextRequest) {
     if (existing.length > 0) {
       await db
         .update(tenantModules)
-        .set({ isEnabled, updatedAt: new Date(), updatedBy: session.userId })
+        .set({ isEnabled, updatedAt: new Date(), updatedBy: session.sub })
         .where(and(eq(tenantModules.tenantId, session.tenantId), eq(tenantModules.moduleId, moduleId)))
     } else {
       await db
@@ -143,7 +143,7 @@ export async function PUT(req: NextRequest) {
           moduleId:   moduleId,
           moduleName: moduleName ?? `Module ${moduleId}`,
           isEnabled,
-          updatedBy:  session.userId,
+          updatedBy:  session.sub,
         })
     }
 
