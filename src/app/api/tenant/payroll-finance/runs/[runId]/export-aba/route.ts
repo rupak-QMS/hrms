@@ -12,7 +12,7 @@
  */
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
-import { payrollRuns, payrollRunEntries, employees, tenants } from '@/lib/db/schema'
+import { payrollRuns, payrollRunEntries, essOnboarding, tenants } from '@/lib/db/schema'
 import { eq, and } from 'drizzle-orm'
 import { apiGuard } from '@/lib/auth/apiGuard'
 
@@ -64,19 +64,22 @@ export async function GET(
   const bankAccountName = (settings.payrollAccountName  ?? tenant?.name ?? 'EMPLOYER').slice(0, 32)
   const apcaId          = (settings.apcaUserId          ?? '000000').padStart(6, '0').slice(0, 6)
 
-  // Fetch entries with employee bank details
+  // Fetch entries with employee bank details (from ESS onboarding)
   const entries = await db
     .select({
       employeeId:      payrollRunEntries.employeeId,
       firstName:       payrollRunEntries.firstName,
       lastName:        payrollRunEntries.lastName,
       netPay:          payrollRunEntries.netPay,
-      bsb:             employees.bankBsb,
-      bankAccount:     employees.bankAccount,
-      bankAccountName: employees.bankAccountName,
+      bankBsb:         essOnboarding.bankBsb,
+      bankAccount:     essOnboarding.bankAccountNumber,
+      bankAccountName: essOnboarding.bankAccountName,
     })
     .from(payrollRunEntries)
-    .leftJoin(employees, eq(employees.id, payrollRunEntries.employeeId))
+    .leftJoin(essOnboarding, and(
+      eq(essOnboarding.employeeId, payrollRunEntries.employeeId),
+      eq(essOnboarding.tenantId, tenantId),
+    ))
     .where(and(
       eq(payrollRunEntries.runId, runId),
       eq(payrollRunEntries.tenantId, tenantId),
