@@ -12,6 +12,7 @@ import { db } from '@/lib/db'
 import { candidates, applications, tenants, jobRequisitions } from '@/lib/db/schema'
 import { eq, and } from 'drizzle-orm'
 import { put } from '@vercel/blob'
+import { validateFile } from '@/lib/validateUpload'
 
 export const dynamic = 'force-dynamic'
 
@@ -66,6 +67,8 @@ export async function POST(req: NextRequest) {
     // Upload resume if provided
     let resumeUrl: string | null = null
     if (resumeFile && resumeFile.size > 0) {
+      const resumeErr = validateFile(resumeFile, 'resume')
+      if (resumeErr) return NextResponse.json({ error: resumeErr }, { status: 415 })
       const ext   = resumeFile.name.split('.').pop() ?? 'pdf'
       const bytes = await resumeFile.arrayBuffer()
       const blob  = await put(`resumes/${tenantId}/${Date.now()}_${firstName}_${lastName}.${ext}`, bytes, {

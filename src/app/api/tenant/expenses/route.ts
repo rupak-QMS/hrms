@@ -8,6 +8,7 @@ import { expenseClaims, employees } from '@/lib/db/schema'
 import { eq, and, desc } from 'drizzle-orm'
 import { apiGuard } from '@/lib/auth/apiGuard'
 import { put } from '@vercel/blob'
+import { validateFile } from '@/lib/validateUpload'
 
 export const dynamic = 'force-dynamic'
 
@@ -113,6 +114,8 @@ export async function POST(req: NextRequest) {
 
   let receiptUrl: string | null = null
   if (receiptFile && receiptFile.size > 0) {
+    const receiptErr = validateFile(receiptFile, 'receipt')
+    if (receiptErr) return NextResponse.json({ error: receiptErr }, { status: 415 })
     const ext   = receiptFile.name.split('.').pop() ?? 'pdf'
     const bytes = await receiptFile.arrayBuffer()
     const blob  = await put(

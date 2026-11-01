@@ -2,6 +2,7 @@
 import { fetchWithAuth } from '@/lib/fetchWithAuth'
 
 import { useEffect, useState } from 'react'
+import { useUnsavedChanges } from '@/hooks/useUnsavedChanges'
 import { useParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import Toast, { type ToastState } from '@/components/ui/Toast'
@@ -147,6 +148,7 @@ export default function EmployeeProfilePage() {
   const [tab,     setTab]    = useState<Tab>('Overview')
   const [saving,  setSaving] = useState(false)
   const [toast,   setToast]  = useState<ToastState>(null)
+  const { markDirty, markClean } = useUnsavedChanges()
 
   // Emergency contacts state
   const [contacts,      setContacts]      = useState<EmergencyContact[]>([])
@@ -552,6 +554,7 @@ export default function EmployeeProfilePage() {
       // Refresh list
       const refreshed = await fetchWithAuth(`/api/tenant/employees/${id}/emergency-contacts`).then(r => r.json())
       setContacts(refreshed.contacts ?? [])
+      markClean()
       setShowContactForm(false)
     } catch {
       setContactError('Network error — please try again.')
@@ -808,32 +811,32 @@ export default function EmployeeProfilePage() {
 
                   <div>
                     <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Full Name *</label>
-                    <input required value={contactForm.name} onChange={e => setContactForm(f => ({ ...f, name: e.target.value }))}
+                    <input required value={contactForm.name} onChange={e => { markDirty(); setContactForm(f => ({ ...f, name: e.target.value })) }}
                       className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none focus:border-blue-400"
                       placeholder="e.g. John Smith" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Relationship</label>
-                    <input value={contactForm.relationship} onChange={e => setContactForm(f => ({ ...f, relationship: e.target.value }))}
+                    <input value={contactForm.relationship} onChange={e => { markDirty(); setContactForm(f => ({ ...f, relationship: e.target.value })) }}
                       className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none focus:border-blue-400"
                       placeholder="e.g. Spouse, Parent, Sibling" />
                   </div>
                   <div className="grid grid-cols-2 gap-3">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Phone</label>
-                      <input value={contactForm.phone} onChange={e => setContactForm(f => ({ ...f, phone: e.target.value }))}
+                      <input value={contactForm.phone} onChange={e => { markDirty(); setContactForm(f => ({ ...f, phone: e.target.value })) }}
                         className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none focus:border-blue-400"
                         placeholder="+61 4xx xxx xxx" />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
-                      <input type="email" value={contactForm.email} onChange={e => setContactForm(f => ({ ...f, email: e.target.value }))}
+                      <input type="email" value={contactForm.email} onChange={e => { markDirty(); setContactForm(f => ({ ...f, email: e.target.value })) }}
                         className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none focus:border-blue-400"
                         placeholder="john@example.com" />
                     </div>
                   </div>
                   <label className="flex items-center gap-2 cursor-pointer">
-                    <input type="checkbox" checked={contactForm.isPrimary} onChange={e => setContactForm(f => ({ ...f, isPrimary: e.target.checked }))}
+                    <input type="checkbox" checked={contactForm.isPrimary} onChange={e => { markDirty(); setContactForm(f => ({ ...f, isPrimary: e.target.checked })) }}
                       className="w-4 h-4 rounded accent-blue-600" />
                     <span className="text-sm text-gray-700 dark:text-gray-300">Primary emergency contact</span>
                   </label>
@@ -850,7 +853,7 @@ export default function EmployeeProfilePage() {
                       style={{ background: 'var(--primary)' }}>
                       {contactSaving ? 'Saving…' : editingContact ? 'Save Changes' : 'Add Contact'}
                     </button>
-                    <button type="button" onClick={() => setShowContactForm(false)}
+                    <button type="button" onClick={() => { markClean(); setShowContactForm(false) }}
                       className="px-4 py-2 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 text-sm rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
                       Cancel
                     </button>
@@ -1379,7 +1382,7 @@ export default function EmployeeProfilePage() {
             <div className="space-y-2">
               <textarea
                 value={noteContent}
-                onChange={e => setNoteContent(e.target.value)}
+                onChange={e => { markDirty(); setNoteContent(e.target.value) }}
                 placeholder="Add a note about this employee…"
                 rows={3}
                 className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-sm text-gray-800 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-blue-400 resize-y"
@@ -1400,6 +1403,7 @@ export default function EmployeeProfilePage() {
                         const d = await res.json()
                         setNotes(prev => [d.note, ...prev])
                         setNoteContent('')
+                        markClean()
                         setToast({ message: 'Note added', type: 'success' })
                       } else {
                         setToast({ message: 'Failed to add note', type: 'error' })
