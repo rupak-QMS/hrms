@@ -1999,3 +1999,25 @@ export const ticketComments = pgTable('hrms_ticket_comments', {
 }, (t) => ({
   ticketIdx: index('ticket_comments_ticket_idx').on(t.ticketId),
 }))
+
+// ──────────────────────────────────────────────
+// Email Queue
+// ──────────────────────────────────────────────
+
+export const emailQueue = pgTable('hrms_email_queue', {
+  id:          uuid('id').primaryKey().defaultRandom(),
+  tenantId:    uuid('tenant_id').references(() => tenants.id, { onDelete: 'cascade' }),
+  to:          text('to').notNull(),
+  from:        text('from'),
+  subject:     text('subject').notNull(),
+  html:        text('html').notNull(),
+  status:      varchar('status', { length: 20 }).notNull().default('pending'),
+  attempts:    integer('attempts').notNull().default(0),
+  lastError:   text('last_error'),
+  scheduledAt: timestamp('scheduled_at').notNull().defaultNow(),
+  sentAt:      timestamp('sent_at'),
+  createdAt:   timestamp('created_at').notNull().defaultNow(),
+}, (t) => ({
+  statusIdx: index('email_queue_status_drizzle_idx').on(t.status, t.scheduledAt),
+  tenantIdx: index('email_queue_tenant_drizzle_idx').on(t.tenantId),
+}))

@@ -8,7 +8,7 @@
  */
 
 import { db } from '@/lib/db'
-import { tenants, users } from '@/lib/db/schema'
+import { tenants, users, emailQueue } from '@/lib/db/schema'
 import { eq, and } from 'drizzle-orm'
 import { sendEmail } from './resend'
 import type { EmailPayload } from './resend'
@@ -104,12 +104,57 @@ export async function getTenantRoleEmails(tenantId: string, roles: string[]): Pr
 // ─── Fire-and-forget send ─────────────────────────────────────────────────────
 
 /**
- * Sends an email fire-and-forget (never throws, never blocks the API response).
- * Automatically applies the tenant's custom from address if configured.
+ * Queues an email in hrms_email_queue for durable delivery, then fires immediately.
+ * The queue record tracks delivery status and supports retry.
+ * Never throws, never blocks the API response.
  */
-export function fireEmail(ctx: TenantEmailCtx, payload: Omit<EmailPayload, 'from'> & { from?: string }): void {
+export function fireEmail(
+  ctx: TenantEmailCtx,
+  payload: Omit<EmailPayload, 'from'> & { from?: string; tenantId?: string },
+): void {
   const from = payload.from ?? ctx.fromAddress ?? undefined
-  sendEmail({ ...payload, from }).catch(err => console.error('[email]', err))
+  const tenantId = payload.tenantId ?? null
+
+  // Persist to queue first, then send
+  ;(async () => {
+    let queueId: string | undefined
+    try {
+      const [row] = await db
+        .insert(emailQueue)
+        .values({
+          tenantId:  tenantId as any,
+          to:        Array.isArray(payload.to) ? payload.to.join(',') : payload.to,
+          from:      from ?? null,
+          subject:   payload.subject,
+          html:      payload.html,
+          status:    'pending',
+          attempts:  0,
+        })
+        .returning({ id: emailQueue.id })
+      queueId = row?.id
+    } catch (err) {
+      console.error('[email queue insert]', err)
+    }
+
+    try {
+      await sendEmail({ ...payload, from })
+      if (queueId) {
+        await db
+          .update(emailQueue)
+          .set({ status: 'sent', sentAt: new Date(), attempts: 1 })
+          .where(eq(emailQueue.id, queueId!))
+      }
+    } catch (err) {
+      console.error('[email]', err)
+      if (queueId) {
+        await db
+          .update(emailQueue)
+          .set({ status: 'failed', lastError: String(err), attempts: 1 })
+          .where(eq(emailQueue.id, queueId!))
+          .catch(() => {})
+      }
+    }
+  })()
 }
 
 // ─── Platform (super-admin) context ──────────────────────────────────────────
