@@ -83,6 +83,7 @@ vi.mock('drizzle-orm', () => ({
   ilike: vi.fn(() => 'ilike'),
   sql:   vi.fn(() => 'sql'),
   isNull: vi.fn(() => 'isNull'),
+  count: vi.fn(() => ({ as: vi.fn() })),
 }))
 
 import { GET as docsGET, POST as docsPOST,
@@ -138,8 +139,9 @@ describe('GET /api/tenant/documents', () => {
       { status: 'expired', expiryDate: null, category: 'hr' },
     ]
     mockDb.select = vi.fn()
-      .mockReturnValueOnce(makeSelectChain(rows) as any)     // filtered records
-      .mockReturnValueOnce(makeSelectChain(allDocs) as any)  // all-for-stats
+      .mockReturnValueOnce(makeSelectChain(rows) as any)               // filtered records
+      .mockReturnValueOnce(makeSelectChain(allDocs) as any)            // all-for-stats
+      .mockReturnValueOnce(makeSelectChain([{ total: 1 }]) as any)     // filtered count
     const res = await docsGET(makeReq('https://app.test/api/tenant/documents')) as any
     expect(res.status).toBe(200)
     expect(res.body.documents).toHaveLength(1)
@@ -154,6 +156,7 @@ describe('GET /api/tenant/documents', () => {
     mockDb.select = vi.fn()
       .mockReturnValueOnce(makeSelectChain([]) as any)
       .mockReturnValueOnce(makeSelectChain([]) as any)
+      .mockReturnValueOnce(makeSelectChain([{ total: 0 }]) as any)  // filtered count
     const res = await docsGET(makeReq('https://app.test/api/tenant/documents')) as any
     expect(res.body.documents).toEqual([])
     expect(res.body.stats.total).toBe(0)

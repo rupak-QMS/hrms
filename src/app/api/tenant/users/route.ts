@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 import { users, employees } from '@/lib/db/schema'
-import { eq, and, asc, ilike } from 'drizzle-orm'
+import { eq, and, asc, ilike, count } from 'drizzle-orm'
 import { apiGuard } from '@/lib/auth/apiGuard'
 import { writeAudit } from '@/lib/audit'
 
@@ -52,7 +52,8 @@ export async function GET(req: NextRequest) {
       .limit(limit)
       .offset(offset)
 
-    return NextResponse.json({ users: rows, pagination: { limit, offset, count: rows.length } })
+    const [{ total }] = await db.select({ total: count() }).from(users).where(and(...conditions))
+    return NextResponse.json({ users: rows, pagination: { limit, offset, count: rows.length, total } })
   } catch (err) {
     console.error('[users GET]', err)
     return NextResponse.json({ error: 'Failed to fetch users' }, { status: 500 })

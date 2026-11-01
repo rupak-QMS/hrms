@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 import { auditLogs, users, employees } from '@/lib/db/schema'
-import { eq, and, gte, lte, desc, ilike, or } from 'drizzle-orm'
+import { eq, and, gte, lte, desc, ilike, or, count} from 'drizzle-orm'
 import { apiGuard } from '@/lib/auth/apiGuard'
 
 export const dynamic = 'force-dynamic'
@@ -77,10 +77,11 @@ export async function GET(req: NextRequest) {
       .where(eq(auditLogs.tenantId, session.tenantId))
       .orderBy(auditLogs.resource)
 
+    const [{ total }] = await db.select({ total: count() }).from(auditLogs).where(and(...conditions))
     return NextResponse.json({
       logs: rows,
       resources: resourceList.map(r => r.resource),
-      pagination: { limit, offset, count: rows.length },
+      pagination: { limit, offset, count: rows.length, total },
     })
   } catch (err) {
     console.error('[audit-log GET]', err)
