@@ -7,8 +7,8 @@ import { sessionCookieOptions } from '@/lib/auth/session'
 import bcrypt from 'bcryptjs'
 
 function logAuth(req: NextRequest, tenantId: string, userId: string, action: string, extra?: Record<string, unknown>) {
-  const ipAddress = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? req.headers.get('x-real-ip') ?? null
-  const userAgent = req.headers.get('user-agent') ?? null
+  const ipAddress = req.headers?.get('x-forwarded-for')?.split(',')[0]?.trim() ?? req.headers?.get('x-real-ip') ?? null
+  const userAgent = req.headers?.get('user-agent') ?? null
   db.insert(auditLogs).values({ tenantId, userId, action, resource: 'auth', ipAddress, userAgent, newValues: extra ?? null })
     .catch(err => console.error('[audit] login', err?.message))
 }

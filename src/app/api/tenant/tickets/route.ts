@@ -27,7 +27,7 @@ const CreateSchema = z.object({
 })
 
 export async function GET(req: NextRequest) {
-  const guard = await apiGuard('tickets:read')
+  const guard = await apiGuard('helpdesk:read')
   if (guard.error) return guard.error
   const { session } = guard
 
@@ -82,7 +82,7 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
-  const guard = await apiGuard('tickets:write')
+  const guard = await apiGuard('helpdesk:write')
   if (guard.error) return guard.error
   const { session } = guard
 

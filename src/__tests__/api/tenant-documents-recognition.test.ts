@@ -38,7 +38,7 @@ vi.mock('@/lib/email/templates', () => ({
 
 function makeSelectChain(data: unknown) {
   const c: Record<string, unknown> = {}
-  ;['from', 'where', 'leftJoin', 'orderBy', 'limit'].forEach(m => { c[m] = () => c })
+  ;['from', 'where', 'leftJoin', 'orderBy', 'limit', 'offset', 'ilike'].forEach(m => { c[m] = () => c })
   c.then = (resolve: (v: unknown) => void) => Promise.resolve(data).then(resolve)
   return c
 }
@@ -74,11 +74,14 @@ vi.mock('@/lib/db', () => ({
 }))
 
 vi.mock('drizzle-orm', () => ({
-  eq:   vi.fn(() => 'eq'),
-  and:  vi.fn(() => 'and'),
-  desc: vi.fn(() => 'desc'),
-  gte:  vi.fn(() => 'gte'),
-  lte:  vi.fn(() => 'lte'),
+  eq:    vi.fn(() => 'eq'),
+  and:   vi.fn(() => 'and'),
+  asc:   vi.fn(() => 'asc'),
+  desc:  vi.fn(() => 'desc'),
+  gte:   vi.fn(() => 'gte'),
+  lte:   vi.fn(() => 'lte'),
+  ilike: vi.fn(() => 'ilike'),
+  sql:   vi.fn(() => 'sql'),
 }))
 
 import { GET as docsGET, POST as docsPOST,
@@ -196,9 +199,9 @@ describe('PATCH /api/tenant/documents', () => {
   })
 
   it('returns 200 with the updated document', async () => {
-    const updated = { id: 'd1', title: 'WWCC', status: 'expired', expiryDate: null, notes: null }
+    const updated = { id: 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', title: 'WWCC', status: 'expired', expiryDate: null, notes: null }
     mockDb.update = vi.fn(() => makeUpdateChain([updated]) as any)
-    const res = await docsPATCH(makeReq('https://app.test/', { id: 'd1', status: 'expired' })) as any
+    const res = await docsPATCH(makeReq('https://app.test/', { id: 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', status: 'expired' })) as any
     expect(res.status).toBe(200)
     expect(res.body.record.status).toBe('expired')
   })

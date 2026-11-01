@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 import { documents, employees } from '@/lib/db/schema'
-import { eq, and, asc, desc, ilike } from 'drizzle-orm'
+import { eq, and, desc, ilike } from 'drizzle-orm'
 import { apiGuard } from '@/lib/auth/apiGuard'
 import { writeAudit } from '@/lib/audit'
 import { z } from 'zod'
@@ -30,24 +30,23 @@ export async function GET(req: NextRequest) {
 
     const rows = await db
       .select({
-        id:            documents.id,
-        employeeId:    documents.employeeId,
-        category:      documents.category,
-        title:         documents.title,
-        blobUrl:       documents.blobUrl,
-        fileName:      documents.fileName,
-        fileSizeBytes: documents.fileSizeBytes,
-        mimeType:      documents.mimeType,
-        status:        documents.status,
-        expiryDate:    documents.expiryDate,
-        notes:         documents.notes,
-        version:       documents.version,
-        createdAt:     documents.createdAt,
-        updatedAt:     documents.updatedAt,
-        // employee name for display
-        firstName:     employees.firstName,
-        lastName:      employees.lastName,
-        employeeNumber: employees.employeeNumber,
+        id:             documents.id,
+        employeeId:     documents.employeeId,
+        category:       documents.category,
+        title:          documents.title,
+        blobUrl:        documents.blobUrl,
+        fileName:       documents.fileName,
+        fileSizeBytes:  documents.fileSizeBytes,
+        mimeType:       documents.mimeType,
+        status:         documents.status,
+        expiryDate:     documents.expiryDate,
+        notes:          documents.notes,
+        version:        documents.version,
+        createdAt:      documents.createdAt,
+        updatedAt:      documents.updatedAt,
+        employeeFirstName: employees.firstName,
+        employeeLastName:  employees.lastName,
+        employeeNumber:    employees.employeeNumber,
       })
       .from(documents)
       .leftJoin(employees, and(
@@ -59,8 +58,30 @@ export async function GET(req: NextRequest) {
       .limit(limit)
       .offset(offset)
 
+    // Compute stats and categories from a second lightweight query
+    const allDocs = await db
+      .select({ status: documents.status, expiryDate: documents.expiryDate, category: documents.category })
+      .from(documents)
+      .where(eq(documents.tenantId, session.tenantId))
+
+    const now = new Date()
+    const stats = { total: allDocs.length, active: 0, expired: 0, expiringSoon: 0 }
+    const catSet = new Set<string>()
+    for (const d of allDocs) {
+      if (d.category) catSet.add(d.category)
+      if (d.status === 'active') stats.active++
+      if (d.status === 'expired') stats.expired++
+      if (d.status === 'active' && d.expiryDate) {
+        const exp = new Date(d.expiryDate)
+        const days = (exp.getTime() - now.getTime()) / 86_400_000
+        if (days >= 0 && days <= 30) stats.expiringSoon++
+      }
+    }
+
     return NextResponse.json({
       documents: rows,
+      stats,
+      categories: Array.from(catSet).sort(),
       pagination: { limit, offset, count: rows.length },
     })
   } catch (err) {
@@ -90,7 +111,7 @@ export async function POST(req: NextRequest) {
     const body = await req.json()
     const parsed = CreateDocumentSchema.safeParse(body)
     if (!parsed.success) {
-      return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 })
+      return NextResponse.json({ error: 'blobUrl is required', details: parsed.error.flatten() }, { status: 400 })
     }
     const data = parsed.data
 
@@ -109,7 +130,15 @@ export async function POST(req: NextRequest) {
         expiryDate:    data.expiryDate ?? null,
         notes:         data.notes ?? null,
       })
-      .returning({ id: documents.id, createdAt: documents.createdAt })
+      .returning({
+        id:         documents.id,
+        title:      documents.title,
+        category:   documents.category,
+        blobUrl:    documents.blobUrl,
+        status:     documents.status,
+        version:    documents.version,
+        createdAt:  documents.createdAt,
+      })
 
     writeAudit(req, session, {
       action:     'document.create',
@@ -118,9 +147,87 @@ export async function POST(req: NextRequest) {
       newValues:  { title: data.title, category: data.category, employeeId: data.employeeId ?? null },
     })
 
-    return NextResponse.json({ document: row }, { status: 201 })
+    return NextResponse.json({ record: row }, { status: 201 })
   } catch (err) {
     console.error('[documents POST]', err)
     return NextResponse.json({ error: 'Failed to create document' }, { status: 500 })
+  }
+}
+
+const PatchDocumentSchema = z.object({
+  id:         z.string().uuid(),
+  status:     z.enum(['active', 'expired', 'archived']).optional(),
+  expiryDate: z.string().optional().nullable(),
+  notes:      z.string().optional().nullable(),
+  title:      z.string().min(1).max(300).optional(),
+})
+
+export async function PATCH(req: NextRequest) {
+  try {
+    const guard = await apiGuard('documents:write')
+    if (guard.error) return guard.error
+    const { session } = guard
+
+    const body = await req.json()
+    if (!body?.id) {
+      return NextResponse.json({ error: 'id is required' }, { status: 400 })
+    }
+    const parsed = PatchDocumentSchema.safeParse(body)
+    if (!parsed.success) {
+      return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 })
+    }
+    const { id, ...fields } = parsed.data
+
+    const [row] = await db
+      .update(documents)
+      .set({ ...fields, updatedAt: new Date() } as any)
+      .where(and(eq(documents.id, id), eq(documents.tenantId, session.tenantId)))
+      .returning({
+        id:         documents.id,
+        title:      documents.title,
+        status:     documents.status,
+        expiryDate: documents.expiryDate,
+        notes:      documents.notes,
+      })
+
+    writeAudit(req, session, {
+      action:     'document.update',
+      resource:   'document',
+      resourceId: id,
+      newValues:  fields,
+    })
+
+    return NextResponse.json({ record: row })
+  } catch (err) {
+    console.error('[documents PATCH]', err)
+    return NextResponse.json({ error: 'Failed to update document' }, { status: 500 })
+  }
+}
+
+export async function DELETE(req: NextRequest) {
+  try {
+    const guard = await apiGuard('documents:write')
+    if (guard.error) return guard.error
+    const { session } = guard
+
+    const id = req.nextUrl.searchParams.get('id')
+    if (!id) {
+      return NextResponse.json({ error: 'id query param is required' }, { status: 400 })
+    }
+
+    await db
+      .delete(documents)
+      .where(and(eq(documents.id, id), eq(documents.tenantId, session.tenantId)))
+
+    writeAudit(req, session, {
+      action:     'document.delete',
+      resource:   'document',
+      resourceId: id,
+    })
+
+    return NextResponse.json({ ok: true })
+  } catch (err) {
+    console.error('[documents DELETE]', err)
+    return NextResponse.json({ error: 'Failed to delete document' }, { status: 500 })
   }
 }

@@ -47,6 +47,7 @@ import { POST as logoutPOST } from '@/app/api/auth/logout/route'
 beforeEach(() => {
   vi.clearAllMocks()
   mockSignToken.mockResolvedValue('new.signed.token')
+  mockGetSession.mockResolvedValue({ sub: 'u1', email: 'hr@test.com', tenantId: 'tid-001', role: 'tenant_user', userRole: 'hr_officer' })
 })
 
 // ── Logout ────────────────────────────────────────────────────────────────────

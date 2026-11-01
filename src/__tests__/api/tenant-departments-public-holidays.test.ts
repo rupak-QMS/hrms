@@ -76,6 +76,9 @@ vi.mock('drizzle-orm', () => ({
   gte: vi.fn(() => 'gte'),
   lte: vi.fn(() => 'lte'),
   asc: vi.fn(() => 'asc'),
+  sql: vi.fn(() => ({ as: vi.fn(() => 'sql_aliased'), queryChunks: [] })),
+  ilike: vi.fn(() => 'ilike'),
+  desc: vi.fn(() => 'desc'),
 }))
 
 import { GET as deptGET, POST as deptPOST } from '@/app/api/tenant/departments/route'
@@ -125,14 +128,14 @@ beforeEach(() => {
 
 describe('GET /api/tenant/departments', () => {
   it('returns 401 when no session', async () => {
-    mockGetSession.mockResolvedValue(null)
-    const res = await deptGET() as any
+    mockApiGuard.mockResolvedValue(GUARD_401 as any)
+    const res = await deptGET(makeReq('https://app.test/')) as any
     expect(res.status).toBe(401)
   })
 
   it('returns a departments array', async () => {
     mockDb.select = vi.fn(() => makeSelectChain([{ id: 'd1', name: 'HR', description: null }]) as any)
-    const res = await deptGET() as any
+    const res = await deptGET(makeReq('https://app.test/')) as any
     expect(res.status).toBe(200)
     expect(Array.isArray(res.body.departments)).toBe(true)
     expect(res.body.departments[0].name).toBe('HR')
@@ -140,8 +143,8 @@ describe('GET /api/tenant/departments', () => {
 
   it('returns an empty array when the DB throws', async () => {
     mockDb.select = vi.fn(() => { throw new Error('DB error') })
-    const res = await deptGET() as any
-    expect(res.body.departments).toEqual([])
+    const res = await deptGET(makeReq('https://app.test/')) as any
+    expect(res.body.error).toBeDefined()
   })
 })
 
@@ -149,7 +152,7 @@ describe('GET /api/tenant/departments', () => {
 
 describe('POST /api/tenant/departments', () => {
   it('returns 401 when no session', async () => {
-    mockGetSession.mockResolvedValue(null)
+    mockApiGuard.mockResolvedValue(GUARD_401 as any)
     const res = await deptPOST(makeReq('https://app.test/', { name: 'Finance' })) as any
     expect(res.status).toBe(401)
   })

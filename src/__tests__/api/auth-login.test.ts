@@ -31,6 +31,7 @@ vi.mock('@/lib/db', () => ({
   db: {
     select: () => ({ from: () => ({ where: mockDbSelect }) }),
     update: () => ({ set: () => ({ where: vi.fn(() => Promise.resolve()) }) }),
+    insert: () => ({ values: () => Promise.resolve() }),
   },
 }))
 
@@ -38,6 +39,7 @@ vi.mock('@/lib/db/schema', () => ({
   superAdmins: {},
   users:       {},
   tenants:     {},
+  auditLogs:   {},
 }))
 
 vi.mock('drizzle-orm', () => ({

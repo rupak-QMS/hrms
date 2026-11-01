@@ -11,6 +11,8 @@ import { describe, it, expect, vi, beforeEach } from 'vitest'
 vi.mock('next/server', () => ({
   NextRequest: class {
     _body: unknown
+    nextUrl: URL
+    constructor(url = 'https://app.test/') { this.nextUrl = new URL(url) }
     async json() { return this._body ?? {} }
   },
   NextResponse: {
@@ -49,21 +51,26 @@ vi.mock('@/lib/db', () => ({
 }))
 
 vi.mock('drizzle-orm', () => ({
-  eq:   vi.fn(() => 'eq'),
-  and:  vi.fn(() => 'and'),
-  asc:  vi.fn(() => 'asc'),
-  desc: vi.fn(() => 'desc'),
+  eq:    vi.fn(() => 'eq'),
+  and:   vi.fn(() => 'and'),
+  asc:   vi.fn(() => 'asc'),
+  desc:  vi.fn(() => 'desc'),
+  sql:   vi.fn(() => ({ as: vi.fn(() => 'sql_aliased'), queryChunks: [] })),
+  ilike: vi.fn(() => 'ilike'),
+  gte:   vi.fn(() => 'gte'),
+  lte:   vi.fn(() => 'lte'),
 }))
 
 import { GET as posGET, POST as posPOST } from '@/app/api/tenant/positions/route'
 import { GET as myLeaveGET }               from '@/app/api/tenant/my-leave/route'
 import { GET as myPayslipsGET }            from '@/app/api/tenant/my-payslips/route'
 import { getSession }                      from '@/lib/auth/session'
-import { apiAuth }                         from '@/lib/auth/apiGuard'
+import { apiGuard, apiAuth }               from '@/lib/auth/apiGuard'
 import { db }                              from '@/lib/db'
 import { NextRequest }                     from 'next/server'
 
 const mockGetSession = vi.mocked(getSession)
+const mockApiGuard   = vi.mocked(apiGuard)
 const mockApiAuth    = vi.mocked(apiAuth)
 const mockDb         = vi.mocked(db)
 
@@ -84,6 +91,7 @@ function makeReq(body?: unknown) {
 beforeEach(() => {
   vi.clearAllMocks()
   mockGetSession.mockResolvedValue(SESSION as any)
+  mockApiGuard.mockResolvedValue(GUARD_OK as any)
   mockApiAuth.mockResolvedValue(GUARD_OK as any)
   mockDb.select = vi.fn(() => makeSelectChain([]) as any)
   mockDb.insert = vi.fn(() => makeInsertChain([]) as any)
@@ -93,15 +101,16 @@ beforeEach(() => {
 
 describe('GET /api/tenant/positions', () => {
   it('returns 401 when no session', async () => {
-    mockGetSession.mockResolvedValue(null)
-    const res = await posGET() as any
+    mockApiGuard.mockResolvedValue(GUARD_401 as any)
+    mockApiAuth.mockResolvedValue(GUARD_401 as any)
+    const res = await posGET(new NextRequest('https://app.test/') as any) as any
     expect(res.status).toBe(401)
   })
 
   it('returns positions array', async () => {
     const rows = [{ id: 'p1', title: 'Support Worker', departmentId: 'd1' }]
     mockDb.select = vi.fn(() => makeSelectChain(rows) as any)
-    const res = await posGET() as any
+    const res = await posGET(new NextRequest('https://app.test/' ) as any) as any
     expect(res.status).toBe(200)
     expect(Array.isArray(res.body.positions)).toBe(true)
     expect(res.body.positions[0].title).toBe('Support Worker')
@@ -109,8 +118,8 @@ describe('GET /api/tenant/positions', () => {
 
   it('returns empty array when DB throws', async () => {
     mockDb.select = vi.fn(() => { throw new Error('DB error') })
-    const res = await posGET() as any
-    expect(res.body.positions).toEqual([])
+    const res = await posGET(new NextRequest('https://app.test/' ) as any) as any
+    expect(res.body.error).toBeDefined()
   })
 })
 
@@ -118,7 +127,8 @@ describe('GET /api/tenant/positions', () => {
 
 describe('POST /api/tenant/positions', () => {
   it('returns 401 when no session', async () => {
-    mockGetSession.mockResolvedValue(null)
+    mockApiGuard.mockResolvedValue(GUARD_401 as any)
+    mockApiAuth.mockResolvedValue(GUARD_401 as any)
     const res = await posPOST(makeReq({ title: 'Manager' })) as any
     expect(res.status).toBe(401)
   })
@@ -141,6 +151,7 @@ describe('POST /api/tenant/positions', () => {
 
 describe('GET /api/tenant/my-leave', () => {
   it('returns 401 when unauthenticated', async () => {
+    mockApiGuard.mockResolvedValue(GUARD_401 as any)
     mockApiAuth.mockResolvedValue(GUARD_401 as any)
     const res = await myLeaveGET() as any
     expect(res.status).toBe(401)
@@ -193,6 +204,7 @@ describe('GET /api/tenant/my-leave', () => {
 
 describe('GET /api/tenant/my-payslips', () => {
   it('returns 401 when unauthenticated', async () => {
+    mockApiGuard.mockResolvedValue(GUARD_401 as any)
     mockApiAuth.mockResolvedValue(GUARD_401 as any)
     const res = await myPayslipsGET() as any
     expect(res.status).toBe(401)

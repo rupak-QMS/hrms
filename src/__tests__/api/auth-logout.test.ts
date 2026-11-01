@@ -21,6 +21,7 @@ vi.mock('next/server', () => ({
 
 vi.mock('@/lib/auth/session', () => ({
   clearCookieOptions: vi.fn(() => ({ name: 'session', value: '', maxAge: 0 })),
+  getSession: vi.fn(() => Promise.resolve({ sub: 'u1' })),
 }))
 
 // ── Import after mocks ────────────────────────────────────────────────────────
