@@ -57,6 +57,7 @@ vi.mock('drizzle-orm', () => ({
   count: vi.fn(() => 'count'),
   sum:   vi.fn(() => 'sum'),
   sql:   Object.assign(vi.fn(() => 'sql'), { raw: vi.fn(() => 'sql') }),
+  isNull: vi.fn(() => 'isNull'),
 }))
 
 import { GET, POST } from '@/app/api/tenant/employees/route'

@@ -114,6 +114,7 @@ export const employees = pgTable('hrms_employees', {
   ndisWorker:       boolean('ndis_worker').notNull().default(false),
   createdAt:        timestamp('created_at').notNull().defaultNow(),
   updatedAt:        timestamp('updated_at').notNull().defaultNow(),
+  deletedAt:        timestamp('deleted_at'),
 }, (t) => ({
   tenantIdx:     index('employees_tenant_idx').on(t.tenantId),
   empNumberIdx:  uniqueIndex('employees_number_tenant').on(t.tenantId, t.employeeNumber),
@@ -213,6 +214,7 @@ export const documents = pgTable('hrms_documents', {
   version:      integer('version').notNull().default(1),
   createdAt:    timestamp('created_at').notNull().defaultNow(),
   updatedAt:    timestamp('updated_at').notNull().defaultNow(),
+  deletedAt:    timestamp('deleted_at'),
 }, (t) => ({
   tenantIdx:   index('docs_tenant_idx').on(t.tenantId),
   employeeIdx: index('docs_employee_idx').on(t.employeeId),
@@ -305,6 +307,7 @@ export const courses = pgTable('hrms_courses', {
   content:      jsonb('content').default([]),
   isActive:     boolean('is_active').notNull().default(true),
   createdAt:    timestamp('created_at').notNull().defaultNow(),
+  deletedAt:    timestamp('deleted_at'),
 })
 
 export const trainingRecords = pgTable('hrms_training_records', {
@@ -319,6 +322,7 @@ export const trainingRecords = pgTable('hrms_training_records', {
   score:          decimal('score', { precision: 5, scale: 2 }),
   attempts:       integer('attempts').notNull().default(0),
   createdAt:      timestamp('created_at').notNull().defaultNow(),
+  deletedAt:      timestamp('deleted_at'),
 })
 
 // ──────────────────────────────────────────────

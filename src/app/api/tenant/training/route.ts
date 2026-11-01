@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 import { courses, trainingRecords, employees } from '@/lib/db/schema'
-import { eq, and, asc, desc, ilike } from 'drizzle-orm'
+import { eq, and, asc, desc, ilike, isNull } from 'drizzle-orm'
 import { apiGuard } from '@/lib/auth/apiGuard'
 import { writeAudit } from '@/lib/audit'
 import { z } from 'zod'
@@ -26,7 +26,7 @@ export async function GET(req: NextRequest) {
     const offset         = Number(searchParams.get('offset') ?? 0)
 
     // ── Courses ──────────────────────────────────────────────────────────
-    const courseConditions = [eq(courses.tenantId, session.tenantId)]
+    const courseConditions = [eq(courses.tenantId, session.tenantId), isNull(courses.deletedAt)]
     if (category)  courseConditions.push(eq(courses.category, category))
     if (mandatory !== null && mandatory !== undefined)
       courseConditions.push(eq(courses.isMandatory, mandatory !== 'false'))
@@ -57,7 +57,7 @@ export async function GET(req: NextRequest) {
     }
 
     // ── Training Records (with employee details) ─────────────────────────
-    const recordConditions = [eq(trainingRecords.tenantId, session.tenantId)]
+    const recordConditions = [eq(trainingRecords.tenantId, session.tenantId), isNull(trainingRecords.deletedAt)]
     if (employeeId) recordConditions.push(eq(trainingRecords.employeeId, employeeId))
 
     const records = await db

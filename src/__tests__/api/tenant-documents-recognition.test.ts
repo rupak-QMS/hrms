@@ -82,6 +82,7 @@ vi.mock('drizzle-orm', () => ({
   lte:   vi.fn(() => 'lte'),
   ilike: vi.fn(() => 'ilike'),
   sql:   vi.fn(() => 'sql'),
+  isNull: vi.fn(() => 'isNull'),
 }))
 
 import { GET as docsGET, POST as docsPOST,
@@ -224,7 +225,7 @@ describe('DELETE /api/tenant/documents', () => {
   it('returns ok:true on successful delete', async () => {
     const res = await docsDELETE(makeReq('https://app.test/api/tenant/documents?id=d1')) as any
     expect(res.body.ok).toBe(true)
-    expect(mockDb.delete).toHaveBeenCalled()
+    expect(mockDb.update).toHaveBeenCalled()
   })
 })
 

@@ -70,6 +70,7 @@ vi.mock('@/lib/db/schema', () => ({
 vi.mock('drizzle-orm', () => ({
   eq: vi.fn(), and: vi.fn(), or: vi.fn(), ilike: vi.fn(),
   desc: vi.fn(), asc: vi.fn(), count: vi.fn(), sql: vi.fn(),
+  isNull: vi.fn(() => 'isNull'),
 }))
 
 // ── Imports after mocks ───────────────────────────────────────────────────────

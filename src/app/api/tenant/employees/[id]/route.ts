@@ -107,7 +107,7 @@ export async function DELETE(_: NextRequest, ctx: Ctx) {
   try {
     await db
       .update(employees)
-      .set({ isActive: false, endDate: new Date().toISOString().split('T')[0], updatedAt: new Date() })
+      .set({ isActive: false, endDate: new Date().toISOString().split('T')[0], updatedAt: new Date(), deletedAt: new Date() })
       .where(and(eq(employees.id, id), eq(employees.tenantId, session.tenantId!)))
     return NextResponse.json({ success: true })
   } catch {

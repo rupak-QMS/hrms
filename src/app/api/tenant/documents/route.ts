@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 import { documents, employees } from '@/lib/db/schema'
-import { eq, and, desc, ilike } from 'drizzle-orm'
+import { eq, and, desc, ilike, isNull } from 'drizzle-orm'
 import { apiGuard } from '@/lib/auth/apiGuard'
 import { writeAudit } from '@/lib/audit'
 import { z } from 'zod'
@@ -22,7 +22,7 @@ export async function GET(req: NextRequest) {
     const limit      = Math.min(Number(searchParams.get('limit') ?? 50), 200)
     const offset     = Number(searchParams.get('offset') ?? 0)
 
-    const conditions = [eq(documents.tenantId, session.tenantId)]
+    const conditions = [eq(documents.tenantId, session.tenantId), isNull(documents.deletedAt)]
     if (employeeId) conditions.push(eq(documents.employeeId, employeeId))
     if (category)   conditions.push(eq(documents.category, category))
     if (status)     conditions.push(eq(documents.status, status as any))
@@ -216,7 +216,8 @@ export async function DELETE(req: NextRequest) {
     }
 
     await db
-      .delete(documents)
+      .update(documents)
+      .set({ deletedAt: new Date() })
       .where(and(eq(documents.id, id), eq(documents.tenantId, session.tenantId)))
 
     writeAudit(req, session, {

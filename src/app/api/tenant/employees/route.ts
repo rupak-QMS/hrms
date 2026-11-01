@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import bcrypt from 'bcryptjs'
 import { db } from '@/lib/db'
 import { employees, departments, positions, users } from '@/lib/db/schema'
-import { eq, and, ilike, or, asc, count, sql } from 'drizzle-orm'
+import { eq, and, isNull, ilike, or, asc, count, sql } from 'drizzle-orm'
 import { apiGuard } from '@/lib/auth/apiGuard'
 
 // GET /api/tenant/employees?search=&status=&type=&page=1&limit=20
@@ -30,7 +30,7 @@ export async function GET(req: NextRequest) {
   const offset = (page - 1) * limit
 
   try {
-    const conditions = [eq(employees.tenantId, session.tenantId!)]
+    const conditions = [eq(employees.tenantId, session.tenantId!), isNull(employees.deletedAt)]
 
     if (status === 'active')   conditions.push(eq(employees.isActive, true))
     if (status === 'inactive') conditions.push(eq(employees.isActive, false))
