@@ -94,7 +94,7 @@ export async function PATCH(req: NextRequest, ctx: Ctx) {
       'isActive','complianceStatus','ndisWorker',
       'annualSalary','ordinaryHoursPerWeek',
     ]
-    const updates: Record<string, unknown> = { updatedAt: new Date(), version: sql\`\${employees.version} + 1\` }
+    const updates: Record<string, unknown> = { updatedAt: new Date(), version: sql`${employees.version} + 1` }
     for (const key of allowed) {
       if (key in body) updates[key] = body[key]
     }

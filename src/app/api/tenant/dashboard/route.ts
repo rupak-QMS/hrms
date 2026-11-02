@@ -108,13 +108,6 @@ export async function GET() {
   const avgHeadcount = total > 0 ? (total + active) / 2 : 1
   const attritionRatePct = parseFloat(((separatedLast12 / avgHeadcount) * 100).toFixed(1))
 
-  // Attendance rate: proportion of approved leave days this month vs expected working days
-  // Expected = active employees × 22 business days per month (industry estimate)
-  const expectedDaysThisMonth = active * 22
-  const approvedLeaveDaysThisMonth = parseInt(String(approvedMonthRow?.days ?? '0')) || 0
-  const attendanceRatePct = expectedDaysThisMonth > 0
-    ? parseFloat((((expectedDaysThisMonth - approvedLeaveDaysThisMonth) / expectedDaysThisMonth) * 100).toFixed(1))
-    : 100
 
   // ── 2. Payroll ────────────────────────────────────────────────────────────
   // YTD totals (approved/paid records)
@@ -181,6 +174,13 @@ export async function GET() {
       eq(leaveRequests.status, 'approved'),
       gte(leaveRequests.startDate, yearStart),
     ))
+  // Attendance rate: proportion of approved leave days this month vs expected working days
+  // Expected = active employees × 22 business days per month (industry estimate)
+  const expectedDaysThisMonth = active * 22
+  const approvedLeaveDaysThisMonth = parseInt(String(approvedMonthRow?.days ?? '0')) || 0
+  const attendanceRatePct = expectedDaysThisMonth > 0
+    ? parseFloat((((expectedDaysThisMonth - approvedLeaveDaysThisMonth) / expectedDaysThisMonth) * 100).toFixed(1))
+    : 100
 
   // ── 4. Public Holidays ────────────────────────────────────────────────────
   const upcomingHolidays = await db
