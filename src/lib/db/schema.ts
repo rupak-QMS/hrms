@@ -2022,3 +2022,31 @@ export const emailQueue = pgTable('hrms_email_queue', {
   statusIdx: index('email_queue_status_drizzle_idx').on(t.status, t.scheduledAt),
   tenantIdx: index('email_queue_tenant_drizzle_idx').on(t.tenantId),
 }))
+
+// ──────────────────────────────────────────────
+// RBAC — DB-backed permissions (gap 2.5)
+// ──────────────────────────────────────────────
+
+/** Master list of every permission key in the system */
+export const permissions = pgTable('hrms_permissions', {
+  id:          uuid('id').primaryKey().defaultRandom(),
+  key:         varchar('key', { length: 100 }).notNull().unique(),
+  module:      varchar('module', { length: 60 }).notNull(),
+  action:      varchar('action', { length: 20 }).notNull(),
+  description: text('description'),
+  createdAt:   timestamp('created_at').notNull().defaultNow(),
+}, (t) => ({
+  keyIdx: uniqueIndex('hrms_permissions_key_idx').on(t.key),
+}))
+
+/** Per-role permission grants — allows runtime modification without code deploys */
+export const rolePermissions = pgTable('hrms_role_permissions', {
+  id:           uuid('id').primaryKey().defaultRandom(),
+  role:         varchar('role', { length: 60 }).notNull(),
+  permissionId: uuid('permission_id').references(() => permissions.id, { onDelete: 'cascade' }).notNull(),
+  grantedAt:    timestamp('granted_at').notNull().defaultNow(),
+  grantedBy:    varchar('granted_by', { length: 100 }),
+}, (t) => ({
+  rolePermIdx: uniqueIndex('hrms_role_permissions_role_perm_idx').on(t.role, t.permissionId),
+  roleIdx:     index('hrms_role_permissions_role_idx').on(t.role),
+}))

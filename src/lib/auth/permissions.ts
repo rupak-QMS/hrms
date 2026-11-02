@@ -455,3 +455,60 @@ export const ROLE_LABELS: Record<UserRole, string> = {
   auditor:            'Auditor',
   it_admin:           'IT Admin',
 }
+
+// ─────────────────────────────────────────────────────────────
+// DB-backed permission lookup (gap 2.5)
+// Falls back to the in-memory constant when DB is unavailable.
+// ─────────────────────────────────────────────────────────────
+
+/** Simple in-process cache: role → Set<permission key> */
+const _dbCache = new Map<string, Set<string>>()
+let _cacheLoadedAt = 0
+const CACHE_TTL_MS = 5 * 60 * 1000  // 5 minutes
+
+/**
+ * Load permissions from DB for a given role, with a 5-minute TTL cache.
+ * Falls back to the in-memory ROLE_PERMISSIONS constant on any error.
+ */
+export async function getRolePermissionsFromDB(role: string): Promise<Set<string>> {
+  const now = Date.now()
+  if (_dbCache.has(role) && now - _cacheLoadedAt < CACHE_TTL_MS) {
+    return _dbCache.get(role)!
+  }
+
+  try {
+    // Dynamic import to avoid circular deps in SSR/edge contexts
+    const { db } = await import('@/lib/db')
+    const { permissions: permsTable, rolePermissions: rpTable } = await import('@/lib/db/schema')
+    const { eq } = await import('drizzle-orm')
+
+    const rows = await db
+      .select({ key: permsTable.key })
+      .from(rpTable)
+      .innerJoin(permsTable, eq(rpTable.permissionId, permsTable.id))
+      .where(eq(rpTable.role, role))
+
+    const set = new Set(rows.map(r => r.key))
+    _dbCache.set(role, set)
+    _cacheLoadedAt = now
+    return set
+  } catch {
+    // Fallback: use in-memory constant (safe for startup / edge runtime)
+    return new Set(ROLE_PERMISSIONS[role as UserRole] ?? [])
+  }
+}
+
+/**
+ * Async permission check — checks DB first, falls back to in-memory.
+ * Use in server components or API routes that can afford an async call.
+ */
+export async function hasPermissionAsync(role: string, permission: Permission): Promise<boolean> {
+  const perms = await getRolePermissionsFromDB(role)
+  return perms.has(permission)
+}
+
+/** Invalidate the in-process permission cache (call after a grant/revoke) */
+export function invalidatePermissionCache(): void {
+  _dbCache.clear()
+  _cacheLoadedAt = 0
+}
