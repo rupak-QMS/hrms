@@ -14,6 +14,7 @@ export const dynamic = 'force-dynamic'
 // Managers (leave:approve) see all requests; employees see only their own.
 // Query params: status, employeeId, leaveType, from (date), to (date)
 export async function GET(req: NextRequest) {
+  try {
   const guard = await apiGuard('leave:read')
   if (guard.error) return guard.error
   const { session } = guard
@@ -96,12 +97,17 @@ export async function GET(req: NextRequest) {
   }
 
   return NextResponse.json({ requests: rows, stats })
+  } catch (err: any) {
+    console.error('[leave GET]', err)
+    return NextResponse.json({ error: 'Failed to fetch leave requests', detail: err?.message ?? String(err), cause: err?.cause?.message ?? null }, { status: 500 })
+  }
 }
 
 // ── POST /api/tenant/leave ────────────────────────────────────────────────────
 // Any authenticated tenant user can submit a leave request for themselves.
 // Managers can submit on behalf of another employee by passing employeeId.
 export async function POST(req: NextRequest) {
+  try {
   const guard = await apiGuard('leave:write')
   if (guard.error) return guard.error
   const { session } = guard
@@ -179,12 +185,17 @@ export async function POST(req: NextRequest) {
   })()
 
   return NextResponse.json({ request: created }, { status: 201 })
+  } catch (err: any) {
+    console.error('[leave POST]', err)
+    return NextResponse.json({ error: 'Failed to submit leave request', detail: err?.message ?? String(err), cause: err?.cause?.message ?? null }, { status: 500 })
+  }
 }
 
 // ── PATCH /api/tenant/leave ───────────────────────────────────────────────────
 // approve / reject — requires leave:approve
 // cancel           — requires leave:write (own request only, if still pending)
 export async function PATCH(req: NextRequest) {
+  try {
   const guard = await apiGuard('leave:read')   // minimum read; further checked below
   if (guard.error) return guard.error
   const { session } = guard
@@ -289,6 +300,10 @@ export async function PATCH(req: NextRequest) {
   }
 
   return NextResponse.json({ error: `Unknown action: ${action}` }, { status: 400 })
+  } catch (err: any) {
+    console.error('[leave PATCH]', err)
+    return NextResponse.json({ error: 'Failed to update leave request', detail: err?.message ?? String(err), cause: err?.cause?.message ?? null }, { status: 500 })
+  }
 }
 
 function zeroStats() {

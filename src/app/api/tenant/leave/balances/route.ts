@@ -36,6 +36,7 @@ export const dynamic = 'force-dynamic'
  *   (maxCarryForwardDays null → no cap)
  */
 export async function GET(req: NextRequest) {
+  try {
   const guard = await apiGuard('leave:read')
   if (guard.error) return guard.error
   const { session } = guard
@@ -167,4 +168,8 @@ export async function GET(req: NextRequest) {
     year,
     employeeLinked: true,
   })
+  } catch (err: any) {
+    console.error('[leave/balances GET]', err)
+    return NextResponse.json({ error: 'Failed to fetch leave balances', detail: err?.message ?? String(err), cause: err?.cause?.message ?? null }, { status: 500 })
+  }
 }

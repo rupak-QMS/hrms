@@ -14,6 +14,7 @@ export const dynamic = 'force-dynamic'
  * Any authenticated tenant user can read this (used in the request form).
  */
 export async function GET(req: NextRequest) {
+  try {
   const guard = await apiGuard('leave:read')
   if (guard.error) return guard.error
 
@@ -28,6 +29,10 @@ export async function GET(req: NextRequest) {
   const types   = showAll ? merged : merged.filter(t => t.isActive)
 
   return NextResponse.json({ types })
+  } catch (err: any) {
+    console.error('[leave/types GET]', err)
+    return NextResponse.json({ error: 'Failed to fetch leave types', detail: err?.message ?? String(err), cause: err?.cause?.message ?? null }, { status: 500 })
+  }
 }
 
 /**
@@ -37,6 +42,7 @@ export async function GET(req: NextRequest) {
  * Requires leave:approve permission.
  */
 export async function PATCH(req: NextRequest) {
+  try {
   const guard = await apiGuard('leave:approve')
   if (guard.error) return guard.error
 
@@ -68,4 +74,8 @@ export async function PATCH(req: NextRequest) {
 
   const merged = mergeLeaveTypes(incoming)
   return NextResponse.json({ types: merged })
+  } catch (err: any) {
+    console.error('[leave/types PATCH]', err)
+    return NextResponse.json({ error: 'Failed to update leave types', detail: err?.message ?? String(err), cause: err?.cause?.message ?? null }, { status: 500 })
+  }
 }

@@ -8,9 +8,12 @@ export const dynamic = 'force-dynamic'
 
 type RouteContext = { params: Promise<{ id: string }> }
 
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
+
 // GET /api/tenant/payroll/[id]
 export async function GET(_req: NextRequest, ctx: RouteContext) {
   const { id } = await ctx.params
+  if (!UUID_RE.test(id)) return NextResponse.json({ error: 'Not found' }, { status: 404 })
   try {
     const guard = await apiGuard('payroll:read')
     if (guard.error) return guard.error
@@ -54,6 +57,7 @@ export async function GET(_req: NextRequest, ctx: RouteContext) {
 // DELETE /api/tenant/payroll/[id]
 export async function DELETE(_req: NextRequest, ctx: RouteContext) {
   const { id } = await ctx.params
+  if (!UUID_RE.test(id)) return NextResponse.json({ error: 'Not found' }, { status: 404 })
   const guard = await apiGuard('payroll:write')
   if (guard.error) return guard.error
   const { session } = guard

@@ -27,6 +27,7 @@ export const dynamic = 'force-dynamic'
  *   year, month
  */
 export async function GET(req: NextRequest) {
+  try {
   const guard = await apiGuard('leave:read')
   if (guard.error) return guard.error
   const { session } = guard
@@ -119,4 +120,8 @@ export async function GET(req: NextRequest) {
   })
 
   return NextResponse.json({ events, year, month })
+  } catch (err: any) {
+    console.error('[leave/calendar GET]', err)
+    return NextResponse.json({ error: 'Failed to fetch leave calendar', detail: err?.message ?? String(err), cause: err?.cause?.message ?? null }, { status: 500 })
+  }
 }

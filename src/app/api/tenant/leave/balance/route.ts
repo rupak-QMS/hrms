@@ -199,6 +199,7 @@ export async function GET(req: NextRequest) {
       },
     })
   } catch (err: any) {
-    return NextResponse.json({ error: err.message }, { status: 500 })
+    console.error('[leave/balance GET]', err)
+    return NextResponse.json({ error: err?.message ?? String(err), cause: err?.cause?.message ?? null }, { status: 500 })
   }
 }
