@@ -68,10 +68,16 @@ function LoginForm() {
     setLoading(true)
     setError('')
     try {
+      // Fallback to DOM values to handle browser/autofill cases where React
+      // controlled state may not have updated (e.g. password-manager autofill)
+      const emailEl = (e.target as HTMLFormElement).querySelector<HTMLInputElement>('input[type="email"]')
+      const passEl  = (e.target as HTMLFormElement).querySelector<HTMLInputElement>('input[type="password"]')
+      const resolvedEmail    = form.email    || emailEl?.value || ''
+      const resolvedPassword = form.password || passEl?.value  || ''
       const res  = await fetch('/api/auth/login', {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
-        body:    JSON.stringify({ ...form, tenantSlug }),
+        body:    JSON.stringify({ email: resolvedEmail, password: resolvedPassword, tenantSlug }),
       })
       const data = await res.json()
       if (!res.ok) { setError(data.error || 'Login failed'); return }
