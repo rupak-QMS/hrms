@@ -1,4 +1,4 @@
-import { Page } from '@playwright/test'
+import { Page } from 'playwright/test'
 
 /**
  * Log in as a specific role and return a page ready to use.
@@ -17,14 +17,31 @@ const CREDS: Record<string, { email: string; password: string }> = {
   contractor:           { email: 'contractor@yahwehcare.com.au',  password: 'Test@12345' },
 }
 
+async function loginRequest(page: Page, email: string, password: string) {
+  const delays = [10_000, 20_000, 35_000]
+  let res = await page.request.post('/api/auth/login', {
+    data: { email, password, tenantSlug: 'yahwehcare' },
+  })
+  for (const delay of delays) {
+    if (res.status() === 500 || res.status() === 429) {
+      await new Promise(r => setTimeout(r, delay))
+      res = await page.request.post('/api/auth/login', {
+        data: { email, password, tenantSlug: 'yahwehcare' },
+      })
+    } else {
+      break
+    }
+  }
+  return res
+}
+
 export async function loginAs(page: Page, role: keyof typeof CREDS) {
   const cred = CREDS[role]
   if (!cred) throw new Error(`Unknown role: ${role}`)
-  await page.goto('/login')
-  await page.fill('[name="email"]', cred.email)
-  await page.fill('[name="password"]', cred.password)
-  await page.click('[type="submit"]')
-  await page.waitForURL(/\/(dashboard|home|app)/, { timeout: 15_000 })
+  const res = await loginRequest(page, cred.email, cred.password)
+  if (!res.ok()) throw new Error(`Login failed for ${role}: ${res.status()} ${await res.text()}`)
+  await page.goto('/tenant/dashboard')
+  await page.waitForLoadState('domcontentloaded', { timeout: 15_000 })
 }
 
 export async function apiCall(

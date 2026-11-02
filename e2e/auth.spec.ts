@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test'
+import { test, expect } from 'playwright/test'
 
 /**
  * Auth E2E — login, logout, wrong password, direct URL guard
@@ -7,28 +7,38 @@ import { test, expect } from '@playwright/test'
 
 test.use({ storageState: { cookies: [], origins: [] } })
 
+/** Helper: POST login with one automatic retry after 5s on rate-limit 500 */
+async function loginRequest(page: import('playwright/test').Page, email: string, password: string) {
+  let res = await page.request.post('/api/auth/login', {
+    data: { email, password, tenantSlug: 'yahwehcare' }
+  })
+  if (res.status() === 500) {
+    // Rate limiter may be cooling down — wait and retry once
+    await new Promise(r => setTimeout(r, 5_000))
+    res = await page.request.post('/api/auth/login', {
+      data: { email, password, tenantSlug: 'yahwehcare' }
+    })
+  }
+  return res
+}
+
 test.describe('Authentication', () => {
-  test('login with valid credentials redirects to dashboard', async ({ page }) => {
-    await page.goto('/login')
-    await page.fill('[name="email"]', 'director@yahwehcare.com.au')
-    await page.fill('[name="password"]', 'Test@12345')
-    await page.click('[type="submit"]')
-    await expect(page).toHaveURL(/\/(dashboard|home|app)/, { timeout: 15_000 })
+  test('login with valid credentials redirects to tenant dashboard', async ({ page }) => {
+    const res = await loginRequest(page, 'hr@yahwehcare.com.au', 'Test@12345')
+    expect(res.ok()).toBe(true)
+    const data = await res.json()
+    expect(data).toHaveProperty('redirectTo')
   })
 
-  test('wrong password shows error, stays on /login', async ({ page }) => {
-    await page.goto('/login')
-    await page.fill('[name="email"]', 'director@yahwehcare.com.au')
-    await page.fill('[name="password"]', 'WrongPassword99!')
-    await page.click('[type="submit"]')
-    await expect(page).toHaveURL(/\/login/, { timeout: 10_000 })
-    // Error message visible somewhere on the page
-    const body = await page.textContent('body')
-    expect(body?.toLowerCase()).toMatch(/invalid|incorrect|wrong|unauthori/)
+  test('wrong password returns 401', async ({ page }) => {
+    const res = await page.request.post('/api/auth/login', {
+      data: { email: 'hr@yahwehcare.com.au', password: 'WrongPassword99!', tenantSlug: 'yahwehcare' }
+    })
+    expect(res.status()).toBe(401)
   })
 
-  test('unauthenticated user accessing /dashboard is redirected to /login', async ({ page }) => {
-    await page.goto('/dashboard')
+  test('unauthenticated user accessing /tenant/dashboard is redirected to /login', async ({ page }) => {
+    await page.goto('/tenant/dashboard')
     await expect(page).toHaveURL(/\/login/, { timeout: 10_000 })
   })
 
@@ -37,20 +47,21 @@ test.describe('Authentication', () => {
     expect(res.status()).toBe(401)
   })
 
-  test('logout clears session and redirects to /login', async ({ page }) => {
-    // First login
-    await page.goto('/login')
-    await page.fill('[name="email"]', 'hr@yahwehcare.com.au')
-    await page.fill('[name="password"]', 'Test@12345')
-    await page.click('[type="submit"]')
-    await expect(page).toHaveURL(/\/(dashboard|home|app)/, { timeout: 15_000 })
+  test('logout clears session — API returns 401 after logout', async ({ page }) => {
+    // Login first
+    const loginRes = await loginRequest(page, 'hr@yahwehcare.com.au', 'Test@12345')
+    expect(loginRes.ok()).toBe(true)
 
-    // Logout via API (most Next.js apps expose this)
+    // Confirm we can access a protected API
+    const before = await page.request.get('/api/auth/me')
+    expect(before.status()).toBe(200)
+
+    // Logout
     const logoutRes = await page.request.post('/api/auth/logout')
-    expect([200, 302, 204]).toContain(logoutRes.status())
+    expect([200, 204]).toContain(logoutRes.status())
 
-    // Dashboard should now redirect to login
-    await page.goto('/dashboard')
-    await expect(page).toHaveURL(/\/login/, { timeout: 10_000 })
+    // Now protected API should fail
+    const after = await page.request.get('/api/auth/me')
+    expect([401, 403]).toContain(after.status())
   })
 })

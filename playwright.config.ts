@@ -18,7 +18,7 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,
   workers: 1,                   // one browser at a time (rate-limit safety)
-  timeout: 30_000,
+  timeout: 120_000,             // 2 min — covers loginAs retry waits (up to 65s)
   expect: { timeout: 10_000 },
 
   reporter: [
@@ -37,7 +37,7 @@ export default defineConfig({
   projects: [
     // ── Auth state setup (runs before all spec files) ───────────────
     {
-      name: 'setup-director',
+      name: 'setup-hr',
       testMatch: '**/setup/auth.setup.ts',
       use: { ...devices['Desktop Chrome'] },
     },
@@ -47,9 +47,10 @@ export default defineConfig({
       name: 'e2e',
       use: {
         ...devices['Desktop Chrome'],
-        storageState: 'e2e/.auth/director.json',
+        storageState: 'e2e/.auth/hr_officer.json',
       },
-      dependencies: ['setup-director'],
+      dependencies: ['setup-hr'],
+      testIgnore: '**/rbac.spec.ts',
     },
 
     // ── RBAC suite (no auth dependency — sets up its own sessions) ──

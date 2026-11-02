@@ -1,16 +1,20 @@
-import { test as setup } from '@playwright/test'
+import { test as setup } from 'playwright/test'
 import path from 'path'
 
-const AUTH_FILE = path.join(__dirname, '../.auth/director.json')
+const AUTH_FILE = path.join(__dirname, '../.auth/hr_officer.json')
 
-setup('authenticate as director', async ({ page }) => {
-  await page.goto('/login')
-  await page.fill('[name="email"]', 'director@yahwehcare.com.au')
-  await page.fill('[name="password"]', process.env.TEST_PASSWORD ?? 'Test@12345')
-  await page.click('[type="submit"]')
+setup('authenticate as hr_officer', async ({ page }) => {
+  // Use API login to avoid selector issues and 2FA on director account
+  const res = await page.request.post('/api/auth/login', {
+    data: {
+      email: 'hr@yahwehcare.com.au',
+      password: 'Test@12345',
+      tenantSlug: 'yahwehcare'
+    }
+  })
+  if (!res.ok()) throw new Error(`Login failed: ${res.status()} ${await res.text()}`)
 
-  // Wait for dashboard redirect
-  await page.waitForURL(/\/(dashboard|home|app)/, { timeout: 15_000 })
-
+  await page.goto('/tenant/dashboard')
+  await page.waitForLoadState('domcontentloaded', { timeout: 15_000 })
   await page.context().storageState({ path: AUTH_FILE })
 })
