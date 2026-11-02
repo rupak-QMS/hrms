@@ -112,6 +112,7 @@ export const employees = pgTable('hrms_employees', {
   // Compliance
   complianceStatus: complianceStatusEnum('compliance_status').notNull().default('pending'),
   ndisWorker:       boolean('ndis_worker').notNull().default(false),
+  version:          integer('version').notNull().default(1),
   createdAt:        timestamp('created_at').notNull().defaultNow(),
   updatedAt:        timestamp('updated_at').notNull().defaultNow(),
   deletedAt:        timestamp('deleted_at'),

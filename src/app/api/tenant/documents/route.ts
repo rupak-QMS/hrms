@@ -162,6 +162,7 @@ export async function POST(req: NextRequest) {
 
 const PatchDocumentSchema = z.object({
   id:         z.string().uuid(),
+  version:    z.number().int().positive().optional(),
   status:     z.enum(['active', 'expired', 'archived']).optional(),
   expiryDate: z.string().optional().nullable(),
   notes:      z.string().optional().nullable(),
@@ -182,11 +183,26 @@ export async function PATCH(req: NextRequest) {
     if (!parsed.success) {
       return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 })
     }
-    const { id, ...fields } = parsed.data
+    const { id, version: clientVersion, ...fields } = parsed.data
+
+    // Optimistic locking: if caller sends `version`, verify it matches DB before updating
+    if (typeof clientVersion === 'number') {
+      const [current] = await db
+        .select({ version: documents.version })
+        .from(documents)
+        .where(and(eq(documents.id, id), eq(documents.tenantId, session.tenantId)))
+      if (!current) return NextResponse.json({ error: 'Document not found' }, { status: 404 })
+      if (current.version !== clientVersion) {
+        return NextResponse.json(
+          { error: 'Conflict: record was modified by another user', currentVersion: current.version },
+          { status: 409 },
+        )
+      }
+    }
 
     const [row] = await db
       .update(documents)
-      .set({ ...fields, updatedAt: new Date() } as any)
+      .set({ ...fields, updatedAt: new Date(), version: sql`${documents.version} + 1` } as any)
       .where(and(eq(documents.id, id), eq(documents.tenantId, session.tenantId)))
       .returning({
         id:         documents.id,
@@ -194,6 +210,7 @@ export async function PATCH(req: NextRequest) {
         status:     documents.status,
         expiryDate: documents.expiryDate,
         notes:      documents.notes,
+        version:    documents.version,
       })
 
     writeAudit(req, session, {

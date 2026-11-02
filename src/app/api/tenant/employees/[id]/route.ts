@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 import { employees, departments, positions } from '@/lib/db/schema'
-import { eq, and } from 'drizzle-orm'
+import { eq, and, sql } from 'drizzle-orm'
 import { apiGuard } from '@/lib/auth/apiGuard'
 
 type Ctx = { params: Promise<{ id: string }> }
@@ -69,6 +69,22 @@ export async function PATCH(req: NextRequest, ctx: Ctx) {
   const { id } = await ctx.params
   try {
     const body = await req.json()
+
+    // Optimistic locking: if caller sends `version`, verify it matches DB before updating
+    if (typeof body.version === 'number') {
+      const [current] = await db
+        .select({ version: employees.version })
+        .from(employees)
+        .where(and(eq(employees.id, id), eq(employees.tenantId, session.tenantId!)))
+      if (!current) return NextResponse.json({ error: 'Employee not found' }, { status: 404 })
+      if (current.version !== body.version) {
+        return NextResponse.json(
+          { error: 'Conflict: record was modified by another user', currentVersion: current.version },
+          { status: 409 },
+        )
+      }
+    }
+
     const allowed = [
       'firstName','lastName','preferredName','dateOfBirth','gender',
       'phone','email','address','photoUrl',
@@ -78,7 +94,7 @@ export async function PATCH(req: NextRequest, ctx: Ctx) {
       'isActive','complianceStatus','ndisWorker',
       'annualSalary','ordinaryHoursPerWeek',
     ]
-    const updates: Record<string, unknown> = { updatedAt: new Date() }
+    const updates: Record<string, unknown> = { updatedAt: new Date(), version: sql\`\${employees.version} + 1\` }
     for (const key of allowed) {
       if (key in body) updates[key] = body[key]
     }
