@@ -56,7 +56,7 @@ export async function GET(req: NextRequest) {
   const conditions = [eq(leaveRequests.tenantId, session.tenantId)]
   if (scopedEmployeeId) conditions.push(eq(leaveRequests.employeeId, scopedEmployeeId))
   if (filterStatus) conditions.push(eq(leaveRequests.status, filterStatus as any))
-  if (filterType)   conditions.push(eq(leaveRequests.leaveType, filterType))
+  if (filterType)   conditions.push(eq(leaveRequests.leaveType, filterType as 'annual' | 'sick' | 'personal' | 'unpaid' | 'long_service' | 'carer' | 'compassionate'))
   if (filterFrom)   conditions.push(gte(leaveRequests.startDate, filterFrom as any))
   if (filterTo)     conditions.push(lte(leaveRequests.endDate,   filterTo as any))
 
@@ -70,7 +70,7 @@ export async function GET(req: NextRequest) {
       startDate:      leaveRequests.startDate,
       endDate:        leaveRequests.endDate,
       totalDays:      leaveRequests.totalDays,
-      notes:          leaveRequests.notes,
+      notes:          leaveRequests.reason,
       createdAt:      leaveRequests.createdAt,
     })
     .from(leaveRequests)

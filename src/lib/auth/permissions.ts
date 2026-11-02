@@ -99,6 +99,7 @@ export type Permission =
   | 'referrals:write'
   // Leave Management
   | 'leave:read'
+  | 'leave:create'
   | 'leave:write'
   | 'leave:approve'
   // CRM
@@ -200,7 +201,7 @@ const ROLE_PERMISSIONS: Record<UserRole, Permission[]> = {
     'engagement:read', 'engagement:write',
     'recognition:read', 'recognition:write',
     'referrals:read', 'referrals:write',
-    'leave:read', 'leave:write', 'leave:approve',
+    'leave:read', 'leave:write', 'leave:create', 'leave:approve',
     'crm:read', 'crm:write',
     'expenses:read', 'expenses:write', 'expenses:approve',
     'ndis_audits:read', 'ndis_audits:write',
@@ -247,7 +248,7 @@ const ROLE_PERMISSIONS: Record<UserRole, Permission[]> = {
     'engagement:read', 'engagement:write',
     'recognition:read', 'recognition:write',
     'referrals:read',
-    'leave:read', 'leave:write', 'leave:approve',
+    'leave:read', 'leave:write', 'leave:create', 'leave:approve',
     'crm:read', 'crm:write',
     'expenses:read', 'expenses:write', 'expenses:approve',
     'ndis_audits:read', 'ndis_audits:write',
@@ -393,7 +394,7 @@ const ROLE_PERMISSIONS: Record<UserRole, Permission[]> = {
     'whs:read',
     'benefits:read',
     'competencies:read',
-    'leave:read', 'leave:write',
+    'leave:read', 'leave:write', 'leave:create',
     'rostering:read',   // view own schedule
     'timesheets:read', 'timesheets:write',  // clock in/out, view own
     'expenses:read', 'expenses:write',      // submit and view own claims

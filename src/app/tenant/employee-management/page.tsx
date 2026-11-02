@@ -223,7 +223,7 @@ EMP001,Jane,Smith,jane.smith@example.com,full_time,2026-01-15,,+61400000001,Yahw
                   className="flex-1 py-2.5 rounded-xl text-sm font-semibold text-white disabled:opacity-50 transition hover:opacity-90"
                   style={{ background: 'var(--primary)' }}
                 >
-                  {status === 'uploading' ? 'Uploading…' : 'Import'}
+                  {status === 'importing' ? 'Importing…' : 'Import'}
                 </button>
               </div>
             </>

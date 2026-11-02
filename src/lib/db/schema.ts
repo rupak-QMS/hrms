@@ -1015,6 +1015,7 @@ export const payrollRecords = pgTable('hrms_payroll_records', {
   id:               uuid('id').primaryKey().defaultRandom(),
   tenantId:         uuid('tenant_id').notNull().references(() => tenants.id),
   employeeId:       uuid('employee_id').notNull().references(() => employees.id),
+  payrollRunId:     uuid('payroll_run_id').references(() => payrollRuns.id),
   periodStart:      date('period_start').notNull(),
   periodEnd:        date('period_end').notNull(),
   // Pay inputs
