@@ -63,21 +63,23 @@ export async function POST(req: NextRequest) {
       inArray(timesheets.id, toApprove.map(t => t.id)),
     ))
 
-  // Fire-and-forget notifications per employee
+  // Fire-and-forget notifications per employee (batched — avoids N+1)
   ;(async () => {
     // Group by employeeId to send one notification per employee
     const empMap = new Map<string, number>()
     for (const t of toApprove) {
       empMap.set(t.employeeId, (empMap.get(t.employeeId) ?? 0) + 1)
     }
+    // Single batch query instead of one query per employee
+    const empRows = await db
+      .select({ id: employees.id, userId: employees.userId })
+      .from(employees)
+      .where(inArray(employees.id, Array.from(empMap.keys())))
+    const userIdByEmpId = new Map(empRows.map(e => [e.id, e.userId]))
     for (const [employeeId, count] of empMap) {
-      const [emp] = await db
-        .select({ userId: employees.userId })
-        .from(employees)
-        .where(eq(employees.id, employeeId))
-        .limit(1)
-      if (emp?.userId) {
-        notify(session.tenantId, emp.userId, {
+      const userId = userIdByEmpId.get(employeeId)
+      if (userId) {
+        notify(session.tenantId, userId, {
           type:  'payroll',
           title: `${count} timesheet${count > 1 ? 's' : ''} approved`,
           body:  `${count} of your timesheet${count > 1 ? 's have' : ' has'} been approved.`,

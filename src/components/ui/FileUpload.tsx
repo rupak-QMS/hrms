@@ -163,6 +163,7 @@ export default function FileUpload({
           onChange={onInputChange}
           className="sr-only"
           disabled={disabled || uploading}
+          aria-label="Upload file"
         />
 
         {uploading ? (
