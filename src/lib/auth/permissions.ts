@@ -244,6 +244,7 @@ const ROLE_PERMISSIONS: Record<UserRole, Permission[]> = {
     'analytics:read',
     'benefits:read', 'benefits:write',
     'competencies:read', 'competencies:write',
+    'assets:read', 'assets:write',
     'dei:read', 'dei:write',
     'engagement:read', 'engagement:write',
     'recognition:read', 'recognition:write',
