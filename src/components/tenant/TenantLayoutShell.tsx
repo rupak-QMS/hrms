@@ -8,6 +8,7 @@ import TenantUserDropdown from '@/components/tenant/TenantUserDropdown'
 import CommandPalette from '@/components/ui/CommandPalette'
 import QuickAdd from '@/components/ui/QuickAdd'
 import PlatformAnnouncementBanner from '@/components/tenant/PlatformAnnouncementBanner'
+import Breadcrumbs from '@/components/tenant/Breadcrumbs'
 
 type NavItem = { key: string; label: string }
 
@@ -110,6 +111,7 @@ export default function TenantLayoutShell({
 
         {/* Page content */}
         <main className="flex-1 overflow-y-auto p-3 sm:p-4 md:p-5 bg-[#f3f4f8] dark:bg-[#050817]">
+          <Breadcrumbs />
           {children}
         </main>
       </div>

@@ -98,6 +98,24 @@ export async function GET() {
   const redCount   = activeEmps.filter(e => e.complianceStatus === 'red').length
   const amberCount = activeEmps.filter(e => e.complianceStatus === 'amber').length
 
+  // Attrition rate: employees whose endDate fell in the last 12 months / avg headcount
+  const twelveMonthsAgo = new Date(now)
+  twelveMonthsAgo.setFullYear(twelveMonthsAgo.getFullYear() - 1)
+  const twelveMonthsAgoStr = twelveMonthsAgo.toISOString().slice(0, 10)
+  const separatedLast12 = allEmployees.filter(
+    e => e.endDate && e.endDate >= twelveMonthsAgoStr && e.endDate <= today
+  ).length
+  const avgHeadcount = total > 0 ? (total + active) / 2 : 1
+  const attritionRatePct = parseFloat(((separatedLast12 / avgHeadcount) * 100).toFixed(1))
+
+  // Attendance rate: proportion of approved leave days this month vs expected working days
+  // Expected = active employees × 22 business days per month (industry estimate)
+  const expectedDaysThisMonth = active * 22
+  const approvedLeaveDaysThisMonth = parseInt(String(approvedMonthRow?.days ?? '0')) || 0
+  const attendanceRatePct = expectedDaysThisMonth > 0
+    ? parseFloat((((expectedDaysThisMonth - approvedLeaveDaysThisMonth) / expectedDaysThisMonth) * 100).toFixed(1))
+    : 100
+
   // ── 2. Payroll ────────────────────────────────────────────────────────────
   // YTD totals (approved/paid records)
   const [ytdRow] = await db
@@ -226,6 +244,8 @@ export async function GET() {
       byEmploymentType: Object.entries(typeMap).map(([type, count]) => ({ type, count })),
       newThisMonth,
       leavingThisMonth,
+      attritionRatePct,
+      attendanceRatePct,
     },
     payroll: {
       lastRunPeriodStart,
