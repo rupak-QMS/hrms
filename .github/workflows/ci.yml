@@ -82,7 +82,6 @@ jobs:
 
       - name: Test
         run: dotnet test api/YahwehHrms.sln --no-build --verbosity normal
-        continue-on-error: true  # no tests yet in scaffold
 
 
   # ── Vercel Preview Deployment (PRs only) ────────────────────────────────────
