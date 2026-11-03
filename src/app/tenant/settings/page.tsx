@@ -1,4 +1,7 @@
 'use client'
+
+import Image from 'next/image'
+'use client'
 import { fetchWithAuth } from '@/lib/fetchWithAuth'
 
 import { useEffect, useRef, useState } from 'react'
@@ -276,7 +279,7 @@ export default function TenantSettingsPage() {
                   {/* Preview box */}
                   <div className="w-28 h-28 rounded-xl bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 flex items-center justify-center overflow-hidden shrink-0">
                     {logoUrl ? (
-                      <img src={logoUrl} alt="Logo" className="max-h-full max-w-full object-contain p-2" />
+                      <Image src={logoUrl} alt="Logo" width={200} height={80} className="max-h-full max-w-full object-contain p-2" unoptimized />
                     ) : (
                       <div
                         className="w-14 h-14 rounded-xl flex items-center justify-center text-white text-2xl font-bold"
@@ -329,7 +332,7 @@ export default function TenantSettingsPage() {
                     <div className="w-56 bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden">
                       <div className="px-4 py-3 border-b border-white/10" style={{ background: '#111827' }}>
                         {logoUrl ? (
-                          <img src={logoUrl} alt="Logo" className="h-8 object-contain" />
+                          <Image src={logoUrl} alt="Logo" width={120} height={32} className="h-8 object-contain" unoptimized />
                         ) : (
                           <div className="flex items-center gap-2.5">
                             <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white text-sm font-bold shrink-0"

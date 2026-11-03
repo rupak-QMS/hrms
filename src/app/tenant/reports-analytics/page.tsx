@@ -148,7 +148,6 @@ const REPORT_CONFIGS: ReportConfig[] = [
 
 const GROUPS = [...new Set(REPORT_CONFIGS.map(r => r.group))]
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type ReportRow = Record<string, any>
 
 interface SavedReport {

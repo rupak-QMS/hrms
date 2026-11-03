@@ -19,8 +19,6 @@
 type CsvColumn<T> = {
   header: string
   key: keyof T
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   format?: (value: any, row: any) => string
 }
 

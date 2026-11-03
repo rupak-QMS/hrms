@@ -1,6 +1,7 @@
 'use client'
 
 import { usePathname, useRouter } from 'next/navigation'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useState, useRef, useEffect } from 'react'
 import Icon, { type IconName } from '@/components/ui/Icon'
@@ -243,7 +244,7 @@ export default function TenantSidebar({
         style={{ borderBottom: `1px solid ${borderClr}` }}
       >
         {logoUrl ? (
-          <img src={logoUrl} alt={tenantName} className="h-7 max-w-[140px] object-contain" />
+          <Image src={logoUrl} alt={tenantName} width={140} height={28} className="h-7 max-w-[140px] object-contain" unoptimized />
         ) : (
           <>
             <div

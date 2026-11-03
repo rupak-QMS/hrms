@@ -145,6 +145,7 @@ export default function WorkforcePlanningPage() {
     setPlansLoading(false)
   }, [])
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => { loadWorkforce(); loadPlans() }, [])
 
   // ── Form helpers ──────────────────────────────────────────────────────────────
