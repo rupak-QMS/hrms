@@ -56,10 +56,11 @@ public class JwtServiceTests
         var svc  = BuildService(expiresInHours: 4);
         var user = new User { Id = Guid.NewGuid(), Email = "x@y.com", Role = "employee", TenantId = Guid.NewGuid() };
 
+        var before   = DateTime.UtcNow;
         var jwt      = Decode(svc.GenerateTenantUserToken(user));
-        var duration = jwt.ValidTo - jwt.ValidFrom;
 
-        Assert.InRange(duration.TotalHours, 3.99, 4.01);
+        // ValidFrom is MinValue when notBefore is not set; compare ValidTo to pre-call timestamp
+        Assert.InRange((jwt.ValidTo - before).TotalHours, 3.99, 4.01);
     }
 
     [Fact]
@@ -109,9 +110,9 @@ public class JwtServiceTests
         var svc  = new JwtService(config);
         var user = new User { Id = Guid.NewGuid(), Email = "a@b.com", Role = "employee", TenantId = Guid.NewGuid() };
 
-        var jwt      = Decode(svc.GenerateTenantUserToken(user));
-        var duration = jwt.ValidTo - jwt.ValidFrom;
+        var before = DateTime.UtcNow;
+        var jwt    = Decode(svc.GenerateTenantUserToken(user));
 
-        Assert.InRange(duration.TotalHours, 7.99, 8.01);
+        Assert.InRange((jwt.ValidTo - before).TotalHours, 7.99, 8.01);
     }
 }
