@@ -15,6 +15,7 @@ const CREDS: Record<string, { email: string; password: string }> = {
   auditor:              { email: 'auditor@yahwehcare.com.au',     password: 'Test@12345' },
   employee:             { email: 'employee@yahwehcare.com.au',    password: 'Test@12345' },
   contractor:           { email: 'contractor@yahwehcare.com.au',  password: 'Test@12345' },
+  it_admin:             { email: 'itadmin@yahwehcare.com.au',     password: 'Test@12345' },
 }
 
 async function loginRequest(page: Page, email: string, password: string) {
