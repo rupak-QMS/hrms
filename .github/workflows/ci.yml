@@ -136,6 +136,8 @@ jobs:
     needs: [frontend, unit-tests]
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    outputs:
+      deployment_url: 'https://yahwehcare-hrmsapp.vercel.app'
     steps:
       - uses: actions/checkout@v4
 
@@ -178,11 +180,23 @@ jobs:
             --service "${{ secrets.RAILWAY_SERVICE_ID }}" \
             --detach
 
-  # ── Playwright E2E (runs against staging after frontend build) ─────────────
+  # ── Playwright E2E (main: after production deploy; PRs: after preview deploy) ──
   e2e:
     name: Playwright E2E Tests
-    needs: [frontend]
     runs-on: ubuntu-latest
+    # On main: wait for production deploy so tests hit the freshly deployed code.
+    # On PRs: wait for preview deploy so tests hit the PR's preview URL.
+    needs:
+      - frontend
+      - deploy-frontend
+      - preview
+    # deploy-frontend only runs on main; preview only runs on PRs.
+    # GitHub skips a job if its dependency is skipped (not failed),
+    # so this if-condition ensures e2e runs in both cases.
+    if: |
+      always() &&
+      needs.frontend.result == 'success' &&
+      (needs.deploy-frontend.result == 'success' || needs.preview.result == 'success')
     steps:
       - uses: actions/checkout@v4
 
@@ -201,7 +215,8 @@ jobs:
       - name: Run Playwright tests
         run: npx playwright test
         env:
-          BASE_URL: ${{ secrets.E2E_BASE_URL || 'https://yahwehcare-hrmsapp.vercel.app' }}
+          # PRs use preview URL; main pushes use the stable staging alias.
+          BASE_URL: ${{ needs.preview.outputs.preview_url || secrets.E2E_BASE_URL || 'https://yahwehcare-hrmsapp.vercel.app' }}
           TEST_PASSWORD: ${{ secrets.E2E_TEST_PASSWORD }}
           CI: true
 
