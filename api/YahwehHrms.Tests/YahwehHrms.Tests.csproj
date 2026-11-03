@@ -25,11 +25,13 @@
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions"  Version="8.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing"          Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\YahwehHrms.Core\YahwehHrms.Core.csproj" />
     <ProjectReference Include="..\YahwehHrms.Infrastructure\YahwehHrms.Infrastructure.csproj" />
+    <ProjectReference Include="..\YahwehHrms.API\YahwehHrms.API.csproj" />
   </ItemGroup>
 
 </Project>

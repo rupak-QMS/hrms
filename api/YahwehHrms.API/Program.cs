@@ -113,10 +113,13 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.AddAuthorization();
 builder.Services.AddSignalR();
 
-builder.Services.AddHangfire(config =>
-    config.UsePostgreSqlStorage(
-        builder.Configuration.GetConnectionString("DefaultConnection")));
-builder.Services.AddHangfireServer();
+if (!builder.Environment.IsEnvironment("Testing"))
+{
+    builder.Services.AddHangfire(config =>
+        config.UsePostgreSqlStorage(
+            builder.Configuration.GetConnectionString("DefaultConnection")));
+    builder.Services.AddHangfireServer();
+}
 
 builder.Services.AddCors(options =>
 {
@@ -167,7 +170,10 @@ app.UseMiddleware<ModuleGuardMiddleware>();
 
 if (app.Environment.IsDevelopment())
 {
-    app.UseHangfireDashboard("/hangfire");
+    if (!app.Environment.IsEnvironment("Testing"))
+    {
+        app.UseHangfireDashboard("/hangfire");
+    }
 }
 
 // /health/live — liveness probe; always returns 200 (no DB dependency).
@@ -193,3 +199,5 @@ app.MapHub<NotificationHub>("/hubs/notifications");
 app.MapHealthChecks("/health");
 
 app.Run();
+
+public partial class Program { }
