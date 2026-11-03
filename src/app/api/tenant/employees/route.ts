@@ -24,7 +24,8 @@ export async function GET(req: NextRequest) {
   const { searchParams } = req.nextUrl
   const search = searchParams.get('search') ?? ''
   const status = searchParams.get('status')           // 'active' | 'inactive'
-  const type   = searchParams.get('type')             // employment_type
+  const type       = searchParams.get('type')             // employment_type
+  const ndisFilter = searchParams.get('ndisWorker')       // 'true' | null
   const page   = Math.max(1, Number(searchParams.get('page') ?? 1))
   const limit  = Math.min(500, Number(searchParams.get('limit') ?? 20))
   const offset = (page - 1) * limit
@@ -35,6 +36,7 @@ export async function GET(req: NextRequest) {
     if (status === 'active')   conditions.push(eq(employees.isActive, true))
     if (status === 'inactive') conditions.push(eq(employees.isActive, false))
     if (type) conditions.push(eq(employees.employmentType, type as any))
+    if (ndisFilter === 'true') conditions.push(eq(employees.ndisWorker, true))
 
     const query = db
       .select({

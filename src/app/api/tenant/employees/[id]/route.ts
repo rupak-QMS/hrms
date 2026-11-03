@@ -40,6 +40,7 @@ export async function GET(_: NextRequest, ctx: Ctx) {
         isActive:            employees.isActive,
         complianceStatus:    employees.complianceStatus,
         ndisWorker:           employees.ndisWorker,
+        version:              employees.version,
         annualSalary:         employees.annualSalary,
         ordinaryHoursPerWeek: employees.ordinaryHoursPerWeek,
         createdAt:            employees.createdAt,
