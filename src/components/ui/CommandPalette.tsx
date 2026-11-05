@@ -74,7 +74,7 @@ export default function CommandPalette() {
   if (!open) return null
 
   const groups = [
-    { label: 'Employees',    kind: 'employee',    color: 'text-indigo-600 dark:text-indigo-400' },
+    { label: 'Employees',    kind: 'employee',    color: 'text-[#0E3D52] dark:text-[#4ebac4]' },
     { label: 'Documents',    kind: 'document',    color: 'text-emerald-600 dark:text-emerald-400' },
     { label: 'Participants', kind: 'participant',  color: 'text-amber-600 dark:text-amber-400' },
   ]
@@ -106,10 +106,10 @@ export default function CommandPalette() {
                     <button key={item.data.id} onClick={() => navigate(item.href)} onMouseEnter={() => setCursor(idx)} className={`w-full text-left flex items-center gap-3 px-4 py-2.5 transition-colors ${active ? 'bg-indigo-50 dark:bg-indigo-900/30' : 'hover:bg-gray-50 dark:hover:bg-gray-800/50'}`}>
                       <span className="text-lg flex-shrink-0">{item.icon}</span>
                       <div className="flex-1 min-w-0">
-                        <p className={`text-sm font-medium truncate ${active ? 'text-indigo-700 dark:text-indigo-300' : 'text-gray-900 dark:text-white'}`}>{item.label}</p>
+                        <p className={`text-sm font-medium truncate ${active ? 'text-[#0E3D52] dark:text-[#4ebac4]' : 'text-gray-900 dark:text-white'}`}>{item.label}</p>
                         <p className="text-xs text-gray-500 dark:text-gray-400 truncate">{item.sub}</p>
                       </div>
-                      {active && <span className="text-xs text-indigo-400 flex-shrink-0">↵ open</span>}
+                      {active && <span className="text-xs text-[#4ebac4] flex-shrink-0">↵ open</span>}
                     </button>
                   )
                 })}

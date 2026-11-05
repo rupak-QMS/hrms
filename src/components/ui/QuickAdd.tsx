@@ -89,7 +89,7 @@ export default function QuickAdd() {
             >
               <span className="text-xl flex-shrink-0">{opt.icon}</span>
               <div className="flex-1 min-w-0">
-                <p className={`text-sm font-medium ${idx === cursor ? 'text-indigo-700 dark:text-indigo-300' : 'text-gray-900 dark:text-white'}`}>
+                <p className={`text-sm font-medium ${idx === cursor ? 'text-[#0E3D52] dark:text-[#4ebac4]' : 'text-gray-900 dark:text-white'}`}>
                   {opt.label}
                 </p>
                 <p className="text-xs text-gray-400 truncate">{opt.description}</p>

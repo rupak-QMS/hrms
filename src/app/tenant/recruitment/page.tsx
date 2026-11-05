@@ -33,7 +33,7 @@ type Stats = { total: number; open: number; draft: number; closed: number; total
 
 const APP_STATUSES = [
   { value: 'received',    label: 'Received',    color: 'badge badge-blue' },
-  { value: 'shortlisted', label: 'Shortlisted', color: 'badge badge-purple' },
+  { value: 'shortlisted', label: 'Shortlisted', color: 'badge badge-teal' },
   { value: 'interviewed', label: 'Interviewed', color: 'badge badge-amber' },
   { value: 'checks',      label: 'Ref Checks',  color: 'badge badge-amber' },
   { value: 'offer',       label: 'Offer',       color: 'badge badge-teal' },

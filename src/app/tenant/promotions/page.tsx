@@ -26,7 +26,7 @@ const STATUS_STYLE: Record<string, string> = {
   under_review: 'badge badge-blue',
   approved:     'badge badge-green',
   rejected:     'badge badge-red',
-  implemented:  'badge badge-purple',
+  implemented:  'badge badge-teal',
 }
 
 const STATUS_LABEL: Record<string, string> = {

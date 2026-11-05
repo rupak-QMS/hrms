@@ -17,7 +17,7 @@ type Employee = { id: string; firstName: string; lastName: string }
 
 const STATUS_STYLE: Record<string, string> = {
   pending:   'badge badge-blue',
-  screening: 'badge badge-purple',
+  screening: 'badge badge-teal',
   hired:     'badge badge-green',
   rejected:  'badge badge-red',
 }

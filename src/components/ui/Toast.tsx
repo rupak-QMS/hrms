@@ -57,7 +57,7 @@ export default function Toast({
     info: {
       bg: 'bg-indigo-50 dark:bg-indigo-900/30 border-indigo-200 dark:border-indigo-700',
       icon: 'ℹ',
-      iconColor: 'text-indigo-600 dark:text-indigo-400',
+      iconColor: 'text-[#0E3D52] dark:text-[#4ebac4]',
       text: 'text-indigo-800 dark:text-indigo-200',
     },
   }[type]

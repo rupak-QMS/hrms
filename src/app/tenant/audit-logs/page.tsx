@@ -14,7 +14,7 @@ const ACTION_COLOR: Record<string, string> = {
   create: 'badge badge-green',
   update: 'badge badge-blue',
   delete: 'badge badge-red',
-  login:  'badge badge-purple',
+  login:  'badge badge-teal',
   logout: 'badge badge-gray',
   export: 'badge badge-amber',
 }

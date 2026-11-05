@@ -34,7 +34,7 @@ const TYPE_COLORS: Record<string, string> = {
   termination:  'badge badge-red',
   redundancy:   'badge badge-amber',
   contract_end: 'badge badge-gray',
-  retirement:   'badge badge-purple',
+  retirement:   'badge badge-teal',
   abandonment:  'badge badge-amber',
 }
 

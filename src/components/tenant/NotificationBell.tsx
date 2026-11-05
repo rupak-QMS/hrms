@@ -21,7 +21,7 @@ const TYPE_COLOUR: Record<string, string> = {
   payroll:     'bg-amber-500',
   document:    'bg-blue-500',
   training:    'bg-[#f0f7fb]0',
-  performance: 'bg-indigo-500',
+  performance: 'bg-[#0E3D52]',
   system:      'bg-gray-500',
 }
 

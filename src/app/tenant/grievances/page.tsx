@@ -48,11 +48,11 @@ const STATUS_FLOW = [
 
 const STATUS_STYLE: Record<string, string> = {
   new:      'badge badge-blue',
-  triage:   'badge badge-purple',
-  assigned: 'badge badge-indigo',
+  triage:   'badge badge-teal',
+  assigned: 'badge badge-teal',
   evidence: 'badge badge-amber',
   response: 'badge badge-amber',
-  findings: 'badge badge-purple',
+  findings: 'badge badge-teal',
   outcome:  'badge badge-teal',
   closed:   'badge badge-gray',
 }

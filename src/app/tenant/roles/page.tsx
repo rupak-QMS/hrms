@@ -19,7 +19,7 @@ const ROLES = [
 ]
 
 const ROLE_STYLE: Record<string, string> = {
-  director:            'badge badge-purple',
+  director:            'badge badge-teal',
   hr_officer:          'badge badge-blue',
   compliance_manager:  'badge badge-amber',
   operations_manager:  'badge badge-teal',
@@ -27,7 +27,7 @@ const ROLE_STYLE: Record<string, string> = {
   payroll_officer:     'badge badge-green',
   employee:            'badge badge-gray',
   contractor:          'badge badge-amber',
-  auditor:             'badge badge-purple',
+  auditor:             'badge badge-teal',
   it_admin:            'badge badge-red',
 }
 
