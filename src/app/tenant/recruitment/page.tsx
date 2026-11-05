@@ -364,7 +364,7 @@ export default function RecruitmentPage() {
                 Cancel
               </button>
               <button type="submit" disabled={savingEdit}
-                className="px-4 py-2 text-sm rounded-lg bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white font-medium transition">
+                className="px-4 py-2 text-sm rounded-lg bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white font-medium transition">
                 {savingEdit ? 'Saving…' : 'Save Changes'}
               </button>
             </div>
@@ -381,13 +381,13 @@ export default function RecruitmentPage() {
         <div className="flex gap-2">
           {tab === 'jobs' && (
             <button onClick={() => setShowReqForm(v => !v)}
-              className="bg-purple-600 hover:bg-purple-700 text-white text-sm px-4 py-2.5 rounded-lg transition">
+              className="bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm px-4 py-2.5 rounded-lg transition">
               {showReqForm ? 'Cancel' : '+ New Job'}
             </button>
           )}
           {tab === 'pipeline' && selectedReq && (
             <button onClick={() => setShowAppForm(v => !v)}
-              className="bg-purple-600 hover:bg-purple-700 text-white text-sm px-4 py-2.5 rounded-lg transition">
+              className="bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm px-4 py-2.5 rounded-lg transition">
               {showAppForm ? 'Cancel' : '+ Add Candidate'}
             </button>
           )}
@@ -438,8 +438,8 @@ export default function RecruitmentPage() {
 
           {/* Create form */}
           {showReqForm && (
-            <form onSubmit={createReq} className="card-premium border-purple-500/30 p-5 space-y-3">
-              <h3 className="text-sm font-semibold text-purple-300">Create Job Requisition</h3>
+            <form onSubmit={createReq} className="card-premium border-[#0E3D52]/30 p-5 space-y-3">
+              <h3 className="text-sm font-semibold text-[#4ebac4]">Create Job Requisition</h3>
               <div>
                 <label className="text-xs text-gray-500 dark:text-gray-400 mb-1 block">Job Title *</label>
                 <input required value={reqForm.title}
@@ -453,7 +453,7 @@ export default function RecruitmentPage() {
                   rows={3} placeholder="Role summary, key responsibilities, requirements…" className={INPUT} />
               </div>
               <button type="submit" disabled={saving}
-                className="bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg transition">
+                className="bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg transition">
                 {saving ? 'Creating…' : 'Create Requisition'}
               </button>
             </form>
@@ -475,7 +475,7 @@ export default function RecruitmentPage() {
             </select>
             {(filterStatus || jobSearch) && (
               <button onClick={() => { setFilterStatus(''); setJobSearch('') }}
-                className="text-xs text-purple-400 hover:text-purple-300 px-2">
+                className="text-xs text-[#0E3D52] hover:text-[#1A6080] dark:text-[#4ebac4] px-2">
                 Clear
               </button>
             )}
@@ -521,7 +521,7 @@ export default function RecruitmentPage() {
 
                     <div className="flex flex-col gap-2 shrink-0">
                       <button onClick={() => openPipeline(r)}
-                        className="text-xs bg-purple-600/20 border border-purple-700 text-purple-300 hover:bg-purple-600/40 px-3 py-1.5 rounded-lg transition">
+                        className="text-xs bg-[#0E3D52]/20 border border-[#1A6080] text-[#4ebac4] hover:bg-[#0E3D52]/40 px-3 py-1.5 rounded-lg transition">
                         View Pipeline
                       </button>
                       <button
@@ -568,8 +568,8 @@ export default function RecruitmentPage() {
 
           {/* Add candidate form */}
           {showAppForm && (
-            <form onSubmit={addCandidate} className="card-premium border-purple-500/30 p-5 space-y-3">
-              <h3 className="text-sm font-semibold text-purple-300">Add Candidate to Pipeline</h3>
+            <form onSubmit={addCandidate} className="card-premium border-[#0E3D52]/30 p-5 space-y-3">
+              <h3 className="text-sm font-semibold text-[#4ebac4]">Add Candidate to Pipeline</h3>
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label className="text-xs text-gray-500 dark:text-gray-400 mb-1 block">First Name *</label>
@@ -607,7 +607,7 @@ export default function RecruitmentPage() {
                   rows={2} placeholder="First impressions, referral context…" className={INPUT} />
               </div>
               <button type="submit" disabled={saving}
-                className="bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg transition">
+                className="bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg transition">
                 {saving ? 'Adding…' : 'Add to Pipeline'}
               </button>
             </form>
@@ -692,7 +692,7 @@ export default function RecruitmentPage() {
                                       value={editingScore[a.id] ?? ''}
                                       onChange={e => setEditingScore(p => ({ ...p, [a.id]: e.target.value }))}
                                       placeholder="—"
-                                      className="w-full bg-gray-800 border border-gray-700 rounded-lg px-2 py-1 text-xs text-white focus:outline-none focus:border-purple-500"
+                                      className="w-full bg-gray-800 border border-gray-700 rounded-lg px-2 py-1 text-xs text-white focus:outline-none focus:border-[#0E3D52]"
                                     />
                                   </div>
                                   <div>
@@ -701,11 +701,11 @@ export default function RecruitmentPage() {
                                       value={editingNotes[a.id] ?? ''}
                                       onChange={e => setEditingNotes(p => ({ ...p, [a.id]: e.target.value }))}
                                       rows={3} placeholder="Interview notes, feedback…"
-                                      className="w-full bg-gray-800 border border-gray-700 rounded-lg px-2 py-1 text-xs text-white resize-none focus:outline-none focus:border-purple-500"
+                                      className="w-full bg-gray-800 border border-gray-700 rounded-lg px-2 py-1 text-xs text-white resize-none focus:outline-none focus:border-[#0E3D52]"
                                     />
                                   </div>
                                   <button disabled={isSaving} onClick={() => saveCardNotes(a.id)}
-                                    className="w-full py-1 bg-purple-600 hover:bg-purple-700 disabled:opacity-50 text-white text-xs font-medium rounded-lg transition">
+                                    className="w-full py-1 bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-50 text-white text-xs font-medium rounded-lg transition">
                                     {isSaving ? 'Saving…' : 'Save Notes'}
                                   </button>
                                   <button disabled={isDeleting} onClick={() => deleteApp(a.id)}
@@ -794,7 +794,7 @@ export default function RecruitmentPage() {
                     <tr key={c.id} className="hover:bg-gray-50 dark:hover:bg-gray-800/30">
                       <td className="px-5 py-3">
                         <div className="flex items-center gap-2">
-                          <div className="w-7 h-7 rounded-full bg-purple-600 flex items-center justify-center text-white text-xs font-bold shrink-0">
+                          <div className="w-7 h-7 rounded-full bg-[#0E3D52] flex items-center justify-center text-white text-xs font-bold shrink-0">
                             {c.firstName[0]}{c.lastName[0]}
                           </div>
                           <span className="text-gray-700 dark:text-gray-200 font-medium">{c.firstName} {c.lastName}</span>

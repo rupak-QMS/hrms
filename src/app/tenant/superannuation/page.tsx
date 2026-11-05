@@ -365,7 +365,7 @@ export default function SuperannuationPage() {
                             <span className="text-xs bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 px-2 py-0.5 rounded-full font-medium">Primary</span>
                           )}
                           {fund.isSmsf && (
-                            <span className="text-xs bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300 px-2 py-0.5 rounded-full font-medium">SMSF</span>
+                            <span className="text-xs bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/30 dark:text-[#4ebac4] px-2 py-0.5 rounded-full font-medium">SMSF</span>
                           )}
                           <span className={`text-xs px-2 py-0.5 rounded-full font-medium capitalize ${STATUS_COLORS[fund.status] ?? ''}`}>
                             {fund.status.replace(/_/g, ' ')}

@@ -187,7 +187,7 @@ export default function MyDocumentsPage() {
         {linked && (
           <button
             onClick={() => { setShowForm(v => !v); setSaveError(null) }}
-            className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium rounded-lg transition-colors"
+            className="px-4 py-2 bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm font-medium rounded-lg transition-colors"
           >
             {showForm ? 'Cancel' : '+ Upload Document'}
           </button>
@@ -219,7 +219,7 @@ export default function MyDocumentsPage() {
 
       {/* Upload form */}
       {showForm && linked && (
-        <form onSubmit={submit} className="card-premium border-purple-500/30 p-6 space-y-4">
+        <form onSubmit={submit} className="card-premium border-[#0E3D52]/30 p-6 space-y-4">
           <h3 className="text-sm font-semibold text-foreground">Upload Document for HR Review</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="sm:col-span-2">
@@ -272,7 +272,7 @@ export default function MyDocumentsPage() {
           )}
           <div className="flex gap-3">
             <button type="submit" disabled={saving || !form.blobUrl}
-              className="px-5 py-2 bg-purple-600 hover:bg-purple-700 disabled:opacity-50 text-white text-sm font-medium rounded-lg transition-colors">
+              className="px-5 py-2 bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-50 text-white text-sm font-medium rounded-lg transition-colors">
               {saving ? 'Uploading…' : 'Submit for Review'}
             </button>
             <button type="button" onClick={() => setShowForm(false)}
@@ -353,7 +353,7 @@ function DocSection({
               <div className="flex-1 min-w-0">
                 <div className="flex items-start gap-2 flex-wrap">
                   <a href={d.blobUrl} target="_blank" rel="noopener noreferrer"
-                    className="text-sm font-semibold underline underline-offset-2 text-purple-400 hover:text-purple-300">
+                    className="text-sm font-semibold underline underline-offset-2 text-[#0E3D52] hover:text-[#1A6080] dark:text-[#4ebac4]">
                     {d.title} ↗
                   </a>
                   <span className={ss?.badge ?? 'badge badge-gray'}>

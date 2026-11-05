@@ -254,7 +254,7 @@ export default function TenantSettingsPage() {
           { id: 'integrations',  label: 'Integrations' },
         ] as { id: Tab; label: string }[]).map(t => (
           <button key={t.id} onClick={() => setTab(t.id)}
-            className={`px-5 py-2.5 text-sm font-medium border-b-2 transition ${tab === t.id ? 'border-purple-500 text-purple-600 dark:text-purple-400' : 'border-transparent text-gray-500 hover:text-gray-700 dark:hover:text-gray-300'}`}>
+            className={`px-5 py-2.5 text-sm font-medium border-b-2 transition ${tab === t.id ? 'border-[#0E3D52] text-[#0E3D52] dark:text-[#4ebac4]' : 'border-transparent text-gray-500 hover:text-gray-700 dark:hover:text-gray-300'}`}>
             {t.label}
           </button>
         ))}
@@ -358,7 +358,7 @@ export default function TenantSettingsPage() {
                 </div>
 
                 <button onClick={saveBranding} disabled={saving}
-                  className="bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm px-5 py-2.5 rounded-lg">
+                  className="bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm px-5 py-2.5 rounded-lg">
                   {saving ? 'Saving…' : 'Save Display Name'}
                 </button>
               </div>
@@ -396,7 +396,7 @@ export default function TenantSettingsPage() {
                 <label className="flex items-center gap-3 cursor-pointer">
                   <input type="checkbox" checked={domain.wwwRedirect ?? true}
                     onChange={e => setSettings(s => ({ ...s, domain: { ...s.domain, wwwRedirect: e.target.checked } }))}
-                    className="accent-purple-500 w-4 h-4" />
+                    className="accent-[#0E3D52] w-4 h-4" />
                   <div>
                     <p className="text-sm text-gray-600 dark:text-gray-300">Redirect www → root domain</p>
                     <p className="text-xs text-gray-500 dark:text-gray-400">www.yourdomain.com → yourdomain.com</p>
@@ -405,7 +405,7 @@ export default function TenantSettingsPage() {
                 <label className="flex items-center gap-3 cursor-pointer">
                   <input type="checkbox" checked={domain.sslForced ?? true}
                     onChange={e => setSettings(s => ({ ...s, domain: { ...s.domain, sslForced: e.target.checked } }))}
-                    className="accent-purple-500 w-4 h-4" />
+                    className="accent-[#0E3D52] w-4 h-4" />
                   <div>
                     <p className="text-sm text-gray-600 dark:text-gray-300">Force HTTPS</p>
                     <p className="text-xs text-gray-500 dark:text-gray-400">Redirect HTTP requests to HTTPS</p>
@@ -414,7 +414,7 @@ export default function TenantSettingsPage() {
               </div>
 
               <button onClick={() => save({ domain: settings.domain })} disabled={saving}
-                className="bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm px-5 py-2.5 rounded-lg">
+                className="bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm px-5 py-2.5 rounded-lg">
                 {saving ? 'Saving…' : 'Save Domain Settings'}
               </button>
             </div>
@@ -480,13 +480,13 @@ export default function TenantSettingsPage() {
                 <label className="flex items-center gap-2 cursor-pointer mt-3">
                   <input type="checkbox" checked={email.useTLS ?? true}
                     onChange={e => setSettings(s => ({ ...s, email: { ...s.email, useTLS: e.target.checked } }))}
-                    className="accent-purple-500 w-4 h-4" />
+                    className="accent-[#0E3D52] w-4 h-4" />
                   <span className="text-sm text-gray-600 dark:text-gray-300">Use TLS / STARTTLS</span>
                 </label>
               </div>
 
               <button onClick={() => save({ email: settings.email })} disabled={saving}
-                className="bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm px-5 py-2.5 rounded-lg">
+                className="bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm px-5 py-2.5 rounded-lg">
                 {saving ? 'Saving…' : 'Save Email Settings'}
               </button>
             </div>
@@ -506,7 +506,7 @@ export default function TenantSettingsPage() {
                     { key: 'emailRoleChange', label: 'Account status changes',     desc: 'Notify user when their account is suspended or reactivated' },
                   ].map(n => (
                     <label key={n.key} className="flex items-start gap-3 cursor-pointer">
-                      <input type="checkbox" className="accent-purple-500 w-4 h-4 mt-0.5"
+                      <input type="checkbox" className="accent-[#0E3D52] w-4 h-4 mt-0.5"
                         checked={(notif as any)[n.key] ?? true}
                         onChange={e => setSettings(s => ({ ...s, notifications: { ...s.notifications, [n.key]: e.target.checked } }))} />
                       <div><p className="text-sm text-gray-600 dark:text-gray-300">{n.label}</p><p className="text-xs text-gray-500 dark:text-gray-400">{n.desc}</p></div>
@@ -524,7 +524,7 @@ export default function TenantSettingsPage() {
                     { key: 'emailCompliance', label: 'Compliance alerts (to managers)',       desc: 'Alert compliance managers & HR officers about expiring documents' },
                   ].map(n => (
                     <label key={n.key} className="flex items-start gap-3 cursor-pointer">
-                      <input type="checkbox" className="accent-purple-500 w-4 h-4 mt-0.5"
+                      <input type="checkbox" className="accent-[#0E3D52] w-4 h-4 mt-0.5"
                         checked={(notif as any)[n.key] ?? true}
                         onChange={e => setSettings(s => ({ ...s, notifications: { ...s.notifications, [n.key]: e.target.checked } }))} />
                       <div><p className="text-sm text-gray-600 dark:text-gray-300">{n.label}</p><p className="text-xs text-gray-500 dark:text-gray-400">{n.desc}</p></div>
@@ -542,7 +542,7 @@ export default function TenantSettingsPage() {
                     { key: 'emailContracts', label: 'Contract notifications',   desc: 'Notify employee when contract is sent; notify HR when signed' },
                   ].map(n => (
                     <label key={n.key} className="flex items-start gap-3 cursor-pointer">
-                      <input type="checkbox" className="accent-purple-500 w-4 h-4 mt-0.5"
+                      <input type="checkbox" className="accent-[#0E3D52] w-4 h-4 mt-0.5"
                         checked={(notif as any)[n.key] ?? true}
                         onChange={e => setSettings(s => ({ ...s, notifications: { ...s.notifications, [n.key]: e.target.checked } }))} />
                       <div><p className="text-sm text-gray-600 dark:text-gray-300">{n.label}</p><p className="text-xs text-gray-500 dark:text-gray-400">{n.desc}</p></div>
@@ -561,7 +561,7 @@ export default function TenantSettingsPage() {
                     { key: 'emailSeparation', label: 'Exit process notifications',  desc: 'Notify employee when their exit process is initiated' },
                   ].map(n => (
                     <label key={n.key} className="flex items-start gap-3 cursor-pointer">
-                      <input type="checkbox" className="accent-purple-500 w-4 h-4 mt-0.5"
+                      <input type="checkbox" className="accent-[#0E3D52] w-4 h-4 mt-0.5"
                         checked={(notif as any)[n.key] ?? true}
                         onChange={e => setSettings(s => ({ ...s, notifications: { ...s.notifications, [n.key]: e.target.checked } }))} />
                       <div><p className="text-sm text-gray-600 dark:text-gray-300">{n.label}</p><p className="text-xs text-gray-500 dark:text-gray-400">{n.desc}</p></div>
@@ -579,7 +579,7 @@ export default function TenantSettingsPage() {
                     { key: 'emailTraining',    label: 'Training notifications',           desc: 'Notify employee when training is assigned or completed' },
                   ].map(n => (
                     <label key={n.key} className="flex items-start gap-3 cursor-pointer">
-                      <input type="checkbox" className="accent-purple-500 w-4 h-4 mt-0.5"
+                      <input type="checkbox" className="accent-[#0E3D52] w-4 h-4 mt-0.5"
                         checked={(notif as any)[n.key] ?? true}
                         onChange={e => setSettings(s => ({ ...s, notifications: { ...s.notifications, [n.key]: e.target.checked } }))} />
                       <div><p className="text-sm text-gray-600 dark:text-gray-300">{n.label}</p><p className="text-xs text-gray-500 dark:text-gray-400">{n.desc}</p></div>
@@ -597,7 +597,7 @@ export default function TenantSettingsPage() {
                     { key: 'emailRecruitment', label: 'Recruitment stage updates', desc: 'Notify candidates when their application status changes' },
                   ].map(n => (
                     <label key={n.key} className="flex items-start gap-3 cursor-pointer">
-                      <input type="checkbox" className="accent-purple-500 w-4 h-4 mt-0.5"
+                      <input type="checkbox" className="accent-[#0E3D52] w-4 h-4 mt-0.5"
                         checked={(notif as any)[n.key] ?? true}
                         onChange={e => setSettings(s => ({ ...s, notifications: { ...s.notifications, [n.key]: e.target.checked } }))} />
                       <div><p className="text-sm text-gray-600 dark:text-gray-300">{n.label}</p><p className="text-xs text-gray-500 dark:text-gray-400">{n.desc}</p></div>
@@ -619,7 +619,7 @@ export default function TenantSettingsPage() {
               </div>
 
               <button onClick={() => save({ notifications: settings.notifications })} disabled={saving}
-                className="bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm px-5 py-2.5 rounded-lg">
+                className="bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm px-5 py-2.5 rounded-lg">
                 {saving ? 'Saving…' : 'Save Notification Settings'}
               </button>
             </div>
@@ -641,7 +641,7 @@ export default function TenantSettingsPage() {
                     setLeaveTypes(d.types ?? [])
                     setLeaveTypesLoading(false)
                   }}
-                  className="text-xs text-purple-400 hover:text-purple-300 transition"
+                  className="text-xs text-[#0E3D52] hover:text-[#1A6080] dark:text-[#4ebac4] transition"
                   style={{ display: leaveTypes.length ? 'none' : undefined }}
                 >
                   Load
@@ -683,7 +683,7 @@ export default function TenantSettingsPage() {
                         {/* Active toggle */}
                         <button
                           onClick={() => setLeaveTypes(prev => prev.map((t, i) => i === idx ? { ...t, isActive: !t.isActive } : t))}
-                          className={`relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors ${lt.isActive ? 'bg-purple-600' : 'bg-gray-300 dark:bg-gray-700'}`}
+                          className={`relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors ${lt.isActive ? 'bg-[#0E3D52]' : 'bg-gray-300 dark:bg-gray-700'}`}
                         >
                           <span className={`inline-block h-4 w-4 transform rounded-full bg-white shadow transition-transform ${lt.isActive ? 'translate-x-6' : 'translate-x-1'}`} />
                         </button>
@@ -755,7 +755,7 @@ export default function TenantSettingsPage() {
                           setLeaveTypesSaving(false)
                         }
                       }}
-                      className="px-6 py-2.5 bg-purple-600 hover:bg-purple-700 disabled:opacity-50 text-white text-sm font-medium rounded-lg transition"
+                      className="px-6 py-2.5 bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-50 text-white text-sm font-medium rounded-lg transition"
                     >
                       {leaveTypesSaving ? 'Saving…' : 'Save Leave Settings'}
                     </button>

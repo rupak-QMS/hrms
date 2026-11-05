@@ -532,7 +532,7 @@ export default function IncidentBehaviourPage() {
                     <>
                       <ExportButton onClick={exportBehaviourCsv} disabled={behaviourPlans.length === 0} />
                       <button onClick={() => { setEditBehaviourId(null); setBehaviourForm({ ...blankBehaviour }); setShowBehaviourModal(true) }}
-                        className="px-3 py-1.5 bg-purple-600 text-white rounded-lg text-sm font-medium hover:bg-purple-700">
+                        className="px-3 py-1.5 bg-[#0E3D52] text-white rounded-lg text-sm font-medium hover:bg-[#1A6080]">
                         + Add Plan
                       </button>
                     </>
@@ -621,7 +621,7 @@ export default function IncidentBehaviourPage() {
                             {inc.reportedTo && <span>Reported to: {inc.reportedTo}</span>}
                             {inc.ndisReportable && <span className="text-red-600 dark:text-red-400 font-medium">⚠️ NDIS Reportable</span>}
                             {inc.policeReport && <span className="text-orange-600 dark:text-orange-400 font-medium">🚔 Police Report {inc.policeReportNumber ? `(${inc.policeReportNumber})` : ''}</span>}
-                            {inc.followUpRequired && <span className="text-purple-600 dark:text-purple-400 font-medium">📋 Follow-up required{inc.followUpDate ? `: ${inc.followUpDate}` : ''}</span>}
+                            {inc.followUpRequired && <span className="text-[#0E3D52] dark:text-[#4ebac4] font-medium">📋 Follow-up required{inc.followUpDate ? `: ${inc.followUpDate}` : ''}</span>}
                           </div>
                           {inc.outcome && (
                             <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-3 mt-3">
@@ -934,7 +934,7 @@ export default function IncidentBehaviourPage() {
             <div className="flex justify-end gap-3 p-6 border-t border-gray-200 dark:border-gray-700">
               <button onClick={() => { setShowBehaviourModal(false); setEditBehaviourId(null) }} className="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Cancel</button>
               <button onClick={submitBehaviourPlan} disabled={saving || !behaviourForm.planName}
-                className="px-4 py-2 text-sm bg-purple-600 text-white rounded-lg hover:bg-purple-700 disabled:opacity-50">
+                className="px-4 py-2 text-sm bg-[#0E3D52] text-white rounded-lg hover:bg-[#1A6080] disabled:opacity-50">
                 {saving ? 'Saving…' : editBehaviourId ? 'Update Plan' : 'Save Plan'}
               </button>
             </div>

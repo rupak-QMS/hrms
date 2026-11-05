@@ -474,7 +474,7 @@ export default function ParticipantsPage() {
                 <div className="flex flex-wrap items-center gap-3 mt-1 text-sm text-gray-500 dark:text-gray-400">
                   {selected.ndisNumber && <span>NDIS: <strong className="text-gray-700 dark:text-gray-300">{selected.ndisNumber}</strong></span>}
                   <span className="px-2 py-0.5 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded text-xs font-medium">{selected.fundingBody}</span>
-                  {selected.supportLevel && <span className="px-2 py-0.5 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 rounded text-xs">{selected.supportLevel} Support</span>}
+                  {selected.supportLevel && <span className="px-2 py-0.5 bg-[#E0EEF4] dark:bg-[#0E3D52] text-[#0E3D52] dark:text-[#4ebac4] rounded text-xs">{selected.supportLevel} Support</span>}
                   {!selected.isActive && <span className="px-2 py-0.5 bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 rounded text-xs">Inactive</span>}
                 </div>
               </div>

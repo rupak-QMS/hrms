@@ -534,7 +534,7 @@ export default function OfferLettersPage() {
           <p className="text-gray-600 dark:text-gray-400 text-sm mt-0.5">Generate, send and track candidate offer letters</p>
         </div>
         <button onClick={initForm}
-          className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium rounded-lg transition">
+          className="px-4 py-2 bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm font-medium rounded-lg transition">
           + New Offer Letter
         </button>
       </div>
@@ -560,7 +560,7 @@ export default function OfferLettersPage() {
       <div className="flex gap-3 flex-wrap">
         <input value={search} onChange={e=>{setSearch(e.target.value)}}
           placeholder="Search candidate / position…"
-          className="flex-1 min-w-[200px] bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-purple-500" />
+          className="flex-1 min-w-[200px] bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
         <select value={statusFilter} onChange={e=>setStatusFilter(e.target.value)}
           className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none">
           <option value="">All Status</option>
@@ -583,7 +583,7 @@ export default function OfferLettersPage() {
             />
           ) : offers.map(o => (
             <div key={o.id} onClick={() => selectOffer(o)}
-              className={`p-4 rounded-xl border cursor-pointer transition ${selected?.id === o.id ? 'border-purple-600 bg-purple-900/20' : 'border-gray-800 bg-gray-900 hover:border-gray-600'}`}>
+              className={`p-4 rounded-xl border cursor-pointer transition ${selected?.id === o.id ? 'border-[#0E3D52] bg-[#0E3D52]/20' : 'border-gray-800 bg-gray-900 hover:border-gray-600'}`}>
               <div className="flex items-start justify-between gap-2 mb-1">
                 <p className="text-sm font-semibold text-white truncate">{o.candidateName}</p>
                 <span className={`shrink-0 text-xs px-2 py-0.5 rounded-full border ${STATUS_STYLE[o.status] ?? 'badge badge-gray'}`}>
@@ -615,7 +615,7 @@ export default function OfferLettersPage() {
                 <div className="flex items-start justify-between mb-4">
                   <div>
                     <h2 className="text-lg font-bold text-foreground">{selected.candidateName}</h2>
-                    <p className="text-sm text-purple-400">{selected.position}</p>
+                    <p className="text-sm text-[#1A6080] dark:text-[#4ebac4]">{selected.position}</p>
                     <p className="text-xs text-gray-600 dark:text-gray-400">{selected.candidateEmail}</p>
                   </div>
                   <span className={`text-xs px-2.5 py-1 rounded-full border font-medium ${STATUS_STYLE[selected.status] ?? ''}`}>
@@ -649,7 +649,7 @@ export default function OfferLettersPage() {
                   </button>
                   {selected.status === 'draft' && (
                     <button onClick={() => updateStatus('sent')}
-                      className="flex-1 py-2 text-xs font-medium bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition">
+                      className="flex-1 py-2 text-xs font-medium bg-[#0E3D52] hover:bg-[#1A6080] text-white rounded-lg transition">
                       📤 Mark as Sent
                     </button>
                   )}
@@ -719,9 +719,9 @@ export default function OfferLettersPage() {
                 <div className="flex gap-2">
                   <input value={noteText} onChange={e=>setNoteText(e.target.value)}
                     placeholder="Internal note…"
-                    className="flex-1 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-purple-500" />
+                    className="flex-1 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
                   <button onClick={addNote} disabled={addingNote || !noteText.trim()}
-                    className="px-3 py-2 bg-purple-600 hover:bg-purple-700 disabled:opacity-50 text-white text-xs font-medium rounded-lg transition">
+                    className="px-3 py-2 bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-50 text-white text-xs font-medium rounded-lg transition">
                     Add
                   </button>
                 </div>
@@ -839,7 +839,7 @@ export default function OfferLettersPage() {
                   <button
                     type="button"
                     onClick={() => { setUploadName(''); setUploadFile(null); setUploadExtracted(''); setUploadError(''); setShowUpload(true) }}
-                    className="text-xs text-purple-400 hover:text-purple-300 transition">
+                    className="text-xs text-[#0E3D52] hover:text-[#1A6080] dark:text-[#4ebac4] transition">
                     📎 Upload Template
                   </button>
                 </div>
@@ -884,7 +884,7 @@ export default function OfferLettersPage() {
               )}
               <div className="flex gap-3 pt-2">
                 <button type="submit" disabled={saving}
-                  className="flex-1 py-2.5 bg-purple-600 hover:bg-purple-700 disabled:opacity-50 text-white text-sm font-medium rounded-lg transition">
+                  className="flex-1 py-2.5 bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-50 text-white text-sm font-medium rounded-lg transition">
                   {saving ? 'Creating…' : 'Create Offer Letter'}
                 </button>
                 <button type="button" onClick={()=>{ setShowForm(false); setFormError('') }}
@@ -906,11 +906,11 @@ export default function OfferLettersPage() {
             </div>
             <div className="p-5 space-y-4">
               {/* Merge tag guide */}
-              <div className="bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800 rounded-lg p-3 text-xs text-purple-700 dark:text-purple-300 space-y-1">
-                <p className="font-semibold text-purple-200">Available merge tags</p>
+              <div className="bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border border-[#b8d4e0] dark:border-[#1A6080] rounded-lg p-3 text-xs text-[#0E3D52] dark:text-[#4ebac4] space-y-1">
+                <p className="font-semibold text-[#9ccfda]">Available merge tags</p>
                 <p><code>{'{{candidateName}}'}</code> · <code>{'{{position}}'}</code> · <code>{'{{department}}'}</code></p>
                 <p><code>{'{{employmentType}}'}</code> · <code>{'{{startDate}}'}</code> · <code>{'{{salary}}'}</code> · <code>{'{{salaryCycle}}'}</code></p>
-                <p className="text-purple-400">Place these tags anywhere in your .docx or .pdf template file.</p>
+                <p className="text-[#1A6080] dark:text-[#4ebac4]">Place these tags anywhere in your .docx or .pdf template file.</p>
               </div>
 
               {/* Template name */}
@@ -957,7 +957,7 @@ export default function OfferLettersPage() {
                     }
                   }}
                 />
-                {extracting && <p className="text-xs text-purple-400 mt-1">Extracting text…</p>}
+                {extracting && <p className="text-xs text-[#1A6080] dark:text-[#4ebac4] mt-1">Extracting text…</p>}
                 {uploadError && <p className="text-xs text-red-400 mt-1">{uploadError}</p>}
               </div>
 
@@ -1003,7 +1003,7 @@ export default function OfferLettersPage() {
                       setUploading(false)
                     }
                   }}
-                  className="flex-1 py-2.5 bg-purple-600 hover:bg-purple-700 disabled:opacity-50 text-white text-sm font-medium rounded-lg transition">
+                  className="flex-1 py-2.5 bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-50 text-white text-sm font-medium rounded-lg transition">
                   {uploading ? 'Saving…' : 'Save Template'}
                 </button>
                 <button

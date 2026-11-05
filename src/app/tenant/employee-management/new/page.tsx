@@ -219,7 +219,7 @@ export default function NewEmployeePage() {
         <label className="flex items-center gap-3 cursor-pointer mt-2">
           <div
             onClick={() => set('ndisWorker', !form.ndisWorker)}
-            className={`w-10 h-5.5 rounded-full transition-colors relative ${form.ndisWorker ? 'bg-purple-500' : 'bg-gray-300 dark:bg-gray-600'}`}
+            className={`w-10 h-5.5 rounded-full transition-colors relative ${form.ndisWorker ? 'bg-[#f0f7fb]0' : 'bg-gray-300 dark:bg-gray-600'}`}
             style={{ width: 40, height: 22 }}
           >
             <span

@@ -363,7 +363,7 @@ export default function PayrollPage() {
             )
           )}
           <button onClick={() => { setShowBulk(true); setBulkResult(null); setBulkError('') }}
-            className="px-4 py-2 rounded-xl text-sm font-semibold border border-purple-600 text-purple-300 hover:bg-purple-900/30 transition">
+            className="px-4 py-2 rounded-xl text-sm font-semibold border border-[#0E3D52] text-[#4ebac4] hover:bg-[#0E3D52]/30 transition">
             ⚡ Bulk Pay Run
           </button>
           <button onClick={() => { setShowModal(true); setPreview(null); setError('') }}
@@ -389,7 +389,7 @@ export default function PayrollPage() {
             { label: 'Approved',    value: stats.approved, color: 'text-blue-400' },
             { label: 'Paid',        value: stats.paid,     color: 'text-green-400' },
             { label: 'Total Gross', value: `$${Number(stats.totalGross).toLocaleString('en-AU', { minimumFractionDigits: 2 })}`, color: 'text-gray-900 dark:text-white' },
-            { label: 'Total Super', value: `$${Number(stats.totalSuper ?? 0).toLocaleString('en-AU', { minimumFractionDigits: 2 })}`, color: 'text-purple-400' },
+            { label: 'Total Super', value: `$${Number(stats.totalSuper ?? 0).toLocaleString('en-AU', { minimumFractionDigits: 2 })}`, color: 'text-[#1A6080] dark:text-[#4ebac4]' },
           ].map(s => (
             <div key={s.label} className="card-premium p-4">
               <p className="text-xs text-gray-500 dark:text-gray-400">{s.label}</p>
@@ -445,7 +445,7 @@ export default function PayrollPage() {
                   <td className="px-4 py-3 text-right font-mono text-gray-900 dark:text-white">{fmt(r.grossPay)}</td>
                   <td className="px-4 py-3 text-right font-mono text-red-400">{fmt(r.paygWithholding)}</td>
                   <td className="px-4 py-3 text-right font-mono text-orange-400">{fmt(r.medicareLevy)}</td>
-                  <td className="px-4 py-3 text-right font-mono text-purple-400">{fmt(r.superContribution)}</td>
+                  <td className="px-4 py-3 text-right font-mono text-[#1A6080] dark:text-[#4ebac4]">{fmt(r.superContribution)}</td>
                   <td className="px-4 py-3 text-right font-mono font-semibold text-green-400">{fmt(r.netPay)}</td>
                   <td className="px-4 py-3">
                     <span className={`text-xs px-2 py-0.5 rounded-full border ${STATUS_STYLE[r.status] ?? 'badge badge-gray'}`}>{r.status}</span>
@@ -614,8 +614,8 @@ export default function PayrollPage() {
                   </div>
                   <div className="border-t border-gray-200 dark:border-gray-700 pt-3 space-y-1">
                     <div className="flex justify-between text-sm">
-                      <span className="text-purple-400">Employer Super (11.5%)</span>
-                      <span className="text-purple-300 font-medium">{fmt(preview.superContribution)} <span className="text-xs text-gray-500 dark:text-gray-400">(on top)</span></span>
+                      <span className="text-[#1A6080] dark:text-[#4ebac4]">Employer Super (11.5%)</span>
+                      <span className="text-[#4ebac4] font-medium">{fmt(preview.superContribution)} <span className="text-xs text-gray-500 dark:text-gray-400">(on top)</span></span>
                     </div>
                     <div className="flex justify-between text-xs text-gray-600 dark:text-gray-400">
                       <span>Annualised gross / Effective tax rate</span>
@@ -750,7 +750,7 @@ export default function PayrollPage() {
 
                   <div className="flex gap-3">
                     <button onClick={() => { setShowBulk(false); setBulkResult(null) }}
-                      className="flex-1 py-2 bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium rounded-lg transition">
+                      className="flex-1 py-2 bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm font-medium rounded-lg transition">
                       Done
                     </button>
                     <button onClick={() => { setBulkResult(null); setBulkError('') }}
@@ -787,7 +787,7 @@ export default function PayrollPage() {
                 <a
                   href={`/tenant/payroll/${selected.id}/payslip`}
                   target="_blank" rel="noreferrer"
-                  className="text-xs px-3 py-1.5 rounded-lg border border-purple-700 text-purple-300 hover:bg-purple-900/30 transition">
+                  className="text-xs px-3 py-1.5 rounded-lg border border-[#1A6080] text-[#4ebac4] hover:bg-[#0E3D52]/30 transition">
                   🖨 Print
                 </a>
                 <button onClick={() => setSelected(null)} className="text-gray-600 dark:text-gray-400 hover:text-white text-xl ml-1">×</button>
@@ -813,8 +813,8 @@ export default function PayrollPage() {
                 ))}
               </div>
               <div className="border-t border-gray-200 dark:border-gray-700 pt-3 flex justify-between">
-                <span className="text-purple-400">Employer Super (11.5%)</span>
-                <span className="text-purple-300 font-medium">{fmt(selected.superContribution)}</span>
+                <span className="text-[#1A6080] dark:text-[#4ebac4]">Employer Super (11.5%)</span>
+                <span className="text-[#4ebac4] font-medium">{fmt(selected.superContribution)}</span>
               </div>
               <div className="pt-1">
                 <span className={`text-xs px-2 py-0.5 rounded-full border ${STATUS_STYLE[selected.status] ?? ''}`}>{selected.status}</span>

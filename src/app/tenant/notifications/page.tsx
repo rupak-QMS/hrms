@@ -224,13 +224,13 @@ export default function NotificationsPage() {
             <div className="flex gap-1 flex-wrap">
               <button
                 onClick={() => setTypeFilter('')}
-                className={`text-xs px-2.5 py-1 rounded-full border transition ${typeFilter === '' ? 'bg-purple-600 border-purple-600 text-white' : 'border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:text-white'}`}>
+                className={`text-xs px-2.5 py-1 rounded-full border transition ${typeFilter === '' ? 'bg-[#0E3D52] border-[#0E3D52] text-white' : 'border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:text-white'}`}>
                 All ({notifications.length})
               </button>
               {presentTypes.map(t => (
                 <button key={t}
                   onClick={() => setTypeFilter(t === typeFilter ? '' : t)}
-                  className={`text-xs px-2.5 py-1 rounded-full border transition flex items-center gap-1 ${typeFilter === t ? 'bg-purple-600 border-purple-600 text-white' : 'border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:text-white'}`}>
+                  className={`text-xs px-2.5 py-1 rounded-full border transition flex items-center gap-1 ${typeFilter === t ? 'bg-[#0E3D52] border-[#0E3D52] text-white' : 'border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:text-white'}`}>
                   {TYPE_ICON[t]} {t.replace('_', ' ')}
                 </button>
               ))}
@@ -260,9 +260,9 @@ export default function NotificationsPage() {
                   <span className="text-xl shrink-0 mt-0.5">{TYPE_ICON[n.type] ?? '🔔'}</span>
                   <Wrapper {...(wrapperProps as any)} className={`flex-1 min-w-0 ${isClickable ? 'cursor-pointer' : ''}`}>
                     <div className="flex items-start justify-between gap-2">
-                      <p className={`text-sm font-medium leading-snug ${!n.isRead ? 'text-gray-900 dark:text-white' : 'text-gray-700 dark:text-gray-300'} ${isClickable ? 'hover:text-purple-400 transition' : ''}`}>
+                      <p className={`text-sm font-medium leading-snug ${!n.isRead ? 'text-gray-900 dark:text-white' : 'text-gray-700 dark:text-gray-300'} ${isClickable ? 'hover:text-[#1A6080] dark:text-[#4ebac4] transition' : ''}`}>
                         {n.title}
-                        {isClickable && <span className="ml-1 text-purple-500 text-xs">→</span>}
+                        {isClickable && <span className="ml-1 text-[#0E3D52] dark:text-[#4ebac4] text-xs">→</span>}
                       </p>
                       <span className="text-xs text-gray-500 dark:text-gray-500 shrink-0">{relativeTime(n.createdAt)}</span>
                     </div>

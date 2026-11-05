@@ -1039,7 +1039,7 @@ function Tag({ children, color = 'gray' }: { children: React.ReactNode; color?: 
     gray:   'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300',
     blue:   'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300',
     orange: 'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-300',
-    purple: 'bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-300',
+    purple: 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52] dark:text-[#4ebac4]',
   }
   return <span className={`text-xs px-2 py-0.5 rounded-full ${colors[color]}`}>{children}</span>
 }

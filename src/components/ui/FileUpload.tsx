@@ -151,9 +151,9 @@ export default function FileUpload({
         className={[
           'relative border-2 border-dashed rounded-xl p-5 text-center cursor-pointer transition-all select-none',
           disabled   ? 'opacity-50 cursor-not-allowed border-gray-700'
-            : dragging  ? 'border-purple-400 bg-purple-900/20'
-            : uploading ? 'border-purple-600 bg-purple-900/10 cursor-wait'
-            : 'border-gray-700 hover:border-purple-600 hover:bg-purple-900/10',
+            : dragging  ? 'border-[#4ebac4] bg-[#0E3D52]/20'
+            : uploading ? 'border-[#0E3D52] bg-[#0E3D52]/10 cursor-wait'
+            : 'border-gray-700 hover:border-[#0E3D52] hover:bg-[#0E3D52]/10',
         ].join(' ')}
       >
         <input
@@ -168,10 +168,10 @@ export default function FileUpload({
 
         {uploading ? (
           <div className="space-y-2">
-            <p className="text-sm text-purple-300">Uploading… {progress}%</p>
+            <p className="text-sm text-[#4ebac4]">Uploading… {progress}%</p>
             <div className="w-full bg-gray-100 dark:bg-gray-800 rounded-full h-1.5 overflow-hidden">
               <div
-                className="bg-purple-500 h-1.5 rounded-full transition-all duration-200"
+                className="bg-[#f0f7fb]0 h-1.5 rounded-full transition-all duration-200"
                 style={{ width: `${progress}%` }}
               />
             </div>
@@ -190,7 +190,7 @@ export default function FileUpload({
               target="_blank"
               rel="noopener noreferrer"
               onClick={e => e.stopPropagation()}
-              className="ml-auto shrink-0 text-xs text-purple-400 hover:text-purple-300 underline"
+              className="ml-auto shrink-0 text-xs text-[#0E3D52] hover:text-[#1A6080] dark:text-[#4ebac4] underline"
             >
               Open ↗
             </a>
@@ -213,7 +213,7 @@ export default function FileUpload({
         <button
           type="button"
           onClick={() => !disabled && inputRef.current?.click()}
-          className="text-xs text-gray-600 dark:text-gray-400 hover:text-purple-400 transition"
+          className="text-xs text-gray-600 dark:text-gray-400 hover:text-[#1A6080] dark:text-[#4ebac4] transition"
           disabled={disabled}
         >
           Replace file

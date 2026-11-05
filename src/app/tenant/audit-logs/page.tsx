@@ -66,7 +66,7 @@ export default function AuditLogsPage() {
         <div>
           <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Resource</label>
           <select value={filterResource} onChange={e => setFilterResource(e.target.value)}
-            className="input-premium focus:outline-none focus:border-purple-500 min-w-32">
+            className="input-premium focus:outline-none focus:border-[#0E3D52] min-w-32">
             <option value="">All</option>
             {resources.map(r => <option key={r} value={r}>{r}</option>)}
           </select>
@@ -74,7 +74,7 @@ export default function AuditLogsPage() {
         <div>
           <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Action</label>
           <select value={filterAction} onChange={e => setFilterAction(e.target.value)}
-            className="input-premium focus:outline-none focus:border-purple-500">
+            className="input-premium focus:outline-none focus:border-[#0E3D52]">
             <option value="">All</option>
             {['create','update','delete','login','logout','export'].map(a => <option key={a} value={a}>{a}</option>)}
           </select>
@@ -82,10 +82,10 @@ export default function AuditLogsPage() {
         <div>
           <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Since</label>
           <input type="date" value={filterSince} onChange={e => setFilterSince(e.target.value)}
-            className="input-premium focus:outline-none focus:border-purple-500" />
+            className="input-premium focus:outline-none focus:border-[#0E3D52]" />
         </div>
         <button onClick={applyFilters}
-          className="bg-purple-600 hover:bg-purple-700 text-white text-sm px-4 py-2 rounded-lg transition">
+          className="bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm px-4 py-2 rounded-lg transition">
           Apply
         </button>
         {(filterResource || filterAction || filterSince) && (
@@ -188,12 +188,12 @@ export default function AuditLogsPage() {
             <div className="flex gap-2">
               <button disabled={page === 0}
                 onClick={() => { const p = page - 1; setPage(p); load(filterResource, filterAction, filterSince, p) }}
-                className="text-xs px-3 py-1.5 rounded-lg border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-purple-600 hover:text-purple-300 disabled:opacity-40 disabled:cursor-not-allowed transition">
+                className="text-xs px-3 py-1.5 rounded-lg border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-[#0E3D52] hover:text-[#4ebac4] disabled:opacity-40 disabled:cursor-not-allowed transition">
                 ← Prev
               </button>
               <button disabled={logs.length < PAGE}
                 onClick={() => { const p = page + 1; setPage(p); load(filterResource, filterAction, filterSince, p) }}
-                className="text-xs px-3 py-1.5 rounded-lg border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-purple-600 hover:text-purple-300 disabled:opacity-40 disabled:cursor-not-allowed transition">
+                className="text-xs px-3 py-1.5 rounded-lg border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-[#0E3D52] hover:text-[#4ebac4] disabled:opacity-40 disabled:cursor-not-allowed transition">
                 Next →
               </button>
             </div>

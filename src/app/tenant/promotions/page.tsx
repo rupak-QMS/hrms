@@ -179,7 +179,7 @@ export default function PromotionsPage() {
           setForm({employeeId:'',proposedTitle:'',proposedSalary:'',effectiveDate:'',
             justification:'',currentTitle:'',currentSalary:'',raisedByName:''})
           setShowForm(true)
-        }} className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium rounded-lg transition">
+        }} className="px-4 py-2 bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm font-medium rounded-lg transition">
           + Raise Promotion
         </button>
         </div>
@@ -193,7 +193,7 @@ export default function PromotionsPage() {
           ['In Review',   stats.under_review,  'border-blue-800'],
           ['Approved',    stats.approved,      'border-green-800'],
           ['Rejected',    stats.rejected,      'border-red-800'],
-          ['Implemented', stats.implemented,   'border-purple-800'],
+          ['Implemented', stats.implemented,   'border-[#1A6080]'],
         ].map(([label, value, border]) => (
           <div key={label as string} className={`card-premium p-3 text-center ${border}`}>
             <p className="text-xl font-bold text-white">{value}</p>
@@ -206,7 +206,7 @@ export default function PromotionsPage() {
       <div className="flex gap-2 flex-wrap">
         {['', 'pending', 'under_review', 'approved', 'rejected', 'implemented'].map(s => (
           <button key={s} onClick={() => setStatusFilter(s)}
-            className={`px-3 py-1.5 rounded-full text-xs font-medium border transition ${statusFilter === s ? 'border-purple-500 bg-purple-900/30 text-white' : 'border-gray-700 text-gray-400 hover:border-gray-500'}`}>
+            className={`px-3 py-1.5 rounded-full text-xs font-medium border transition ${statusFilter === s ? 'border-[#0E3D52] bg-[#0E3D52]/30 text-white' : 'border-gray-700 text-gray-400 hover:border-gray-500'}`}>
             {s === '' ? 'All' : STATUS_LABEL[s]}
           </button>
         ))}
@@ -227,7 +227,7 @@ export default function PromotionsPage() {
             </div>
           ) : promotions.map(p => (
             <div key={p.id} onClick={() => selectPromotion(p)}
-              className={`group p-4 rounded-xl border cursor-pointer transition ${selected?.id === p.id ? 'border-purple-600 bg-purple-900/20' : 'border-gray-800 bg-gray-900 hover:border-gray-600'}`}>
+              className={`group p-4 rounded-xl border cursor-pointer transition ${selected?.id === p.id ? 'border-[#0E3D52] bg-[#0E3D52]/20' : 'border-gray-800 bg-gray-900 hover:border-gray-600'}`}>
               <div className="flex items-start justify-between gap-2 mb-1">
                 <p className="text-sm font-semibold text-white truncate">
                   {p.employeeFirstName} {p.employeeLastName}
@@ -245,7 +245,7 @@ export default function PromotionsPage() {
                   </button>
                 </div>
               </div>
-              <p className="text-xs text-gray-600 dark:text-gray-400">{p.currentTitle || '—'} → <span className="text-purple-300">{p.proposedTitle}</span></p>
+              <p className="text-xs text-gray-600 dark:text-gray-400">{p.currentTitle || '—'} → <span className="text-[#4ebac4]">{p.proposedTitle}</span></p>
               {salaryDiff(p.currentSalary, p.proposedSalary) && (
                 <p className="text-xs text-green-400 mt-0.5">{salaryDiff(p.currentSalary, p.proposedSalary)}</p>
               )}
@@ -288,8 +288,8 @@ export default function PromotionsPage() {
                     <p className="text-sm font-semibold text-foreground">{selected.currentTitle || '—'}</p>
                     {selected.currentSalary && <p className="text-xs text-gray-600 dark:text-gray-400 mt-0.5">${selected.currentSalary.toLocaleString()} / yr</p>}
                   </div>
-                  <div className="bg-purple-50 dark:bg-purple-900/30 border border-purple-200 dark:border-purple-800/50 rounded-xl p-3">
-                    <p className="text-xs text-purple-400 mb-1">Proposed →</p>
+                  <div className="bg-[#f0f7fb] dark:bg-[#0E3D52]/30 border border-[#b8d4e0] dark:border-[#1A6080]/50 rounded-xl p-3">
+                    <p className="text-xs text-[#1A6080] dark:text-[#4ebac4] mb-1">Proposed →</p>
                     <p className="text-sm font-semibold text-foreground">{selected.proposedTitle}</p>
                     {selected.proposedSalary && <p className="text-xs text-green-400 mt-0.5">${selected.proposedSalary.toLocaleString()} / yr</p>}
                   </div>
@@ -345,7 +345,7 @@ export default function PromotionsPage() {
                 )}
                 {selected.status === 'approved' && (
                   <button onClick={() => action('implemented')}
-                    className="w-full py-2.5 bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium rounded-lg transition">
+                    className="w-full py-2.5 bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm font-medium rounded-lg transition">
                     Mark as Implemented
                   </button>
                 )}
@@ -357,9 +357,9 @@ export default function PromotionsPage() {
                 <div className="flex gap-2">
                   <input value={inlineNote} onChange={e=>setInlineNote(e.target.value)}
                     placeholder="Add a note to this case…"
-                    className="flex-1 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-purple-500" />
+                    className="flex-1 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
                   <button onClick={addNote} disabled={addingNote || !inlineNote.trim()}
-                    className="px-3 py-2 bg-purple-600 hover:bg-purple-700 disabled:opacity-50 text-white text-xs font-medium rounded-lg transition">
+                    className="px-3 py-2 bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-50 text-white text-xs font-medium rounded-lg transition">
                     Add
                   </button>
                 </div>
@@ -456,7 +456,7 @@ export default function PromotionsPage() {
               </div>
               <div className="flex gap-3 pt-2">
                 <button type="submit" disabled={saving}
-                  className="flex-1 py-2.5 bg-purple-600 hover:bg-purple-700 disabled:opacity-50 text-white text-sm font-medium rounded-lg transition">
+                  className="flex-1 py-2.5 bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-50 text-white text-sm font-medium rounded-lg transition">
                   {saving ? 'Submitting…' : 'Raise Promotion Case'}
                 </button>
                 <button type="button" onClick={()=>setShowForm(false)}

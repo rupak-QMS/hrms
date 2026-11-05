@@ -64,7 +64,7 @@ const INPUT = 'input-premium'
 
 const BLANK_GOAL = { employeeId: '', reviewId: '', title: '', description: '', category: '', targetDate: '', status: 'active', progress: 0 }
 
-function RatingButtons({ value, onChange, color = 'bg-purple-600' }: { value: number | null; onChange: (n: number) => void; color?: string }) {
+function RatingButtons({ value, onChange, color = 'bg-[#0E3D52]' }: { value: number | null; onChange: (n: number) => void; color?: string }) {
   return (
     <div className="flex gap-1.5">
       {[1, 2, 3, 4, 5].map(n => (
@@ -318,13 +318,13 @@ export default function PerformancePage() {
           <div className="flex items-center gap-2">
           <ExportButton onClick={exportReviews} disabled={reviews.length === 0} />
           <button onClick={() => setShowForm(v => !v)}
-            className="bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium px-4 py-2.5 rounded-lg transition">
+            className="bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm font-medium px-4 py-2.5 rounded-lg transition">
             {showForm ? 'Cancel' : '+ Schedule Review'}
           </button>
           </div>
         ) : (
           <button onClick={() => setShowGoalForm(v => !v)}
-            className="bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium px-4 py-2.5 rounded-lg transition">
+            className="bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm font-medium px-4 py-2.5 rounded-lg transition">
             {showGoalForm ? 'Cancel' : '+ Add Goal'}
           </button>
         )}
@@ -363,8 +363,8 @@ export default function PerformancePage() {
         <>
           {/* Create form */}
           {showForm && (
-            <form onSubmit={createReview} className="card-premium border-purple-500/30 p-5 space-y-4">
-              <h3 className="text-sm font-semibold text-purple-300">Schedule Review</h3>
+            <form onSubmit={createReview} className="card-premium border-[#0E3D52]/30 p-5 space-y-4">
+              <h3 className="text-sm font-semibold text-[#4ebac4]">Schedule Review</h3>
               <div className="grid grid-cols-3 gap-3">
                 <div>
                   <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Employee *</label>
@@ -385,7 +385,7 @@ export default function PerformancePage() {
                 </div>
               </div>
               <button type="submit" disabled={saving}
-                className="bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg transition">
+                className="bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg transition">
                 {saving ? 'Scheduling…' : 'Schedule Review'}
               </button>
             </form>
@@ -404,7 +404,7 @@ export default function PerformancePage() {
                       <RatingButtons value={kpi.rating} onChange={n => {
                         const k = [...editing.kpis]; k[i] = { ...k[i], rating: n }; setEditing({ ...editing, kpis: k })
                       }} />
-                      {kpi.rating && <p className="text-xs text-purple-400">{RATING_LABELS[kpi.rating]}</p>}
+                      {kpi.rating && <p className="text-xs text-[#1A6080] dark:text-[#4ebac4]">{RATING_LABELS[kpi.rating]}</p>}
                       <input value={kpi.notes}
                         onChange={e => { const k = [...editing.kpis]; k[i] = { ...k[i], notes: e.target.value }; setEditing({ ...editing, kpis: k }) }}
                         placeholder="Notes for this area…"
@@ -417,7 +417,7 @@ export default function PerformancePage() {
                   <input type="number" min="1" max="5" step="0.1" value={editing.rating}
                     onChange={e => setEditing({ ...editing, rating: e.target.value })}
                     placeholder="Leave blank to auto-average KPIs"
-                    className="w-32 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-purple-500" />
+                    className="w-32 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
                 </div>
                 <div>
                   <label className="text-xs text-gray-600 dark:text-gray-400 mb-2 block">Outcome</label>
@@ -425,7 +425,7 @@ export default function PerformancePage() {
                     {OUTCOMES.map(o => (
                       <button key={o.value} type="button" onClick={() => setEditing({ ...editing, outcome: o.value })}
                         className={`text-sm px-3 py-1.5 rounded-lg border transition ${
-                          editing.outcome === o.value ? 'border-purple-500 bg-purple-900/30 text-white' : 'border-gray-700 text-gray-400 hover:border-gray-600'
+                          editing.outcome === o.value ? 'border-[#0E3D52] bg-[#0E3D52]/30 text-white' : 'border-gray-700 text-gray-400 hover:border-gray-600'
                         }`}>
                         {o.label}
                       </button>
@@ -473,7 +473,7 @@ export default function PerformancePage() {
                 ))}
                 <div className="flex gap-2">
                   <button onClick={saveSelfAssess} disabled={selfSaving}
-                    className="flex-1 bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm py-2 rounded-lg transition font-medium">
+                    className="flex-1 bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm py-2 rounded-lg transition font-medium">
                     {selfSaving ? 'Saving…' : 'Save Self-Assessment'}
                   </button>
                   <button onClick={() => setSelfAssessModal(null)}
@@ -489,16 +489,16 @@ export default function PerformancePage() {
           <div className="flex gap-3 flex-wrap">
             <input value={search} onChange={e => { setSearch(e.target.value); load(e.target.value, filterStatus, filterType) }}
               placeholder="Search employee…"
-              className="flex-1 min-w-48 input-premium placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-purple-500" />
+              className="flex-1 min-w-48 input-premium placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]" />
             <select value={filterStatus} onChange={e => { setFilterStatus(e.target.value); load(search, e.target.value, filterType) }}
-              className="input-premium focus:outline-none focus:border-purple-500">
+              className="input-premium focus:outline-none focus:border-[#0E3D52]">
               <option value="">All statuses</option>
               <option value="scheduled">Scheduled</option>
               <option value="completed">Completed</option>
               <option value="overdue">Overdue</option>
             </select>
             <select value={filterType} onChange={e => { setFilterType(e.target.value); load(search, filterStatus, e.target.value) }}
-              className="input-premium focus:outline-none focus:border-purple-500">
+              className="input-premium focus:outline-none focus:border-[#0E3D52]">
               <option value="">All types</option>
               {REVIEW_TYPES.map(t => <option key={t.value} value={t.value}>{t.label}</option>)}
             </select>
@@ -560,7 +560,7 @@ export default function PerformancePage() {
                             <div className="flex gap-2 flex-wrap">
                               {r.status !== 'completed' && (
                                 <button onClick={() => setEditing({ id: r.id, kpis: r.kpis ?? [], rating: '', plan: r.developmentPlan ?? '', outcome: r.outcome ?? '' })}
-                                  className="text-xs text-purple-400 hover:text-purple-300 border border-purple-900 px-2.5 py-1 rounded-lg transition font-medium">
+                                  className="text-xs text-[#0E3D52] hover:text-[#1A6080] dark:text-[#4ebac4] border border-[#0E3D52] px-2.5 py-1 rounded-lg transition font-medium">
                                   Complete →
                                 </button>
                               )}
@@ -597,7 +597,7 @@ export default function PerformancePage() {
                                     {r.kpis.map(kpi => (
                                       <div key={kpi.id} className="flex items-center justify-between gap-2">
                                         <span className="text-xs text-gray-400 flex-1">{kpi.area}</span>
-                                        <span className={`text-xs font-medium px-2 py-0.5 rounded ${kpi.rating ? 'text-purple-300 bg-purple-900/30' : 'text-gray-500'}`}>
+                                        <span className={`text-xs font-medium px-2 py-0.5 rounded ${kpi.rating ? 'text-[#4ebac4] bg-[#0E3D52]/30' : 'text-gray-500'}`}>
                                           {kpi.rating ? `${kpi.rating}/5` : '—'}
                                         </span>
                                       </div>
@@ -642,8 +642,8 @@ export default function PerformancePage() {
         <>
           {/* Add goal form */}
           {showGoalForm && (
-            <form onSubmit={createGoal} className="card-premium border-purple-500/30 p-5 space-y-4">
-              <h3 className="text-sm font-semibold text-purple-300">New Performance Goal</h3>
+            <form onSubmit={createGoal} className="card-premium border-[#0E3D52]/30 p-5 space-y-4">
+              <h3 className="text-sm font-semibold text-[#4ebac4]">New Performance Goal</h3>
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Employee *</label>
@@ -682,11 +682,11 @@ export default function PerformancePage() {
                   <label className="text-xs text-gray-600 dark:text-gray-400 mb-2 block">Initial Progress: {goalForm.progress}%</label>
                   <input type="range" min={0} max={100} step={5} value={goalForm.progress}
                     onChange={e => setGoalForm(f => ({ ...f, progress: Number(e.target.value) }))}
-                    className="w-full accent-purple-500" />
+                    className="w-full accent-[#0E3D52]" />
                 </div>
               </div>
               <button type="submit" disabled={goalSaving}
-                className="bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg transition">
+                className="bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg transition">
                 {goalSaving ? 'Saving…' : 'Create Goal'}
               </button>
             </form>
@@ -733,7 +733,7 @@ export default function PerformancePage() {
                   <label className="text-xs text-gray-600 dark:text-gray-400 mb-2 block">Progress: {editingGoal.progress}%</label>
                   <input type="range" min={0} max={100} step={5} value={editingGoal.progress}
                     onChange={e => setEditingGoal({ ...editingGoal, progress: Number(e.target.value) })}
-                    className="w-full accent-purple-500" />
+                    className="w-full accent-[#0E3D52]" />
                   <ProgressBar value={editingGoal.progress} />
                 </div>
                 <div>
@@ -753,7 +753,7 @@ export default function PerformancePage() {
                 </div>
                 <div className="flex gap-2">
                   <button onClick={saveGoalEdit} disabled={goalSaving}
-                    className="flex-1 bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm py-2 rounded-lg transition font-medium">
+                    className="flex-1 bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm py-2 rounded-lg transition font-medium">
                     {goalSaving ? 'Saving…' : 'Save Changes'}
                   </button>
                   <button onClick={() => setEditingGoal(null)}
@@ -768,12 +768,12 @@ export default function PerformancePage() {
           {/* Goals filters */}
           <div className="flex gap-3 flex-wrap">
             <select value={filterGoalEmp} onChange={e => { setFilterGoalEmp(e.target.value); loadGoals(e.target.value, filterGoalStatus) }}
-              className="input-premium focus:outline-none focus:border-purple-500">
+              className="input-premium focus:outline-none focus:border-[#0E3D52]">
               <option value="">All employees</option>
               {employees.map(e => <option key={e.id} value={e.id}>{e.firstName} {e.lastName}</option>)}
             </select>
             <select value={filterGoalStatus} onChange={e => { setFilterGoalStatus(e.target.value); loadGoals(filterGoalEmp, e.target.value) }}
-              className="input-premium focus:outline-none focus:border-purple-500">
+              className="input-premium focus:outline-none focus:border-[#0E3D52]">
               <option value="">All statuses</option>
               {GOAL_STATUSES.map(s => <option key={s.value} value={s.value}>{s.label}</option>)}
             </select>

@@ -232,7 +232,7 @@ export default function SeparationPage() {
         <div className="flex items-center gap-2">
           <ExportButton onClick={exportSeparationCsv} disabled={records.length === 0} />
           <button onClick={() => { setShowForm(v => !v); setTab('Records') }}
-            className="bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium px-4 py-2.5 rounded-lg transition">
+            className="bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm font-medium px-4 py-2.5 rounded-lg transition">
             {showForm ? 'Cancel' : '+ Initiate Separation'}
           </button>
         </div>
@@ -245,7 +245,7 @@ export default function SeparationPage() {
           { label: 'Pending',      value: stats.pending,     color: 'text-blue-400' },
           { label: 'Active',       value: stats.active,      color: 'text-amber-400' },
           { label: 'Completed',    value: stats.completed,   color: 'text-green-400' },
-          { label: 'Resignations', value: stats.resignation, color: 'text-purple-400' },
+          { label: 'Resignations', value: stats.resignation, color: 'text-[#1A6080] dark:text-[#4ebac4]' },
           { label: 'Terminations', value: stats.termination, color: 'text-red-400' },
         ].map(s => (
           <div key={s.label} className="card-premium p-4">
@@ -261,7 +261,7 @@ export default function SeparationPage() {
           <button key={t} onClick={() => setTab(t)}
             className={`px-4 py-2.5 text-sm font-medium border-b-2 -mb-px transition ${
               tab === t
-                ? 'border-purple-500 text-purple-400'
+                ? 'border-[#0E3D52] text-[#1A6080] dark:text-[#4ebac4]'
                 : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'
             }`}>
             {t}
@@ -281,7 +281,7 @@ export default function SeparationPage() {
             </div>
             <div className="card-premium p-5">
               <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider font-semibold mb-1">Avg. Offboarding Days</p>
-              <p className="text-3xl font-bold text-purple-400">{avgDays !== null ? avgDays : '—'}</p>
+              <p className="text-3xl font-bold text-[#1A6080] dark:text-[#4ebac4]">{avgDays !== null ? avgDays : '—'}</p>
               <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Based on {stats.completed} completed</p>
             </div>
             <div className="card-premium p-5">
@@ -306,7 +306,7 @@ export default function SeparationPage() {
                     </div>
                     <div className="h-2 bg-gray-100 dark:bg-gray-800 rounded-full">
                       <div
-                        className="h-2 rounded-full bg-purple-500 transition-all"
+                        className="h-2 rounded-full bg-[#f0f7fb]0 transition-all"
                         style={{ width: stats.total ? `${(t.count / stats.total) * 100}%` : '0%' }}
                       />
                     </div>
@@ -387,7 +387,7 @@ export default function SeparationPage() {
                         <td className="px-5 py-3">
                           <div className="flex items-center gap-2">
                             <div className="h-1.5 w-24 bg-gray-100 dark:bg-gray-800 rounded-full">
-                              <div className={`h-1.5 rounded-full ${pct === 100 ? 'bg-green-500' : 'bg-purple-500'}`} style={{ width: `${pct}%` }} />
+                              <div className={`h-1.5 rounded-full ${pct === 100 ? 'bg-green-500' : 'bg-[#f0f7fb]0'}`} style={{ width: `${pct}%` }} />
                             </div>
                             <span className="text-xs text-gray-500 dark:text-gray-400">{pct}%</span>
                           </div>
@@ -408,8 +408,8 @@ export default function SeparationPage() {
         <div className="space-y-4">
           {/* Initiate form */}
           {showForm && (
-            <form onSubmit={initiate} className="card-premium border-purple-500/30 p-5 space-y-4">
-              <h3 className="text-sm font-semibold text-purple-300">Initiate Separation Process</h3>
+            <form onSubmit={initiate} className="card-premium border-[#0E3D52]/30 p-5 space-y-4">
+              <h3 className="text-sm font-semibold text-[#4ebac4]">Initiate Separation Process</h3>
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Employee *</label>
@@ -445,7 +445,7 @@ export default function SeparationPage() {
               )}
               <div className="flex gap-2">
                 <button type="submit" disabled={saving}
-                  className="bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg transition">
+                  className="bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg transition">
                   {saving ? 'Initiating…' : 'Begin Separation'}
                 </button>
                 <button type="button" onClick={() => setShowForm(false)}
@@ -463,17 +463,17 @@ export default function SeparationPage() {
               placeholder="Search by name…"
               value={search}
               onChange={e => { setSearch(e.target.value); load(filterStatus, filterType, e.target.value) }}
-              className="input-premium placeholder-gray-400 focus:outline-none focus:border-purple-500 w-52"
+              className="input-premium placeholder-gray-400 focus:outline-none focus:border-[#0E3D52] w-52"
             />
             <select value={filterStatus} onChange={e => { setFilterStatus(e.target.value); load(e.target.value, filterType, search) }}
-              className="input-premium focus:outline-none focus:border-purple-500">
+              className="input-premium focus:outline-none focus:border-[#0E3D52]">
               <option value="">All statuses</option>
               <option value="pending">Pending</option>
               <option value="active">Active</option>
               <option value="completed">Completed</option>
             </select>
             <select value={filterType} onChange={e => { setFilterType(e.target.value); load(filterStatus, e.target.value, search) }}
-              className="input-premium focus:outline-none focus:border-purple-500">
+              className="input-premium focus:outline-none focus:border-[#0E3D52]">
               <option value="">All types</option>
               {SEP_TYPES.map(t => <option key={t.value} value={t.value}>{t.label}</option>)}
             </select>
@@ -524,7 +524,7 @@ export default function SeparationPage() {
                               <span className={`text-xs font-medium ${pct === 100 ? 'text-green-400' : 'text-gray-400'}`}>{pct}%</span>
                             </div>
                             <div className="h-1.5 bg-gray-100 dark:bg-gray-800 rounded-full">
-                              <div className={`h-1.5 rounded-full transition-all ${pct === 100 ? 'bg-green-500' : 'bg-purple-600'}`}
+                              <div className={`h-1.5 rounded-full transition-all ${pct === 100 ? 'bg-green-500' : 'bg-[#0E3D52]'}`}
                                 style={{ width: `${pct}%` }} />
                             </div>
                           </div>
@@ -573,7 +573,7 @@ export default function SeparationPage() {
                           {editingId === r.id ? (
                             <div className="flex gap-2">
                               <button onClick={() => saveEdit(r.id)}
-                                className="text-xs bg-purple-600 hover:bg-purple-700 text-white px-3 py-1.5 rounded-lg transition">
+                                className="text-xs bg-[#0E3D52] hover:bg-[#1A6080] text-white px-3 py-1.5 rounded-lg transition">
                                 Save Changes
                               </button>
                               <button onClick={() => setEditingId(null)}
@@ -700,7 +700,7 @@ export default function SeparationPage() {
                                   className={INPUT} />
                               </div>
                               <button onClick={() => saveInterview(r.id)}
-                                className="text-xs bg-purple-600/20 border border-purple-700 text-purple-300 hover:bg-purple-600/40 px-3 py-1.5 rounded-lg transition">
+                                className="text-xs bg-[#0E3D52]/20 border border-[#1A6080] text-[#4ebac4] hover:bg-[#0E3D52]/40 px-3 py-1.5 rounded-lg transition">
                                 Save Interview
                               </button>
                             </div>
@@ -730,7 +730,7 @@ export default function SeparationPage() {
                             <button
                               disabled={savingNote === r.id || !noteFields[r.id]?.trim()}
                               onClick={() => addNote(r.id)}
-                              className="shrink-0 px-3 py-2 bg-purple-600 hover:bg-purple-700 disabled:opacity-50 text-white text-xs font-medium rounded-lg transition">
+                              className="shrink-0 px-3 py-2 bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-50 text-white text-xs font-medium rounded-lg transition">
                               Add
                             </button>
                           </div>

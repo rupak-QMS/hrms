@@ -21,7 +21,7 @@ type LeaveTypeRow = {
   _dirty?: boolean
 }
 
-const INPUT = 'w-full bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-purple-500'
+const INPUT = 'w-full bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]'
 const LABEL = 'block text-xs font-medium text-gray-500 mb-1'
 
 export default function LeaveSettingsPage() {
@@ -92,7 +92,7 @@ export default function LeaveSettingsPage() {
           <button
             onClick={save}
             disabled={saving || !isDirty}
-            className="px-5 py-2 bg-purple-600 hover:bg-purple-700 disabled:opacity-40 disabled:cursor-not-allowed text-white text-sm font-medium rounded-lg transition-colors"
+            className="px-5 py-2 bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-40 disabled:cursor-not-allowed text-white text-sm font-medium rounded-lg transition-colors"
           >
             {saving ? 'Saving…' : 'Save Changes'}
           </button>
@@ -121,7 +121,7 @@ export default function LeaveSettingsPage() {
             <div
               key={t.key}
               className={`card-premium overflow-hidden transition ${
-                t._dirty ? 'border-purple-700/60' : t.isActive ? 'border-gray-800' : 'border-gray-800/40 opacity-60'
+                t._dirty ? 'border-[#1A6080]/60' : t.isActive ? 'border-gray-800' : 'border-gray-800/40 opacity-60'
               }`}
             >
               {/* Row header */}
@@ -133,7 +133,7 @@ export default function LeaveSettingsPage() {
                     <p className="text-xs text-gray-600 mt-0.5 dark:text-gray-400">{t.accrualNote}</p>
                   </div>
                   {t._dirty && (
-                    <span className="text-xs text-purple-400 bg-purple-900/30 border border-purple-800 px-2 py-0.5 rounded-full">
+                    <span className="text-xs text-[#1A6080] dark:text-[#4ebac4] bg-[#0E3D52]/30 border border-[#1A6080] px-2 py-0.5 rounded-full">
                       unsaved
                     </span>
                   )}
@@ -144,7 +144,7 @@ export default function LeaveSettingsPage() {
                     type="button"
                     onClick={() => update(t.key, 'isActive', !t.isActive)}
                     className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors ${
-                      t.isActive ? 'bg-purple-600' : 'bg-gray-700'
+                      t.isActive ? 'bg-[#0E3D52]' : 'bg-gray-700'
                     }`}
                   >
                     <span className={`inline-block h-3.5 w-3.5 transform rounded-full bg-white transition-transform  dark:bg-gray-900${
@@ -218,14 +218,14 @@ export default function LeaveSettingsPage() {
                             key={opt.id}
                             className={`flex-1 min-w-[160px] flex items-start gap-3 border rounded-xl px-4 py-3 cursor-pointer transition ${
                               isChecked
-                                ? 'border-purple-500 bg-purple-50 dark:bg-purple-900/20'
+                                ? 'border-[#0E3D52] bg-[#E0EEF4] dark:bg-[#0E3D52]/20'
                                 : 'border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
                             }`}
                           >
                             <input
                               type="radio"
                               name={`cf-${t.key}`}
-                              className="mt-0.5 accent-purple-600 shrink-0"
+                              className="mt-0.5 accent-[#0E3D52] shrink-0"
                               checked={isChecked}
                               onChange={() => {
                                 if (opt.value === 'custom') {
@@ -247,7 +247,7 @@ export default function LeaveSettingsPage() {
                                     value={t.maxCarryForwardDays ?? ''}
                                     onClick={e => e.stopPropagation()}
                                     onChange={e => update(t.key, 'maxCarryForwardDays', Math.max(1, parseInt(e.target.value) || 1))}
-                                    className="w-16 bg-white dark:bg-gray-900 border border-purple-400 rounded-md px-2 py-0.5 text-sm text-gray-900 dark:text-white focus:outline-none"
+                                    className="w-16 bg-white dark:bg-gray-900 border border-[#4ebac4] rounded-md px-2 py-0.5 text-sm text-gray-900 dark:text-white focus:outline-none"
                                   />
                                 )}
                                 {isCapped && isChecked && (

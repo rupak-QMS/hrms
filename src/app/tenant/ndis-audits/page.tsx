@@ -427,7 +427,7 @@ export default function NDISAuditsPage() {
                         <p className="font-medium text-gray-900 dark:text-white truncate">{audit.title}</p>
                         <p className="text-xs text-gray-500 dark:text-gray-400 truncate">{audit.standard}</p>
                         {audit.outcomeGroup && (
-                          <p className="text-xs text-purple-500">{OUTCOME_GROUPS[audit.outcomeGroup] ?? audit.outcomeGroup}</p>
+                          <p className="text-xs text-[#0E3D52] dark:text-[#4ebac4]">{OUTCOME_GROUPS[audit.outcomeGroup] ?? audit.outcomeGroup}</p>
                         )}
                       </td>
                       <td className="px-4 py-3 text-gray-600 dark:text-gray-400 whitespace-nowrap">

@@ -147,7 +147,7 @@ export default function SupervisionPage() {
         <div className="flex items-center gap-2">
           <ExportButton onClick={exportSupervision} disabled={records.length === 0} />
           <button onClick={() => setShowForm(v => !v)}
-            className="bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium px-4 py-2.5 rounded-lg transition">
+            className="bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm font-medium px-4 py-2.5 rounded-lg transition">
             {showForm ? 'Cancel' : '+ Schedule Session'}
           </button>
         </div>
@@ -170,8 +170,8 @@ export default function SupervisionPage() {
 
       {/* Schedule form */}
       {showForm && (
-        <form onSubmit={schedule} className="card-premium border-purple-500/30 p-5 space-y-4">
-          <h3 className="text-sm font-semibold text-purple-300">Schedule Supervision Session</h3>
+        <form onSubmit={schedule} className="card-premium border-[#0E3D52]/30 p-5 space-y-4">
+          <h3 className="text-sm font-semibold text-[#4ebac4]">Schedule Supervision Session</h3>
           <div className="grid grid-cols-2 gap-3">
             <div>
               <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Employee *</label>
@@ -204,7 +204,7 @@ export default function SupervisionPage() {
               rows={2} placeholder="Agenda items, topics to cover…" className={INPUT} />
           </div>
           <button type="submit" disabled={saving}
-            className="bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg">
+            className="bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg">
             {saving ? 'Scheduling…' : 'Schedule Session'}
           </button>
         </form>
@@ -213,14 +213,14 @@ export default function SupervisionPage() {
       {/* Filters */}
       <div className="flex gap-3 flex-wrap">
         <select value={filterStatus} onChange={e => { setFilterStatus(e.target.value); load(e.target.value, filterType) }}
-          className="input-premium focus:outline-none focus:border-purple-500">
+          className="input-premium focus:outline-none focus:border-[#0E3D52]">
           <option value="">All statuses</option>
           <option value="scheduled">Scheduled</option>
           <option value="completed">Completed</option>
           <option value="cancelled">Cancelled</option>
         </select>
         <select value={filterType} onChange={e => { setFilterType(e.target.value); load(filterStatus, e.target.value) }}
-          className="input-premium focus:outline-none focus:border-purple-500">
+          className="input-premium focus:outline-none focus:border-[#0E3D52]">
           <option value="">All types</option>
           {SUP_TYPES.map(t => <option key={t.value} value={t.value}>{t.label}</option>)}
         </select>
@@ -293,7 +293,7 @@ export default function SupervisionPage() {
                         <ul className="space-y-1.5 mb-2">
                           {r.actionItems.map((item, i) => (
                             <li key={i} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-gray-800/50 rounded-lg px-3 py-2">
-                              <span className="text-purple-400 shrink-0">•</span>
+                              <span className="text-[#1A6080] dark:text-[#4ebac4] shrink-0">•</span>
                               <span className="flex-1">{item}</span>
                               {r.status !== 'completed' && (
                                 <button onClick={() => removeAction(r.id, r.actionItems, i)} className="text-gray-600 hover:text-red-400 text-xs dark:text-gray-400"></button>
@@ -311,7 +311,7 @@ export default function SupervisionPage() {
                             placeholder="Add action item… (Enter to add)"
                             className="flex-1 input-premium py-1.5 text-xs" />
                           <button onClick={() => addAction(r.id, r.actionItems)}
-                            className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-purple-600 px-3 py-1.5 rounded-lg transition">
+                            className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-[#0E3D52] px-3 py-1.5 rounded-lg transition">
                             Add
                           </button>
                         </div>

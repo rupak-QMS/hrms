@@ -389,7 +389,7 @@ export default function OrganisationPage() {
                         <div className="flex flex-wrap gap-1">
                           {p.isParticipantFacing && <span className="text-xs bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 rounded px-1.5 py-0.5">Participant</span>}
                           {p.isRiskAssessed && <span className="text-xs bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 rounded px-1.5 py-0.5">Risk</span>}
-                          {p.isKeyPersonnel && <span className="text-xs bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400 rounded px-1.5 py-0.5">Key</span>}
+                          {p.isKeyPersonnel && <span className="text-xs bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/30 dark:text-[#1A6080] dark:text-[#4ebac4] rounded px-1.5 py-0.5">Key</span>}
                           {p.isWhsSensitive && <span className="text-xs bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400 rounded px-1.5 py-0.5">WHS</span>}
                           {!p.isParticipantFacing && !p.isRiskAssessed && !p.isKeyPersonnel && !p.isWhsSensitive && <span className="text-[var(--txt3)]">—</span>}
                         </div>

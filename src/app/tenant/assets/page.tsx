@@ -316,7 +316,7 @@ export default function AssetsPage() {
                   Cancel
                 </button>
                 <button type="submit" disabled={saving}
-                  className="px-4 py-2 text-sm rounded-lg bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white transition">
+                  className="px-4 py-2 text-sm rounded-lg bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white transition">
                   {saving ? 'Saving…' : 'Save Changes'}
                 </button>
               </div>
@@ -338,7 +338,7 @@ export default function AssetsPage() {
           }
           {tab === 'assets' && (
             <button onClick={() => setShowAssetForm(v => !v)}
-              className="bg-purple-600 hover:bg-purple-700 text-white text-sm px-4 py-2.5 rounded-lg transition">
+              className="bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm px-4 py-2.5 rounded-lg transition">
               {showAssetForm ? 'Cancel' : '+ Add Asset'}
             </button>
           )}
@@ -355,7 +355,7 @@ export default function AssetsPage() {
           { label:'Retired',     value: stats.retired,   color:'text-red-600   dark:text-red-400',   filter:'retired' },
         ].slice(0,4).map(s => (
           <button key={s.label} onClick={() => { setTab('assets'); setFilterStatus(filterStatus === s.filter ? '' : s.filter) }}
-            className={`card-premium p-4 text-left transition hover:ring-1 hover:ring-purple-500/50 ${filterStatus === s.filter ? 'ring-1 ring-purple-500' : ''}`}>
+            className={`card-premium p-4 text-left transition hover:ring-1 hover:ring-[#0E3D52]/50 ${filterStatus === s.filter ? 'ring-1 ring-[#0E3D52]' : ''}`}>
             <p className="text-xs text-gray-600 dark:text-gray-400">{s.label}</p>
             <p className={`text-2xl font-bold mt-1 ${s.color}`}>{s.value}</p>
           </button>
@@ -366,7 +366,7 @@ export default function AssetsPage() {
       <div className="flex border-b border-gray-200 dark:border-gray-800">
         {(['assets','assignments'] as const).map(t => (
           <button key={t} onClick={() => setTab(t)}
-            className={`px-4 py-2.5 text-sm font-medium border-b-2 transition capitalize ${tab === t ? 'border-purple-500 text-purple-400' : 'border-transparent text-gray-500 hover:text-gray-300'}`}>
+            className={`px-4 py-2.5 text-sm font-medium border-b-2 transition capitalize ${tab === t ? 'border-[#0E3D52] text-[#1A6080] dark:text-[#4ebac4]' : 'border-transparent text-gray-500 hover:text-gray-300'}`}>
             {t === 'assets' ? `Asset Register (${assets.length})` : `Assignments (${assignments.filter(a => !a.returnedAt).length} active)`}
           </button>
         ))}
@@ -407,7 +407,7 @@ export default function AssetsPage() {
 
       {/* Add Asset Form */}
       {showAssetForm && tab === 'assets' && (
-        <form onSubmit={createAsset} className="card-premium border-purple-500/30 p-5 space-y-3">
+        <form onSubmit={createAsset} className="card-premium border-[#0E3D52]/30 p-5 space-y-3">
           <div className="grid grid-cols-2 gap-3">
             <div>
               <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Name *</label>
@@ -429,7 +429,7 @@ export default function AssetsPage() {
             </div>
           </div>
           <button type="submit" disabled={saving}
-            className="bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg transition">
+            className="bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg transition">
             {saving ? 'Saving…' : 'Add Asset'}
           </button>
         </form>
@@ -482,7 +482,7 @@ export default function AssetsPage() {
                               </button>
                             )}
                             <button onClick={() => openEdit(a)}
-                              className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-purple-400 hover:text-purple-400 px-2 py-1 rounded transition">
+                              className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-[#4ebac4] hover:text-[#1A6080] dark:text-[#4ebac4] px-2 py-1 rounded transition">
                               Edit
                             </button>
                             {a.status !== 'retired' && (

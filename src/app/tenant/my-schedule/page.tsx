@@ -39,7 +39,7 @@ const SHIFT_TYPE_LABELS: Record<string, string> = {
 const SHIFT_TYPE_COLORS: Record<string, string> = {
   standard:     'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300',
   sleepover:    'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-300',
-  active_night: 'bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300',
+  active_night: 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/40 dark:text-[#4ebac4]',
   on_call:      'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300',
 }
 
@@ -334,29 +334,29 @@ export default function MySchedulePage() {
               <div key={dayStr}
                 className={`card-premium overflow-hidden transition ${
                   today
-                    ? 'border-purple-300 dark:border-purple-700'
+                    ? 'border-[#9ccfda] dark:border-[#1A6080]'
                     : 'border-gray-200 dark:border-gray-800'
                 }`}>
                 {/* Day header */}
                 <div className={`px-5 py-3 flex items-center gap-3 ${
                   today
-                    ? 'bg-purple-50 dark:bg-purple-900/20'
+                    ? 'bg-[#E0EEF4] dark:bg-[#0E3D52]/20'
                     : 'bg-gray-50 dark:bg-gray-800/50'
                 }`}>
                   <div className="min-w-[2.5rem] text-center">
                     <p className={`text-[10px] font-semibold uppercase tracking-wider ${
-                      today ? 'text-purple-600 dark:text-purple-400' : 'text-gray-400 dark:text-gray-500'
+                      today ? 'text-[#0E3D52] dark:text-[#4ebac4]' : 'text-gray-400 dark:text-gray-500'
                     }`}>
                       {WEEKDAYS[day.getDay()]}
                     </p>
                     <p className={`text-lg font-bold leading-none mt-0.5 ${
-                      today ? 'text-purple-700 dark:text-purple-300' : isPast ? 'text-gray-400 dark:text-gray-600' : 'text-gray-900 dark:text-white'
+                      today ? 'text-[#0E3D52] dark:text-[#4ebac4]' : isPast ? 'text-gray-400 dark:text-gray-600' : 'text-gray-900 dark:text-white'
                     }`}>
                       {day.getDate()}
                     </p>
                   </div>
                   <div className="flex-1">
-                    <p className={`text-xs font-medium ${today ? 'text-purple-600 dark:text-purple-400' : 'text-gray-500 dark:text-gray-400'}`}>
+                    <p className={`text-xs font-medium ${today ? 'text-[#0E3D52] dark:text-[#4ebac4]' : 'text-gray-500 dark:text-gray-400'}`}>
                       {today ? 'Today' : `${MONTHS[day.getMonth()]} ${day.getFullYear()}`}
                     </p>
                     {dayShifts.length > 0 && (
@@ -378,10 +378,10 @@ export default function MySchedulePage() {
                     {dayShifts.map(shift => {
                       const isNow = today && new Date() >= new Date(shift.startTime) && new Date() <= new Date(shift.endTime)
                       return (
-                        <div key={shift.id} className={`px-5 py-4 flex gap-4 items-start ${isNow ? 'bg-purple-50/50 dark:bg-purple-900/10' : ''}`}>
+                        <div key={shift.id} className={`px-5 py-4 flex gap-4 items-start ${isNow ? 'bg-[#f0f7fb]/50 dark:bg-[#0E3D52]/10' : ''}`}>
                           {/* Time column */}
                           <div className="shrink-0 text-right min-w-[72px]">
-                            <p className={`text-sm font-semibold ${isNow ? 'text-purple-700 dark:text-purple-300' : 'text-gray-900 dark:text-white'}`}>
+                            <p className={`text-sm font-semibold ${isNow ? 'text-[#0E3D52] dark:text-[#4ebac4]' : 'text-gray-900 dark:text-white'}`}>
                               {fmtTime(shift.startTime)}
                             </p>
                             <p className="text-xs text-gray-500 dark:text-gray-400">{fmtTime(shift.endTime)}</p>
@@ -389,7 +389,7 @@ export default function MySchedulePage() {
                           </div>
 
                           {/* Vertical bar */}
-                          <div className={`w-0.5 self-stretch rounded-full mt-0.5 ${isNow ? 'bg-purple-400' : 'bg-gray-200 dark:bg-gray-700'}`} />
+                          <div className={`w-0.5 self-stretch rounded-full mt-0.5 ${isNow ? 'bg-[#4ebac4]' : 'bg-gray-200 dark:bg-gray-700'}`} />
 
                           {/* Shift details */}
                           <div className="flex-1 min-w-0">
@@ -403,7 +403,7 @@ export default function MySchedulePage() {
                                 {shift.status.charAt(0).toUpperCase() + shift.status.slice(1)}
                               </span>
                               {isNow && (
-                                <span className="text-xs font-semibold text-purple-600 dark:text-purple-400 animate-pulse">● Active now</span>
+                                <span className="text-xs font-semibold text-[#0E3D52] dark:text-[#4ebac4] animate-pulse">● Active now</span>
                               )}
                             </div>
 

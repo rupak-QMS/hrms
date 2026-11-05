@@ -220,7 +220,7 @@ export default function MyLeavePage() {
         </div>
         <button
           onClick={() => { setShowForm(true); setFormError(null) }}
-          className="px-4 py-2.5 bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium rounded-lg transition">
+          className="px-4 py-2.5 bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm font-medium rounded-lg transition">
           + New Request
         </button>
       </div>
@@ -292,8 +292,8 @@ export default function MyLeavePage() {
             </div>
 
             {computedDays > 0 && (
-              <div className="bg-purple-50 dark:bg-purple-900/30 border border-purple-200 dark:border-purple-800 rounded-lg px-4 py-2.5 space-y-1.5">
-                <p className="text-sm text-purple-300 font-medium">
+              <div className="bg-[#f0f7fb] dark:bg-[#0E3D52]/30 border border-[#b8d4e0] dark:border-[#1A6080] rounded-lg px-4 py-2.5 space-y-1.5">
+                <p className="text-sm text-[#4ebac4] font-medium">
                   {computedDays} calendar day{computedDays !== 1 ? 's' : ''} requested
                 </p>
                 {overlappingHolidays.length > 0 && (
@@ -325,7 +325,7 @@ export default function MyLeavePage() {
 
             <div className="flex gap-3 pt-1">
               <button type="submit" disabled={saving || computedDays <= 0}
-                className="flex-1 py-2.5 bg-purple-600 hover:bg-purple-700 disabled:opacity-50 text-white text-sm font-medium rounded-lg transition">
+                className="flex-1 py-2.5 bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-50 text-white text-sm font-medium rounded-lg transition">
                 {saving ? 'Submitting…' : 'Submit Request'}
               </button>
               <button type="button" onClick={() => { setShowForm(false); setFormError(null) }}
@@ -365,7 +365,7 @@ export default function MyLeavePage() {
                       </p>
                       <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
                         {fmt(r.startDate)} → {fmt(r.endDate)}
-                        <span className="ml-2 text-purple-400">{r.totalDays}d</span>
+                        <span className="ml-2 text-[#1A6080] dark:text-[#4ebac4]">{r.totalDays}d</span>
                       </p>
                     </div>
                     <div className="flex items-center gap-3 shrink-0">
@@ -496,7 +496,7 @@ export default function MyLeavePage() {
                       setForm(f => ({ ...f, leaveType: b.key }))
                       setShowForm(true); setFormError(null)
                     }}
-                    className="w-full text-xs py-1.5 border border-gray-200 dark:border-gray-700 text-gray-500 dark:text-gray-400 hover:text-white hover:border-purple-600 rounded-lg transition">
+                    className="w-full text-xs py-1.5 border border-gray-200 dark:border-gray-700 text-gray-500 dark:text-gray-400 hover:text-white hover:border-[#0E3D52] rounded-lg transition">
                     Request {b.label}
                   </button>
                 </div>

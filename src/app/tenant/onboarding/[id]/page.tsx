@@ -43,7 +43,7 @@ const STAGES = Object.entries(STAGE_LABELS)
 const CATEGORY_COLOR: Record<string, string> = {
   admin:      'bg-gray-700 text-gray-300',
   it:         'bg-blue-900/60 text-blue-300',
-  hr:         'bg-purple-900/60 text-purple-300',
+  hr:         'bg-[#0E3D52]/60 text-[#4ebac4]',
   legal:      'bg-amber-900/60 text-amber-300',
   compliance: 'bg-red-900/60 text-red-300',
   culture:    'bg-pink-900/60 text-pink-300',
@@ -239,7 +239,7 @@ export default function OnboardingDetailPage() {
       {/* Header */}
       <div className="flex items-start justify-between gap-4">
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-full bg-purple-900 flex items-center justify-center text-white text-lg font-bold shrink-0">
+          <div className="w-12 h-12 rounded-full bg-[#0E3D52] flex items-center justify-center text-white text-lg font-bold shrink-0">
             {(rec.employeeFirstName?.[0] ?? '?').toUpperCase()}
           </div>
           <div>
@@ -283,7 +283,7 @@ export default function OnboardingDetailPage() {
         </div>
 
         <div className="w-full bg-gray-100 dark:bg-gray-800 rounded-full h-2">
-          <div className="h-2 rounded-full bg-purple-500 transition-all duration-500" style={{ width: `${pct}%` }} />
+          <div className="h-2 rounded-full bg-[#f0f7fb]0 transition-all duration-500" style={{ width: `${pct}%` }} />
         </div>
 
         {/* Stage timeline */}
@@ -293,7 +293,7 @@ export default function OnboardingDetailPage() {
               <div className={`flex flex-col items-center flex-1 ${i < stageIdx ? 'opacity-100' : i === stageIdx ? 'opacity-100' : 'opacity-40'}`}>
                 <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold mb-1 ${
                   i < stageIdx  ? 'bg-green-600 text-white' :
-                  i === stageIdx ? 'bg-purple-600 text-white ring-2 ring-purple-400' :
+                  i === stageIdx ? 'bg-[#0E3D52] text-white ring-2 ring-[#4ebac4]' :
                   'bg-gray-700 text-gray-400'
                 }`}>
                   {i < stageIdx ? '' : i + 1}
@@ -309,7 +309,7 @@ export default function OnboardingDetailPage() {
 
         {canAdvance && (
           <button onClick={advanceStage} disabled={saving}
-            className="w-full mt-2 border border-purple-700 text-purple-300 hover:bg-purple-900/30 text-sm py-2 rounded-lg transition">
+            className="w-full mt-2 border border-[#1A6080] text-[#4ebac4] hover:bg-[#0E3D52]/30 text-sm py-2 rounded-lg transition">
             {saving ? 'Saving…' : `Advance to ${STAGE_LABELS[STAGES[stageIdx + 1]?.[0]] ?? 'Next Stage'} →`}
           </button>
         )}
@@ -333,7 +333,7 @@ export default function OnboardingDetailPage() {
                 fetchWithAuth('/api/tenant/employees?limit=200').then(r => r.json()).then(d => setAllEmployees(d.employees ?? []))
               }
               setShowBuddyEdit(b => !b)
-            }} className="text-xs text-purple-400 hover:text-purple-300 transition">
+            }} className="text-xs text-[#0E3D52] hover:text-[#1A6080] dark:text-[#4ebac4] transition">
               {showBuddyEdit ? 'Cancel' : 'Edit'}
             </button>
           </div>
@@ -341,7 +341,7 @@ export default function OnboardingDetailPage() {
           {showBuddyEdit ? (
             <div className="space-y-2">
               <select value={buddyDraft} onChange={e => setBuddyDraft(e.target.value)}
-                className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-purple-500">
+                className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]">
                 <option value="">— No buddy —</option>
                 {allEmployees
                   .filter(e => e.id !== rec.employeeId)
@@ -349,13 +349,13 @@ export default function OnboardingDetailPage() {
                 }
               </select>
               <button onClick={saveBuddy} disabled={buddySaving}
-                className="w-full bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm py-1.5 rounded-lg transition">
+                className="w-full bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm py-1.5 rounded-lg transition">
                 {buddySaving ? 'Saving…' : 'Save Buddy'}
               </button>
             </div>
           ) : (
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full bg-purple-900/50 flex items-center justify-center text-purple-300 text-sm font-bold">
+              <div className="w-8 h-8 rounded-full bg-[#0E3D52]/50 flex items-center justify-center text-[#4ebac4] text-sm font-bold">
                 {buddyName ? buddyName[0].toUpperCase() : '?'}
               </div>
               <span className="text-sm text-gray-200">{buddyName ?? <span className="text-gray-500 italic">Not assigned</span>}</span>
@@ -370,7 +370,7 @@ export default function OnboardingDetailPage() {
             <button onClick={() => {
               setNotesDraft(rec.notes ?? '')
               setEditingNotes(n => !n)
-            }} className="text-xs text-purple-400 hover:text-purple-300 transition">
+            }} className="text-xs text-[#0E3D52] hover:text-[#1A6080] dark:text-[#4ebac4] transition">
               {editingNotes ? 'Cancel' : 'Edit'}
             </button>
           </div>
@@ -378,9 +378,9 @@ export default function OnboardingDetailPage() {
             <div className="space-y-2">
               <textarea value={notesDraft} onChange={e => setNotesDraft(e.target.value)} rows={4}
                 placeholder="Add notes…"
-                className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-purple-500 resize-none" />
+                className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52] resize-none" />
               <button onClick={saveNotes} disabled={notesSaving}
-                className="w-full bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm py-1.5 rounded-lg transition">
+                className="w-full bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm py-1.5 rounded-lg transition">
                 {notesSaving ? 'Saving…' : 'Save Notes'}
               </button>
             </div>
@@ -397,25 +397,25 @@ export default function OnboardingDetailPage() {
         <div className="flex items-center justify-between">
           <h2 className="section-label">Onboarding Checklist</h2>
           <button onClick={() => setAddingTask(t => !t)}
-            className="text-xs text-purple-400 hover:text-purple-300 transition flex items-center gap-1">
+            className="text-xs text-[#0E3D52] hover:text-[#1A6080] dark:text-[#4ebac4] transition flex items-center gap-1">
             {addingTask ? '✕ Cancel' : '+ Add Task'}
           </button>
         </div>
 
         {/* Add task form */}
         {addingTask && (
-          <div className="card-premium border-purple-500/30 p-4 space-y-3">
-            <p className="text-xs font-semibold text-purple-300">New Checklist Task</p>
+          <div className="card-premium border-[#0E3D52]/30 p-4 space-y-3">
+            <p className="text-xs font-semibold text-[#4ebac4]">New Checklist Task</p>
             <input value={newTaskText} onChange={e => setNewTaskText(e.target.value)}
               placeholder="Task description…"
-              className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-purple-500" />
+              className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]" />
             <div className="flex gap-2 items-center">
               <select value={newTaskCat} onChange={e => setNewTaskCat(e.target.value)}
-                className="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-purple-500">
+                className="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]">
                 {CATEGORIES.map(c => <option key={c} value={c}>{c.charAt(0).toUpperCase() + c.slice(1)}</option>)}
               </select>
               <button onClick={addTask} disabled={taskSaving || !newTaskText.trim()}
-                className="flex-1 bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm py-2 rounded-lg transition">
+                className="flex-1 bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm py-2 rounded-lg transition">
                 {taskSaving ? 'Adding…' : 'Add Task'}
               </button>
             </div>
@@ -439,7 +439,7 @@ export default function OnboardingDetailPage() {
                   onClick={() => toggleItem(item.id)}
                 >
                   <div className={`w-5 h-5 rounded flex items-center justify-center border-2 shrink-0 transition ${
-                    item.done ? 'bg-purple-600 border-purple-600' : 'border-gray-600'
+                    item.done ? 'bg-[#0E3D52] border-[#0E3D52]' : 'border-gray-600'
                   }`}>
                     {item.done && <span className="text-white text-xs"></span>}
                   </div>

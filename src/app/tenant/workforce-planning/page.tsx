@@ -283,7 +283,7 @@ export default function WorkforcePlanningPage() {
             <ExportButton onClick={exportPlansCsv} disabled={visiblePlans.length === 0} />
             <button
               onClick={showForm ? cancelForm : openAdd}
-              className="bg-purple-600 hover:bg-purple-700 text-white text-sm px-4 py-2.5 rounded-lg transition"
+              className="bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm px-4 py-2.5 rounded-lg transition"
             >
               {showForm ? 'Cancel' : '+ Add Plan'}
             </button>
@@ -321,7 +321,7 @@ export default function WorkforcePlanningPage() {
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
               <StatCard label="Active Employees" value={summary!.totalActive} color="text-foreground" />
               <StatCard label="Departments"      value={summary!.departments} color="text-blue-400" />
-              <StatCard label="Active Positions" value={summary!.positions}   color="text-purple-400" />
+              <StatCard label="Active Positions" value={summary!.positions}   color="text-[#1A6080] dark:text-[#4ebac4]" />
               <StatCard label="Open Plans"       value={planStats.openRoles}  color="text-amber-400" />
             </div>
 
@@ -415,7 +415,7 @@ export default function WorkforcePlanningPage() {
                       const cfg = EMP_TYPE_CONFIG[e.employmentType]
                       return (
                         <div key={e.id} className="flex items-center gap-3 px-5 py-3">
-                          <div className="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center text-white text-xs font-bold shrink-0">
+                          <div className="w-8 h-8 rounded-full bg-[#0E3D52] flex items-center justify-center text-white text-xs font-bold shrink-0">
                             {e.firstName[0]}{e.lastName[0]}
                           </div>
                           <div className="flex-1 min-w-0">
@@ -460,8 +460,8 @@ export default function WorkforcePlanningPage() {
 
           {/* Add / Edit form */}
           {showForm && (
-            <form onSubmit={savePlan} className="card-premium border-purple-500/30 p-5 space-y-4">
-              <h3 className="text-sm font-semibold text-purple-300">
+            <form onSubmit={savePlan} className="card-premium border-[#0E3D52]/30 p-5 space-y-4">
+              <h3 className="text-sm font-semibold text-[#4ebac4]">
                 {editingId ? 'Edit Headcount Plan' : 'Add Headcount Plan'}
               </h3>
 
@@ -561,7 +561,7 @@ export default function WorkforcePlanningPage() {
                 <button
                   type="submit"
                   disabled={saving}
-                  className="bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg transition"
+                  className="bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg transition"
                 >
                   {saving ? 'Saving…' : editingId ? 'Save Changes' : 'Add Plan'}
                 </button>
@@ -599,7 +599,7 @@ export default function WorkforcePlanningPage() {
             {(filterDept || filterStatus) && (
               <button
                 onClick={() => { setFilterDept(''); setFilterStatus('') }}
-                className="text-xs text-purple-400 hover:text-purple-300 px-2"
+                className="text-xs text-[#0E3D52] hover:text-[#1A6080] dark:text-[#4ebac4] px-2"
               >
                 Clear filters
               </button>
@@ -692,7 +692,7 @@ export default function WorkforcePlanningPage() {
                             )}
                             <button
                               onClick={() => openEdit(p)}
-                              className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-purple-600 hover:text-purple-400 px-2 py-1 rounded transition"
+                              className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-[#0E3D52] hover:text-[#1A6080] dark:text-[#4ebac4] px-2 py-1 rounded transition"
                             >
                               Edit
                             </button>

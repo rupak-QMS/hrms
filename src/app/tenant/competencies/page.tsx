@@ -144,13 +144,13 @@ export default function CompetencyPage() {
           <ExportButton onClick={exportCompetencies} disabled={competencies.length === 0} />
           {tab === 'library' && (
             <button onClick={() => setShowCompForm(v => !v)}
-              className="bg-purple-600 hover:bg-purple-700 text-white text-sm px-4 py-2.5 rounded-lg transition">
+              className="bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm px-4 py-2.5 rounded-lg transition">
               {showCompForm ? 'Cancel' : '+ Add Competency'}
             </button>
           )}
           {tab === 'assessments' && (
             <button onClick={() => setShowAssForm(v => !v)}
-              className="bg-purple-600 hover:bg-purple-700 text-white text-sm px-4 py-2.5 rounded-lg transition">
+              className="bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm px-4 py-2.5 rounded-lg transition">
               {showAssForm ? 'Cancel' : '+ Record Assessment'}
             </button>
           )}
@@ -177,7 +177,7 @@ export default function CompetencyPage() {
       <div className="flex border-b border-gray-200 dark:border-gray-800">
         {(['library', 'assessments'] as const).map(t => (
           <button key={t} onClick={() => setTab(t)}
-            className={`px-5 py-2.5 text-sm font-medium border-b-2 transition ${tab === t ? 'border-purple-500 text-purple-400' : 'border-transparent text-gray-500 hover:text-gray-300'}`}>
+            className={`px-5 py-2.5 text-sm font-medium border-b-2 transition ${tab === t ? 'border-[#0E3D52] text-[#1A6080] dark:text-[#4ebac4]' : 'border-transparent text-gray-500 hover:text-gray-300'}`}>
             {t === 'library' ? `Framework (${competencies.length})` : `Assessments (${assessments.length})`}
           </button>
         ))}
@@ -185,8 +185,8 @@ export default function CompetencyPage() {
 
       {/* Add competency form */}
       {tab === 'library' && showCompForm && (
-        <form onSubmit={createComp} className="card-premium border-purple-500/30 p-5 space-y-3">
-          <h3 className="text-sm font-semibold text-purple-300">Add Competency to Framework</h3>
+        <form onSubmit={createComp} className="card-premium border-[#0E3D52]/30 p-5 space-y-3">
+          <h3 className="text-sm font-semibold text-[#4ebac4]">Add Competency to Framework</h3>
           <div className="grid grid-cols-2 gap-3">
             <div>
               <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Name *</label>
@@ -205,7 +205,7 @@ export default function CompetencyPage() {
               rows={2} placeholder="What this competency covers…" className={INPUT} />
           </div>
           <button type="submit" disabled={saving}
-            className="bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg">
+            className="bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg">
             {saving ? 'Saving…' : 'Add Competency'}
           </button>
         </form>
@@ -213,8 +213,8 @@ export default function CompetencyPage() {
 
       {/* Record assessment form */}
       {tab === 'assessments' && showAssForm && (
-        <form onSubmit={createAss} className="card-premium border-purple-500/30 p-5 space-y-3">
-          <h3 className="text-sm font-semibold text-purple-300">Record Competency Assessment</h3>
+        <form onSubmit={createAss} className="card-premium border-[#0E3D52]/30 p-5 space-y-3">
+          <h3 className="text-sm font-semibold text-[#4ebac4]">Record Competency Assessment</h3>
           <div className="grid grid-cols-2 gap-3">
             <div>
               <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Employee *</label>
@@ -264,7 +264,7 @@ export default function CompetencyPage() {
               rows={2} placeholder="Additional notes…" className={INPUT} />
           </div>
           <button type="submit" disabled={saving}
-            className="bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg">
+            className="bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg">
             {saving ? 'Saving…' : 'Record Assessment'}
           </button>
         </form>
@@ -332,7 +332,7 @@ export default function CompetencyPage() {
               {/* Filter */}
               <select value={filterEmp} onChange={e => { setFilterEmp(e.target.value); }}
                 onBlur={() => load()}
-                className="input-premium focus:outline-none focus:border-purple-500">
+                className="input-premium focus:outline-none focus:border-[#0E3D52]">
                 <option value="">All employees</option>
                 {employees.map(e => <option key={e.id} value={e.id}>{e.firstName} {e.lastName}</option>)}
               </select>

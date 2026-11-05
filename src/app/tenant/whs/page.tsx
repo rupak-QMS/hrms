@@ -253,16 +253,16 @@ export default function WhsPage() {
       <div className="flex gap-3 flex-wrap">
         <input value={search} onChange={e => { setSearch(e.target.value); load(e.target.value, filterStatus, filterSeverity) }}
           placeholder="Search employee or description…"
-          className="flex-1 min-w-48 input-premium placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-purple-500" />
+          className="flex-1 min-w-48 input-premium placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]" />
         <select value={filterStatus} onChange={e => { setFilterStatus(e.target.value); load(search, e.target.value, filterSeverity) }}
-          className="input-premium focus:outline-none focus:border-purple-500">
+          className="input-premium focus:outline-none focus:border-[#0E3D52]">
           <option value="">All statuses</option>
           <option value="open">Open</option>
           <option value="investigating">Investigating</option>
           <option value="closed">Closed</option>
         </select>
         <select value={filterSeverity} onChange={e => { setFilterSeverity(e.target.value); load(search, filterStatus, e.target.value) }}
-          className="input-premium focus:outline-none focus:border-purple-500">
+          className="input-premium focus:outline-none focus:border-[#0E3D52]">
           <option value="">All severities</option>
           {SEVERITIES.map(s => <option key={s.value} value={s.value}>{s.label}</option>)}
         </select>

@@ -93,7 +93,7 @@ export default function NewOnboardingPage() {
           <div className="space-y-2">
             {STAGES.map(s => (
               <label key={s.value} className={`flex items-center gap-3 p-3 rounded-lg border cursor-pointer transition ${
-                form.stage === s.value ? 'border-purple-500 bg-purple-900/30' : 'border-gray-700 hover:border-gray-600'
+                form.stage === s.value ? 'border-[#0E3D52] bg-[#0E3D52]/30' : 'border-gray-700 hover:border-gray-600'
               }`}>
                 <input type="radio" name="stage" value={s.value} checked={form.stage === s.value}
                   onChange={() => setForm(f => ({ ...f, stage: s.value }))} />
@@ -133,7 +133,7 @@ export default function NewOnboardingPage() {
 
         <div className="flex gap-3 pt-2">
           <button type="submit" disabled={loading}
-            className="bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm font-medium px-6 py-2.5 rounded-lg transition">
+            className="bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm font-medium px-6 py-2.5 rounded-lg transition">
             {loading ? 'Creating…' : 'Create Onboarding Record →'}
           </button>
           <button type="button" onClick={() => router.back()}

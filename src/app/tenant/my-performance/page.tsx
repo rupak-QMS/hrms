@@ -143,7 +143,7 @@ export default function MyPerformancePage() {
           { label: 'Reviews',       value: reviews.length,    color: 'text-foreground' },
           { label: 'Active Goals',  value: activeGoals.length, color: 'text-blue-400' },
           { label: 'Goals Done',    value: completedGoals.length, color: 'text-green-400' },
-          { label: 'Avg Progress',  value: `${avgProgress}%`, color: 'text-purple-400' },
+          { label: 'Avg Progress',  value: `${avgProgress}%`, color: 'text-[#1A6080] dark:text-[#4ebac4]' },
         ].map(s => (
           <div key={s.label} className="card-premium p-4">
             <p className="text-xs text-gray-600 dark:text-gray-400">{s.label}</p>
@@ -185,7 +185,7 @@ export default function MyPerformancePage() {
             ))}
             <div className="flex gap-2">
               <button onClick={saveSelfAssess} disabled={selfSaving}
-                className="flex-1 bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm py-2 rounded-lg transition font-medium">
+                className="flex-1 bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm py-2 rounded-lg transition font-medium">
                 {selfSaving ? 'Saving…' : 'Save Self-Assessment'}
               </button>
               <button onClick={() => setSelfAssessModal(null)}
@@ -206,7 +206,7 @@ export default function MyPerformancePage() {
               <label className="text-xs text-gray-600 dark:text-gray-400 mb-2 block">Progress: {updatingGoal.progress}%</label>
               <input type="range" min={0} max={100} step={5} value={updatingGoal.progress}
                 onChange={e => setUpdatingGoal({ ...updatingGoal, progress: Number(e.target.value) })}
-                className="w-full accent-purple-500 mb-2" />
+                className="w-full accent-[#0E3D52] mb-2" />
               <ProgressBar value={updatingGoal.progress} />
             </div>
             <div>
@@ -214,16 +214,16 @@ export default function MyPerformancePage() {
               <div className="flex gap-1.5">
                 {[1,2,3,4,5].map(n => (
                   <button key={n} type="button" onClick={() => setUpdatingGoal({ ...updatingGoal, selfRating: n })}
-                    className={`flex-1 py-2 rounded text-xs font-medium transition ${updatingGoal.selfRating === n ? 'bg-purple-600 text-white' : 'bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-600'}`}>
+                    className={`flex-1 py-2 rounded text-xs font-medium transition ${updatingGoal.selfRating === n ? 'bg-[#0E3D52] text-white' : 'bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-600'}`}>
                     {n}
                   </button>
                 ))}
               </div>
-              {updatingGoal.selfRating && <p className="text-xs text-purple-400 mt-1">{RATING_LABELS[updatingGoal.selfRating]}</p>}
+              {updatingGoal.selfRating && <p className="text-xs text-[#1A6080] dark:text-[#4ebac4] mt-1">{RATING_LABELS[updatingGoal.selfRating]}</p>}
             </div>
             <div className="flex gap-2">
               <button onClick={saveGoalProgress} disabled={goalSaving}
-                className="flex-1 bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm py-2 rounded-lg transition font-medium">
+                className="flex-1 bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm py-2 rounded-lg transition font-medium">
                 {goalSaving ? 'Saving…' : 'Save'}
               </button>
               <button onClick={() => setUpdatingGoal(null)}
@@ -268,11 +268,11 @@ export default function MyPerformancePage() {
                     <div className="flex items-center gap-2 shrink-0">
                       {r.overallRating && (
                         <div className="text-right">
-                          <p className="text-lg font-bold text-purple-400">{Number(r.overallRating).toFixed(1)}<span className="text-xs text-gray-500 font-normal">/5</span></p>
+                          <p className="text-lg font-bold text-[#1A6080] dark:text-[#4ebac4]">{Number(r.overallRating).toFixed(1)}<span className="text-xs text-gray-500 font-normal">/5</span></p>
                         </div>
                       )}
                       <button onClick={() => openSelfAssess(r)}
-                        className={`text-xs border px-3 py-1.5 rounded-lg transition font-medium ${hasSelfAssess ? 'border-green-500 dark:border-green-700 text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/10' : 'border-purple-800 text-purple-400 hover:bg-purple-900/20'}`}>
+                        className={`text-xs border px-3 py-1.5 rounded-lg transition font-medium ${hasSelfAssess ? 'border-green-500 dark:border-green-700 text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/10' : 'border-[#1A6080] text-[#1A6080] dark:text-[#4ebac4] hover:bg-[#0E3D52]/20'}`}>
                         {hasSelfAssess ? '✓ Self-Assessed' : 'Self-Assess'}
                       </button>
                       <button onClick={() => setExpanded(isOpen ? null : r.id)}
@@ -293,7 +293,7 @@ export default function MyPerformancePage() {
                             {r.kpis.map(kpi => (
                               <div key={kpi.id} className="flex items-center justify-between bg-gray-50 dark:bg-gray-800/40 rounded-lg px-3 py-2">
                                 <span className="text-xs text-gray-400">{kpi.area}</span>
-                                <span className={`text-xs font-medium ml-2 ${kpi.rating ? 'text-purple-300' : 'text-gray-500'}`}>
+                                <span className={`text-xs font-medium ml-2 ${kpi.rating ? 'text-[#4ebac4]' : 'text-gray-500'}`}>
                                   {kpi.rating ? `${kpi.rating}/5` : '—'}
                                 </span>
                               </div>
@@ -354,7 +354,7 @@ export default function MyPerformancePage() {
                       {g.description && <p className="text-xs text-gray-400 mt-1">{g.description}</p>}
                     </div>
                     <button onClick={() => setUpdatingGoal({ id: g.id, progress: g.progress, selfRating: g.selfRating })}
-                      className="text-xs border border-purple-800 text-purple-400 hover:bg-purple-900/20 px-2.5 py-1.5 rounded-lg transition shrink-0">
+                      className="text-xs border border-[#1A6080] text-[#1A6080] dark:text-[#4ebac4] hover:bg-[#0E3D52]/20 px-2.5 py-1.5 rounded-lg transition shrink-0">
                       Update
                     </button>
                   </div>

@@ -491,7 +491,7 @@ export default function EmployeeManagementPage() {
           { label: 'Total',    value: employees.length, icon: '', cls: 'text-blue-600 dark:text-blue-400' },
           { label: 'Active',   value: activeCount,       icon: '', cls: 'text-green-600 dark:text-green-400' },
           { label: 'Inactive', value: inactiveCount,     icon: '', cls: 'text-gray-500' },
-          ...(!isYPC ? [{ label: 'NDIS', value: ndisCount, icon: '', cls: 'text-purple-600 dark:text-purple-400' }] : []),
+          ...(!isYPC ? [{ label: 'NDIS', value: ndisCount, icon: '', cls: 'text-[#0E3D52] dark:text-[#4ebac4]' }] : []),
         ].map(s => (
           <div key={s.label} className="card-premium p-4">
             <p className="text-xs text-gray-500 dark:text-gray-400">{s.label}</p>
@@ -563,8 +563,8 @@ export default function EmployeeManagementPage() {
           </div>
         ) : (
           <>{selected.size > 0 && (
-            <div className="px-4 py-2 bg-indigo-50 dark:bg-indigo-900/20 border-b border-indigo-100 dark:border-indigo-800 flex items-center gap-3">
-              <span className="text-sm font-medium text-indigo-700 dark:text-indigo-300">{selected.size} selected</span>
+            <div className="px-4 py-2 bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border-b border-[#b8d4e0] dark:border-[#1A6080] flex items-center gap-3">
+              <span className="text-sm font-medium text-[#0E3D52] dark:text-[#4ebac4]">{selected.size} selected</span>
               <PermissionGate permission="employees:write">
                 <button onClick={bulkDeactivate} disabled={bulkLoading} className="px-3 py-1 text-xs rounded-lg bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 hover:bg-red-200 disabled:opacity-50">
                   {bulkLoading ? 'Working…' : 'Deactivate'}
@@ -573,7 +573,7 @@ export default function EmployeeManagementPage() {
               <button onClick={bulkExport} className="px-3 py-1 text-xs rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-50">
                 Export selected
               </button>
-              <button onClick={() => setSelected(new Set())} className="ml-auto text-xs text-indigo-500 hover:text-indigo-700">Clear</button>
+              <button onClick={() => setSelected(new Set())} className="ml-auto text-xs text-[#1A6080] hover:text-[#0E3D52] dark:text-[#4ebac4]">Clear</button>
             </div>
           )}
           <div className="table-responsive">
@@ -638,7 +638,7 @@ export default function EmployeeManagementPage() {
                           <div>
                             <p className="font-medium text-gray-900 dark:text-white">
                               {fullName}
-                              {emp.ndisWorker && !isYPC && <span className="ml-1.5 text-xs text-purple-500">NDIS</span>}
+                              {emp.ndisWorker && !isYPC && <span className="ml-1.5 text-xs text-[#0E3D52] dark:text-[#4ebac4]">NDIS</span>}
                             </p>
                             <p className="text-xs text-gray-600 dark:text-gray-400">{emp.email}</p>
                           </div>

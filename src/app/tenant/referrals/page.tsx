@@ -125,9 +125,9 @@ export default function ReferralsPage() {
   }
 
   const referralForm = (isEdit: boolean) => (
-    <form onSubmit={isEdit ? saveEdit : submit} className="card-premium border-purple-500/30 p-5 space-y-3">
+    <form onSubmit={isEdit ? saveEdit : submit} className="card-premium border-[#0E3D52]/30 p-5 space-y-3">
       <div className="flex items-center justify-between">
-        <p className="text-sm font-semibold text-purple-300">{isEdit ? 'Edit Referral' : 'Submit Referral'}</p>
+        <p className="text-sm font-semibold text-[#4ebac4]">{isEdit ? 'Edit Referral' : 'Submit Referral'}</p>
         <button type="button" onClick={() => { setShowForm(false); setEditReferral(null); setForm(BLANK_FORM) }} className="text-xs text-gray-500 hover:text-gray-300">✕ Cancel</button>
       </div>
       <div className="grid grid-cols-2 gap-3">
@@ -158,7 +158,7 @@ export default function ReferralsPage() {
         </div>
       </div>
       <button type="submit" disabled={saving}
-        className="bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg">
+        className="bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg">
         {saving ? (isEdit ? 'Saving…' : 'Submitting…') : (isEdit ? 'Update Referral' : 'Submit Referral')}
       </button>
     </form>
@@ -174,7 +174,7 @@ export default function ReferralsPage() {
         <div className="flex items-center gap-2">
           <ExportButton onClick={doExport} disabled={filtered.length === 0} />
           <button onClick={() => { setShowForm(v => !v); setEditReferral(null); setForm(BLANK_FORM) }}
-            className="bg-purple-600 hover:bg-purple-700 text-white text-sm px-4 py-2.5 rounded-lg transition">
+            className="bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm px-4 py-2.5 rounded-lg transition">
             {showForm ? 'Cancel' : '+ Submit Referral'}
           </button>
         </div>
@@ -185,7 +185,7 @@ export default function ReferralsPage() {
           { label:'Total',      value:stats.total,     color:'text-foreground' },
           { label:'Pending',    value:stats.pending,   color:'text-blue-400' },
           { label:'Hired',      value:stats.hired,     color:'text-green-400' },
-          { label:'Bonus Paid', value:stats.bonusPaid, color:'text-purple-400' },
+          { label:'Bonus Paid', value:stats.bonusPaid, color:'text-[#1A6080] dark:text-[#4ebac4]' },
         ].map(s => (
           <div key={s.label} className="card-premium p-4">
             <p className="text-xs text-gray-600 dark:text-gray-400">{s.label}</p>
@@ -239,7 +239,7 @@ export default function ReferralsPage() {
                   {r.bonusPaidAt && <span className="text-xs text-green-400">Bonus paid</span>}
                 </div>
                 <p className="text-xs text-gray-500 dark:text-gray-400">Referred by {r.referrerFirstName} {r.referrerLastName}
-                  {r.bonusAmount && <span className="ml-2 text-purple-400">${Number(r.bonusAmount).toFixed(2)} bonus</span>}
+                  {r.bonusAmount && <span className="ml-2 text-[#1A6080] dark:text-[#4ebac4]">${Number(r.bonusAmount).toFixed(2)} bonus</span>}
                   {r.referredEmail && <span className="ml-2 text-gray-600 dark:text-gray-500">{r.referredEmail}</span>}
                 </p>
                 {r.notes && <p className="text-xs text-gray-500 dark:text-gray-500 mt-0.5 truncate max-w-xs">{r.notes}</p>}
@@ -247,7 +247,7 @@ export default function ReferralsPage() {
               <div className="flex gap-2 shrink-0 items-center">
                 {r.status === 'pending' && (
                   <button onClick={() => advance(r.id, 'screening')}
-                    className="text-xs bg-purple-600/20 border border-purple-700 text-purple-300 hover:bg-purple-600/40 px-2.5 py-1 rounded transition">
+                    className="text-xs bg-[#0E3D52]/20 border border-[#1A6080] text-[#4ebac4] hover:bg-[#0E3D52]/40 px-2.5 py-1 rounded transition">
                     → Screening
                   </button>
                 )}
@@ -265,7 +265,7 @@ export default function ReferralsPage() {
                 )}
                 <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                   <button onClick={() => openEdit(r)}
-                    className="text-xs text-purple-400 hover:text-purple-300 px-2 py-1 rounded hover:bg-purple-900/20">Edit</button>
+                    className="text-xs text-[#0E3D52] hover:text-[#1A6080] dark:text-[#4ebac4] px-2 py-1 rounded hover:bg-[#0E3D52]/20">Edit</button>
                   <button onClick={() => setConfirm({ message: `Delete referral for ${r.referredName}?`, danger: true, onConfirm: () => deleteReferral(r.id) })}
                     className="text-xs text-red-400 hover:text-red-300 px-2 py-1 rounded hover:bg-red-900/20">Delete</button>
                 </div>

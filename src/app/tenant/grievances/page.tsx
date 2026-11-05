@@ -171,7 +171,7 @@ export default function GrievancesPage() {
         <div className="flex items-center gap-2">
           <ExportButton onClick={exportGrievances} disabled={records.length === 0} />
           <button onClick={() => setShowForm(v => !v)}
-            className="bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium px-4 py-2.5 rounded-lg transition">
+            className="bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm font-medium px-4 py-2.5 rounded-lg transition">
             {showForm ? 'Cancel' : '+ Lodge Grievance'}
           </button>
         </div>
@@ -196,8 +196,8 @@ export default function GrievancesPage() {
 
       {/* Lodge form */}
       {showForm && (
-        <form onSubmit={lodge} className="card-premium border-purple-500/30 p-5 space-y-4">
-          <h3 className="text-sm font-semibold text-purple-300">Lodge New Grievance / Report</h3>
+        <form onSubmit={lodge} className="card-premium border-[#0E3D52]/30 p-5 space-y-4">
+          <h3 className="text-sm font-semibold text-[#4ebac4]">Lodge New Grievance / Report</h3>
 
           <div className="grid grid-cols-2 gap-3">
             <div>
@@ -254,7 +254,7 @@ export default function GrievancesPage() {
           )}
 
           <button type="submit" disabled={saving}
-            className="bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg transition">
+            className="bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg transition">
             {saving ? 'Lodging…' : 'Lodge Report'}
           </button>
         </form>
@@ -263,12 +263,12 @@ export default function GrievancesPage() {
       {/* Filters */}
       <div className="flex gap-3 flex-wrap">
         <select value={filterStatus} onChange={e => { setFilterStatus(e.target.value); load(e.target.value, filterType) }}
-          className="input-premium focus:outline-none focus:border-purple-500">
+          className="input-premium focus:outline-none focus:border-[#0E3D52]">
           <option value="">All statuses</option>
           {STATUS_FLOW.map(s => <option key={s.value} value={s.value}>{s.label}</option>)}
         </select>
         <select value={filterType} onChange={e => { setFilterType(e.target.value); load(filterStatus, e.target.value) }}
-          className="input-premium focus:outline-none focus:border-purple-500">
+          className="input-premium focus:outline-none focus:border-[#0E3D52]">
           <option value="">All types</option>
           {TYPES.map(t => <option key={t.value} value={t.value}>{t.label}</option>)}
         </select>
@@ -343,16 +343,16 @@ export default function GrievancesPage() {
                       <div className="flex items-center gap-0.5">
                         {STATUS_FLOW.map((s, i) => (
                           <div key={s.value} className="flex items-center flex-1">
-                            <div className={`flex-1 h-1.5 rounded-full ${i <= stageIdx ? 'bg-purple-600' : 'bg-gray-800'}`} />
+                            <div className={`flex-1 h-1.5 rounded-full ${i <= stageIdx ? 'bg-[#0E3D52]' : 'bg-gray-800'}`} />
                             {i === STATUS_FLOW.length - 1 && (
-                              <div className={`w-3 h-3 rounded-full ml-0.5 ${i <= stageIdx ? 'bg-purple-600' : 'bg-gray-800'}`} />
+                              <div className={`w-3 h-3 rounded-full ml-0.5 ${i <= stageIdx ? 'bg-[#0E3D52]' : 'bg-gray-800'}`} />
                             )}
                           </div>
                         ))}
                       </div>
                       <div className="flex justify-between mt-1">
                         <span className="text-xs text-gray-600 dark:text-gray-400">New</span>
-                        <span className="text-xs text-purple-400">{STATUS_FLOW.find(s => s.value === g.status)?.label}</span>
+                        <span className="text-xs text-[#1A6080] dark:text-[#4ebac4]">{STATUS_FLOW.find(s => s.value === g.status)?.label}</span>
                         <span className="text-xs text-gray-600 dark:text-gray-400">Closed</span>
                       </div>
                     </div>
@@ -362,7 +362,7 @@ export default function GrievancesPage() {
                       <div className="flex gap-2 flex-wrap">
                         {stageIdx < STATUS_FLOW.length - 2 && (
                           <button onClick={() => advance(g.id, g.status)}
-                            className="text-xs bg-purple-600/20 border border-purple-700 text-purple-300 hover:bg-purple-600/40 px-3 py-1.5 rounded-lg transition">
+                            className="text-xs bg-[#0E3D52]/20 border border-[#1A6080] text-[#4ebac4] hover:bg-[#0E3D52]/40 px-3 py-1.5 rounded-lg transition">
                             Advance → {STATUS_FLOW[stageIdx + 1]?.label}
                           </button>
                         )}

@@ -401,7 +401,7 @@ export default function PayrollFinancePage() {
                       >📄 Export ABA</button>
                       <button
                         onClick={() => generatePayslips(selected.id)}
-                        className="px-4 py-2 bg-purple-600 text-white text-sm font-medium rounded-lg hover:bg-purple-700"
+                        className="px-4 py-2 bg-[#0E3D52] text-white text-sm font-medium rounded-lg hover:bg-[#1A6080]"
                       >📑 Payslip PDFs</button>
                       <button
                         onClick={() => markPaid(selected.id)}
@@ -509,7 +509,7 @@ export default function PayrollFinancePage() {
                               <td className="px-4 py-3 font-medium text-gray-900 dark:text-white text-sm tabular-nums">{fmt(e.grossPay)}</td>
                               <td className="px-4 py-3 text-red-600 dark:text-red-400 text-sm tabular-nums">{fmt(e.paygWithholding)}</td>
                               <td className="px-4 py-3 text-orange-600 dark:text-orange-400 text-sm tabular-nums">{fmt(e.medicareLevy)}</td>
-                              <td className="px-4 py-3 text-purple-600 dark:text-purple-400 text-sm tabular-nums">{fmt(e.superContribution)}</td>
+                              <td className="px-4 py-3 text-[#0E3D52] dark:text-[#4ebac4] text-sm tabular-nums">{fmt(e.superContribution)}</td>
                               <td className="px-4 py-3 font-bold text-green-600 dark:text-green-400 text-sm tabular-nums">{fmt(e.netPay)}</td>
                             </tr>
                           ))}
@@ -525,7 +525,7 @@ export default function PayrollFinancePage() {
                             <td className="px-4 py-3 font-bold text-orange-600 dark:text-orange-400 text-sm tabular-nums">
                               {fmt(entries.reduce((s, e) => s + parseFloat(e.medicareLevy || '0'), 0))}
                             </td>
-                            <td className="px-4 py-3 font-bold text-purple-600 dark:text-purple-400 text-sm tabular-nums">{fmt(selected.totalSuper)}</td>
+                            <td className="px-4 py-3 font-bold text-[#0E3D52] dark:text-[#4ebac4] text-sm tabular-nums">{fmt(selected.totalSuper)}</td>
                             <td className="px-4 py-3 font-bold text-green-600 dark:text-green-400 text-sm tabular-nums">{fmt(selected.totalNet)}</td>
                           </tr>
                         </tfoot>

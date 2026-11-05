@@ -642,7 +642,7 @@ export default function EmployeeProfilePage() {
             <div className="flex flex-wrap items-center gap-2">
               <h1 className="page-premium-title">{fullName}</h1>
               {emp.ndisWorker && (
-                <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300">
+                <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/40 dark:text-[#4ebac4]">
                   NDIS Worker
                 </span>
               )}
@@ -1091,7 +1091,7 @@ export default function EmployeeProfilePage() {
                   <select
                     value={enrolCourseId}
                     onChange={e => setEnrolCourseId(e.target.value)}
-                    className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-purple-500">
+                    className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[#0E3D52]">
                     <option value="">Select a course…</option>
                     {courses
                       .filter(c => !training.some(t => t.courseId === c.id && t.status !== 'expired'))
@@ -1106,7 +1106,7 @@ export default function EmployeeProfilePage() {
                     <button
                       disabled={!enrolCourseId || enrolSaving}
                       onClick={enrolEmployee}
-                      className="flex-1 py-2 bg-purple-600 hover:bg-purple-700 disabled:opacity-50 text-white text-sm font-medium rounded-lg transition">
+                      className="flex-1 py-2 bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-50 text-white text-sm font-medium rounded-lg transition">
                       {enrolSaving ? 'Enrolling…' : 'Enrol'}
                     </button>
                     <button onClick={() => setShowEnrolModal(false)}
@@ -1207,7 +1207,7 @@ export default function EmployeeProfilePage() {
             )}
 
             <p className="text-xs text-gray-600 dark:text-gray-500 text-right">
-              <a href="/tenant/training" className="hover:text-purple-400 transition">View full Training module →</a>
+              <a href="/tenant/training" className="hover:text-[#1A6080] dark:hover:text-[#4ebac4] transition">View full Training module →</a>
             </p>
           </div>
         )}
@@ -1248,7 +1248,7 @@ export default function EmployeeProfilePage() {
                   under_review: 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300',
                   approved:     'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300',
                   rejected:     'bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300',
-                  implemented:  'bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300',
+                  implemented:  'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/40 dark:text-[#4ebac4]',
                 }
 
                 return (
@@ -1336,7 +1336,7 @@ export default function EmployeeProfilePage() {
                       {p.status === 'approved' && (
                         <button
                           onClick={() => { setReviewModal({ id: p.id, action: 'implemented' }); setReviewNotes('') }}
-                          className="px-3 py-1.5 text-xs font-medium bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition">
+                          className="px-3 py-1.5 text-xs font-medium bg-[#0E3D52] hover:bg-[#1A6080] text-white rounded-lg transition">
                           ⚡ Implement
                         </button>
                       )}
@@ -1360,7 +1360,7 @@ export default function EmployeeProfilePage() {
                             )}
                             {p.proposedSalary && (
                               <button onClick={() => printSalaryLetter(p)}
-                                className="px-2.5 py-1.5 text-xs font-medium border border-purple-300 dark:border-purple-800 text-purple-700 dark:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-900/20 rounded-lg transition">
+                                className="px-2.5 py-1.5 text-xs font-medium border border-[#b8d4e0] dark:border-[#1A6080] text-[#0E3D52] dark:text-[#4ebac4] hover:bg-[#E0EEF4] dark:hover:bg-[#0E3D52]/20 rounded-lg transition">
                                 🖨 {isHike ? 'Hike Letter' : 'Salary Letter'}
                               </button>
                             )}
@@ -1526,7 +1526,7 @@ export default function EmployeeProfilePage() {
                   className={`flex-1 py-2 text-sm font-medium text-white rounded-lg transition disabled:opacity-50 ${
                     reviewModal.action === 'approved' ? 'bg-green-600 hover:bg-green-700' :
                     reviewModal.action === 'rejected' ? 'bg-red-600 hover:bg-red-700' :
-                    'bg-purple-600 hover:bg-purple-700'
+                    'bg-[#0E3D52] hover:bg-[#1A6080]'
                   }`}>
                   {promoUpdating === reviewModal.id ? 'Saving…' : reviewModal.action === 'implemented' ? 'Confirm & Implement' : reviewModal.action === 'approved' ? 'Approve' : 'Reject'}
                 </button>
@@ -1560,7 +1560,7 @@ export default function EmployeeProfilePage() {
                         proposedTitle: t === 'salary_hike' ? (emp?.positionTitle ?? '') : f.proposedTitle,
                       }))
                     }}
-                    className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-purple-500">
+                    className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]">
                     <option value="promotion">Promotion (Title + Salary change)</option>
                     <option value="salary_hike">Annual Salary Hike (salary only)</option>
                     <option value="designation">Designation Change (title only)</option>
@@ -1575,7 +1575,7 @@ export default function EmployeeProfilePage() {
                       required
                       value={promoForm.proposedTitle}
                       onChange={e => setPromoForm(f => ({ ...f, proposedTitle: e.target.value }))}
-                      className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-purple-500"
+                      className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
                       placeholder="e.g. Senior Support Worker"
                     />
                   </div>
@@ -1603,7 +1603,7 @@ export default function EmployeeProfilePage() {
                         type="number"
                         value={promoForm.proposedSalary}
                         onChange={e => setPromoForm(f => ({ ...f, proposedSalary: e.target.value }))}
-                        className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-purple-500"
+                        className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
                         placeholder="e.g. 72000"
                       />
                     </div>
@@ -1617,7 +1617,7 @@ export default function EmployeeProfilePage() {
                     type="date"
                     value={promoForm.effectiveDate}
                     onChange={e => setPromoForm(f => ({ ...f, effectiveDate: e.target.value }))}
-                    className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-purple-500"
+                    className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
                   />
                 </div>
 
@@ -1628,14 +1628,14 @@ export default function EmployeeProfilePage() {
                     required
                     value={promoForm.justification}
                     onChange={e => setPromoForm(f => ({ ...f, justification: e.target.value }))}
-                    className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-purple-500 min-h-[80px] resize-y"
+                    className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52] min-h-[80px] resize-y"
                     placeholder="Describe the reason for this request (performance, CPI review, restructure, etc.)…"
                   />
                 </div>
 
                 <div className="flex gap-3 pt-1">
                   <button type="submit" disabled={promoSaving}
-                    className="flex-1 py-2.5 bg-purple-600 hover:bg-purple-700 disabled:opacity-50 text-white text-sm font-medium rounded-lg transition">
+                    className="flex-1 py-2.5 bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-50 text-white text-sm font-medium rounded-lg transition">
                     {promoSaving ? 'Submitting…' : 'Raise Request'}
                   </button>
                   <button type="button" onClick={() => setShowPromoForm(false)}

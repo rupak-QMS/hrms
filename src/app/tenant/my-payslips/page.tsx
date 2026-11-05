@@ -110,7 +110,7 @@ export default function MyPayslipsPage() {
           </div>
           <div className="card-premium p-4">
             <p className="text-xs text-gray-500 dark:text-gray-400">Super Accumulated</p>
-            <p className="text-xl font-bold text-purple-400 mt-0.5">{fmt(totalSuper)}</p>
+            <p className="text-xl font-bold text-[#1A6080] dark:text-[#4ebac4] mt-0.5">{fmt(totalSuper)}</p>
           </div>
         </div>
       )}
@@ -193,7 +193,7 @@ export default function MyPayslipsPage() {
                       </div>
                       <div className="flex justify-between">
                         <span className="text-gray-500 dark:text-gray-400">Superannuation</span>
-                        <span className="text-purple-400 font-mono">{fmt(p.superContribution)}</span>
+                        <span className="text-[#1A6080] dark:text-[#4ebac4] font-mono">{fmt(p.superContribution)}</span>
                       </div>
                     </div>
                     <div className="border-t border-gray-200 dark:border-gray-800 pt-2 flex justify-between text-sm">
@@ -217,7 +217,7 @@ export default function MyPayslipsPage() {
           <div className="flex gap-6">
             <span>Gross: <span className="text-foreground">{fmt(totalGross)}</span></span>
             <span>Net: <span className="text-green-400">{fmt(totalPaid)}</span></span>
-            <span>Super: <span className="text-purple-400">{fmt(totalSuper)}</span></span>
+            <span>Super: <span className="text-[#1A6080] dark:text-[#4ebac4]">{fmt(totalSuper)}</span></span>
           </div>
         </div>
       )}

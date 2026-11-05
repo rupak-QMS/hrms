@@ -171,7 +171,7 @@ export default function RolesPage() {
         </div>
         <PermissionGate permission="roles:write">
           <button onClick={() => { setShowForm(v => !v); setForm({ email: '', role: 'employee', password: generatePassword() }) }}
-            className="bg-purple-600 hover:bg-purple-700 text-white text-sm px-4 py-2.5 rounded-lg transition">
+            className="bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm px-4 py-2.5 rounded-lg transition">
             {showForm ? 'Cancel' : '+ Invite User'}
           </button>
         </PermissionGate>
@@ -210,8 +210,8 @@ export default function RolesPage() {
 
       {/* Invite form */}
       {showForm && (
-        <form onSubmit={invite} className="card-premium border-purple-500/30 p-5 space-y-3">
-          <h3 className="text-sm font-semibold text-purple-600 dark:text-purple-300">Invite new portal user</h3>
+        <form onSubmit={invite} className="card-premium border-[#0E3D52]/30 p-5 space-y-3">
+          <h3 className="text-sm font-semibold text-[#0E3D52] dark:text-[#4ebac4]">Invite new portal user</h3>
           <div className="grid grid-cols-2 gap-3">
             <div>
               <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Email *</label>
@@ -242,7 +242,7 @@ export default function RolesPage() {
             </div>
           </div>
           <button type="submit" disabled={saving}
-            className="bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg">
+            className="bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg">
             {saving ? 'Inviting…' : 'Create User'}
           </button>
         </form>
@@ -287,7 +287,7 @@ export default function RolesPage() {
                             {ROLES.map(r => <option key={r} value={r}>{ROLE_LABEL[r] ?? r}</option>)}
                           </select>
                           <button onClick={() => changeRole(u.id, editRole)}
-                            className="text-xs bg-purple-600 hover:bg-purple-700 text-white px-2 py-1 rounded transition"></button>
+                            className="text-xs bg-[#0E3D52] hover:bg-[#1A6080] text-white px-2 py-1 rounded transition"></button>
                           <button onClick={() => setEditId(null)}
                             className="text-xs text-gray-500 dark:text-gray-400 hover:text-foreground px-1"></button>
                         </div>

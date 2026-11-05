@@ -412,7 +412,7 @@ export default function ReportsPage() {
                 <div className="flex gap-2">
                   <button onClick={() => downloadPdf(data, report.label, summary)}
                     disabled={data.length === 0}
-                    className="px-4 py-2 border border-purple-300 bg-purple-50 rounded-lg text-sm text-purple-700 hover:bg-purple-100 disabled:opacity-50 dark:bg-purple-900/20 dark:text-purple-300 dark:border-purple-800">
+                    className="px-4 py-2 border border-[#9ccfda] bg-[#f0f7fb] rounded-lg text-sm text-[#0E3D52] hover:bg-[#E0EEF4] disabled:opacity-50 dark:bg-[#0E3D52]/20 dark:text-[#4ebac4] dark:border-[#1A6080]">
                     🖨 Export PDF
                   </button>
                   <button onClick={() => downloadCsv(data, `${selected}-report.csv`)}

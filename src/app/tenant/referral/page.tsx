@@ -96,7 +96,7 @@ export default function ReferralPage() {
       </div>
 
       <div className="px-6 py-3 bg-gray-50 border-b border-gray-100 flex gap-6 dark:bg-gray-800 dark:border-gray-800">
-        {[{label:'Total',value:stats.total,cls:'text-gray-900 dark:text-white'},{label:'Pending',value:stats.pending,cls:'text-blue-600'},{label:'Hired',value:stats.hired,cls:'text-green-600'},{label:'Bonus Paid',value:stats.paid,cls:'text-purple-600'}].map(s=>(
+        {[{label:'Total',value:stats.total,cls:'text-gray-900 dark:text-white'},{label:'Pending',value:stats.pending,cls:'text-blue-600'},{label:'Hired',value:stats.hired,cls:'text-green-600'},{label:'Bonus Paid',value:stats.paid,cls:'text-[#0E3D52]'}].map(s=>(
           <div key={s.label} className="text-center"><p className={`text-xl font-bold ${s.cls}`}>{s.value}</p><p className="text-xs text-gray-500 dark:text-gray-400">{s.label}</p></div>
         ))}
       </div>
@@ -145,7 +145,7 @@ export default function ReferralPage() {
                           <span className="text-xs text-green-600 font-medium">Paid {r.bonusAmount ? `$${r.bonusAmount}` : ''}</span>
                         ) : r.status==='hired' ? (
                           <button onClick={()=>patch(r.id,{bonusPaidAt:new Date().toISOString()})}
-                            className="text-xs px-2 py-1 bg-purple-100 text-purple-700 rounded font-medium hover:bg-purple-200">Mark Paid</button>
+                            className="text-xs px-2 py-1 bg-[#E0EEF4] text-[#0E3D52] rounded font-medium hover:bg-[#9ccfda]">Mark Paid</button>
                         ) : '—'}
                       </td>
                       <td className="px-4 py-3 text-gray-600 dark:text-gray-400 text-xs">{new Date(r.createdAt).toLocaleDateString()}</td>

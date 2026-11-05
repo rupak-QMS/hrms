@@ -214,7 +214,7 @@ export default function ContractsPage() {
         <div className="flex items-center gap-2">
           <ExportButton onClick={handleExport} disabled={filtered.length === 0} />
           <button onClick={() => setShowForm(v => !v)}
-            className="bg-purple-600 hover:bg-purple-700 text-white text-sm px-4 py-2.5 rounded-lg transition">
+            className="bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm px-4 py-2.5 rounded-lg transition">
             {showForm ? 'Cancel' : '+ New Contract'}
           </button>
         </div>
@@ -237,8 +237,8 @@ export default function ContractsPage() {
 
       {/* Create form */}
       {showForm && (
-        <form onSubmit={create} className="card-premium border-purple-500/30 p-5 space-y-3">
-          <h3 className="text-sm font-semibold text-purple-300">Create New Contract</h3>
+        <form onSubmit={create} className="card-premium border-[#0E3D52]/30 p-5 space-y-3">
+          <h3 className="text-sm font-semibold text-[#4ebac4]">Create New Contract</h3>
           <div className="grid grid-cols-2 gap-3">
             <div>
               <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Employee *</label>
@@ -263,7 +263,7 @@ export default function ContractsPage() {
             </div>
           </div>
           <button type="submit" disabled={saving}
-            className="bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg">
+            className="bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg">
             {saving ? 'Creating…' : 'Create Contract'}
           </button>
         </form>
@@ -276,10 +276,10 @@ export default function ContractsPage() {
           placeholder="Search by name or contract type…"
           value={search}
           onChange={e => setSearch(e.target.value)}
-          className="input-premium flex-1 min-w-48 focus:outline-none focus:border-purple-500"
+          className="input-premium flex-1 min-w-48 focus:outline-none focus:border-[#0E3D52]"
         />
         <select value={filterStatus} onChange={e => { setFilterStatus(e.target.value); load(e.target.value) }}
-          className="input-premium focus:outline-none focus:border-purple-500">
+          className="input-premium focus:outline-none focus:border-[#0E3D52]">
           <option value="">All statuses</option>
           <option value="draft">Draft</option>
           <option value="sent">Sent</option>
@@ -337,7 +337,7 @@ export default function ContractsPage() {
                     <button
                       onClick={() => openEdit(c)}
                       title="Edit contract"
-                      className="p-1.5 rounded-lg text-gray-500 hover:text-purple-400 hover:bg-gray-800 transition"
+                      className="p-1.5 rounded-lg text-gray-500 hover:text-[#1A6080] dark:text-[#4ebac4] hover:bg-gray-800 transition"
                     >
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
@@ -429,7 +429,7 @@ export default function ContractsPage() {
                         </div>
                       </div>
                       <button onClick={() => saveTaxSuper(c.id)}
-                        className="mt-2 text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-purple-600 px-3 py-1.5 rounded-lg transition">
+                        className="mt-2 text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-[#0E3D52] px-3 py-1.5 rounded-lg transition">
                         Save Tax & Super
                       </button>
                     </div>
@@ -525,7 +525,7 @@ export default function ContractsPage() {
                   Cancel
                 </button>
                 <button type="submit" disabled={editSaving}
-                  className="px-4 py-2 text-sm rounded-lg bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white transition">
+                  className="px-4 py-2 text-sm rounded-lg bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white transition">
                   {editSaving ? 'Saving…' : 'Save Changes'}
                 </button>
               </div>

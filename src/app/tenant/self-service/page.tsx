@@ -315,7 +315,7 @@ export default function SelfServicePage() {
                         <td className="px-4 py-3 text-gray-700 dark:text-gray-300">{parseFloat(p.hoursWorked || '0').toFixed(1)}h</td>
                         <td className="px-4 py-3 text-gray-900 dark:text-white">{fmt(p.grossPay)}</td>
                         <td className="px-4 py-3 text-red-600 dark:text-red-400">{fmt(p.paygWithholding)}</td>
-                        <td className="px-4 py-3 text-purple-600 dark:text-purple-400">{fmt(p.superContribution)}</td>
+                        <td className="px-4 py-3 text-[#0E3D52] dark:text-[#4ebac4]">{fmt(p.superContribution)}</td>
                         <td className="px-4 py-3 font-bold text-green-600 dark:text-green-400">{fmt(p.netPay)}</td>
                       </tr>
                     ))}

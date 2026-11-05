@@ -76,7 +76,7 @@ function formatTime(iso: string): string {
 function shiftTypeColor(t: string | null) {
   const map: Record<string, string> = {
     standard:     'bg-blue-100 border-blue-300 text-blue-900 dark:bg-blue-900/40 dark:border-blue-600 dark:text-blue-200',
-    sleepover:    'bg-purple-100 border-purple-300 text-purple-900 dark:bg-purple-900/40 dark:border-purple-600 dark:text-purple-200',
+    sleepover:    'bg-[#E0EEF4] border-[#9ccfda] text-[#0E3D52] dark:bg-[#0E3D52]/40 dark:border-[#0E3D52] dark:text-[#9ccfda]',
     active_night: 'bg-indigo-100 border-indigo-300 text-indigo-900 dark:bg-indigo-900/40 dark:border-indigo-600 dark:text-indigo-200',
     on_call:      'bg-yellow-100 border-yellow-300 text-yellow-900 dark:bg-yellow-900/40 dark:border-yellow-600 dark:text-yellow-200',
   }

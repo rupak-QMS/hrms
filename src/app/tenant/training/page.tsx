@@ -61,7 +61,7 @@ export default function TrainingPage() {
         ] as const).map(t => (
           <button key={t.key} onClick={() => setTab(t.key)}
             className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
-              tab === t.key ? 'bg-purple-600 text-white' : 'text-gray-400 hover:text-white'
+              tab === t.key ? 'bg-[#0E3D52] text-white' : 'text-gray-400 hover:text-white'
             }`}>
             {t.label}
           </button>
@@ -162,15 +162,15 @@ function LibraryTab() {
           {categories.map(c => <option key={c}>{c}</option>)}
         </select>
         <button onClick={() => setShowForm(v => !v)}
-          className="bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition">
+          className="bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm font-medium px-4 py-2 rounded-lg transition">
           {showForm ? 'Cancel' : '+ New Course'}
         </button>
       </div>
 
       {/* Create form */}
       {showForm && (
-        <form onSubmit={createCourse} className="card-premium border-purple-500/30 p-5 space-y-4">
-          <h3 className="text-sm font-semibold text-purple-300">New Course</h3>
+        <form onSubmit={createCourse} className="card-premium border-[#0E3D52]/30 p-5 space-y-4">
+          <h3 className="text-sm font-semibold text-[#4ebac4]">New Course</h3>
           <div className="grid grid-cols-2 gap-3">
             <div className="col-span-2">
               <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Course Title *</label>
@@ -198,11 +198,11 @@ function LibraryTab() {
           </div>
           <label className="flex items-center gap-2 cursor-pointer">
             <input type="checkbox" checked={form.isMandatory} onChange={e => setForm(f => ({ ...f, isMandatory: e.target.checked }))}
-              className="w-4 h-4 rounded accent-purple-500" />
+              className="w-4 h-4 rounded accent-[#0E3D52]" />
             <span className="text-sm text-gray-600 dark:text-gray-300">Mandatory for all employees</span>
           </label>
           <button type="submit" disabled={saving}
-            className="bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg transition">
+            className="bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg transition">
             {saving ? 'Creating…' : 'Create Course'}
           </button>
         </form>
@@ -220,7 +220,7 @@ function LibraryTab() {
                   <input type="checkbox"
                     checked={enrollIds.includes(e.id)}
                     onChange={ev => setEnrollIds(ids => ev.target.checked ? [...ids, e.id] : ids.filter(i => i !== e.id))}
-                    className="accent-purple-500" />
+                    className="accent-[#0E3D52]" />
                   <span className="text-sm text-gray-700 dark:text-gray-200">{e.firstName} {e.lastName}</span>
                 </label>
               ))}
@@ -228,7 +228,7 @@ function LibraryTab() {
             <p className="text-xs text-gray-500 dark:text-gray-400">{enrollIds.length} employee{enrollIds.length !== 1 ? 's' : ''} selected</p>
             <div className="flex gap-2">
               <button onClick={enrol} disabled={enrolling || !enrollIds.length}
-                className="flex-1 bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm py-2 rounded-lg transition">
+                className="flex-1 bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm py-2 rounded-lg transition">
                 {enrolling ? 'Enrolling…' : 'Enrol Selected'}
               </button>
               <button onClick={() => { setEnrollCourse(null); setEnrollIds([]) }}
@@ -274,7 +274,7 @@ function LibraryTab() {
                 </span>
                 <div className="flex gap-2">
                   <button onClick={() => { setEnrollCourse(c); setEnrollIds([]) }}
-                    className="text-xs bg-purple-600/20 hover:bg-purple-600/40 text-purple-300 border border-purple-800 px-3 py-1.5 rounded-lg transition font-medium">
+                    className="text-xs bg-[#0E3D52]/20 hover:bg-[#0E3D52]/40 text-[#4ebac4] border border-[#1A6080] px-3 py-1.5 rounded-lg transition font-medium">
                     + Enrol
                   </button>
                   <button onClick={() => archiveCourse(c.id)}

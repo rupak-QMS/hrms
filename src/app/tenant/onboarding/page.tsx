@@ -33,7 +33,7 @@ const STAGES = [
   { value: 'pre_start',     label: 'Pre-start',        color: 'bg-gray-500' },
   { value: 'day1',          label: 'Day 1',             color: 'bg-blue-500' },
   { value: 'week1',         label: 'Week 1',            color: 'bg-indigo-500' },
-  { value: 'weeks2_4',      label: 'Weeks 2–4',         color: 'bg-purple-500' },
+  { value: 'weeks2_4',      label: 'Weeks 2–4',         color: 'bg-[#f0f7fb]0' },
   { value: 'end_probation', label: 'End of Probation',  color: 'bg-amber-500' },
   { value: 'fully_active',  label: 'Fully Active',      color: 'bg-green-500' },
 ]
@@ -50,7 +50,7 @@ const STATUS_STYLE: Record<string, string> = {
 const CATEGORY_COLOR: Record<string, string> = {
   admin:      'bg-gray-700 text-gray-300',
   it:         'bg-blue-900/60 text-blue-300',
-  hr:         'bg-purple-900/60 text-purple-300',
+  hr:         'bg-[#0E3D52]/60 text-[#4ebac4]',
   legal:      'bg-amber-900/60 text-amber-300',
   compliance: 'bg-red-900/60 text-red-300',
   culture:    'bg-pink-900/60 text-pink-300',
@@ -158,7 +158,7 @@ export default function OnboardingPage() {
         <div className="flex items-center gap-2">
           <ExportButton onClick={exportOnboarding} disabled={records.length === 0} />
           <Link href="/tenant/onboarding/new"
-            className="bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium px-4 py-2.5 rounded-lg transition">
+            className="bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm font-medium px-4 py-2.5 rounded-lg transition">
             + Start Onboarding
           </Link>
         </div>
@@ -174,8 +174,8 @@ export default function OnboardingPage() {
         ].map(s => (
           <button key={s.label}
             onClick={() => { setFilterStatus(s.fs); setTab('Pipeline'); load(search, s.fs, filterStage) }}
-            className={`card-premium p-5 text-left transition hover:border-purple-700 ${
-              filterStatus === s.fs && tab === 'Pipeline' ? 'border-purple-600' : 'border-gray-200 dark:border-gray-800'
+            className={`card-premium p-5 text-left transition hover:border-[#1A6080] ${
+              filterStatus === s.fs && tab === 'Pipeline' ? 'border-[#0E3D52]' : 'border-gray-200 dark:border-gray-800'
             }`}>
             <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">{s.label}</p>
             <p className={`text-3xl font-bold ${s.color}`}>{s.value}</p>
@@ -189,7 +189,7 @@ export default function OnboardingPage() {
           <button key={t} onClick={() => setTab(t)}
             className={`px-4 py-2.5 text-sm font-medium border-b-2 -mb-px transition ${
               tab === t
-                ? 'border-purple-500 text-purple-400'
+                ? 'border-[#0E3D52] text-[#1A6080] dark:text-[#4ebac4]'
                 : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'
             }`}>
             {t}
@@ -210,7 +210,7 @@ export default function OnboardingPage() {
             </div>
             <div className="card-premium p-5">
               <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider font-semibold mb-1">Avg. Days to Complete</p>
-              <p className="text-3xl font-bold text-purple-400">{avgDays !== null ? avgDays : '—'}</p>
+              <p className="text-3xl font-bold text-[#1A6080] dark:text-[#4ebac4]">{avgDays !== null ? avgDays : '—'}</p>
               <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Based on {stats.completed} completed</p>
             </div>
             <div className="card-premium p-5">
@@ -264,7 +264,7 @@ export default function OnboardingPage() {
                         {r.daysUntilStart === 0 ? 'Today!' : r.daysUntilStart === 1 ? 'Tomorrow' : `In ${r.daysUntilStart} days`}
                       </span>
                       <Link href={`/tenant/onboarding/${r.id}`}
-                        className="text-xs text-purple-400 hover:text-purple-300">
+                        className="text-xs text-[#0E3D52] hover:text-[#1A6080] dark:text-[#4ebac4]">
                         Manage →
                       </Link>
                     </div>
@@ -325,11 +325,11 @@ export default function OnboardingPage() {
               value={search}
               onChange={e => { setSearch(e.target.value); load(e.target.value, filterStatus, filterStage) }}
               placeholder="Search by name or email…"
-              className="input-premium placeholder-gray-400 focus:outline-none focus:border-purple-500 w-56"
+              className="input-premium placeholder-gray-400 focus:outline-none focus:border-[#0E3D52] w-56"
             />
             <select value={filterStatus}
               onChange={e => { setFilterStatus(e.target.value); load(search, e.target.value, filterStage) }}
-              className="input-premium focus:outline-none focus:border-purple-500">
+              className="input-premium focus:outline-none focus:border-[#0E3D52]">
               <option value="">All statuses</option>
               <option value="pending">Pending</option>
               <option value="in_progress">In Progress</option>
@@ -337,7 +337,7 @@ export default function OnboardingPage() {
             </select>
             <select value={filterStage}
               onChange={e => { setFilterStage(e.target.value); load(search, filterStatus, e.target.value) }}
-              className="input-premium focus:outline-none focus:border-purple-500">
+              className="input-premium focus:outline-none focus:border-[#0E3D52]">
               <option value="">All stages</option>
               {STAGES.map(s => <option key={s.value} value={s.value}>{s.label}</option>)}
             </select>
@@ -379,7 +379,7 @@ export default function OnboardingPage() {
                         className="flex-1 min-w-0 cursor-pointer"
                         onClick={() => setExpanded(isOpen ? null : r.id)}>
                         <div className="flex items-center gap-3 flex-wrap mb-1.5">
-                          <div className="w-8 h-8 rounded-full bg-purple-900 flex items-center justify-center text-white text-sm font-bold shrink-0">
+                          <div className="w-8 h-8 rounded-full bg-[#0E3D52] flex items-center justify-center text-white text-sm font-bold shrink-0">
                             {(r.employeeFirstName?.[0] ?? '?').toUpperCase()}
                           </div>
                           <div className="min-w-0">
@@ -401,7 +401,7 @@ export default function OnboardingPage() {
                         {/* Progress bar */}
                         <div className="flex items-center gap-2 pl-11">
                           <div className="flex-1 max-w-xs h-1.5 bg-gray-100 dark:bg-gray-800 rounded-full">
-                            <div className={`h-1.5 rounded-full transition-all ${pct === 100 ? 'bg-green-500' : 'bg-purple-500'}`}
+                            <div className={`h-1.5 rounded-full transition-all ${pct === 100 ? 'bg-green-500' : 'bg-[#f0f7fb]0'}`}
                               style={{ width: `${pct}%` }} />
                           </div>
                           <span className="text-xs text-gray-500 dark:text-gray-400">{done}/{tot} tasks</span>
@@ -415,7 +415,7 @@ export default function OnboardingPage() {
 
                       <div className="flex items-center gap-2 shrink-0">
                         <Link href={`/tenant/onboarding/${r.id}`}
-                          className="text-xs bg-purple-600/20 border border-purple-700 text-purple-300 hover:bg-purple-600/40 px-2.5 py-1.5 rounded-lg transition">
+                          className="text-xs bg-[#0E3D52]/20 border border-[#1A6080] text-[#4ebac4] hover:bg-[#0E3D52]/40 px-2.5 py-1.5 rounded-lg transition">
                           Manage
                         </Link>
                         <button
@@ -446,7 +446,7 @@ export default function OnboardingPage() {
                                 <div className={`flex flex-col items-center flex-1 ${i <= stageIdx ? 'opacity-100' : 'opacity-40'}`}>
                                   <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold mb-1 ${
                                     i < stageIdx  ? 'bg-green-600 text-white' :
-                                    i === stageIdx ? 'bg-purple-600 text-white ring-2 ring-purple-400' :
+                                    i === stageIdx ? 'bg-[#0E3D52] text-white ring-2 ring-[#4ebac4]' :
                                     'bg-gray-700 text-gray-400'
                                   }`}>
                                     {i < stageIdx ? '✓' : i + 1}
@@ -469,7 +469,7 @@ export default function OnboardingPage() {
                               {r.checklist.slice(0, 5).map(item => (
                                 <div key={item.id} className="flex items-center gap-2.5">
                                   <div className={`w-4 h-4 rounded flex items-center justify-center border shrink-0 ${
-                                    item.done ? 'bg-purple-600 border-purple-600' : 'border-gray-600'
+                                    item.done ? 'bg-[#0E3D52] border-[#0E3D52]' : 'border-gray-600'
                                   }`}>
                                     {item.done && <span className="text-white text-[10px]">✓</span>}
                                   </div>
@@ -483,7 +483,7 @@ export default function OnboardingPage() {
                               ))}
                               {r.checklist.length > 5 && (
                                 <p className="text-xs text-gray-500 dark:text-gray-400 pl-6">
-                                  +{r.checklist.length - 5} more — <Link href={`/tenant/onboarding/${r.id}`} className="text-purple-400 hover:text-purple-300">view all</Link>
+                                  +{r.checklist.length - 5} more — <Link href={`/tenant/onboarding/${r.id}`} className="text-[#0E3D52] hover:text-[#1A6080] dark:text-[#4ebac4]">view all</Link>
                                 </p>
                               )}
                             </div>
@@ -513,7 +513,7 @@ export default function OnboardingPage() {
 
                         <div className="pt-1">
                           <Link href={`/tenant/onboarding/${r.id}`}
-                            className="text-sm text-purple-400 hover:text-purple-300 font-medium">
+                            className="text-sm text-[#0E3D52] hover:text-[#1A6080] dark:text-[#4ebac4] font-medium">
                             Open full onboarding record →
                           </Link>
                         </div>

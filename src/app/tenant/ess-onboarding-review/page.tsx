@@ -54,7 +54,7 @@ interface FullSubmission extends Submission {
 const STATUS_BADGE: Record<string, string> = {
   draft:             'bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400',
   submitted:         'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400',
-  hr_reviewed:       'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400',
+  hr_reviewed:       'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/30 dark:text-[#1A6080] dark:text-[#4ebac4]',
   completed:         'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400',
 }
 
@@ -143,7 +143,7 @@ export default function EssOnboardingReviewPage() {
   const kpis = [
     { label: 'Total',        value: allSubmissions.length,       color: 'text-gray-900 dark:text-white' },
     { label: 'Submitted',    value: byStatus('submitted'),        color: 'text-blue-600 dark:text-blue-400' },
-    { label: 'HR Reviewed',  value: byStatus('hr_reviewed'),      color: 'text-purple-600 dark:text-purple-400' },
+    { label: 'HR Reviewed',  value: byStatus('hr_reviewed'),      color: 'text-[#0E3D52] dark:text-[#4ebac4]' },
     { label: 'Completed',    value: byStatus('completed'),        color: 'text-green-600 dark:text-green-400' },
   ]
 
@@ -346,7 +346,7 @@ export default function EssOnboardingReviewPage() {
                       <button
                         onClick={() => updateStatus(selected.id, 'hr_reviewed')}
                         disabled={saving}
-                        className="flex-1 px-4 py-2 text-sm font-semibold text-white bg-purple-600 hover:bg-purple-700
+                        className="flex-1 px-4 py-2 text-sm font-semibold text-white bg-[#0E3D52] hover:bg-[#1A6080]
                           rounded-lg disabled:opacity-60 transition"
                       >
                         {saving ? 'Saving…' : '✓ Mark as HR Reviewed'}

@@ -44,7 +44,7 @@ function SectionHeader({ title, icon }: { title: string; icon: string }) {
   )
 }
 
-function ProgressBar({ value, max, color = 'bg-purple-600' }: { value: number; max: number; color?: string }) {
+function ProgressBar({ value, max, color = 'bg-[#0E3D52]' }: { value: number; max: number; color?: string }) {
   const pct = max > 0 ? Math.min(100, Math.round((value / max) * 100)) : 0
   return (
     <div className="h-2 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
@@ -109,7 +109,7 @@ export default function AnalyticsPage() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-4">
           <StatCard label="Total Active" value={headcount.total} color="text-foreground" />
           <StatCard label="New (30 days)" value={headcount.newLast30} color="text-green-400" />
-          <StatCard label="NDIS Workers" value={headcount.ndisWorkers} color="text-purple-400" />
+          <StatCard label="NDIS Workers" value={headcount.ndisWorkers} color="text-[#1A6080] dark:text-[#4ebac4]" />
           <StatCard label="Compliance OK" value={headcount.complianceGreen}
             sub={`${headcount.complianceAmber} amber · ${headcount.complianceRed} red`}
             color="text-green-400" alert={headcount.complianceRed > 0} />
@@ -120,7 +120,7 @@ export default function AnalyticsPage() {
           <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3 dark:text-gray-400">Employment Type</p>
           <div className="space-y-2.5">
             {[
-              { label: 'Full Time',   value: headcount.fullTime,   color: 'bg-purple-600' },
+              { label: 'Full Time',   value: headcount.fullTime,   color: 'bg-[#0E3D52]' },
               { label: 'Part Time',   value: headcount.partTime,   color: 'bg-blue-600' },
               { label: 'Casual',      value: headcount.casual,     color: 'bg-amber-600' },
               { label: 'Contractor',  value: headcount.contractor, color: 'bg-teal-600' },
@@ -231,7 +231,7 @@ export default function AnalyticsPage() {
               color={performance.due30Days > 0 ? 'text-amber-400' : 'text-gray-400'} />
             <StatCard label="Avg Rating"
               value={performance.avgRating ? `${performance.avgRating}/5` : '—'}
-              color={performance.avgRating ? 'text-purple-400' : 'text-gray-600'} />
+              color={performance.avgRating ? 'text-[#1A6080] dark:text-[#4ebac4]' : 'text-gray-600'} />
           </div>
         </section>
 

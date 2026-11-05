@@ -135,9 +135,9 @@ export default function EngagementPage() {
   }
 
   const surveyForm = (isEdit: boolean) => (
-    <form onSubmit={isEdit ? saveSurveyEdit : createSurvey} className="card-premium border-purple-500/30 p-5 space-y-3">
+    <form onSubmit={isEdit ? saveSurveyEdit : createSurvey} className="card-premium border-[#0E3D52]/30 p-5 space-y-3">
       <div className="flex items-center justify-between">
-        <p className="text-sm font-semibold text-purple-300">{isEdit ? 'Edit Survey' : 'New Survey'}</p>
+        <p className="text-sm font-semibold text-[#4ebac4]">{isEdit ? 'Edit Survey' : 'New Survey'}</p>
         <button type="button" onClick={() => { setShowForm(false); setEditSurvey(null) }} className="text-xs text-gray-500 hover:text-gray-300">✕ Cancel</button>
       </div>
       <div className="grid grid-cols-2 gap-3">
@@ -152,12 +152,12 @@ export default function EngagementPage() {
           </select>
         </div>
         <label className="flex items-center gap-2 cursor-pointer pt-5">
-          <input type="checkbox" checked={form.isAnonymous} onChange={e => setForm(f => ({ ...f, isAnonymous: e.target.checked }))} className="accent-purple-500 w-4 h-4" />
+          <input type="checkbox" checked={form.isAnonymous} onChange={e => setForm(f => ({ ...f, isAnonymous: e.target.checked }))} className="accent-[#0E3D52] w-4 h-4" />
           <span className="text-sm text-gray-600 dark:text-gray-300">Anonymous responses</span>
         </label>
       </div>
       <button type="submit" disabled={saving}
-        className="bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg">
+        className="bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg">
         {saving ? (isEdit ? 'Saving…' : 'Creating…') : (isEdit ? 'Update Survey' : 'Create Survey')}
       </button>
     </form>
@@ -173,7 +173,7 @@ export default function EngagementPage() {
         <div className="flex items-center gap-2">
           <ExportButton onClick={doExport} disabled={filtered.length === 0} />
           <button onClick={() => { setShowForm(v => !v); setEditSurvey(null) }}
-            className="bg-purple-600 hover:bg-purple-700 text-white text-sm px-4 py-2.5 rounded-lg transition">
+            className="bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm px-4 py-2.5 rounded-lg transition">
             {showForm ? 'Cancel' : '+ New Survey'}
           </button>
         </div>
@@ -218,7 +218,7 @@ export default function EngagementPage() {
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {filtered.map(s => (
-            <div key={s.id} className={`card-premium p-5 ${selected?.id === s.id ? 'border-purple-600' : 'border-gray-800'}`}>
+            <div key={s.id} className={`card-premium p-5 ${selected?.id === s.id ? 'border-[#0E3D52]' : 'border-gray-800'}`}>
               <div className="flex items-start justify-between gap-2 mb-2">
                 <div>
                   <p className="text-foreground font-medium">{s.title}</p>
@@ -233,12 +233,12 @@ export default function EngagementPage() {
               </div>
               <div className="flex gap-2 flex-wrap mt-3">
                 <button onClick={() => { setSelected(s); loadResponses(s.id); setShowResp(false) }}
-                  className="text-xs bg-purple-600/20 border border-purple-700 text-purple-300 hover:bg-purple-600/40 px-3 py-1.5 rounded transition">
+                  className="text-xs bg-[#0E3D52]/20 border border-[#1A6080] text-[#4ebac4] hover:bg-[#0E3D52]/40 px-3 py-1.5 rounded transition">
                   View Responses
                 </button>
                 {s.isActive && (
                   <button onClick={() => { setSelected(s); setShowResp(true) }}
-                    className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-purple-600 px-3 py-1.5 rounded transition">
+                    className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-[#0E3D52] px-3 py-1.5 rounded transition">
                     + Record Response
                   </button>
                 )}
@@ -247,7 +247,7 @@ export default function EngagementPage() {
                   {s.isActive ? 'Close' : 'Reopen'}
                 </button>
                 <button onClick={() => openEdit(s)}
-                  className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-purple-400 hover:border-purple-600 px-3 py-1.5 rounded transition">
+                  className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-[#1A6080] dark:text-[#4ebac4] hover:border-[#0E3D52] px-3 py-1.5 rounded transition">
                   Edit
                 </button>
                 <button onClick={() => setConfirm({ message: `Delete survey "${s.title}"? This cannot be undone.`, danger: true, onConfirm: () => deleteSurvey(s.id) })}
@@ -262,9 +262,9 @@ export default function EngagementPage() {
 
       {/* Record response form */}
       {showResp && selected && (
-        <form onSubmit={submitResponse} className="card-premium border-purple-500/30 p-5 space-y-3">
+        <form onSubmit={submitResponse} className="card-premium border-[#0E3D52]/30 p-5 space-y-3">
           <div className="flex items-center justify-between">
-            <h3 className="text-sm font-semibold text-purple-300">Record Response — {selected.title}</h3>
+            <h3 className="text-sm font-semibold text-[#4ebac4]">Record Response — {selected.title}</h3>
             <button type="button" onClick={() => setShowResp(false)} className="text-xs text-gray-500 hover:text-gray-300">✕ Cancel</button>
           </div>
           {!selected.isAnonymous && (
@@ -282,7 +282,7 @@ export default function EngagementPage() {
               rows={4} placeholder="Employee feedback…" className={INPUT} />
           </div>
           <button type="submit" disabled={saving}
-            className="bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg">
+            className="bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg">
             {saving ? 'Saving…' : 'Submit Response'}
           </button>
         </form>

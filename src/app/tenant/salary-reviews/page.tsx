@@ -48,7 +48,7 @@ const STATUS_COLORS: Record<string, string> = {
   under_review: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300',
   approved: 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300',
   rejected: 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300',
-  implemented: 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300',
+  implemented: 'bg-[#E0EEF4] text-[#1A6080] dark:bg-[#0E3D52]/30 dark:text-[#4ebac4]',
 }
 
 const STATUS_LABEL: Record<string, string> = {
@@ -68,7 +68,7 @@ const NEXT_STATUSES: Record<string, { status: string; label: string; color: stri
     { status: 'approved', label: 'Approve', color: 'bg-green-600 hover:bg-green-700' },
     { status: 'rejected', label: 'Reject', color: 'bg-red-600 hover:bg-red-700' },
   ],
-  approved: [{ status: 'implemented', label: 'Mark Implemented', color: 'bg-purple-600 hover:bg-purple-700' }],
+  approved: [{ status: 'implemented', label: 'Mark Implemented', color: 'bg-[#0E3D52] hover:bg-[#1A6080]' }],
 }
 
 const EMPTY_FORM = {

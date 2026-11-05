@@ -52,7 +52,7 @@ export default function AdminSidebar({ mobileOpen, onMobileClose }: Props) {
           </div>
           <div>
             <p className="text-[13px] font-semibold text-foreground leading-tight tracking-tight">Super Admin</p>
-            <p className="text-[10px] font-medium tracking-widest uppercase text-purple-500 dark:text-purple-400/70">Platform Control</p>
+            <p className="text-[10px] font-medium tracking-widest uppercase text-[#1A6080] dark:text-[#4ebac4]/70">Platform Control</p>
           </div>
         </div>
       </div>

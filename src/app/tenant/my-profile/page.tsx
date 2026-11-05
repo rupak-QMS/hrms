@@ -125,7 +125,7 @@ function TwoFactorSection() {
             className={`px-4 py-2 rounded-lg text-sm font-medium transition disabled:opacity-50 ${
               enabled
                 ? 'border border-red-700 text-red-400 hover:bg-red-900/20'
-                : 'bg-purple-600 hover:bg-purple-700 text-white'
+                : 'bg-[#0E3D52] hover:bg-[#1A6080] text-white'
             }`}
           >
             {busy ? 'Loading…' : enabled ? 'Disable 2FA' : 'Enable 2FA'}
@@ -143,7 +143,7 @@ function TwoFactorSection() {
             </div>
           </div>
           <p className="text-xs text-gray-600 text-center dark:text-gray-400">
-            Can&apos;t scan? Enter the secret manually: <code className="text-purple-400 font-mono">{secret}</code>
+            Can&apos;t scan? Enter the secret manually: <code className="text-[#1A6080] dark:text-[#4ebac4] font-mono">{secret}</code>
           </p>
           <input
             type="text"
@@ -152,11 +152,11 @@ function TwoFactorSection() {
             value={code}
             onChange={e => setCode(e.target.value.replace(/\D/g, ''))}
             placeholder="6-digit code"
-            className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white text-center tracking-widest font-mono focus:outline-none focus:border-purple-500"
+            className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white text-center tracking-widest font-mono focus:outline-none focus:border-[#0E3D52]"
           />
           <div className="flex gap-3">
             <button onClick={verifySetup} disabled={busy || code.length !== 6}
-              className="flex-1 py-2.5 bg-purple-600 hover:bg-purple-700 disabled:opacity-50 text-white text-sm font-medium rounded-lg transition">
+              className="flex-1 py-2.5 bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-50 text-white text-sm font-medium rounded-lg transition">
               {busy ? 'Verifying…' : 'Verify & Enable'}
             </button>
             <button onClick={cancelStep}
@@ -373,9 +373,9 @@ export default function MyProfilePage() {
           <div className="flex flex-col items-center gap-1">
             {profile.photoUrl ? (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={profile.photoUrl} alt={profile.firstName} className="w-16 h-16 rounded-full object-cover border-2 border-purple-500" />
+              <img src={profile.photoUrl} alt={profile.firstName} className="w-16 h-16 rounded-full object-cover border-2 border-[#0E3D52]" />
             ) : (
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center text-2xl font-bold text-white">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#0E3D52] to-blue-600 flex items-center justify-center text-2xl font-bold text-white">
                 {profile.firstName[0]}{profile.lastName[0]}
               </div>
             )}
@@ -383,7 +383,7 @@ export default function MyProfilePage() {
               type="button"
               onClick={() => photoInputRef.current?.click()}
               disabled={photoSaving}
-              className="text-[10px] text-purple-400 hover:text-purple-300 disabled:opacity-50 transition">
+              className="text-[10px] text-[#0E3D52] hover:text-[#1A6080] dark:text-[#4ebac4] disabled:opacity-50 transition">
               {photoSaving ? 'Uploading…' : '📷 Change'}
             </button>
             <input
@@ -410,7 +410,7 @@ export default function MyProfilePage() {
         {!editing && (
           <button
             onClick={() => { setEditing(true); setToast(null) }}
-            className="px-4 py-2 rounded-lg text-sm font-medium border border-purple-600 text-purple-400 hover:bg-purple-900/20 transition"
+            className="px-4 py-2 rounded-lg text-sm font-medium border border-[#0E3D52] text-[#1A6080] dark:text-[#4ebac4] hover:bg-[#0E3D52]/20 transition"
           >
              Edit Contact Info
           </button>
@@ -419,7 +419,7 @@ export default function MyProfilePage() {
 
       {/* Edit form */}
       {editing && (
-        <div className="card-premium border-purple-500/30 p-6">
+        <div className="card-premium border-[#0E3D52]/30 p-6">
           <h2 className="text-sm font-semibold text-foreground mb-4">Update Contact Information</h2>
           <form onSubmit={save} className="space-y-4">
             <div>
@@ -439,7 +439,7 @@ export default function MyProfilePage() {
             </div>
             <div className="flex gap-3 pt-1">
               <button type="submit" disabled={saving}
-                className="flex-1 py-2.5 bg-purple-600 hover:bg-purple-700 disabled:opacity-50 text-white text-sm font-medium rounded-lg transition">
+                className="flex-1 py-2.5 bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-50 text-white text-sm font-medium rounded-lg transition">
                 {saving ? 'Saving…' : 'Save Changes'}
               </button>
               <button type="button" onClick={() => setEditing(false)}
@@ -488,7 +488,7 @@ export default function MyProfilePage() {
           {editingContact !== 'new' && (
             <button
               onClick={() => { setEditingContact('new'); setContactForm(BLANK_CONTACT); setContactError('') }}
-              className="text-xs px-3 py-1.5 rounded-lg border border-purple-600 text-purple-400 hover:bg-purple-900/20 transition">
+              className="text-xs px-3 py-1.5 rounded-lg border border-[#0E3D52] text-[#1A6080] dark:text-[#4ebac4] hover:bg-[#0E3D52]/20 transition">
               + Add contact
             </button>
           )}
@@ -530,7 +530,7 @@ export default function MyProfilePage() {
             </label>
             <div className="flex gap-3">
               <button type="submit" disabled={contactSaving}
-                className="px-4 py-2 bg-purple-600 hover:bg-purple-700 disabled:opacity-50 text-white text-sm font-medium rounded-lg transition">
+                className="px-4 py-2 bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-50 text-white text-sm font-medium rounded-lg transition">
                 {contactSaving ? 'Saving…' : editingContact === 'new' ? 'Add Contact' : 'Save Changes'}
               </button>
               <button type="button" onClick={() => { setEditingContact(null); setContactForm(BLANK_CONTACT) }}
@@ -551,12 +551,12 @@ export default function MyProfilePage() {
                   <div className="flex items-center gap-2">
                     <p className="font-medium text-foreground text-sm">{c.name}</p>
                     {c.isPrimary && (
-                      <span className="text-xs px-2 py-0.5 rounded-full bg-purple-900/40 border border-purple-700 text-purple-300">Primary</span>
+                      <span className="text-xs px-2 py-0.5 rounded-full bg-[#0E3D52]/40 border border-[#1A6080] text-[#4ebac4]">Primary</span>
                     )}
                   </div>
                   <div className="flex gap-2">
                     <button onClick={() => openEditContact(c)}
-                      className="text-xs text-gray-500 hover:text-purple-400 transition dark:text-gray-400">Edit</button>
+                      className="text-xs text-gray-500 hover:text-[#1A6080] dark:text-[#4ebac4] transition dark:text-gray-400">Edit</button>
                     <button onClick={() => deleteContact(c.id)}
                       className="text-xs text-gray-500 hover:text-red-400 transition dark:text-gray-400">Remove</button>
                   </div>

@@ -114,9 +114,9 @@ export default function DEIPage() {
   }
 
   const formPanel = (isEdit: boolean) => (
-    <form onSubmit={isEdit ? saveEdit : save} className="card-premium border-purple-500/30 p-5 space-y-3">
+    <form onSubmit={isEdit ? saveEdit : save} className="card-premium border-[#0E3D52]/30 p-5 space-y-3">
       <div className="flex items-center justify-between">
-        <p className="text-sm font-semibold text-purple-300">{isEdit ? 'Edit DEI Record' : 'Add DEI Data'}</p>
+        <p className="text-sm font-semibold text-[#4ebac4]">{isEdit ? 'Edit DEI Record' : 'Add DEI Data'}</p>
         <button type="button" onClick={() => { setShowForm(false); setEditRecord(null); setForm(BLANK_FORM) }} className="text-xs text-gray-500 hover:text-gray-300">✕ Cancel</button>
       </div>
       <p className="text-xs text-gray-500 bg-gray-100 dark:bg-gray-800 rounded-lg p-3 dark:text-gray-400">
@@ -148,12 +148,12 @@ export default function DEIPage() {
       <div className="grid grid-cols-2 gap-3">
         <label className="flex items-center gap-2 cursor-pointer">
           <input type="checkbox" checked={form.indigenousStatus ?? false}
-            onChange={e => setForm(f => ({ ...f, indigenousStatus: e.target.checked }))} className="accent-purple-500 w-4 h-4" />
+            onChange={e => setForm(f => ({ ...f, indigenousStatus: e.target.checked }))} className="accent-[#0E3D52] w-4 h-4" />
           <span className="text-sm text-gray-600 dark:text-gray-300">Aboriginal or Torres Strait Islander</span>
         </label>
         <label className="flex items-center gap-2 cursor-pointer">
           <input type="checkbox" checked={form.disabilityStatus ?? false}
-            onChange={e => setForm(f => ({ ...f, disabilityStatus: e.target.checked }))} className="accent-purple-500 w-4 h-4" />
+            onChange={e => setForm(f => ({ ...f, disabilityStatus: e.target.checked }))} className="accent-[#0E3D52] w-4 h-4" />
           <span className="text-sm text-gray-600 dark:text-gray-300">Living with a disability</span>
         </label>
       </div>
@@ -163,7 +163,7 @@ export default function DEIPage() {
           rows={2} placeholder="e.g. Ergonomic chair, screen reader, flexible hours…" className={INPUT} />
       </div>
       <button type="submit" disabled={saving}
-        className="bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg">
+        className="bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg">
         {saving ? 'Saving…' : isEdit ? 'Update Record' : 'Save'}
       </button>
     </form>
@@ -179,7 +179,7 @@ export default function DEIPage() {
         <div className="flex items-center gap-2">
           <ExportButton onClick={doExport} disabled={filtered.length === 0} />
           <button onClick={() => { setShowForm(v => !v); setEditRecord(null); setForm(BLANK_FORM) }}
-            className="bg-purple-600 hover:bg-purple-700 text-white text-sm px-4 py-2.5 rounded-lg transition">
+            className="bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm px-4 py-2.5 rounded-lg transition">
             {showForm ? 'Cancel' : '+ Add Data'}
           </button>
         </div>
@@ -203,7 +203,7 @@ export default function DEIPage() {
         </div>
         <div className="card-premium p-4">
           <p className="text-xs text-gray-600 dark:text-gray-400">Need Adjustments</p>
-          <p className="text-2xl font-bold text-purple-400 mt-1">{summary.adjustments}</p>
+          <p className="text-2xl font-bold text-[#1A6080] dark:text-[#4ebac4] mt-1">{summary.adjustments}</p>
         </div>
       </div>
 
@@ -284,7 +284,7 @@ export default function DEIPage() {
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                         <button onClick={() => openEdit(r)}
-                          className="text-xs text-purple-400 hover:text-purple-300 px-2 py-1 rounded hover:bg-purple-900/20">Edit</button>
+                          className="text-xs text-[#0E3D52] hover:text-[#1A6080] dark:text-[#4ebac4] px-2 py-1 rounded hover:bg-[#0E3D52]/20">Edit</button>
                         <button onClick={() => setConfirm({ message: `Delete DEI record for ${r.employeeFirstName} ${r.employeeLastName}?`, danger: true, onConfirm: () => deleteDei(r.id) })}
                           className="text-xs text-red-400 hover:text-red-300 px-2 py-1 rounded hover:bg-red-900/20">Delete</button>
                       </div>

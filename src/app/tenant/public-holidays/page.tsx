@@ -258,7 +258,7 @@ export default function PublicHolidaysPage() {
           {canManage && (
             <button
               onClick={openAdd}
-              className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium rounded-lg transition-colors"
+              className="px-4 py-2 bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm font-medium rounded-lg transition-colors"
             >
               + Add Holiday
             </button>
@@ -274,10 +274,10 @@ export default function PublicHolidaysPage() {
 
       {/* Next holiday banner */}
       {nextHoliday && year === currentYear && (
-        <div className="bg-purple-50 dark:bg-purple-900/30 border border-purple-200 dark:border-purple-700 rounded-xl px-5 py-4 flex items-center gap-4">
+        <div className="bg-[#f0f7fb] dark:bg-[#0E3D52]/30 border border-[#b8d4e0] dark:border-[#1A6080] rounded-xl px-5 py-4 flex items-center gap-4">
           <span className="text-3xl"></span>
           <div>
-            <p className="text-xs text-purple-400 font-medium uppercase tracking-wider">Next Public Holiday</p>
+            <p className="text-xs text-[#1A6080] dark:text-[#4ebac4] font-medium uppercase tracking-wider">Next Public Holiday</p>
             <p className="text-foreground font-semibold">{nextHoliday.name}</p>
             <p className="text-sm text-gray-600 dark:text-gray-400">
               {fmt(nextHoliday.date)}
@@ -358,7 +358,7 @@ export default function PublicHolidaysPage() {
                     type="checkbox"
                     checked={form.isNational}
                     onChange={e => setForm(f => ({ ...f, isNational: e.target.checked }))}
-                    className="w-4 h-4 rounded accent-purple-600"
+                    className="w-4 h-4 rounded accent-[#0E3D52]"
                   />
                   <span className="text-sm text-gray-600 dark:text-gray-300">National holiday</span>
                 </label>
@@ -375,7 +375,7 @@ export default function PublicHolidaysPage() {
               <button
                 type="submit"
                 disabled={saving}
-                className="flex-1 py-2 bg-purple-600 hover:bg-purple-700 disabled:opacity-50 text-white text-sm font-medium rounded-lg transition-colors"
+                className="flex-1 py-2 bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-50 text-white text-sm font-medium rounded-lg transition-colors"
               >
                 {saving ? 'Saving…' : editing ? 'Save Changes' : 'Add Holiday'}
               </button>
@@ -403,7 +403,7 @@ export default function PublicHolidaysPage() {
               </div>
           <p className="text-gray-600 dark:text-gray-400 font-medium">No public holidays found for {year}</p>
           {canManage && (
-            <button onClick={openAdd} className="mt-4 px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-sm rounded-lg">
+            <button onClick={openAdd} className="mt-4 px-4 py-2 bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm rounded-lg">
               + Add First Holiday
             </button>
           )}
@@ -417,7 +417,7 @@ export default function PublicHolidaysPage() {
               const isPastMonth = new Date(year, m + 1, 1) < new Date()
               return (
                 <div key={m}>
-                  <h2 className={`text-xs font-semibold uppercase tracking-widest mb-3 ${isPastMonth ? 'text-gray-600' : 'text-purple-400'}`}>
+                  <h2 className={`text-xs font-semibold uppercase tracking-widest mb-3 ${isPastMonth ? 'text-gray-600' : 'text-[#1A6080] dark:text-[#4ebac4]'}`}>
                     {MONTHS[m]}
                   </h2>
                   <div className="space-y-2">
@@ -430,7 +430,7 @@ export default function PublicHolidaysPage() {
                         <div
                           key={h.id}
                           className={`flex items-center gap-4 px-5 py-3.5 rounded-xl border transition-colors ${
-                            isToday ? 'bg-purple-100 dark:bg-purple-900/40 border-purple-400 dark:border-purple-600'
+                            isToday ? 'bg-[#E0EEF4] dark:bg-[#0E3D52]/40 border-[#4ebac4] dark:border-[#0E3D52]'
                             : isPast ? 'bg-gray-800/30 border-gray-800 opacity-50'
                             : 'bg-gray-800/60 border-gray-700'
                           }`}
@@ -440,7 +440,7 @@ export default function PublicHolidaysPage() {
                             <p className="text-xs text-gray-500 uppercase dark:text-gray-400">
                               {new Date(h.date + 'T00:00:00').toLocaleDateString('en-AU', { month: 'short' })}
                             </p>
-                            <p className={`text-2xl font-bold leading-none ${isToday ? 'text-purple-300' : isPast ? 'text-gray-400 dark:text-gray-600' : 'text-foreground'}`}>
+                            <p className={`text-2xl font-bold leading-none ${isToday ? 'text-[#4ebac4]' : isPast ? 'text-gray-400 dark:text-gray-600' : 'text-foreground'}`}>
                               {new Date(h.date + 'T00:00:00').getDate()}
                             </p>
                             <p className="text-xs text-gray-600 dark:text-gray-400">
@@ -471,7 +471,7 @@ export default function PublicHolidaysPage() {
                           {/* Countdown + manager actions */}
                           <div className="flex items-center gap-3 shrink-0">
                             <span className="text-xs">
-                              {isToday ? <span className="text-purple-300 font-semibold">Today </span>
+                              {isToday ? <span className="text-[#4ebac4] font-semibold">Today </span>
                                 : isPast ? <span className="text-gray-600 dark:text-gray-400">Passed</span>
                                 : diff === 1 ? <span className="text-yellow-400">Tomorrow</span>
                                 : <span className="text-gray-500 dark:text-gray-400">{diff}d away</span>}
@@ -481,7 +481,7 @@ export default function PublicHolidaysPage() {
                               <>
                                 <button
                                   onClick={() => openEdit(h)}
-                                  className="text-xs text-gray-500 hover:text-purple-400 transition-colors px-1 dark:text-gray-400"
+                                  className="text-xs text-gray-500 hover:text-[#1A6080] dark:text-[#4ebac4] transition-colors px-1 dark:text-gray-400"
                                   title="Edit"
                                 ></button>
                                 <button

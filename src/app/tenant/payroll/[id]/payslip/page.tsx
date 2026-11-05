@@ -91,7 +91,7 @@ export default function PayslipPrintPage() {
       <div className="no-print flex justify-end p-4 bg-gray-50 border-b border-gray-200 print:hidden">
         <button
           onClick={() => window.print()}
-          className="bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium px-5 py-2 rounded-lg transition">
+          className="bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm font-medium px-5 py-2 rounded-lg transition">
           🖨 Print / Save as PDF
         </button>
       </div>
@@ -207,7 +207,7 @@ export default function PayslipPrintPage() {
               <p className="text-sm font-semibold text-gray-700">Employer Superannuation (11.5%)</p>
               <p className="text-xs text-gray-400 mt-0.5">Paid directly to employee super fund</p>
             </div>
-            <p className="text-base font-bold text-purple-700">{fmt(rec.superContribution)}</p>
+            <p className="text-base font-bold text-[#0E3D52]">{fmt(rec.superContribution)}</p>
           </div>
         </div>
 

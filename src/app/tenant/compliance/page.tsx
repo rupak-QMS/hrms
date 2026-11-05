@@ -80,7 +80,7 @@ export default function CompliancePage() {
         ] as const).map(t => (
           <button key={t.key} onClick={() => setTab(t.key)}
             className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
-              tab === t.key ? 'bg-purple-600 text-white' : 'text-gray-400 hover:text-white'
+              tab === t.key ? 'bg-[#0E3D52] text-white' : 'text-gray-400 hover:text-white'
             }`}>
             {t.label}
           </button>
@@ -206,9 +206,9 @@ function ScreeningTab() {
       <div className="flex gap-3 flex-wrap">
         <input value={search} onChange={e => { setSearch(e.target.value); load(e.target.value, filterStatus) }}
           placeholder="Search employee…"
-          className="flex-1 min-w-48 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-purple-500" />
+          className="flex-1 min-w-48 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]" />
         <select value={filterStatus} onChange={e => { setFilterStatus(e.target.value); load(search, e.target.value) }}
-          className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-purple-500">
+          className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]">
           <option value="">All statuses</option>
           <option value="pending">Pending</option>
           <option value="green">Verified</option>
@@ -216,7 +216,7 @@ function ScreeningTab() {
           <option value="red">Red / Expired</option>
         </select>
         <button onClick={() => setShowForm(v => !v)}
-          className="bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition">
+          className="bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm font-medium px-4 py-2 rounded-lg transition">
           {showForm ? 'Cancel' : '+ Add Check'}
         </button>
         <ExportButton onClick={handleExport} />
@@ -224,8 +224,8 @@ function ScreeningTab() {
 
       {/* Add form */}
       {showForm && (
-        <form onSubmit={submit} className="card-premium border-purple-500/30 p-5 space-y-4">
-          <h3 className="text-sm font-semibold text-purple-300">New Screening Check</h3>
+        <form onSubmit={submit} className="card-premium border-[#0E3D52]/30 p-5 space-y-4">
+          <h3 className="text-sm font-semibold text-[#4ebac4]">New Screening Check</h3>
           <div className="grid grid-cols-2 gap-3">
             <div>
               <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Employee *</label>
@@ -260,7 +260,7 @@ function ScreeningTab() {
             </div>
           </div>
           <button type="submit" disabled={saving}
-            className="bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg transition">
+            className="bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg transition">
             {saving ? 'Saving…' : 'Add Check'}
           </button>
         </form>
@@ -331,7 +331,7 @@ function ScreeningTab() {
                       <td className="px-5 py-3.5">
                         <div className="flex items-center gap-2">
                           <button onClick={() => setEditId(editId === r.id ? null : r.id)}
-                            className="text-xs text-purple-400 hover:text-purple-300 font-medium">
+                            className="text-xs text-[#0E3D52] hover:text-[#1A6080] dark:text-[#4ebac4] font-medium">
                             {editId === r.id ? 'Cancel' : 'Update ↓'}
                           </button>
                           <button onClick={() => doDelete(r)} title="Delete"
@@ -442,14 +442,14 @@ function TrackingTab() {
 
       <div className="flex justify-end">
         <button onClick={() => setShowForm(v => !v)}
-          className="bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition">
+          className="bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm font-medium px-4 py-2 rounded-lg transition">
           {showForm ? 'Cancel' : '+ Add Item'}
         </button>
       </div>
 
       {showForm && (
-        <form onSubmit={submit} className="card-premium border-purple-500/30 p-5 space-y-4">
-          <h3 className="text-sm font-semibold text-purple-300">New Compliance Item</h3>
+        <form onSubmit={submit} className="card-premium border-[#0E3D52]/30 p-5 space-y-4">
+          <h3 className="text-sm font-semibold text-[#4ebac4]">New Compliance Item</h3>
           <div className="grid grid-cols-2 gap-3">
             <div>
               <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Employee *</label>
@@ -473,7 +473,7 @@ function TrackingTab() {
             </div>
           </div>
           <button type="submit" disabled={saving}
-            className="bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg transition">
+            className="bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg transition">
             {saving ? 'Saving…' : 'Add Item'}
           </button>
         </form>

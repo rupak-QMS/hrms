@@ -26,7 +26,7 @@ const REC_TYPES = [
   { value: 'peer',                label: 'Peer Recognition',         color: 'bg-blue-500/20 text-blue-400 border-blue-500/30' },
   { value: 'safety_champion',     label: 'Safety Champion',          color: 'bg-green-500/20 text-green-400 border-green-500/30' },
   { value: 'above_beyond',        label: 'Above & Beyond',           color: 'bg-orange-500/20 text-orange-400 border-orange-500/30' },
-  { value: 'ndis_excellence',     label: 'NDIS Excellence',          color: 'bg-purple-500/20 text-purple-400 border-purple-500/30' },
+  { value: 'ndis_excellence',     label: 'NDIS Excellence',          color: 'bg-[#f0f7fb]0/20 text-[#1A6080] dark:text-[#4ebac4] border-[#0E3D52]/30' },
   { value: 'innovation',          label: 'Innovation',               color: 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30' },
 ]
 
@@ -41,7 +41,7 @@ function avatarInitials(first: string | null, last: string | null) {
 
 function avatarColor(name: string) {
   const colors = [
-    'bg-purple-700 text-purple-200',
+    'bg-[#1A6080] text-[#9ccfda]',
     'bg-blue-700 text-blue-200',
     'bg-green-700 text-green-200',
     'bg-orange-700 text-orange-200',
@@ -209,7 +209,7 @@ export default function RecognitionPage() {
           <ExportButton onClick={handleExport} disabled={filtered.length === 0} />
           <button
             onClick={openCreate}
-            className="bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium px-4 py-2.5 rounded-lg transition flex items-center gap-1.5"
+            className="bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm font-medium px-4 py-2.5 rounded-lg transition flex items-center gap-1.5"
           >
             <span className="text-lg leading-none">＋</span> Give Recognition
           </button>
@@ -294,7 +294,7 @@ export default function RecognitionPage() {
             return (
               <div
                 key={r.id}
-                className="card-premium p-5 cursor-pointer hover:ring-1 hover:ring-purple-500/40 transition group"
+                className="card-premium p-5 cursor-pointer hover:ring-1 hover:ring-[#0E3D52]/40 transition group"
                 onClick={() => openEdit(r)}
               >
                 <div className="flex items-start gap-3">
@@ -317,7 +317,7 @@ export default function RecognitionPage() {
                         {r.period && (
                           <>
                             <span>·</span>
-                            <span className="text-purple-400">{r.period}</span>
+                            <span className="text-[#1A6080] dark:text-[#4ebac4]">{r.period}</span>
                           </>
                         )}
                       </div>
@@ -463,7 +463,7 @@ function RecognitionModal({
             <input
               type="checkbox" id="isPublic" checked={form.isPublic}
               onChange={e => setForm(f => ({ ...f, isPublic: e.target.checked }))}
-              className="rounded border-gray-300 dark:border-gray-600 text-purple-600"
+              className="rounded border-gray-300 dark:border-gray-600 text-[#0E3D52]"
             />
             <label htmlFor="isPublic" className="text-sm text-gray-700 dark:text-gray-300">Make public (visible to all staff)</label>
           </div>
@@ -471,7 +471,7 @@ function RecognitionModal({
             <button type="button" onClick={onClose} className="text-sm px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition">
               Cancel
             </button>
-            <button type="submit" disabled={saving} className="text-sm px-5 py-2 rounded-lg bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white font-medium transition">
+            <button type="submit" disabled={saving} className="text-sm px-5 py-2 rounded-lg bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white font-medium transition">
               {saving ? 'Saving…' : submitLabel}
             </button>
           </div>

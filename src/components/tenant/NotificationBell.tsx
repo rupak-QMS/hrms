@@ -20,7 +20,7 @@ const TYPE_COLOUR: Record<string, string> = {
   onboarding:  'bg-green-500',
   payroll:     'bg-amber-500',
   document:    'bg-blue-500',
-  training:    'bg-purple-500',
+  training:    'bg-[#f0f7fb]0',
   performance: 'bg-indigo-500',
   system:      'bg-gray-500',
 }

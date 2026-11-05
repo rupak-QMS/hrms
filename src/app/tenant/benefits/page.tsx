@@ -197,7 +197,7 @@ export default function BenefitsPage() {
         <div className="flex items-center gap-2">
         <ExportButton onClick={exportBenefits} disabled={benefits.length === 0} />
         <button onClick={() => { setForm(BLANK_FORM); setEditingId(null); setShowForm(v => !v) }}
-          className="bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium px-4 py-2.5 rounded-lg transition">
+          className="bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm font-medium px-4 py-2.5 rounded-lg transition">
           {showForm && !editingId ? 'Cancel' : '+ Assign Benefit'}
         </button>
         </div>
@@ -220,8 +220,8 @@ export default function BenefitsPage() {
 
       {/* Add / Edit form */}
       {showForm && (
-        <form onSubmit={save} className="card-premium border-purple-500/30 p-5 space-y-4">
-          <h3 className="text-sm font-semibold text-purple-300">{editingId ? 'Edit Benefit' : 'Assign Benefit'}</h3>
+        <form onSubmit={save} className="card-premium border-[#0E3D52]/30 p-5 space-y-4">
+          <h3 className="text-sm font-semibold text-[#4ebac4]">{editingId ? 'Edit Benefit' : 'Assign Benefit'}</h3>
           <div className="grid grid-cols-2 gap-3">
             <div>
               <label className={LABEL}>Employee *</label>
@@ -264,7 +264,7 @@ export default function BenefitsPage() {
           </div>
           <div className="flex gap-2">
             <button type="submit" disabled={saving}
-              className="bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg transition font-medium">
+              className="bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg transition font-medium">
               {saving ? 'Saving…' : editingId ? 'Save Changes' : 'Assign Benefit'}
             </button>
             <button type="button" onClick={cancelForm}
@@ -278,17 +278,17 @@ export default function BenefitsPage() {
       {/* Filters + view toggle */}
       <div className="flex flex-wrap items-center gap-3">
         <select value={filterEmp} onChange={e => { setFilterEmp(e.target.value); load(e.target.value) }}
-          className="input-premium focus:outline-none focus:border-purple-500">
+          className="input-premium focus:outline-none focus:border-[#0E3D52]">
           <option value="">All employees</option>
           {employees.map(e => <option key={e.id} value={e.id}>{e.firstName} {e.lastName}</option>)}
         </select>
         <select value={filterType} onChange={e => setFilterType(e.target.value)}
-          className="input-premium focus:outline-none focus:border-purple-500">
+          className="input-premium focus:outline-none focus:border-[#0E3D52]">
           <option value="">All types</option>
           {BENEFIT_TYPES.map(t => <option key={t.value} value={t.value}>{t.emoji} {t.label}</option>)}
         </select>
         <select value={filterStatus} onChange={e => setFilterStatus(e.target.value)}
-          className="input-premium focus:outline-none focus:border-purple-500">
+          className="input-premium focus:outline-none focus:border-[#0E3D52]">
           <option value="">All statuses</option>
           <option value="active">Active</option>
           <option value="permanent">Ongoing</option>

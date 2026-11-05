@@ -532,7 +532,7 @@ export default function TimesheetsPage() {
       <div className="flex gap-3 flex-wrap">
         {[
           { label: 'Entries',    value: timesheets.length,                                        color: 'text-blue-600 dark:text-blue-400' },
-          { label: 'Hours',      value: `${totalHours.toFixed(1)}h`,                              color: 'text-purple-600 dark:text-purple-400' },
+          { label: 'Hours',      value: `${totalHours.toFixed(1)}h`,                              color: 'text-[#0E3D52] dark:text-[#4ebac4]' },
           { label: 'Pending',    value: timesheets.filter(t => t.status === 'pending').length,    color: 'text-yellow-600 dark:text-yellow-400' },
           { label: 'Submitted',  value: pendingCount,                                             color: 'text-blue-600 dark:text-blue-400' },
           { label: 'Approved',   value: timesheets.filter(t => t.status === 'approved').length,   color: 'text-green-600 dark:text-green-400' },

@@ -48,7 +48,7 @@ const INCIDENT_TYPES: Record<string, string> = {
 const STATUS_BADGE: Record<string, { label: string; cls: string }> = {
   open:                    { label: 'Open',                 cls: 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-400' },
   under_review:            { label: 'Under Review',         cls: 'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-400' },
-  reported_to_commission:  { label: 'Reported to Commission', cls: 'bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-400' },
+  reported_to_commission:  { label: 'Reported to Commission', cls: 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/40 dark:text-[#1A6080] dark:text-[#4ebac4]' },
   closed:                  { label: 'Closed',               cls: 'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-400' },
 }
 

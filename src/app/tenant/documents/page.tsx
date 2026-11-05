@@ -188,7 +188,7 @@ function DocPreviewModal({ doc, onClose }: { doc: Doc; onClose: () => void }) {
               <a
                 href={doc.blobUrl}
                 download
-                className="inline-flex items-center gap-1.5 text-xs text-purple-600 dark:text-purple-400 hover:underline"
+                className="inline-flex items-center gap-1.5 text-xs text-[#0E3D52] dark:text-[#4ebac4] hover:underline"
               >
                 Download file
               </a>
@@ -202,7 +202,7 @@ function DocPreviewModal({ doc, onClose }: { doc: Doc; onClose: () => void }) {
             href={doc.blobUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs font-medium text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-[#0E3D52] dark:text-[#4ebac4] hover:text-[#0E3D52] dark:hover:text-[#4ebac4] transition-colors"
           >
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6m0 0v6m0-6L10 14" />
@@ -386,7 +386,7 @@ export default function DocumentsPage() {
         </div>
         <button
           onClick={() => { setShowForm(v => !v) }}
-          className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium rounded-lg transition-colors"
+          className="px-4 py-2 bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm font-medium rounded-lg transition-colors"
         >
           {showForm ? 'Cancel' : '+ Add Document'}
         </button>
@@ -444,7 +444,7 @@ export default function DocumentsPage() {
 
       {/* Add document form */}
       {showForm && (
-        <form onSubmit={create} className="card-premium border-purple-500/30 p-6 space-y-4">
+        <form onSubmit={create} className="card-premium border-[#0E3D52]/30 p-6 space-y-4">
           <h3 className="text-sm font-semibold text-foreground">Add Document to Register</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="sm:col-span-2">
@@ -500,7 +500,7 @@ export default function DocumentsPage() {
           </div>
           <div className="flex gap-3">
             <button type="submit" disabled={saving || !form.blobUrl}
-              className="px-5 py-2 bg-purple-600 hover:bg-purple-700 disabled:opacity-50 text-white text-sm font-medium rounded-lg transition-colors">
+              className="px-5 py-2 bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-50 text-white text-sm font-medium rounded-lg transition-colors">
               {saving ? 'Saving…' : 'Add to Register'}
             </button>
             <button type="button" onClick={() => setShowForm(false)}
@@ -515,16 +515,16 @@ export default function DocumentsPage() {
       <div className="flex gap-3 flex-wrap items-center">
         <input value={search} onChange={e => setSearch(e.target.value)}
           placeholder="Search title or employee…"
-          className="input-premium placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-purple-500 flex-1 min-w-48" />
+          className="input-premium placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52] flex-1 min-w-48" />
         <select value={filterCat}
           onChange={e => { setFilterCat(e.target.value); load(e.target.value, filterStat) }}
-          className="input-premium focus:outline-none focus:border-purple-500">
+          className="input-premium focus:outline-none focus:border-[#0E3D52]">
           <option value="">All categories</option>
           {DOC_CATEGORIES.map(c => <option key={c} value={c}>{c}</option>)}
         </select>
         <select value={filterStat}
           onChange={e => { setFilterStat(e.target.value); load(filterCat, e.target.value) }}
-          className="input-premium focus:outline-none focus:border-purple-500">
+          className="input-premium focus:outline-none focus:border-[#0E3D52]">
           <option value="">All statuses</option>
           <option value="active">Active</option>
           <option value="pending_review">Pending Review</option>
@@ -627,7 +627,7 @@ export default function DocumentsPage() {
                       <div>
                         {isRealUrl(d.blobUrl) ? (
                           <a href={d.blobUrl} target="_blank" rel="noopener noreferrer"
-                            className="text-purple-400 hover:text-purple-300 underline underline-offset-2 text-sm font-medium">
+                            className="text-[#0E3D52] hover:text-[#1A6080] dark:text-[#4ebac4] underline underline-offset-2 text-sm font-medium">
                             {d.title}
                           </a>
                         ) : (
@@ -682,7 +682,7 @@ export default function DocumentsPage() {
                       )}
                       <button
                         onClick={() => editing === d.id ? setEditing(null) : startEdit(d)}
-                        className="text-xs bg-purple-900/20 border border-purple-800 text-purple-300 hover:bg-purple-900/40 px-2 py-1 rounded transition">
+                        className="text-xs bg-[#0E3D52]/20 border border-[#1A6080] text-[#4ebac4] hover:bg-[#0E3D52]/40 px-2 py-1 rounded transition">
                         {editing === d.id ? 'Cancel' : 'Edit'}
                       </button>
                       {d.status === 'pending_review' && (
@@ -720,7 +720,7 @@ export default function DocumentsPage() {
                   </td>
                 </tr>
                 {editing === d.id && (
-                  <tr key={`${d.id}-edit`} className="bg-purple-950/20 border-b border-purple-900/40">
+                  <tr key={`${d.id}-edit`} className="bg-[#0E3D52]/20 border-b border-[#0E3D52]/40">
                     <td colSpan={7} className="px-4 py-4">
                       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 items-end">
                         <div>
@@ -745,7 +745,7 @@ export default function DocumentsPage() {
                       </div>
                       <div className="flex gap-2 mt-3">
                         <button onClick={() => saveEdit(d.id)} disabled={editSaving || !editForm.title.trim()}
-                          className="px-4 py-1.5 bg-purple-600 hover:bg-purple-700 disabled:opacity-50 text-white text-xs font-medium rounded-lg transition">
+                          className="px-4 py-1.5 bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-50 text-white text-xs font-medium rounded-lg transition">
                           {editSaving ? 'Saving…' : 'Save Changes'}
                         </button>
                         <button onClick={() => setEditing(null)}

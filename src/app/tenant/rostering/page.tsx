@@ -82,7 +82,7 @@ const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 
 const SHIFT_COLOURS: Record<string, { bg: string; text: string; border: string }> = {
   standard:     { bg: 'bg-blue-100 dark:bg-blue-900/40',    text: 'text-blue-800 dark:text-blue-200',    border: 'border-blue-300 dark:border-blue-600' },
-  sleepover:    { bg: 'bg-purple-100 dark:bg-purple-900/40', text: 'text-purple-800 dark:text-purple-200', border: 'border-purple-300 dark:border-purple-600' },
+  sleepover:    { bg: 'bg-[#E0EEF4] dark:bg-[#0E3D52]/40', text: 'text-[#1A6080] dark:text-[#9ccfda]', border: 'border-[#9ccfda] dark:border-[#0E3D52]' },
   active_night: { bg: 'bg-indigo-100 dark:bg-indigo-900/40', text: 'text-indigo-800 dark:text-indigo-200', border: 'border-indigo-300 dark:border-indigo-600' },
   on_call:      { bg: 'bg-amber-100 dark:bg-amber-900/40',   text: 'text-amber-800 dark:text-amber-200',   border: 'border-amber-300 dark:border-amber-600' },
 }
@@ -534,7 +534,7 @@ function ShiftModal({
             )}
             {mode === 'edit' && onRepeat && (
               <button type="button" onClick={handleRepeat} disabled={repeating || repeated}
-                className="px-4 py-2.5 rounded-xl text-sm font-semibold border border-purple-200 dark:border-purple-700 text-purple-600 dark:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-900/20 disabled:opacity-50 transition">
+                className="px-4 py-2.5 rounded-xl text-sm font-semibold border border-[#b8d4e0] dark:border-[#1A6080] text-[#0E3D52] dark:text-[#4ebac4] hover:bg-[#f0f7fb] dark:hover:bg-[#0E3D52]/20 disabled:opacity-50 transition">
                 {repeated ? '✓ Repeated' : repeating ? 'Repeating…' : '↻ Repeat next week'}
               </button>
             )}
@@ -838,7 +838,7 @@ export default function RosteringPage() {
       <div className="flex gap-3 flex-wrap">
         {[
           { label: 'Shifts',      value: shifts.length,                                        color: 'text-blue-600 dark:text-blue-400' },
-          { label: 'Total hours', value: `${totalHours.toFixed(1)}h`,                          color: 'text-purple-600 dark:text-purple-400' },
+          { label: 'Total hours', value: `${totalHours.toFixed(1)}h`,                          color: 'text-[#0E3D52] dark:text-[#4ebac4]' },
           { label: 'Draft',       value: draftCount,                                           color: 'text-amber-600 dark:text-amber-400' },
           { label: 'Published',   value: shifts.filter(s => s.status === 'published').length,  color: 'text-green-600 dark:text-green-400' },
           { label: 'Staff',       value: new Set(shifts.map(s => s.employeeId)).size,          color: 'text-gray-700 dark:text-gray-300' },
