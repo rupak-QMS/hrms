@@ -83,10 +83,10 @@ const EMP_TYPE_LABEL: Record<string, string> = {
   contractor: 'Contractor', volunteer: 'Volunteer',
 }
 const EMP_TYPE_COLOR: Record<string, string> = {
-  full_time: '#8b5cf6', part_time: '#06b6d4', casual: '#f59e0b',
+  full_time: '#0E3D52', part_time: '#1A6080', casual: '#E8973A',
   contractor: '#10b981', volunteer: '#64748b',
 }
-const ENTITY_COLORS = ['#8b5cf6', '#06b6d4', '#f59e0b', '#10b981', '#ef4444']
+const ENTITY_COLORS = ['#0E3D52', '#1A6080', '#E8973A', '#2A9D8F', '#6B7280']
 
 // moduleId = 0 means always visible (core/uncontrolled).
 // moduleId > 0 = must be enabled in hrms_tenant_modules to appear.
@@ -149,13 +149,13 @@ function TrendSparkline({ data }: { data: { label: string; count: number }[] }) 
         <svg width="100%" viewBox={`0 0 ${W} ${H}`} className="overflow-visible">
           <defs>
             <linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.3" />
-              <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0" />
+              <stop offset="0%" stopColor="#0E3D52" stopOpacity="0.3" />
+              <stop offset="100%" stopColor="#0E3D52" stopOpacity="0" />
             </linearGradient>
           </defs>
           <path d={area} fill="url(#sparkGrad)" />
-          <polyline points={polyline} fill="none" stroke="#8b5cf6" strokeWidth="2" strokeLinejoin="round" strokeLinecap="round" />
-          <circle cx={last.x} cy={last.y} r="3" fill="#8b5cf6" />
+          <polyline points={polyline} fill="none" stroke="#0E3D52" strokeWidth="2" strokeLinejoin="round" strokeLinecap="round" />
+          <circle cx={last.x} cy={last.y} r="3" fill="#0E3D52" />
         </svg>
         <div className="flex justify-between mt-1">
           {pts.map(p => (
@@ -299,7 +299,7 @@ function PersonalDashboard({ userName, tenantName, primaryColor, greetingText, e
         <div className="card-premium p-6">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-sm font-semibold text-gray-900 dark:text-white">Leave Balances — {new Date().getFullYear()}</h3>
-            <Link href="/tenant/leave" className="text-xs text-purple-400 hover:text-purple-300">Full details →</Link>
+            <Link href="/tenant/leave" className="text-xs text-[#0E3D52] hover:text-[#1A6080] dark:text-[#4ebac4] dark:hover:text-[#7dcfd7]">Full details →</Link>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
             {leaveBalances.map(b => {
@@ -350,7 +350,7 @@ function PersonalDashboard({ userName, tenantName, primaryColor, greetingText, e
         <div className="card-premium p-6 space-y-4">
           <div className="flex items-center justify-between">
             <h3 className="text-sm font-semibold text-gray-900 dark:text-white"> My Leave</h3>
-            <Link href="/tenant/leave" className="text-xs text-purple-400 hover:text-purple-300">View all →</Link>
+            <Link href="/tenant/leave" className="text-xs text-[#0E3D52] hover:text-[#1A6080] dark:text-[#4ebac4] dark:hover:text-[#7dcfd7]">View all →</Link>
           </div>
           {loadingPersonal ? (
             <p className="text-xs text-gray-500 dark:text-gray-400">Loading…</p>
@@ -391,7 +391,7 @@ function PersonalDashboard({ userName, tenantName, primaryColor, greetingText, e
         <div className="card-premium p-6 space-y-4">
           <div className="flex items-center justify-between">
             <h3 className="text-sm font-semibold text-gray-900 dark:text-white"> Upcoming Holidays</h3>
-            <Link href="/tenant/public-holidays" className="text-xs text-purple-400 hover:text-purple-300">All →</Link>
+            <Link href="/tenant/public-holidays" className="text-xs text-[#0E3D52] hover:text-[#1A6080] dark:text-[#4ebac4] dark:hover:text-[#7dcfd7]">All →</Link>
           </div>
           {loadingPersonal ? (
             <p className="text-xs text-gray-500 dark:text-gray-400">Loading…</p>
@@ -405,7 +405,7 @@ function PersonalDashboard({ userName, tenantName, primaryColor, greetingText, e
                     <p className="text-xs font-medium text-gray-900 dark:text-white">{h.name}</p>
                     <p className="text-xs text-gray-500 dark:text-gray-400">{fmtHolidayDate(h.date)}</p>
                   </div>
-                  <span className="text-xs text-purple-400 shrink-0 font-medium">{daysUntil(h.date)}</span>
+                  <span className="text-xs text-[#0E3D52] dark:text-[#4ebac4] shrink-0 font-medium">{daysUntil(h.date)}</span>
                 </div>
               ))}
             </div>
@@ -637,7 +637,7 @@ export default function DashboardPage() {
               {[
                 { label: 'Total', value: data.headcount.total, accent: null, href: '/tenant/employee-management' },
                 { label: 'Active', value: data.headcount.active, accent: '#10b981', href: '/tenant/employee-management' },
-                { label: 'New This Month', value: data.headcount.newThisMonth, accent: '#8b5cf6' },
+                { label: 'New This Month', value: data.headcount.newThisMonth, accent: '#0E3D52' },
                 { label: 'Leaving', value: data.headcount.leavingThisMonth, accent: data.headcount.leavingThisMonth > 0 ? '#f59e0b' : null },
                 { label: 'Amber Compliance', value: data.compliance.amberCount, accent: data.compliance.amberCount > 0 ? '#f59e0b' : null, href: '/tenant/employee-management' },
                 { label: 'Red Compliance', value: data.compliance.redCount, accent: data.compliance.redCount > 0 ? '#ef4444' : null, href: '/tenant/employee-management' },
@@ -717,7 +717,7 @@ export default function DashboardPage() {
               <div className="card-premium p-6 space-y-4">
                 <div className="flex items-center justify-between">
                   <h3 className="text-sm font-semibold text-gray-900 dark:text-white">Last Pay Run</h3>
-                  <Link href="/tenant/payroll" className="text-xs text-purple-400 hover:text-purple-300">View all →</Link>
+                  <Link href="/tenant/payroll" className="text-xs text-[#0E3D52] hover:text-[#1A6080] dark:text-[#4ebac4] dark:hover:text-[#7dcfd7]">View all →</Link>
                 </div>
                 {data.payroll.lastRunPeriodEnd ? (
                   <>
@@ -729,7 +729,7 @@ export default function DashboardPage() {
                       {[
                         { label: 'Gross', value: data.payroll.lastRunGross, color: 'text-gray-900 dark:text-white' },
                         { label: 'Net',   value: data.payroll.lastRunNet,   color: 'text-green-700 dark:text-green-400' },
-                        { label: 'Super', value: data.payroll.lastRunSuper, color: 'text-purple-700 dark:text-purple-400' },
+                        { label: 'Super', value: data.payroll.lastRunSuper, color: 'text-[#0E3D52] dark:text-[#4ebac4]' },
                       ].map(s => (
                         <div key={s.label} className="bg-black/[0.03] dark:bg-white/[0.04] rounded-lg px-3 py-3">
                           <p className="text-xs text-gray-500 dark:text-gray-400">{s.label}</p>
@@ -749,7 +749,7 @@ export default function DashboardPage() {
                   {[
                     { label: 'Gross', value: data.payroll.ytdGross, color: 'text-gray-900 dark:text-white' },
                     { label: 'Net',   value: data.payroll.ytdNet,   color: 'text-green-700 dark:text-green-400' },
-                    { label: 'Super', value: data.payroll.ytdSuper, color: 'text-purple-700 dark:text-purple-400' },
+                    { label: 'Super', value: data.payroll.ytdSuper, color: 'text-[#0E3D52] dark:text-[#4ebac4]' },
                   ].map(s => (
                     <div key={s.label} className="bg-black/[0.03] dark:bg-white/[0.04] rounded-lg px-3 py-3">
                       <p className="text-xs text-gray-500 dark:text-gray-400">{s.label}</p>
@@ -768,7 +768,7 @@ export default function DashboardPage() {
             <div className="card-premium p-6 space-y-4">
               <div className="flex items-center justify-between">
                 <h3 className="text-sm font-semibold text-gray-900 dark:text-white">Leave</h3>
-                <Link href="/tenant/leave" className="text-xs text-purple-400 hover:text-purple-300">View →</Link>
+                <Link href="/tenant/leave" className="text-xs text-[#0E3D52] hover:text-[#1A6080] dark:text-[#4ebac4] dark:hover:text-[#7dcfd7]">View →</Link>
               </div>
               <div className="space-y-2.5">
                 {[
@@ -793,7 +793,7 @@ export default function DashboardPage() {
             <div className="card-premium p-6 space-y-4">
               <div className="flex items-center justify-between">
                 <h3 className="text-sm font-semibold text-gray-900 dark:text-white">Holidays</h3>
-                <Link href="/tenant/public-holidays" className="text-xs text-purple-400 hover:text-purple-300">All →</Link>
+                <Link href="/tenant/public-holidays" className="text-xs text-[#0E3D52] hover:text-[#1A6080] dark:text-[#4ebac4] dark:hover:text-[#7dcfd7]">All →</Link>
               </div>
               {data.holidays.upcoming.length === 0
                 ? <p className="text-xs text-gray-600 dark:text-gray-400">No upcoming holidays on record</p>
@@ -804,7 +804,7 @@ export default function DashboardPage() {
                           <p className="text-xs text-gray-900 dark:text-white font-medium leading-tight">{h.name}</p>
                           <p className="text-xs text-gray-600 dark:text-gray-400">{fmtHolidayDate(h.date)}</p>
                         </div>
-                        <span className="text-xs text-purple-400 shrink-0 font-medium">{daysUntil(h.date)}</span>
+                        <span className="text-xs text-[#0E3D52] dark:text-[#4ebac4] shrink-0 font-medium">{daysUntil(h.date)}</span>
                       </div>
                     ))}
                   </div>
@@ -814,7 +814,7 @@ export default function DashboardPage() {
             <div className={`card-premium p-6 space-y-4 ${data.documents.expiredActive > 0 ? 'border-red-300/50 dark:border-red-700/40' : ''}`}>
               <div className="flex items-center justify-between">
                 <h3 className="text-sm font-semibold text-gray-900 dark:text-white">Documents</h3>
-                <Link href="/tenant/documents" className="text-xs text-purple-400 hover:text-purple-300">View →</Link>
+                <Link href="/tenant/documents" className="text-xs text-[#0E3D52] hover:text-[#1A6080] dark:text-[#4ebac4] dark:hover:text-[#7dcfd7]">View →</Link>
               </div>
               <div className="space-y-2.5">
                 <div className="flex justify-between">
@@ -831,7 +831,7 @@ export default function DashboardPage() {
             <div className={`card-premium p-6 space-y-4 ${data.incidents.openCritical > 0 ? 'border-red-300/50 dark:border-red-700/40' : ''}`}>
               <div className="flex items-center justify-between">
                 <h3 className="text-sm font-semibold text-gray-900 dark:text-white">️ WHS</h3>
-                <Link href="/tenant/whs" className="text-xs text-purple-400 hover:text-purple-300">View →</Link>
+                <Link href="/tenant/whs" className="text-xs text-[#0E3D52] hover:text-[#1A6080] dark:text-[#4ebac4] dark:hover:text-[#7dcfd7]">View →</Link>
               </div>
               <div className="space-y-2.5">
                 <div className="flex justify-between">
@@ -1027,7 +1027,7 @@ export default function DashboardPage() {
             {celebrations.map(c => (
               <div key={`${c.id}-${c.type}`}
                 className="card-premium px-4 py-3 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-xl shrink-0 overflow-hidden">
+                <div className="w-10 h-10 rounded-full bg-[#E0EEF4] dark:bg-[#0E3D52]/30 flex items-center justify-center text-xl shrink-0 overflow-hidden">
                   {c.photoUrl
                     ? <img src={c.photoUrl} alt={c.name} className="w-full h-full object-cover" />
                     : c.type === 'birthday' ? '🎂' : '🎉'}
@@ -1039,7 +1039,7 @@ export default function DashboardPage() {
                       ? 'Birthday'
                       : `${c.yearsCount} year anniversary`}
                     {' · '}
-                    <span className="text-purple-500 font-medium">
+                    <span className="text-[#0E3D52] dark:text-[#4ebac4] font-medium">
                       {c.daysUntil === 0 ? 'Today!' : c.daysUntil === 1 ? 'Tomorrow' : `in ${c.daysUntil}d`}
                     </span>
                   </p>
