@@ -24,7 +24,7 @@ type Benefit = {
 type Employee = { id: string; firstName: string; lastName: string }
 
 const BENEFIT_TYPES = [
-  { value: 'eap',               label: 'Employee Assistance Program', emoji: '🧠', color: '#8b5cf6' },
+  { value: 'eap',               label: 'Employee Assistance Program', emoji: '🧠', color: '#0E3D52' },
   { value: 'study_support',     label: 'Study Support',               emoji: '📚', color: '#3b82f6' },
   { value: 'discount',          label: 'Employee Discount',           emoji: '🏷️', color: '#f59e0b' },
   { value: 'wellbeing',         label: 'Wellbeing Allowance',         emoji: '💚', color: '#10b981' },

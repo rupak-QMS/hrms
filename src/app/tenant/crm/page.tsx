@@ -67,7 +67,7 @@ const ACTIVITY_ICONS: Record<string,string> = { call:'📞', email:'📧', meeti
 const stageColor = (s: string) => {
   const map: Record<string,string> = {
     new:'#6366f1', contacted:'#f59e0b', qualified:'#3b82f6', converted:'#10b981', lost:'#ef4444',
-    prospecting:'#8b5cf6', qualification:'#f59e0b', proposal:'#3b82f6',
+    prospecting:'#E8973A', qualification:'#f59e0b', proposal:'#3b82f6',
     negotiation:'#f97316', closed_won:'#10b981', closed_lost:'#ef4444',
   }
   return map[s] ?? '#6b7280'
@@ -216,7 +216,7 @@ function LeadsTab() {
           className="input-premium max-w-[280px]" />
         <ExportButton onClick={exportLeadsCsv} disabled={leads.length === 0} />
         <button onClick={() => setModal(true)}
-          className="ml-auto bg-indigo-600 hover:bg-indigo-700 text-white border-none rounded-lg px-4 py-2 font-semibold cursor-pointer text-sm transition-colors">
+          className="ml-auto bg-[#0E3D52] hover:bg-[#1A6080] text-white border-none rounded-lg px-4 py-2 font-semibold cursor-pointer text-sm transition-colors">
           + New Lead
         </button>
       </div>
@@ -314,7 +314,7 @@ function LeadsTab() {
           <div className="flex gap-2.5 justify-end mt-2">
             <button onClick={() => setModal(false)} className="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 cursor-pointer text-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">Cancel</button>
             <button onClick={create} disabled={saving || !form.firstName.trim()}
-              className="px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white border-none cursor-pointer font-semibold text-sm transition-colors disabled:opacity-50">
+              className="px-4 py-2 rounded-lg bg-[#0E3D52] hover:bg-[#1A6080] text-white border-none cursor-pointer font-semibold text-sm transition-colors disabled:opacity-50">
               {saving ? 'Creating…' : 'Create Lead'}
             </button>
           </div>
@@ -959,7 +959,7 @@ export default function CRMPage() {
           <button key={t.key} onClick={() => setTab(t.key as typeof tab)}
             className={`px-4 py-2.5 border-none bg-transparent cursor-pointer text-sm font-semibold whitespace-nowrap transition-colors -mb-0.5 border-b-2 ${
               tab === t.key
-                ? 'text-indigo-600 dark:text-indigo-400 border-indigo-600 dark:border-indigo-400'
+                ? 'text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4] border-[#0E3D52] dark:border-[#1A6080]'
                 : 'text-gray-500 dark:text-gray-400 border-transparent hover:text-gray-700 dark:hover:text-gray-300'
             }`}>
             {t.label}

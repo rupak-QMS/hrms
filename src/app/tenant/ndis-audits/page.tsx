@@ -258,7 +258,7 @@ function AuditModal({ initial, onClose, onSaved }: {
               Cancel
             </button>
             <button type="submit" disabled={saving}
-              className="px-4 py-2 rounded-lg bg-indigo-600 text-white text-sm font-medium hover:bg-indigo-700 disabled:opacity-50">
+              className="px-4 py-2 rounded-lg bg-[#0E3D52] text-white text-sm font-medium hover:bg-[#1A6080] disabled:opacity-50">
               {saving ? 'Saving…' : initial ? 'Save Changes' : 'Create Audit'}
             </button>
           </div>
@@ -354,7 +354,7 @@ export default function NDISAuditsPage() {
           <ExportButton onClick={exportAudits} disabled={audits.length === 0} />
           <button
             onClick={() => { setEditAudit(null); setShowModal(true) }}
-            className="px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-xl hover:bg-indigo-700 transition">
+            className="px-4 py-2 bg-[#0E3D52] text-white text-sm font-medium rounded-xl hover:bg-[#1A6080] transition">
             + New Audit
           </button>
         </div>
@@ -403,7 +403,7 @@ export default function NDISAuditsPage() {
           <div className="flex flex-col items-center justify-center h-48 text-gray-400 gap-2">
             <span className="text-3xl">📋</span>
             <p className="text-sm">No audits found</p>
-            <button onClick={() => setShowModal(true)} className="text-sm text-indigo-500 hover:underline">Create your first audit</button>
+            <button onClick={() => setShowModal(true)} className="text-sm text-[#1A6080] dark:text-[#4ebac4] hover:underline">Create your first audit</button>
           </div>
         ) : (
           <div className="overflow-x-auto">

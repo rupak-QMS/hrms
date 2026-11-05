@@ -83,7 +83,7 @@ const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 const SHIFT_COLOURS: Record<string, { bg: string; text: string; border: string }> = {
   standard:     { bg: 'bg-blue-100 dark:bg-blue-900/40',    text: 'text-blue-800 dark:text-blue-200',    border: 'border-blue-300 dark:border-blue-600' },
   sleepover:    { bg: 'bg-[#E0EEF4] dark:bg-[#0E3D52]/40', text: 'text-[#1A6080] dark:text-[#9ccfda]', border: 'border-[#9ccfda] dark:border-[#0E3D52]' },
-  active_night: { bg: 'bg-indigo-100 dark:bg-indigo-900/40', text: 'text-indigo-800 dark:text-indigo-200', border: 'border-indigo-300 dark:border-indigo-600' },
+  active_night: { bg: 'bg-[#E0EEF4] dark:bg-[#0E3D52]/20', text: 'text-[#0E3D52] dark:text-[#9ccfda]', border: 'border-[#b8d4e0] dark:border-[#0E3D52]' },
   on_call:      { bg: 'bg-amber-100 dark:bg-amber-900/40',   text: 'text-amber-800 dark:text-amber-200',   border: 'border-amber-300 dark:border-amber-600' },
 }
 

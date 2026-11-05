@@ -111,7 +111,7 @@ export async function GET(req: NextRequest) {
       leaveType:    r.leaveType,
       label:        cfg?.label ?? r.leaveType,
       emoji:        cfg?.emoji ?? '📅',
-      color:        cfg?.color ?? '#8b5cf6',
+      color:        cfg?.color ?? '#0E3D52',
       startDate:    r.startDate,
       endDate:      r.endDate,
       totalDays:    r.totalDays,

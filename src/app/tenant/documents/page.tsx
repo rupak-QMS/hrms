@@ -568,8 +568,8 @@ export default function DocumentsPage() {
       ) : (
         <div className="card-premium rounded-2xl overflow-hidden">
           {selectedDocs.size > 0 && (
-            <div className="px-4 py-2 bg-indigo-50 dark:bg-indigo-900/20 border-b border-indigo-100 dark:border-indigo-800 flex items-center gap-3 flex-wrap">
-              <span className="text-sm font-medium text-indigo-700 dark:text-indigo-300">{selectedDocs.size} selected</span>
+            <div className="px-4 py-2 bg-[#E0EEF4] dark:bg-[#0E3D52]/15 border-b border-[#b8d4e0] dark:border-[#1A6080] flex items-center gap-3 flex-wrap">
+              <span className="text-sm font-medium text-[#0E3D52] dark:text-[#7dcfd7]">{selectedDocs.size} selected</span>
               <button
                 onClick={() => bulkUpdateStatus('archived')}
                 disabled={bulkDocLoading}
@@ -584,7 +584,7 @@ export default function DocumentsPage() {
               >
                 ✅ Mark active
               </button>
-              <button onClick={() => setSelectedDocs(new Set())} className="ml-auto text-xs text-indigo-500 hover:text-indigo-700">Clear</button>
+              <button onClick={() => setSelectedDocs(new Set())} className="ml-auto text-xs text-[#1A6080] dark:text-[#4ebac4] hover:text-[#0E3D52]">Clear</button>
             </div>
           )}
           <div className="table-responsive">

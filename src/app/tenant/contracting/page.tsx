@@ -99,7 +99,7 @@ export default function ContractingPage() {
         </div>
         <div className="flex items-center gap-2">
           <ExportButton onClick={exportContracts} disabled={contracts.length === 0} />
-          <button onClick={()=>setShowCreate(true)} className="px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700">+ New Contract</button>
+          <button onClick={()=>setShowCreate(true)} className="px-4 py-2 bg-[#0E3D52] text-white rounded-lg text-sm font-medium hover:bg-[#1A6080]">+ New Contract</button>
         </div>
       </div>
 
@@ -120,7 +120,7 @@ export default function ContractingPage() {
           </div>
           <div className="flex-1 overflow-y-auto">
             {loading ? <p className="p-4 text-sm text-gray-600 dark:text-gray-400">Loading…</p> : contracts.length===0 ? <p className="p-6 text-sm text-gray-600 dark:text-gray-400 text-center">No contracts</p> : contracts.map(c=>(
-              <div key={c.id} className={`group relative border-b border-gray-100 hover:bg-gray-50 transition dark:border-gray-800 ${selected?.id===c.id?'bg-indigo-50 border-l-2 border-l-indigo-500':''}`}>
+              <div key={c.id} className={`group relative border-b border-gray-100 hover:bg-gray-50 transition dark:border-gray-800 ${selected?.id===c.id?'bg-[#E0EEF4] border-l-2 border-l-[#0E3D52]':''}`}>
                 <button onClick={()=>setSelected(c)} className="w-full text-left px-4 py-3">
                   <div className="flex items-start justify-between gap-2">
                     <div className="min-w-0">
@@ -192,7 +192,7 @@ export default function ContractingPage() {
                 <div className="flex items-center justify-between mb-2">
                   <p className="text-sm font-medium text-gray-700 dark:text-gray-300">Contract Document</p>
                   <a href={selected.pdfUrl} target="_blank" rel="noopener noreferrer"
-                    className="text-xs text-indigo-600 hover:underline">Open in new tab ↗</a>
+                    className="text-xs text-[#0E3D52] dark:text-[#4ebac4] hover:underline">Open in new tab ↗</a>
                 </div>
                 <iframe src={selected.pdfUrl} className="w-full h-96 border border-gray-200 rounded-lg dark:border-gray-700" title="Contract PDF"/>
               </div>
@@ -218,7 +218,7 @@ export default function ContractingPage() {
             </div>
             <div className="flex gap-3 mt-5">
               <button onClick={()=>setShowCreate(false)} className="flex-1 px-4 py-2 border border-gray-200 rounded-lg text-sm text-gray-600 dark:text-gray-400 dark:border-gray-700">Cancel</button>
-              <button onClick={create} disabled={saving||!form.employeeId} className="flex-1 px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium disabled:opacity-50">{saving?'Creating…':'Create'}</button>
+              <button onClick={create} disabled={saving||!form.employeeId} className="flex-1 px-4 py-2 bg-[#0E3D52] text-white rounded-lg text-sm font-medium disabled:opacity-50">{saving?'Creating…':'Create'}</button>
             </div>
           </div>
         </div>
@@ -360,7 +360,7 @@ function SendForSignaturePanel({
             {contract.pdfUrl && !file ? (
               <div className="flex items-center gap-2 text-xs text-gray-600 dark:text-gray-400 mb-2">
                 <span>📎</span>
-                <a href={contract.pdfUrl} target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline">
+                <a href={contract.pdfUrl} target="_blank" rel="noopener noreferrer" className="text-[#0E3D52] dark:text-[#4ebac4] hover:underline">
                   Existing PDF ↗
                 </a>
                 <span className="text-gray-400">— upload a new file to replace it</span>
@@ -368,12 +368,12 @@ function SendForSignaturePanel({
             ) : null}
             <div
               onClick={() => fileRef.current?.click()}
-              className="border-2 border-dashed border-gray-200 rounded-lg p-4 text-center cursor-pointer hover:border-indigo-400 hover:bg-indigo-50 transition dark:border-gray-700 dark:hover:border-indigo-600 dark:hover:bg-indigo-950/20"
+              className="border-2 border-dashed border-gray-200 rounded-lg p-4 text-center cursor-pointer hover:border-[#1A6080] hover:bg-[#E0EEF4] transition dark:border-gray-700 dark:hover:border-[#0E3D52] dark:hover:bg-[#0E3D52]/10"
             >
               {file ? (
                 <div className="flex items-center justify-center gap-2">
-                  <span className="text-indigo-600">📎</span>
-                  <span className="text-sm font-medium text-indigo-700 dark:text-indigo-400">{file.name}</span>
+                  <span className="text-[#0E3D52] dark:text-[#4ebac4]">📎</span>
+                  <span className="text-sm font-medium text-[#0E3D52] dark:text-[#4ebac4]">{file.name}</span>
                   <button
                     onClick={e => { e.stopPropagation(); setFile(null) }}
                     className="text-gray-400 hover:text-red-500 ml-1 text-xs"
@@ -396,7 +396,7 @@ function SendForSignaturePanel({
 
           <div className="flex gap-2">
             <button onClick={sendForSignature} disabled={sending}
-              className="flex-1 px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700 disabled:opacity-50">
+              className="flex-1 px-4 py-2 bg-[#0E3D52] text-white rounded-lg text-sm font-medium hover:bg-[#1A6080] disabled:opacity-50">
               {sending ? 'Sending…' : '📧 Send for Signature'}
             </button>
             <button onClick={copyLink} title="Copy signing link"

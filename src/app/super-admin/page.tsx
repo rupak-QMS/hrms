@@ -69,7 +69,7 @@ export default async function SuperAdminDashboard() {
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
         <StatCard label="Total Clients"   value={d.totalClients}   sub={`${d.activeClients} active`}  accent="#0E3D52" />
         <StatCard label="Platform Users"  value={d.totalUsers}     sub={`${d.activeUsers} active`}    accent="#3b82f6" />
-        <StatCard label="Active Modules"  value={d.enabledModules} sub="across all tenants"           accent="#8b5cf6" />
+        <StatCard label="Active Modules"  value={d.enabledModules} sub="across all tenants"           accent="#0E3D52" />
         <StatCard label="Monthly Revenue" value={`$${d.mrr}`}      sub="AUD / month"                 accent="#22c55e" />
       </div>
 

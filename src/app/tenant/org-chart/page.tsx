@@ -32,7 +32,7 @@ type OrgData = {
 // ─── Avatar colors ────────────────────────────────────────────────────────────
 
 const AVATAR_COLORS = [
-  'bg-indigo-500', 'bg-violet-500', 'bg-sky-500',
+  'bg-[#E0EEF4]0', 'bg-violet-500', 'bg-sky-500',
   'bg-emerald-500', 'bg-amber-500', 'bg-rose-500',
   'bg-teal-500', 'bg-orange-500', 'bg-pink-500', 'bg-cyan-500',
 ]
@@ -155,7 +155,7 @@ function EmployeeCard({
 
           {/* Position */}
           {node.positionTitle && (
-            <p className="text-xs text-indigo-600 dark:text-indigo-400 text-center mt-0.5 leading-tight line-clamp-1">
+            <p className="text-xs text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4] text-center mt-0.5 leading-tight line-clamp-1">
               {node.positionTitle}
             </p>
           )}
@@ -178,7 +178,7 @@ function EmployeeCard({
           <div className="border-t border-gray-100 dark:border-gray-700">
             <button
               onClick={onToggle}
-              className="w-full py-1.5 text-xs text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 flex items-center justify-center gap-1 transition-colors"
+              className="w-full py-1.5 text-xs text-gray-500 dark:text-gray-400 hover:text-[#0E3D52] dark:text-[#4ebac4] dark:hover:text-[#4ebac4] flex items-center justify-center gap-1 transition-colors"
             >
               {expanded ? (
                 <>
@@ -370,7 +370,7 @@ export default function OrgChartPage() {
       {/* Loading */}
       {loading && (
         <div className="flex items-center justify-center py-24">
-          <div className="w-8 h-8 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin" />
+          <div className="w-8 h-8 border-4 border-[#0E3D52] border-t-transparent rounded-full animate-spin" />
         </div>
       )}
 

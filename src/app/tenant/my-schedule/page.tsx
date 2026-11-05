@@ -38,7 +38,7 @@ const SHIFT_TYPE_LABELS: Record<string, string> = {
 
 const SHIFT_TYPE_COLORS: Record<string, string> = {
   standard:     'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300',
-  sleepover:    'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-300',
+  sleepover:    'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/20 dark:text-[#7dcfd7]',
   active_night: 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/40 dark:text-[#4ebac4]',
   on_call:      'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300',
 }

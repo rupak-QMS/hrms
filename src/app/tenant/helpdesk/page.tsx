@@ -37,7 +37,7 @@ const PRIORITY_COLOR: Record<Priority, string> = {
 
 const STATUS_COLOR: Record<Status, string> = {
   open:        'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400',
-  in_progress: 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-400',
+  in_progress: 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/15 dark:text-[#4ebac4]',
   pending:     'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400',
   resolved:    'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400',
   closed:      'bg-gray-100 text-gray-500 dark:bg-gray-800 dark:text-gray-400',
@@ -116,7 +116,7 @@ export default function HelpdeskPage() {
           <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">Support tickets &amp; SLA tracking</p>
         </div>
         <button onClick={() => setShowNew(true)}
-          className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium rounded-lg transition">
+          className="inline-flex items-center gap-2 px-4 py-2 bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm font-medium rounded-lg transition">
           <span className="text-base leading-none">＋</span> New Ticket
         </button>
       </div>
@@ -129,7 +129,7 @@ export default function HelpdeskPage() {
             { label: 'SLA Breached',    value: stats.breached,       color: 'text-red-600 dark:text-red-400',      bg: 'bg-red-50 dark:bg-red-900/20' },
             { label: 'Critical Open',   value: stats.criticalOpen,   color: 'text-orange-600 dark:text-orange-400',bg: 'bg-orange-50 dark:bg-orange-900/20' },
             { label: 'Resolved Today',  value: stats.resolvedToday,  color: 'text-emerald-600 dark:text-emerald-400', bg: 'bg-emerald-50 dark:bg-emerald-900/20' },
-            { label: 'Avg Resolve Time',value: fmtMins(stats.avgResolveMins), color: 'text-indigo-600 dark:text-indigo-400', bg: 'bg-indigo-50 dark:bg-indigo-900/20' },
+            { label: 'Avg Resolve Time',value: fmtMins(stats.avgResolveMins), color: 'text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4]', bg: 'bg-[#E0EEF4] dark:bg-[#0E3D52]/15' },
           ].map(c => (
             <div key={c.label} className={`rounded-xl p-4 ${c.bg} border border-black/[0.04] dark:border-white/[0.06]`}>
               <p className="text-xs text-gray-500 dark:text-gray-400 font-medium">{c.label}</p>
@@ -277,7 +277,7 @@ export default function HelpdeskPage() {
             <div className="flex gap-3 mt-5">
               <button onClick={() => setShowNew(false)} className="flex-1 px-4 py-2 text-sm border border-gray-200 dark:border-gray-700 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/[0.04] transition">Cancel</button>
               <button onClick={submit} disabled={submitting || !newForm.title || !newForm.description}
-                className="flex-1 px-4 py-2 text-sm bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white rounded-lg font-medium transition">
+                className="flex-1 px-4 py-2 text-sm bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-50 text-white rounded-lg font-medium transition">
                 {submitting ? 'Submitting…' : 'Submit Ticket'}
               </button>
             </div>

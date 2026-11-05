@@ -161,7 +161,7 @@ export default function SelfServicePage() {
           {profile?.photoUrl ? (
             <img src={profile.photoUrl} alt="" className="w-14 h-14 rounded-full object-cover" />
           ) : (
-            <div className="w-14 h-14 rounded-full bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center text-2xl font-bold text-indigo-600 dark:text-indigo-400">
+            <div className="w-14 h-14 rounded-full bg-[#E0EEF4] dark:bg-[#0E3D52]/15 flex items-center justify-center text-2xl font-bold text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4]">
               {profile ? profile.firstName[0] + profile.lastName[0] : '?'}
             </div>
           )}
@@ -178,7 +178,7 @@ export default function SelfServicePage() {
         <div className="flex gap-1 mt-4">
           {TABS.map(t => (
             <button key={t} onClick={() => setTab(t)}
-              className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${tab === t ? 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-400' : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'}`}>
+              className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${tab === t ? 'bg-[#E0EEF4] dark:bg-[#0E3D52]/15 text-[#0E3D52] dark:text-[#4ebac4]' : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'}`}>
               {t}
             </button>
           ))}
@@ -252,7 +252,7 @@ export default function SelfServicePage() {
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-base font-semibold text-gray-900 dark:text-white">My Leave Requests</h2>
               <button onClick={() => setShowLeaveModal(true)}
-                className="px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700">
+                className="px-4 py-2 bg-[#0E3D52] text-white text-sm font-medium rounded-lg hover:bg-[#1A6080]">
                 + Request Leave
               </button>
             </div>
@@ -373,7 +373,7 @@ export default function SelfServicePage() {
                   Cancel
                 </button>
                 <button type="submit" disabled={submitting}
-                  className="flex-1 px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700 disabled:opacity-50">
+                  className="flex-1 px-4 py-2 bg-[#0E3D52] text-white rounded-lg text-sm font-medium hover:bg-[#1A6080] disabled:opacity-50">
                   {submitting ? 'Submitting…' : 'Submit Request'}
                 </button>
               </div>

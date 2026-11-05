@@ -69,7 +69,7 @@ type WorkforceData = {
 const INPUT = 'input-premium'
 
 const EMP_TYPE_CONFIG: Record<string, { label: string; bg: string }> = {
-  full_time:  { label: 'Full-time',  bg: 'bg-indigo-500' },
+  full_time:  { label: 'Full-time',  bg: 'bg-[#E0EEF4]0' },
   part_time:  { label: 'Part-time',  bg: 'bg-blue-500' },
   casual:     { label: 'Casual',     bg: 'bg-amber-500' },
   contractor: { label: 'Contractor', bg: 'bg-emerald-500' },

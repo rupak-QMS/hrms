@@ -211,7 +211,7 @@ export default function ExperiencePage() {
           <ExportButton onClick={handleExport} disabled={records.length === 0} />
           <button
             onClick={openCreate}
-            className="bg-indigo-600 hover:bg-indigo-700 text-white text-sm px-4 py-2 rounded-lg transition"
+            className="bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm px-4 py-2 rounded-lg transition"
           >
             + Add Record
           </button>
@@ -230,7 +230,7 @@ export default function ExperiencePage() {
         </div>
         <div className="card-premium p-4 col-span-2 sm:col-span-1">
           <p className="text-xs text-gray-500 dark:text-gray-400">Avg Tenure</p>
-          <p className="text-2xl font-bold text-indigo-600 dark:text-indigo-400 mt-1">{totalRecords ? avgTenureLabel : '—'}</p>
+          <p className="text-2xl font-bold text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4] mt-1">{totalRecords ? avgTenureLabel : '—'}</p>
         </div>
       </div>
 
@@ -462,7 +462,7 @@ export default function ExperiencePage() {
                 <button
                   type="submit"
                   disabled={saving}
-                  className="px-4 py-2 text-sm bg-indigo-600 hover:bg-indigo-700 disabled:opacity-60 text-white rounded-lg transition"
+                  className="px-4 py-2 text-sm bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white rounded-lg transition"
                 >
                   {saving ? 'Saving…' : editRecord ? 'Save Changes' : 'Add Record'}
                 </button>

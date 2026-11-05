@@ -219,7 +219,7 @@ export default function ScreeningPage() {
           <ExportButton onClick={handleExport} disabled={records.length === 0} />
           <button
             onClick={() => { setForm({ ...EMPTY_FORM }); setShowCreate(true) }}
-            className="px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700 transition"
+            className="px-4 py-2 bg-[#0E3D52] text-white rounded-lg text-sm font-medium hover:bg-[#1A6080] transition"
           >
             + Add Check
           </button>
@@ -327,7 +327,7 @@ export default function ScreeningPage() {
                       <button
                         onClick={() => openEdit(r)}
                         title="Edit"
-                        className="p-1.5 rounded-lg text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 transition"
+                        className="p-1.5 rounded-lg text-gray-400 hover:text-[#0E3D52] dark:text-[#4ebac4] hover:bg-[#E0EEF4] dark:hover:bg-[#0E3D52]/15 transition"
                       >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -403,7 +403,7 @@ export default function ScreeningPage() {
               <button onClick={() => setShowCreate(false)} className="flex-1 px-4 py-2 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition">
                 Cancel
               </button>
-              <button onClick={create} disabled={saving || !form.employeeId} className="flex-1 px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700 disabled:opacity-50 transition">
+              <button onClick={create} disabled={saving || !form.employeeId} className="flex-1 px-4 py-2 bg-[#0E3D52] text-white rounded-lg text-sm font-medium hover:bg-[#1A6080] disabled:opacity-50 transition">
                 {saving ? 'Adding…' : 'Add Record'}
               </button>
             </div>
@@ -477,7 +477,7 @@ export default function ScreeningPage() {
               <button onClick={() => setEditRecord(null)} className="flex-1 px-4 py-2 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition">
                 Cancel
               </button>
-              <button onClick={saveEdit} disabled={saving} className="flex-1 px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700 disabled:opacity-50 transition">
+              <button onClick={saveEdit} disabled={saving} className="flex-1 px-4 py-2 bg-[#0E3D52] text-white rounded-lg text-sm font-medium hover:bg-[#1A6080] disabled:opacity-50 transition">
                 {saving ? 'Saving…' : 'Save Changes'}
               </button>
             </div>

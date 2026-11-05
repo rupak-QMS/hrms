@@ -250,7 +250,7 @@ export default function SCHADSCalculatorPage() {
                 ))}
               </div>
               {employmentType === 'casual' && (
-                <p className="mt-1 text-xs text-indigo-500">25% casual loading applied — effective rate: ${effectiveBaseRate.toFixed(2)}/hr</p>
+                <p className="mt-1 text-xs text-[#1A6080] dark:text-[#4ebac4]">25% casual loading applied — effective rate: ${effectiveBaseRate.toFixed(2)}/hr</p>
               )}
             </div>
 
@@ -361,7 +361,7 @@ export default function SCHADSCalculatorPage() {
                   </div>
                   <div className="flex justify-between pt-2 border-t border-gray-100 dark:border-gray-800">
                     <span className="text-sm font-bold text-gray-900 dark:text-white">Total Package</span>
-                    <span className="text-lg font-bold text-indigo-600 dark:text-indigo-400">${totalPackage.toFixed(2)}</span>
+                    <span className="text-lg font-bold text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4]">${totalPackage.toFixed(2)}</span>
                   </div>
                 </div>
 

@@ -858,7 +858,7 @@ export default function DashboardPage() {
       <div className="card-premium p-6">
         <div className="flex items-center justify-between mb-4">
           <h3 className="font-semibold text-gray-900 dark:text-white">Recent Activity</h3>
-          <Link href="/tenant/audit-logs" className="text-xs text-indigo-500 hover:text-indigo-700">View all →</Link>
+          <Link href="/tenant/audit-logs" className="text-xs text-[#1A6080] dark:text-[#4ebac4] hover:text-[#0E3D52]">View all →</Link>
         </div>
         {activity.length === 0 ? (
           <p className="text-sm text-gray-400 py-4 text-center">No recent activity</p>
@@ -896,7 +896,7 @@ export default function DashboardPage() {
               return (
                 <div key={emp.id} className="flex items-center gap-3 py-2 border-b border-gray-100 dark:border-gray-800 last:border-0">
                   <div className="flex-1 min-w-0">
-                    <Link href={`/tenant/employee-management/${emp.id}`} className="text-sm font-medium text-gray-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 truncate block">
+                    <Link href={`/tenant/employee-management/${emp.id}`} className="text-sm font-medium text-gray-900 dark:text-white hover:text-[#0E3D52] dark:text-[#4ebac4] dark:hover:text-[#4ebac4] truncate block">
                       {emp.firstName} {emp.lastName}
                     </Link>
                     <p className="text-xs text-gray-500 dark:text-gray-400 capitalize">{emp.employmentType?.replace('_', ' ')}</p>
@@ -914,7 +914,7 @@ export default function DashboardPage() {
               )
             })}
           </div>
-          <Link href="/tenant/employee-management?status=active" className="mt-3 block text-center text-xs text-indigo-500 hover:text-indigo-700">
+          <Link href="/tenant/employee-management?status=active" className="mt-3 block text-center text-xs text-[#1A6080] dark:text-[#4ebac4] hover:text-[#0E3D52]">
             View all employees →
           </Link>
         </div>
@@ -942,7 +942,7 @@ export default function DashboardPage() {
               <p className="text-xs text-gray-400 text-right">+{overdueTraining.length - 5} more</p>
             )}
           </div>
-          <a href="/tenant/training" className="block mt-3 text-xs text-indigo-500 hover:underline">View training →</a>
+          <a href="/tenant/training" className="block mt-3 text-xs text-[#1A6080] dark:text-[#4ebac4] hover:underline">View training →</a>
         </div>
       )}
 
@@ -978,7 +978,7 @@ export default function DashboardPage() {
               </div>
             ))}
           </div>
-          <a href="/tenant/compliance" className="block mt-3 text-xs text-indigo-500 hover:underline">View compliance →</a>
+          <a href="/tenant/compliance" className="block mt-3 text-xs text-[#1A6080] dark:text-[#4ebac4] hover:underline">View compliance →</a>
         </div>
       )}
 
@@ -1015,7 +1015,7 @@ export default function DashboardPage() {
               <p className="text-xs text-gray-400 text-right">+{reviewsDue.length - 5} more</p>
             )}
           </div>
-          <a href="/tenant/performance" className="block mt-3 text-xs text-indigo-500 hover:underline">View performance →</a>
+          <a href="/tenant/performance" className="block mt-3 text-xs text-[#1A6080] dark:text-[#4ebac4] hover:underline">View performance →</a>
         </div>
       )}
 

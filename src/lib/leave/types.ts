@@ -65,7 +65,7 @@ export const DEFAULT_LEAVE_TYPES: LeaveTypeConfig[] = [
     key:                   'personal',
     label:                 "Personal / Carer's Leave",
     emoji:                 '👤',
-    color:                 '#8b5cf6',
+    color:                 '#0E3D52',
     entitlementDaysFT:     10,
     entitlementDaysPT:     10,
     entitlementDaysCasual: 2,

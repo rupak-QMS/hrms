@@ -18,7 +18,7 @@ type Summary  = Record<string, number>
 
 // ── Inline SVG chart components ─────────────────────────────────────────────
 
-const CHART_COLORS = ['#8b5cf6','#06b6d4','#10b981','#f59e0b','#ef4444','#ec4899','#6366f1']
+const CHART_COLORS = ['#0E3D52','#1A6080','#E8973A','#2A9D8F','#6B7280','#10b981','#ef4444']
 
 function BarChart({ data, height = 180 }: { data: { label: string; value: number; color?: string }[]; height?: number }) {
   if (!data.length) return null
@@ -98,7 +98,7 @@ function HeadcountCharts({ summary }: { summary: Summary }) {
       <div className="card-premium p-4">
         <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-4 dark:text-gray-400">Employment Type</p>
         <DonutChart data={[
-          { label: 'Full-time',  value: summary.fullTime   ?? 0, color: '#8b5cf6' },
+          { label: 'Full-time',  value: summary.fullTime   ?? 0, color: '#0E3D52' },
           { label: 'Part-time',  value: summary.partTime   ?? 0, color: '#06b6d4' },
           { label: 'Casual',     value: summary.casual     ?? 0, color: '#f59e0b' },
           { label: 'Contractor', value: summary.contractor ?? 0, color: '#ec4899' },
@@ -199,7 +199,7 @@ function TrainingGapCharts({ summary }: { summary: Summary }) {
       <div className="card-premium p-4">
         <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-4 dark:text-gray-400">Gap Totals</p>
         <BarChart data={[
-          { label: 'Mandatory Courses', value: summary.mandatoryCourses  ?? 0, color: '#8b5cf6' },
+          { label: 'Mandatory Courses', value: summary.mandatoryCourses  ?? 0, color: '#0E3D52' },
           { label: 'Total Gaps',        value: summary.totalGaps         ?? 0, color: '#ef4444' },
           { label: 'Employees w/ Gaps', value: summary.employeesWithGaps ?? 0, color: '#f59e0b' },
         ]} />
@@ -224,7 +224,7 @@ function PayrollCharts({ summary }: { summary: Summary }) {
         <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-4 dark:text-gray-400">Financials</p>
         <div className="space-y-3">
           {[
-            { label: 'Total Gross', value: summary.totalGross ?? 0, color: '#8b5cf6' },
+            { label: 'Total Gross', value: summary.totalGross ?? 0, color: '#0E3D52' },
             { label: 'Total Net',   value: summary.totalNet   ?? 0, color: '#10b981' },
             { label: 'Total Super', value: summary.totalSuper ?? 0, color: '#ec4899' },
           ].map(item => {
@@ -350,7 +350,7 @@ export default function ReportsPage() {
             <div className="space-y-1">
               {REPORTS.map(r => (
                 <button key={r.id} onClick={() => { setSelected(r.id); setRan(false); setData([]); setSummary({}) }}
-                  className={`w-full text-left px-3 py-2.5 rounded-lg text-sm transition ${selected===r.id ? 'bg-indigo-50 text-indigo-700 font-medium' : 'text-gray-600 hover:bg-gray-50'}`}>
+                  className={`w-full text-left px-3 py-2.5 rounded-lg text-sm transition ${selected===r.id ? 'bg-[#E0EEF4] text-[#0E3D52] font-medium' : 'text-gray-600 hover:bg-gray-50'}`}>
                   <span className="mr-2">{r.icon}</span>{r.label}
                 </button>
               ))}
@@ -368,7 +368,7 @@ export default function ReportsPage() {
               <input type="date" className="input-premium" value={dateTo} onChange={e => setDateTo(e.target.value)} />
             </div>
             <button onClick={run} disabled={loading}
-              className="w-full py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700 disabled:opacity-50">
+              className="w-full py-2 bg-[#0E3D52] text-white rounded-lg text-sm font-medium hover:bg-[#1A6080] disabled:opacity-50">
               {loading ? 'Running…' : 'Run Report'}
             </button>
           </div>
@@ -382,7 +382,7 @@ export default function ReportsPage() {
                 <p className="text-5xl mb-4">{report.icon}</p>
                 <h2 className="text-lg font-semibold text-gray-900 dark:text-white">{report.label}</h2>
                 <p className="text-sm text-gray-500 mt-1 mb-6 dark:text-gray-400">{report.description}</p>
-                <button onClick={run} className="px-6 py-2.5 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700">Run Report</button>
+                <button onClick={run} className="px-6 py-2.5 bg-[#0E3D52] text-white rounded-lg text-sm font-medium hover:bg-[#1A6080]">Run Report</button>
               </div>
             </div>
           ) : loading ? (

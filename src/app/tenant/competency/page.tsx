@@ -73,10 +73,10 @@ export default function CompetencyPage() {
         </div>
         <div className="flex gap-2">
           {tab === 'library' && (
-            <button onClick={() => setShowAddComp(true)} className="px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700">+ Add Competency</button>
+            <button onClick={() => setShowAddComp(true)} className="px-4 py-2 bg-[#0E3D52] text-white rounded-lg text-sm font-medium hover:bg-[#1A6080]">+ Add Competency</button>
           )}
           {tab === 'matrix' && selectedEmp && (
-            <button onClick={() => setShowAssess(true)} className="px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700">+ Record Assessment</button>
+            <button onClick={() => setShowAssess(true)} className="px-4 py-2 bg-[#0E3D52] text-white rounded-lg text-sm font-medium hover:bg-[#1A6080]">+ Record Assessment</button>
           )}
         </div>
       </div>
@@ -85,7 +85,7 @@ export default function CompetencyPage() {
       <div className="flex border-b border-gray-200 bg-white px-6 dark:bg-gray-900 dark:border-gray-700">
         {(['matrix','library'] as const).map(t => (
           <button key={t} onClick={() => setTab(t)}
-            className={`px-4 py-2.5 text-sm font-medium border-b-2 -mb-px transition capitalize ${tab===t ? 'border-indigo-500 text-indigo-600' : 'border-transparent text-gray-500 hover:text-gray-700'}`}>
+            className={`px-4 py-2.5 text-sm font-medium border-b-2 -mb-px transition capitalize ${tab===t ? 'border-[#0E3D52] text-[#0E3D52] dark:text-[#4ebac4]' : 'border-transparent text-gray-500 hover:text-gray-700'}`}>
             {t === 'matrix' ? 'Skill Matrix' : 'Competency Library'}
           </button>
         ))}
@@ -181,7 +181,7 @@ export default function CompetencyPage() {
             </div>
             <div className="flex gap-3 mt-5">
               <button onClick={() => setShowAddComp(false)} className="flex-1 px-4 py-2 border border-gray-200 rounded-lg text-sm text-gray-600 dark:text-gray-400 dark:border-gray-700">Cancel</button>
-              <button onClick={addCompetency} disabled={saving || !compForm.name} className="flex-1 px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium disabled:opacity-50">{saving ? 'Adding…' : 'Add'}</button>
+              <button onClick={addCompetency} disabled={saving || !compForm.name} className="flex-1 px-4 py-2 bg-[#0E3D52] text-white rounded-lg text-sm font-medium disabled:opacity-50">{saving ? 'Adding…' : 'Add'}</button>
             </div>
           </div>
         </div>
@@ -211,7 +211,7 @@ export default function CompetencyPage() {
             </div>
             <div className="flex gap-3 mt-5">
               <button onClick={() => setShowAssess(false)} className="flex-1 px-4 py-2 border border-gray-200 rounded-lg text-sm text-gray-600 dark:text-gray-400 dark:border-gray-700">Cancel</button>
-              <button onClick={addAssessment} disabled={saving || !assessForm.competencyId} className="flex-1 px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium disabled:opacity-50">{saving ? 'Saving…' : 'Record'}</button>
+              <button onClick={addAssessment} disabled={saving || !assessForm.competencyId} className="flex-1 px-4 py-2 bg-[#0E3D52] text-white rounded-lg text-sm font-medium disabled:opacity-50">{saving ? 'Saving…' : 'Record'}</button>
             </div>
           </div>
         </div>

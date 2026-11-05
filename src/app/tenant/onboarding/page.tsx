@@ -32,7 +32,7 @@ type Stats = { total: number; pending: number; in_progress: number; completed: n
 const STAGES = [
   { value: 'pre_start',     label: 'Pre-start',        color: 'bg-gray-500' },
   { value: 'day1',          label: 'Day 1',             color: 'bg-blue-500' },
-  { value: 'week1',         label: 'Week 1',            color: 'bg-indigo-500' },
+  { value: 'week1',         label: 'Week 1',            color: 'bg-[#E0EEF4]0' },
   { value: 'weeks2_4',      label: 'Weeks 2–4',         color: 'bg-[#f0f7fb]0' },
   { value: 'end_probation', label: 'End of Probation',  color: 'bg-amber-500' },
   { value: 'fully_active',  label: 'Fully Active',      color: 'bg-green-500' },
