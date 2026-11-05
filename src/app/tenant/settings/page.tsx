@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-'use client'
 import { fetchWithAuth } from '@/lib/fetchWithAuth'
 
 import { useEffect, useRef, useState } from 'react'
