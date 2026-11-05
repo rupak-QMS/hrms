@@ -1,18 +1,5 @@
 'use client'
 
-/**
- * Drop-in replacement for browser confirm().
- *
- * Usage:
- *   const [confirm, setConfirm] = useState<ConfirmState>(null)
- *
- *   // trigger:
- *   setConfirm({ message: 'Delete this?', onConfirm: () => doDelete(id) })
- *
- *   // render (anywhere in the JSX):
- *   <ConfirmModal state={confirm} onClose={() => setConfirm(null)} />
- */
-
 export type ConfirmState = {
   message: string
   confirmLabel?: string
@@ -37,23 +24,21 @@ export default function ConfirmModal({
   }
 
   return (
-    <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/50 p-4">
-      <div className="card-premium w-full max-w-sm shadow-2xl p-6 space-y-4">
-        <p className="text-sm text-gray-700 dark:text-gray-300">{message}</p>
-        <div className="flex justify-end gap-3">
-          <button
-            onClick={onClose}
-            className="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
-          >
+    <div className="modal-overlay">
+      <div className="modal-panel max-w-sm w-full">
+        <div className="modal-header">
+          <span className="modal-title">{danger ? '⚠ Confirm Action' : 'Confirm'}</span>
+        </div>
+        <div className="modal-body">
+          <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{message}</p>
+        </div>
+        <div className="modal-footer">
+          <button onClick={onClose} className="btn-ghost">
             Cancel
           </button>
           <button
             onClick={handleConfirm}
-            className={`px-4 py-2 rounded-lg text-sm font-medium text-white transition-colors ${
-              danger
-                ? 'bg-red-600 hover:bg-red-700'
-                : 'bg-[#0E3D52] hover:bg-indigo-700'
-            }`}
+            className={danger ? 'btn-danger' : 'btn-primary'}
           >
             {confirmLabel}
           </button>

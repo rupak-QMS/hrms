@@ -154,3 +154,153 @@
 .page-premium-title { @apply text-[20px] font-semibold tracking-tight; color: hsl(var(--foreground)); }
 .page-premium-subtitle { @apply text-[13px] mt-0.5; color: rgba(71,85,105,0.7); }
 .dark .page-premium-subtitle { color: rgba(148,163,184,0.4); }
+
+/* ── Button system ────────────────────────────────────────────────────────────
+   Use these classes for consistent button hierarchy across all pages/modals.
+   btn-primary  : main CTA — teal fill, white text
+   btn-secondary: bordered ghost — teal border, teal text
+   btn-danger   : destructive action — red fill
+   btn-ghost    : low-prominence — no border, subtle hover
+*/
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-white transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed;
+  background: #0E3D52;
+  box-shadow: 0 1px 3px rgba(14,61,82,0.25);
+}
+.btn-primary:hover:not(:disabled) { background: #1A6080; box-shadow: 0 4px 12px rgba(14,61,82,0.30); }
+.dark .btn-primary { background: #1A6080; }
+.dark .btn-primary:hover:not(:disabled) { background: #2a7898; }
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed;
+  color: #0E3D52; border: 1.5px solid #0E3D52; background: transparent;
+}
+.btn-secondary:hover:not(:disabled) { background: rgba(14,61,82,0.07); }
+.dark .btn-secondary { color: #4ebac4; border-color: #4ebac4; }
+.dark .btn-secondary:hover:not(:disabled) { background: rgba(78,186,196,0.1); }
+
+.btn-danger {
+  @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-white transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed;
+  background: #dc2626;
+}
+.btn-danger:hover:not(:disabled) { background: #b91c1c; }
+
+.btn-ghost {
+  @apply inline-flex items-center justify-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-150 disabled:opacity-50;
+  color: rgba(71,85,105,0.8); background: transparent;
+}
+.btn-ghost:hover:not(:disabled) { background: rgba(0,0,0,0.05); color: #0f172a; }
+.dark .btn-ghost { color: rgba(148,163,184,0.7); }
+.dark .btn-ghost:hover:not(:disabled) { background: rgba(255,255,255,0.06); color: #f1f5f9; }
+
+/* ── Modal overlay ────────────────────────────────────────────────────────────*/
+.modal-overlay {
+  @apply fixed inset-0 z-50 flex items-center justify-center p-4;
+  background: rgba(0,0,0,0.45); backdrop-filter: blur(4px);
+}
+.modal-panel {
+  @apply w-full rounded-2xl shadow-2xl overflow-hidden;
+  background: hsl(var(--card)); border: 1px solid hsl(var(--border));
+  box-shadow: 0 24px 60px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,0,0,0.04);
+}
+.dark .modal-panel {
+  box-shadow: 0 24px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05);
+}
+.modal-header {
+  @apply flex items-center justify-between px-6 py-4;
+  border-bottom: 1px solid hsl(var(--border));
+}
+.modal-title { @apply text-[15px] font-semibold tracking-tight; color: hsl(var(--foreground)); }
+.modal-body   { @apply px-6 py-5 space-y-4; }
+.modal-footer {
+  @apply flex justify-end gap-3 px-6 py-4;
+  border-top: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+}
+
+/* ── Data table system ────────────────────────────────────────────────────────*/
+.table-wrap { @apply w-full overflow-x-auto rounded-xl; border: 1px solid hsl(var(--border)); }
+.data-table { @apply w-full text-sm border-collapse; }
+.data-table thead { background: hsl(var(--muted)); }
+.data-table thead th {
+  @apply px-4 py-3 text-left text-[11px] font-semibold uppercase tracking-[0.07em] select-none whitespace-nowrap;
+  color: rgba(71,85,105,0.75); border-bottom: 1px solid hsl(var(--border));
+}
+.dark .data-table thead th { color: rgba(148,163,184,0.5); }
+.data-table tbody tr {
+  border-bottom: 1px solid hsl(var(--border));
+  transition: background 0.1s;
+}
+.data-table tbody tr:last-child { border-bottom: none; }
+.data-table tbody tr:hover { background: rgba(14,61,82,0.04); }
+.dark .data-table tbody tr:hover { background: rgba(78,186,196,0.05); }
+.data-table td { @apply px-4 py-3 align-middle; color: hsl(var(--foreground)); }
+
+/* sortable column header */
+.th-sort { @apply cursor-pointer; }
+.th-sort:hover { color: #0E3D52; }
+.dark .th-sort:hover { color: #4ebac4; }
+
+/* table toolbar */
+.table-toolbar {
+  @apply flex items-center gap-3 p-4 flex-wrap;
+  border-bottom: 1px solid hsl(var(--border));
+}
+.table-search {
+  @apply flex-1 min-w-[180px] flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-all;
+  background: hsl(var(--muted)); border: 1px solid hsl(var(--border));
+  color: hsl(var(--foreground));
+}
+.table-search:focus-within { border-color: rgba(14,61,82,0.4); box-shadow: 0 0 0 3px rgba(14,61,82,0.08); }
+.dark .table-search:focus-within { border-color: rgba(78,186,196,0.4); box-shadow: 0 0 0 3px rgba(78,186,196,0.1); }
+
+/* bulk action bar */
+.bulk-bar {
+  @apply flex items-center gap-3 px-4 py-2.5 text-sm font-medium;
+  background: rgba(14,61,82,0.07); border-bottom: 1px solid rgba(14,61,82,0.15);
+  color: #0E3D52;
+}
+.dark .bulk-bar { background: rgba(78,186,196,0.08); border-color: rgba(78,186,196,0.2); color: #4ebac4; }
+
+/* pagination */
+.pagination { @apply flex items-center gap-1; }
+.page-btn {
+  @apply w-8 h-8 rounded-lg flex items-center justify-center text-xs font-medium transition-all;
+  color: rgba(71,85,105,0.8); background: transparent;
+}
+.page-btn:hover { background: hsl(var(--muted)); color: #0E3D52; }
+.page-btn.active { background: #0E3D52; color: white; }
+.dark .page-btn:hover { color: #4ebac4; }
+.dark .page-btn.active { background: #1A6080; }
+
+/* ── Breadcrumbs ─────────────────────────────────────────────────────────────*/
+.breadcrumbs { @apply flex items-center gap-1.5 text-[12px]; }
+.breadcrumb-item { color: rgba(71,85,105,0.65); }
+.breadcrumb-item:last-child { color: hsl(var(--foreground)); font-weight: 500; }
+.breadcrumb-item a:hover { color: #0E3D52; text-decoration: underline; }
+.dark .breadcrumb-item { color: rgba(148,163,184,0.45); }
+.dark .breadcrumb-item:last-child { color: hsl(var(--foreground)); }
+.dark .breadcrumb-item a:hover { color: #4ebac4; }
+.breadcrumb-sep { color: rgba(100,116,139,0.35); font-size: 11px; }
+
+/* ── Tenant/role pill in header ──────────────────────────────────────────────*/
+.tenant-pill {
+  @apply flex items-center gap-2 px-2.5 py-1 rounded-full text-[11px] font-semibold;
+  background: rgba(14,61,82,0.08); color: #0E3D52;
+  border: 1px solid rgba(14,61,82,0.15);
+}
+.dark .tenant-pill { background: rgba(78,186,196,0.1); color: #4ebac4; border-color: rgba(78,186,196,0.2); }
+
+/* ── Global search bar in header ─────────────────────────────────────────────*/
+.header-search {
+  @apply flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm transition-all;
+  background: rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.08); color: hsl(var(--foreground));
+  min-width: 200px;
+}
+.header-search:focus-within {
+  border-color: rgba(14,61,82,0.4);
+  box-shadow: 0 0 0 3px rgba(14,61,82,0.08);
+  background: white;
+}
+.dark .header-search { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); }
+.dark .header-search:focus-within { border-color: rgba(78,186,196,0.4); background: rgba(255,255,255,0.06); }

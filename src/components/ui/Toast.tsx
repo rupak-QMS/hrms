@@ -55,10 +55,10 @@ export default function Toast({
       text: 'text-red-800 dark:text-red-200',
     },
     info: {
-      bg: 'bg-indigo-50 dark:bg-indigo-900/30 border-indigo-200 dark:border-indigo-700',
+      bg: 'bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border-[#b8d4e0] dark:border-[#1A6080]',
       icon: 'ℹ',
       iconColor: 'text-[#0E3D52] dark:text-[#4ebac4]',
-      text: 'text-indigo-800 dark:text-indigo-200',
+      text: 'text-[#0E3D52] dark:text-[#9ccfda]',
     },
   }[type]
 
