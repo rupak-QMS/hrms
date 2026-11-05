@@ -1,18 +1,19 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google'
+import { DM_Sans, Sora, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import '../styles/yahweh-theme.css'
 
-const inter = Inter({
+const dmSans = DM_Sans({
   subsets: ['latin'],
-  variable: '--font-inter',
+  weight: ['400', '500', '600'],
+  variable: '--font-dm-sans',
   display: 'swap',
 })
 
-const jakarta = Plus_Jakarta_Sans({
+const sora = Sora({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
-  variable: '--font-jakarta',
+  weight: ['400', '600', '700', '800'],
+  variable: '--font-sora',
   display: 'swap',
 })
 
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#1a4fff',
+  themeColor: '#0E3D52',
   width: 'device-width',
   initialScale: 1,
 }
@@ -52,7 +53,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${jakarta.variable} ${jetbrainsMono.variable}`}
+      className={`${dmSans.variable} ${sora.variable} ${jetbrainsMono.variable}`}
     >
       {/* Prevent flash of wrong theme on load */}
       <head>
@@ -62,7 +63,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={inter.className}>
+      <body className={dmSans.className}>
         {/* Mesh background overlay — visible in dark mode only */}
         <div className="y-mesh-bg" aria-hidden="true" />
         {children}

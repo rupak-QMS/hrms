@@ -32,7 +32,7 @@ export default function TenantLayoutShell({
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <div className="flex h-screen bg-[#f3f4f8] dark:bg-[#050817] overflow-hidden">
+    <div className="flex h-screen bg-[#EDF1F5] dark:bg-[#050c14] overflow-hidden">
       {/* Sidebar — hidden on mobile unless open */}
       <TenantSidebar
         navItems={navItems}
@@ -51,7 +51,7 @@ export default function TenantLayoutShell({
       {/* Main area */}
       <div className="flex-1 flex flex-col overflow-hidden min-w-0">
         {/* Top bar */}
-        <header className="h-12 flex items-center justify-between px-4 md:px-5 bg-white/80 dark:bg-[#070c1a]/90 backdrop-blur-md shrink-0 border-b border-black/[0.06] dark:border-white/[0.05]">
+        <header className="h-14 flex items-center justify-between px-4 md:px-5 bg-white/90 dark:bg-[#060e1c]/95 backdrop-blur-md shrink-0 border-b border-black/[0.05] dark:border-white/[0.04]">
           <div className="flex items-center gap-2">
             {/* Hamburger — mobile only */}
             <button
@@ -110,7 +110,7 @@ export default function TenantLayoutShell({
         <PlatformAnnouncementBanner />
 
         {/* Page content */}
-        <main className="flex-1 overflow-y-auto p-3 sm:p-4 md:p-5 bg-[#f3f4f8] dark:bg-[#050817]">
+        <main className="flex-1 overflow-y-auto p-3 sm:p-4 md:p-5 bg-[#EDF1F5] dark:bg-[#050c14]">
           <Breadcrumbs />
           {children}
         </main>

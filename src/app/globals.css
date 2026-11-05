@@ -4,32 +4,32 @@
 
 @layer base {
   :root {
-    --background:            0 0% 100%;
+    --background:            210 22% 97%;
     --foreground:            222.2 84% 4.9%;
     --card:                  0 0% 100%;
     --card-foreground:       222.2 84% 4.9%;
     --popover:               0 0% 100%;
     --popover-foreground:    222.2 84% 4.9%;
-    --primary:               221.2 83.2% 53.3%;
-    --primary-foreground:    210 40% 98%;
-    --secondary:             210 40% 96.1%;
-    --secondary-foreground:  222.2 47.4% 11.2%;
-    --muted:                 210 40% 96.1%;
-    --muted-foreground:      215.4 16.3% 46.9%;
-    --accent:                210 40% 96.1%;
-    --accent-foreground:     222.2 47.4% 11.2%;
+    --primary:               200 71% 19%;
+    --primary-foreground:    0 0% 98%;
+    --secondary:             200 18% 94%;
+    --secondary-foreground:  200 50% 15%;
+    --muted:                 200 15% 94%;
+    --muted-foreground:      200 20% 48%;
+    --accent:                200 18% 93%;
+    --accent-foreground:     200 50% 15%;
     --destructive:           0 84.2% 60.2%;
     --destructive-foreground:210 40% 98%;
-    --border:                214.3 31.8% 91.4%;
-    --input:                 214.3 31.8% 91.4%;
-    --ring:                  221.2 83.2% 53.3%;
+    --border:                210 20% 88%;
+    --input:                 210 20% 88%;
+    --ring:                  200 71% 19%;
     --radius:                0.5rem;
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --surface-page:          0 0% 97%;
+    --surface-page:          210 22% 96%;
     --surface-card:          0 0% 100%;
     --surface-input:         0 0% 97%;
     --surface-subtle:        0 0% 94%;
@@ -42,8 +42,8 @@
     --card-foreground:       214 32% 96%;
     --popover:               227 43% 6%;
     --popover-foreground:    214 32% 96%;
-    --primary:               217.2 91.2% 62%;
-    --primary-foreground:    228 71% 3.5%;
+    --primary:               195 55% 45%;
+    --primary-foreground:    0 0% 98%;
     --secondary:             228 35% 10%;
     --secondary-foreground:  214 32% 96%;
     --muted:                 228 35% 10%;
@@ -54,7 +54,7 @@
     --destructive-foreground:214 32% 96%;
     --border:                228 40% 10%;
     --input:                 228 40% 9%;
-    --ring:                  217.2 91.2% 62%;
+    --ring:                  195 55% 45%;
     --chart-1: 220 70% 55%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
@@ -84,7 +84,7 @@
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb { @apply bg-gray-300 dark:bg-gray-700 rounded-full; }
   ::-webkit-scrollbar-thumb:hover { @apply bg-gray-400 dark:bg-gray-600; }
-  ::selection { @apply bg-blue-200 dark:bg-blue-800 text-gray-900 dark:text-white; }
+  ::selection { @apply bg-teal-100 dark:bg-teal-900 text-gray-900 dark:text-white; }
   :focus-visible { outline: 2px solid hsl(var(--ring)); outline-offset: 2px; }
 }
 
@@ -125,16 +125,16 @@
 /* ── Premium badge system — light defaults, dark overrides */
 .badge { @apply inline-flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wide px-2 py-0.5 rounded-full; }
 .badge-green  { background: rgba(34,197,94,0.1);   color: #16a34a; }
-.badge-blue   { background: rgba(59,130,246,0.1);  color: #2563eb; }
+.badge-blue   { background: rgba(14,61,82,0.1);    color: #0E3D52; }
 .badge-amber  { background: rgba(245,158,11,0.1);  color: #d97706; }
 .badge-red    { background: rgba(239,68,68,0.1);   color: #dc2626; }
-.badge-purple { background: rgba(124,58,237,0.1);  color: #7c3aed; }
+.badge-teal   { background: rgba(14,61,82,0.1);    color: #0E3D52; }
 .badge-gray   { background: rgba(100,116,139,0.1); color: #64748b; }
 .dark .badge-green  { background: rgba(34,197,94,0.12);   color: #4ade80; }
-.dark .badge-blue   { background: rgba(59,130,246,0.12);  color: #60a5fa; }
+.dark .badge-blue   { background: rgba(78,186,196,0.12);  color: #4ebac4; }
 .dark .badge-amber  { background: rgba(245,158,11,0.12);  color: #fbbf24; }
 .dark .badge-red    { background: rgba(239,68,68,0.12);   color: #f87171; }
-.dark .badge-purple { background: rgba(124,58,237,0.15);  color: #a78bfa; }
+.dark .badge-teal   { background: rgba(78,186,196,0.15);  color: #4ebac4; }
 .dark .badge-gray   { background: rgba(100,116,139,0.12); color: #94a3b8; }
 
 /* ── Section label */
@@ -145,8 +145,8 @@
 .input-premium { @apply w-full rounded-lg px-3 py-2 text-[13px] transition-all duration-150 outline-none; background: rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.1); color: hsl(var(--foreground)); }
 .dark .input-premium { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); }
 .input-premium::placeholder { color: rgba(100,116,139,0.5); }
-.input-premium:focus { border-color: rgba(59,130,246,0.4); box-shadow: 0 0 0 3px rgba(59,130,246,0.1); }
-.dark .input-premium:focus { border-color: rgba(124,58,237,0.4); box-shadow: 0 0 0 3px rgba(124,58,237,0.1); }
+.input-premium:focus { border-color: rgba(14,61,82,0.4); box-shadow: 0 0 0 3px rgba(14,61,82,0.1); }
+.dark .input-premium:focus { border-color: rgba(78,186,196,0.4); box-shadow: 0 0 0 3px rgba(78,186,196,0.12); }
 
 /* ── Page wrapper helpers */
 .page-premium { @apply space-y-5; }

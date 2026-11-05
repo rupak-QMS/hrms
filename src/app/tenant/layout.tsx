@@ -173,7 +173,7 @@ export default async function TenantLayout({ children }: { children: React.React
   const enabledModuleIds: number[] = config?.enabledModuleIds ?? []
 
   // Theme
-  const primaryColor = tenant?.primaryColor ?? '#1a4fff'
+  const primaryColor = tenant?.primaryColor ?? '#0E3D52'
   const logoUrl      = tenant?.logoUrl ?? ''
   const tenantName   = tenant?.name ?? 'HRMS'
   const settings     = tenant?.settings
@@ -182,8 +182,8 @@ export default async function TenantLayout({ children }: { children: React.React
   const fontFamily   = settings.fontFamily   ?? 'Inter'
   const borderRadius = settings.borderRadius ?? '8px'
   const sidebarDark  = settings.sidebarDark  !== false
-  const accentColor  = settings.accentColor  ?? '#7c3aed'
-  const sidebarBg    = sidebarDark ? '#111827' : primaryColor
+  const accentColor  = settings.accentColor  ?? '#E8973A'
+  const sidebarBg    = primaryColor  // sidebar always uses primaryColor (deep teal)
 
   // Session
   const userEmail   = session?.email ?? ''
@@ -228,7 +228,7 @@ export default async function TenantLayout({ children }: { children: React.React
           --primary:  ${primaryColor};
           --accent:   ${accentColor};
           --radius:   ${borderRadius};
-          --font:     ${fontFamily}, system-ui, sans-serif;
+          --font:     ${fontFamily}, 'DM Sans', system-ui, sans-serif;
         }
         body { font-family: var(--font); }
       `}</style>
