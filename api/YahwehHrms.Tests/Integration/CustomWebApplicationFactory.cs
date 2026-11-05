@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -11,6 +12,8 @@ namespace YahwehHrms.Tests.Integration;
 
 public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 {
+    private static readonly InMemoryDatabaseRoot _dbRoot = new InMemoryDatabaseRoot();
+
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
         builder.UseEnvironment("Testing");
@@ -31,7 +34,6 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
         builder.ConfigureTestServices(services =>
         {
             // Replace real HrmsDbContext (Npgsql) with InMemory
-            // Remove ALL DbContext-related registrations (options, context, pool)
             var toRemove = services
                 .Where(d => d.ServiceType == typeof(DbContextOptions<HrmsDbContext>)
                          || d.ServiceType == typeof(HrmsDbContext)
@@ -41,9 +43,9 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
                 .ToList();
             foreach (var d in toRemove) services.Remove(d);
 
-            // Use a stable DB name so Seed and controller share the same store
+            // Use a shared InMemoryDatabaseRoot so all scopes see the same data
             services.AddDbContext<HrmsDbContext>(opts =>
-                opts.UseInMemoryDatabase("integration-tests"));
+                opts.UseInMemoryDatabase("integration-tests", _dbRoot));
 
             // Remove Hangfire hosted services to prevent PostgreSQL connection attempts
             var hangfireServices = services
