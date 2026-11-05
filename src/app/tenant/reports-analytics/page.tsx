@@ -585,7 +585,7 @@ export default function ReportsAnalyticsPage() {
 
       {/* SAVE MODAL */}
       {saveModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+        <div className="modal-overlay">
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-sm p-6">
             <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Save Report</h3>
             <input

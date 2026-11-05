@@ -235,7 +235,7 @@ export default function HelpdeskPage() {
 
       {/* New Ticket Modal */}
       {showNew && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center px-4 bg-black/50 backdrop-blur-sm" onClick={() => setShowNew(false)}>
+        <div className="modal-overlay" onClick={() => setShowNew(false)}>
           <div className="w-full max-w-md bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 p-6" onClick={e => e.stopPropagation()}>
             <h2 className="text-base font-semibold text-gray-900 dark:text-white mb-4">New Support Ticket</h2>
             <div className="space-y-3">

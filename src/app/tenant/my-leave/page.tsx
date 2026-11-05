@@ -259,7 +259,7 @@ export default function MyLeavePage() {
 
       {/* ─── NEW REQUEST MODAL ─────────────────────────────────────────────── */}
       {showForm && (
-        <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
+        <div className="modal-overlay">
           <form onSubmit={submitRequest}
             className="card-premium rounded-2xl p-6 w-full max-w-md space-y-4 shadow-2xl">
             <div className="flex items-center justify-between">

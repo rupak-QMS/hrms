@@ -171,7 +171,7 @@ export default function CompetencyPage() {
 
       {/* Add competency modal */}
       {showAddComp && (
-        <div className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center p-4">
+        <div className="modal-overlay">
           <div className="bg-white rounded-xl shadow-xl w-full max-w-sm p-6 dark:bg-gray-900">
             <h3 className="text-lg font-semibold text-gray-900 mb-4 dark:text-white">Add Competency</h3>
             <div className="space-y-3">
@@ -189,7 +189,7 @@ export default function CompetencyPage() {
 
       {/* Record assessment modal */}
       {showAssess && (
-        <div className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center p-4">
+        <div className="modal-overlay">
           <div className="bg-white rounded-xl shadow-xl w-full max-w-sm p-6 dark:bg-gray-900">
             <h3 className="text-lg font-semibold text-gray-900 mb-4 dark:text-white">Record Assessment</h3>
             <div className="space-y-3">

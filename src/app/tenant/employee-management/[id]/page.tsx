@@ -797,7 +797,7 @@ export default function EmployeeProfilePage() {
 
             {/* Add/Edit modal */}
             {showContactForm && (
-              <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
+              <div className="modal-overlay">
                 <form
                   onSubmit={saveContact}
                   className="card-premium rounded-2xl p-6 w-full max-w-md space-y-4"
@@ -1085,7 +1085,7 @@ export default function EmployeeProfilePage() {
 
             {/* Enrol modal */}
             {showEnrolModal && (
-              <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
+              <div className="modal-overlay">
                 <div className="card-premium rounded-2xl w-full max-w-md p-6 space-y-4">
                   <h3 className="text-base font-bold text-white">Enrol in Course</h3>
                   <select
@@ -1497,7 +1497,7 @@ export default function EmployeeProfilePage() {
 
         {/* ── Review / Implement modal ──────────────────────────────────────── */}
         {reviewModal && (
-          <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
+          <div className="modal-overlay">
             <div className="card-premium rounded-2xl p-6 w-full max-w-md space-y-4">
               <h3 className="text-base font-bold text-white capitalize">
                 {reviewModal.action === 'implemented' ? 'Implement Promotion' : `${reviewModal.action === 'approved' ? 'Approve' : 'Reject'} Nomination`}
@@ -1541,7 +1541,7 @@ export default function EmployeeProfilePage() {
 
         {/* ── New Promotion Form Modal ──────────────────────────────────────── */}
         {showPromoForm && (
-          <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
+          <div className="modal-overlay">
             <div className="card-premium rounded-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto">
               <div className="flex items-center justify-between p-5 border-b border-gray-200 dark:border-gray-800">
                 <h2 className="text-base font-bold text-white">Raise Promotion / Salary Request</h2>

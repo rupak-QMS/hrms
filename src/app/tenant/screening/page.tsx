@@ -356,7 +356,7 @@ export default function ScreeningPage() {
 
       {/* Create modal */}
       {showCreate && (
-        <div className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center p-4">
+        <div className="modal-overlay">
           <div className="card-premium w-full max-w-md p-6 shadow-2xl">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Add Screening Record</h3>
@@ -413,7 +413,7 @@ export default function ScreeningPage() {
 
       {/* Edit modal */}
       {editRecord && (
-        <div className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center p-4">
+        <div className="modal-overlay">
           <div className="card-premium w-full max-w-lg p-6 shadow-2xl">
             <div className="flex items-center justify-between mb-1">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Edit Screening Record</h3>

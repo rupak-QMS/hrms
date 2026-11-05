@@ -335,7 +335,7 @@ export default function RecruitmentPage() {
 
       {/* Edit Requisition Modal */}
       {editingReq && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+        <div className="modal-overlay">
           <form
             onSubmit={saveEditReq}
             className="card-premium shadow-2xl p-6 w-full max-w-lg mx-4 space-y-4"
@@ -822,7 +822,7 @@ export default function RecruitmentPage() {
 
       {/* ── Convert to Employee Modal ─────────────────────────────────────── */}
       {convertApp && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+        <div className="modal-overlay backdrop-blur-sm p-4">
           <div className="card-premium shadow-2xl w-full max-w-md p-6 space-y-4">
             {convertResult ? (
               /* Success state */

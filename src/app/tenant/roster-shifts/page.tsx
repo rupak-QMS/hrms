@@ -415,7 +415,7 @@ export default function RosterShiftsPage() {
           Modal: Add Shift
       ══════════════════════════════════════════════════════════════════════ */}
       {showAddShift && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+        <div className="modal-overlay">
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-lg flex flex-col">
             <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Add Shift</h3>
@@ -484,7 +484,7 @@ export default function RosterShiftsPage() {
           Modal: Review Swap Request
       ══════════════════════════════════════════════════════════════════════ */}
       {reviewSwap && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+        <div className="modal-overlay">
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-md flex flex-col">
             <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Review Swap Request</h3>

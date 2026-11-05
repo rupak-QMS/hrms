@@ -114,7 +114,7 @@ function fmt(v: string | null | undefined) {
 
 function Modal({ title, onClose, children }: { title: string; onClose: () => void; children: React.ReactNode }) {
   return (
-    <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/50 p-4"
+    <div className="modal-overlay"
       onClick={e => e.target === e.currentTarget && onClose()}>
       <div className="card-premium w-full max-w-lg max-h-[90vh] overflow-auto shadow-2xl">
         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 dark:border-gray-700">

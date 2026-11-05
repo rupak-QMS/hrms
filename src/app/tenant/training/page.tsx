@@ -210,7 +210,7 @@ function LibraryTab() {
 
       {/* Enrol modal */}
       {enrollCourse && (
-        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
+        <div className="modal-overlay">
           <div className="card-premium p-6 w-full max-w-md space-y-4">
             <h3 className="text-lg font-bold text-foreground">Enrol Employees</h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">Course: <span className="text-foreground font-medium">{enrollCourse.title}</span></p>

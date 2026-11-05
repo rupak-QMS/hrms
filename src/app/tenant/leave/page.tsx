@@ -815,7 +815,7 @@ export default function LeavePage() {
 
       {/* ── NEW REQUEST MODAL ── */}
       {showForm && (
-        <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
+        <div className="modal-overlay">
           <form onSubmit={submit}
             className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-2xl p-6 w-full max-w-lg space-y-4 shadow-2xl">
             <div className="flex items-center justify-between">

@@ -133,7 +133,7 @@ function DocPreviewModal({ doc, onClose }: { doc: Doc; onClose: () => void }) {
 
   return (
     <div
-      className="fixed inset-0 z-[70] flex items-center justify-center p-4 backdrop-blur-sm bg-black/60 dark:bg-black/70"
+      className="modal-overlay"
       onClick={onClose}
     >
       <div

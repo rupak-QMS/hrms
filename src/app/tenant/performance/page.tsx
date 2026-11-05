@@ -393,7 +393,7 @@ export default function PerformancePage() {
 
           {/* Complete review modal */}
           {editing && (
-            <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4 overflow-y-auto">
+            <div className="modal-overlay overflow-y-auto">
               <div className="card-premium p-6 w-full max-w-2xl space-y-5 my-4">
                 <h3 className="text-lg font-bold text-foreground">Complete Review</h3>
                 <div className="space-y-3">
@@ -453,7 +453,7 @@ export default function PerformancePage() {
 
           {/* Self-assessment modal */}
           {selfAssessModal && (
-            <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4 overflow-y-auto">
+            <div className="modal-overlay overflow-y-auto">
               <div className="card-premium p-6 w-full max-w-xl space-y-4 my-4">
                 <h3 className="text-lg font-bold text-foreground">Employee Self-Assessment</h3>
                 <p className="text-xs text-gray-500 dark:text-gray-400">This input is shared with the reviewer ahead of the performance review.</p>
@@ -694,7 +694,7 @@ export default function PerformancePage() {
 
           {/* Edit goal modal */}
           {editingGoal && (
-            <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4 overflow-y-auto">
+            <div className="modal-overlay overflow-y-auto">
               <div className="card-premium p-6 w-full max-w-lg space-y-4 my-4">
                 <h3 className="text-lg font-bold text-foreground">Edit Goal</h3>
                 <div>

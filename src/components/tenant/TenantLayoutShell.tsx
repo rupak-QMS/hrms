@@ -63,12 +63,9 @@ export default function TenantLayoutShell({
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </button>
-            <div
-              className="w-1.5 h-4 rounded-full hidden md:block"
-              style={{ background: `linear-gradient(180deg, ${primaryColor}, ${primaryColor}60)` }}
-            />
-            <span className="text-[13px] font-semibold text-gray-800 dark:text-gray-100 tracking-tight truncate max-w-[120px] sm:max-w-none">
-              {tenantName}
+            <span className="tenant-pill hidden md:inline-flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full" style={{ background: primaryColor }} />
+              <span className="truncate max-w-[140px]">{tenantName}</span>
             </span>
           </div>
 
@@ -76,7 +73,7 @@ export default function TenantLayoutShell({
             {/* ⌘K search hint — opens CommandPalette */}
             <button
               onClick={() => window.dispatchEvent(new KeyboardEvent('keydown', { key: 'k', metaKey: true, ctrlKey: true, bubbles: true }))}
-              className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 text-[11px] text-gray-400 bg-gray-100 dark:bg-white/[0.05] rounded-md border border-gray-200 dark:border-white/[0.07] hover:bg-gray-200 dark:hover:bg-white/[0.09] transition mr-1"
+              className="header-search"
               aria-label="Open search"
             >
               <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>

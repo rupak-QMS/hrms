@@ -280,7 +280,7 @@ export default function AssetsPage() {
 
       {/* Edit modal */}
       {editAsset && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+        <div className="modal-overlay">
           <div className="card-premium w-full max-w-lg shadow-2xl p-6">
             <h2 className="text-base font-semibold text-gray-900 dark:text-white mb-4">Edit Asset</h2>
             <form onSubmit={saveEdit} className="space-y-3">

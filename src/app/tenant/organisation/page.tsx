@@ -33,7 +33,7 @@ type Tab = 'branches' | 'departments' | 'positions'
 
 function Modal({ title, onClose, children }: { title: string; onClose: () => void; children: React.ReactNode }) {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+    <div className="modal-overlay">
       <div className="bg-[var(--surface)] rounded-xl shadow-2xl w-full max-w-lg mx-4 p-6">
         <div className="flex items-center justify-between mb-5">
           <h2 className="text-lg font-semibold text-[var(--txt1)]">{title}</h2>

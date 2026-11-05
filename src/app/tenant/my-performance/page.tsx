@@ -166,7 +166,7 @@ export default function MyPerformancePage() {
 
       {/* Self-assessment modal */}
       {selfAssessModal && (
-        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4 overflow-y-auto">
+        <div className="modal-overlay overflow-y-auto">
           <div className="card-premium p-6 w-full max-w-xl space-y-4 my-4">
             <h3 className="text-lg font-bold text-foreground">My Self-Assessment</h3>
             <p className="text-xs text-gray-500 dark:text-gray-400">Your input will be shared with your reviewer ahead of the performance meeting.</p>
@@ -199,7 +199,7 @@ export default function MyPerformancePage() {
 
       {/* Goal progress modal */}
       {updatingGoal && (
-        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
+        <div className="modal-overlay">
           <div className="card-premium p-6 w-full max-w-sm space-y-4">
             <h3 className="text-lg font-bold text-foreground">Update Progress</h3>
             <div>

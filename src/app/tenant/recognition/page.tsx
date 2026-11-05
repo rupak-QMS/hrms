@@ -364,7 +364,7 @@ export default function RecognitionPage() {
 
       {/* Delete Confirm */}
       {confirmDelete && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+        <div className="modal-overlay backdrop-blur-sm p-4">
           <div className="card-premium p-6 max-w-sm w-full space-y-4">
             <h2 className="text-base font-semibold text-gray-900 dark:text-white">Delete Recognition</h2>
             <p className="text-sm text-gray-600 dark:text-gray-300">
@@ -416,7 +416,7 @@ function RecognitionModal({
     setForm(f => ({ ...f, [k]: e.target.value }))
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+    <div className="modal-overlay backdrop-blur-sm p-4">
       <div className="card-premium p-6 max-w-lg w-full">
         <div className="flex items-center justify-between mb-5">
           <h2 className="text-base font-semibold text-gray-900 dark:text-white">{title}</h2>
