@@ -592,7 +592,7 @@ export default function PayrollPage() {
 
               <button onClick={handlePreview} disabled={previewing}
                 className="w-full py-2.5 rounded-xl text-sm font-semibold text-white transition disabled:opacity-60 hover:opacity-90"
-                style={{ background: 'var(--accent, #7c3aed)' }}>
+                style={{ background: 'var(--accent, #0E3D52)' }}>
                 {previewing ? 'Calculating…' : 'Calculate Pay'}
               </button>
 

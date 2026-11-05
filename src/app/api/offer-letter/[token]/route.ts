@@ -68,7 +68,7 @@ export async function GET(_req: NextRequest, { params }: Params) {
         candidateName: row.candidateName,
         orgName:       row.orgName,
         logoUrl:       row.logoUrl,
-        primaryColor:  row.primaryColor ?? '#1a4fff',
+        primaryColor:  row.primaryColor ?? '#0E3D52',
       })
     }
 
@@ -92,7 +92,7 @@ export async function GET(_req: NextRequest, { params }: Params) {
       expiresAt:       row.expiresAt,
       orgName:         row.orgName,
       logoUrl:         row.logoUrl,
-      primaryColor:    row.primaryColor ?? '#1a4fff',
+      primaryColor:    row.primaryColor ?? '#0E3D52',
     })
   } catch (err: any) {
     console.error('offer-letter GET error:', err)

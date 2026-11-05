@@ -57,7 +57,7 @@ export async function GET(_req: NextRequest, { params }: Ctx) {
         name:        tenant.name,
         slug:        tenant.slug,
         logoUrl:     tenant.logoUrl,
-        primaryColor: tenant.primaryColor ?? '#1a4fff',
+        primaryColor: tenant.primaryColor ?? '#0E3D52',
         industry:    settings.industry as string | null ?? null,
         website:     settings.website  as string | null ?? null,
         city:        settings.city     as string | null ?? null,

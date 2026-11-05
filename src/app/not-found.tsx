@@ -40,7 +40,7 @@ async function getTenantBranding(): Promise<TenantBranding | null> {
     return {
       name:         tenant.name,
       logoUrl:      tenant.logoUrl ?? null,
-      primaryColor: tenant.primaryColor ?? '#1a4fff',
+      primaryColor: tenant.primaryColor ?? '#0E3D52',
       notFound:     (s.notFound ?? {}) as NotFoundConfig,
     }
   } catch {
@@ -53,7 +53,7 @@ export default async function NotFound() {
 
   const orgName    = branding?.name ?? 'HRMS'
   const logoUrl    = branding?.logoUrl ?? null
-  const color      = branding?.primaryColor ?? '#1a4fff'
+  const color      = branding?.primaryColor ?? '#0E3D52'
   const cfg        = branding?.notFound ?? {}
   const headline   = cfg.headline  ?? 'Page not found'
   const message    = cfg.message   ?? "The page you're looking for doesn't exist or has been moved."

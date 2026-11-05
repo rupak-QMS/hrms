@@ -63,7 +63,7 @@ export async function GET(_req: NextRequest, { params }: Params) {
       candidateName: `${row.empFirst ?? ''} ${row.empLast ?? ''}`.trim(),
       orgName:     row.orgName,
       logoUrl:     row.logoUrl,
-      primaryColor:row.primaryColor ?? '#1a4fff',
+      primaryColor:row.primaryColor ?? '#0E3D52',
     })
   } catch (err: any) {
     console.error('offer GET error:', err)

@@ -11,7 +11,7 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({
       name: 'Platform Administration',
       logoUrl: null,
-      primaryColor: '#7c3aed',
+      primaryColor: '#0E3D52',
       settings: {},
     })
   }
@@ -35,7 +35,7 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({
       name:         tenant.name,
       logoUrl:      tenant.logoUrl ?? null,
-      primaryColor: tenant.primaryColor ?? '#1a4fff',
+      primaryColor: tenant.primaryColor ?? '#0E3D52',
       settings:     tenant.settings ?? {},
       isActive:     tenant.isActive,
     })

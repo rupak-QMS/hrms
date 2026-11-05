@@ -68,7 +68,7 @@ export async function getTenantEmailCtx(tenantId: string): Promise<TenantEmailCt
   return {
     orgName:      tenant?.name       ?? 'Your Organisation',
     logoUrl:      tenant?.logoUrl    ?? null,
-    primaryColor: tenant?.primaryColor ?? '#1a4fff',
+    primaryColor: tenant?.primaryColor ?? '#0E3D52',
     fromName:     email.fromName     ?? tenant?.name ?? 'HRMS',
     fromAddress,
     loginUrl,

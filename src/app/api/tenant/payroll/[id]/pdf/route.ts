@@ -52,7 +52,7 @@ function buildPayslipHtml(opts: {
   effectiveTax:   number | null
   recordId:       string
 }) {
-  const color = opts.primaryColor || '#1a4fff'
+  const color = opts.primaryColor || '#0E3D52'
   const rows: { label: string; amount: string; bold?: boolean; indent?: boolean; negative?: boolean }[] = []
 
   if (opts.hoursWorked && opts.hourlyRate) {
@@ -219,7 +219,7 @@ export async function POST(req: NextRequest, ctx: RouteContext) {
       orgName:         row.orgName ?? 'Organisation',
       abn,
       logoUrl:         row.orgLogo ?? null,
-      primaryColor:    row.orgColor ?? '#1a4fff',
+      primaryColor:    row.orgColor ?? '#0E3D52',
       employeeName,
       employeeEmail,
       periodStart:     row.periodStart,

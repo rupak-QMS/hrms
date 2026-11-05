@@ -504,7 +504,7 @@ export default function OfferLettersPage() {
     <style>
       body { font-family: 'Times New Roman', serif; font-size: 12pt; line-height: 1.6; margin: 40px 60px; color: #111; }
       h1 { font-size: 16pt; margin-bottom: 4px; }
-      .header { border-bottom: 2px solid #1a4fff; padding-bottom: 12px; margin-bottom: 24px; }
+      .header { border-bottom: 2px solid #0E3D52; padding-bottom: 12px; margin-bottom: 24px; }
       .meta { font-size: 10pt; color: #555; }
       pre { font-family: inherit; white-space: pre-wrap; }
       @media print { body { margin: 20px 40px; } }

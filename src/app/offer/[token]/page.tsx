@@ -164,7 +164,7 @@ export default function OfferPage({ params }: { params: Promise<{ token: string 
     }
   }
 
-  const color = offer?.primaryColor ?? '#1a4fff'
+  const color = offer?.primaryColor ?? '#0E3D52'
 
   // ── Loading ────────────────────────────────────────────────────────────────
 

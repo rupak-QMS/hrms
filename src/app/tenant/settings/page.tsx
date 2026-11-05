@@ -57,7 +57,7 @@ export default function TenantSettingsPage() {
   const [settings,     setSettings]     = useState<Settings>({})
   const [portalName,   setPortalName]   = useState('')
   const [logoUrl,      setLogoUrl]      = useState<string | null>(null)
-  const [primaryColor, setPrimaryColor] = useState('#1a4fff')
+  const [primaryColor, setPrimaryColor] = useState('#0E3D52')
   const [loading,      setLoading]      = useState(true)
   const [saving,       setSaving]       = useState(false)
   const [saved,        setSaved]        = useState(false)
@@ -93,7 +93,7 @@ export default function TenantSettingsPage() {
       const s = t.settings ?? {}
       setPortalName(t.name ?? '')
       setLogoUrl(t.logoUrl ?? null)
-      setPrimaryColor(t.primaryColor ?? '#1a4fff')
+      setPrimaryColor(t.primaryColor ?? '#0E3D52')
       setSettings(typeof s === 'string' ? JSON.parse(s) : s)
       setLoading(false)
     })

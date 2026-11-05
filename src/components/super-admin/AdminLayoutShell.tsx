@@ -5,7 +5,7 @@ import AdminDropdown from '@/components/auth/AdminDropdown'
 import ThemeToggle from '@/components/ui/ThemeToggle'
 import AdminSidebar from '@/components/super-admin/AdminSidebar'
 
-const ACCENT = '#7c3aed'
+const ACCENT = '#0E3D52'
 
 type Props = {
   children: React.ReactNode

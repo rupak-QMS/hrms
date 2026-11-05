@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
-const ACCENT = '#7c3aed'
+const ACCENT = '#0E3D52'
 
 type Props = { name: string; email: string }
 

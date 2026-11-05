@@ -21,7 +21,7 @@ const NAV: NavItem[] = [
   { href: '/super-admin/settings',         label: 'Settings',        icon: 'gear' },
 ]
 
-const ACCENT = '#7c3aed'
+const ACCENT = '#0E3D52'
 
 type Props = {
   mobileOpen?:    boolean

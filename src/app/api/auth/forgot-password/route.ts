@@ -57,7 +57,7 @@ export async function POST(req: NextRequest) {
     const appUrl   = process.env.APP_URL ?? req.nextUrl.origin
     const resetUrl = `${appUrl}/reset-password?token=${token}`
     const orgName  = tenant?.name ?? 'HRMS'
-    const color    = tenant?.primaryColor ?? '#1a4fff'
+    const color    = tenant?.primaryColor ?? '#0E3D52'
 
     const html = `
 <div style="font-family:Inter,system-ui,sans-serif;max-width:560px;margin:0 auto;background:#fff;border-radius:12px;overflow:hidden;border:1px solid #e5e7eb;">

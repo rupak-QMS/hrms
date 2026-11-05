@@ -20,7 +20,7 @@ type Announcement = {
 
 // ── Constants ────────────────────────────────────────────────────────────────
 
-const ACCENT = '#7c3aed'
+const ACCENT = '#0E3D52'
 
 const PRIORITY_CONFIG: Record<Priority, {
   label: string

@@ -390,7 +390,7 @@ export default function EmployeeProfilePage() {
     <style>
       body{font-family:'Times New Roman',serif;font-size:12pt;line-height:1.7;margin:50px 65px;color:#111}
       h1{font-size:15pt;margin-bottom:2px}.org{font-size:10pt;color:#555;margin-bottom:20px}
-      .divider{border:none;border-top:2px solid #1a4fff;margin:16px 0}
+      .divider{border:none;border-top:2px solid #0E3D52;margin:16px 0}
       pre{font-family:inherit;white-space:pre-wrap}
       .label{font-weight:bold;min-width:180px;display:inline-block}
       .row{margin:4px 0}

@@ -5,7 +5,7 @@ import { eq, count, desc } from 'drizzle-orm'
 
 export const dynamic = 'force-dynamic'
 
-const ACCENT = '#7c3aed'
+const ACCENT = '#0E3D52'
 
 async function getPlatformData() {
   try {
@@ -24,7 +24,7 @@ async function getPlatformData() {
     const prices: Record<string, number> = { starter: 57, professional: 120, enterprise: 217 }
     const mrr = activeTenants.reduce((sum, t) => sum + (prices[t.tier] ?? 0), 0)
     const clientsWithStatus = allTenants.slice(0, 5).map((c) => {
-      const themed = c.primaryColor && c.primaryColor !== '#1a4fff'
+      const themed = c.primaryColor && c.primaryColor !== '#0E3D52'
       const score  = [c.isActive, themed, Boolean(c.slug)].filter(Boolean).length
       return { ...c, onboardingScore: score, onboardingTotal: 3 }
     })
@@ -67,7 +67,7 @@ export default async function SuperAdminDashboard() {
       </div>
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-        <StatCard label="Total Clients"   value={d.totalClients}   sub={`${d.activeClients} active`}  accent="#7c3aed" />
+        <StatCard label="Total Clients"   value={d.totalClients}   sub={`${d.activeClients} active`}  accent="#0E3D52" />
         <StatCard label="Platform Users"  value={d.totalUsers}     sub={`${d.activeUsers} active`}    accent="#3b82f6" />
         <StatCard label="Active Modules"  value={d.enabledModules} sub="across all tenants"           accent="#8b5cf6" />
         <StatCard label="Monthly Revenue" value={`$${d.mrr}`}      sub="AUD / month"                 accent="#22c55e" />
@@ -121,7 +121,7 @@ export default async function SuperAdminDashboard() {
                     <div className="flex-1 min-w-0">
                       <p className="text-[13px] text-foreground/80 font-medium truncate">{c.name}</p>
                       <div className="flex items-center gap-1 mt-1">
-                        {[{ label: 'Active', done: c.isActive }, { label: 'Themed', done: c.primaryColor !== '#1a4fff' }, { label: 'Slug', done: Boolean(c.slug) }].map((step) => (
+                        {[{ label: 'Active', done: c.isActive }, { label: 'Themed', done: c.primaryColor !== '#0E3D52' }, { label: 'Slug', done: Boolean(c.slug) }].map((step) => (
                           <span key={step.label} className={`text-[10px] px-1.5 py-0.5 rounded ${step.done ? 'badge-green' : 'badge-gray'}`}>
                             {step.done ? '✓ ' : '○ '}{step.label}
                           </span>

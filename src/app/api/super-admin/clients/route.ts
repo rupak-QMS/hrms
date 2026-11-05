@@ -85,7 +85,7 @@ export async function POST(req: NextRequest) {
 
     const settingsPayload = {
       theme: {
-        primaryColor: primaryColor || '#1a4fff',
+        primaryColor: primaryColor || '#0E3D52',
         logoUrl:      logoUrl || null,
         fontFamily:   'Inter',
         borderRadius: '0.5rem',
@@ -97,7 +97,7 @@ export async function POST(req: NextRequest) {
       name,
       slug:         slug.toLowerCase().replace(/[^a-z0-9-]/g, '-'),
       tier,
-      primaryColor: primaryColor || '#1a4fff',
+      primaryColor: primaryColor || '#0E3D52',
       logoUrl,
       settings:     settingsPayload,
       isActive:     true,

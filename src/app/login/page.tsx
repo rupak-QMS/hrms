@@ -17,7 +17,7 @@ function LoginForm() {
   const params  = useSearchParams()
   const [tenantSlug,   setTenantSlug]   = useState('')
   const [isSuperAdmin, setIsSuperAdmin] = useState(false)
-  const [branding,     setBranding]     = useState<Branding>({ name: '', logoUrl: null, primaryColor: '#1a4fff' })
+  const [branding,     setBranding]     = useState<Branding>({ name: '', logoUrl: null, primaryColor: '#0E3D52' })
   const [brandingLoaded, setBrandingLoaded] = useState(false)
   const [form,      setForm]      = useState({ email: '', password: '' })
   const [error,     setError]     = useState('')
@@ -49,7 +49,7 @@ function LoginForm() {
         setBranding({
           name:         d.name         ?? (isAdmin ? 'Platform Administration' : slug),
           logoUrl:      d.logoUrl      ?? null,
-          primaryColor: d.primaryColor ?? (isAdmin ? '#7c3aed' : '#1a4fff'),
+          primaryColor: d.primaryColor ?? '#0E3D52',
         })
         setBrandingLoaded(true)
       })
@@ -57,7 +57,7 @@ function LoginForm() {
         setBranding({
           name:         isAdmin ? 'Platform Administration' : slug,
           logoUrl:      null,
-          primaryColor: isAdmin ? '#7c3aed' : '#1a4fff',
+          primaryColor: '#0E3D52',
         })
         setBrandingLoaded(true)
       })
@@ -119,7 +119,7 @@ function LoginForm() {
   const accent = branding.primaryColor
 
   // ── Derived theme tokens ──────────────────────────────────
-  const pageBg        = isDark ? '#050817' : '#f0f2f8'
+  const pageBg        = isDark ? '#060e1c' : '#EDF1F5'
   const cardBg        = isDark ? 'rgba(10,15,34,0.85)'  : 'rgba(255,255,255,0.92)'
   const cardBorder    = isDark ? 'rgba(255,255,255,0.07)' : 'rgba(0,0,0,0.08)'
   const inputBg       = isDark ? 'rgba(255,255,255,0.04)' : 'rgba(0,0,0,0.03)'
@@ -161,7 +161,7 @@ function LoginForm() {
               left: '15%',
               width: '300px',
               height: '300px',
-              background: `radial-gradient(ellipse at center, #7c3aed10 0%, transparent 70%)`,
+              background: `radial-gradient(ellipse at center, ${accent}08 0%, transparent 70%)`,
               filter: 'blur(60px)',
             }}
           />
@@ -245,7 +245,7 @@ function LoginForm() {
               )}
 
               <div>
-                <label className="block text-[12px] font-semibold mb-1.5 tracking-wide uppercase" style={{ color: labelColor }}>
+                <label className="block text-[12px] font-medium mb-1.5" style={{ color: labelColor }}>
                   Email
                 </label>
                 <input
@@ -271,7 +271,7 @@ function LoginForm() {
               </div>
 
               <div>
-                <label className="block text-[12px] font-semibold mb-1.5 tracking-wide uppercase" style={{ color: labelColor }}>
+                <label className="block text-[12px] font-medium mb-1.5" style={{ color: labelColor }}>
                   Password
                 </label>
                 <input

@@ -82,7 +82,7 @@ export function payslipReadyEmail(opts: {
   const rows = [
     ['Net Pay (take-home)', `<strong style="color:#16a34a;font-size:16px;">${fmt(opts.netPay)}</strong>`],
     ['Gross Pay', fmt(opts.grossPay)],
-    ['Employer Super (11.5%)', `<span style="color:#7c3aed;">${fmt(opts.superAmount)}</span>`],
+    ['Employer Super (11.5%)', `<span style="color:#0E3D52;">${fmt(opts.superAmount)}</span>`],
   ].map(([l, v]) => `<tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:10px 0;color:#6b7280;font-size:14px;">${l}</td><td style="padding:10px 0;text-align:right;">${v}</td></tr>`).join('')
   const html = WRAP(
     hdr(opts.primaryColor, opts.orgName, opts.logoUrl) +
@@ -533,7 +533,7 @@ export function newTenantOnboardedEmail(opts: {
       P(`Welcome! Your organisation <strong>${opts.orgName}</strong> has been set up on the <strong>${tier}</strong> plan. Your HR management portal is now active and ready to use.`) +
       BOX(`<strong>Organisation:</strong> ${opts.orgName}<br><strong>Plan:</strong> ${tier}<br><strong>Admin Email:</strong> ${opts.adminEmail}${opts.tempPassword ? `<br><strong>Temporary Password:</strong> <span style="font-family:monospace;">${opts.tempPassword}</span>` : ''}`, '#eff6ff', '#bfdbfe', '#1e40af') +
       (opts.tempPassword ? P('<strong>Important:</strong> Change this temporary password immediately after your first login.', true) : '') +
-      CTA('Access your portal', opts.loginUrl, '#1a4fff') +
+      CTA('Access your portal', opts.loginUrl, '#0E3D52') +
       P('Need help getting started? Contact HRMS support.', true)
     ) +
     platformFtr()
@@ -570,7 +570,7 @@ export function tenantReactivatedEmail(opts: {
     BD(
       H2('Your HRMS portal has been reactivated ✅') +
       P(`Hi ${opts.recipientName}, the HRMS portal for <strong>${opts.orgName}</strong> has been reactivated. All users can now log in.`) +
-      CTA('Access your portal', opts.loginUrl, '#1a4fff')
+      CTA('Access your portal', opts.loginUrl, '#0E3D52')
     ) +
     platformFtr()
   )
@@ -594,7 +594,7 @@ export function tenantTierChangedEmail(opts: {
       P(`Hi ${opts.recipientName}, your <strong>${opts.orgName}</strong> HRMS subscription has been ${isUp ? 'upgraded' : 'changed'}.`) +
       BOX(`<strong>Previous Plan:</strong> ${oldT}<br><strong>New Plan:</strong> ${newT}`, isUp ? '#f0fdf4' : '#eff6ff', isUp ? '#bbf7d0' : '#bfdbfe', isUp ? '#166534' : '#1e40af') +
       P(isUp ? 'Your new modules are now available. Log in to explore additional features.' : 'Your module access has been updated to reflect the new plan.') +
-      CTA('View your portal', opts.loginUrl, '#1a4fff')
+      CTA('View your portal', opts.loginUrl, '#0E3D52')
     ) +
     platformFtr()
   )
@@ -614,7 +614,7 @@ export function superAdminInviteEmail(opts: {
       P(`Hi ${opts.recipientName}, you have been granted Super Admin access to the HRMS platform. You can now manage all tenants, users, modules, and system settings.`) +
       BOX(`<strong>Email:</strong> ${opts.adminEmail}<br><strong>Temporary Password:</strong> <span style="font-family:monospace;font-size:15px;">${opts.tempPassword}</span>`, '#eff6ff', '#bfdbfe', '#1e40af') +
       P('<strong>Important:</strong> This is a highly privileged account. Change your password immediately after first login and enable two-factor authentication.', true) +
-      CTA('Sign in to Super Admin', opts.loginUrl, '#1a4fff')
+      CTA('Sign in to Super Admin', opts.loginUrl, '#0E3D52')
     ) +
     platformFtr()
   )

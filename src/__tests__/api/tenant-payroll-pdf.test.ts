@@ -113,7 +113,7 @@ const DB_ROW = {
   status: 'pending',
   empFirst: 'Alice', empLast: 'Smith', empEmail: 'alice@acme.com',
   empEntityName: null,
-  orgName: 'Acme Pty Ltd', orgLogo: null, orgColor: '#1a4fff', orgAbn: null,
+  orgName: 'Acme Pty Ltd', orgLogo: null, orgColor: '#0E3D52', orgAbn: null,
 }
 
 beforeEach(() => {

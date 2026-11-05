@@ -26,7 +26,7 @@ const RADIUS_OPTIONS = [
   { value: '9999px', label: 'Pill' },
 ]
 const PRESET_THEMES = [
-  { label: 'Ocean',    primaryColor: '#1a4fff', accentColor: '#7c3aed' },
+  { label: 'Ocean',    primaryColor: '#0E3D52', accentColor: '#E8973A' },
   { label: 'Forest',   primaryColor: '#16a34a', accentColor: '#0d9488' },
   { label: 'Sunrise',  primaryColor: '#ea580c', accentColor: '#d97706' },
   { label: 'Midnight', primaryColor: '#6d28d9', accentColor: '#db2777' },
@@ -47,10 +47,10 @@ function EditClientInner() {
 
   const [form, setForm] = useState({
     name: '', slug: '', tier: 'enterprise',
-    primaryColor: '#1a4fff', isActive: true,
+    primaryColor: '#0E3D52', isActive: true,
   })
   const [theme, setTheme] = useState({
-    accentColor: '#7c3aed', fontFamily: 'Inter', borderRadius: '8px', sidebarDark: true,
+    accentColor: '#E8973A', fontFamily: 'Inter', borderRadius: '8px', sidebarDark: true,
   })
   const [logoUrl,       setLogoUrl]       = useState<string>('')
   const [logoUploading, setLogoUploading] = useState(false)
@@ -102,14 +102,14 @@ function EditClientInner() {
         const t = data.tenant
         if (!t) { setError('Client not found'); setLoading(false); return }
         const tier = t.tier ?? 'enterprise'
-        setForm({ name: t.name ?? '', slug: t.slug ?? '', tier, primaryColor: t.primaryColor ?? '#1a4fff', isActive: t.isActive ?? true })
+        setForm({ name: t.name ?? '', slug: t.slug ?? '', tier, primaryColor: t.primaryColor ?? '#0E3D52', isActive: t.isActive ?? true })
         setOriginalTier(tier)
         setLogoUrl(t.logoUrl ?? '')
         const s = typeof t.settings === 'string' ? JSON.parse(t.settings) : (t.settings ?? {})
         const themeSettings = s.theme ?? s
         setDeploymentUrl(s.deploymentUrl ?? '')
         setTheme({
-          accentColor:  themeSettings.accentColor  ?? s.accentColor  ?? '#7c3aed',
+          accentColor:  themeSettings.accentColor  ?? s.accentColor  ?? '#E8973A',
           fontFamily:   themeSettings.fontFamily   ?? s.fontFamily   ?? 'Inter',
           borderRadius: themeSettings.borderRadius ?? s.borderRadius ?? '8px',
           sidebarDark:  (themeSettings.sidebarDark ?? s.sidebarDark) !== false,
