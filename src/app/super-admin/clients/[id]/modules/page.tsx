@@ -41,7 +41,7 @@ const CATEGORIES = ['Core', 'Compliance', 'Learning', 'Talent', 'Performance', '
 const CATEGORY_STYLE: Record<string, { border: string; header: string; badge: string }> = {
   Core:         { border: 'border-blue-200 dark:border-blue-800',   header: 'bg-blue-50 dark:bg-blue-950/60',   badge: 'bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200' },
   Compliance:   { border: 'border-green-200 dark:border-green-800',  header: 'bg-green-50 dark:bg-green-950/60',  badge: 'bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-200' },
-  Learning:     { border: 'border-purple-200 dark:border-purple-800', header: 'bg-purple-50 dark:bg-purple-950/60', badge: 'bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-200' },
+  Learning:     { border: 'border-[#b8d4e0] dark:border-[#1A6080] dark:border-[#1A6080]', header: 'bg-[#E0EEF4] dark:bg-[#0E3D52]/40', badge: 'bg-[#E0EEF4] dark:bg-[#0E3D52] text-[#0E3D52] dark:text-[#9ccfda]' },
   Talent:       { border: 'border-yellow-200 dark:border-yellow-800', header: 'bg-yellow-50 dark:bg-yellow-950/60', badge: 'bg-yellow-100 dark:bg-yellow-900 text-yellow-700 dark:text-yellow-200' },
   Performance:  { border: 'border-orange-200 dark:border-orange-800', header: 'bg-orange-50 dark:bg-orange-950/60', badge: 'bg-orange-100 dark:bg-orange-900 text-orange-700 dark:text-orange-200' },
   Safety:       { border: 'border-red-200 dark:border-red-800',    header: 'bg-red-50 dark:bg-red-950/60',    badge: 'bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-200' },
@@ -59,7 +59,7 @@ const TIER_DEFAULTS: Record<string, number[]> = {
 function tierBadge(mod: typeof ALL_MODULES[0]) {
   if (mod.starterOn)      return <span className="text-[10px] px-1.5 py-0.5 rounded bg-green-100 dark:bg-green-900/60 text-green-700 dark:text-green-300 border border-green-300 dark:border-green-700">Starter</span>
   if (mod.proOn)          return <span className="text-[10px] px-1.5 py-0.5 rounded bg-blue-100 dark:bg-blue-900/60 text-blue-700 dark:text-blue-300 border border-blue-300 dark:border-blue-700">Pro</span>
-  if (mod.enterpriseOn)   return <span className="text-[10px] px-1.5 py-0.5 rounded bg-purple-100 dark:bg-purple-900/60 text-purple-700 dark:text-purple-300 border border-purple-300 dark:border-purple-700">Enterprise</span>
+  if (mod.enterpriseOn)   return <span className="text-[10px] px-1.5 py-0.5 rounded bg-[#E0EEF4] dark:bg-[#0E3D52]/60 text-[#0E3D52] dark:text-[#7dcfd7] border border-[#b8d4e0] dark:border-[#1A6080]">Enterprise</span>
   return null
 }
 
@@ -140,10 +140,10 @@ export default function ModulesPage() {
           </div>
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Module Configuration</h1>
           <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">
-            <span className="text-purple-600 dark:text-purple-300 font-medium">{tenantName}</span>
+            <span className="text-[#0E3D52] dark:text-[#7dcfd7] font-medium">{tenantName}</span>
             {' · '}
             <span className={`text-xs font-semibold uppercase tracking-wide ${
-              tenantTier === 'enterprise' ? 'text-purple-600 dark:text-purple-400' : tenantTier === 'professional' ? 'text-blue-600 dark:text-blue-400' : 'text-green-600 dark:text-green-400'
+              tenantTier === 'enterprise' ? 'text-[#0E3D52] dark:text-[#4ebac4]' : tenantTier === 'professional' ? 'text-blue-600 dark:text-blue-400' : 'text-green-600 dark:text-green-400'
             }`}>{tenantTier}</span>
             {' · '}
             <span className="text-gray-900 dark:text-white font-semibold">{enabledCount}</span>
@@ -155,14 +155,14 @@ export default function ModulesPage() {
         <div className="flex flex-col gap-2 shrink-0">
           <button
             onClick={applyTierDefaults}
-            className="text-xs border border-purple-300 dark:border-purple-700 text-purple-700 dark:text-purple-300 hover:bg-purple-100 dark:bg-purple-900/30 px-3 py-1.5 rounded-lg transition whitespace-nowrap"
+            className="text-xs border border-[#b8d4e0] dark:border-[#1A6080] text-[#0E3D52] dark:text-[#7dcfd7] hover:bg-[#E0EEF4] dark:bg-[#0E3D52]/20 px-3 py-1.5 rounded-lg transition whitespace-nowrap"
           >
             ↺ Apply {tenantTier.charAt(0).toUpperCase() + tenantTier.slice(1)} Defaults
           </button>
           <button
             onClick={() => saveModules(false)}
             disabled={saving}
-            className="text-xs bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white px-3 py-1.5 rounded-lg transition"
+            className="text-xs bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white px-3 py-1.5 rounded-lg transition"
           >
             {saving ? 'Saving…' : saved ? 'Saved' : 'Save Changes'}
           </button>
@@ -174,7 +174,7 @@ export default function ModulesPage() {
         <span className="font-semibold text-gray-600 dark:text-gray-300">Tier includes:</span>
         <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-green-500" />Starter — modules 01–09</span>
         <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-blue-500" />Professional — modules 01–19</span>
-        <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-purple-500" />Enterprise — all 28 modules</span>
+        <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-[#E0EEF4]0" />Enterprise — all 28 modules</span>
         <span className="flex items-center gap-1.5"><span className="text-gray-500 dark:text-gray-400"></span> Core modules always on</span>
       </div>
 
@@ -184,7 +184,7 @@ export default function ModulesPage() {
         placeholder="Search modules…"
         value={search}
         onChange={e => setSearch(e.target.value)}
-        className="w-full max-w-sm bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-purple-500"
+        className="w-full max-w-sm bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
       />
 
       {/* Module categories */}
@@ -244,7 +244,7 @@ export default function ModulesPage() {
                         disabled={locked}
                         aria-label={`Toggle ${mod.name}`}
                         className={`relative inline-flex h-6 w-11 shrink-0 rounded-full transition-colors focus:outline-none ml-4 ${
-                          enabled ? 'bg-purple-600' : 'bg-gray-200 dark:bg-gray-700'
+                          enabled ? 'bg-[#0E3D52]' : 'bg-gray-200 dark:bg-gray-700'
                         } ${locked ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}`}
                       >
                         <span className={`inline-block h-5 w-5 mt-0.5 rounded-full bg-white shadow transition-transform  dark:bg-gray-900${enabled ? 'translate-x-5' : 'translate-x-0.5'}`} />
@@ -263,14 +263,14 @@ export default function ModulesPage() {
         <button
           onClick={() => saveModules(false)}
           disabled={saving}
-          className="bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm font-medium px-6 py-2.5 rounded-lg transition"
+          className="bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm font-medium px-6 py-2.5 rounded-lg transition"
         >
           {saving ? 'Saving…' : saved ? 'Saved' : 'Save Changes'}
         </button>
         <button
           onClick={() => saveModules(true)}
           disabled={saving}
-          className="border border-purple-300 dark:border-purple-700 text-purple-700 dark:text-purple-300 hover:bg-purple-100 dark:bg-purple-900/30 text-sm font-medium px-6 py-2.5 rounded-lg transition"
+          className="border border-[#b8d4e0] dark:border-[#1A6080] text-[#0E3D52] dark:text-[#7dcfd7] hover:bg-[#E0EEF4] dark:bg-[#0E3D52]/20 text-sm font-medium px-6 py-2.5 rounded-lg transition"
         >
           Save & Configure Theme →
         </button>

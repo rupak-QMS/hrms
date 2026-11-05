@@ -103,7 +103,7 @@ export default function CommandPalette() {
                 {groupItems.map(item => {
                   const idx = items.indexOf(item); const active = idx === cursor
                   return (
-                    <button key={item.data.id} onClick={() => navigate(item.href)} onMouseEnter={() => setCursor(idx)} className={`w-full text-left flex items-center gap-3 px-4 py-2.5 transition-colors ${active ? 'bg-indigo-50 dark:bg-indigo-900/30' : 'hover:bg-gray-50 dark:hover:bg-gray-800/50'}`}>
+                    <button key={item.data.id} onClick={() => navigate(item.href)} onMouseEnter={() => setCursor(idx)} className={`w-full text-left flex items-center gap-3 px-4 py-2.5 transition-colors ${active ? 'bg-[#E0EEF4] dark:bg-[#0E3D52]/20' : 'hover:bg-gray-50 dark:hover:bg-gray-800/50'}`}>
                       <span className="text-lg flex-shrink-0">{item.icon}</span>
                       <div className="flex-1 min-w-0">
                         <p className={`text-sm font-medium truncate ${active ? 'text-[#0E3D52] dark:text-[#4ebac4]' : 'text-gray-900 dark:text-white'}`}>{item.label}</p>

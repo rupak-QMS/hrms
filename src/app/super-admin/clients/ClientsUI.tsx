@@ -21,7 +21,7 @@ type ConfirmState = {
 } | null
 
 const TIER_COLORS: Record<string, string> = {
-  enterprise:   'bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-200',
+  enterprise:   'bg-[#E0EEF4] dark:bg-[#0E3D52] text-[#0E3D52] dark:text-[#9ccfda]',
   professional: 'bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200',
   starter:      'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300',
 }
@@ -54,7 +54,7 @@ function ConfirmModal({ state, onConfirm, onCancel }: {
           <button
             onClick={onConfirm}
             className={`px-4 py-2 text-sm rounded-lg font-medium text-white transition ${
-              isDelete ? 'bg-red-600 hover:bg-red-700' : 'bg-purple-600 hover:bg-purple-700'
+              isDelete ? 'bg-red-600 hover:bg-red-700' : 'bg-[#0E3D52] hover:bg-[#1A6080]'
             }`}
           >
             {isDelete ? 'Delete' : 'Open portal'}
@@ -150,7 +150,7 @@ export default function ClientsUI({ initialClients, dbError }: { initialClients:
         </div>
         <Link
           href="/super-admin/clients/new"
-          className="bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition"
+          className="bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm font-medium px-4 py-2 rounded-lg transition"
         >
           + Add Client
         </Link>
@@ -161,7 +161,7 @@ export default function ClientsUI({ initialClients, dbError }: { initialClients:
         placeholder="Search clients by name or slug…"
         value={search}
         onChange={e => setSearch(e.target.value)}
-        className="w-full max-w-sm bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-purple-500"
+        className="w-full max-w-sm bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
       />
 
       <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl overflow-hidden">
@@ -178,7 +178,7 @@ export default function ClientsUI({ initialClients, dbError }: { initialClients:
               <tr>
                 <td colSpan={6} className="px-5 py-8 text-center text-gray-500 dark:text-gray-400">
                   {clients.length === 0 ? (
-                    <>No clients yet. <Link href="/super-admin/clients/new" className="text-purple-600 dark:text-purple-400 hover:underline">Add one →</Link></>
+                    <>No clients yet. <Link href="/super-admin/clients/new" className="text-[#0E3D52] dark:text-[#4ebac4] hover:underline">Add one →</Link></>
                   ) : 'No clients match your search.'}
                 </td>
               </tr>
@@ -209,7 +209,7 @@ export default function ClientsUI({ initialClients, dbError }: { initialClients:
                   </div>
                 </td>
                 <td className="px-5 py-3.5">
-                  <code className="text-purple-700 dark:text-purple-300 text-xs">{c.slug}</code>
+                  <code className="text-[#0E3D52] dark:text-[#7dcfd7] text-xs">{c.slug}</code>
                   <p className="text-gray-500 dark:text-gray-400 text-xs mt-0.5">{c.slug}-hrmsapp.vercel.app</p>
                 </td>
                 <td className="px-5 py-3.5">
@@ -244,7 +244,7 @@ export default function ClientsUI({ initialClients, dbError }: { initialClients:
                   <div className="flex items-center gap-2 flex-wrap">
                     <Link href={`/super-admin/clients/${c.id}`}         className="text-xs text-blue-500 dark:text-blue-300 hover:underline font-medium">Edit</Link>
                     <Link href={`/super-admin/clients/${c.id}/users`}   className="text-xs text-green-500 dark:text-green-300 hover:underline font-medium">Users</Link>
-                    <Link href={`/super-admin/clients/${c.id}/modules`} className="text-xs text-purple-500 dark:text-purple-300 hover:underline font-medium">Modules</Link>
+                    <Link href={`/super-admin/clients/${c.id}/modules`} className="text-xs text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#7dcfd7] hover:underline font-medium">Modules</Link>
                     <Link href={`/super-admin/clients/${c.id}?tab=theme`} className="text-xs text-pink-500 dark:text-pink-300 hover:underline font-medium">Theme</Link>
                     <button
                       onClick={() => loginAsTenant(c.id, c.name)}

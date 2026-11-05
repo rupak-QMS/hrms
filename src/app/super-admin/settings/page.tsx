@@ -130,7 +130,7 @@ export default function PlatformSettingsPage() {
               onClick={() => setActiveSection(s.key)}
               className={`w-full flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm text-left transition ${
                 activeSection === s.key
-                  ? 'bg-purple-50 dark:bg-purple-100 dark:bg-purple-900/50 text-gray-900 dark:text-white border border-purple-300 dark:border-purple-700'
+                  ? 'bg-[#E0EEF4] dark:bg-[#E0EEF4] dark:bg-[#0E3D52]/50 text-gray-900 dark:text-white border border-[#b8d4e0] dark:border-[#1A6080]'
                   : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:bg-gray-800 hover:text-gray-900 dark:text-white'
               }`}
             >
@@ -156,7 +156,7 @@ export default function PlatformSettingsPage() {
                 <select
                   value={defaultTier}
                   onChange={e => setDefaultTier(e.target.value)}
-                  className="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-purple-500 w-full"
+                  className="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52] w-full"
                 >
                   <option value="starter">Starter (11 modules)</option>
                   <option value="professional">Professional (20 modules)</option>
@@ -254,7 +254,7 @@ export default function PlatformSettingsPage() {
                   value={maintenanceMsg}
                   onChange={e => setMaintenanceMsg(e.target.value)}
                   rows={3}
-                  className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-purple-500 resize-none"
+                  className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52] resize-none"
                 />
               </Field>
             </>
@@ -264,7 +264,7 @@ export default function PlatformSettingsPage() {
             <button
               onClick={handleSave}
               disabled={saving}
-              className="bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm font-medium px-6 py-2.5 rounded-lg transition"
+              className="bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm font-medium px-6 py-2.5 rounded-lg transition"
             >
               {saving ? 'Saving…' : 'Save Settings'}
             </button>
@@ -304,7 +304,7 @@ function Input({
       value={value}
       onChange={e => onChange(e.target.value)}
       placeholder={placeholder}
-      className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-purple-500"
+      className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
     />
   )
 }
@@ -314,7 +314,7 @@ function Toggle({ value, onChange }: { value: boolean; onChange: (v: boolean) =>
     <button
       type="button"
       onClick={() => onChange(!value)}
-      className={`relative inline-flex h-6 w-11 rounded-full transition-colors ${value ? 'bg-purple-600' : 'bg-gray-200 dark:bg-gray-700'}`}
+      className={`relative inline-flex h-6 w-11 rounded-full transition-colors ${value ? 'bg-[#0E3D52]' : 'bg-gray-200 dark:bg-gray-700'}`}
     >
       <span className={`inline-block h-5 w-5 mt-0.5 rounded-full bg-white shadow transition-transform  dark:bg-gray-900${value ? 'translate-x-5' : 'translate-x-0.5'}`} />
     </button>

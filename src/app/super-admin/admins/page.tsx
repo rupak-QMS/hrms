@@ -82,7 +82,7 @@ export default function AdminsPage() {
         </div>
         <button
           onClick={() => { setShowForm(v => !v); setFormError('') }}
-          className="bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition"
+          className="bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm font-medium px-4 py-2 rounded-lg transition"
         >
           {showForm ? 'Cancel' : '+ Add Admin'}
         </button>
@@ -100,8 +100,8 @@ export default function AdminsPage() {
 
       {/* Add admin form */}
       {showForm && (
-        <form onSubmit={createAdmin} className="bg-white dark:bg-gray-900 border border-purple-200 dark:border-purple-800 rounded-xl p-5 space-y-4">
-          <h2 className="text-sm font-semibold text-purple-700 dark:text-purple-300">New Super Admin</h2>
+        <form onSubmit={createAdmin} className="bg-white dark:bg-gray-900 border border-[#b8d4e0] dark:border-[#1A6080] dark:border-[#1A6080] rounded-xl p-5 space-y-4">
+          <h2 className="text-sm font-semibold text-[#0E3D52] dark:text-[#7dcfd7]">New Super Admin</h2>
           {formError && (
             <div className="bg-red-50 dark:bg-red-100 dark:bg-red-900/50 border border-red-300 dark:border-red-700 rounded-lg p-2 text-xs text-red-700 dark:text-red-300">{formError}</div>
           )}
@@ -113,7 +113,7 @@ export default function AdminsPage() {
                 value={form.name}
                 onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
                 placeholder="Jane Smith"
-                className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-purple-500"
+                className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
               />
             </div>
             <div>
@@ -124,7 +124,7 @@ export default function AdminsPage() {
                 value={form.email}
                 onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
                 placeholder="jane@example.com"
-                className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-purple-500"
+                className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
               />
             </div>
             <div>
@@ -136,7 +136,7 @@ export default function AdminsPage() {
                 value={form.password}
                 onChange={e => setForm(f => ({ ...f, password: e.target.value }))}
                 placeholder="min 8 characters"
-                className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-purple-500"
+                className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
               />
             </div>
           </div>
@@ -144,7 +144,7 @@ export default function AdminsPage() {
             <button
               type="submit"
               disabled={saving}
-              className="bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm font-medium px-5 py-2 rounded-lg transition"
+              className="bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm font-medium px-5 py-2 rounded-lg transition"
             >
               {saving ? 'Creating…' : 'Create Super Admin'}
             </button>
@@ -175,7 +175,7 @@ export default function AdminsPage() {
               <tr>
                 <td colSpan={5} className="px-5 py-10 text-center text-gray-500 text-sm dark:text-gray-400">
                   No super admins found.{' '}
-                  <button onClick={() => setShowForm(true)} className="text-purple-600 dark:text-purple-400 hover:underline">Add the first one →</button>
+                  <button onClick={() => setShowForm(true)} className="text-[#0E3D52] dark:text-[#4ebac4] hover:underline">Add the first one →</button>
                 </td>
               </tr>
             )}
@@ -183,7 +183,7 @@ export default function AdminsPage() {
               <tr key={a.id} className="border-b border-gray-200 dark:border-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800/50">
                 <td className="px-5 py-3.5">
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center text-purple-200 text-xs font-bold shrink-0">
+                    <div className="w-8 h-8 rounded-full bg-[#E0EEF4] dark:bg-[#0E3D52] flex items-center justify-center text-[#9ccfda] text-xs font-bold shrink-0">
                       {a.name[0]?.toUpperCase()}
                     </div>
                     <div>

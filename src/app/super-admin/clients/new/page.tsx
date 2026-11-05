@@ -13,7 +13,7 @@ const TIERS = [
   { value: 'enterprise',   label: 'Enterprise',    modules: 30, price: 217, desc: 'All 30 modules — full platform' },
 ]
 
-const INPUT  = 'w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-purple-500'
+const INPUT  = 'w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]'
 const LABEL  = 'block text-sm font-medium text-gray-600 dark:text-gray-300 mb-1'
 const GRID2  = 'grid grid-cols-2 gap-4'
 
@@ -209,7 +209,7 @@ export default function NewClientPage() {
               <span className="text-xs text-gray-500 whitespace-nowrap dark:text-gray-400">.{'{your-domain}'}</span>
             </div>
             <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">
-              Leave blank to use the slug. Used for wildcard domain routing (e.g. <span className="text-purple-600 dark:text-purple-400">{form.subdomain || form.slug || 'slug'}.yahwehhrms.com.au</span>).
+              Leave blank to use the slug. Used for wildcard domain routing (e.g. <span className="text-[#0E3D52] dark:text-[#4ebac4]">{form.subdomain || form.slug || 'slug'}.yahwehhrms.com.au</span>).
             </p>
           </div>
 
@@ -227,7 +227,7 @@ export default function NewClientPage() {
             </div>
             <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">
               Tenant URL:{' '}
-              <span className="text-purple-600 dark:text-purple-400">
+              <span className="text-[#0E3D52] dark:text-[#4ebac4]">
                 https://{form.vercelProjectName || `${form.slug || 'slug'}-hrmsapp`}.vercel.app
               </span>
               {' '}— auto-created if Vercel API token is configured.
@@ -357,7 +357,7 @@ export default function NewClientPage() {
           <h2 className="text-xs font-semibold text-gray-500 uppercase tracking-wider dark:text-gray-400">Subscription Tier *</h2>
           {TIERS.map(t => (
             <label key={t.value} className={`flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition ${
-              form.tier === t.value ? 'border-purple-500 bg-purple-100 dark:bg-purple-900/30' : 'border-gray-300 dark:border-gray-700 hover:border-gray-600'
+              form.tier === t.value ? 'border-[#0E3D52] bg-[#E0EEF4] dark:bg-[#0E3D52]/20' : 'border-gray-300 dark:border-gray-700 hover:border-gray-600'
             }`}>
               <input type="radio" name="tier" value={t.value} checked={form.tier === t.value}
                 onChange={() => set('tier', t.value)} className="mt-0.5" />
@@ -385,7 +385,7 @@ export default function NewClientPage() {
                 className="w-10 h-10 rounded cursor-pointer border-0 bg-transparent" />
               <input type="text" value={form.primaryColor}
                 onChange={e => set('primaryColor', e.target.value)}
-                className="w-32 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-purple-500" />
+                className="w-32 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
               <div className="flex-1 h-10 rounded-lg"
                 style={{ background: `linear-gradient(135deg, ${form.primaryColor}, ${form.primaryColor}88)` }} />
             </div>
@@ -424,8 +424,8 @@ export default function NewClientPage() {
 
         {/* Summary */}
         {form.name && (
-          <div className="bg-white dark:bg-gray-900 border border-purple-200 dark:border-purple-800/50 rounded-xl p-5">
-            <p className="text-xs font-semibold text-purple-600 dark:text-purple-400 uppercase tracking-wider mb-3">Summary</p>
+          <div className="bg-white dark:bg-gray-900 border border-[#b8d4e0] dark:border-[#1A6080] dark:border-[#1A6080]/50 rounded-xl p-5">
+            <p className="text-xs font-semibold text-[#0E3D52] dark:text-[#4ebac4] uppercase tracking-wider mb-3">Summary</p>
             <div className="grid grid-cols-2 gap-x-8 gap-y-2 text-sm">
               <div className="flex justify-between"><span className="text-gray-600 dark:text-gray-400">Organisation</span><span className="text-gray-900 dark:text-white">{form.name}</span></div>
               <div className="flex justify-between"><span className="text-gray-600 dark:text-gray-400">Country</span><span className="text-gray-900 dark:text-white">{COUNTRIES.find(c => c.code === form.country)?.name}</span></div>
@@ -439,7 +439,7 @@ export default function NewClientPage() {
 
         <div className="flex gap-3 pt-2">
           <button type="submit" disabled={loading}
-            className="bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm font-medium px-6 py-2.5 rounded-lg transition">
+            className="bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm font-medium px-6 py-2.5 rounded-lg transition">
             {loading ? 'Creating…' : 'Create Client & Configure Modules →'}
           </button>
           <button type="button" onClick={() => router.back()}

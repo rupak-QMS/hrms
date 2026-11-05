@@ -23,9 +23,9 @@ const ACTION_COLORS: Record<string, string> = {
   create:   'bg-green-50 dark:bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300',
   update:   'bg-yellow-50 dark:bg-yellow-100 dark:bg-yellow-900/50 text-yellow-700 dark:text-yellow-300',
   delete:   'bg-red-50 dark:bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300',
-  export:   'bg-purple-50 dark:bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300',
+  export:   'bg-[#E0EEF4] dark:bg-[#E0EEF4] dark:bg-[#0E3D52]/50 text-[#0E3D52] dark:text-[#7dcfd7]',
   upload:   'bg-teal-50 dark:bg-teal-100 dark:bg-teal-900/50 text-teal-700 dark:text-teal-300',
-  download: 'bg-indigo-50 dark:bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300',
+  download: 'bg-[#E0EEF4] dark:bg-[#E0EEF4] dark:bg-[#0E3D52]/20 text-[#0E3D52] dark:text-[#7dcfd7]',
 }
 
 function actionColor(action: string) {
@@ -112,7 +112,7 @@ export default function AuditLogsPage() {
         </div>
         <button
           onClick={exportCSV}
-          className="bg-purple-700 hover:bg-purple-600 text-white text-sm font-medium px-4 py-2 rounded-lg transition"
+          className="bg-[#1A6080] hover:bg-[#0E3D52] text-white text-sm font-medium px-4 py-2 rounded-lg transition"
         >
           ↓ Export CSV
         </button>
@@ -126,12 +126,12 @@ export default function AuditLogsPage() {
             placeholder="Search action / resource…"
             value={search}
             onChange={e => setSearch(e.target.value)}
-            className="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-purple-500"
+            className="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
           />
           <select
             value={tenantId}
             onChange={e => setTenantId(e.target.value)}
-            className="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-purple-500"
+            className="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
           >
             <option value="">All Tenants</option>
             {tenants.map(t => (
@@ -142,19 +142,19 @@ export default function AuditLogsPage() {
             type="date"
             value={from}
             onChange={e => setFrom(e.target.value)}
-            className="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-purple-500"
+            className="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
           />
           <input
             type="date"
             value={to}
             onChange={e => setTo(e.target.value)}
-            className="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-purple-500"
+            className="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
           />
         </div>
         <div className="flex gap-2 mt-3">
           <button
             onClick={() => load(1)}
-            className="bg-purple-600 hover:bg-purple-700 text-white text-sm px-4 py-1.5 rounded-lg transition"
+            className="bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm px-4 py-1.5 rounded-lg transition"
           >
             Apply Filters
           </button>
@@ -211,7 +211,7 @@ export default function AuditLogsPage() {
                     <td className="px-4 py-3 text-gray-500 text-xs font-mono dark:text-gray-400">{log.ipAddress ?? '—'}</td>
                     <td className="px-4 py-3 text-gray-500 text-xs dark:text-gray-400">
                       {(log.oldValues || log.newValues) ? (
-                        <span className="text-purple-600 dark:text-purple-400">{expanded === log.id ? '▲ hide' : '▼ show'}</span>
+                        <span className="text-[#0E3D52] dark:text-[#4ebac4]">{expanded === log.id ? '▲ hide' : '▼ show'}</span>
                       ) : '—'}
                     </td>
                   </tr>

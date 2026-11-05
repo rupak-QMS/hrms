@@ -229,11 +229,11 @@ export default function MigrationsPage() {
       )}
 
       {/* Info footer */}
-      <div className="rounded-xl px-4 py-3.5 flex items-start gap-3 bg-purple-50 dark:bg-purple-950/20 border border-purple-200 dark:border-purple-800/30">
-        <span className="text-purple-500 dark:text-purple-400 text-[16px] shrink-0 mt-0.5">ℹ</span>
+      <div className="rounded-xl px-4 py-3.5 flex items-start gap-3 bg-[#E0EEF4] dark:bg-[#0E3D52]/15 border border-[#b8d4e0] dark:border-[#1A6080] dark:border-[#1A6080]/30">
+        <span className="text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4] text-[16px] shrink-0 mt-0.5">ℹ</span>
         <p className="text-[12px] text-foreground/60 leading-relaxed">
-          All migrations use <code className="text-purple-600 dark:text-purple-300/70 text-[11px]">CREATE TABLE IF NOT EXISTS</code> /
-          {' '}<code className="text-purple-600 dark:text-purple-300/70 text-[11px]">ADD COLUMN IF NOT EXISTS</code> — they are safe to
+          All migrations use <code className="text-[#0E3D52] dark:text-[#7dcfd7]/70 text-[11px]">CREATE TABLE IF NOT EXISTS</code> /
+          {' '}<code className="text-[#0E3D52] dark:text-[#7dcfd7]/70 text-[11px]">ADD COLUMN IF NOT EXISTS</code> — they are safe to
           run multiple times. New clients added via the platform automatically share this database and inherit the
           current schema with no extra steps.
         </p>

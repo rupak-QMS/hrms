@@ -32,8 +32,8 @@ const TIER_CONFIG = {
   enterprise: {
     label:    'Enterprise',
     modules:  28,
-    color:    'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 border-purple-200 dark:border-purple-800',
-    badge:    'bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-200',
+    color:    'bg-[#E0EEF4] dark:bg-[#0E3D52]/20 text-[#0E3D52] dark:text-[#7dcfd7] border-[#b8d4e0] dark:border-[#1A6080] dark:border-[#1A6080]',
+    badge:    'bg-[#E0EEF4] dark:bg-[#0E3D52] text-[#0E3D52] dark:text-[#9ccfda]',
     price:    217,
     features: 'All 28 modules',
   },
@@ -83,7 +83,7 @@ export default function BillingPage() {
         </div>
         <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-5">
           <p className="text-xs text-gray-600 dark:text-gray-400 mb-2">Avg Revenue / Client</p>
-          <p className="text-3xl font-bold text-purple-600 dark:text-purple-400">
+          <p className="text-3xl font-bold text-[#0E3D52] dark:text-[#4ebac4]">
             ${activeClients.length ? Math.round(totalMRR / activeClients.length) : 0}
           </p>
           <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">AUD / month</p>
@@ -169,7 +169,7 @@ export default function BillingPage() {
                     <td className="px-4 py-3">
                       <Link
                         href={`/super-admin/clients/${client.id}`}
-                        className="text-xs text-purple-400 hover:text-purple-700 dark:text-purple-300 transition"
+                        className="text-xs text-[#4ebac4] hover:text-[#0E3D52] dark:text-[#7dcfd7] transition"
                       >
                         Manage →
                       </Link>

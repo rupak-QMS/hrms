@@ -75,7 +75,7 @@ export default function CostEstimationPage() {
         </div>
         <div className="text-right">
           <p className="text-xs text-gray-500 dark:text-gray-400">Total portfolio (monthly)</p>
-          <p className="text-lg font-bold text-purple-700 dark:text-purple-300">{fmtAUD(totalMonthlyAUD)}</p>
+          <p className="text-lg font-bold text-[#0E3D52] dark:text-[#7dcfd7]">{fmtAUD(totalMonthlyAUD)}</p>
           <p className="text-xs text-gray-500 dark:text-gray-400">{fmtAUD(totalAnnualAUD)} / year</p>
         </div>
       </div>
@@ -91,7 +91,7 @@ export default function CostEstimationPage() {
           <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">Active</p>
         </div>
         <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-4 text-center">
-          <p className="text-2xl font-bold text-purple-600 dark:text-purple-400">{fmtAUD(totalMonthlyAUD)}</p>
+          <p className="text-2xl font-bold text-[#0E3D52] dark:text-[#4ebac4]">{fmtAUD(totalMonthlyAUD)}</p>
           <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">Monthly (AUD)</p>
         </div>
         <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-4 text-center">
@@ -105,7 +105,7 @@ export default function CostEstimationPage() {
         <div className="flex rounded-lg overflow-hidden border border-gray-300 dark:border-gray-700">
           {(['all', 'active', 'inactive'] as const).map(f => (
             <button key={f} onClick={() => setFilter(f)}
-              className={`px-3 py-1.5 text-xs capitalize ${filter === f ? 'bg-purple-600 text-white' : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:text-white'}`}>
+              className={`px-3 py-1.5 text-xs capitalize ${filter === f ? 'bg-[#0E3D52] text-white' : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:text-white'}`}>
               {f}
             </button>
           ))}
@@ -128,7 +128,7 @@ export default function CostEstimationPage() {
           const sameAUD = client.currency === 'AUD'
           return (
             <div key={client.id}
-              className={`bg-white dark:bg-gray-900 border rounded-xl overflow-hidden transition ${isExp ? 'border-purple-300 dark:border-purple-700' : 'border-gray-200 dark:border-gray-800'}`}>
+              className={`bg-white dark:bg-gray-900 border rounded-xl overflow-hidden transition ${isExp ? 'border-[#b8d4e0] dark:border-[#1A6080]' : 'border-gray-200 dark:border-gray-800'}`}>
               {/* Row */}
               <div className="flex items-center gap-4 p-5 cursor-pointer" onClick={() => setExpanded(isExp ? null : client.id)}>
                 {/* Name + meta */}
@@ -153,7 +153,7 @@ export default function CostEstimationPage() {
                 {/* Monthly */}
                 <div className="text-right hidden md:block">
                   <p className="text-xs text-gray-500 dark:text-gray-400">Monthly</p>
-                  <p className="text-sm font-semibold text-purple-700 dark:text-purple-300">{fmt(client.totalMonthlyCurr, client.symbol)}</p>
+                  <p className="text-sm font-semibold text-[#0E3D52] dark:text-[#7dcfd7]">{fmt(client.totalMonthlyCurr, client.symbol)}</p>
                   {!sameAUD && <p className="text-xs text-gray-600 dark:text-gray-400">{fmtAUD(client.totalMonthlyAUD)}</p>}
                 </div>
 
@@ -176,7 +176,7 @@ export default function CostEstimationPage() {
                   <div className="flex items-center justify-between mb-3">
                     <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">Module Breakdown</p>
                     <Link href={`/super-admin/clients/${client.id}/integrations`}
-                      className="text-xs text-purple-400 hover:text-purple-700 dark:text-purple-300">
+                      className="text-xs text-[#4ebac4] hover:text-[#0E3D52] dark:text-[#7dcfd7]">
                       View Integrations →
                     </Link>
                   </div>
@@ -214,7 +214,7 @@ export default function CostEstimationPage() {
                       </div>
                       <div>
                         <span className="text-gray-500 dark:text-gray-400">Monthly total: </span>
-                        <span className="text-purple-700 dark:text-purple-300 font-semibold">{fmt(client.totalMonthlyCurr, client.symbol)}</span>
+                        <span className="text-[#0E3D52] dark:text-[#7dcfd7] font-semibold">{fmt(client.totalMonthlyCurr, client.symbol)}</span>
                       </div>
                       <div>
                         <span className="text-gray-500 dark:text-gray-400">Annual total: </span>

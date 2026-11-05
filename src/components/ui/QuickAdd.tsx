@@ -83,7 +83,7 @@ export default function QuickAdd() {
               onMouseEnter={() => setCursor(idx)}
               className={`w-full text-left flex items-center gap-3 px-4 py-3 transition-colors ${
                 idx === cursor
-                  ? 'bg-indigo-50 dark:bg-indigo-900/30'
+                  ? 'bg-[#E0EEF4] dark:bg-[#0E3D52]/20'
                   : 'hover:bg-gray-50 dark:hover:bg-gray-800/50'
               }`}
             >

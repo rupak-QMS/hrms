@@ -15,7 +15,7 @@ type ModuleStat = {
 const CATEGORY_COLORS: Record<string, string> = {
   Core:         'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-800',
   Compliance:   'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 border-green-200 dark:border-green-800',
-  Learning:     'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 border-purple-200 dark:border-purple-800',
+  Learning:     'bg-[#E0EEF4] dark:bg-[#0E3D52]/20 text-[#0E3D52] dark:text-[#7dcfd7] border-[#b8d4e0] dark:border-[#1A6080] dark:border-[#1A6080]',
   Talent:       'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 border-yellow-200 dark:border-yellow-800',
   Performance:  'bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 border-orange-200 dark:border-orange-800',
   Safety:       'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 border-red-200 dark:border-red-800',
@@ -25,7 +25,7 @@ const CATEGORY_COLORS: Record<string, string> = {
 }
 
 const BAR_COLORS: Record<string, string> = {
-  Core: 'bg-blue-500', Compliance: 'bg-green-500', Learning: 'bg-purple-500',
+  Core: 'bg-blue-500', Compliance: 'bg-green-500', Learning: 'bg-[#E0EEF4]0',
   Talent: 'bg-yellow-500', Performance: 'bg-orange-500', Safety: 'bg-red-500',
   Intelligence: 'bg-cyan-500', Experience: 'bg-pink-500', Operations: 'bg-teal-500',
 }
@@ -86,7 +86,7 @@ export default function ModulesPage() {
         </div>
         <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-4">
           <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">Avg Modules/Client</p>
-          <p className="text-2xl font-bold text-purple-600 dark:text-purple-400">
+          <p className="text-2xl font-bold text-[#0E3D52] dark:text-[#4ebac4]">
             {tenantCount ? Math.round(totalEnabled / tenantCount) : 0}
           </p>
         </div>
@@ -106,7 +106,7 @@ export default function ModulesPage() {
             onClick={() => setCategoryFilter(cat)}
             className={`text-xs px-3 py-1.5 rounded-full border transition ${
               categoryFilter === cat
-                ? 'bg-purple-700 border-purple-600 text-white'
+                ? 'bg-[#1A6080] border-[#0E3D52] text-white'
                 : 'border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:text-white hover:border-gray-500'
             }`}
           >
@@ -161,12 +161,12 @@ export default function ModulesPage() {
                     <div className="flex items-center gap-2">
                       <div className="flex-1 bg-gray-100 dark:bg-gray-800 rounded-full h-2">
                         <div
-                          className={`h-2 rounded-full transition-all ${BAR_COLORS[mod.category] ?? 'bg-purple-500'}`}
+                          className={`h-2 rounded-full transition-all ${BAR_COLORS[mod.category] ?? 'bg-[#E0EEF4]0'}`}
                           style={{ width: `${mod.percentage}%` }}
                         />
                       </div>
                       {mod.enabledFor.length > 0 && (
-                        <span className="text-purple-600 dark:text-purple-400 text-xs">{expanded === mod.id ? '▲' : '▼'}</span>
+                        <span className="text-[#0E3D52] dark:text-[#4ebac4] text-xs">{expanded === mod.id ? '▲' : '▼'}</span>
                       )}
                     </div>
                   </td>

@@ -89,7 +89,7 @@ export default function ClientIntegrationsPage() {
       <div>
         <h1 className="text-xl font-bold text-gray-900 dark:text-white">Payroll Integrations</h1>
         <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">
-          {tenantName} · <span className="text-purple-700 dark:text-purple-300">{country}</span> · {currency}
+          {tenantName} · <span className="text-[#0E3D52] dark:text-[#7dcfd7]">{country}</span> · {currency}
         </p>
       </div>
 
@@ -155,7 +155,7 @@ export default function ClientIntegrationsPage() {
                           <label className="block text-xs text-gray-600 dark:text-gray-400 mb-1">API Key</label>
                           <input type="password" value={draft.apiKey ?? ''} onChange={e => setDraft(d => ({ ...d, apiKey: e.target.value }))}
                             placeholder="Enter API key…"
-                            className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-purple-500" />
+                            className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
                         </div>
                       )}
                       {p.authType === 'oauth2' && (
@@ -168,17 +168,17 @@ export default function ClientIntegrationsPage() {
                         <label className="block text-xs text-gray-600 dark:text-gray-400 mb-1">Organisation / Account ID</label>
                         <input value={draft.orgId ?? ''} onChange={e => setDraft(d => ({ ...d, orgId: e.target.value }))}
                           placeholder="Org or account identifier"
-                          className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-purple-500" />
+                          className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
                       </div>
                       <div>
                         <label className="block text-xs text-gray-600 dark:text-gray-400 mb-1">Notes</label>
                         <input value={draft.notes ?? ''} onChange={e => setDraft(d => ({ ...d, notes: e.target.value }))}
                           placeholder="Any setup notes…"
-                          className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-purple-500" />
+                          className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
                       </div>
                       <div className="flex gap-2">
                         <button onClick={() => save(p, draft, true)} disabled={saving === p.id}
-                          className="px-4 py-2 text-xs bg-purple-600 hover:bg-purple-700 text-white rounded-lg disabled:opacity-60">
+                          className="px-4 py-2 text-xs bg-[#0E3D52] hover:bg-[#1A6080] text-white rounded-lg disabled:opacity-60">
                           {saving === p.id ? 'Saving…' : 'Save'}
                         </button>
                         <button onClick={() => setConfiguring(null)}
@@ -212,7 +212,7 @@ export default function ClientIntegrationsPage() {
                       <p className="text-sm font-semibold text-gray-900 dark:text-white">{p.name}</p>
                       <p className="text-xs text-gray-600 dark:text-gray-400">{p.description}</p>
                       <a href={p.website} target="_blank" rel="noopener noreferrer"
-                        className="text-xs text-purple-400 hover:text-purple-700 dark:text-purple-300">{p.website}</a>
+                        className="text-xs text-[#4ebac4] hover:text-[#0E3D52] dark:text-[#7dcfd7]">{p.website}</a>
                     </div>
                   </div>
                   <div className="flex gap-2 items-center">
@@ -240,10 +240,10 @@ export default function ClientIntegrationsPage() {
                         <label className="block text-xs text-gray-600 dark:text-gray-400 mb-1">API Key *</label>
                         <input type="password" value={draft.apiKey ?? ''} onChange={e => setDraft(d => ({ ...d, apiKey: e.target.value }))}
                           placeholder={`Enter your ${p.name} API key…`}
-                          className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-purple-500" />
+                          className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
                         <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">
                           Find your API key at{' '}
-                          <a href={p.website} target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-700 dark:text-purple-300">{p.website}</a>
+                          <a href={p.website} target="_blank" rel="noopener noreferrer" className="text-[#4ebac4] hover:text-[#0E3D52] dark:text-[#7dcfd7]">{p.website}</a>
                         </p>
                       </div>
                     )}
@@ -263,13 +263,13 @@ export default function ClientIntegrationsPage() {
                       <label className="block text-xs text-gray-600 dark:text-gray-400 mb-1">Organisation / Account ID</label>
                       <input value={draft.orgId ?? ''} onChange={e => setDraft(d => ({ ...d, orgId: e.target.value }))}
                         placeholder="Organisation or account identifier"
-                        className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-purple-500" />
+                        className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
                     </div>
                     <div>
                       <label className="block text-xs text-gray-600 dark:text-gray-400 mb-1">Notes</label>
                       <input value={draft.notes ?? ''} onChange={e => setDraft(d => ({ ...d, notes: e.target.value }))}
                         placeholder="Setup notes, account manager name, etc."
-                        className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-purple-500" />
+                        className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
                     </div>
                     <div className="flex gap-2">
                       <button onClick={() => save(p, draft, true)} disabled={saving === p.id}

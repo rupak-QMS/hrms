@@ -96,7 +96,7 @@ export default async function SuperAdminDashboard() {
                 { label: 'Admins',        href: '/super-admin/admins',        desc: 'Super admin accounts' },
                 { label: 'Settings',      href: '/super-admin/settings',      desc: 'Email, security, maintenance' },
               ].map((a) => (
-                <Link key={a.href} href={a.href} className="group card-premium block p-3.5 transition-all duration-150 hover:border-purple-500/30">
+                <Link key={a.href} href={a.href} className="group card-premium block p-3.5 transition-all duration-150 hover:border-[#0E3D52]/30">
                   <p className="text-[13px] font-semibold text-foreground/80 group-hover:text-foreground transition-colors leading-tight">{a.label}</p>
                   <p className="text-[11px] text-muted-foreground mt-0.5 leading-snug">{a.desc}</p>
                 </Link>
@@ -108,7 +108,7 @@ export default async function SuperAdminDashboard() {
             <div>
               <div className="flex items-center justify-between mb-3">
                 <p className="section-label">Client Setup Status</p>
-                <Link href="/super-admin/clients" className="text-[11px] text-purple-500 dark:text-purple-400/70 hover:text-purple-600 dark:hover:text-purple-300 transition-colors">View all →</Link>
+                <Link href="/super-admin/clients" className="text-[11px] text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4]/70 hover:text-[#0E3D52] dark:hover:text-[#7dcfd7] transition-colors">View all →</Link>
               </div>
               <div className="card-premium overflow-hidden">
                 {d.clients.map((c: any, i: number) => (
@@ -134,7 +134,7 @@ export default async function SuperAdminDashboard() {
                         <div className="h-1 rounded-full" style={{ width: `${(c.onboardingScore / c.onboardingTotal) * 100}%`, background: ACCENT }} />
                       </div>
                     </div>
-                    <Link href={`/super-admin/clients/${c.id}`} className="text-[12px] text-muted-foreground hover:text-purple-500 transition-colors shrink-0">→</Link>
+                    <Link href={`/super-admin/clients/${c.id}`} className="text-[12px] text-muted-foreground hover:text-[#0E3D52] dark:text-[#4ebac4] transition-colors shrink-0">→</Link>
                   </div>
                 ))}
               </div>
@@ -145,7 +145,7 @@ export default async function SuperAdminDashboard() {
         <div>
           <div className="flex items-center justify-between mb-3">
             <p className="section-label">Recent Activity</p>
-            <Link href="/super-admin/audit-logs" className="text-[11px] text-purple-500 dark:text-purple-400/70 hover:text-purple-600 dark:hover:text-purple-300 transition-colors">View all →</Link>
+            <Link href="/super-admin/audit-logs" className="text-[11px] text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4]/70 hover:text-[#0E3D52] dark:hover:text-[#7dcfd7] transition-colors">View all →</Link>
           </div>
           <div className="card-premium overflow-hidden">
             {d.recentLogs.length === 0 ? (

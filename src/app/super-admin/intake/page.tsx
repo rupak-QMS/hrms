@@ -38,7 +38,7 @@ const MODULES_LIST = [
 
 type Tab = 'fill' | 'upload'
 
-const INPUT = 'w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-purple-500'
+const INPUT = 'w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]'
 const LABEL = 'block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1'
 
 const INITIAL = {
@@ -157,7 +157,7 @@ export default function IntakePage() {
             Print / PDF
           </button>
           <button onClick={downloadJSON}
-            className="px-3 py-2 text-xs border border-purple-300 dark:border-purple-700 text-purple-700 dark:text-purple-300 rounded-lg hover:bg-purple-50 dark:bg-purple-100 dark:bg-purple-900/20 transition">
+            className="px-3 py-2 text-xs border border-[#b8d4e0] dark:border-[#1A6080] text-[#0E3D52] dark:text-[#7dcfd7] rounded-lg hover:bg-[#E0EEF4] dark:bg-[#E0EEF4] dark:bg-[#0E3D52]/20 transition">
             ⬇ Download Form
           </button>
         </div>
@@ -167,7 +167,7 @@ export default function IntakePage() {
       <div className="flex border-b border-gray-200 dark:border-gray-800">
         {([['fill', 'Fill Online'], ['upload', 'Upload Completed Form']] as [Tab, string][]).map(([id, label]) => (
           <button key={id} onClick={() => setTab(id)}
-            className={`px-5 py-2.5 text-sm font-medium border-b-2 transition ${tab === id ? 'border-purple-500 text-purple-600 dark:text-purple-400' : 'border-transparent text-gray-600 dark:text-gray-400 hover:text-gray-600 dark:text-gray-300'}`}>
+            className={`px-5 py-2.5 text-sm font-medium border-b-2 transition ${tab === id ? 'border-[#0E3D52] text-[#0E3D52] dark:text-[#4ebac4]' : 'border-transparent text-gray-600 dark:text-gray-400 hover:text-gray-600 dark:text-gray-300'}`}>
             {label}
           </button>
         ))}
@@ -186,7 +186,7 @@ export default function IntakePage() {
           </p>
           <input ref={fileRef} type="file" accept=".json" className="hidden" onChange={handleFileUpload} />
           <button onClick={() => fileRef.current?.click()}
-            className="px-6 py-2.5 bg-purple-600 hover:bg-purple-700 text-white text-sm rounded-lg transition">
+            className="px-6 py-2.5 bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm rounded-lg transition">
             Choose File (.json)
           </button>
         </div>
@@ -285,7 +285,7 @@ export default function IntakePage() {
               <h2 className="text-xs font-semibold text-gray-500 uppercase tracking-wider dark:text-gray-400">Required Modules</h2>
               <div className="flex gap-2 text-xs">
                 <button type="button" onClick={() => setForm(f => ({ ...f, selectedModules: MODULES_LIST.map(m => m.id) }))}
-                  className="text-purple-400 hover:text-purple-700 dark:text-purple-300">Select All</button>
+                  className="text-[#4ebac4] hover:text-[#0E3D52] dark:text-[#7dcfd7]">Select All</button>
                 <span className="text-gray-600 dark:text-gray-400">·</span>
                 <button type="button" onClick={() => setForm(f => ({ ...f, selectedModules: [] }))}
                   className="text-gray-600 dark:text-gray-400 hover:text-gray-600 dark:text-gray-300">Clear</button>
@@ -294,7 +294,7 @@ export default function IntakePage() {
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
               {MODULES_LIST.map(m => (
                 <label key={m.id} className={`flex items-center gap-2 p-2 rounded-lg border cursor-pointer text-xs transition ${
-                  form.selectedModules.includes(m.id) ? 'border-purple-600 bg-purple-50 dark:bg-purple-100 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300' : 'border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-gray-600'
+                  form.selectedModules.includes(m.id) ? 'border-[#0E3D52] bg-[#E0EEF4] dark:bg-[#E0EEF4] dark:bg-[#0E3D52]/20 text-[#0E3D52] dark:text-[#7dcfd7]' : 'border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-gray-600'
                 }`}>
                   <input type="checkbox" checked={form.selectedModules.includes(m.id)} onChange={() => toggleModule(m.id)}
                     className="accent-purple-500" />
@@ -328,12 +328,12 @@ export default function IntakePage() {
             <h2 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3 dark:text-gray-400">Internal Notes</h2>
             <textarea value={form.notes} onChange={e => set('notes', e.target.value)} rows={3}
               placeholder="Any special requirements, SLA agreements, go-live dates…"
-              className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-purple-500 resize-none" />
+              className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52] resize-none" />
           </section>
 
           <div className="flex gap-3 pt-2">
             <button type="submit" disabled={loading}
-              className="bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm font-semibold px-6 py-2.5 rounded-lg transition">
+              className="bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm font-semibold px-6 py-2.5 rounded-lg transition">
               {loading ? 'Creating Client…' : 'Create Client & Send Welcome Email →'}
             </button>
             <button type="button" onClick={downloadJSON}

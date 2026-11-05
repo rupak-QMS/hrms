@@ -192,7 +192,7 @@ export default function AnnouncementsPage() {
       {/* Create form */}
       {showForm && (
         <div className="card-premium p-5 space-y-4" style={{ borderColor: `${ACCENT}30` }}>
-          <p className="text-[13px] font-semibold text-purple-600 dark:text-purple-400">New Announcement</p>
+          <p className="text-[13px] font-semibold text-[#0E3D52] dark:text-[#4ebac4]">New Announcement</p>
 
           <div>
             <label className="section-label mb-1.5 block">Title *</label>
