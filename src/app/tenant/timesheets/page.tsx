@@ -100,7 +100,7 @@ function RejectModal({ onConfirm, onClose }: {
             onChange={e => setReason(e.target.value)}
             rows={3}
             placeholder="Explain why this timesheet is being rejected…"
-            className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none resize-none"
+            className="w-full input-premium resize-none"
           />
           <div className="flex gap-2 pt-1">
             <button onClick={onClose}
@@ -222,11 +222,11 @@ function ClockCard({ onAction }: { onAction: () => void }) {
               <div className="flex-1">
                 <label className="text-xs text-gray-500 dark:text-gray-400">Break (mins)</label>
                 <input type="number" min="0" value={breakMins} onChange={e => setBreakMins(e.target.value)}
-                  className="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-1.5 text-sm focus:outline-none" />
+                  className="w-full input-premium py-1.5" />
               </div>
             </div>
             <input type="text" placeholder="Notes (optional)" value={notes} onChange={e => setNotes(e.target.value)}
-              className="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-1.5 text-sm focus:outline-none" />
+              className="w-full input-premium py-1.5" />
             <button onClick={clockOut}
               className="w-full py-2.5 rounded-xl text-sm font-bold bg-red-600 text-white hover:bg-red-700 transition">
               Clock Out

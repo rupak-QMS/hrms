@@ -407,7 +407,7 @@ export default function ParticipantsPage() {
           <input
             type="text" placeholder="Search name, NDIS number…" value={search}
             onChange={e => setSearch(e.target.value)}
-            className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-[#0E3D52]/20 focus:outline-none mb-2"
+            className="w-full px-3 py-2 text-sm input-premium focus:ring-2 focus:ring-[#0E3D52]/20 mb-2"
           />
           <div className="flex gap-2">
             <select value={filterActive} onChange={e => setFilterActive(e.target.value as 'all' | 'active' | 'inactive')}
@@ -992,7 +992,7 @@ function Input({ value, onChange, type = 'text', placeholder }: {
 }) {
   return (
     <input type={type} value={value} onChange={e => onChange(e.target.value)} placeholder={placeholder}
-      className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-[#0E3D52]/20 focus:outline-none" />
+      className="w-full px-3 py-2 text-sm input-premium focus:ring-2 focus:ring-[#0E3D52]/20" />
   )
 }
 
@@ -1008,7 +1008,7 @@ function Select({ value, onChange, children }: { value: string; onChange: (v: st
 function Textarea({ value, onChange, rows = 3 }: { value: string; onChange: (v: string) => void; rows?: number }) {
   return (
     <textarea value={value} onChange={e => onChange(e.target.value)} rows={rows}
-      className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-[#0E3D52]/20 focus:outline-none resize-none" />
+      className="w-full px-3 py-2 text-sm input-premium focus:ring-2 focus:ring-[#0E3D52]/20 resize-none" />
   )
 }
 
