@@ -244,7 +244,7 @@ export default function SCHADSCalculatorPage() {
                     <input type="radio" name="empType" value={et}
                       checked={employmentType === et}
                       onChange={() => setEmploymentType(et)}
-                      className="accent-indigo-600" />
+                      className="accent-[#0E3D52]" />
                     <span className="text-sm text-gray-700 dark:text-gray-300 capitalize">{et.replace('_', ' ')}</span>
                   </label>
                 ))}

@@ -87,7 +87,7 @@ EMP001,Jane,Smith,jane.smith@example.com,full_time,2026-01-15,,+61400000001,Yahw
           {status === 'done' && result ? (
             <>
               <div className="text-center py-4">
-                <div className="text-5xl mb-3">{result.imported > 0 ? '✅' : '⚠️'}</div>
+                <div className={"w-14 h-14 rounded-2xl flex items-center justify-center mb-4 mx-auto ring-1 " + (result.imported > 0 ? "bg-green-50 dark:bg-green-900/20 ring-green-200 dark:ring-green-800" : "bg-amber-50 dark:bg-amber-900/20 ring-amber-200 dark:ring-amber-800")}><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className={result.imported > 0 ? "text-green-500" : "text-amber-500"}>{result.imported > 0 ? <polyline points="20 6 9 17 4 12"/> : <><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/></>}</svg></div>
                 <p className="text-lg font-bold text-gray-900 dark:text-white">Import complete</p>
                 <div className="flex justify-center gap-6 mt-3 text-sm">
                   <span className="text-green-600 font-semibold">{result.imported} imported</span>

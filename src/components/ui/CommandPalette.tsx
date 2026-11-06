@@ -86,7 +86,7 @@ export default function CommandPalette() {
       <div className="w-full max-w-lg bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden" onClick={e => e.stopPropagation()}>
         <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-100 dark:border-gray-800">
           <span className="text-gray-400 text-sm flex-shrink-0">
-            {loading ? <span className="inline-block w-4 h-4 border-2 border-gray-300 border-t-indigo-500 rounded-full animate-spin" /> : '🔍'}
+            {loading ? <span className="inline-block w-4 h-4 border-2 border-gray-300 border-t-[#0E3D52] rounded-full animate-spin" /> : ''}
           </span>
           <input ref={inputRef} value={query} onChange={e => handleInput(e.target.value)} onKeyDown={handleKeyDown} placeholder="Search employees, documents, participants…" className="flex-1 text-sm bg-transparent outline-none text-gray-900 dark:text-white placeholder-gray-400" />
           <kbd className="hidden sm:inline-flex items-center gap-1 px-1.5 py-0.5 text-[10px] font-mono text-gray-400 bg-gray-100 dark:bg-gray-800 rounded border border-gray-200 dark:border-gray-700">ESC</kbd>
