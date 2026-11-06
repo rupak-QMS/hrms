@@ -23,21 +23,44 @@ type AlertResult = {
   details: { sent: string[]; failed: string[] }
 }
 
-const TYPE_ICON: Record<string, string> = {
-  leave:           '🌴',
-  payroll:         '💰',
-  onboarding:      '·',
-  compliance:      '🔒',
-  document:        '📄',
-  document_expiry: '📄',
-  recruitment:     '·',
-  training:        '📚',
-  performance:     '⭐',
-  system:          '🔔',
-  general:         '🔔',
+// Icon color by notification type (bg/text)
+const TYPE_COLOR: Record<string, { bg: string; text: string }> = {
+  leave:           { bg: 'bg-green-50 dark:bg-green-900/20',  text: 'text-green-600 dark:text-green-400' },
+  payroll:         { bg: 'bg-[#E8973A]/10',                   text: 'text-[#E8973A]' },
+  onboarding:      { bg: 'bg-[#0E3D52]/[0.07] dark:bg-[#4ebac4]/10', text: 'text-[#1A6080] dark:text-[#4ebac4]' },
+  compliance:      { bg: 'bg-amber-50 dark:bg-amber-900/20',  text: 'text-amber-600 dark:text-amber-400' },
+  document:        { bg: 'bg-[#0E3D52]/[0.07] dark:bg-[#4ebac4]/10', text: 'text-[#1A6080] dark:text-[#4ebac4]' },
+  document_expiry: { bg: 'bg-amber-50 dark:bg-amber-900/20',  text: 'text-amber-500' },
+  recruitment:     { bg: 'bg-[#0E3D52]/[0.07] dark:bg-[#4ebac4]/10', text: 'text-[#1A6080] dark:text-[#4ebac4]' },
+  training:        { bg: 'bg-blue-50 dark:bg-blue-900/20',    text: 'text-blue-600 dark:text-blue-400' },
+  performance:     { bg: 'bg-[#0E3D52]/[0.07] dark:bg-[#4ebac4]/10', text: 'text-[#1A6080] dark:text-[#4ebac4]' },
+  system:          { bg: 'bg-gray-50 dark:bg-gray-800',       text: 'text-gray-500 dark:text-gray-400' },
+  general:         { bg: 'bg-gray-50 dark:bg-gray-800',       text: 'text-gray-500 dark:text-gray-400' },
+}
+function NotifIcon({ type }: { type: string }) {
+  const c = TYPE_COLOR[type] ?? TYPE_COLOR.general
+  const paths: Record<string, JSX.Element> = {
+    leave:           <><path d="M17 20h5v-2a3 3 0 0 0-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 0 1 5.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 0 1 9.288 0"/></>,
+    payroll:         <><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></>,
+    document:        <><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></>,
+    document_expiry: <><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><line x1="12" y1="11" x2="12" y2="17"/><line x1="12" y1="17" x2="12.01" y2="17"/></>,
+    compliance:      <><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></>,
+    recruitment:     <><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></>,
+    training:        <><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></>,
+    performance:     <><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></>,
+    onboarding:      <><circle cx="12" cy="7" r="4"/><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/></>,
+    system:          <><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></>,
+    general:         <><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></>,
+  }
+  const path = paths[type] ?? paths.general
+  return (
+    <div className={`w-9 h-9 rounded-xl ${c.bg} flex items-center justify-center shrink-0 ring-1 ring-black/[0.04] dark:ring-white/[0.06]`}>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className={c.text}>{path}</svg>
+    </div>
+  )
 }
 
-const ALL_TYPES = Object.keys(TYPE_ICON)
+const ALL_TYPES = Object.keys(TYPE_COLOR)
 
 function relativeTime(iso: string) {
   const diff = Date.now() - new Date(iso).getTime()
@@ -231,7 +254,7 @@ export default function NotificationsPage() {
                 <button key={t}
                   onClick={() => setTypeFilter(t === typeFilter ? '' : t)}
                   className={`text-xs px-2.5 py-1 rounded-full border transition flex items-center gap-1 ${typeFilter === t ? 'bg-[#0E3D52] border-[#0E3D52] text-white' : 'border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:text-white'}`}>
-                  {TYPE_ICON[t]} {t.replace('_', ' ')}
+                  {t.replace('_', ' ')}
                 </button>
               ))}
             </div>
@@ -257,7 +280,7 @@ export default function NotificationsPage() {
               return (
                 <li key={n.id}
                   className={`flex gap-3 px-5 py-4 transition group ${!n.isRead ? 'bg-[#E0EEF4] dark:bg-[#0E3D52]/20' : 'hover:bg-gray-50 dark:hover:bg-gray-800/40'}`}>
-                  <span className="text-xl shrink-0 mt-0.5">{TYPE_ICON[n.type] ?? '🔔'}</span>
+                  <NotifIcon type={n.type ?? 'general'} />
                   <Wrapper {...(wrapperProps as any)} className={`flex-1 min-w-0 ${isClickable ? 'cursor-pointer' : ''}`}>
                     <div className="flex items-start justify-between gap-2">
                       <p className={`text-sm font-medium leading-snug ${!n.isRead ? 'text-gray-900 dark:text-white' : 'text-gray-700 dark:text-gray-300'} ${isClickable ? 'hover:text-[#1A6080] dark:text-[#4ebac4] transition' : ''}`}>
