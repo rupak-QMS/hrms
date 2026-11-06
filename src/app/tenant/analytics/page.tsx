@@ -47,7 +47,7 @@ function SectionHeader({ title, icon }: { title: string; icon: string }) {
 function ProgressBar({ value, max, color = 'bg-[#0E3D52]' }: { value: number; max: number; color?: string }) {
   const pct = max > 0 ? Math.min(100, Math.round((value / max) * 100)) : 0
   return (
-    <div className="h-2 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+    <div className="h-2 bg-gray-100 dark:bg-[#0A1929] rounded-full overflow-hidden">
       <div className={`h-2 rounded-full transition-all ${color}`} style={{ width: `${pct}%` }} />
     </div>
   )

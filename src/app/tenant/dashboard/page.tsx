@@ -113,7 +113,7 @@ function MiniBar({ items }: { items: { label: string; value: number; color: stri
       {items.map(item => (
         <div key={item.label} className="flex items-center gap-3">
           <span className="text-xs text-gray-500 w-28 shrink-0 truncate dark:text-gray-400">{item.label}</span>
-          <div className="flex-1 h-1.5 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+          <div className="flex-1 h-1.5 bg-gray-100 dark:bg-[#0A1929] rounded-full overflow-hidden">
             <div
               className="h-full rounded-full transition-all"
               style={{ width: `${Math.max(4, (item.value / max) * 100)}%`, background: item.color }}
@@ -319,7 +319,7 @@ function PersonalDashboard({ userName, tenantName, primaryColor, greetingText, e
                       </span>
                       <span className="text-xs text-gray-400">/ {cap}d</span>
                     </div>
-                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1.5">
+                    <div className="w-full bg-gray-200 dark:bg-[#0E3D52]/60 rounded-full h-1.5">
                       <div
                         className={`h-1.5 rounded-full transition-all ${isLow ? 'bg-amber-400' : 'bg-green-500'}`}
                         style={{ width: `${100 - pct}%` }}
@@ -956,7 +956,7 @@ export default function DashboardPage() {
             </span>
           </div>
           {/* Progress bar */}
-          <div className="h-2 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden mb-3">
+          <div className="h-2 bg-gray-100 dark:bg-[#0A1929] rounded-full overflow-hidden mb-3">
             <div
               className="h-full rounded-full transition-all"
               style={{

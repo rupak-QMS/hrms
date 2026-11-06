@@ -181,7 +181,7 @@ export default function MyBenefitsPage() {
                 {isOpen && (
                   <div className="border-t border-gray-100 dark:border-[#1A6080]/20 px-5 py-4 space-y-3">
                     {/* Program detail */}
-                    <div className="bg-gray-50 dark:bg-gray-800/40 rounded-lg p-3">
+                    <div className="bg-gray-50 dark:bg-[#0A1929]/40 rounded-lg p-3">
                       <p className="text-xs text-gray-500 dark:text-gray-400 mb-1 font-medium ">About this benefit</p>
                       <p className="text-sm text-gray-300">{info?.detail ?? 'Contact HR for details on this benefit.'}</p>
                     </div>

@@ -292,14 +292,14 @@ export default function WorkforcePlanningPage() {
       </div>
 
       {/* Tabs */}
-      <div className="flex gap-1 bg-gray-100 dark:bg-gray-800/60 rounded-xl p-1 w-fit">
+      <div className="flex gap-1 bg-gray-100 dark:bg-[#0A1929]/60 rounded-xl p-1 w-fit">
         {(['overview', 'plans'] as const).map(t => (
           <button
             key={t}
             onClick={() => setTab(t)}
             className={`px-5 py-2 rounded-lg text-sm font-medium transition ${
               tab === t
-                ? 'bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-sm'
+                ? 'bg-white dark:bg-[#0E3D52]/60 text-gray-900 dark:text-white shadow-sm'
                 : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
             }`}
           >
@@ -338,7 +338,7 @@ export default function WorkforcePlanningPage() {
                         <span className="text-gray-600 dark:text-gray-300 font-medium">{cfg.label}</span>
                         <span className="text-gray-500 dark:text-gray-400">{count} · {pct}%</span>
                       </div>
-                      <div className="h-2 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
+                      <div className="h-2 bg-gray-100 dark:bg-[#0E3D52]/60 rounded-full overflow-hidden">
                         <div className={`h-full rounded-full ${cfg.bg} transition-all duration-500`} style={{ width: `${pct}%` }} />
                       </div>
                     </div>
@@ -377,7 +377,7 @@ export default function WorkforcePlanningPage() {
                                 <span className="text-gray-400 text-xs">—</span>
                               ) : (
                                 <div className="flex items-center gap-2">
-                                  <div className="w-20 h-1.5 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
+                                  <div className="w-20 h-1.5 bg-gray-100 dark:bg-[#0E3D52]/60 rounded-full overflow-hidden">
                                     <div
                                       className={`h-full rounded-full ${fillRate >= 100 ? 'bg-green-500' : fillRate >= 70 ? 'bg-[#E0EEF4]0' : 'bg-amber-500'}`}
                                       style={{ width: `${Math.min(fillRate, 100)}%` }}
@@ -611,7 +611,7 @@ export default function WorkforcePlanningPage() {
             <p className="text-gray-500 dark:text-gray-400 text-sm">Loading…</p>
           ) : visiblePlans.length === 0 ? (
             <div className="card-premium py-14 text-center">
-              <div className="w-12 h-12 rounded-xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center mx-auto mb-3">
+              <div className="w-12 h-12 rounded-xl bg-gray-100 dark:bg-[#0A1929] flex items-center justify-center mx-auto mb-3">
                 <svg className="w-6 h-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round"
                     d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
@@ -663,7 +663,7 @@ export default function WorkforcePlanningPage() {
                         </td>
                         <td className="px-4 py-3">
                           <div className="flex items-center gap-1.5">
-                            <div className="w-14 h-1.5 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
+                            <div className="w-14 h-1.5 bg-gray-100 dark:bg-[#0E3D52]/60 rounded-full overflow-hidden">
                               <div
                                 className={`h-full rounded-full ${fillPct >= 100 ? 'bg-green-500' : fillPct >= 70 ? 'bg-[#E0EEF4]0' : 'bg-amber-500'}`}
                                 style={{ width: `${Math.min(fillPct, 100)}%` }}
@@ -685,21 +685,21 @@ export default function WorkforcePlanningPage() {
                             {p.status === 'open' && (
                               <button
                                 onClick={() => markFilled(p.id)}
-                                className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-green-700 hover:text-green-400 px-2 py-1 rounded transition"
+                                className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-green-700 hover:text-green-400 px-2 py-1 rounded transition"
                               >
                                 Mark Filled
                               </button>
                             )}
                             <button
                               onClick={() => openEdit(p)}
-                              className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-[#0E3D52] hover:text-[#1A6080] dark:text-[#4ebac4] px-2 py-1 rounded transition"
+                              className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-[#0E3D52] hover:text-[#1A6080] dark:text-[#4ebac4] px-2 py-1 rounded transition"
                             >
                               Edit
                             </button>
                             <button
                               onClick={() => deletePlan(p.id)}
                               disabled={isDeleting}
-                              className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-red-700 hover:text-red-400 px-2 py-1 rounded transition disabled:opacity-50"
+                              className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-red-700 hover:text-red-400 px-2 py-1 rounded transition disabled:opacity-50"
                             >
                               {isDeleting ? '…' : 'Delete'}
                             </button>

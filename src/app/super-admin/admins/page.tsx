@@ -100,7 +100,7 @@ export default function AdminsPage() {
 
       {/* Add admin form */}
       {showForm && (
-        <form onSubmit={createAdmin} className="bg-white dark:bg-gray-900 border border-[#b8d4e0] dark:border-[#1A6080] dark:border-[#1A6080] rounded-xl p-5 space-y-4">
+        <form onSubmit={createAdmin} className="bg-white dark:bg-[#0F1E2E] border border-[#b8d4e0] dark:border-[#1A6080] dark:border-[#1A6080] rounded-xl p-5 space-y-4">
           <h2 className="text-sm font-semibold text-[#0E3D52] dark:text-[#7dcfd7]">New Super Admin</h2>
           {formError && (
             <div className="bg-red-50 dark:bg-red-100 dark:bg-red-900/50 border border-red-300 dark:border-red-700 rounded-lg p-2 text-xs text-red-700 dark:text-red-300">{formError}</div>
@@ -113,7 +113,7 @@ export default function AdminsPage() {
                 value={form.name}
                 onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
                 placeholder="Jane Smith"
-                className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
+                className="w-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
               />
             </div>
             <div>
@@ -124,7 +124,7 @@ export default function AdminsPage() {
                 value={form.email}
                 onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
                 placeholder="jane@example.com"
-                className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
+                className="w-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
               />
             </div>
             <div>
@@ -136,7 +136,7 @@ export default function AdminsPage() {
                 value={form.password}
                 onChange={e => setForm(f => ({ ...f, password: e.target.value }))}
                 placeholder="min 8 characters"
-                className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
+                className="w-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
               />
             </div>
           </div>
@@ -159,7 +159,7 @@ export default function AdminsPage() {
         </form>
       )}
 
-      <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl overflow-hidden">
+      <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl overflow-hidden">
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-gray-200 dark:border-[#1A6080]/20 text-left">

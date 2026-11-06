@@ -220,7 +220,7 @@ export default function SCHADSCalculatorPage() {
               <select
                 value={classificationLevel}
                 onChange={e => setClassificationLevel(e.target.value)}
-                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm">
+                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-gray-900 dark:text-white text-sm">
                 {CLASSIFICATION_GROUPS.map(group => (
                   <optgroup key={group.label} label={group.label}>
                     {group.options.map(opt => (
@@ -285,7 +285,7 @@ export default function SCHADSCalculatorPage() {
                         value={hours[pt.key] ?? ''}
                         onChange={e => setHour(pt.key, e.target.value)}
                         placeholder={pt.key === 'sleepover' ? '# nights' : '# hours'}
-                        className="w-full px-3 py-1.5 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm text-right"
+                        className="w-full px-3 py-1.5 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-gray-900 dark:text-white text-sm text-right"
                       />
                     </div>
                     <div className="col-span-2 text-right text-sm font-medium text-gray-900 dark:text-white">
@@ -319,7 +319,7 @@ export default function SCHADSCalculatorPage() {
                         value={allowances[al.key] ?? ''}
                         onChange={e => setAllow(al.key, e.target.value)}
                         placeholder={`# ${al.per}s`}
-                        className="w-full px-3 py-1.5 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm text-right"
+                        className="w-full px-3 py-1.5 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-gray-900 dark:text-white text-sm text-right"
                       />
                     </div>
                     <div className="col-span-2 text-right text-sm font-medium text-gray-900 dark:text-white">

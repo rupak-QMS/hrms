@@ -161,7 +161,7 @@ function DocPreviewModal({ doc, onClose }: { doc: Doc; onClose: () => void }) {
         </div>
 
         {/* Body */}
-        <div className="flex-1 overflow-auto flex items-center justify-center bg-gray-50 dark:bg-gray-950 min-h-0 p-4">
+        <div className="flex-1 overflow-auto flex items-center justify-center bg-gray-50 dark:bg-[#070F1A] min-h-0 p-4">
           {isImage ? (
             <img
               src={doc.blobUrl}
@@ -176,7 +176,7 @@ function DocPreviewModal({ doc, onClose }: { doc: Doc; onClose: () => void }) {
             />
           ) : (
             <div className="text-center py-12 space-y-3">
-              <div className="w-12 h-12 mx-auto rounded-xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
+              <div className="w-12 h-12 mx-auto rounded-xl bg-gray-100 dark:bg-[#0A1929] flex items-center justify-center">
                 <svg className="w-6 h-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
                 </svg>
@@ -197,7 +197,7 @@ function DocPreviewModal({ doc, onClose }: { doc: Doc; onClose: () => void }) {
         </div>
 
         {/* Footer */}
-        <div className="flex items-center justify-end px-5 py-3 border-t border-gray-200 dark:border-[#1A6080]/30 shrink-0 bg-white dark:bg-gray-900">
+        <div className="flex items-center justify-end px-5 py-3 border-t border-gray-200 dark:border-[#1A6080]/30 shrink-0 bg-white dark:bg-[#0F1E2E]">
           <a
             href={doc.blobUrl}
             target="_blank"
@@ -536,7 +536,7 @@ export default function DocumentsPage() {
           className={`px-3 py-1.5 text-xs rounded-lg border font-medium transition-colors whitespace-nowrap ${
             expiryFilter
               ? 'bg-amber-500 text-white border-amber-500'
-              : 'bg-white dark:bg-gray-900 border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-amber-400 hover:text-amber-600'
+              : 'bg-white dark:bg-[#0F1E2E] border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-amber-400 hover:text-amber-600'
           }`}
         >
           ⚠️ Expiring soon
@@ -555,7 +555,7 @@ export default function DocumentsPage() {
         <div className="text-center py-12 text-gray-500 dark:text-gray-400">Loading…</div>
       ) : filtered.length === 0 ? (
         <div className="card-premium py-16 text-center">
-          <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-gray-800 mx-auto mb-3">
+          <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-[#0A1929] mx-auto mb-3">
                 <svg className="w-6 h-6 text-gray-600 dark:text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
                 </svg>
@@ -573,7 +573,7 @@ export default function DocumentsPage() {
               <button
                 onClick={() => bulkUpdateStatus('archived')}
                 disabled={bulkDocLoading}
-                className="px-3 py-1 text-xs rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 disabled:opacity-50"
+                className="px-3 py-1 text-xs rounded-lg bg-gray-100 dark:bg-[#0A1929] text-gray-700 dark:text-gray-300 hover:bg-gray-200 disabled:opacity-50"
               >
                 {bulkDocLoading ? 'Working…' : '📦 Archive'}
               </button>
@@ -644,7 +644,7 @@ export default function DocumentsPage() {
                     </div>
                   </td>
                   <td className="px-4 py-3">
-                    <span className="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 px-2 py-0.5 rounded-full whitespace-nowrap">
+                    <span className="text-xs bg-gray-100 dark:bg-[#0A1929] text-gray-600 dark:text-gray-400 px-2 py-0.5 rounded-full whitespace-nowrap">
                       {d.category}
                     </span>
                   </td>
@@ -699,7 +699,7 @@ export default function DocumentsPage() {
                       )}
                       {d.status !== 'archived' && (
                         <button onClick={() => updateStatus(d.id, 'archived')}
-                          className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-gray-600 px-2 py-1 rounded transition">
+                          className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-gray-600 px-2 py-1 rounded transition">
                           Archive
                         </button>
                       )}

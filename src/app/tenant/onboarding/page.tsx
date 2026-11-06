@@ -236,7 +236,7 @@ export default function OnboardingPage() {
                         <span className="text-gray-600 dark:text-gray-300">{s.label}</span>
                         <span className="text-gray-500 dark:text-gray-400">{count} ({pct}%)</span>
                       </div>
-                      <div className="h-2 bg-gray-100 dark:bg-gray-800 rounded-full">
+                      <div className="h-2 bg-gray-100 dark:bg-[#0A1929] rounded-full">
                         <div className={`h-2 rounded-full transition-all ${s.color}`} style={{ width: `${pct}%` }} />
                       </div>
                     </div>
@@ -393,14 +393,14 @@ export default function OnboardingPage() {
                           <span className={`text-xs px-2.5 py-0.5 rounded-full border font-medium ${STATUS_STYLE[r.status] ?? 'bg-gray-800 text-gray-300 border-gray-700'}`}>
                             {r.status === 'in_progress' ? 'In Progress' : r.status.charAt(0).toUpperCase() + r.status.slice(1)}
                           </span>
-                          <span className="text-xs text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-2 py-0.5 rounded-full">
+                          <span className="text-xs text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-[#0A1929] px-2 py-0.5 rounded-full">
                             {STAGE_LABELS[r.stage] ?? r.stage}
                           </span>
                         </div>
 
                         {/* Progress bar */}
                         <div className="flex items-center gap-2 pl-11">
-                          <div className="flex-1 max-w-xs h-1.5 bg-gray-100 dark:bg-gray-800 rounded-full">
+                          <div className="flex-1 max-w-xs h-1.5 bg-gray-100 dark:bg-[#0A1929] rounded-full">
                             <div className={`h-1.5 rounded-full transition-all ${pct === 100 ? 'bg-green-500' : 'bg-[#f0f7fb]0'}`}
                               style={{ width: `${pct}%` }} />
                           </div>
@@ -497,7 +497,7 @@ export default function OnboardingPage() {
                             { label: 'Onboarding Since', value: new Date(r.createdAt).toLocaleDateString('en-AU') },
                             { label: 'Completed At', value: r.completedAt ? new Date(r.completedAt).toLocaleDateString('en-AU') : '—' },
                           ].map(d => (
-                            <div key={d.label} className="bg-gray-100 dark:bg-gray-800/60 rounded-lg p-3">
+                            <div key={d.label} className="bg-gray-100 dark:bg-[#0A1929]/60 rounded-lg p-3">
                               <p className="text-xs text-gray-500 dark:text-gray-400 mb-0.5">{d.label}</p>
                               <p className="text-sm text-gray-700 dark:text-gray-200">{d.value}</p>
                             </div>

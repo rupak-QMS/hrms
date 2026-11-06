@@ -216,7 +216,7 @@ function LibraryTab() {
             <p className="text-sm text-gray-600 dark:text-gray-400">Course: <span className="text-foreground font-medium">{enrollCourse.title}</span></p>
             <div className="max-h-60 overflow-y-auto space-y-1 border border-gray-200 dark:border-[#1A6080]/20 rounded-lg p-2">
               {employees.map(e => (
-                <label key={e.id} className="flex items-center gap-2 px-2 py-1.5 rounded hover:bg-gray-100 dark:bg-gray-800 cursor-pointer">
+                <label key={e.id} className="flex items-center gap-2 px-2 py-1.5 rounded hover:bg-gray-100 dark:bg-[#0A1929] cursor-pointer">
                   <input type="checkbox"
                     checked={enrollIds.includes(e.id)}
                     onChange={ev => setEnrollIds(ids => ev.target.checked ? [...ids, e.id] : ids.filter(i => i !== e.id))}
@@ -259,7 +259,7 @@ function LibraryTab() {
                       <span className="text-xs bg-red-100 dark:bg-red-900/60 text-red-600 dark:text-red-300 px-2 py-0.5 rounded-full font-medium">Mandatory</span>
                     )}
                     {c.category && (
-                      <span className="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 px-2 py-0.5 rounded-full">{c.category}</span>
+                      <span className="text-xs bg-gray-100 dark:bg-[#0A1929] text-gray-600 dark:text-gray-400 px-2 py-0.5 rounded-full">{c.category}</span>
                     )}
                   </div>
                   <h3 className="text-foreground font-semibold text-sm leading-snug">{c.title}</h3>
@@ -562,7 +562,7 @@ function GapTab() {
         <div className="card-premium overflow-hidden">
           <div className="table-responsive">
             <table className="table-premium">
-            <thead className="bg-gray-50 dark:bg-gray-800">
+            <thead className="bg-gray-50 dark:bg-[#0A1929]">
               <tr>
                 <th>Employee</th>
                 <th>Missing</th>

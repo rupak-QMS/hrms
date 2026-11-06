@@ -75,22 +75,22 @@ export default function ModulesPage() {
 
       {/* Summary cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-4">
+        <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-4">
           <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">Total Modules</p>
           <p className="text-2xl font-bold text-gray-900 dark:text-white">28</p>
         </div>
-        <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-4">
+        <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-4">
           <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">Active Toggles</p>
           <p className="text-2xl font-bold text-green-600 dark:text-green-400">{totalEnabled}</p>
           <p className="text-xs text-gray-500 mt-0.5 dark:text-gray-400">of {maxPossible} possible</p>
         </div>
-        <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-4">
+        <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-4">
           <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">Avg Modules/Client</p>
           <p className="text-2xl font-bold text-[#0E3D52] dark:text-[#4ebac4]">
             {tenantCount ? Math.round(totalEnabled / tenantCount) : 0}
           </p>
         </div>
-        <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-4">
+        <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-4">
           <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">Platform Adoption</p>
           <p className="text-2xl font-bold text-[#1A6080] dark:text-[#4ebac4]">
             {maxPossible ? Math.round((totalEnabled / maxPossible) * 100) : 0}%
@@ -116,7 +116,7 @@ export default function ModulesPage() {
       </div>
 
       {/* Module list */}
-      <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl overflow-hidden">
+      <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl overflow-hidden">
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-gray-200 dark:border-[#1A6080]/20">
@@ -159,7 +159,7 @@ export default function ModulesPage() {
                   </td>
                   <td className="px-4 py-3">
                     <div className="flex items-center gap-2">
-                      <div className="flex-1 bg-gray-100 dark:bg-gray-800 rounded-full h-2">
+                      <div className="flex-1 bg-gray-100 dark:bg-[#0A1929] rounded-full h-2">
                         <div
                           className={`h-2 rounded-full transition-all ${BAR_COLORS[mod.category] ?? 'bg-[#E8973A]'}`}
                           style={{ width: `${mod.percentage}%` }}
@@ -172,12 +172,12 @@ export default function ModulesPage() {
                   </td>
                 </tr>
                 {expanded === mod.id && mod.enabledFor.length > 0 && (
-                  <tr key={`${mod.id}-clients`} className="bg-gray-100 dark:bg-gray-800/20 border-b border-gray-200 dark:border-[#1A6080]/20/50">
+                  <tr key={`${mod.id}-clients`} className="bg-gray-100 dark:bg-[#0A1929]/20 border-b border-gray-200 dark:border-[#1A6080]/20/50">
                     <td colSpan={5} className="px-6 py-2">
                       <p className="text-xs text-gray-500 mb-1 dark:text-gray-400">Enabled for:</p>
                       <div className="flex flex-wrap gap-1.5">
                         {mod.enabledFor.map(name => (
-                          <span key={name} className="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2 py-0.5 rounded">
+                          <span key={name} className="text-xs bg-gray-100 dark:bg-[#0A1929] text-gray-600 dark:text-gray-300 px-2 py-0.5 rounded">
                             {name}
                           </span>
                         ))}

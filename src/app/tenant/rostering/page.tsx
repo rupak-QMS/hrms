@@ -88,10 +88,10 @@ const SHIFT_COLOURS: Record<string, { bg: string; text: string; border: string }
 }
 
 const STATUS_BADGE: Record<string, string> = {
-  draft:     'bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400',
+  draft:     'bg-gray-100 text-gray-600 dark:bg-[#0A1929] dark:text-gray-400',
   published: 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400',
   confirmed: 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/20 dark:text-[#4ebac4]',
-  completed: 'bg-gray-200 text-gray-500 dark:bg-gray-700 dark:text-gray-400',
+  completed: 'bg-gray-200 text-gray-500 dark:bg-[#0E3D52]/60 dark:text-gray-400',
   cancelled: 'bg-red-100 text-red-600 dark:bg-red-900/40 dark:text-red-400',
 }
 
@@ -206,14 +206,14 @@ function AvailabilityModal({
             <div>
               <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Day</label>
               <select value={form.dayOfWeek} onChange={e => setForm(f => ({ ...f, dayOfWeek: Number(e.target.value) }))}
-                className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
+                className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
                 {DAYS.map((d, i) => <option key={i} value={i}>{d}</option>)}
               </select>
             </div>
             <div>
               <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Status</label>
               <select value={form.isAvailable ? 'yes' : 'no'} onChange={e => setForm(f => ({ ...f, isAvailable: e.target.value === 'yes' }))}
-                className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
+                className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
                 <option value="yes">Available</option>
                 <option value="no">Unavailable</option>
               </select>
@@ -224,19 +224,19 @@ function AvailabilityModal({
             <div>
               <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">From</label>
               <input type="time" value={form.startTime} onChange={e => setForm(f => ({ ...f, startTime: e.target.value }))}
-                className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none" />
+                className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none" />
             </div>
             <div>
               <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">To</label>
               <input type="time" value={form.endTime} onChange={e => setForm(f => ({ ...f, endTime: e.target.value }))}
-                className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none" />
+                className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none" />
             </div>
           </div>
 
           <div>
             <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Note (optional)</label>
             <input type="text" value={form.note} onChange={e => setForm(f => ({ ...f, note: e.target.value }))} placeholder="e.g. Prefer mornings"
-              className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none" />
+              className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none" />
           </div>
 
           <div className="flex gap-3 pt-1">
@@ -435,7 +435,7 @@ function ShiftModal({
           <div>
             <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Employee *</label>
             <select value={form.employeeId} onChange={f('employeeId')} required
-              className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
+              className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
               <option value="">Select employee…</option>
               {employees.map(e => (
                 <option key={e.id} value={e.id}>{e.firstName} {e.lastName}</option>
@@ -446,7 +446,7 @@ function ShiftModal({
           <div>
             <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">NDIS Participant</label>
             <select value={form.participantId} onChange={f('participantId')}
-              className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
+              className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
               <option value="">No participant linked</option>
               {participants.map(p => (
                 <option key={p.id} value={p.id}>
@@ -460,12 +460,12 @@ function ShiftModal({
             <div>
               <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Date *</label>
               <input type="date" value={form.date} onChange={f('date')} required
-                className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none" />
+                className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none" />
             </div>
             <div>
               <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Shift Type</label>
               <select value={form.shiftType} onChange={f('shiftType')}
-                className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
+                className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
                 <option value="standard">Standard</option>
                 <option value="sleepover">Sleepover</option>
                 <option value="active_night">Active Night</option>
@@ -479,12 +479,12 @@ function ShiftModal({
               <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Start</label>
               <div className="flex gap-1">
                 <select value={form.startHour} onChange={f('startHour')}
-                  className="flex-1 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-2 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
+                  className="flex-1 bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-2 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
                   {hours.map(h => <option key={h}>{h}</option>)}
                 </select>
                 <span className="self-center text-gray-600 dark:text-gray-400 text-sm">:</span>
                 <select value={form.startMin} onChange={f('startMin')}
-                  className="flex-1 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-2 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
+                  className="flex-1 bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-2 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
                   {mins.map(m => <option key={m}>{m}</option>)}
                 </select>
               </div>
@@ -493,12 +493,12 @@ function ShiftModal({
               <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">End</label>
               <div className="flex gap-1">
                 <select value={form.endHour} onChange={f('endHour')}
-                  className="flex-1 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-2 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
+                  className="flex-1 bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-2 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
                   {hours.map(h => <option key={h}>{h}</option>)}
                 </select>
                 <span className="self-center text-gray-600 dark:text-gray-400 text-sm">:</span>
                 <select value={form.endMin} onChange={f('endMin')}
-                  className="flex-1 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-2 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
+                  className="flex-1 bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-2 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
                   {mins.map(m => <option key={m}>{m}</option>)}
                 </select>
               </div>
@@ -509,19 +509,19 @@ function ShiftModal({
             <div>
               <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Location</label>
               <input type="text" value={form.location} onChange={f('location')} placeholder="Site / address"
-                className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none" />
+                className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none" />
             </div>
             <div>
               <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Client Site</label>
               <input type="text" value={form.clientSite} onChange={f('clientSite')} placeholder="Property name"
-                className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none" />
+                className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none" />
             </div>
           </div>
 
           <div>
             <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Notes</label>
             <textarea value={form.notes} onChange={f('notes')} rows={2} placeholder="Care instructions, special notes…"
-              className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none resize-none" />
+              className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none resize-none" />
           </div>
 
           <ConfirmModal state={confirmState} onClose={() => setConfirmState(null)} />
@@ -859,13 +859,13 @@ export default function RosteringPage() {
             <table className="table-premium">
               <thead>
                 <tr>
-                  <th className="w-36 px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400  bg-gray-50 dark:bg-gray-800 border-b border-r border-gray-100 dark:border-[#1A6080]/30">
+                  <th className="w-36 px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400  bg-gray-50 dark:bg-[#0A1929] border-b border-r border-gray-100 dark:border-[#1A6080]/30">
                     Employee
                   </th>
                   {weekDays.map((day, i) => {
                     const isToday = isoDate(day) === isoDate(new Date())
                     return (
-                      <th key={i} className={`px-2 py-3 text-center bg-gray-50 dark:bg-gray-800 border-b border-gray-100 dark:border-[#1A6080]/30 ${i < 6 ? 'border-r border-gray-100 dark:border-[#1A6080]/30' : ''}`}>
+                      <th key={i} className={`px-2 py-3 text-center bg-gray-50 dark:bg-[#0A1929] border-b border-gray-100 dark:border-[#1A6080]/30 ${i < 6 ? 'border-r border-gray-100 dark:border-[#1A6080]/30' : ''}`}>
                         <div className={`text-xs font-semibold  ${isToday ? 'text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4]' : 'text-gray-500 dark:text-gray-400'}`}>
                           {DAYS[i]}
                         </div>

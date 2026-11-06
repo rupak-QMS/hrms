@@ -88,7 +88,7 @@ function severityBadge(s: string) {
     minor:    'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/20 dark:text-[#7dcfd7]',
   }
   return (
-    <span className={`px-2 py-0.5 rounded text-xs font-medium ${map[s] ?? 'bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300'}`}>
+    <span className={`px-2 py-0.5 rounded text-xs font-medium ${map[s] ?? 'bg-gray-100 text-gray-700 dark:bg-[#0E3D52]/60 dark:text-gray-300'}`}>
       {s.charAt(0).toUpperCase() + s.slice(1)}
     </span>
   )
@@ -101,11 +101,11 @@ function statusBadge(s: string) {
     closed:      'bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-300',
     active:      'bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-300',
     review:      'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/40 dark:text-yellow-300',
-    inactive:    'bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300',
+    inactive:    'bg-gray-100 text-gray-700 dark:bg-[#0E3D52]/60 dark:text-gray-300',
     expired:     'bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-300',
   }
   return (
-    <span className={`px-2 py-0.5 rounded text-xs font-medium ${map[s] ?? 'bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300'}`}>
+    <span className={`px-2 py-0.5 rounded text-xs font-medium ${map[s] ?? 'bg-gray-100 text-gray-700 dark:bg-[#0E3D52]/60 dark:text-gray-300'}`}>
       {s.charAt(0).toUpperCase() + s.slice(1)}
     </span>
   )
@@ -457,10 +457,10 @@ export default function IncidentBehaviourPage() {
 
   // ─── Render ───────────────────────────────────────────────────────────────
   return (
-    <div className="flex h-full bg-gray-50 dark:bg-gray-900">
+    <div className="flex h-full bg-gray-50 dark:bg-[#0F1E2E]">
 
       {/* ── Left Panel: Participant List ──────────────────────────────────── */}
-      <div className="w-72 flex-shrink-0 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-[#1A6080]/30 flex flex-col">
+      <div className="w-72 flex-shrink-0 bg-white dark:bg-[#0A1929] border-r border-gray-200 dark:border-[#1A6080]/30 flex flex-col">
         <div className="p-4 border-b border-gray-200 dark:border-[#1A6080]/30">
           <h2 className="text-base font-semibold text-gray-900 dark:text-white mb-3">
             🚨 Incidents &amp; Behaviour
@@ -506,7 +506,7 @@ export default function IncidentBehaviourPage() {
         ) : (
           <>
             {/* Header */}
-            <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-[#1A6080]/30 px-6 py-4">
+            <div className="bg-white dark:bg-[#0A1929] border-b border-gray-200 dark:border-[#1A6080]/30 px-6 py-4">
               <div className="flex items-center justify-between">
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
@@ -566,7 +566,7 @@ export default function IncidentBehaviourPage() {
                     }`}
                   >
                     {tab.label}
-                    <span className={`ml-1.5 text-xs px-1.5 py-0.5 rounded-full ${activeTab === tab.key ? 'bg-[#E0EEF4]0 text-white' : 'bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300'}`}>
+                    <span className={`ml-1.5 text-xs px-1.5 py-0.5 rounded-full ${activeTab === tab.key ? 'bg-[#E0EEF4]0 text-white' : 'bg-gray-200 dark:bg-[#0E3D52]/80 text-gray-700 dark:text-gray-300'}`}>
                       {tab.count}
                     </span>
                   </button>

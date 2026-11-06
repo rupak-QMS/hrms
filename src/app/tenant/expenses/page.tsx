@@ -112,7 +112,7 @@ function SubmitModal({ onClose, onSaved }: { onClose: () => void; onSaved: () =>
 
   return (
     <div className="modal-overlay">
-      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-lg">
+      <div className="bg-white dark:bg-[#0A1929] rounded-xl shadow-xl w-full max-w-lg">
         <div className="flex items-center justify-between p-6 border-b dark:border-[#1A6080]/30">
           <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Submit Expense Claim</h2>
           <button onClick={onClose} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 text-2xl">&times;</button>
@@ -125,7 +125,7 @@ function SubmitModal({ onClose, onSaved }: { onClose: () => void; onSaved: () =>
             <input
               required value={form.title} onChange={e => setForm(f => ({ ...f, title: e.target.value }))}
               placeholder="e.g. Flight to Sydney — Client Meeting"
-              className="w-full border dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+              className="w-full border dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-[#0E3D52]/60 text-gray-900 dark:text-white"
             />
           </div>
 
@@ -134,7 +134,7 @@ function SubmitModal({ onClose, onSaved }: { onClose: () => void; onSaved: () =>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Category *</label>
               <select
                 required value={form.category} onChange={e => setForm(f => ({ ...f, category: e.target.value }))}
-                className="w-full border dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                className="w-full border dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-[#0E3D52]/60 text-gray-900 dark:text-white"
               >
                 {CATEGORIES.map(c => <option key={c} value={c}>{CAT_LABELS[c]}</option>)}
               </select>
@@ -145,7 +145,7 @@ function SubmitModal({ onClose, onSaved }: { onClose: () => void; onSaved: () =>
                 required type="number" min="0.01" step="0.01" value={form.amount}
                 onChange={e => setForm(f => ({ ...f, amount: e.target.value }))}
                 placeholder="0.00"
-                className="w-full border dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                className="w-full border dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-[#0E3D52]/60 text-gray-900 dark:text-white"
               />
             </div>
           </div>
@@ -155,7 +155,7 @@ function SubmitModal({ onClose, onSaved }: { onClose: () => void; onSaved: () =>
             <input
               required type="date" value={form.expenseDate}
               onChange={e => setForm(f => ({ ...f, expenseDate: e.target.value }))}
-              className="w-full border dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+              className="w-full border dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-[#0E3D52]/60 text-gray-900 dark:text-white"
             />
           </div>
 
@@ -165,7 +165,7 @@ function SubmitModal({ onClose, onSaved }: { onClose: () => void; onSaved: () =>
               rows={3} value={form.description}
               onChange={e => setForm(f => ({ ...f, description: e.target.value }))}
               placeholder="Provide additional context..."
-              className="w-full border dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white resize-none"
+              className="w-full border dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-[#0E3D52]/60 text-gray-900 dark:text-white resize-none"
             />
           </div>
 
@@ -224,7 +224,7 @@ function ReviewModal({ claim, onClose, onSaved }: { claim: Claim; onClose: () =>
 
   return (
     <div className="modal-overlay">
-      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-lg">
+      <div className="bg-white dark:bg-[#0A1929] rounded-xl shadow-xl w-full max-w-lg">
         <div className="flex items-center justify-between p-6 border-b dark:border-[#1A6080]/30">
           <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Review Expense Claim</h2>
           <button onClick={onClose} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 text-2xl">&times;</button>
@@ -233,7 +233,7 @@ function ReviewModal({ claim, onClose, onSaved }: { claim: Claim; onClose: () =>
           {error && <div className="p-3 bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-300 rounded-lg text-sm">{error}</div>}
 
           {/* Claim summary */}
-          <div className="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-4 space-y-2 text-sm">
+          <div className="bg-gray-50 dark:bg-[#0E3D52]/60/50 rounded-lg p-4 space-y-2 text-sm">
             <div className="flex justify-between">
               <span className="text-gray-500 dark:text-gray-400">Employee</span>
               <span className="font-medium text-gray-900 dark:text-white">{claim.employeeFirstName} {claim.employeeLastName}</span>
@@ -276,7 +276,7 @@ function ReviewModal({ claim, onClose, onSaved }: { claim: Claim; onClose: () =>
                 <textarea
                   rows={3} value={notes} onChange={e => setNotes(e.target.value)}
                   placeholder="Add notes for the employee..."
-                  className="w-full border dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white resize-none"
+                  className="w-full border dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-[#0E3D52]/60 text-gray-900 dark:text-white resize-none"
                 />
               </div>
               <div className="flex gap-3">
@@ -427,10 +427,10 @@ export default function ExpensesPage() {
         <input
           type="text" placeholder="Search claims…" value={search}
           onChange={e => setSearch(e.target.value)}
-          className="flex-1 min-w-[200px] border dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+          className="flex-1 min-w-[200px] border dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-[#0A1929] text-gray-900 dark:text-white"
         />
         <select value={statusFilter} onChange={e => setStatus(e.target.value)}
-          className="border dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
+          className="border dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-[#0A1929] text-gray-900 dark:text-white">
           <option value="all">All Statuses</option>
           <option value="pending">Pending</option>
           <option value="approved">Approved</option>
@@ -438,7 +438,7 @@ export default function ExpensesPage() {
           <option value="paid">Paid</option>
         </select>
         <select value={catFilter} onChange={e => setCat(e.target.value)}
-          className="border dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
+          className="border dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-[#0A1929] text-gray-900 dark:text-white">
           <option value="all">All Categories</option>
           {CATEGORIES.map(c => <option key={c} value={c}>{CAT_LABELS[c]}</option>)}
         </select>
@@ -456,7 +456,7 @@ export default function ExpensesPage() {
         ) : (
           <div className="table-responsive">
             <table className="table-premium">
-            <thead className="bg-gray-50 dark:bg-gray-700/50 border-b dark:border-[#1A6080]/30">
+            <thead className="bg-gray-50 dark:bg-[#0E3D52]/60/50 border-b dark:border-[#1A6080]/30">
               <tr>
                 {['Employee', 'Claim', 'Category', 'Amount', 'Date', 'Status', ''].map(h => (
                   <th key={h} className="text-left px-4 py-3 text-xs font-medium text-gray-500 dark:text-gray-400 ">

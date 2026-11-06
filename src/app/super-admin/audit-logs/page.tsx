@@ -19,7 +19,7 @@ type Tenant = { id: string; name: string }
 
 const ACTION_COLORS: Record<string, string> = {
   login:    'bg-[#E0EEF4] dark:bg-[#E0EEF4] dark:bg-[#0E3D52]/25 text-[#0E3D52] dark:text-[#4ebac4]',
-  logout:   'bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300',
+  logout:   'bg-gray-200 dark:bg-[#0E3D52]/60 text-gray-600 dark:text-gray-300',
   create:   'bg-green-50 dark:bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300',
   update:   'bg-yellow-50 dark:bg-yellow-100 dark:bg-yellow-900/50 text-yellow-700 dark:text-yellow-300',
   delete:   'bg-red-50 dark:bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300',
@@ -30,7 +30,7 @@ const ACTION_COLORS: Record<string, string> = {
 
 function actionColor(action: string) {
   const key = Object.keys(ACTION_COLORS).find(k => action.toLowerCase().includes(k))
-  return key ? ACTION_COLORS[key] : 'bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300'
+  return key ? ACTION_COLORS[key] : 'bg-gray-200 dark:bg-[#0E3D52]/60 text-gray-600 dark:text-gray-300'
 }
 
 function formatDate(iso: string) {
@@ -119,19 +119,19 @@ export default function AuditLogsPage() {
       </div>
 
       {/* Filters */}
-      <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-4">
+      <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           <input
             type="text"
             placeholder="Search action / resource…"
             value={search}
             onChange={e => setSearch(e.target.value)}
-            className="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
+            className="bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
           />
           <select
             value={tenantId}
             onChange={e => setTenantId(e.target.value)}
-            className="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
+            className="bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
           >
             <option value="">All Tenants</option>
             {tenants.map(t => (
@@ -142,13 +142,13 @@ export default function AuditLogsPage() {
             type="date"
             value={from}
             onChange={e => setFrom(e.target.value)}
-            className="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
+            className="bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
           />
           <input
             type="date"
             value={to}
             onChange={e => setTo(e.target.value)}
-            className="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
+            className="bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
           />
         </div>
         <div className="flex gap-2 mt-3">
@@ -168,7 +168,7 @@ export default function AuditLogsPage() {
       </div>
 
       {/* Table */}
-      <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl overflow-hidden">
+      <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
@@ -216,7 +216,7 @@ export default function AuditLogsPage() {
                     </td>
                   </tr>
                   {expanded === log.id && (log.oldValues || log.newValues) && (
-                    <tr key={`${log.id}-detail`} className="bg-gray-100 dark:bg-gray-800/20 border-b border-gray-200 dark:border-[#1A6080]/20/50">
+                    <tr key={`${log.id}-detail`} className="bg-gray-100 dark:bg-[#0A1929]/20 border-b border-gray-200 dark:border-[#1A6080]/20/50">
                       <td colSpan={6} className="px-6 py-3">
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono">
                           {log.oldValues && (

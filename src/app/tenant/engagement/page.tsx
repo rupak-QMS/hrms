@@ -238,20 +238,20 @@ export default function EngagementPage() {
                 </button>
                 {s.isActive && (
                   <button onClick={() => { setSelected(s); setShowResp(true) }}
-                    className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:border-[#0E3D52] px-3 py-1.5 rounded transition">
+                    className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:border-[#0E3D52] px-3 py-1.5 rounded transition">
                     + Record Response
                   </button>
                 )}
                 <button onClick={() => toggleActive(s.id, !s.isActive)}
-                  className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-gray-600 px-3 py-1.5 rounded transition">
+                  className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-gray-600 px-3 py-1.5 rounded transition">
                   {s.isActive ? 'Close' : 'Reopen'}
                 </button>
                 <button onClick={() => openEdit(s)}
-                  className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 text-[#1A6080] dark:text-[#4ebac4] hover:border-[#0E3D52] px-3 py-1.5 rounded transition">
+                  className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-[#1A6080] dark:text-[#4ebac4] hover:border-[#0E3D52] px-3 py-1.5 rounded transition">
                   Edit
                 </button>
                 <button onClick={() => setConfirm({ message: `Delete survey "${s.title}"? This cannot be undone.`, danger: true, onConfirm: () => deleteSurvey(s.id) })}
-                  className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 text-red-400 hover:border-red-700 px-3 py-1.5 rounded transition">
+                  className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-red-400 hover:border-red-700 px-3 py-1.5 rounded transition">
                   Delete
                 </button>
               </div>
@@ -305,7 +305,7 @@ export default function EngagementPage() {
           </div>
           <div className="space-y-3 max-h-80 overflow-y-auto">
             {responses.map(r => (
-              <div key={r.id} className="bg-gray-100 dark:bg-gray-800/50 rounded-lg p-3">
+              <div key={r.id} className="bg-gray-100 dark:bg-[#0A1929]/50 rounded-lg p-3">
                 <p className="text-xs text-gray-500 mb-1 dark:text-gray-400">
                   {selected.isAnonymous ? 'Anonymous' : `${r.employeeFirstName} ${r.employeeLastName}`}
                   <span className="ml-2">{new Date(r.submittedAt).toLocaleDateString('en-AU')}</span>

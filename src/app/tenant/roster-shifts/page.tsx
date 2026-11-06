@@ -245,10 +245,10 @@ export default function RosterShiftsPage() {
   // ─── Render ───────────────────────────────────────────────────────────────
 
   return (
-    <div className="flex flex-col h-full bg-gray-50 dark:bg-gray-900">
+    <div className="flex flex-col h-full bg-gray-50 dark:bg-[#0F1E2E]">
 
       {/* ── Header ───────────────────────────────────────────────────────── */}
-      <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-[#1A6080]/30 px-6 py-4">
+      <div className="bg-white dark:bg-[#0A1929] border-b border-gray-200 dark:border-[#1A6080]/30 px-6 py-4">
         <div className="flex items-center justify-between">
           <h2 className="text-lg font-semibold text-gray-900 dark:text-white">📅 Roster &amp; Shifts</h2>
           <div className="flex items-center gap-2">
@@ -315,7 +315,7 @@ export default function RosterShiftsPage() {
                 const isToday = iso === formatDate(new Date())
                 const dayShifts = shiftsOnDay(iso)
                 return (
-                  <div key={iso} className={`bg-white dark:bg-gray-800 rounded-xl border ${isToday ? 'border-[#1A6080] dark:border-[#4ebac4]' : 'border-gray-200 dark:border-[#1A6080]/30'} flex flex-col min-h-[300px]`}>
+                  <div key={iso} className={`bg-white dark:bg-[#0A1929] rounded-xl border ${isToday ? 'border-[#1A6080] dark:border-[#4ebac4]' : 'border-gray-200 dark:border-[#1A6080]/30'} flex flex-col min-h-[300px]`}>
                     {/* Day header */}
                     <div className={`px-3 py-2 border-b ${isToday ? 'border-[#1A6080] dark:border-[#4ebac4] bg-[#E0EEF4] dark:bg-[#0E3D52]/20' : 'border-gray-200 dark:border-[#1A6080]/30'} rounded-t-xl`}>
                       <p className={`text-xs font-semibold ${isToday ? 'text-[#0E3D52] dark:text-[#7dcfd7]' : 'text-gray-500 dark:text-gray-400'}`}>{DAYS[i]}</p>
@@ -491,7 +491,7 @@ export default function RosterShiftsPage() {
               <button onClick={() => setReviewSwap(null)} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 text-xl">✕</button>
             </div>
             <div className="p-6 space-y-4">
-              <div className="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-4">
+              <div className="bg-gray-50 dark:bg-[#0E3D52]/60/50 rounded-lg p-4">
                 <p className="text-sm font-medium text-gray-900 dark:text-white">{reviewSwap.requesterFirst} {reviewSwap.requesterLast}</p>
                 {reviewSwap.reason && <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{reviewSwap.reason}</p>}
               </div>

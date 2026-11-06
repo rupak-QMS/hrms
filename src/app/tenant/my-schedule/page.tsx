@@ -44,10 +44,10 @@ const SHIFT_TYPE_COLORS: Record<string, string> = {
 }
 
 const STATUS_STYLE: Record<string, string> = {
-  draft:     'bg-gray-100 text-gray-500 dark:bg-gray-800 dark:text-gray-400',
+  draft:     'bg-gray-100 text-gray-500 dark:bg-[#0A1929] dark:text-gray-400',
   published: 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400',
   confirmed: 'bg-teal-100 text-teal-700 dark:bg-teal-900/40 dark:text-teal-400',
-  completed: 'bg-gray-100 text-gray-500 dark:bg-gray-800 dark:text-gray-400',
+  completed: 'bg-gray-100 text-gray-500 dark:bg-[#0A1929] dark:text-gray-400',
   cancelled: 'bg-red-100 text-red-600 dark:bg-red-900/40 dark:text-red-400',
 }
 
@@ -276,7 +276,7 @@ export default function MySchedulePage() {
               <div className="flex items-center gap-2">
                 <label className="text-sm text-green-700 dark:text-green-400">Break taken</label>
                 <select value={breakMins} onChange={e => setBreakMins(Number(e.target.value))}
-                  className="bg-white dark:bg-gray-800 border border-green-300 dark:border-green-700 rounded-lg px-2 py-1 text-sm text-gray-900 dark:text-white">
+                  className="bg-white dark:bg-[#0A1929] border border-green-300 dark:border-green-700 rounded-lg px-2 py-1 text-sm text-gray-900 dark:text-white">
                   {[0,15,20,30,45,60].map(m => (
                     <option key={m} value={m}>{m === 0 ? 'No break' : `${m} min`}</option>
                   ))}
@@ -290,7 +290,7 @@ export default function MySchedulePage() {
           )}
         </div>
       ) : (
-        <div className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-2xl px-5 py-4 flex items-center justify-between gap-4 flex-wrap">
+        <div className="bg-gray-50 dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-2xl px-5 py-4 flex items-center justify-between gap-4 flex-wrap">
           <div>
             <p className="text-sm font-medium text-gray-700 dark:text-gray-300">Not clocked in</p>
             <p className="text-xs text-gray-500 dark:text-gray-400">Clock in when your shift starts</p>
@@ -341,7 +341,7 @@ export default function MySchedulePage() {
                 <div className={`px-5 py-3 flex items-center gap-3 ${
                   today
                     ? 'bg-[#E0EEF4] dark:bg-[#0E3D52]/20'
-                    : 'bg-gray-50 dark:bg-gray-800/50'
+                    : 'bg-gray-50 dark:bg-[#0A1929]/50'
                 }`}>
                   <div className="min-w-[2.5rem] text-center">
                     <p className={`text-[10px] font-semibold  ${
@@ -389,7 +389,7 @@ export default function MySchedulePage() {
                           </div>
 
                           {/* Vertical bar */}
-                          <div className={`w-0.5 self-stretch rounded-full mt-0.5 ${isNow ? 'bg-[#4ebac4]' : 'bg-gray-200 dark:bg-gray-700'}`} />
+                          <div className={`w-0.5 self-stretch rounded-full mt-0.5 ${isNow ? 'bg-[#4ebac4]' : 'bg-gray-200 dark:bg-[#0E3D52]/60'}`} />
 
                           {/* Shift details */}
                           <div className="flex-1 min-w-0">

@@ -4,14 +4,14 @@ import { Bell, Search, ChevronDown } from 'lucide-react'
 
 export default function Topbar() {
   return (
-    <header className="h-14 bg-white border-b border-gray-200 flex items-center justify-between px-6 flex-shrink-0 dark:bg-gray-900 dark:border-[#1A6080]/30">
+    <header className="h-14 bg-white border-b border-gray-200 flex items-center justify-between px-6 flex-shrink-0 dark:bg-[#0F1E2E] dark:border-[#1A6080]/30">
       {/* Search */}
       <div className="relative w-72">
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-600 dark:text-gray-400" />
         <input
           type="search"
           placeholder="Search employees, documents…"
-          className="w-full pl-9 pr-3 py-1.5 text-sm border border-gray-200 rounded-lg bg-gray-50 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white dark:bg-gray-800 dark:border-[#1A6080]/30"
+          className="w-full pl-9 pr-3 py-1.5 text-sm border border-gray-200 rounded-lg bg-gray-50 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white dark:bg-[#0A1929] dark:border-[#1A6080]/30"
         />
       </div>
 

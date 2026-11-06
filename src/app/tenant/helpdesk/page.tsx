@@ -40,7 +40,7 @@ const STATUS_COLOR: Record<Status, string> = {
   in_progress: 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/15 dark:text-[#4ebac4]',
   pending:     'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400',
   resolved:    'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400',
-  closed:      'bg-gray-100 text-gray-500 dark:bg-gray-800 dark:text-gray-400',
+  closed:      'bg-gray-100 text-gray-500 dark:bg-[#0A1929] dark:text-gray-400',
 }
 
 function fmtMins(mins: number | null): string {
@@ -143,9 +143,9 @@ export default function HelpdeskPage() {
       <div className="flex flex-wrap gap-2">
         <input value={q} onChange={e => { setQ(e.target.value); setPage(1) }}
           placeholder="Search tickets…"
-          className="px-3 py-1.5 text-sm border border-gray-200 dark:border-[#1A6080]/30 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#0E3D52] w-48" />
+          className="px-3 py-1.5 text-sm border border-gray-200 dark:border-[#1A6080]/30 rounded-lg bg-white dark:bg-[#0F1E2E] text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#0E3D52] w-48" />
         <select value={status} onChange={e => { setStatus(e.target.value); setPage(1) }}
-          className="px-3 py-1.5 text-sm border border-gray-200 dark:border-[#1A6080]/30 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#0E3D52]">
+          className="px-3 py-1.5 text-sm border border-gray-200 dark:border-[#1A6080]/30 rounded-lg bg-white dark:bg-[#0F1E2E] text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#0E3D52]">
           <option value="">All statuses</option>
           <option value="open">Open</option>
           <option value="in_progress">In Progress</option>
@@ -154,7 +154,7 @@ export default function HelpdeskPage() {
           <option value="closed">Closed</option>
         </select>
         <select value={priority} onChange={e => { setPriority(e.target.value); setPage(1) }}
-          className="px-3 py-1.5 text-sm border border-gray-200 dark:border-[#1A6080]/30 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#0E3D52]">
+          className="px-3 py-1.5 text-sm border border-gray-200 dark:border-[#1A6080]/30 rounded-lg bg-white dark:bg-[#0F1E2E] text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#0E3D52]">
           <option value="">All priorities</option>
           <option value="critical">Critical</option>
           <option value="high">High</option>
@@ -203,7 +203,7 @@ export default function HelpdeskPage() {
                   </td>
                   <td className="px-4 py-3">
                     <div className="flex items-center gap-2 min-w-[100px]">
-                      <div className="flex-1 h-1.5 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+                      <div className="flex-1 h-1.5 bg-gray-100 dark:bg-[#0A1929] rounded-full overflow-hidden">
                         <div
                           className={`h-full rounded-full transition-all ${t.isBreached ? 'bg-red-500' : t.slaUsedPct > 75 ? 'bg-amber-400' : 'bg-emerald-400'}`}
                           style={{ width: `${t.slaUsedPct}%` }}

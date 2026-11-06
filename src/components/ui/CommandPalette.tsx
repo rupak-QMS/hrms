@@ -89,7 +89,7 @@ export default function CommandPalette() {
             {loading ? <span className="inline-block w-4 h-4 border-2 border-gray-300 border-t-[#0E3D52] rounded-full animate-spin" /> : ''}
           </span>
           <input ref={inputRef} value={query} onChange={e => handleInput(e.target.value)} onKeyDown={handleKeyDown} placeholder="Search employees, documents, participants…" className="flex-1 text-sm bg-transparent outline-none text-gray-900 dark:text-white placeholder-gray-400" />
-          <kbd className="hidden sm:inline-flex items-center gap-1 px-1.5 py-0.5 text-[10px] font-mono text-gray-400 bg-gray-100 dark:bg-gray-800 rounded border border-gray-200 dark:border-[#1A6080]/30">ESC</kbd>
+          <kbd className="hidden sm:inline-flex items-center gap-1 px-1.5 py-0.5 text-[10px] font-mono text-gray-400 bg-gray-100 dark:bg-[#0A1929] rounded border border-gray-200 dark:border-[#1A6080]/30">ESC</kbd>
         </div>
         <div className="max-h-[60vh] overflow-y-auto">
           {!hasResults && !isEmpty && query.length < 2 && <div className="px-4 py-6 text-center text-xs text-gray-400">Type at least 2 characters to search</div>}

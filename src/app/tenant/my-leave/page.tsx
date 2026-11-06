@@ -243,14 +243,14 @@ export default function MyLeavePage() {
       )}
 
       {/* Tabs */}
-      <div className="flex gap-1 bg-gray-100 dark:bg-gray-800/60 rounded-xl p-1 w-fit">
+      <div className="flex gap-1 bg-gray-100 dark:bg-[#0A1929]/60 rounded-xl p-1 w-fit">
         {([
           { id: 'history',  label: '📋 History' },
           { id: 'balances', label: '⚖️ Balances' },
         ] as { id: 'history' | 'balances'; label: string }[]).map(t => (
           <button key={t.id} onClick={() => setTab(t.id)}
             className={`px-5 py-2 rounded-lg text-sm font-medium transition ${
-              tab === t.id ? 'bg-white dark:bg-gray-900 text-white shadow-sm' : 'text-gray-500 dark:text-gray-400 hover:text-gray-300'
+              tab === t.id ? 'bg-white dark:bg-[#0F1E2E] text-white shadow-sm' : 'text-gray-500 dark:text-gray-400 hover:text-gray-300'
             }`}>
             {t.label}
           </button>
@@ -453,21 +453,21 @@ export default function MyLeavePage() {
                   </div>
 
                   <div className="grid grid-cols-2 gap-2 text-sm">
-                    <div className="bg-gray-100 dark:bg-gray-800/60 rounded-lg px-3 py-2">
+                    <div className="bg-gray-100 dark:bg-[#0A1929]/60 rounded-lg px-3 py-2">
                       <p className="text-xs text-gray-500 dark:text-gray-400">Entitlement</p>
                       <p className="font-semibold text-foreground">
                         {b.entitlement == null || b.entitlement >= 999 ? '∞' : `${b.entitlement}d`}
                       </p>
                     </div>
-                    <div className="bg-gray-100 dark:bg-gray-800/60 rounded-lg px-3 py-2">
+                    <div className="bg-gray-100 dark:bg-[#0A1929]/60 rounded-lg px-3 py-2">
                       <p className="text-xs text-gray-500 dark:text-gray-400">Taken</p>
                       <p className="font-semibold text-foreground">{b.taken}d</p>
                     </div>
-                    <div className="bg-gray-100 dark:bg-gray-800/60 rounded-lg px-3 py-2">
+                    <div className="bg-gray-100 dark:bg-[#0A1929]/60 rounded-lg px-3 py-2">
                       <p className="text-xs text-gray-500 dark:text-gray-400">Pending</p>
                       <p className="font-semibold text-yellow-400">{b.pending}d</p>
                     </div>
-                    <div className="bg-gray-100 dark:bg-gray-800/60 rounded-lg px-3 py-2">
+                    <div className="bg-gray-100 dark:bg-[#0A1929]/60 rounded-lg px-3 py-2">
                       <p className="text-xs text-gray-500 dark:text-gray-400">Remaining</p>
                       <p className={`font-semibold ${remainingColor}`}>
                         {b.remaining == null ? '∞' : `${b.remaining}d`}
@@ -480,7 +480,7 @@ export default function MyLeavePage() {
                       <div className="flex justify-between text-xs text-gray-600 mb-1 dark:text-gray-400">
                         <span>Used</span><span>{pct}%</span>
                       </div>
-                      <div className="h-1.5 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+                      <div className="h-1.5 bg-gray-100 dark:bg-[#0A1929] rounded-full overflow-hidden">
                         <div className="h-full rounded-full transition-all"
                           style={{
                             width: `${pct}%`,

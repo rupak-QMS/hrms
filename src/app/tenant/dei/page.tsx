@@ -119,7 +119,7 @@ export default function DEIPage() {
         <p className="text-sm font-semibold text-[#4ebac4]">{isEdit ? 'Edit DEI Record' : 'Add DEI Data'}</p>
         <button type="button" onClick={() => { setShowForm(false); setEditRecord(null); setForm(BLANK_FORM) }} className="text-xs text-gray-500 hover:text-gray-300">✕ Cancel</button>
       </div>
-      <p className="text-xs text-gray-500 bg-gray-100 dark:bg-gray-800 rounded-lg p-3 dark:text-gray-400">
+      <p className="text-xs text-gray-500 bg-gray-100 dark:bg-[#0A1929] rounded-lg p-3 dark:text-gray-400">
         This information is self-reported and confidential. It is used only for aggregate reporting to support DEI initiatives.
       </p>
       {!isEdit && (
@@ -213,7 +213,7 @@ export default function DEIPage() {
           <p className="text-xs font-semibold text-gray-500  mb-3 dark:text-gray-400">Gender</p>
           <div className="flex flex-wrap gap-3">
             {Object.entries(summary.byGender).map(([g, n]) => (
-              <div key={g} className="bg-gray-100 dark:bg-gray-800 rounded-lg px-4 py-2">
+              <div key={g} className="bg-gray-100 dark:bg-[#0A1929] rounded-lg px-4 py-2">
                 <p className="text-gray-600 dark:text-gray-300 text-sm font-medium">{g}</p>
                 <p className="text-white text-lg font-bold">{n} <span className="text-xs text-gray-500 dark:text-gray-400">{pct(n)}</span></p>
               </div>

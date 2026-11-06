@@ -231,14 +231,14 @@ export default function PublicHolidaysPage() {
           <div className="flex items-center gap-2">
             <button
               onClick={() => setYear(y => y - 1)}
-              className="px-3 py-1.5 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white hover:border-gray-500 transition-colors"
+              className="px-3 py-1.5 bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white hover:border-gray-500 transition-colors"
             >←</button>
-            <span className="px-4 py-1.5 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg text-gray-900 dark:text-white font-semibold min-w-[80px] text-center">
+            <span className="px-4 py-1.5 bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg text-gray-900 dark:text-white font-semibold min-w-[80px] text-center">
               {year}
             </span>
             <button
               onClick={() => setYear(y => y + 1)}
-              className="px-3 py-1.5 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white hover:border-gray-500 transition-colors"
+              className="px-3 py-1.5 bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white hover:border-gray-500 transition-colors"
             >→</button>
           </div>
 
@@ -247,7 +247,7 @@ export default function PublicHolidaysPage() {
             <button
               onClick={importHolidays}
               disabled={importing}
-              className="px-4 py-2 bg-gray-200 dark:bg-gray-700 hover:bg-gray-600 disabled:opacity-50 text-gray-900 dark:text-white text-sm font-medium rounded-lg transition-colors"
+              className="px-4 py-2 bg-gray-200 dark:bg-[#0E3D52]/60 hover:bg-gray-600 disabled:opacity-50 text-gray-900 dark:text-white text-sm font-medium rounded-lg transition-colors"
               title={`Auto-import ${year} public holidays from Nager.Date for ${tenantCountry}`}
             >
               {importing ? 'Importing…' : `Import ${year}`}
@@ -395,8 +395,8 @@ export default function PublicHolidaysPage() {
       {loading ? (
         <div className="text-center py-16 text-gray-500 dark:text-gray-400">Loading…</div>
       ) : holidays.length === 0 ? (
-        <div className="text-center py-16 bg-gray-100 dark:bg-gray-800/50 rounded-2xl border border-gray-300 dark:border-[#1A6080]/30">
-          <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-gray-800 mx-auto mb-3">
+        <div className="text-center py-16 bg-gray-100 dark:bg-[#0A1929]/50 rounded-2xl border border-gray-300 dark:border-[#1A6080]/30">
+          <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-[#0A1929] mx-auto mb-3">
                 <svg className="w-6 h-6 text-gray-600 dark:text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
                 </svg>
@@ -461,7 +461,7 @@ export default function PublicHolidaysPage() {
                                 </span>
                               )}
                               {h.state && (
-                                <span className="text-xs px-2 py-0.5 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 border border-gray-600">
+                                <span className="text-xs px-2 py-0.5 rounded-full bg-gray-200 dark:bg-[#0E3D52]/60 text-gray-600 dark:text-gray-300 border border-gray-600">
                                   {h.state}
                                 </span>
                               )}

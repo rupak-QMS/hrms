@@ -169,7 +169,7 @@ export default function FileUpload({
         {uploading ? (
           <div className="space-y-2">
             <p className="text-sm text-[#4ebac4]">Uploading… {progress}%</p>
-            <div className="w-full bg-gray-100 dark:bg-gray-800 rounded-full h-1.5 overflow-hidden">
+            <div className="w-full bg-gray-100 dark:bg-[#0A1929] rounded-full h-1.5 overflow-hidden">
               <div
                 className="bg-[#f0f7fb]0 h-1.5 rounded-full transition-all duration-200"
                 style={{ width: `${progress}%` }}

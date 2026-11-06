@@ -229,11 +229,11 @@ function LeadsTab() {
             <div key={stage.key}
               onDragOver={e => e.preventDefault()}
               onDrop={() => { if (dragging) { moveStage(dragging, stage.key); setDragging(null) } }}
-              className="bg-gray-50 dark:bg-gray-800/60 rounded-xl p-3 min-h-[200px]">
+              className="bg-gray-50 dark:bg-[#0A1929]/60 rounded-xl p-3 min-h-[200px]">
               <div className="flex items-center gap-2 mb-2.5">
                 <div className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ background: stage.color }} />
                 <span className="font-semibold text-[13px] text-gray-700 dark:text-gray-300">{stage.label}</span>
-                <span className="ml-auto bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-full px-2 py-0.5 text-[11px]">
+                <span className="ml-auto bg-gray-200 dark:bg-[#0E3D52]/60 text-gray-600 dark:text-gray-400 rounded-full px-2 py-0.5 text-[11px]">
                   {stageLeads(stage.key).length}
                 </span>
               </div>
@@ -242,7 +242,7 @@ function LeadsTab() {
                   <div key={lead.id} draggable
                     onDragStart={() => setDragging(lead.id)}
                     onDragEnd={() => setDragging(null)}
-                    className="group bg-white dark:bg-gray-800 rounded-lg p-3 shadow-sm cursor-grab select-none border-2 transition-colors relative"
+                    className="group bg-white dark:bg-[#0A1929] rounded-lg p-3 shadow-sm cursor-grab select-none border-2 transition-colors relative"
                     style={{ borderColor: dragging === lead.id ? stage.color : 'transparent' }}>
                     <button
                       onClick={e => { e.stopPropagation(); setConfirm({ message: `Delete lead ${lead.firstName} ${lead.lastName}?`, confirmLabel: 'Delete', onConfirm: () => deleteLead(lead.id) }) }}
@@ -312,7 +312,7 @@ function LeadsTab() {
             <textarea className="input-premium min-h-[80px] resize-y" value={form.notes} onChange={e => setForm(p => ({ ...p, notes: e.target.value }))} placeholder="Add any notes…" />
           </Field>
           <div className="flex gap-2.5 justify-end mt-2">
-            <button onClick={() => setModal(false)} className="px-4 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/40 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 cursor-pointer text-sm hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors">Cancel</button>
+            <button onClick={() => setModal(false)} className="px-4 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/40 bg-white dark:bg-[#0A1929] text-gray-700 dark:text-gray-300 cursor-pointer text-sm hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors">Cancel</button>
             <button onClick={create} disabled={saving || !form.firstName.trim()}
               className="px-4 py-2 rounded-lg bg-[#0E3D52] hover:bg-[#1A6080] text-white border-none cursor-pointer font-semibold text-sm transition-colors disabled:opacity-50">
               {saving ? 'Creating…' : 'Create Lead'}
@@ -459,7 +459,7 @@ function ContactsTab() {
             <textarea className="input-premium min-h-[80px] resize-y" value={form.notes} onChange={e => setForm(p => ({ ...p, notes: e.target.value }))} />
           </Field>
           <div className="flex gap-2.5 justify-end mt-2">
-            <button onClick={() => setModal(false)} className="px-4 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/40 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 cursor-pointer text-sm hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors">Cancel</button>
+            <button onClick={() => setModal(false)} className="px-4 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/40 bg-white dark:bg-[#0A1929] text-gray-700 dark:text-gray-300 cursor-pointer text-sm hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors">Cancel</button>
             <button onClick={create} disabled={saving || !form.firstName.trim()}
               className="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white border-none cursor-pointer font-semibold text-sm transition-colors disabled:opacity-50">
               {saving ? 'Creating…' : 'Create Contact'}
@@ -609,7 +609,7 @@ function AccountsTab() {
             <textarea className="input-premium min-h-[80px] resize-y" value={form.notes} onChange={e => setForm(p => ({ ...p, notes: e.target.value }))} />
           </Field>
           <div className="flex gap-2.5 justify-end mt-2">
-            <button onClick={() => setModal(false)} className="px-4 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/40 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 cursor-pointer text-sm hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors">Cancel</button>
+            <button onClick={() => setModal(false)} className="px-4 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/40 bg-white dark:bg-[#0A1929] text-gray-700 dark:text-gray-300 cursor-pointer text-sm hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors">Cancel</button>
             <button onClick={create} disabled={saving || !form.name.trim()}
               className="px-4 py-2 rounded-lg bg-[#0E3D52] hover:bg-[#1A6080] text-white border-none cursor-pointer font-semibold text-sm transition-colors disabled:opacity-50">
               {saving ? 'Creating…' : 'Create Account'}
@@ -691,7 +691,7 @@ function DealsTab() {
             const total = deals.filter(d => d.stage === s).reduce((sum, d) => sum + Number(d.value ?? 0), 0)
             const label = s === 'closed_won' ? '✅ Won' : s === 'prospecting' ? '🔍 Pipeline' : '📄 In Proposal'
             return total > 0 ? (
-              <div key={s} className="bg-gray-100 dark:bg-gray-800 rounded-lg px-3 py-2 text-sm">
+              <div key={s} className="bg-gray-100 dark:bg-[#0A1929] rounded-lg px-3 py-2 text-sm">
                 <span className="text-gray-500 dark:text-gray-400">{label}: </span>
                 <span className={`font-bold ${s === 'closed_won' ? 'text-emerald-600 dark:text-emerald-400' : 'text-gray-900 dark:text-white'}`}>{fmt(String(total))}</span>
               </div>
@@ -713,12 +713,12 @@ function DealsTab() {
             <div key={stage.key}
               onDragOver={e => e.preventDefault()}
               onDrop={() => { if (dragging) { moveStage(dragging, stage.key); setDragging(null) } }}
-              className="bg-gray-50 dark:bg-gray-800/60 rounded-xl p-2.5 min-h-[200px]">
+              className="bg-gray-50 dark:bg-[#0A1929]/60 rounded-xl p-2.5 min-h-[200px]">
               <div className="mb-2">
                 <div className="flex items-center gap-1.5 mb-0.5">
                   <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: stageColor(stage.key) }} />
                   <span className="font-semibold text-[12px] text-gray-700 dark:text-gray-300">{stage.label}</span>
-                  <span className="ml-auto bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400 rounded-full px-1.5 text-[10px]">{stageDeals(stage.key).length}</span>
+                  <span className="ml-auto bg-gray-200 dark:bg-[#0E3D52]/60 text-gray-500 dark:text-gray-400 rounded-full px-1.5 text-[10px]">{stageDeals(stage.key).length}</span>
                 </div>
                 {stageValue(stage.key) > 0 && (
                   <div className="text-[11px] text-gray-500 dark:text-gray-400 pl-3.5 font-semibold">{fmt(String(stageValue(stage.key)))}</div>
@@ -729,7 +729,7 @@ function DealsTab() {
                   <div key={deal.id} draggable
                     onDragStart={() => setDragging(deal.id)}
                     onDragEnd={() => setDragging(null)}
-                    className="group bg-white dark:bg-gray-800 rounded-lg p-2.5 shadow-sm cursor-grab select-none border-2 transition-colors relative"
+                    className="group bg-white dark:bg-[#0A1929] rounded-lg p-2.5 shadow-sm cursor-grab select-none border-2 transition-colors relative"
                     style={{ borderColor: dragging === deal.id ? stageColor(stage.key) : 'transparent' }}>
                     <button onClick={e => { e.stopPropagation(); setConfirm({ message: `Delete deal "${deal.title}"?`, confirmLabel: 'Delete', onConfirm: () => deleteDeal(deal.id) }) }}
                       className="absolute top-1 right-1 opacity-0 group-hover:opacity-100 p-0.5 rounded text-gray-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition">
@@ -739,7 +739,7 @@ function DealsTab() {
                     {deal.accountName && <div className="text-[11px] text-gray-500 dark:text-gray-400">{deal.accountName}</div>}
                     {deal.value      && <div className="text-[12px] text-emerald-600 dark:text-emerald-400 font-bold mt-1">{fmt(deal.value)}</div>}
                     {deal.closeDate  && <div className="text-[10px] text-gray-400 dark:text-gray-500 mt-0.5">Close: {deal.closeDate}</div>}
-                    <div className="mt-1 h-[3px] bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
+                    <div className="mt-1 h-[3px] bg-gray-100 dark:bg-[#0E3D52]/60 rounded-full overflow-hidden">
                       <div className="h-full rounded-full" style={{ width: `${deal.probability ?? 0}%`, background: stageColor(stage.key) }} />
                     </div>
                   </div>
@@ -781,7 +781,7 @@ function DealsTab() {
             <textarea className="input-premium min-h-[80px] resize-y" value={form.notes} onChange={e => setForm(p => ({ ...p, notes: e.target.value }))} />
           </Field>
           <div className="flex gap-2.5 justify-end mt-2">
-            <button onClick={() => setModal(false)} className="px-4 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/40 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 cursor-pointer text-sm hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors">Cancel</button>
+            <button onClick={() => setModal(false)} className="px-4 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/40 bg-white dark:bg-[#0A1929] text-gray-700 dark:text-gray-300 cursor-pointer text-sm hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors">Cancel</button>
             <button onClick={create} disabled={saving || !form.title.trim()}
               className="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white border-none cursor-pointer font-semibold text-sm transition-colors disabled:opacity-50">
               {saving ? 'Creating…' : 'Create Deal'}
@@ -840,12 +840,12 @@ function ActivitiesTab() {
   return (
     <div>
       <div className="flex gap-3 mb-5 flex-wrap items-center">
-        <div className="flex bg-gray-100 dark:bg-gray-800 rounded-lg p-1 gap-0">
+        <div className="flex bg-gray-100 dark:bg-[#0A1929] rounded-lg p-1 gap-0">
           {(['all','pending','done'] as const).map(f => (
             <button key={f} onClick={() => setFilter(f)}
               className={`px-3.5 py-1.5 rounded-md border-none cursor-pointer font-semibold text-sm transition-all ${
                 filter === f
-                  ? 'bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-sm'
+                  ? 'bg-white dark:bg-[#0E3D52]/60 text-gray-900 dark:text-white shadow-sm'
                   : 'bg-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
               }`}>
               {f.charAt(0).toUpperCase() + f.slice(1)}
@@ -928,7 +928,7 @@ function ActivitiesTab() {
             <textarea className="input-premium min-h-[80px] resize-y" value={form.notes} onChange={e => setForm(p => ({ ...p, notes: e.target.value }))} />
           </Field>
           <div className="flex gap-2.5 justify-end mt-2">
-            <button onClick={() => setModal(false)} className="px-4 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/40 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 cursor-pointer text-sm hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors">Cancel</button>
+            <button onClick={() => setModal(false)} className="px-4 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/40 bg-white dark:bg-[#0A1929] text-gray-700 dark:text-gray-300 cursor-pointer text-sm hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors">Cancel</button>
             <button onClick={create} disabled={saving || !form.subject.trim()}
               className="px-4 py-2 rounded-lg bg-amber-500 hover:bg-amber-600 text-white border-none cursor-pointer font-semibold text-sm transition-colors disabled:opacity-50">
               {saving ? 'Saving…' : 'Log Activity'}

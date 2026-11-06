@@ -118,7 +118,7 @@ EMP001,Jane,Smith,jane.smith@example.com,full_time,2026-01-15,,+61400000001,Yahw
                 </div>
                 <div className="border border-gray-200 dark:border-[#1A6080]/30 rounded-xl overflow-hidden">
                   <table className="w-full text-xs">
-                    <thead className="bg-gray-50 dark:bg-gray-800 text-gray-500 dark:text-gray-400">
+                    <thead className="bg-gray-50 dark:bg-[#0A1929] text-gray-500 dark:text-gray-400">
                       <tr>
                         <th className="text-left px-3 py-2">Row</th>
                         <th className="text-left px-3 py-2">Employee #</th>
@@ -192,7 +192,7 @@ EMP001,Jane,Smith,jane.smith@example.com,full_time,2026-01-15,,+61400000001,Yahw
                 />
                 {file ? (
                   <>
-                    <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-gray-800 mx-auto mb-3">
+                    <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-[#0A1929] mx-auto mb-3">
                 <svg className="w-6 h-6 text-gray-600 dark:text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
                 </svg>
@@ -507,12 +507,12 @@ export default function EmployeeManagementPage() {
           placeholder="Search name, email, emp #…"
           value={search}
           onChange={e => setSearch(e.target.value)}
-          className="flex-1 min-w-[200px] bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 placeholder-gray-400 focus:outline-none focus:border-[#0E3D52] dark:placeholder-gray-500"
+          className="flex-1 min-w-[200px] bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 placeholder-gray-400 focus:outline-none focus:border-[#0E3D52] dark:placeholder-gray-500"
         />
         <select
           value={status}
           onChange={e => setStatus(e.target.value)}
-          className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-700 dark:text-gray-300 focus:outline-none"
+          className="bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-700 dark:text-gray-300 focus:outline-none"
         >
           <option value="">All Status</option>
           <option value="active">Active</option>
@@ -521,7 +521,7 @@ export default function EmployeeManagementPage() {
         <select
           value={empType}
           onChange={e => setEmpType(e.target.value)}
-          className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-700 dark:text-gray-300 focus:outline-none"
+          className="bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-700 dark:text-gray-300 focus:outline-none"
         >
           <option value="">All Types</option>
           {Object.entries(EMP_TYPE_LABEL).map(([v, l]) => (
@@ -570,7 +570,7 @@ export default function EmployeeManagementPage() {
                   {bulkLoading ? 'Working…' : 'Deactivate'}
                 </button>
               </PermissionGate>
-              <button onClick={bulkExport} className="px-3 py-1 text-xs rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 text-gray-700 dark:text-gray-300 hover:bg-gray-50">
+              <button onClick={bulkExport} className="px-3 py-1 text-xs rounded-lg bg-white dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 text-gray-700 dark:text-gray-300 hover:bg-gray-50">
                 Export selected
               </button>
               <button onClick={() => setSelected(new Set())} className="ml-auto text-xs text-[#1A6080] hover:text-[#0E3D52] dark:text-[#4ebac4]">Clear</button>
@@ -678,7 +678,7 @@ export default function EmployeeManagementPage() {
                             className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-xs font-medium transition-all ${
                               emp.isActive
                                 ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 hover:bg-green-200 dark:hover:bg-green-900/50'
-                                : 'bg-gray-100 dark:bg-gray-800 text-gray-500 hover:bg-gray-200 dark:hover:bg-[#0E3D52]/40'
+                                : 'bg-gray-100 dark:bg-[#0A1929] text-gray-500 hover:bg-gray-200 dark:hover:bg-[#0E3D52]/40'
                             } ${togglingId === emp.id ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
                           >
                             <span className={`w-1.5 h-1.5 rounded-full ${emp.isActive ? 'bg-green-500' : 'bg-gray-400'}`} />

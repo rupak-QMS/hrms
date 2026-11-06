@@ -269,7 +269,7 @@ export default function ToilPage() {
         <div className="flex flex-col gap-3 flex-1">
           <div className="flex gap-3 flex-wrap">
             <select
-              className="px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+              className="px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
               value={selectedEmployee}
               onChange={e => setSelectedEmployee(e.target.value)}
             >
@@ -280,7 +280,7 @@ export default function ToilPage() {
             </select>
             {selectedEmployee && (
               <input
-                className="px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                className="px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                 placeholder="Search entries…"
                 value={searchEntries}
                 onChange={e => setSearchEntries(e.target.value)}
@@ -392,7 +392,7 @@ export default function ToilPage() {
               {rejecting === entry.id && (
                 <div className="mt-3 flex gap-2">
                   <input
-                    className="flex-1 px-3 py-1.5 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-900 text-sm text-gray-900 dark:text-white"
+                    className="flex-1 px-3 py-1.5 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0F1E2E] text-sm text-gray-900 dark:text-white"
                     placeholder="Reason for rejection…"
                     value={rejectReason}
                     onChange={e => setRejectReason(e.target.value)}
@@ -427,7 +427,7 @@ export default function ToilPage() {
             <div className="space-y-3">
               <div>
                 <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Employee *</label>
-                <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                   value={form.employeeId} onChange={e => setForm(f => ({ ...f, employeeId: e.target.value }))}>
                   <option value="">Select employee…</option>
                   {employees.map(emp => (
@@ -438,7 +438,7 @@ export default function ToilPage() {
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Entry Type</label>
-                  <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                  <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                     value={form.entryType} onChange={e => setForm(f => ({ ...f, entryType: e.target.value }))}>
                     <option value="accrual">Accrual (overtime worked)</option>
                     <option value="taken">Taken (TOIL leave)</option>
@@ -448,19 +448,19 @@ export default function ToilPage() {
                 </div>
                 <div>
                   <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Work Date *</label>
-                  <input type="date" className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                  <input type="date" className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                     value={form.workDate} onChange={e => setForm(f => ({ ...f, workDate: e.target.value }))} />
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Hours *</label>
-                  <input type="number" step="0.25" min="0.25" className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                  <input type="number" step="0.25" min="0.25" className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                     value={form.hours} onChange={e => setForm(f => ({ ...f, hours: e.target.value }))} placeholder="e.g. 2.5" />
                 </div>
                 <div>
                   <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Multiplier</label>
-                  <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                  <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                     value={form.multiplier} onChange={e => setForm(f => ({ ...f, multiplier: e.target.value }))}>
                     <option value="1.0">1.0× (standard)</option>
                     <option value="1.5">1.5× (time and a half)</option>
@@ -470,7 +470,7 @@ export default function ToilPage() {
               </div>
               <div>
                 <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Description</label>
-                <input className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                <input className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                   value={form.description} onChange={e => setForm(f => ({ ...f, description: e.target.value }))} placeholder="e.g. Emergency on-call weekend coverage" />
               </div>
               {form.entryType !== 'accrual' && (

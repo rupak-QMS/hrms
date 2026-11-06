@@ -34,8 +34,8 @@ const TYPE_COLOR: Record<string, { bg: string; text: string }> = {
   recruitment:     { bg: 'bg-[#0E3D52]/[0.07] dark:bg-[#4ebac4]/10', text: 'text-[#1A6080] dark:text-[#4ebac4]' },
   training:        { bg: 'bg-[#E0EEF4] dark:bg-[#0E3D52]/15',    text: 'text-[#1A6080] dark:text-[#4ebac4]' },
   performance:     { bg: 'bg-[#0E3D52]/[0.07] dark:bg-[#4ebac4]/10', text: 'text-[#1A6080] dark:text-[#4ebac4]' },
-  system:          { bg: 'bg-gray-50 dark:bg-gray-800',       text: 'text-gray-500 dark:text-gray-400' },
-  general:         { bg: 'bg-gray-50 dark:bg-gray-800',       text: 'text-gray-500 dark:text-gray-400' },
+  system:          { bg: 'bg-gray-50 dark:bg-[#0A1929]',       text: 'text-gray-500 dark:text-gray-400' },
+  general:         { bg: 'bg-gray-50 dark:bg-[#0A1929]',       text: 'text-gray-500 dark:text-gray-400' },
 }
 function NotifIcon({ type }: { type: string }) {
   const c = TYPE_COLOR[type] ?? TYPE_COLOR.general
@@ -175,7 +175,7 @@ export default function NotificationsPage() {
         <div className="flex items-center gap-3 mb-4">
           <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Notify if expiring within</label>
           <select value={daysAhead} onChange={e => setDaysAhead(Number(e.target.value))}
-            className="bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white">
+            className="bg-gray-50 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white">
             {[3, 7, 14, 30].map(d => <option key={d} value={d}>{d} days</option>)}
           </select>
         </div>
@@ -185,7 +185,7 @@ export default function NotificationsPage() {
         )}
 
         {result && (
-          <div className={`rounded-xl p-4 mb-4 border ${result.sent > 0 ? 'bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800' : 'bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-[#1A6080]/30'}`}>
+          <div className={`rounded-xl p-4 mb-4 border ${result.sent > 0 ? 'bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800' : 'bg-gray-50 dark:bg-[#0A1929] border-gray-200 dark:border-[#1A6080]/30'}`}>
             <p className="text-sm font-semibold text-gray-900 dark:text-white mb-1">
               {result.sent > 0 ? 'Alerts sent' : 'ℹ️ Scan complete'}
             </p>
@@ -218,7 +218,7 @@ export default function NotificationsPage() {
         </button>
 
         <p className="text-xs text-gray-600 dark:text-gray-400 dark:text-gray-500 mt-3">
-          To automate this daily, add <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-xs">vercel.json</code> with a cron job — see setup guide below.
+          To automate this daily, add <code className="bg-gray-100 dark:bg-[#0A1929] px-1 py-0.5 rounded text-xs">vercel.json</code> with a cron job — see setup guide below.
         </p>
       </div>
 
@@ -226,7 +226,7 @@ export default function NotificationsPage() {
       <div className="bg-gray-50 dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/30 rounded-xl p-5">
         <h3 className="font-semibold text-gray-700 dark:text-gray-300 mb-2 text-sm">⏰ Automate with Vercel Cron</h3>
         <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">Add this to <code>vercel.json</code> in your project root to run expiry alerts every day at 7am UTC:</p>
-        <pre className="bg-gray-100 dark:bg-gray-800 rounded-lg p-3 text-xs text-gray-700 dark:text-gray-300 overflow-x-auto">{`{
+        <pre className="bg-gray-100 dark:bg-[#0A1929] rounded-lg p-3 text-xs text-gray-700 dark:text-gray-300 overflow-x-auto">{`{
   "crons": [
     {
       "path": "/api/tenant/notifications/send",

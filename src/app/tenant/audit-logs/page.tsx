@@ -98,7 +98,7 @@ export default function AuditLogsPage() {
 
       {loading ? <div className="text-gray-600 dark:text-gray-400 text-sm">Loading…</div> : logs.length === 0 ? (
         <div className="card-premium py-14 text-center">
-          <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-gray-800 mx-auto mb-3">
+          <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-[#0A1929] mx-auto mb-3">
                 <svg className="w-6 h-6 text-gray-600 dark:text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
                 </svg>
@@ -151,13 +151,13 @@ export default function AuditLogsPage() {
                         </td>
                       </tr>
                       {isOpen && hasDetails && (
-                        <tr key={`${log.id}-detail`} className="bg-gray-50 dark:bg-gray-950">
+                        <tr key={`${log.id}-detail`} className="bg-gray-50 dark:bg-[#070F1A]">
                           <td colSpan={6} className="px-4 py-3">
                             <div className="grid grid-cols-2 gap-4">
                               {log.oldValues !== null && (
                                 <div>
                                   <p className="text-xs font-semibold text-red-400 mb-1">Before</p>
-                                  <pre className="text-xs text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-900 rounded-lg p-3 overflow-x-auto max-h-48">
+                                  <pre className="text-xs text-gray-600 dark:text-gray-400 bg-white dark:bg-[#0F1E2E] rounded-lg p-3 overflow-x-auto max-h-48">
                                     {formatValue(log.oldValues)}
                                   </pre>
                                 </div>
@@ -165,7 +165,7 @@ export default function AuditLogsPage() {
                               {log.newValues !== null && (
                                 <div>
                                   <p className="text-xs font-semibold text-green-400 mb-1">After</p>
-                                  <pre className="text-xs text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-900 rounded-lg p-3 overflow-x-auto max-h-48">
+                                  <pre className="text-xs text-gray-600 dark:text-gray-400 bg-white dark:bg-[#0F1E2E] rounded-lg p-3 overflow-x-auto max-h-48">
                                     {formatValue(log.newValues)}
                                   </pre>
                                 </div>

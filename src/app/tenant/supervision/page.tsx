@@ -228,7 +228,7 @@ export default function SupervisionPage() {
 
       {loading ? <div className="text-gray-600 dark:text-gray-400 text-sm">Loading…</div> : records.length === 0 ? (
         <div className="card-premium py-14 text-center">
-          <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-gray-800 mx-auto mb-3">
+          <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-[#0A1929] mx-auto mb-3">
                 <svg className="w-6 h-6 text-gray-600 dark:text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
                 </svg>
@@ -253,7 +253,7 @@ export default function SupervisionPage() {
                       <span className="text-foreground font-medium text-sm">
                         {r.employeeFirstName} {r.employeeLastName}
                       </span>
-                      <span className="text-xs text-gray-500 bg-gray-100 dark:bg-gray-800 px-2 py-0.5 rounded-full dark:text-gray-400">
+                      <span className="text-xs text-gray-500 bg-gray-100 dark:bg-[#0A1929] px-2 py-0.5 rounded-full dark:text-gray-400">
                         {SUP_TYPES.find(t => t.value === r.type)?.label ?? r.type ?? 'Regular'}
                       </span>
                       <span className={`text-xs px-2.5 py-0.5 rounded-full border font-medium ${STATUS_STYLE[r.status] ?? 'badge badge-gray'}`}>
@@ -292,7 +292,7 @@ export default function SupervisionPage() {
                       ) : (
                         <ul className="space-y-1.5 mb-2">
                           {r.actionItems.map((item, i) => (
-                            <li key={i} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-gray-800/50 rounded-lg px-3 py-2">
+                            <li key={i} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-[#0A1929]/50 rounded-lg px-3 py-2">
                               <span className="text-[#1A6080] dark:text-[#4ebac4] shrink-0">•</span>
                               <span className="flex-1">{item}</span>
                               {r.status !== 'completed' && (
@@ -311,7 +311,7 @@ export default function SupervisionPage() {
                             placeholder="Add action item… (Enter to add)"
                             className="flex-1 input-premium py-1.5 text-xs" />
                           <button onClick={() => addAction(r.id, r.actionItems)}
-                            className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:border-[#0E3D52] px-3 py-1.5 rounded-lg transition">
+                            className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:border-[#0E3D52] px-3 py-1.5 rounded-lg transition">
                             Add
                           </button>
                         </div>

@@ -314,7 +314,7 @@ export default function ContractsPage() {
                   <div className="flex-1 min-w-0 cursor-pointer" onClick={() => setExpanded(isOpen ? null : c.id)}>
                     <div className="flex items-center gap-2 flex-wrap mb-0.5">
                       <span className="text-foreground font-medium text-sm">{c.employeeFirstName} {c.employeeLastName}</span>
-                      <span className="text-xs text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-2 py-0.5 rounded-full">
+                      <span className="text-xs text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-[#0A1929] px-2 py-0.5 rounded-full">
                         {CONTRACT_TYPES.find(t => t.value === c.type)?.label ?? c.type}
                       </span>
                       <span className={`text-xs px-2.5 py-0.5 rounded-full border font-medium ${STATUS_STYLE[c.status] ?? 'badge badge-gray'}`}>
@@ -381,7 +381,7 @@ export default function ContractsPage() {
                           </button>
                         )}
                         <button onClick={() => patch(c.id, { status: 'void' })}
-                          className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-red-700 hover:text-red-400 px-3 py-1.5 rounded-lg transition">
+                          className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-red-700 hover:text-red-400 px-3 py-1.5 rounded-lg transition">
                           Void
                         </button>
                       </div>
@@ -429,7 +429,7 @@ export default function ContractsPage() {
                         </div>
                       </div>
                       <button onClick={() => saveTaxSuper(c.id)}
-                        className="mt-2 text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:border-[#0E3D52] px-3 py-1.5 rounded-lg transition">
+                        className="mt-2 text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:border-[#0E3D52] px-3 py-1.5 rounded-lg transition">
                         Save Tax & Super
                       </button>
                     </div>

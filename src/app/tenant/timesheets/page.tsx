@@ -296,7 +296,7 @@ function TimesheetRow({
       </td>
       <td className="px-4 py-3 text-sm text-gray-500 dark:text-gray-400">
         {ts.shiftType && (
-          <span className="inline-block text-xs px-1.5 py-0.5 rounded bg-gray-100 dark:bg-gray-800 mr-1">
+          <span className="inline-block text-xs px-1.5 py-0.5 rounded bg-gray-100 dark:bg-[#0A1929] mr-1">
             {ts.shiftType.replace(/_/g,' ')}
           </span>
         )}
@@ -557,7 +557,7 @@ export default function TimesheetsPage() {
           <div className="overflow-x-auto">
             <table className="table-premium">
               <thead>
-                <tr className="bg-gray-50 dark:bg-gray-800 border-b border-gray-100 dark:border-[#1A6080]/30">
+                <tr className="bg-gray-50 dark:bg-[#0A1929] border-b border-gray-100 dark:border-[#1A6080]/30">
                   {isManager && (
                     <th className="px-3 py-3 w-10">
                       <input
@@ -602,7 +602,7 @@ export default function TimesheetsPage() {
               </tbody>
               {isManager && (
                 <tfoot>
-                  <tr className="bg-gray-50 dark:bg-gray-800 border-t border-gray-100 dark:border-[#1A6080]/30">
+                  <tr className="bg-gray-50 dark:bg-[#0A1929] border-t border-gray-100 dark:border-[#1A6080]/30">
                     <td colSpan={5} className="px-4 py-2 section-label">
                       Total
                     </td>

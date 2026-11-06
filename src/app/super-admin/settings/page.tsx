@@ -131,7 +131,7 @@ export default function PlatformSettingsPage() {
               className={`w-full flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm text-left transition ${
                 activeSection === s.key
                   ? 'bg-[#E0EEF4] dark:bg-[#E0EEF4] dark:bg-[#0E3D52]/50 text-gray-900 dark:text-white border border-[#b8d4e0] dark:border-[#1A6080]'
-                  : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:bg-gray-800 hover:text-gray-900 dark:text-white'
+                  : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:bg-[#0A1929] hover:text-gray-900 dark:text-white'
               }`}
             >
               <span>{s.icon}</span>
@@ -141,7 +141,7 @@ export default function PlatformSettingsPage() {
         </div>
 
         {/* Content */}
-        <div className="flex-1 bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6 space-y-6">
+        <div className="flex-1 bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6 space-y-6">
 
           {activeSection === 'general' && (
             <>
@@ -156,7 +156,7 @@ export default function PlatformSettingsPage() {
                 <select
                   value={defaultTier}
                   onChange={e => setDefaultTier(e.target.value)}
-                  className="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52] w-full"
+                  className="bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52] w-full"
                 >
                   <option value="starter">Starter (11 modules)</option>
                   <option value="professional">Professional (20 modules)</option>
@@ -206,7 +206,7 @@ export default function PlatformSettingsPage() {
               </Field>
               <div className="pt-2">
                 <button
-                  className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 hover:border-gray-500 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white px-4 py-2 rounded-lg transition"
+                  className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 hover:border-gray-500 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white px-4 py-2 rounded-lg transition"
                   onClick={() => alert('Test email sent (not wired in this UI demo)')}
                 >
                   Send Test Email
@@ -254,7 +254,7 @@ export default function PlatformSettingsPage() {
                   value={maintenanceMsg}
                   onChange={e => setMaintenanceMsg(e.target.value)}
                   rows={3}
-                  className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52] resize-none"
+                  className="w-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52] resize-none"
                 />
               </Field>
             </>
@@ -304,7 +304,7 @@ function Input({
       value={value}
       onChange={e => onChange(e.target.value)}
       placeholder={placeholder}
-      className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
+      className="w-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
     />
   )
 }
@@ -314,9 +314,9 @@ function Toggle({ value, onChange }: { value: boolean; onChange: (v: boolean) =>
     <button
       type="button"
       onClick={() => onChange(!value)}
-      className={`relative inline-flex h-6 w-11 rounded-full transition-colors ${value ? 'bg-[#0E3D52]' : 'bg-gray-200 dark:bg-gray-700'}`}
+      className={`relative inline-flex h-6 w-11 rounded-full transition-colors ${value ? 'bg-[#0E3D52]' : 'bg-gray-200 dark:bg-[#0E3D52]/60'}`}
     >
-      <span className={`inline-block h-5 w-5 mt-0.5 rounded-full bg-white shadow transition-transform  dark:bg-gray-900${value ? 'translate-x-5' : 'translate-x-0.5'}`} />
+      <span className={`inline-block h-5 w-5 mt-0.5 rounded-full bg-white shadow transition-transform  dark:bg-[#0F1E2E]${value ? 'translate-x-5' : 'translate-x-0.5'}`} />
     </button>
   )
 }
@@ -325,7 +325,7 @@ function InfoRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-center justify-between py-1.5 text-sm">
       <span className="text-gray-600 dark:text-gray-400">{label}</span>
-      <span className="text-gray-700 dark:text-gray-200 font-mono text-xs bg-gray-100 dark:bg-gray-800 px-2 py-0.5 rounded">{value}</span>
+      <span className="text-gray-700 dark:text-gray-200 font-mono text-xs bg-gray-100 dark:bg-[#0A1929] px-2 py-0.5 rounded">{value}</span>
     </div>
   )
 }

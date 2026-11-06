@@ -84,7 +84,7 @@ export default function ReferralPage() {
 
   return (
     <div className="h-full flex flex-col">
-      <div className="px-6 py-4 border-b border-gray-200 bg-white flex items-center justify-between dark:bg-gray-900 dark:border-[#1A6080]/30">
+      <div className="px-6 py-4 border-b border-gray-200 bg-white flex items-center justify-between dark:bg-[#0F1E2E] dark:border-[#1A6080]/30">
         <div>
           <h1 className="text-xl font-semibold text-gray-900 dark:text-white">Referral Program</h1>
           <p className="text-sm text-gray-500 mt-0.5 dark:text-gray-400">Track employee referrals and bonus payments</p>
@@ -95,7 +95,7 @@ export default function ReferralPage() {
         </div>
       </div>
 
-      <div className="px-6 py-3 bg-gray-50 border-b border-gray-100 flex gap-6 dark:bg-gray-800 dark:border-[#1A6080]/20">
+      <div className="px-6 py-3 bg-gray-50 border-b border-gray-100 flex gap-6 dark:bg-[#0A1929] dark:border-[#1A6080]/20">
         {[{label:'Total',value:stats.total,cls:'text-gray-900 dark:text-white'},{label:'Pending',value:stats.pending,cls:'text-[#0E3D52] dark:text-[#4ebac4]'},{label:'Hired',value:stats.hired,cls:'text-green-600'},{label:'Bonus Paid',value:stats.paid,cls:'text-[#0E3D52]'}].map(s=>(
           <div key={s.label} className="text-center"><p className={`text-xl font-bold ${s.cls}`}>{s.value}</p><p className="text-xs text-gray-500 dark:text-gray-400">{s.label}</p></div>
         ))}
@@ -104,7 +104,7 @@ export default function ReferralPage() {
       <div className="flex-1 overflow-y-auto p-6">
         {loading ? <p className="text-sm text-gray-600 dark:text-gray-400">Loading…</p> : referrals.length===0 ? (
           <div className="text-center py-16 text-gray-600 dark:text-gray-400">
-            <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-gray-800 mx-auto mb-3">
+            <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-[#0A1929] mx-auto mb-3">
               <svg className="w-6 h-6 text-gray-600 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
               </svg>
@@ -117,7 +117,7 @@ export default function ReferralPage() {
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-gray-100 bg-gray-50 dark:bg-gray-800 dark:border-[#1A6080]/20">
+                  <tr className="border-b border-gray-100 bg-gray-50 dark:bg-[#0A1929] dark:border-[#1A6080]/20">
                     {['Referred By','Candidate','Status','Bonus','Submitted','Notes',''].map(h=>(
                       <th key={h} className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400">{h}</th>
                     ))}
@@ -165,7 +165,7 @@ export default function ReferralPage() {
 
       {showCreate && (
         <div className="modal-overlay">
-          <div className="bg-white rounded-xl shadow-xl w-full max-w-sm p-6 dark:bg-gray-900">
+          <div className="bg-white rounded-xl shadow-xl w-full max-w-sm p-6 dark:bg-[#0F1E2E]">
             <h3 className="text-lg font-semibold text-gray-900 mb-4 dark:text-white">Add Referral</h3>
             <div className="space-y-3">
               <select className="input-premium" value={form.referrerId} onChange={e=>setForm(f=>({...f,referrerId:e.target.value}))}>

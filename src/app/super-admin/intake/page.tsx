@@ -38,7 +38,7 @@ const MODULES_LIST = [
 
 type Tab = 'fill' | 'upload'
 
-const INPUT = 'w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]'
+const INPUT = 'w-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]'
 const LABEL = 'block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1'
 
 const INITIAL = {
@@ -177,7 +177,7 @@ export default function IntakePage() {
       {error   && <div className="bg-red-50 dark:bg-red-100 dark:bg-red-900/40 border border-red-300 dark:border-red-700 rounded-lg p-3 text-sm text-red-700 dark:text-red-300">{error}</div>}
 
       {tab === 'upload' && (
-        <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-8 text-center space-y-4">
+        <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-8 text-center space-y-4">
           <div className="text-4xl"></div>
           <p className="text-gray-900 dark:text-white font-medium">Upload a completed intake form</p>
           <p className="text-gray-600 dark:text-gray-400 text-sm">
@@ -196,7 +196,7 @@ export default function IntakePage() {
         <form onSubmit={handleSubmit} className="space-y-6">
 
           {/* Organisation */}
-          <section className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6 space-y-4">
+          <section className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6 space-y-4">
             <h2 className="text-xs font-semibold text-gray-500  dark:text-gray-400">Organisation</h2>
             <div className="grid grid-cols-2 gap-4">
               <div><label className={LABEL}>Trading Name *</label>
@@ -222,7 +222,7 @@ export default function IntakePage() {
           </section>
 
           {/* Region */}
-          <section className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6 space-y-4">
+          <section className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6 space-y-4">
             <h2 className="text-xs font-semibold text-gray-500  dark:text-gray-400">Region & Address</h2>
             <div className="grid grid-cols-3 gap-4">
               <div><label className={LABEL}>Country *</label>
@@ -250,7 +250,7 @@ export default function IntakePage() {
           </section>
 
           {/* Contacts */}
-          <section className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6 space-y-4">
+          <section className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6 space-y-4">
             <h2 className="text-xs font-semibold text-gray-500  dark:text-gray-400">Primary Contact</h2>
             <div className="grid grid-cols-2 gap-4">
               <div><label className={LABEL}>Full Name *</label>
@@ -280,7 +280,7 @@ export default function IntakePage() {
           </section>
 
           {/* Required Modules */}
-          <section className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6 space-y-4">
+          <section className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6 space-y-4">
             <div className="flex items-center justify-between">
               <h2 className="text-xs font-semibold text-gray-500  dark:text-gray-400">Required Modules</h2>
               <div className="flex gap-2 text-xs">
@@ -306,7 +306,7 @@ export default function IntakePage() {
           </section>
 
           {/* Admin Account */}
-          <section className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6 space-y-4">
+          <section className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6 space-y-4">
             <h2 className="text-xs font-semibold text-gray-500  dark:text-gray-400">Portal Admin Account</h2>
             <div className="grid grid-cols-2 gap-4">
               <div><label className={LABEL}>Admin Email</label>
@@ -324,11 +324,11 @@ export default function IntakePage() {
           </section>
 
           {/* Notes */}
-          <section className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6">
+          <section className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6">
             <h2 className="text-xs font-semibold text-gray-500  mb-3 dark:text-gray-400">Internal Notes</h2>
             <textarea value={form.notes} onChange={e => set('notes', e.target.value)} rows={3}
               placeholder="Any special requirements, SLA agreements, go-live dates…"
-              className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52] resize-none" />
+              className="w-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52] resize-none" />
           </section>
 
           <div className="flex gap-3 pt-2">

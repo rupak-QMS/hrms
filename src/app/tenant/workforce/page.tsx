@@ -27,7 +27,7 @@ export default function WorkforcePage() {
 
   return (
     <div className="h-full flex flex-col">
-      <div className="px-6 py-4 border-b border-gray-200 bg-white dark:bg-gray-900 dark:border-[#1A6080]/30">
+      <div className="px-6 py-4 border-b border-gray-200 bg-white dark:bg-[#0F1E2E] dark:border-[#1A6080]/30">
         <h1 className="text-xl font-semibold text-gray-900 dark:text-white">Workforce Planning</h1>
         <p className="text-sm text-gray-500 mt-0.5 dark:text-gray-400">Headcount overview, departments, and positions</p>
       </div>
@@ -63,7 +63,7 @@ export default function WorkforcePage() {
           ) : (
             <div className="table-responsive">
             <table className="table-premium">
-              <thead><tr className="border-b border-gray-100 bg-gray-50 dark:bg-gray-800 dark:border-[#1A6080]/20">
+              <thead><tr className="border-b border-gray-100 bg-gray-50 dark:bg-[#0A1929] dark:border-[#1A6080]/20">
                 <th>Department</th>
                 <th>Active Staff</th>
                 <th>Positions</th>

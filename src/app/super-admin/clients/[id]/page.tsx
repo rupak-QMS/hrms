@@ -34,7 +34,7 @@ const PRESET_THEMES = [
   { label: 'Slate',    primaryColor: '#334155', accentColor: '#0ea5e9' },
 ]
 
-const INPUT = 'w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]'
+const INPUT = 'w-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]'
 const LABEL = 'block text-sm font-medium text-gray-600 dark:text-gray-300 mb-1'
 
 type TabId = 'general' | 'branding' | 'theme' | 'errorPages' | 'config'
@@ -266,7 +266,7 @@ function EditClientInner() {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           {logoUrl ? (
-            <img src={logoUrl} alt="Logo" className="h-10 w-10 rounded-lg object-contain bg-gray-100 dark:bg-gray-800 p-1" />
+            <img src={logoUrl} alt="Logo" className="h-10 w-10 rounded-lg object-contain bg-gray-100 dark:bg-[#0A1929] p-1" />
           ) : (
             <div className="w-10 h-10 rounded-lg flex items-center justify-center text-gray-900 dark:text-white text-sm font-bold"
               style={{ background: form.primaryColor }}>
@@ -315,7 +315,7 @@ function EditClientInner() {
 
       {/* ── GENERAL TAB ── */}
       {activeTab === 'general' && (
-        <form onSubmit={handleSubmit} className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6 space-y-5">
+        <form onSubmit={handleSubmit} className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6 space-y-5">
 
           {/* Active toggle */}
           <div className="flex items-center justify-between pb-4 border-b border-gray-200 dark:border-[#1A6080]/20">
@@ -324,7 +324,7 @@ function EditClientInner() {
               <p className="text-xs text-gray-600 dark:text-gray-400 mt-0.5">Inactive clients cannot log in</p>
             </div>
             <button type="button" onClick={() => setForm(f => ({ ...f, isActive: !f.isActive }))}
-              className={`relative inline-flex h-6 w-11 rounded-full transition-colors ${form.isActive ? 'bg-green-600' : 'bg-gray-200 dark:bg-gray-700'}`}>
+              className={`relative inline-flex h-6 w-11 rounded-full transition-colors ${form.isActive ? 'bg-green-600' : 'bg-gray-200 dark:bg-[#0E3D52]/60'}`}>
               <span className={`inline-block h-5 w-5 mt-0.5 rounded-full bg-white shadow transition-transform ${form.isActive ? 'translate-x-5' : 'translate-x-0.5'}`} />
             </button>
           </div>
@@ -367,7 +367,7 @@ function EditClientInner() {
           </div>
 
           {/* Deployment URL read-only summary */}
-          <div className="rounded-lg bg-gray-100 dark:bg-gray-800/60 border border-gray-300 dark:border-[#1A6080]/30 px-4 py-3">
+          <div className="rounded-lg bg-gray-100 dark:bg-[#0A1929]/60 border border-gray-300 dark:border-[#1A6080]/30 px-4 py-3">
             <p className="text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Vercel Deployment URL</p>
             {deploymentUrl ? (
               <div className="flex items-center gap-2">
@@ -402,11 +402,11 @@ function EditClientInner() {
 
       {/* ── BRANDING TAB ── */}
       {activeTab === 'branding' && (
-        <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6 space-y-6">
+        <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6 space-y-6">
           <div>
             <p className="text-sm font-medium text-gray-600 dark:text-gray-300 mb-3">Organisation Logo</p>
             <div className="flex items-start gap-4">
-              <div className="w-24 h-24 rounded-xl bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 flex items-center justify-center overflow-hidden shrink-0">
+              <div className="w-24 h-24 rounded-xl bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 flex items-center justify-center overflow-hidden shrink-0">
                 {logoUrl ? (
                   <img src={logoUrl} alt="Logo" className="max-h-full max-w-full object-contain p-2" />
                 ) : (
@@ -417,7 +417,7 @@ function EditClientInner() {
                 <input ref={fileRef} type="file" accept="image/png,image/jpeg,image/svg+xml,image/webp"
                   className="hidden" onChange={handleLogoFile} />
                 <button onClick={() => fileRef.current?.click()} disabled={logoUploading}
-                  className="w-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-[#0E3D52]/40 border border-gray-300 dark:border-[#1A6080]/30 disabled:opacity-60 text-gray-900 dark:text-white text-sm px-4 py-2.5 rounded-lg transition">
+                  className="w-full bg-gray-100 dark:bg-[#0A1929] hover:bg-gray-200 dark:hover:bg-[#0E3D52]/40 border border-gray-300 dark:border-[#1A6080]/30 disabled:opacity-60 text-gray-900 dark:text-white text-sm px-4 py-2.5 rounded-lg transition">
                   {logoUploading ? '⏳ Uploading…' : 'Upload Logo'}
                 </button>
                 {logoUrl && (
@@ -438,8 +438,8 @@ function EditClientInner() {
           </div>
 
           <div className="rounded-xl overflow-hidden border border-gray-300 dark:border-[#1A6080]/30">
-            <div className="bg-gray-100 dark:bg-gray-800 px-3 py-2 text-xs text-gray-500 font-medium dark:text-gray-400">Login page preview</div>
-            <div className="bg-gray-50 dark:bg-gray-950 flex items-center justify-center py-8 px-4">
+            <div className="bg-gray-100 dark:bg-[#0A1929] px-3 py-2 text-xs text-gray-500 font-medium dark:text-gray-400">Login page preview</div>
+            <div className="bg-gray-50 dark:bg-[#070F1A] flex items-center justify-center py-8 px-4">
               <div className="w-64 space-y-3 text-center">
                 {logoUrl ? (
                   <img src={logoUrl} alt="Logo" className="h-12 mx-auto object-contain" />
@@ -451,9 +451,9 @@ function EditClientInner() {
                 )}
                 <p className="text-gray-900 dark:text-white font-bold text-lg">{form.name || 'Your Organisation'}</p>
                 <p className="text-gray-600 dark:text-gray-400 text-xs">Sign in to {form.name || 'your organisation'}</p>
-                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-3 space-y-2 mt-2">
-                  <div className="h-7 bg-gray-100 dark:bg-gray-800 rounded-lg" />
-                  <div className="h-7 bg-gray-100 dark:bg-gray-800 rounded-lg" />
+                <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-3 space-y-2 mt-2">
+                  <div className="h-7 bg-gray-100 dark:bg-[#0A1929] rounded-lg" />
+                  <div className="h-7 bg-gray-100 dark:bg-[#0A1929] rounded-lg" />
                   <div className="h-7 rounded-lg" style={{ background: form.primaryColor }} />
                 </div>
               </div>
@@ -484,7 +484,7 @@ function EditClientInner() {
       {/* ── THEME TAB ── */}
       {activeTab === 'theme' && (
         <div className="space-y-5">
-          <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-5">
+          <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-5">
             <p className="text-sm font-medium text-gray-600 dark:text-gray-300 mb-3">Preset Themes</p>
             <div className="flex flex-wrap gap-2">
               {PRESET_THEMES.map(p => (
@@ -499,7 +499,7 @@ function EditClientInner() {
             </div>
           </div>
 
-          <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-5 space-y-5">
+          <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-5 space-y-5">
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <label className={LABEL}>Primary Colour</label>
@@ -509,7 +509,7 @@ function EditClientInner() {
                     className="w-10 h-10 rounded cursor-pointer border-0 bg-transparent" />
                   <input type="text" value={form.primaryColor}
                     onChange={e => setForm(f => ({ ...f, primaryColor: e.target.value }))}
-                    className="flex-1 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
+                    className="flex-1 bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
                 </div>
                 <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">Sidebar, header accent, buttons</p>
               </div>
@@ -521,7 +521,7 @@ function EditClientInner() {
                     className="w-10 h-10 rounded cursor-pointer border-0 bg-transparent" />
                   <input type="text" value={theme.accentColor}
                     onChange={e => setTheme(t => ({ ...t, accentColor: e.target.value }))}
-                    className="flex-1 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
+                    className="flex-1 bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
                 </div>
                 <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">Badges, highlights, secondary elements</p>
               </div>
@@ -559,14 +559,14 @@ function EditClientInner() {
                 <p className="text-xs text-gray-500 dark:text-gray-400">Use dark background for sidebar navigation</p>
               </div>
               <button onClick={() => setTheme(t => ({ ...t, sidebarDark: !t.sidebarDark }))}
-                className={`relative inline-flex h-6 w-11 rounded-full transition-colors ${theme.sidebarDark ? 'bg-[#0E3D52]' : 'bg-gray-200 dark:bg-gray-700'}`}>
+                className={`relative inline-flex h-6 w-11 rounded-full transition-colors ${theme.sidebarDark ? 'bg-[#0E3D52]' : 'bg-gray-200 dark:bg-[#0E3D52]/60'}`}>
                 <span className={`inline-block h-5 w-5 mt-0.5 rounded-full bg-white shadow transition-transform ${theme.sidebarDark ? 'translate-x-5' : 'translate-x-0.5'}`} />
               </button>
             </div>
 
             {/* Live mini-preview */}
             <div className="rounded-xl overflow-hidden border border-gray-300 dark:border-[#1A6080]/30" style={{ fontFamily: theme.fontFamily }}>
-              <div className="bg-gray-100 dark:bg-gray-800 px-3 py-1.5 text-xs text-gray-500 dark:text-gray-400">Live preview</div>
+              <div className="bg-gray-100 dark:bg-[#0A1929] px-3 py-1.5 text-xs text-gray-500 dark:text-gray-400">Live preview</div>
               <div className="flex h-48">
                 <div className="w-32 flex flex-col text-white text-xs" style={{ background: theme.sidebarDark ? '#111827' : form.primaryColor }}>
                   <div className="px-3 py-2.5 border-b border-white/10 font-bold truncate" style={{ borderRadius: theme.borderRadius }}>
@@ -579,7 +579,7 @@ function EditClientInner() {
                     </div>
                   ))}
                 </div>
-                <div className="flex-1 bg-gray-50 dark:bg-gray-950 p-3 space-y-2">
+                <div className="flex-1 bg-gray-50 dark:bg-[#070F1A] p-3 space-y-2">
                   <div className="flex gap-2">
                     {[{ label: '48 Staff', bg: form.primaryColor }, { label: '3 Leave', bg: theme.accentColor }, { label: '2 Due', bg: '#64748b' }].map(s => (
                       <div key={s.label} className="flex-1 rounded py-1.5 text-center text-white text-xs font-semibold"
@@ -587,12 +587,12 @@ function EditClientInner() {
                     ))}
                   </div>
                   <div className="text-xs text-gray-600 dark:text-gray-400">Recent Activity</div>
-                  <div className="bg-white dark:bg-gray-900 rounded p-2 text-xs text-gray-500 dark:text-gray-400" style={{ borderRadius: theme.borderRadius }}>John Smith — Leave Approved</div>
+                  <div className="bg-white dark:bg-[#0F1E2E] rounded p-2 text-xs text-gray-500 dark:text-gray-400" style={{ borderRadius: theme.borderRadius }}>John Smith — Leave Approved</div>
                   <button className="text-xs text-white px-3 py-1 font-medium"
                     style={{ background: form.primaryColor, borderRadius: theme.borderRadius }}>+ Add Employee</button>
                 </div>
               </div>
-              <div className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-[#1A6080]/20 px-3 py-1.5 text-xs text-gray-500 dark:text-gray-400">
+              <div className="bg-white dark:bg-[#0F1E2E] border-t border-gray-200 dark:border-[#1A6080]/20 px-3 py-1.5 text-xs text-gray-500 dark:text-gray-400">
                 {theme.fontFamily} · radius {theme.borderRadius} · {theme.sidebarDark ? 'dark' : 'colour'} sidebar
               </div>
             </div>
@@ -607,7 +607,7 @@ function EditClientInner() {
 
       {/* ── ERROR PAGES TAB ── */}
       {activeTab === 'errorPages' && (
-        <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6 space-y-5">
+        <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6 space-y-5">
           <div>
             <p className="text-sm font-semibold text-gray-900 dark:text-white mb-1">404 Page Content</p>
             <p className="text-xs text-gray-500 dark:text-gray-400">Customise what users see when they hit a page that doesn't exist. Changes are live immediately — no redeploy needed.</p>
@@ -637,8 +637,8 @@ function EditClientInner() {
 
           {/* Live mini-preview */}
           <div className="rounded-xl overflow-hidden border border-gray-300 dark:border-[#1A6080]/30">
-            <div className="bg-gray-100 dark:bg-gray-800 px-3 py-1.5 text-xs text-gray-500 dark:text-gray-400 font-medium">404 page preview</div>
-            <div className="bg-gray-50 dark:bg-gray-950 flex flex-col items-center justify-center py-8 px-4 text-center gap-2">
+            <div className="bg-gray-100 dark:bg-[#0A1929] px-3 py-1.5 text-xs text-gray-500 dark:text-gray-400 font-medium">404 page preview</div>
+            <div className="bg-gray-50 dark:bg-[#070F1A] flex flex-col items-center justify-center py-8 px-4 text-center gap-2">
               {logoUrl ? (
                 <img src={logoUrl} alt="Logo" className="h-10 object-contain mb-1" />
               ) : (
@@ -654,7 +654,7 @@ function EditClientInner() {
                 <span className="inline-flex items-center px-4 py-2 rounded-lg text-xs font-medium text-white" style={{ background: form.primaryColor }}>
                   {notFound.ctaLabel}
                 </span>
-                <span className="inline-flex items-center px-4 py-2 rounded-lg text-xs font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30">
+                <span className="inline-flex items-center px-4 py-2 rounded-lg text-xs font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30">
                   Back to login
                 </span>
               </div>
@@ -673,7 +673,7 @@ function EditClientInner() {
         <div className="space-y-5">
 
           {/* Section: Deployment */}
-          <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-5 space-y-4">
+          <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-5 space-y-4">
             <div>
               <p className="text-sm font-semibold text-gray-900 dark:text-white">Deployment</p>
               <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">The public URL for this client's portal — used in email notification links.</p>
@@ -691,7 +691,7 @@ function EditClientInner() {
           </div>
 
           {/* Section: Email */}
-          <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-5 space-y-4">
+          <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-5 space-y-4">
             <div>
               <p className="text-sm font-semibold text-gray-900 dark:text-white">Email Settings</p>
               <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Controls the From / Reply-To addresses on all emails sent for this client.</p>
@@ -729,7 +729,7 @@ function EditClientInner() {
           </div>
 
           {/* Section: SMTP / Resend */}
-          <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-5 space-y-4">
+          <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-5 space-y-4">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-semibold text-gray-900 dark:text-white">Email Provider</p>
@@ -740,7 +740,7 @@ function EditClientInner() {
                 <span className="text-xs text-gray-600 dark:text-gray-400">Resend</span>
                 <button
                   onClick={() => setSmtpConfig(c => ({ ...c, useSmtp: !c.useSmtp }))}
-                  className={`relative inline-flex h-6 w-11 rounded-full transition-colors ${smtpConfig.useSmtp ? 'bg-[#0E3D52]' : 'bg-gray-200 dark:bg-gray-700'}`}>
+                  className={`relative inline-flex h-6 w-11 rounded-full transition-colors ${smtpConfig.useSmtp ? 'bg-[#0E3D52]' : 'bg-gray-200 dark:bg-[#0E3D52]/60'}`}>
                   <span className={`inline-block h-5 w-5 mt-0.5 rounded-full bg-white shadow transition-transform ${smtpConfig.useSmtp ? 'translate-x-5' : 'translate-x-0.5'}`} />
                 </button>
                 <span className="text-xs text-gray-600 dark:text-gray-400">SMTP</span>
@@ -809,7 +809,7 @@ function EditClientInner() {
           </div>
 
           {/* Section: Feature Limits */}
-          <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-5 space-y-4">
+          <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-5 space-y-4">
             <div>
               <p className="text-sm font-semibold text-gray-900 dark:text-white">Feature Limits</p>
               <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Optional caps enforced by the tenant portal. Leave blank for unlimited.</p>

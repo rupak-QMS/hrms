@@ -282,7 +282,7 @@ export default function OnboardingDetailPage() {
           )}
         </div>
 
-        <div className="w-full bg-gray-100 dark:bg-gray-800 rounded-full h-2">
+        <div className="w-full bg-gray-100 dark:bg-[#0A1929] rounded-full h-2">
           <div className="h-2 rounded-full bg-[#f0f7fb]0 transition-all duration-500" style={{ width: `${pct}%` }} />
         </div>
 
@@ -341,7 +341,7 @@ export default function OnboardingDetailPage() {
           {showBuddyEdit ? (
             <div className="space-y-2">
               <select value={buddyDraft} onChange={e => setBuddyDraft(e.target.value)}
-                className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]">
+                className="w-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]">
                 <option value="">— No buddy —</option>
                 {allEmployees
                   .filter(e => e.id !== rec.employeeId)
@@ -378,7 +378,7 @@ export default function OnboardingDetailPage() {
             <div className="space-y-2">
               <textarea value={notesDraft} onChange={e => setNotesDraft(e.target.value)} rows={4}
                 placeholder="Add notes…"
-                className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52] resize-none" />
+                className="w-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52] resize-none" />
               <button onClick={saveNotes} disabled={notesSaving}
                 className="w-full bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm py-1.5 rounded-lg transition">
                 {notesSaving ? 'Saving…' : 'Save Notes'}
@@ -408,10 +408,10 @@ export default function OnboardingDetailPage() {
             <p className="text-xs font-semibold text-[#4ebac4]">New Checklist Task</p>
             <input value={newTaskText} onChange={e => setNewTaskText(e.target.value)}
               placeholder="Task description…"
-              className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]" />
+              className="w-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]" />
             <div className="flex gap-2 items-center">
               <select value={newTaskCat} onChange={e => setNewTaskCat(e.target.value)}
-                className="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]">
+                className="bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]">
                 {CATEGORIES.map(c => <option key={c} value={c}>{c.charAt(0).toUpperCase() + c.slice(1)}</option>)}
               </select>
               <button onClick={addTask} disabled={taskSaving || !newTaskText.trim()}

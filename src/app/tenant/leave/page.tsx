@@ -89,7 +89,7 @@ const STATUS_STYLE: Record<string, string> = {
 }
 
 const MANAGER_ROLES = ['director', 'hr_officer', 'operations_manager', 'team_leader', 'compliance_manager']
-const INPUT  = 'w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]'
+const INPUT  = 'w-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]'
 const LABEL  = 'block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1'
 
 function calcDays(start: string, end: string): number {
@@ -414,7 +414,7 @@ export default function LeavePage() {
           <div className="flex flex-wrap gap-3 items-center">
             <select value={filterStatus}
               onChange={e => { setFilterStatus(e.target.value); loadRequests(e.target.value, filterType); setSelected(new Set()) }}
-              className="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]">
+              className="bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]">
               <option value="">All statuses</option>
               {['pending','approved','rejected','cancelled'].map(s => (
                 <option key={s} value={s}>{s.charAt(0).toUpperCase() + s.slice(1)}</option>
@@ -422,7 +422,7 @@ export default function LeavePage() {
             </select>
             <select value={filterType}
               onChange={e => { setFilterType(e.target.value); loadRequests(filterStatus, e.target.value); setSelected(new Set()) }}
-              className="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]">
+              className="bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]">
               <option value="">All types</option>
               {leaveTypes.map(t => <option key={t.key} value={t.key}>{t.emoji} {t.label}</option>)}
             </select>
@@ -466,7 +466,7 @@ export default function LeavePage() {
             <div className="text-center py-12 text-gray-500 dark:text-gray-400">Loading…</div>
           ) : requests.length === 0 ? (
             <div className="text-center py-16 card-premium">
-              <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-gray-800 mx-auto mb-3">
+              <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-[#0A1929] mx-auto mb-3">
                 <svg className="w-6 h-6 text-gray-600 dark:text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
                 </svg>
@@ -599,15 +599,15 @@ export default function LeavePage() {
           <div className="flex flex-wrap items-center gap-3">
             <div className="flex items-center gap-2">
               <button onClick={() => { const y = balYear - 1; setBalYear(y); loadBalances(y, balEmployee) }}
-                className="px-3 py-1.5 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white transition">←</button>
-              <span className="px-4 py-1.5 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg text-gray-900 dark:text-white font-semibold min-w-[80px] text-center">{balYear}</span>
+                className="px-3 py-1.5 bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white transition">←</button>
+              <span className="px-4 py-1.5 bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg text-gray-900 dark:text-white font-semibold min-w-[80px] text-center">{balYear}</span>
               <button onClick={() => { const y = balYear + 1; setBalYear(y); loadBalances(y, balEmployee) }}
-                className="px-3 py-1.5 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white transition">→</button>
+                className="px-3 py-1.5 bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white transition">→</button>
             </div>
             {canApprove && employees.length > 0 && (
               <select value={balEmployee}
                 onChange={e => { setBalEmployee(e.target.value); loadBalances(balYear, e.target.value) }}
-                className="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]">
+                className="bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]">
                 <option value="">My balance</option>
                 {employees.map(emp => (
                   <option key={emp.id} value={emp.id}>{emp.firstName} {emp.lastName}</option>
@@ -615,14 +615,14 @@ export default function LeavePage() {
               </select>
             )}
             <button onClick={() => loadBalances(balYear, balEmployee)}
-              className="px-3 py-1.5 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:text-white transition">
+              className="px-3 py-1.5 bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:text-white transition">
               ↻ Refresh
             </button>
           </div>
 
           {!balLinked ? (
             <div className="card-premium p-10 text-center">
-              <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-gray-800 mx-auto mb-3">
+              <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-[#0A1929] mx-auto mb-3">
                 <svg className="w-6 h-6 text-gray-600 dark:text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
                 </svg>
@@ -655,21 +655,21 @@ export default function LeavePage() {
                     </div>
 
                     <div className="grid grid-cols-2 gap-2 text-sm">
-                      <div className="bg-gray-100 dark:bg-gray-800/60 rounded-lg px-3 py-2">
+                      <div className="bg-gray-100 dark:bg-[#0A1929]/60 rounded-lg px-3 py-2">
                         <p className="text-xs text-gray-500 dark:text-gray-400">Entitlement</p>
                         <p className="font-semibold text-white">
                           {b.entitlement == null || b.entitlement >= 999 ? '∞' : `${b.entitlement}d`}
                         </p>
                       </div>
-                      <div className="bg-gray-100 dark:bg-gray-800/60 rounded-lg px-3 py-2">
+                      <div className="bg-gray-100 dark:bg-[#0A1929]/60 rounded-lg px-3 py-2">
                         <p className="text-xs text-gray-500 dark:text-gray-400">Taken</p>
                         <p className="font-semibold text-white">{b.taken}d</p>
                       </div>
-                      <div className="bg-gray-100 dark:bg-gray-800/60 rounded-lg px-3 py-2">
+                      <div className="bg-gray-100 dark:bg-[#0A1929]/60 rounded-lg px-3 py-2">
                         <p className="text-xs text-gray-500 dark:text-gray-400">Pending</p>
                         <p className="font-semibold text-yellow-400">{b.pending}d</p>
                       </div>
-                      <div className="bg-gray-100 dark:bg-gray-800/60 rounded-lg px-3 py-2">
+                      <div className="bg-gray-100 dark:bg-[#0A1929]/60 rounded-lg px-3 py-2">
                         <p className="text-xs text-gray-500 dark:text-gray-400">Remaining</p>
                         <p className={`font-semibold ${remainingColor}`}>
                           {b.remaining == null ? '∞' : `${b.remaining}d`}
@@ -682,7 +682,7 @@ export default function LeavePage() {
                         <div className="flex justify-between text-xs text-gray-600 mb-1 dark:text-gray-400">
                           <span>Used</span><span>{pct}%</span>
                         </div>
-                        <div className="h-1.5 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+                        <div className="h-1.5 bg-gray-100 dark:bg-[#0A1929] rounded-full overflow-hidden">
                           <div
                             className="h-full rounded-full transition-all"
                             style={{
@@ -712,7 +712,7 @@ export default function LeavePage() {
                 if (m < 1) { m = 12; y-- }
                 setCalMonth(m); setCalYear(y); loadCalendar(y, m)
               }}
-              className="px-4 py-2 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white transition"
+              className="px-4 py-2 bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white transition"
             >← Prev</button>
             <h2 className="text-lg font-semibold text-foreground">{MONTHS[calMonth - 1]} {calYear}</h2>
             <button
@@ -721,7 +721,7 @@ export default function LeavePage() {
                 if (m > 12) { m = 1; y++ }
                 setCalMonth(m); setCalYear(y); loadCalendar(y, m)
               }}
-              className="px-4 py-2 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white transition"
+              className="px-4 py-2 bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white transition"
             >Next →</button>
           </div>
 

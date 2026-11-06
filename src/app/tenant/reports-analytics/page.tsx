@@ -343,20 +343,20 @@ export default function ReportsAnalyticsPage() {
   const columns = results && results.length > 0 ? Object.keys(results[0]) : []
 
   return (
-    <div className="flex h-full bg-gray-50 dark:bg-gray-900">
+    <div className="flex h-full bg-gray-50 dark:bg-[#0F1E2E]">
       {/* LEFT: Report picker */}
-      <div className="w-72 flex-shrink-0 border-r border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 flex flex-col">
+      <div className="w-72 flex-shrink-0 border-r border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] flex flex-col">
         <div className="p-4 border-b border-gray-200 dark:border-[#1A6080]/30">
           <h2 className="text-lg font-semibold text-gray-900 dark:text-white">📊 Reports</h2>
           <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Choose a report to run</p>
           {/* Tabs */}
-          <div className="flex gap-1 mt-3 bg-gray-100 dark:bg-gray-700 rounded-lg p-0.5">
+          <div className="flex gap-1 mt-3 bg-gray-100 dark:bg-[#0E3D52]/60 rounded-lg p-0.5">
             <button onClick={() => setActiveTab('run')}
-              className={`flex-1 text-xs py-1 rounded-md font-medium transition-all ${activeTab === 'run' ? 'bg-white dark:bg-gray-600 text-gray-900 dark:text-white shadow-sm' : 'text-gray-500 dark:text-gray-400'}`}>
+              className={`flex-1 text-xs py-1 rounded-md font-medium transition-all ${activeTab === 'run' ? 'bg-white dark:bg-[#0E3D52]/80 text-gray-900 dark:text-white shadow-sm' : 'text-gray-500 dark:text-gray-400'}`}>
               All Reports
             </button>
             <button onClick={() => setActiveTab('saved')}
-              className={`flex-1 text-xs py-1 rounded-md font-medium transition-all ${activeTab === 'saved' ? 'bg-white dark:bg-gray-600 text-gray-900 dark:text-white shadow-sm' : 'text-gray-500 dark:text-gray-400'}`}>
+              className={`flex-1 text-xs py-1 rounded-md font-medium transition-all ${activeTab === 'saved' ? 'bg-white dark:bg-[#0E3D52]/80 text-gray-900 dark:text-white shadow-sm' : 'text-gray-500 dark:text-gray-400'}`}>
               Saved ({savedReports.length})
             </button>
           </div>
@@ -443,7 +443,7 @@ export default function ReportsAnalyticsPage() {
         ) : (
           <>
             {/* Report header + filters */}
-            <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-[#1A6080]/30 p-6">
+            <div className="bg-white dark:bg-[#0A1929] border-b border-gray-200 dark:border-[#1A6080]/30 p-6">
               <div className="flex items-start justify-between">
                 <div>
                   <h1 className="page-premium-title">
@@ -487,7 +487,7 @@ export default function ReportsAnalyticsPage() {
                         <select
                           value={filters[f.key] || ''}
                           onChange={e => setFilters(prev => ({ ...prev, [f.key]: e.target.value }))}
-                          className="border border-gray-200 dark:border-[#1A6080]/40 rounded-lg px-3 py-1.5 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+                          className="border border-gray-200 dark:border-[#1A6080]/40 rounded-lg px-3 py-1.5 text-sm bg-white dark:bg-[#0E3D52]/60 text-gray-900 dark:text-white">
                           {f.options?.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
                         </select>
                       ) : (
@@ -495,7 +495,7 @@ export default function ReportsAnalyticsPage() {
                           type={f.type}
                           value={filters[f.key] || (f.type === 'number' ? '30' : '')}
                           onChange={e => setFilters(prev => ({ ...prev, [f.key]: e.target.value }))}
-                          className="border border-gray-200 dark:border-[#1A6080]/40 rounded-lg px-3 py-1.5 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white w-36" />
+                          className="border border-gray-200 dark:border-[#1A6080]/40 rounded-lg px-3 py-1.5 text-sm bg-white dark:bg-[#0E3D52]/60 text-gray-900 dark:text-white w-36" />
                       )}
                     </div>
                   ))}
@@ -553,7 +553,7 @@ export default function ReportsAnalyticsPage() {
                   <div className="card-premium overflow-hidden">
                     <div className="table-responsive">
             <table className="table-premium">
-                      <thead className="bg-gray-50 dark:bg-gray-700">
+                      <thead className="bg-gray-50 dark:bg-[#0E3D52]/60">
                         <tr>
                           {columns.map(col => (
                             <th key={col} className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 whitespace-nowrap">
@@ -593,7 +593,7 @@ export default function ReportsAnalyticsPage() {
               value={saveName}
               onChange={e => setSaveName(e.target.value)}
               placeholder="Report name…"
-              className="w-full border border-gray-200 dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white mb-3"
+              className="w-full border border-gray-200 dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-[#0E3D52]/60 text-gray-900 dark:text-white mb-3"
             />
             <label className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 mb-4 cursor-pointer">
               <input type="checkbox" checked={saveShared} onChange={e => setSaveShared(e.target.checked)}

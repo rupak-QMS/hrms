@@ -97,7 +97,7 @@ function filterTree(nodes: OrgNode[], deptId: string, search: string): OrgNode[]
 function ConnectorLine() {
   return (
     <div className="flex flex-col items-center">
-      <div className="w-px h-5 bg-gray-300 dark:bg-gray-600" />
+      <div className="w-px h-5 bg-gray-300 dark:bg-[#0E3D52]/80" />
     </div>
   )
 }
@@ -106,7 +106,7 @@ function HorizontalBranch({ count }: { count: number }) {
   if (count <= 1) return <ConnectorLine />
   return (
     <div className="flex flex-col items-center">
-      <div className="w-px h-4 bg-gray-300 dark:bg-gray-600" />
+      <div className="w-px h-4 bg-gray-300 dark:bg-[#0E3D52]/80" />
       <div className="flex items-start">
         {/* Left arm */}
         <div className="w-1/2 border-t border-l border-gray-300 dark:border-[#1A6080]/40 h-4" />
@@ -228,7 +228,7 @@ function OrgTreeNode({
       {hasChildren && isExpanded && (
         <>
           {/* Vertical line down */}
-          <div className="w-px h-5 bg-gray-300 dark:bg-gray-600" />
+          <div className="w-px h-5 bg-gray-300 dark:bg-[#0E3D52]/80" />
 
           {/* Children row */}
           <div className="flex gap-6 items-start relative">
@@ -243,7 +243,7 @@ function OrgTreeNode({
             {node.children.map((child) => (
               <div key={child.id} className="flex flex-col items-center">
                 {/* Vertical stub from h-line to child */}
-                <div className="w-px h-5 bg-gray-300 dark:bg-gray-600" />
+                <div className="w-px h-5 bg-gray-300 dark:bg-[#0E3D52]/80" />
                 <OrgTreeNode
                   node={child}
                   expanded={childExpanded(child.id)}
@@ -307,7 +307,7 @@ export default function OrgChartPage() {
   const totalVisible = useMemo(() => flattenTree(displayTree).length, [displayTree])
 
   return (
-    <div className="p-6 min-h-screen bg-gray-50 dark:bg-gray-950">
+    <div className="p-6 min-h-screen bg-gray-50 dark:bg-[#070F1A]">
       {/* Header */}
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Organisation Chart</h1>
@@ -327,7 +327,7 @@ export default function OrgChartPage() {
             value={search}
             onChange={e => setSearch(e.target.value)}
             placeholder="Search by name…"
-            className="w-full pl-8 pr-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0E3D52]"
+            className="w-full pl-8 pr-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0F1E2E] text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0E3D52]"
           />
         </div>
 
@@ -335,7 +335,7 @@ export default function OrgChartPage() {
         <select
           value={deptFilter}
           onChange={e => setDeptFilter(e.target.value)}
-          className="py-2 px-3 text-sm rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-[#0E3D52] min-w-[160px]"
+          className="py-2 px-3 text-sm rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0F1E2E] text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-[#0E3D52] min-w-[160px]"
         >
           <option value="">All Departments</option>
           {data?.allDepartments.sort((a, b) => a.name.localeCompare(b.name)).map(d => (

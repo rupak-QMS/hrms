@@ -82,19 +82,19 @@ export default function CostEstimationPage() {
 
       {/* Summary cards */}
       <div className="grid grid-cols-4 gap-4">
-        <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-4 text-center">
+        <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-4 text-center">
           <p className="text-2xl font-bold text-gray-900 dark:text-white">{clients.length}</p>
           <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">Total clients</p>
         </div>
-        <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-4 text-center">
+        <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-4 text-center">
           <p className="text-2xl font-bold text-green-600 dark:text-green-400">{clients.filter(c => c.isActive).length}</p>
           <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">Active</p>
         </div>
-        <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-4 text-center">
+        <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-4 text-center">
           <p className="text-2xl font-bold text-[#0E3D52] dark:text-[#4ebac4]">{fmtAUD(totalMonthlyAUD)}</p>
           <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">Monthly (AUD)</p>
         </div>
-        <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-4 text-center">
+        <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-4 text-center">
           <p className="text-2xl font-bold text-[#0E3D52] dark:text-[#4ebac4]">{fmtAUD(totalAnnualAUD)}</p>
           <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">Annual (AUD)</p>
         </div>
@@ -111,7 +111,7 @@ export default function CostEstimationPage() {
           ))}
         </div>
         <select value={sortBy} onChange={e => setSortBy(e.target.value as typeof sortBy)}
-          className="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-1.5 text-xs text-gray-900 dark:text-white focus:outline-none">
+          className="bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-1.5 text-xs text-gray-900 dark:text-white focus:outline-none">
           <option value="annual">Sort: Annual cost ↓</option>
           <option value="monthly">Sort: Monthly cost ↓</option>
           <option value="modules">Sort: Modules ↓</option>
@@ -128,17 +128,17 @@ export default function CostEstimationPage() {
           const sameAUD = client.currency === 'AUD'
           return (
             <div key={client.id}
-              className={`bg-white dark:bg-gray-900 border rounded-xl overflow-hidden transition ${isExp ? 'border-[#b8d4e0] dark:border-[#1A6080]' : 'border-gray-200 dark:border-[#1A6080]/20'}`}>
+              className={`bg-white dark:bg-[#0F1E2E] border rounded-xl overflow-hidden transition ${isExp ? 'border-[#b8d4e0] dark:border-[#1A6080]' : 'border-gray-200 dark:border-[#1A6080]/20'}`}>
               {/* Row */}
               <div className="flex items-center gap-4 p-5 cursor-pointer" onClick={() => setExpanded(isExp ? null : client.id)}>
                 {/* Name + meta */}
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
                     <p className="text-sm font-semibold text-gray-900 dark:text-white truncate">{client.name}</p>
-                    <span className={`text-xs px-1.5 py-0.5 rounded ${client.isActive ? 'bg-green-50 dark:bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300' : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400'}`}>
+                    <span className={`text-xs px-1.5 py-0.5 rounded ${client.isActive ? 'bg-green-50 dark:bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300' : 'bg-gray-100 dark:bg-[#0A1929] text-gray-600 dark:text-gray-400'}`}>
                       {client.isActive ? 'Active' : 'Inactive'}
                     </span>
-                    <span className="text-xs px-1.5 py-0.5 rounded bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 capitalize">{client.tier}</span>
+                    <span className="text-xs px-1.5 py-0.5 rounded bg-gray-100 dark:bg-[#0A1929] text-gray-600 dark:text-gray-400 capitalize">{client.tier}</span>
                   </div>
                   <p className="text-xs text-gray-500 mt-0.5 dark:text-gray-400">{client.countryName} · {client.currency} · {client.headcount || '—'} staff · {client.enabledModules} modules</p>
                 </div>
@@ -190,7 +190,7 @@ export default function CostEstimationPage() {
                         .map(m => {
                           const mCurr = m.priceAUD === 0 ? 0 : Math.round(m.priceAUD * (client.totalMonthlyCurr / Math.max(client.totalMonthlyAUD, 0.01)) * 100) / 100
                           return (
-                            <div key={m.id} className="bg-gray-100 dark:bg-gray-800 rounded-lg px-3 py-2 flex items-center justify-between gap-2">
+                            <div key={m.id} className="bg-gray-100 dark:bg-[#0A1929] rounded-lg px-3 py-2 flex items-center justify-between gap-2">
                               <span className="text-xs text-gray-600 dark:text-gray-300 truncate">{m.name}</span>
                               <span className="text-xs font-semibold text-gray-900 dark:text-white shrink-0">
                                 {m.priceAUD === 0 ? 'Free' : `${client.symbol}${mCurr.toFixed(2)}`}
@@ -236,7 +236,7 @@ export default function CostEstimationPage() {
       </div>
 
       {filtered.length === 0 && (
-        <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-10 text-center">
+        <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-10 text-center">
           <p className="text-gray-600 dark:text-gray-400 text-sm">No clients found.</p>
         </div>
       )}

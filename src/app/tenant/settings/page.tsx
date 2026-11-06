@@ -276,7 +276,7 @@ export default function TenantSettingsPage() {
 
                 <div className="flex items-start gap-5">
                   {/* Preview box */}
-                  <div className="w-28 h-28 rounded-xl bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 flex items-center justify-center overflow-hidden shrink-0">
+                  <div className="w-28 h-28 rounded-xl bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 flex items-center justify-center overflow-hidden shrink-0">
                     {logoUrl ? (
                       <Image src={logoUrl} alt="Logo" width={200} height={80} className="max-h-full max-w-full object-contain p-2" unoptimized />
                     ) : (
@@ -297,7 +297,7 @@ export default function TenantSettingsPage() {
                     <button
                       onClick={() => { setError(''); fileRef.current?.click() }}
                       disabled={logoUploading}
-                      className="w-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:bg-gray-700 border border-gray-300 dark:border-[#1A6080]/30 disabled:opacity-60 text-gray-900 dark:text-white text-sm px-4 py-2.5 rounded-lg transition"
+                      className="w-full bg-gray-100 dark:bg-[#0A1929] hover:bg-gray-200 dark:bg-[#0E3D52]/60 border border-gray-300 dark:border-[#1A6080]/30 disabled:opacity-60 text-gray-900 dark:text-white text-sm px-4 py-2.5 rounded-lg transition"
                     >
                       {logoUploading ? '⏳ Uploading…' : 'Upload Logo'}
                     </button>
@@ -326,9 +326,9 @@ export default function TenantSettingsPage() {
 
                 {/* Live sidebar preview */}
                 <div className="rounded-xl overflow-hidden border border-gray-300 dark:border-[#1A6080]/30">
-                  <div className="bg-gray-100 dark:bg-gray-800 px-3 py-1.5 text-xs text-gray-500 dark:text-gray-400">Sidebar preview</div>
-                  <div className="bg-white dark:bg-gray-900 p-4">
-                    <div className="w-56 bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden">
+                  <div className="bg-gray-100 dark:bg-[#0A1929] px-3 py-1.5 text-xs text-gray-500 dark:text-gray-400">Sidebar preview</div>
+                  <div className="bg-white dark:bg-[#0F1E2E] p-4">
+                    <div className="w-56 bg-gray-100 dark:bg-[#0A1929] rounded-lg overflow-hidden">
                       <div className="px-4 py-3 border-b border-white/10" style={{ background: '#111827' }}>
                         {logoUrl ? (
                           <Image src={logoUrl} alt="Logo" width={120} height={32} className="h-8 object-contain" unoptimized />
@@ -683,7 +683,7 @@ export default function TenantSettingsPage() {
                         {/* Active toggle */}
                         <button
                           onClick={() => setLeaveTypes(prev => prev.map((t, i) => i === idx ? { ...t, isActive: !t.isActive } : t))}
-                          className={`relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors ${lt.isActive ? 'bg-[#0E3D52]' : 'bg-gray-300 dark:bg-gray-700'}`}
+                          className={`relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors ${lt.isActive ? 'bg-[#0E3D52]' : 'bg-gray-300 dark:bg-[#0E3D52]/60'}`}
                         >
                           <span className={`inline-block h-4 w-4 transform rounded-full bg-white shadow transition-transform ${lt.isActive ? 'translate-x-6' : 'translate-x-1'}`} />
                         </button>
@@ -793,12 +793,12 @@ export default function TenantSettingsPage() {
                       {xeroStatus.tokenExpired ? 'Token expired' : '● Connected'}
                     </span>
                   ) : (
-                    <span className="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400">Not connected</span>
+                    <span className="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400">Not connected</span>
                   )}
                 </div>
 
                 {xeroStatus?.connected && (
-                  <div className="bg-gray-100 dark:bg-gray-800/60 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg p-3 text-sm space-y-1">
+                  <div className="bg-gray-100 dark:bg-[#0A1929]/60 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg p-3 text-sm space-y-1">
                     <div className="flex justify-between">
                       <span className="text-gray-600 dark:text-gray-400">Organisation</span>
                       <span className="text-foreground font-medium">{xeroStatus.orgName}</span>
@@ -874,12 +874,12 @@ export default function TenantSettingsPage() {
                       {myobStatus.tokenExpired ? 'Token expired' : '● Connected'}
                     </span>
                   ) : (
-                    <span className="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400">Not connected</span>
+                    <span className="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400">Not connected</span>
                   )}
                 </div>
 
                 {myobStatus?.connected && (
-                  <div className="bg-gray-100 dark:bg-gray-800/60 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg p-3 text-sm space-y-1">
+                  <div className="bg-gray-100 dark:bg-[#0A1929]/60 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg p-3 text-sm space-y-1">
                     <div className="flex justify-between">
                       <span className="text-gray-600 dark:text-gray-400">Company File</span>
                       <span className="text-foreground font-medium">{myobStatus.companyFileName}</span>

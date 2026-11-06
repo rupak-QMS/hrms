@@ -144,7 +144,7 @@ const medStatusColor: Record<string, string> = {
   active:       'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300',
   paused:       'bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300',
   discontinued: 'bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300',
-  completed:    'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-400',
+  completed:    'bg-gray-100 text-gray-600 dark:bg-[#0E3D52]/60 dark:text-gray-400',
 }
 const outcomeColor: Record<string, string> = {
   given:   'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300',
@@ -162,7 +162,7 @@ const severityColor: Record<string, string> = {
 const apptStatusColor: Record<string, string> = {
   scheduled: 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/30 dark:text-[#7dcfd7]',
   completed: 'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300',
-  cancelled: 'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-400',
+  cancelled: 'bg-gray-100 text-gray-600 dark:bg-[#0E3D52]/60 dark:text-gray-400',
   missed:    'bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300',
 }
 
@@ -495,16 +495,16 @@ export default function MedicationHealthPage() {
   // ─── Render ───────────────────────────────────────────────────────────────
 
   return (
-    <div className="flex h-[calc(100vh-64px)] overflow-hidden bg-gray-50 dark:bg-gray-900">
+    <div className="flex h-[calc(100vh-64px)] overflow-hidden bg-gray-50 dark:bg-[#0F1E2E]">
 
       {/* ── Left: Participant list ──────────────────────────────────────────── */}
-      <div className="w-72 flex-shrink-0 border-r border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 flex flex-col">
+      <div className="w-72 flex-shrink-0 border-r border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] flex flex-col">
         <div className="p-4 border-b border-gray-200 dark:border-[#1A6080]/30">
           <h1 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Medication & Health</h1>
           <input
             type="text" placeholder="Search participants…" value={search}
             onChange={e => setSearch(e.target.value)}
-            className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-[#1A6080]/40 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-[#0E3D52]/20 focus:outline-none"
+            className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-[#1A6080]/40 rounded-lg bg-white dark:bg-[#0E3D52]/60 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-[#0E3D52]/20 focus:outline-none"
           />
         </div>
         <div className="flex-1 overflow-y-auto">
@@ -537,7 +537,7 @@ export default function MedicationHealthPage() {
         <div className="flex-1 flex flex-col overflow-hidden">
 
           {/* Header */}
-          <div className="px-6 py-4 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-[#1A6080]/30">
+          <div className="px-6 py-4 bg-white dark:bg-[#0A1929] border-b border-gray-200 dark:border-[#1A6080]/30">
             <div className="flex items-center justify-between">
               <div>
                 <h2 className="page-premium-title">{displayName(selected)}</h2>
@@ -558,7 +558,7 @@ export default function MedicationHealthPage() {
                 {DETAIL_TABS.map(tab => (
                   <button key={tab} onClick={() => changeTab(tab)}
                     className={`px-4 py-2 text-sm font-medium rounded-t-lg capitalize transition-colors ${activeTab === tab
-                      ? 'bg-gray-50 dark:bg-gray-900 border border-b-0 border-gray-200 dark:border-[#1A6080]/30 text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4]'
+                      ? 'bg-gray-50 dark:bg-[#0F1E2E] border border-b-0 border-gray-200 dark:border-[#1A6080]/30 text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4]'
                       : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'}`}>
                     {tab === 'medications' ? '💊 Medications' : tab === 'conditions' ? '🩺 Conditions' : '📅 Appointments'}
                   </button>
@@ -579,7 +579,7 @@ export default function MedicationHealthPage() {
           </div>
 
           {/* Content */}
-          <div className="flex-1 overflow-y-auto bg-gray-50 dark:bg-gray-900 p-6">
+          <div className="flex-1 overflow-y-auto bg-gray-50 dark:bg-[#0F1E2E] p-6">
 
             {/* ── Medication admin log view ── */}
             {logsFor && (
@@ -713,7 +713,7 @@ export default function MedicationHealthPage() {
                             </span>
                             <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${
                               c.status === 'active' ? 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/30 dark:text-[#7dcfd7]'
-                              : 'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-400'}`}>
+                              : 'bg-gray-100 text-gray-600 dark:bg-[#0E3D52]/60 dark:text-gray-400'}`}>
                               {CONDITION_STATUS_LABELS[c.status] || c.status}
                             </span>
                             <button onClick={() => openEditCond(c)} className="opacity-0 group-hover:opacity-100 text-xs px-2 py-1 text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4] hover:bg-[#E0EEF4] dark:hover:bg-[#0E3D52]/30 rounded transition">Edit</button>
@@ -725,7 +725,7 @@ export default function MedicationHealthPage() {
                         </div>
                         {c.description && <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">{c.description}</p>}
                         {c.managementPlan && (
-                          <div className="mt-2 p-2 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                          <div className="mt-2 p-2 bg-gray-50 dark:bg-[#0E3D52]/60 rounded-lg">
                             <p className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-1">Management Plan</p>
                             <p className="text-sm text-gray-700 dark:text-gray-300">{c.managementPlan}</p>
                           </div>
@@ -1036,7 +1036,7 @@ export default function MedicationHealthPage() {
 
 function Tag({ children, color = 'gray' }: { children: React.ReactNode; color?: 'gray' | 'blue' | 'orange' | 'purple' }) {
   const colors: Record<string, string> = {
-    gray:   'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300',
+    gray:   'bg-gray-100 text-gray-600 dark:bg-[#0E3D52]/60 dark:text-gray-300',
     blue:   'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/30 dark:text-[#7dcfd7]',
     orange: 'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-300',
     purple: 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52] dark:text-[#4ebac4]',
@@ -1065,14 +1065,14 @@ function Input({ value, onChange, type = 'text', placeholder }: {
 }) {
   return (
     <input type={type} value={value} onChange={e => onChange(e.target.value)} placeholder={placeholder}
-      className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-[#1A6080]/40 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-[#0E3D52]/20 focus:outline-none" />
+      className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-[#1A6080]/40 rounded-lg bg-white dark:bg-[#0E3D52]/60 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-[#0E3D52]/20 focus:outline-none" />
   )
 }
 
 function Select({ value, onChange, children }: { value: string; onChange: (v: string) => void; children: React.ReactNode }) {
   return (
     <select value={value} onChange={e => onChange(e.target.value)}
-      className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-[#1A6080]/40 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-[#0E3D52]/20 focus:outline-none">
+      className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-[#1A6080]/40 rounded-lg bg-white dark:bg-[#0E3D52]/60 text-gray-900 dark:text-white focus:ring-2 focus:ring-[#0E3D52]/20 focus:outline-none">
       {children}
     </select>
   )
@@ -1081,7 +1081,7 @@ function Select({ value, onChange, children }: { value: string; onChange: (v: st
 function Textarea({ value, onChange, rows = 3 }: { value: string; onChange: (v: string) => void; rows?: number }) {
   return (
     <textarea value={value} onChange={e => onChange(e.target.value)} rows={rows}
-      className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-[#1A6080]/40 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-[#0E3D52]/20 focus:outline-none resize-none" />
+      className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-[#1A6080]/40 rounded-lg bg-white dark:bg-[#0E3D52]/60 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-[#0E3D52]/20 focus:outline-none resize-none" />
   )
 }
 

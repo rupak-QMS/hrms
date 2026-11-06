@@ -469,7 +469,7 @@ export default function AssetsPage() {
                         <td className="px-4 py-3 text-gray-500 text-xs font-mono dark:text-gray-400">{a.serialNumber ?? '—'}</td>
                         <td className="px-4 py-3 text-gray-600 dark:text-gray-400 text-xs">{assignedEmployee(a.id) ?? '—'}</td>
                         <td className="px-4 py-3">
-                          <span className={`text-xs px-2 py-0.5 rounded-full border font-medium ${STATUS_BADGE[a.status] ?? 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 border-gray-300 dark:border-[#1A6080]/30'}`}>
+                          <span className={`text-xs px-2 py-0.5 rounded-full border font-medium ${STATUS_BADGE[a.status] ?? 'bg-gray-100 dark:bg-[#0A1929] text-gray-600 dark:text-gray-400 border-gray-300 dark:border-[#1A6080]/30'}`}>
                             {a.status}
                           </span>
                         </td>
@@ -482,12 +482,12 @@ export default function AssetsPage() {
                               </button>
                             )}
                             <button onClick={() => openEdit(a)}
-                              className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:border-[#4ebac4] hover:text-[#1A6080] dark:text-[#4ebac4] px-2 py-1 rounded transition">
+                              className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:border-[#4ebac4] hover:text-[#1A6080] dark:text-[#4ebac4] px-2 py-1 rounded transition">
                               Edit
                             </button>
                             {a.status !== 'retired' && (
                               <button onClick={() => retire(a.id)}
-                                className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 text-gray-500 dark:text-gray-400 hover:border-red-400 hover:text-red-400 px-2 py-1 rounded transition">
+                                className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-500 dark:text-gray-400 hover:border-red-400 hover:text-red-400 px-2 py-1 rounded transition">
                                 Retire
                               </button>
                             )}
@@ -497,7 +497,7 @@ export default function AssetsPage() {
                             </button>
                           </div>
                           {showAssignForm === a.id && (
-                            <div className="mt-2 bg-gray-100 dark:bg-gray-800 rounded-lg p-3 space-y-2">
+                            <div className="mt-2 bg-gray-100 dark:bg-[#0A1929] rounded-lg p-3 space-y-2">
                               <select value={assignForm.employeeId} onChange={e => setAssignForm(f => ({ ...f, employeeId: e.target.value }))} className={INPUT}>
                                 <option value="">— Select employee —</option>
                                 {employees.map(e => <option key={e.id} value={e.id}>{e.firstName} {e.lastName}</option>)}
@@ -536,7 +536,7 @@ export default function AssetsPage() {
                     <div className="flex-1">
                       <div className="flex items-center gap-2">
                         <span className="text-gray-900 dark:text-white font-medium text-sm">{asset?.name ?? 'Unknown'}</span>
-                        <span className="text-xs text-gray-500 bg-gray-100 dark:bg-gray-800 px-2 py-0.5 rounded-full dark:text-gray-400">{asset?.category}</span>
+                        <span className="text-xs text-gray-500 bg-gray-100 dark:bg-[#0A1929] px-2 py-0.5 rounded-full dark:text-gray-400">{asset?.category}</span>
                         {a.condition && (
                           <span className="text-xs text-gray-500 dark:text-gray-400">· {a.condition}</span>
                         )}

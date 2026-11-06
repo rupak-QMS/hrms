@@ -32,7 +32,7 @@ const ROLE_COLORS: Record<string, string> = {
   operations_manager:  'bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-200',
   team_leader:         'bg-teal-100 dark:bg-teal-900 text-teal-200',
   payroll_officer:     'bg-pink-100 dark:bg-pink-900 text-pink-200',
-  employee:            'bg-gray-200 dark:bg-gray-700 text-gray-200',
+  employee:            'bg-gray-200 dark:bg-[#0E3D52]/60 text-gray-200',
   auditor:             'bg-orange-100 dark:bg-orange-900 text-orange-200',
   it_admin:            'bg-[#E0EEF4] dark:bg-[#0E3D52]/30 text-[#9ccfda]',
 }
@@ -158,7 +158,7 @@ export default function UsersPage() {
 
       {/* Create user form */}
       {showForm && (
-        <form onSubmit={createUser} className="bg-white dark:bg-gray-900 border border-[#b8d4e0] dark:border-[#1A6080] dark:border-[#1A6080] rounded-xl p-5 space-y-4">
+        <form onSubmit={createUser} className="bg-white dark:bg-[#0F1E2E] border border-[#b8d4e0] dark:border-[#1A6080] dark:border-[#1A6080] rounded-xl p-5 space-y-4">
           <h2 className="text-sm font-semibold text-gray-900 dark:text-white">New User</h2>
           {error && <div className="bg-red-50 dark:bg-red-100 dark:bg-red-900/50 border border-red-300 dark:border-red-700 rounded-lg p-2 text-xs text-red-700 dark:text-red-300">{error}</div>}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -169,7 +169,7 @@ export default function UsersPage() {
                 value={form.email}
                 onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
                 placeholder="user@organisation.com"
-                className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
+                className="w-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
               />
             </div>
             <div>
@@ -179,7 +179,7 @@ export default function UsersPage() {
                 value={form.password}
                 onChange={e => setForm(f => ({ ...f, password: e.target.value }))}
                 placeholder="min 8 characters"
-                className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
+                className="w-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
               />
             </div>
             <div>
@@ -187,7 +187,7 @@ export default function UsersPage() {
               <select
                 value={form.role}
                 onChange={e => setForm(f => ({ ...f, role: e.target.value }))}
-                className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
+                className="w-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
               >
                 {ROLES.map(r => <option key={r.value} value={r.value}>{r.label}</option>)}
               </select>
@@ -207,7 +207,7 @@ export default function UsersPage() {
       {/* Password reset modal */}
       {resetTarget && (
         <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
-          <div className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-[#1A6080]/30 rounded-xl p-6 w-full max-w-sm space-y-4">
+          <div className="bg-white dark:bg-[#0F1E2E] border border-gray-300 dark:border-[#1A6080]/30 rounded-xl p-6 w-full max-w-sm space-y-4">
             <h2 className="text-gray-900 dark:text-white font-semibold">Reset Password</h2>
             <p className="text-sm text-gray-600 dark:text-gray-400">{resetTarget.email}</p>
             <input
@@ -215,7 +215,7 @@ export default function UsersPage() {
               value={newPassword}
               onChange={e => setNewPassword(e.target.value)}
               placeholder="New password"
-              className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
+              className="w-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
             />
             <div className="flex gap-2">
               <button
@@ -234,7 +234,7 @@ export default function UsersPage() {
       )}
 
       {/* User table */}
-      <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl overflow-hidden">
+      <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl overflow-hidden">
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-gray-200 dark:border-[#1A6080]/20 text-left">
@@ -256,7 +256,7 @@ export default function UsersPage() {
               <tr key={u.id} className="border-b border-gray-200 dark:border-[#1A6080]/20 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30/50">
                 <td className="px-5 py-3.5">
                   <div className="flex items-center gap-3">
-                    <div className="w-7 h-7 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-xs font-bold text-gray-600 dark:text-gray-300">
+                    <div className="w-7 h-7 rounded-full bg-gray-200 dark:bg-[#0E3D52]/60 flex items-center justify-center text-xs font-bold text-gray-600 dark:text-gray-300">
                       {u.email[0].toUpperCase()}
                     </div>
                     <span className="text-gray-900 dark:text-white">{u.email}</span>

@@ -52,7 +52,7 @@ interface FullSubmission extends Submission {
 
 // ── badges ───────────────────────────────────────────────────────────────────
 const STATUS_BADGE: Record<string, string> = {
-  draft:             'bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400',
+  draft:             'bg-gray-100 text-gray-600 dark:bg-[#0A1929] dark:text-gray-400',
   submitted:         'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/20 dark:text-[#4ebac4]',
   hr_reviewed:       'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/30 dark:text-[#1A6080] dark:text-[#4ebac4]',
   completed:         'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400',
@@ -175,14 +175,14 @@ export default function EssOnboardingReviewPage() {
           value={search}
           onChange={e => setSearch(e.target.value)}
           className="flex-1 px-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-[#1A6080]/30
-            bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100
+            bg-white dark:bg-[#0F1E2E] text-gray-900 dark:text-gray-100
             focus:outline-none focus:ring-2 focus:ring-[#0E3D52]/20"
         />
         <select
           value={statusFilter}
           onChange={e => setStatusFilter(e.target.value)}
           className="px-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-[#1A6080]/30
-            bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100
+            bg-white dark:bg-[#0F1E2E] text-gray-900 dark:text-gray-100
             focus:outline-none focus:ring-2 focus:ring-[#0E3D52]/20"
         >
           <option value="all">All statuses</option>
@@ -261,7 +261,7 @@ export default function EssOnboardingReviewPage() {
       {(selected || detailLoading) && (
         <div className="fixed inset-0 bg-black/50 z-50 flex justify-end" onClick={() => setSelected(null)}>
           <div
-            className="w-full max-w-2xl bg-white dark:bg-gray-900 h-full overflow-y-auto shadow-xl"
+            className="w-full max-w-2xl bg-white dark:bg-[#0F1E2E] h-full overflow-y-auto shadow-xl"
             onClick={e => e.stopPropagation()}
           >
             {detailLoading ? (
@@ -334,7 +334,7 @@ export default function EssOnboardingReviewPage() {
                     onChange={e => setHrNotes(e.target.value)}
                     placeholder="Add review notes or comments for payroll…"
                     className="w-full px-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-[#1A6080]/30
-                      bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100
+                      bg-white dark:bg-[#0A1929] text-gray-900 dark:text-gray-100
                       focus:outline-none focus:ring-2 focus:ring-[#0E3D52]/20 resize-none"
                   />
                 </div>
@@ -394,7 +394,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
   return (
     <div className="mb-5">
       <p className="text-xs font-semibold st text-gray-400 dark:text-gray-600 mb-2">{title}</p>
-      <div className="bg-gray-50 dark:bg-gray-800/50 rounded-xl px-4 py-1">
+      <div className="bg-gray-50 dark:bg-[#0A1929]/50 rounded-xl px-4 py-1">
         {children}
       </div>
     </div>

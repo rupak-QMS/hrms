@@ -218,7 +218,7 @@ export default function PromotionsPage() {
           {loading ? <p className="text-gray-500 text-sm text-center py-8 dark:text-gray-400">Loading…</p>
           : promotions.length === 0 ? (
             <div className="text-center py-12 text-gray-600 dark:text-gray-400">
-              <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-gray-800 mx-auto mb-3">
+              <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-[#0A1929] mx-auto mb-3">
                 <svg className="w-6 h-6 text-gray-600 dark:text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
                 </svg>
@@ -258,7 +258,7 @@ export default function PromotionsPage() {
         <div className="lg:col-span-3">
           {!selected ? (
             <div className="card-premium p-10 text-center">
-              <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-gray-800 mx-auto mb-3">
+              <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-[#0A1929] mx-auto mb-3">
                 <svg className="w-6 h-6 text-gray-600 dark:text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
                 </svg>
@@ -283,7 +283,7 @@ export default function PromotionsPage() {
 
                 {/* Promotion comparison */}
                 <div className="grid grid-cols-2 gap-3 mb-4">
-                  <div className="bg-gray-100 dark:bg-gray-800/60 rounded-xl p-3">
+                  <div className="bg-gray-100 dark:bg-[#0A1929]/60 rounded-xl p-3">
                     <p className="text-xs text-gray-500 mb-1 dark:text-gray-400">Current</p>
                     <p className="text-sm font-semibold text-foreground">{selected.currentTitle || '—'}</p>
                     {selected.currentSalary && <p className="text-xs text-gray-600 dark:text-gray-400 mt-0.5">${selected.currentSalary.toLocaleString()} / yr</p>}
@@ -308,13 +308,13 @@ export default function PromotionsPage() {
                   {selected.reviewedBy && <div><p className="text-gray-500 dark:text-gray-400">Reviewed By</p><p className="text-white mt-0.5">{selected.reviewedBy}</p></div>}
                 </div>
 
-                <div className="bg-gray-100 dark:bg-gray-800/60 rounded-xl p-3 mb-4">
+                <div className="bg-gray-100 dark:bg-[#0A1929]/60 rounded-xl p-3 mb-4">
                   <p className="text-xs text-gray-500 mb-1 dark:text-gray-400">Justification</p>
                   <p className="text-sm text-gray-700 dark:text-gray-200 whitespace-pre-wrap">{selected.justification}</p>
                 </div>
 
                 {selected.reviewNotes && (
-                  <div className="bg-gray-100 dark:bg-gray-800/60 rounded-xl p-3 mb-4">
+                  <div className="bg-gray-100 dark:bg-[#0A1929]/60 rounded-xl p-3 mb-4">
                     <p className="text-xs text-gray-500 mb-1 dark:text-gray-400">Review Notes</p>
                     <p className="text-sm text-gray-700 dark:text-gray-200">{selected.reviewNotes}</p>
                   </div>
@@ -357,7 +357,7 @@ export default function PromotionsPage() {
                 <div className="flex gap-2">
                   <input value={inlineNote} onChange={e=>setInlineNote(e.target.value)}
                     placeholder="Add a note to this case…"
-                    className="flex-1 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
+                    className="flex-1 bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
                   <button onClick={addNote} disabled={addingNote || !inlineNote.trim()}
                     className="px-3 py-2 bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-50 text-white text-xs font-medium rounded-lg transition">
                     Add
@@ -375,10 +375,10 @@ export default function PromotionsPage() {
                     {events.map((ev, i) => (
                       <div key={ev.id} className="flex gap-3 items-start">
                         <div className="flex flex-col items-center shrink-0">
-                          <div className="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 flex items-center justify-center text-sm">
+                          <div className="w-8 h-8 rounded-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 flex items-center justify-center text-sm">
                             {EVENT_ICON[ev.event] ?? ''}
                           </div>
-                          {i < events.length-1 && <div className="w-px h-4 bg-gray-200 dark:bg-gray-700 mt-1" />}
+                          {i < events.length-1 && <div className="w-px h-4 bg-gray-200 dark:bg-[#0E3D52]/60 mt-1" />}
                         </div>
                         <div className="flex-1 pb-1">
                           <div className="flex items-center justify-between gap-2">

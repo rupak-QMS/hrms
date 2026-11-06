@@ -62,7 +62,7 @@ const COMPLIANCE_BADGE: Record<string, { label: string; cls: string }> = {
   green:   { label: 'Compliant',     cls: 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400' },
   amber:   { label: 'Needs Review',  cls: 'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-400' },
   red:     { label: 'Non-Compliant', cls: 'bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-400' },
-  pending: { label: 'Pending',       cls: 'bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400' },
+  pending: { label: 'Pending',       cls: 'bg-gray-100 text-gray-600 dark:bg-[#0A1929] dark:text-gray-400' },
 }
 
 const EMP_TYPE_LABEL: Record<string, string> = {
@@ -651,10 +651,10 @@ export default function EmployeeProfilePage() {
               <p className="text-sm text-gray-600 dark:text-gray-400 mt-0.5">Goes by "{emp.preferredName}"</p>
             )}
             <div className="flex flex-wrap gap-2 mt-3">
-              <span className="px-2.5 py-1 rounded-lg text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">
+              <span className="px-2.5 py-1 rounded-lg text-xs font-medium bg-gray-100 dark:bg-[#0A1929] text-gray-600 dark:text-gray-300">
                 {emp.employeeNumber}
               </span>
-              <span className="px-2.5 py-1 rounded-lg text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">
+              <span className="px-2.5 py-1 rounded-lg text-xs font-medium bg-gray-100 dark:bg-[#0A1929] text-gray-600 dark:text-gray-300">
                 {EMP_TYPE_LABEL[emp.employmentType] ?? emp.employmentType}
               </span>
               {emp.positionTitle && (
@@ -709,13 +709,13 @@ export default function EmployeeProfilePage() {
                 {pct}%
               </span>
             </div>
-            <div className="w-full bg-gray-100 dark:bg-gray-800 rounded-full h-2 mb-3">
+            <div className="w-full bg-gray-100 dark:bg-[#0A1929] rounded-full h-2 mb-3">
               <div className={`h-2 rounded-full transition-all duration-500 ${color}`} style={{ width: `${pct}%` }} />
             </div>
             {missing.length > 0 && (
               <div className="flex flex-wrap gap-1.5">
                 {missing.map(m => (
-                  <span key={m} className="text-[11px] px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400">
+                  <span key={m} className="text-[11px] px-2 py-0.5 rounded-full bg-gray-100 dark:bg-[#0A1929] text-gray-500 dark:text-gray-400">
                     + {m}
                   </span>
                 ))}
@@ -812,26 +812,26 @@ export default function EmployeeProfilePage() {
                   <div>
                     <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Full Name *</label>
                     <input required value={contactForm.name} onChange={e => { markDirty(); setContactForm(f => ({ ...f, name: e.target.value })) }}
-                      className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none focus:border-[#0E3D52]"
+                      className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none focus:border-[#0E3D52]"
                       placeholder="e.g. John Smith" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Relationship</label>
                     <input value={contactForm.relationship} onChange={e => { markDirty(); setContactForm(f => ({ ...f, relationship: e.target.value })) }}
-                      className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none focus:border-[#0E3D52]"
+                      className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none focus:border-[#0E3D52]"
                       placeholder="e.g. Spouse, Parent, Sibling" />
                   </div>
                   <div className="grid grid-cols-2 gap-3">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Phone</label>
                       <input value={contactForm.phone} onChange={e => { markDirty(); setContactForm(f => ({ ...f, phone: e.target.value })) }}
-                        className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none focus:border-[#0E3D52]"
+                        className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none focus:border-[#0E3D52]"
                         placeholder="+61 4xx xxx xxx" />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
                       <input type="email" value={contactForm.email} onChange={e => { markDirty(); setContactForm(f => ({ ...f, email: e.target.value })) }}
-                        className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none focus:border-[#0E3D52]"
+                        className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none focus:border-[#0E3D52]"
                         placeholder="john@example.com" />
                     </div>
                   </div>
@@ -866,7 +866,7 @@ export default function EmployeeProfilePage() {
             {!contactsLoaded ? (
               <p className="text-sm text-gray-600 dark:text-gray-400 py-4">Loading…</p>
             ) : contacts.length === 0 ? (
-              <div className="text-center py-10 bg-gray-50 dark:bg-gray-800/50 rounded-xl">
+              <div className="text-center py-10 bg-gray-50 dark:bg-[#0A1929]/50 rounded-xl">
                 <p className="text-3xl mb-2"></p>
                 <p className="text-sm text-gray-500 dark:text-gray-400">No emergency contacts added yet</p>
                 <button onClick={openAddContact} className="mt-3 text-sm font-medium text-[#1A6080] dark:text-[#4ebac4] hover:text-[#0E3D52]">
@@ -876,7 +876,7 @@ export default function EmployeeProfilePage() {
             ) : (
               <div className="space-y-3">
                 {contacts.map(c => (
-                  <div key={c.id} className="flex items-start gap-4 p-4 bg-gray-50 dark:bg-gray-800/60 rounded-xl border border-gray-100 dark:border-[#1A6080]/30">
+                  <div key={c.id} className="flex items-start gap-4 p-4 bg-gray-50 dark:bg-[#0A1929]/60 rounded-xl border border-gray-100 dark:border-[#1A6080]/30">
                     <div
                       className="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-bold shrink-0"
                       style={{ background: 'var(--primary)' }}
@@ -890,7 +890,7 @@ export default function EmployeeProfilePage() {
                           <span className="text-xs px-2 py-0.5 rounded-full bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/20 dark:text-[#7dcfd7] font-medium">Primary</span>
                         )}
                         {c.relationship && (
-                          <span className="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300">{c.relationship}</span>
+                          <span className="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-[#0E3D52]/60 text-gray-600 dark:text-gray-300">{c.relationship}</span>
                         )}
                       </div>
                       <div className="flex flex-wrap gap-3 mt-1 text-sm text-gray-500 dark:text-gray-400">
@@ -948,7 +948,7 @@ export default function EmployeeProfilePage() {
               {!screeningLoaded ? (
                 <p className="text-sm text-gray-600 dark:text-gray-400">Loading…</p>
               ) : screening.length === 0 ? (
-                <div className="rounded-xl bg-gray-50 dark:bg-gray-800 p-6 text-center">
+                <div className="rounded-xl bg-gray-50 dark:bg-[#0A1929] p-6 text-center">
                   <p className="text-3xl mb-2"></p>
                   <p className="text-sm text-gray-500 dark:text-gray-400">No screening records yet</p>
                   <a href="/tenant/compliance" className="mt-2 inline-block text-xs text-[#1A6080] dark:text-[#4ebac4] hover:underline">
@@ -962,7 +962,7 @@ export default function EmployeeProfilePage() {
                       green:'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400',
                       amber:'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-400',
                       red:'bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-400',
-                      pending:'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-400',
+                      pending:'bg-gray-100 text-gray-600 dark:bg-[#0E3D52]/60 dark:text-gray-400',
                     }
                     // Compute expiry countdown badge
                     let countdownBadge: { label: string; cls: string } | null = null
@@ -979,7 +979,7 @@ export default function EmployeeProfilePage() {
                       }
                     }
                     return (
-                      <div key={sr.id} className="flex items-center gap-4 p-3 bg-gray-50 dark:bg-gray-800 rounded-xl">
+                      <div key={sr.id} className="flex items-center gap-4 p-3 bg-gray-50 dark:bg-[#0A1929] rounded-xl">
                         <div className="flex-1 min-w-0">
                           <p className="text-sm font-medium text-gray-800 dark:text-gray-200">{sr.checkType}</p>
                           <div className="flex flex-wrap gap-2 mt-0.5 text-xs text-gray-600 dark:text-gray-400">
@@ -1021,7 +1021,7 @@ export default function EmployeeProfilePage() {
             {!docsLoaded ? (
               <p className="text-sm text-gray-600 dark:text-gray-400">Loading…</p>
             ) : docs.length === 0 ? (
-              <div className="rounded-xl bg-gray-50 dark:bg-gray-800 p-6 text-center">
+              <div className="rounded-xl bg-gray-50 dark:bg-[#0A1929] p-6 text-center">
                 <p className="text-3xl mb-2"></p>
                 <p className="text-sm text-gray-500 dark:text-gray-400">No documents uploaded for this employee</p>
               </div>
@@ -1031,12 +1031,12 @@ export default function EmployeeProfilePage() {
                   const statusStyle: Record<string, string> = {
                     active:'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400',
                     expired:'bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-400',
-                    archived:'bg-gray-100 text-gray-500 dark:bg-gray-700 dark:text-gray-400',
+                    archived:'bg-gray-100 text-gray-500 dark:bg-[#0E3D52]/60 dark:text-gray-400',
                     pending_review:'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-400',
                   }
                   const size = doc.fileSizeBytes ? `${(doc.fileSizeBytes / 1024).toFixed(0)} KB` : ''
                   return (
-                    <div key={doc.id} className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-800 rounded-xl">
+                    <div key={doc.id} className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-[#0A1929] rounded-xl">
                       <span className="text-2xl shrink-0">
                         {doc.mimeType?.includes('pdf') ? '' : doc.mimeType?.includes('image') ? '' : ''}
                       </span>
@@ -1244,7 +1244,7 @@ export default function EmployeeProfilePage() {
                 const pct = (increase && p.currentSalary) ? ((increase / Number(p.currentSalary)) * 100).toFixed(1) : null
 
                 const STATUS_STYLE: Record<string, string> = {
-                  pending:      'bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400',
+                  pending:      'bg-gray-100 text-gray-600 dark:bg-[#0A1929] dark:text-gray-400',
                   under_review: 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/20 dark:text-[#7dcfd7]',
                   approved:     'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300',
                   rejected:     'bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300',
@@ -1273,19 +1273,19 @@ export default function EmployeeProfilePage() {
 
                     {/* Details grid */}
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                      {p.currentTitle && <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-3">
+                      {p.currentTitle && <div className="bg-gray-50 dark:bg-[#0A1929]/50 rounded-lg p-3">
                         <p className="text-xs text-gray-500 dark:text-gray-400">Current Title</p>
                         <p className="text-xs font-medium text-gray-800 dark:text-white mt-0.5">{p.currentTitle}</p>
                       </div>}
-                      <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-3">
+                      <div className="bg-gray-50 dark:bg-[#0A1929]/50 rounded-lg p-3">
                         <p className="text-xs text-gray-500 dark:text-gray-400">Proposed Title</p>
                         <p className="text-xs font-medium text-gray-800 dark:text-white mt-0.5">{p.proposedTitle}</p>
                       </div>
-                      {p.currentSalary && <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-3">
+                      {p.currentSalary && <div className="bg-gray-50 dark:bg-[#0A1929]/50 rounded-lg p-3">
                         <p className="text-xs text-gray-500 dark:text-gray-400">Current Salary</p>
                         <p className="text-xs font-medium text-gray-800 dark:text-white mt-0.5">${Number(p.currentSalary).toLocaleString()}</p>
                       </div>}
-                      {p.proposedSalary && <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-3">
+                      {p.proposedSalary && <div className="bg-gray-50 dark:bg-[#0A1929]/50 rounded-lg p-3">
                         <p className="text-xs text-gray-500 dark:text-gray-400">Proposed Salary</p>
                         <p className="text-xs font-medium text-green-600 dark:text-green-400 mt-0.5">
                           ${Number(p.proposedSalary).toLocaleString()}
@@ -1385,7 +1385,7 @@ export default function EmployeeProfilePage() {
                 onChange={e => { markDirty(); setNoteContent(e.target.value) }}
                 placeholder="Add a note about this employee…"
                 rows={3}
-                className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-xl px-4 py-3 text-sm text-gray-800 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52] resize-y"
+                className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-xl px-4 py-3 text-sm text-gray-800 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52] resize-y"
               />
               <div className="flex justify-end">
                 <button
@@ -1426,7 +1426,7 @@ export default function EmployeeProfilePage() {
             {!notesLoaded ? (
               <p className="text-sm text-gray-500 dark:text-gray-400 py-4">Loading…</p>
             ) : notes.length === 0 ? (
-              <div className="text-center py-12 bg-gray-50 dark:bg-gray-800/50 rounded-xl">
+              <div className="text-center py-12 bg-gray-50 dark:bg-[#0A1929]/50 rounded-xl">
                 <p className="text-3xl mb-2">📝</p>
                 <p className="text-sm text-gray-500 dark:text-gray-400">No notes yet. Add the first one above.</p>
               </div>
@@ -1448,7 +1448,7 @@ export default function EmployeeProfilePage() {
                   })()
 
                   return (
-                    <div key={note.id} className="flex gap-3 p-4 bg-gray-50 dark:bg-gray-800/60 rounded-xl border border-gray-100 dark:border-[#1A6080]/30">
+                    <div key={note.id} className="flex gap-3 p-4 bg-gray-50 dark:bg-[#0A1929]/60 rounded-xl border border-gray-100 dark:border-[#1A6080]/30">
                       <div
                         className="w-9 h-9 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0"
                         style={{ background: 'var(--primary)' }}
@@ -1514,7 +1514,7 @@ export default function EmployeeProfilePage() {
                   <textarea
                     value={reviewNotes}
                     onChange={e => setReviewNotes(e.target.value)}
-                    className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none min-h-[80px] resize-y"
+                    className="w-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none min-h-[80px] resize-y"
                     placeholder={reviewModal.action === 'approved' ? 'Any additional conditions or comments…' : 'Reason for rejection…'}
                   />
                 </div>
@@ -1560,7 +1560,7 @@ export default function EmployeeProfilePage() {
                         proposedTitle: t === 'salary_hike' ? (emp?.positionTitle ?? '') : f.proposedTitle,
                       }))
                     }}
-                    className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]">
+                    className="w-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]">
                     <option value="promotion">Promotion (Title + Salary change)</option>
                     <option value="salary_hike">Annual Salary Hike (salary only)</option>
                     <option value="designation">Designation Change (title only)</option>
@@ -1575,7 +1575,7 @@ export default function EmployeeProfilePage() {
                       required
                       value={promoForm.proposedTitle}
                       onChange={e => setPromoForm(f => ({ ...f, proposedTitle: e.target.value }))}
-                      className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
+                      className="w-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
                       placeholder="e.g. Senior Support Worker"
                     />
                   </div>
@@ -1591,7 +1591,7 @@ export default function EmployeeProfilePage() {
                       <input
                         readOnly
                         value={emp?.annualSalary ? Math.round(Number(emp.annualSalary)) : ''}
-                        className="w-full bg-gray-200 dark:bg-gray-700 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-500 dark:text-gray-400"
+                        className="w-full bg-gray-200 dark:bg-[#0E3D52]/60 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-500 dark:text-gray-400"
                       />
                     </div>
                     <div>
@@ -1603,7 +1603,7 @@ export default function EmployeeProfilePage() {
                         type="number"
                         value={promoForm.proposedSalary}
                         onChange={e => setPromoForm(f => ({ ...f, proposedSalary: e.target.value }))}
-                        className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
+                        className="w-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
                         placeholder="e.g. 72000"
                       />
                     </div>
@@ -1617,7 +1617,7 @@ export default function EmployeeProfilePage() {
                     type="date"
                     value={promoForm.effectiveDate}
                     onChange={e => setPromoForm(f => ({ ...f, effectiveDate: e.target.value }))}
-                    className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
+                    className="w-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
                   />
                 </div>
 
@@ -1628,7 +1628,7 @@ export default function EmployeeProfilePage() {
                     required
                     value={promoForm.justification}
                     onChange={e => setPromoForm(f => ({ ...f, justification: e.target.value }))}
-                    className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52] min-h-[80px] resize-y"
+                    className="w-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52] min-h-[80px] resize-y"
                     placeholder="Describe the reason for this request (performance, CPI review, restructure, etc.)…"
                   />
                 </div>

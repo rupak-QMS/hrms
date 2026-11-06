@@ -131,17 +131,17 @@ const fmtMoney = (v: string | null) => v ? `$${parseFloat(v).toLocaleString('en-
 const displayName = (p: Participant) => `${p.firstName} ${p.lastName}`
 
 const goalStatusColor: Record<string, string> = {
-  not_started: 'bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300',
+  not_started: 'bg-gray-100 text-gray-700 dark:bg-[#0E3D52]/60 dark:text-gray-300',
   in_progress:  'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/30 dark:text-[#7dcfd7]',
   achieved:     'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300',
   on_hold:      'bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300',
   discontinued: 'bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300',
 }
 const planStatusColor: Record<string, string> = {
-  draft:    'bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300',
+  draft:    'bg-gray-100 text-gray-700 dark:bg-[#0E3D52]/60 dark:text-gray-300',
   active:   'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300',
   expired:  'bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300',
-  archived: 'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-400',
+  archived: 'bg-gray-100 text-gray-600 dark:bg-[#0E3D52]/60 dark:text-gray-400',
 }
 
 // ─── Main Page ────────────────────────────────────────────────────────────────
@@ -411,13 +411,13 @@ export default function ParticipantsPage() {
           />
           <div className="flex gap-2">
             <select value={filterActive} onChange={e => setFilterActive(e.target.value as 'all' | 'active' | 'inactive')}
-              className="flex-1 px-2 py-1.5 text-xs border border-gray-300 dark:border-[#1A6080]/40 rounded-lg bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300">
+              className="flex-1 px-2 py-1.5 text-xs border border-gray-300 dark:border-[#1A6080]/40 rounded-lg bg-white dark:bg-[#0E3D52]/60 text-gray-700 dark:text-gray-300">
               <option value="active">Active</option>
               <option value="inactive">Inactive</option>
               <option value="all">All</option>
             </select>
             <select value={filterFunding} onChange={e => setFilterFunding(e.target.value)}
-              className="flex-1 px-2 py-1.5 text-xs border border-gray-300 dark:border-[#1A6080]/40 rounded-lg bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300">
+              className="flex-1 px-2 py-1.5 text-xs border border-gray-300 dark:border-[#1A6080]/40 rounded-lg bg-white dark:bg-[#0E3D52]/60 text-gray-700 dark:text-gray-300">
               <option value="">All Funding</option>
               {FUNDING_BODIES.map(f => <option key={f} value={f}>{f}</option>)}
             </select>
@@ -638,7 +638,7 @@ export default function ParticipantsPage() {
                       <div key={n.id} className="card-premium p-4">
                         <div className="flex items-start justify-between gap-2 mb-2">
                           <div className="flex items-center gap-2">
-                            <span className="text-xs px-2 py-0.5 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-full">
+                            <span className="text-xs px-2 py-0.5 bg-gray-100 dark:bg-[#0E3D52]/60 text-gray-600 dark:text-gray-300 rounded-full">
                               {NOTE_TYPE_LABELS[n.noteType] || n.noteType}
                             </span>
                             <span className="text-xs px-2 py-0.5 bg-[#E0EEF4] dark:bg-[#0E3D52]/20 text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#7dcfd7] rounded-full">
@@ -999,7 +999,7 @@ function Input({ value, onChange, type = 'text', placeholder }: {
 function Select({ value, onChange, children }: { value: string; onChange: (v: string) => void; children: React.ReactNode }) {
   return (
     <select value={value} onChange={e => onChange(e.target.value)}
-      className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-[#1A6080]/40 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-[#0E3D52]/20 focus:outline-none">
+      className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-[#1A6080]/40 rounded-lg bg-white dark:bg-[#0E3D52]/60 text-gray-900 dark:text-white focus:ring-2 focus:ring-[#0E3D52]/20 focus:outline-none">
       {children}
     </select>
   )

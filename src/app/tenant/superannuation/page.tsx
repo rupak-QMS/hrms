@@ -58,11 +58,11 @@ const STATUS_COLORS: Record<string, string> = {
   active: 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300',
   stapled: 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/20 dark:text-[#7dcfd7]',
   employer_default: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300',
-  closed: 'bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400',
+  closed: 'bg-gray-100 text-gray-600 dark:bg-[#0A1929] dark:text-gray-400',
   pending: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300',
   paid: 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300',
   overdue: 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300',
-  exempt: 'bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400',
+  exempt: 'bg-gray-100 text-gray-600 dark:bg-[#0A1929] dark:text-gray-400',
 }
 
 const EMPTY_FUND = {
@@ -254,7 +254,7 @@ export default function SuperannuationPage() {
       <div className="w-72 flex flex-col gap-3 shrink-0">
         <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Superannuation</h2>
         <input
-          className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+          className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
           placeholder="Search employees…"
           value={search}
           onChange={e => setSearch(e.target.value)}
@@ -481,30 +481,30 @@ export default function SuperannuationPage() {
             <div className="space-y-3">
               <div>
                 <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Fund Name *</label>
-                <input className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                <input className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                   value={fundForm.fundName} onChange={e => setFundForm(f => ({ ...f, fundName: e.target.value }))} />
               </div>
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Fund ABN</label>
-                  <input className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                  <input className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                     value={fundForm.fundAbn} onChange={e => setFundForm(f => ({ ...f, fundAbn: e.target.value }))} />
                 </div>
                 <div>
                   <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">USI</label>
-                  <input className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                  <input className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                     value={fundForm.usi} onChange={e => setFundForm(f => ({ ...f, usi: e.target.value }))} />
                 </div>
               </div>
               <div>
                 <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Member Number</label>
-                <input className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                <input className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                   value={fundForm.memberNumber} onChange={e => setFundForm(f => ({ ...f, memberNumber: e.target.value }))} />
               </div>
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Status</label>
-                  <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                  <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                     value={fundForm.status} onChange={e => setFundForm(f => ({ ...f, status: e.target.value }))}>
                     <option value="active">Active</option>
                     <option value="stapled">Stapled</option>
@@ -514,7 +514,7 @@ export default function SuperannuationPage() {
                 </div>
                 <div>
                   <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Source</label>
-                  <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                  <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                     value={fundForm.source} onChange={e => setFundForm(f => ({ ...f, source: e.target.value }))}>
                     <option value="employee">Employee</option>
                     <option value="ato_stapled">ATO Stapled</option>
@@ -534,27 +534,27 @@ export default function SuperannuationPage() {
                 </label>
               </div>
               {fundForm.isSmsf && (
-                <div className="grid grid-cols-2 gap-3 p-3 bg-gray-50 dark:bg-gray-800/50 rounded-lg">
+                <div className="grid grid-cols-2 gap-3 p-3 bg-gray-50 dark:bg-[#0A1929]/50 rounded-lg">
                   <div>
                     <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">BSB</label>
-                    <input className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                    <input className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                       value={fundForm.smsfBankBsb} onChange={e => setFundForm(f => ({ ...f, smsfBankBsb: e.target.value }))} />
                   </div>
                   <div>
                     <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Account Number</label>
-                    <input className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                    <input className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                       value={fundForm.smsfBankAccount} onChange={e => setFundForm(f => ({ ...f, smsfBankAccount: e.target.value }))} />
                   </div>
                   <div className="col-span-2">
                     <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Electronic Service Address (ESA)</label>
-                    <input className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                    <input className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                       value={fundForm.smsfEsa} onChange={e => setFundForm(f => ({ ...f, smsfEsa: e.target.value }))} />
                   </div>
                 </div>
               )}
               <div>
                 <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Notes</label>
-                <textarea className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white" rows={2}
+                <textarea className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white" rows={2}
                   value={fundForm.notes} onChange={e => setFundForm(f => ({ ...f, notes: e.target.value }))} />
               </div>
             </div>
@@ -580,7 +580,7 @@ export default function SuperannuationPage() {
             <div className="space-y-3">
               <div>
                 <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Super Fund *</label>
-                <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                   value={contribForm.superFundId} onChange={e => setContribForm(f => ({ ...f, superFundId: e.target.value }))}>
                   <option value="">Select fund…</option>
                   {funds.map(f => (
@@ -591,42 +591,42 @@ export default function SuperannuationPage() {
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Period Start *</label>
-                  <input type="date" className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                  <input type="date" className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                     value={contribForm.periodStart} onChange={e => setContribForm(f => ({ ...f, periodStart: e.target.value }))} />
                 </div>
                 <div>
                   <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Period End *</label>
-                  <input type="date" className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                  <input type="date" className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                     value={contribForm.periodEnd} onChange={e => setContribForm(f => ({ ...f, periodEnd: e.target.value }))} />
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Due Date *</label>
-                  <input type="date" className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                  <input type="date" className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                     value={contribForm.dueDate} onChange={e => setContribForm(f => ({ ...f, dueDate: e.target.value }))} />
                 </div>
                 <div>
                   <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">SG Rate</label>
-                  <input type="number" step="0.001" className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                  <input type="number" step="0.001" className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                     value={contribForm.sgRate} onChange={e => setContribForm(f => ({ ...f, sgRate: e.target.value }))} />
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Gross Earnings ($)</label>
-                  <input type="number" step="0.01" className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                  <input type="number" step="0.01" className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                     value={contribForm.grossEarnings} onChange={e => setContribForm(f => ({ ...f, grossEarnings: e.target.value }))} />
                 </div>
                 <div>
                   <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Voluntary ($)</label>
-                  <input type="number" step="0.01" className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                  <input type="number" step="0.01" className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                     value={contribForm.voluntaryAmount} onChange={e => setContribForm(f => ({ ...f, voluntaryAmount: e.target.value }))} />
                 </div>
               </div>
               <div>
                 <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Status</label>
-                <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                   value={contribForm.status} onChange={e => setContribForm(f => ({ ...f, status: e.target.value }))}>
                   <option value="pending">Pending</option>
                   <option value="paid">Paid</option>
@@ -636,7 +636,7 @@ export default function SuperannuationPage() {
               </div>
               <div>
                 <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Payment Reference</label>
-                <input className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                <input className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                   value={contribForm.paymentReference} onChange={e => setContribForm(f => ({ ...f, paymentReference: e.target.value }))} />
               </div>
             </div>

@@ -72,7 +72,7 @@ export default function CompliancePage() {
       </div>
 
       {/* Tab bar */}
-      <div className="flex gap-1 bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-1 w-fit">
+      <div className="flex gap-1 bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-1 w-fit">
         {([
           { key: 'screening', label: 'Screening',   desc: 'Module 6' },
           { key: 'tracking',  label: 'Tracking',    desc: 'Module 8' },
@@ -206,9 +206,9 @@ function ScreeningTab() {
       <div className="flex gap-3 flex-wrap">
         <input value={search} onChange={e => { setSearch(e.target.value); load(e.target.value, filterStatus) }}
           placeholder="Search employee…"
-          className="flex-1 min-w-48 bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]" />
+          className="flex-1 min-w-48 bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]" />
         <select value={filterStatus} onChange={e => { setFilterStatus(e.target.value); load(search, e.target.value) }}
-          className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]">
+          className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]">
           <option value="">All statuses</option>
           <option value="pending">Pending</option>
           <option value="green">Verified</option>

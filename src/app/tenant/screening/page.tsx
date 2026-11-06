@@ -25,7 +25,7 @@ const STATUS_COLORS: Record<string, string> = {
   green:   'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300',
   amber:   'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/40 dark:text-yellow-300',
   red:     'bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300',
-  pending: 'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-400',
+  pending: 'bg-gray-100 text-gray-600 dark:bg-[#0E3D52]/60 dark:text-gray-400',
 }
 
 const STATUS_DOT: Record<string, string> = {
@@ -210,7 +210,7 @@ export default function ScreeningPage() {
   return (
     <div className="h-full flex flex-col">
       {/* Header */}
-      <div className="px-6 py-4 border-b border-gray-200 bg-white dark:bg-gray-900 dark:border-[#1A6080]/30 flex items-center justify-between gap-3">
+      <div className="px-6 py-4 border-b border-gray-200 bg-white dark:bg-[#0F1E2E] dark:border-[#1A6080]/30 flex items-center justify-between gap-3">
         <div>
           <h1 className="text-xl font-semibold text-gray-900 dark:text-white">Screening &amp; Checks</h1>
           <p className="text-sm text-gray-500 mt-0.5 dark:text-gray-400">Police checks, WWCC, NDIS screening, working rights</p>
@@ -227,7 +227,7 @@ export default function ScreeningPage() {
       </div>
 
       {/* Stats */}
-      <div className="px-6 py-3 bg-gray-50 dark:bg-gray-800 border-b border-gray-100 dark:border-[#1A6080]/30 flex gap-6 flex-wrap">
+      <div className="px-6 py-3 bg-gray-50 dark:bg-[#0A1929] border-b border-gray-100 dark:border-[#1A6080]/30 flex gap-6 flex-wrap">
         {[
           { label: 'Total',          value: stats.total,       cls: 'text-gray-900 dark:text-white' },
           { label: 'Clear',          value: stats.green,       cls: 'text-green-600 dark:text-green-400' },
@@ -244,15 +244,15 @@ export default function ScreeningPage() {
       </div>
 
       {/* Filters */}
-      <div className="px-4 py-3 border-b border-gray-100 dark:border-[#1A6080]/20 bg-white dark:bg-gray-900 flex gap-2 flex-wrap">
+      <div className="px-4 py-3 border-b border-gray-100 dark:border-[#1A6080]/20 bg-white dark:bg-[#0F1E2E] flex gap-2 flex-wrap">
         <input
-          className="border border-gray-200 dark:border-[#1A6080]/30 dark:bg-gray-800 dark:text-white rounded-lg px-3 py-1.5 text-sm flex-1 min-w-[160px]"
+          className="border border-gray-200 dark:border-[#1A6080]/30 dark:bg-[#0A1929] dark:text-white rounded-lg px-3 py-1.5 text-sm flex-1 min-w-[160px]"
           placeholder="Search employee, email, reference…"
           value={search}
           onChange={e => setSearch(e.target.value)}
         />
         <select
-          className="border border-gray-200 dark:border-[#1A6080]/30 dark:bg-gray-800 dark:text-white rounded-lg px-2 py-1.5 text-sm"
+          className="border border-gray-200 dark:border-[#1A6080]/30 dark:bg-[#0A1929] dark:text-white rounded-lg px-2 py-1.5 text-sm"
           value={statusFilter}
           onChange={e => setStatus(e.target.value)}
         >
@@ -263,7 +263,7 @@ export default function ScreeningPage() {
           <option value="pending">Pending</option>
         </select>
         <select
-          className="border border-gray-200 dark:border-[#1A6080]/30 dark:bg-gray-800 dark:text-white rounded-lg px-2 py-1.5 text-sm"
+          className="border border-gray-200 dark:border-[#1A6080]/30 dark:bg-[#0A1929] dark:text-white rounded-lg px-2 py-1.5 text-sm"
           value={typeFilter}
           onChange={e => setType(e.target.value)}
         >
@@ -273,7 +273,7 @@ export default function ScreeningPage() {
       </div>
 
       {/* Table */}
-      <div className="flex-1 overflow-auto bg-white dark:bg-gray-900">
+      <div className="flex-1 overflow-auto bg-white dark:bg-[#0F1E2E]">
         {loading ? (
           <div className="flex items-center justify-center h-48">
             <p className="text-sm text-gray-500 dark:text-gray-400">Loading…</p>
@@ -288,7 +288,7 @@ export default function ScreeningPage() {
         ) : (
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-gray-100 dark:border-[#1A6080]/20 bg-gray-50 dark:bg-gray-800/60">
+              <tr className="border-b border-gray-100 dark:border-[#1A6080]/20 bg-gray-50 dark:bg-[#0A1929]/60">
                 <th className="text-left px-4 py-3 font-medium text-gray-600 dark:text-gray-400">Employee</th>
                 <th className="text-left px-4 py-3 font-medium text-gray-600 dark:text-gray-400">Check Type</th>
                 <th className="text-left px-4 py-3 font-medium text-gray-600 dark:text-gray-400">Status</th>

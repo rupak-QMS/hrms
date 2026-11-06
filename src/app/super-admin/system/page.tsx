@@ -66,7 +66,7 @@ export default function SystemHealthPage() {
         <button
           onClick={refresh}
           disabled={loading}
-          className="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 hover:border-gray-500 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white text-sm px-4 py-2 rounded-lg transition disabled:opacity-50"
+          className="bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 hover:border-gray-500 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white text-sm px-4 py-2 rounded-lg transition disabled:opacity-50"
         >
           {loading ? '⟳ Checking…' : '⟳ Refresh'}
         </button>
@@ -92,9 +92,9 @@ export default function SystemHealthPage() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {loading ? (
           [1, 2, 3].map(i => (
-            <div key={i} className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-5 animate-pulse">
-              <div className="h-4 bg-gray-100 dark:bg-gray-800 rounded w-1/2 mb-3" />
-              <div className="h-3 bg-gray-100 dark:bg-gray-800 rounded w-3/4" />
+            <div key={i} className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-5 animate-pulse">
+              <div className="h-4 bg-gray-100 dark:bg-[#0A1929] rounded w-1/2 mb-3" />
+              <div className="h-3 bg-gray-100 dark:bg-[#0A1929] rounded w-3/4" />
             </div>
           ))
         ) : error ? (
@@ -105,7 +105,7 @@ export default function SystemHealthPage() {
         ) : data ? Object.entries(data.checks).map(([key, check]) => {
           const cs = STATUS_STYLES[check.status] ?? STATUS_STYLES.error
           return (
-            <div key={key} className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-5">
+            <div key={key} className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-5">
               <div className="flex items-center justify-between mb-3">
                 <span className="text-sm font-semibold text-gray-700 dark:text-gray-200">
                   {CHECK_LABELS[key] ?? key}
@@ -123,7 +123,7 @@ export default function SystemHealthPage() {
                       {check.latencyMs}ms
                     </span>
                   </div>
-                  <div className="w-full bg-gray-100 dark:bg-gray-800 rounded-full h-1.5">
+                  <div className="w-full bg-gray-100 dark:bg-[#0A1929] rounded-full h-1.5">
                     <div
                       className={`h-1.5 rounded-full transition-all ${check.latencyMs < 300 ? 'bg-green-500' : check.latencyMs < 1000 ? 'bg-yellow-500' : 'bg-red-500'}`}
                       style={{ width: `${Math.min(100, (check.latencyMs / 2000) * 100)}%` }}
@@ -138,7 +138,7 @@ export default function SystemHealthPage() {
 
       {/* Platform Info */}
       {data?.platform && (
-        <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6">
+        <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6">
           <h2 className="text-sm font-semibold text-gray-600 dark:text-gray-400  mb-4">Platform Information</h2>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {[
@@ -149,7 +149,7 @@ export default function SystemHealthPage() {
             ].map(row => (
               <div key={row.label} className="space-y-1">
                 <p className="text-xs text-gray-500 dark:text-gray-400">{row.label}</p>
-                <p className="text-sm text-gray-700 dark:text-gray-200 font-mono bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded truncate">{row.value}</p>
+                <p className="text-sm text-gray-700 dark:text-gray-200 font-mono bg-gray-100 dark:bg-[#0A1929] px-2 py-1 rounded truncate">{row.value}</p>
               </div>
             ))}
           </div>
@@ -157,7 +157,7 @@ export default function SystemHealthPage() {
       )}
 
       {/* Infrastructure summary */}
-      <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6">
+      <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6">
         <h2 className="text-sm font-semibold text-gray-600 dark:text-gray-400  mb-4">Infrastructure Stack</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {[
@@ -168,7 +168,7 @@ export default function SystemHealthPage() {
             { name: 'Cloudflare',               role: 'CDN, SSL, DDoS protection',      tier: 'Free tier',       status: 'ok' as const },
             { name: 'GitHub Actions',           role: 'CI/CD pipeline',                 tier: '2000 min/mo free', status: 'ok' as const },
           ].map(svc => (
-            <div key={svc.name} className="flex items-start gap-3 bg-gray-100 dark:bg-gray-800/40 rounded-lg p-3">
+            <div key={svc.name} className="flex items-start gap-3 bg-gray-100 dark:bg-[#0A1929]/40 rounded-lg p-3">
               <div className={`w-2 h-2 rounded-full mt-1.5 shrink-0 ${STATUS_STYLES[svc.status].dot}`} />
               <div>
                 <p className="text-sm font-medium text-gray-700 dark:text-gray-200">{svc.name}</p>

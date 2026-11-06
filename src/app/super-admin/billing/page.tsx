@@ -71,24 +71,24 @@ export default function BillingPage() {
 
       {/* MRR Summary */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-5">
+        <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-5">
           <p className="text-xs text-gray-600 dark:text-gray-400 mb-2">Monthly Revenue</p>
           <p className="text-3xl font-bold text-green-600 dark:text-green-400">${totalMRR.toLocaleString()}</p>
           <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">AUD / month</p>
         </div>
-        <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-5">
+        <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-5">
           <p className="text-xs text-gray-600 dark:text-gray-400 mb-2">Active Subscriptions</p>
           <p className="text-3xl font-bold text-gray-900 dark:text-white">{activeClients.length}</p>
           <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">of {clients.length} total</p>
         </div>
-        <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-5">
+        <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-5">
           <p className="text-xs text-gray-600 dark:text-gray-400 mb-2">Avg Revenue / Client</p>
           <p className="text-3xl font-bold text-[#0E3D52] dark:text-[#4ebac4]">
             ${activeClients.length ? Math.round(totalMRR / activeClients.length) : 0}
           </p>
           <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">AUD / month</p>
         </div>
-        <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-5">
+        <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-5">
           <p className="text-xs text-gray-600 dark:text-gray-400 mb-2">Annual Run Rate</p>
           <p className="text-3xl font-bold text-[#1A6080] dark:text-[#4ebac4]">${(totalMRR * 12).toLocaleString()}</p>
           <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">AUD / year</p>
@@ -123,7 +123,7 @@ export default function BillingPage() {
       {/* Per-Tenant Table */}
       <div>
         <h2 className="text-sm font-semibold text-gray-600 dark:text-gray-400  mb-4">Client Subscriptions</h2>
-        <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl overflow-hidden">
+        <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl overflow-hidden">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-gray-200 dark:border-[#1A6080]/20">
@@ -180,7 +180,7 @@ export default function BillingPage() {
             </tbody>
             {!loading && clients.length > 0 && (
               <tfoot>
-                <tr className="border-t border-gray-300 dark:border-[#1A6080]/30 bg-gray-100 dark:bg-gray-800/30">
+                <tr className="border-t border-gray-300 dark:border-[#1A6080]/30 bg-gray-100 dark:bg-[#0A1929]/30">
                   <td colSpan={3} className="px-4 py-3 text-xs text-gray-600 dark:text-gray-400 font-semibold">TOTAL (active clients)</td>
                   <td className="px-4 py-3 text-green-600 dark:text-green-400 font-bold">${totalMRR} AUD/mo</td>
                   <td colSpan={3} />

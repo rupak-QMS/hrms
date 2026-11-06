@@ -32,8 +32,8 @@ const FIELD = ({ label, required, children }: { label: string; required?: boolea
   </div>
 )
 
-const INPUT_CLS = 'w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2.5 text-sm text-gray-800 dark:text-gray-200 placeholder-gray-400 focus:outline-none focus:border-[#0E3D52] transition'
-const SELECT_CLS = 'w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2.5 text-sm text-gray-700 dark:text-gray-300 focus:outline-none focus:border-[#0E3D52] transition'
+const INPUT_CLS = 'w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2.5 text-sm text-gray-800 dark:text-gray-200 placeholder-gray-400 focus:outline-none focus:border-[#0E3D52] transition'
+const SELECT_CLS = 'w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2.5 text-sm text-gray-700 dark:text-gray-300 focus:outline-none focus:border-[#0E3D52] transition'
 
 export default function NewEmployeePage() {
   const router = useRouter()
@@ -219,11 +219,11 @@ export default function NewEmployeePage() {
         <label className="flex items-center gap-3 cursor-pointer mt-2">
           <div
             onClick={() => set('ndisWorker', !form.ndisWorker)}
-            className={`w-10 h-5.5 rounded-full transition-colors relative ${form.ndisWorker ? 'bg-[#f0f7fb]0' : 'bg-gray-300 dark:bg-gray-600'}`}
+            className={`w-10 h-5.5 rounded-full transition-colors relative ${form.ndisWorker ? 'bg-[#f0f7fb]0' : 'bg-gray-300 dark:bg-[#0E3D52]/80'}`}
             style={{ width: 40, height: 22 }}
           >
             <span
-              className="absolute top-0.5 left-0.5 w-4.5 h-4.5 bg-white rounded-full shadow transition-transform dark:bg-gray-900"
+              className="absolute top-0.5 left-0.5 w-4.5 h-4.5 bg-white rounded-full shadow transition-transform dark:bg-[#0F1E2E]"
               style={{ width: 18, height: 18, transform: form.ndisWorker ? 'translateX(18px)' : 'translateX(0)' }}
             />
           </div>
@@ -245,7 +245,7 @@ export default function NewEmployeePage() {
         </button>
         <Link
           href="/tenant/employee-management"
-          className="px-6 py-2.5 rounded-xl text-sm font-semibold text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-[#0E3D52]/40 transition"
+          className="px-6 py-2.5 rounded-xl text-sm font-semibold text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-[#0A1929] hover:bg-gray-200 dark:hover:bg-[#0E3D52]/40 transition"
         >
           Cancel
         </Link>

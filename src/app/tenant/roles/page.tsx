@@ -230,11 +230,11 @@ export default function RolesPage() {
                 <input value={form.password} onChange={e => setForm(f => ({ ...f, password: e.target.value }))}
                   className={`${INPUT} font-mono`} />
                 <button type="button" onClick={copyPw}
-                  className="shrink-0 text-xs bg-gray-200 dark:bg-gray-700 hover:bg-gray-600 text-gray-600 dark:text-gray-300 px-3 py-2 rounded-lg transition">
+                  className="shrink-0 text-xs bg-gray-200 dark:bg-[#0E3D52]/60 hover:bg-gray-600 text-gray-600 dark:text-gray-300 px-3 py-2 rounded-lg transition">
                   {copied || 'Copy'}
                 </button>
                 <button type="button" onClick={() => setForm(f => ({ ...f, password: generatePassword() }))}
-                  className="shrink-0 text-xs bg-gray-200 dark:bg-gray-700 hover:bg-gray-600 text-gray-600 dark:text-gray-300 px-3 py-2 rounded-lg transition">
+                  className="shrink-0 text-xs bg-gray-200 dark:bg-[#0E3D52]/60 hover:bg-gray-600 text-gray-600 dark:text-gray-300 px-3 py-2 rounded-lg transition">
                   ↺
                 </button>
               </div>
@@ -251,7 +251,7 @@ export default function RolesPage() {
       {/* User table */}
       {loading ? <p className="text-gray-600 dark:text-gray-400 text-sm">Loading…</p> : users.length === 0 ? (
         <div className="card-premium py-14 text-center">
-          <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-gray-800 mx-auto mb-3">
+          <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-[#0A1929] mx-auto mb-3">
                 <svg className="w-6 h-6 text-gray-600 dark:text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
                 </svg>
@@ -283,7 +283,7 @@ export default function RolesPage() {
                       {editId === u.id ? (
                         <div className="flex gap-1.5">
                           <select value={editRole} onChange={e => setEditRole(e.target.value)}
-                            className="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded px-2 py-1 text-xs text-gray-900 dark:text-white">
+                            className="bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded px-2 py-1 text-xs text-gray-900 dark:text-white">
                             {ROLES.map(r => <option key={r} value={r}>{ROLE_LABEL[r] ?? r}</option>)}
                           </select>
                           <button onClick={() => changeRole(u.id, editRole)}

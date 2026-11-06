@@ -137,7 +137,7 @@ function TwoFactorSection() {
         <div className="space-y-4">
           <p className="text-sm text-gray-600 dark:text-gray-400">Scan this QR code with your authenticator app, then enter the 6-digit code below.</p>
           <div className="flex justify-center">
-            <div className="bg-white p-3 rounded-xl inline-block dark:bg-gray-900">
+            <div className="bg-white p-3 rounded-xl inline-block dark:bg-[#0F1E2E]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={qrCode} alt="TOTP QR Code" width={180} height={180} />
             </div>
@@ -152,7 +152,7 @@ function TwoFactorSection() {
             value={code}
             onChange={e => setCode(e.target.value.replace(/\D/g, ''))}
             placeholder="6-digit code"
-            className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white text-center  font-mono focus:outline-none focus:border-[#0E3D52]"
+            className="w-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white text-center  font-mono focus:outline-none focus:border-[#0E3D52]"
           />
           <div className="flex gap-3">
             <button onClick={verifySetup} disabled={busy || code.length !== 6}
@@ -177,7 +177,7 @@ function TwoFactorSection() {
             value={code}
             onChange={e => setCode(e.target.value.replace(/\D/g, ''))}
             placeholder="6-digit code"
-            className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white text-center  font-mono focus:outline-none focus:border-red-500"
+            className="w-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white text-center  font-mono focus:outline-none focus:border-red-500"
           />
           <div className="flex gap-3">
             <button onClick={disableTotp} disabled={busy || code.length !== 6}
@@ -342,7 +342,7 @@ export default function MyProfilePage() {
     return (
       <div className="p-6 max-w-2xl mx-auto">
         <div className="card-premium p-10 text-center">
-          <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-gray-800 mx-auto mb-3">
+          <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-[#0A1929] mx-auto mb-3">
                 <svg className="w-6 h-6 text-gray-600 dark:text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
                 </svg>
@@ -496,7 +496,7 @@ export default function MyProfilePage() {
 
         {/* Inline add/edit form */}
         {editingContact && (
-          <form onSubmit={saveContact} className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-xl p-4 mb-4 space-y-3">
+          <form onSubmit={saveContact} className="bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-xl p-4 mb-4 space-y-3">
             <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 ">
               {editingContact === 'new' ? 'New Emergency Contact' : 'Edit Contact'}
             </p>
@@ -546,7 +546,7 @@ export default function MyProfilePage() {
         ) : (
           <div className="space-y-3">
             {contacts.map(c => (
-              <div key={c.id} className="bg-gray-100 dark:bg-gray-800/60 border border-gray-300 dark:border-[#1A6080]/30 rounded-xl px-4 py-3">
+              <div key={c.id} className="bg-gray-100 dark:bg-[#0A1929]/60 border border-gray-300 dark:border-[#1A6080]/30 rounded-xl px-4 py-3">
                 <div className="flex items-center justify-between mb-1">
                   <div className="flex items-center gap-2">
                     <p className="font-medium text-foreground text-sm">{c.name}</p>

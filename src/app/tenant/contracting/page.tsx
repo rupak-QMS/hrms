@@ -92,7 +92,7 @@ export default function ContractingPage() {
 
   return (
     <div className="h-full flex flex-col">
-      <div className="px-6 py-4 border-b border-gray-200 bg-white flex items-center justify-between dark:bg-gray-900 dark:border-[#1A6080]/30">
+      <div className="px-6 py-4 border-b border-gray-200 bg-white flex items-center justify-between dark:bg-[#0F1E2E] dark:border-[#1A6080]/30">
         <div>
           <h1 className="text-xl font-semibold text-gray-900 dark:text-white">Contracting</h1>
           <p className="text-sm text-gray-500 mt-0.5 dark:text-gray-400">Employment contracts — draft, send, track signatures</p>
@@ -103,14 +103,14 @@ export default function ContractingPage() {
         </div>
       </div>
 
-      <div className="px-6 py-3 bg-gray-50 border-b border-gray-100 flex gap-6 dark:bg-gray-800 dark:border-[#1A6080]/20">
+      <div className="px-6 py-3 bg-gray-50 border-b border-gray-100 flex gap-6 dark:bg-[#0A1929] dark:border-[#1A6080]/20">
         {[{label:'Total',value:stats.total,cls:'text-gray-900'},{label:'Draft',value:stats.draft,cls:'text-gray-500'},{label:'Sent',value:stats.sent,cls:'text-[#0E3D52] dark:text-[#4ebac4]'},{label:'Signed',value:stats.signed,cls:'text-green-600'},{label:'Expired',value:stats.expired,cls:'text-red-600'}].map(s=>(
           <div key={s.label} className="text-center"><p className={`text-xl font-bold ${s.cls}`}>{s.value}</p><p className="text-xs text-gray-500 dark:text-gray-400">{s.label}</p></div>
         ))}
       </div>
 
       <div className="flex flex-1 overflow-hidden">
-        <div className="w-80 border-r border-gray-200 flex flex-col bg-white dark:bg-gray-900 dark:border-[#1A6080]/30">
+        <div className="w-80 border-r border-gray-200 flex flex-col bg-white dark:bg-[#0F1E2E] dark:border-[#1A6080]/30">
           <div className="p-3 border-b border-gray-100 space-y-2 dark:border-[#1A6080]/20">
             <input className="w-full border border-gray-200 rounded-lg px-3 py-1.5 text-sm dark:border-[#1A6080]/30" placeholder="Search…" value={search} onChange={e=>setSearch(e.target.value)}/>
             <select className="w-full border border-gray-200 rounded-lg px-2 py-1.5 text-xs dark:border-[#1A6080]/30" value={statusFilter} onChange={e=>setStatus(e.target.value)}>
@@ -144,7 +144,7 @@ export default function ContractingPage() {
         </div>
 
         {selected ? (
-          <div className="flex-1 p-6 overflow-y-auto bg-white space-y-5 dark:bg-gray-900">
+          <div className="flex-1 p-6 overflow-y-auto bg-white space-y-5 dark:bg-[#0F1E2E]">
             <div className="flex items-start justify-between">
               <div>
                 <h2 className="text-lg font-semibold text-gray-900 dark:text-white">{selected.firstName} {selected.lastName}</h2>
@@ -205,7 +205,7 @@ export default function ContractingPage() {
 
       {showCreate && (
         <div className="modal-overlay">
-          <div className="bg-white rounded-xl shadow-xl w-full max-w-sm p-6 dark:bg-gray-900">
+          <div className="bg-white rounded-xl shadow-xl w-full max-w-sm p-6 dark:bg-[#0F1E2E]">
             <h3 className="text-lg font-semibold text-gray-900 mb-4 dark:text-white">New Contract</h3>
             <div className="space-y-3">
               <select className="input-premium" value={form.employeeId} onChange={e=>setForm(f=>({...f,employeeId:e.target.value}))}>
@@ -343,7 +343,7 @@ function SendForSignaturePanel({
           </div>
           <div className="flex gap-2">
             <input readOnly value={signingUrl}
-              className="flex-1 border border-gray-200 rounded-lg px-3 py-1.5 text-xs dark:border-[#1A6080]/30 dark:bg-gray-800 truncate"/>
+              className="flex-1 border border-gray-200 rounded-lg px-3 py-1.5 text-xs dark:border-[#1A6080]/30 dark:bg-[#0A1929] truncate"/>
             <button onClick={copyLink}
               className="px-3 py-1.5 border border-gray-200 rounded-lg text-xs font-medium text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:border-[#1A6080]/40 dark:hover:bg-[#0E3D52]/30 shrink-0">
               {copyDone ? '✓ Copied' : 'Copy link'}

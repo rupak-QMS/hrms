@@ -301,11 +301,11 @@ export default function BenefitsPage() {
             Clear
           </button>
         )}
-        <div className="ml-auto flex gap-1 bg-gray-100 dark:bg-gray-800/60 rounded-lg p-1">
+        <div className="ml-auto flex gap-1 bg-gray-100 dark:bg-[#0A1929]/60 rounded-lg p-1">
           {(['list', 'grouped'] as const).map(v => (
             <button key={v} onClick={() => setView(v)}
               className={`px-3 py-1.5 rounded-md text-xs font-medium transition capitalize ${
-                view === v ? 'bg-white dark:bg-gray-900 text-white shadow-sm' : 'text-gray-500 dark:text-gray-400 hover:text-gray-300'
+                view === v ? 'bg-white dark:bg-[#0F1E2E] text-white shadow-sm' : 'text-gray-500 dark:text-gray-400 hover:text-gray-300'
               }`}>
               {v === 'list' ? '☰ List' : '⊞ Grouped'}
             </button>

@@ -69,7 +69,7 @@ function RatingButtons({ value, onChange, color = 'bg-[#0E3D52]' }: { value: num
     <div className="flex gap-1.5">
       {[1, 2, 3, 4, 5].map(n => (
         <button key={n} type="button" onClick={() => onChange(n)}
-          className={`flex-1 py-1.5 rounded text-xs font-medium transition ${value === n ? `${color} text-white` : 'bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-600'}`}>
+          className={`flex-1 py-1.5 rounded text-xs font-medium transition ${value === n ? `${color} text-white` : 'bg-gray-200 dark:bg-[#0E3D52]/60 text-gray-600 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-600'}`}>
           {n}
         </button>
       ))}
@@ -81,7 +81,7 @@ function ProgressBar({ value }: { value: number }) {
   const color = value >= 80 ? 'bg-green-500' : value >= 50 ? 'bg-[#E0EEF4]0' : value >= 25 ? 'bg-amber-500' : 'bg-red-500'
   return (
     <div className="flex items-center gap-2">
-      <div className="flex-1 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+      <div className="flex-1 h-2 bg-gray-200 dark:bg-[#0E3D52]/60 rounded-full overflow-hidden">
         <div className={`h-2 rounded-full transition-all ${color}`} style={{ width: `${value}%` }} />
       </div>
       <span className="text-xs text-gray-500 dark:text-gray-400 w-8 text-right">{value}%</span>
@@ -347,11 +347,11 @@ export default function PerformancePage() {
       </div>
 
       {/* Tabs */}
-      <div className="flex gap-1 bg-gray-100 dark:bg-gray-800/60 rounded-xl p-1 w-fit">
+      <div className="flex gap-1 bg-gray-100 dark:bg-[#0A1929]/60 rounded-xl p-1 w-fit">
         {(['reviews', 'goals'] as const).map(t => (
           <button key={t} onClick={() => setTab(t)}
             className={`px-5 py-2 rounded-lg text-sm font-medium transition capitalize ${
-              tab === t ? 'bg-white dark:bg-gray-900 text-white shadow-sm' : 'text-gray-500 dark:text-gray-400 hover:text-gray-300'
+              tab === t ? 'bg-white dark:bg-[#0F1E2E] text-white shadow-sm' : 'text-gray-500 dark:text-gray-400 hover:text-gray-300'
             }`}>
             {t === 'reviews' ? 'Reviews' : 'Goals'}
           </button>
@@ -399,7 +399,7 @@ export default function PerformancePage() {
                 <div className="space-y-3">
                   <p className="section-label">KPI Ratings (1–5)</p>
                   {editing.kpis.map((kpi, i) => (
-                    <div key={kpi.id} className="bg-gray-100 dark:bg-gray-800 rounded-lg p-3 space-y-2">
+                    <div key={kpi.id} className="bg-gray-100 dark:bg-[#0A1929] rounded-lg p-3 space-y-2">
                       <p className="text-sm font-medium text-foreground">{kpi.area}</p>
                       <RatingButtons value={kpi.rating} onChange={n => {
                         const k = [...editing.kpis]; k[i] = { ...k[i], rating: n }; setEditing({ ...editing, kpis: k })
@@ -408,7 +408,7 @@ export default function PerformancePage() {
                       <input value={kpi.notes}
                         onChange={e => { const k = [...editing.kpis]; k[i] = { ...k[i], notes: e.target.value }; setEditing({ ...editing, kpis: k }) }}
                         placeholder="Notes for this area…"
-                        className="w-full bg-gray-200 dark:bg-gray-700 border border-gray-600 rounded px-2 py-1 text-xs text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none" />
+                        className="w-full bg-gray-200 dark:bg-[#0E3D52]/60 border border-gray-600 rounded px-2 py-1 text-xs text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none" />
                     </div>
                   ))}
                 </div>
@@ -417,7 +417,7 @@ export default function PerformancePage() {
                   <input type="number" min="1" max="5" step="0.1" value={editing.rating}
                     onChange={e => setEditing({ ...editing, rating: e.target.value })}
                     placeholder="Leave blank to auto-average KPIs"
-                    className="w-32 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
+                    className="w-32 bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
                 </div>
                 <div>
                   <label className="text-xs text-gray-600 dark:text-gray-400 mb-2 block">Outcome</label>
@@ -592,7 +592,7 @@ export default function PerformancePage() {
                               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
                                 {/* KPI breakdown */}
                                 {r.kpis?.length > 0 && (
-                                  <div className="bg-gray-50 dark:bg-gray-800/40 rounded-lg p-3 space-y-2">
+                                  <div className="bg-gray-50 dark:bg-[#0A1929]/40 rounded-lg p-3 space-y-2">
                                     <p className="text-xs font-semibold text-gray-500 ">KPI Ratings</p>
                                     {r.kpis.map(kpi => (
                                       <div key={kpi.id} className="flex items-center justify-between gap-2">
@@ -607,7 +607,7 @@ export default function PerformancePage() {
                                 {/* Development plan + self-assessment */}
                                 <div className="space-y-3">
                                   {r.developmentPlan && (
-                                    <div className="bg-gray-50 dark:bg-gray-800/40 rounded-lg p-3">
+                                    <div className="bg-gray-50 dark:bg-[#0A1929]/40 rounded-lg p-3">
                                       <p className="text-xs font-semibold text-gray-500  mb-1">Development Plan</p>
                                       <p className="text-xs text-gray-400">{r.developmentPlan}</p>
                                     </div>

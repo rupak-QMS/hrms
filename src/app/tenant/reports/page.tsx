@@ -337,14 +337,14 @@ export default function ReportsPage() {
 
   return (
     <div className="h-full flex flex-col">
-      <div className="px-6 py-4 border-b border-gray-200 bg-white dark:bg-gray-900 dark:border-[#1A6080]/30">
+      <div className="px-6 py-4 border-b border-gray-200 bg-white dark:bg-[#0F1E2E] dark:border-[#1A6080]/30">
         <h1 className="text-xl font-semibold text-gray-900 dark:text-white">Reports</h1>
         <p className="text-sm text-gray-500 mt-0.5 dark:text-gray-400">Generate and export HR reports</p>
       </div>
 
       <div className="flex flex-1 overflow-hidden">
         {/* Sidebar */}
-        <div className="w-64 border-r border-gray-200 bg-white flex flex-col dark:bg-gray-900 dark:border-[#1A6080]/30">
+        <div className="w-64 border-r border-gray-200 bg-white flex flex-col dark:bg-[#0F1E2E] dark:border-[#1A6080]/30">
           <div className="p-4 border-b border-gray-100 dark:border-[#1A6080]/20">
             <p className="text-xs font-semibold  text-gray-600 dark:text-gray-400 mb-3">Report Type</p>
             <div className="space-y-1">
@@ -375,7 +375,7 @@ export default function ReportsPage() {
         </div>
 
         {/* Content */}
-        <div className="flex-1 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+        <div className="flex-1 overflow-y-auto bg-gray-50 dark:bg-[#0A1929]">
           {!ran ? (
             <div className="flex items-center justify-center h-full text-center p-8">
               <div>
@@ -417,7 +417,7 @@ export default function ReportsPage() {
                   </button>
                   <button onClick={() => downloadCsv(data, `${selected}-report.csv`)}
                     disabled={data.length === 0}
-                    className="px-4 py-2 border border-gray-200 bg-white rounded-lg text-sm text-gray-700 hover:bg-gray-50 disabled:opacity-50 dark:bg-gray-900 dark:text-gray-300 dark:border-[#1A6080]/30">
+                    className="px-4 py-2 border border-gray-200 bg-white rounded-lg text-sm text-gray-700 hover:bg-gray-50 disabled:opacity-50 dark:bg-[#0F1E2E] dark:text-gray-300 dark:border-[#1A6080]/30">
                     ⬇ Export CSV
                   </button>
                 </div>
@@ -432,7 +432,7 @@ export default function ReportsPage() {
                     <div className="table-responsive">
             <table className="table-premium">
                       <thead>
-                        <tr className="border-b border-gray-100 bg-gray-50 dark:bg-gray-800 dark:border-[#1A6080]/20">
+                        <tr className="border-b border-gray-100 bg-gray-50 dark:bg-[#0A1929] dark:border-[#1A6080]/20">
                           {columns.map(c => (
                             <th key={c} className="px-4 py-3 text-left text-xs font-semibold text-gray-500  whitespace-nowrap dark:text-gray-400">
                               {c.replace(/([A-Z])/g,' $1').replace(/^./,s=>s.toUpperCase())}

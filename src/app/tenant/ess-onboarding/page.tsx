@@ -73,7 +73,7 @@ function Input(props: React.InputHTMLAttributes<HTMLInputElement>) {
     <input
       {...props}
       className={`w-full px-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-[#1A6080]/30
-        bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100
+        bg-white dark:bg-[#0A1929] text-gray-900 dark:text-gray-100
         focus:outline-none focus:ring-2 focus:ring-[#0E3D52]/20 ${props.className ?? ''}`}
     />
   )
@@ -86,7 +86,7 @@ function Select({
     <select
       {...props}
       className="w-full px-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-[#1A6080]/30
-        bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100
+        bg-white dark:bg-[#0A1929] text-gray-900 dark:text-gray-100
         focus:outline-none focus:ring-2 focus:ring-[#0E3D52]/20"
     >
       {children}
@@ -101,7 +101,7 @@ function Toggle({
     <label className="flex items-start gap-3 cursor-pointer">
       <div className="relative mt-0.5 shrink-0">
         <input type="checkbox" className="sr-only" checked={checked} onChange={e => onChange(e.target.checked)} />
-        <div className={`w-10 h-6 rounded-full transition-colors ${checked ? 'bg-[#0E3D52]' : 'bg-gray-300 dark:bg-gray-600'}`} />
+        <div className={`w-10 h-6 rounded-full transition-colors ${checked ? 'bg-[#0E3D52]' : 'bg-gray-300 dark:bg-[#0E3D52]/80'}`} />
         <div className={`absolute top-1 left-1 w-4 h-4 rounded-full bg-white shadow transition-transform ${checked ? 'translate-x-4' : ''}`} />
       </div>
       <div>
@@ -240,7 +240,7 @@ export default function EssOnboardingPage() {
               <span className="sm:hidden">{s.id}</span>
             </button>
             {i < STEPS.length - 1 && (
-              <div className={`w-6 h-px mx-1 ${step > s.id ? 'bg-[#1A6080]' : 'bg-gray-200 dark:bg-gray-700'}`} />
+              <div className={`w-6 h-px mx-1 ${step > s.id ? 'bg-[#1A6080]' : 'bg-gray-200 dark:bg-[#0E3D52]/60'}`} />
             )}
           </div>
         ))}
@@ -358,7 +358,7 @@ function Step1Personal({ data, set }: { data: OnboardingData; set: (p: Partial<O
               value={data.address ?? ''}
               onChange={e => set({ address: e.target.value })}
               className="w-full px-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-[#1A6080]/30
-                bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100
+                bg-white dark:bg-[#0A1929] text-gray-900 dark:text-gray-100
                 focus:outline-none focus:ring-2 focus:ring-[#0E3D52]/20 resize-none"
             />
           </Field>

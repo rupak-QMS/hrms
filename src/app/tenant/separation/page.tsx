@@ -304,7 +304,7 @@ export default function SeparationPage() {
                       <span className="text-gray-600 dark:text-gray-300">{t.label}</span>
                       <span className="text-gray-500 dark:text-gray-400">{t.count} ({stats.total ? Math.round((t.count / stats.total) * 100) : 0}%)</span>
                     </div>
-                    <div className="h-2 bg-gray-100 dark:bg-gray-800 rounded-full">
+                    <div className="h-2 bg-gray-100 dark:bg-[#0A1929] rounded-full">
                       <div
                         className="h-2 rounded-full bg-[#f0f7fb]0 transition-all"
                         style={{ width: stats.total ? `${(t.count / stats.total) * 100}%` : '0%' }}
@@ -365,7 +365,7 @@ export default function SeparationPage() {
                     const pct = progress(r)
                     return (
                       <tr key={r.id}
-                        className={`border-b border-gray-100 dark:border-[#1A6080]/20 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/50 transition cursor-pointer ${i % 2 !== 0 ? 'bg-white dark:bg-gray-900/50' : ''}`}
+                        className={`border-b border-gray-100 dark:border-[#1A6080]/20 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/50 transition cursor-pointer ${i % 2 !== 0 ? 'bg-white dark:bg-[#0F1E2E]/50' : ''}`}
                         onClick={() => { setTab('Records'); setTimeout(() => { setExpanded(r.id); loadEvents(r.id) }, 50) }}>
                         <td className="px-5 py-3 font-medium text-gray-900 dark:text-white">
                           {r.employeeFirstName} {r.employeeLastName}
@@ -386,7 +386,7 @@ export default function SeparationPage() {
                         </td>
                         <td className="px-5 py-3">
                           <div className="flex items-center gap-2">
-                            <div className="h-1.5 w-24 bg-gray-100 dark:bg-gray-800 rounded-full">
+                            <div className="h-1.5 w-24 bg-gray-100 dark:bg-[#0A1929] rounded-full">
                               <div className={`h-1.5 rounded-full ${pct === 100 ? 'bg-green-500' : 'bg-[#f0f7fb]0'}`} style={{ width: `${pct}%` }} />
                             </div>
                             <span className="text-xs text-gray-500 dark:text-gray-400">{pct}%</span>
@@ -523,7 +523,7 @@ export default function SeparationPage() {
                               <span className="text-xs text-gray-500 dark:text-gray-400">Offboarding progress</span>
                               <span className={`text-xs font-medium ${pct === 100 ? 'text-green-400' : 'text-gray-400'}`}>{pct}%</span>
                             </div>
-                            <div className="h-1.5 bg-gray-100 dark:bg-gray-800 rounded-full">
+                            <div className="h-1.5 bg-gray-100 dark:bg-[#0A1929] rounded-full">
                               <div className={`h-1.5 rounded-full transition-all ${pct === 100 ? 'bg-green-500' : 'bg-[#0E3D52]'}`}
                                 style={{ width: `${pct}%` }} />
                             </div>
@@ -620,7 +620,7 @@ export default function SeparationPage() {
                                 { label: 'Last Working Day', value: r.lastWorkingDay },
                                 { label: 'Entity',           value: r.employeeEntityName },
                               ].map(d => (
-                                <div key={d.label} className="bg-gray-100 dark:bg-gray-800/60 rounded-lg p-3">
+                                <div key={d.label} className="bg-gray-100 dark:bg-[#0A1929]/60 rounded-lg p-3">
                                   <p className="text-xs text-gray-500 mb-0.5 dark:text-gray-400">{d.label}</p>
                                   <p className="text-sm text-gray-700 dark:text-gray-200">
                                     {d.value
@@ -653,7 +653,7 @@ export default function SeparationPage() {
                                 className={`flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition ${
                                   item.done
                                     ? 'bg-green-950/40 border-green-800/60'
-                                    : 'bg-gray-100 dark:bg-gray-800/40 border-gray-200 dark:border-[#1A6080]/30 hover:border-gray-600'
+                                    : 'bg-gray-100 dark:bg-[#0A1929]/40 border-gray-200 dark:border-[#1A6080]/30 hover:border-gray-600'
                                 } ${r.status === 'completed' ? 'pointer-events-none' : ''}`}>
                                 <input type="checkbox" checked={item.done} disabled={r.status === 'completed'}
                                   onChange={e => patch(r.id, { [item.key]: e.target.checked })}
@@ -678,7 +678,7 @@ export default function SeparationPage() {
                         <div>
                           <p className="text-xs font-semibold text-gray-500  mb-2 dark:text-gray-400">Exit Interview</p>
                           {r.exitInterviewAt && r.status === 'completed' ? (
-                            <div className="bg-gray-100 dark:bg-gray-800/40 rounded-lg p-3 space-y-1">
+                            <div className="bg-gray-100 dark:bg-[#0A1929]/40 rounded-lg p-3 space-y-1">
                               <p className="text-xs text-gray-500 dark:text-gray-400">Conducted {new Date(r.exitInterviewAt).toLocaleDateString('en-AU')}</p>
                               {r.exitInterviewNotes && <p className="text-sm text-gray-600 dark:text-gray-300">{r.exitInterviewNotes}</p>}
                             </div>
@@ -741,10 +741,10 @@ export default function SeparationPage() {
                               {(sepEvents[r.id] ?? []).map((ev, i, arr) => (
                                 <div key={ev.id} className="flex gap-3 items-start">
                                   <div className="flex flex-col items-center shrink-0">
-                                    <div className="w-7 h-7 rounded-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 flex items-center justify-center text-xs">
+                                    <div className="w-7 h-7 rounded-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 flex items-center justify-center text-xs">
                                       {EVENT_ICON[ev.event] ?? '📝'}
                                     </div>
-                                    {i < arr.length - 1 && <div className="w-px h-3 bg-gray-200 dark:bg-gray-700 mt-1" />}
+                                    {i < arr.length - 1 && <div className="w-px h-3 bg-gray-200 dark:bg-[#0E3D52]/60 mt-1" />}
                                   </div>
                                   <div className="flex-1 pb-1">
                                     <div className="flex items-center justify-between gap-2">
