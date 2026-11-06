@@ -375,7 +375,7 @@ export default function MyProfilePage() {
               // eslint-disable-next-line @next/next/no-img-element
               <img src={profile.photoUrl} alt={profile.firstName} className="w-16 h-16 rounded-full object-cover border-2 border-[#0E3D52]" />
             ) : (
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#0E3D52] to-blue-600 flex items-center justify-center text-2xl font-bold text-white">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#0E3D52] to-[#1A6080] flex items-center justify-center text-2xl font-bold text-white">
                 {profile.firstName[0]}{profile.lastName[0]}
               </div>
             )}
