@@ -437,7 +437,7 @@ export default function LeavePage() {
             {canApprove && pendingRequests.length > 0 && (
               <div className="flex items-center gap-2 ml-auto">
                 <button onClick={toggleSelectAll}
-                  className={`text-xs px-3 py-2 rounded-lg border transition ${allPendingSelected ? 'border-[#0E3D52] text-[#1A6080] dark:text-[#4ebac4] bg-[#0E3D52]/20' : 'border-gray-700 text-gray-400 hover:border-gray-500'}`}>
+                  className={`text-xs px-3 py-2 rounded-lg border transition ${allPendingSelected ? 'border-[#0E3D52] text-[#1A6080] dark:text-[#4ebac4] bg-[#0E3D52]/20' : 'border-[#1A6080]/30 text-gray-400 hover:border-gray-500'}`}>
                   {allPendingSelected ? '✓ All selected' : `Select all pending (${pendingRequests.length})`}
                 </button>
                 {selected.size > 0 && (

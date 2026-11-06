@@ -41,7 +41,7 @@ const STAGE_LABELS: Record<string, string> = {
 const STAGES = Object.entries(STAGE_LABELS)
 
 const CATEGORY_COLOR: Record<string, string> = {
-  admin:      'bg-gray-700 text-gray-300',
+  admin:      'bg-[#0E3D52]/70 text-gray-300',
   it:         'bg-[#0E3D52]/50 text-[#7dcfd7]',
   hr:         'bg-[#0E3D52]/60 text-[#4ebac4]',
   legal:      'bg-amber-900/60 text-amber-300',
@@ -251,7 +251,7 @@ export default function OnboardingDetailPage() {
         </div>
         <div className="flex gap-2 items-center">
           {saved && <span className="text-xs text-green-400">Saved </span>}
-          <span className={`text-xs px-3 py-1 rounded-full border font-medium ${STATUS_STYLE[rec.status] ?? 'bg-gray-800 text-gray-300 border-gray-700'}`}>
+          <span className={`text-xs px-3 py-1 rounded-full border font-medium ${STATUS_STYLE[rec.status] ?? 'bg-[#0A1929] text-gray-300 border-[#1A6080]/30'}`}>
             {rec.status === 'in_progress' ? 'In Progress' : rec.status.charAt(0).toUpperCase() + rec.status.slice(1)}
           </span>
           <Link href="/tenant/onboarding"
@@ -294,14 +294,14 @@ export default function OnboardingDetailPage() {
                 <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold mb-1 ${
                   i < stageIdx  ? 'bg-green-600 text-white' :
                   i === stageIdx ? 'bg-[#0E3D52] text-white ring-2 ring-[#4ebac4]' :
-                  'bg-gray-700 text-gray-400'
+                  'bg-[#0E3D52]/70 text-gray-400'
                 }`}>
                   {i < stageIdx ? '' : i + 1}
                 </div>
                 <p className="text-[10px] text-gray-600 dark:text-gray-400 text-center leading-tight">{label}</p>
               </div>
               {i < STAGES.length - 1 && (
-                <div className={`h-0.5 flex-1 mx-1 rounded ${i < stageIdx ? 'bg-green-600' : 'bg-gray-700'}`} />
+                <div className={`h-0.5 flex-1 mx-1 rounded ${i < stageIdx ? 'bg-green-600' : 'bg-[#0E3D52]/70'}`} />
               )}
             </div>
           ))}
@@ -425,7 +425,7 @@ export default function OnboardingDetailPage() {
         {Object.entries(grouped).map(([category, items]) => (
           <div key={category} className="card-premium overflow-hidden">
             <div className="px-4 py-2.5 border-b border-gray-200 dark:border-[#1A6080]/20 flex items-center justify-between">
-              <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${CATEGORY_COLOR[category] ?? 'bg-gray-700 text-gray-300'}`}>
+              <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${CATEGORY_COLOR[category] ?? 'bg-[#0E3D52]/70 text-gray-300'}`}>
                 {category.charAt(0).toUpperCase() + category.slice(1)}
               </span>
               <span className="text-xs text-gray-500 dark:text-gray-400">
@@ -439,7 +439,7 @@ export default function OnboardingDetailPage() {
                   onClick={() => toggleItem(item.id)}
                 >
                   <div className={`w-5 h-5 rounded flex items-center justify-center border-2 shrink-0 transition ${
-                    item.done ? 'bg-[#0E3D52] border-[#0E3D52]' : 'border-gray-600'
+                    item.done ? 'bg-[#0E3D52] border-[#0E3D52]' : 'border-[#1A6080]/40'
                   }`}>
                     {item.done && <span className="text-white text-xs"></span>}
                   </div>

@@ -90,7 +90,7 @@ export default function AuditLogsPage() {
         </button>
         {(filterResource || filterAction || filterSince) && (
           <button onClick={() => { setFilterResource(''); setFilterAction(''); setFilterSince(''); setPage(0); load('','','',0) }}
-            className="text-xs text-gray-600 dark:text-gray-400 hover:text-white px-3 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/30 hover:border-gray-600 transition">
+            className="text-xs text-gray-600 dark:text-gray-400 hover:text-white px-3 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/30 hover:border-[#1A6080]/40 transition">
             Clear
           </button>
         )}

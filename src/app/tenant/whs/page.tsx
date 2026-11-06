@@ -28,7 +28,7 @@ const INCIDENT_TYPES = [
 ]
 
 const SEVERITIES = [
-  { value: 'low',      label: 'Low',      color: 'text-gray-400',   bg: 'bg-gray-800 border-gray-700' },
+  { value: 'low',      label: 'Low',      color: 'text-gray-400',   bg: 'bg-[#0A1929] border-[#1A6080]/30' },
   { value: 'medium',   label: 'Medium',   color: 'text-yellow-600 dark:text-yellow-400', bg: 'bg-yellow-100 dark:bg-yellow-900/40 border-yellow-300 dark:border-yellow-800' },
   { value: 'high',     label: 'High',     color: 'text-orange-400', bg: 'bg-orange-900/40 border-orange-800' },
   { value: 'critical', label: 'Critical', color: 'text-red-600 dark:text-red-400',    bg: 'bg-red-100 dark:bg-red-900/50 border-red-300 dark:border-red-800' },
@@ -286,14 +286,14 @@ export default function WhsPage() {
             const isOpen = expanded === inc.id
             return (
               <div key={inc.id} className={`card-premium overflow-hidden transition group ${
-                inc.severity === 'critical' ? 'border-red-800' : inc.severity === 'high' ? 'border-orange-800/60' : 'border-gray-800'
+                inc.severity === 'critical' ? 'border-red-800' : inc.severity === 'high' ? 'border-orange-800/60' : 'border-[#1A6080]/20'
               }`}>
                 {/* Summary row */}
                 <div className="flex items-center gap-4 px-5 py-4 cursor-pointer" onClick={() => setExpanded(isOpen ? null : inc.id)}>
                   <div className={`w-2 h-10 rounded-full shrink-0 ${
                     inc.severity === 'critical' ? 'bg-red-500' :
                     inc.severity === 'high'     ? 'bg-orange-500' :
-                    inc.severity === 'medium'   ? 'bg-yellow-500' : 'bg-gray-600'
+                    inc.severity === 'medium'   ? 'bg-yellow-500' : 'bg-[#0E3D52]/80'
                   }`} />
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-0.5">
@@ -361,7 +361,7 @@ export default function WhsPage() {
                             <li key={a.id} className="flex items-center gap-2 text-sm cursor-pointer group"
                               onClick={() => toggleAction(inc, a.id)}>
                               <div className={`w-4 h-4 rounded border-2 flex items-center justify-center shrink-0 transition ${
-                                a.done ? 'bg-green-600 border-green-600' : 'border-gray-600 group-hover:border-gray-400'
+                                a.done ? 'bg-green-600 border-green-600' : 'border-[#1A6080]/40 group-hover:border-gray-400'
                               }`}>
                                 {a.done && <span className="text-white text-xs"></span>}
                               </div>
@@ -394,7 +394,7 @@ function ActionInput({ onAdd }: { onAdd: (a: string) => void }) {
         placeholder="Add corrective action… (press Enter)"
         className="flex-1 input-premium py-1.5 text-xs" />
       <button type="button" onClick={() => { if (val.trim()) { onAdd(val.trim()); setVal('') } }}
-        className="text-xs bg-gray-200 dark:bg-[#0E3D52]/60 hover:bg-gray-600 text-gray-600 dark:text-gray-300 px-3 py-1.5 rounded-lg transition">
+        className="text-xs bg-gray-200 dark:bg-[#0E3D52]/60 hover:bg-[#0E3D52]/80 text-gray-600 dark:text-gray-300 px-3 py-1.5 rounded-lg transition">
         Add
       </button>
     </div>

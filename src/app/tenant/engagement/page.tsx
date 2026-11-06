@@ -218,7 +218,7 @@ export default function EngagementPage() {
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {filtered.map(s => (
-            <div key={s.id} className={`card-premium p-5 ${selected?.id === s.id ? 'border-[#0E3D52]' : 'border-gray-800'}`}>
+            <div key={s.id} className={`card-premium p-5 ${selected?.id === s.id ? 'border-[#0E3D52]' : 'border-[#1A6080]/20'}`}>
               <div className="flex items-start justify-between gap-2 mb-2">
                 <div>
                   <p className="text-foreground font-medium">{s.title}</p>
@@ -243,7 +243,7 @@ export default function EngagementPage() {
                   </button>
                 )}
                 <button onClick={() => toggleActive(s.id, !s.isActive)}
-                  className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-gray-600 px-3 py-1.5 rounded transition">
+                  className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-[#1A6080]/40 px-3 py-1.5 rounded transition">
                   {s.isActive ? 'Close' : 'Reopen'}
                 </button>
                 <button onClick={() => openEdit(s)}

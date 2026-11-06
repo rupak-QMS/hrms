@@ -93,7 +93,7 @@ export default function NewOnboardingPage() {
           <div className="space-y-2">
             {STAGES.map(s => (
               <label key={s.value} className={`flex items-center gap-3 p-3 rounded-lg border cursor-pointer transition ${
-                form.stage === s.value ? 'border-[#0E3D52] bg-[#0E3D52]/30' : 'border-gray-700 hover:border-gray-600'
+                form.stage === s.value ? 'border-[#0E3D52] bg-[#0E3D52]/30' : 'border-[#1A6080]/30 hover:border-[#1A6080]/40'
               }`}>
                 <input type="radio" name="stage" value={s.value} checked={form.stage === s.value}
                   onChange={() => setForm(f => ({ ...f, stage: s.value }))} />

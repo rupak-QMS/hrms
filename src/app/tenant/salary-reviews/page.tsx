@@ -256,7 +256,7 @@ export default function SalaryReviewsPage() {
               className={`group relative w-full text-left px-3 py-3 rounded-xl transition border cursor-pointer ${
                 selected?.id === review.id
                   ? 'border-[#0E3D52] bg-[#E0EEF4] dark:bg-[#0E3D52]/20'
-                  : 'border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] hover:border-gray-300 dark:hover:border-gray-600'
+                  : 'border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] hover:border-gray-300 dark:hover:border-[#1A6080]/40'
               }`}
               onClick={() => openReview(review)}
             >
@@ -399,7 +399,7 @@ export default function SalaryReviewsPage() {
                 />
                 <button
                   onClick={() => saveHrNotes(selected.id)}
-                  className="mt-1 px-3 py-1.5 bg-gray-100 dark:bg-[#0E3D52]/60 text-gray-700 dark:text-gray-200 text-sm rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition"
+                  className="mt-1 px-3 py-1.5 bg-gray-100 dark:bg-[#0E3D52]/60 text-gray-700 dark:text-gray-200 text-sm rounded-lg hover:bg-gray-200 dark:hover:bg-[#0E3D52]/80 transition"
                 >
                   Save Notes
                 </button>

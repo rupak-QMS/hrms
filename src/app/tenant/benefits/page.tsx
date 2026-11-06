@@ -297,7 +297,7 @@ export default function BenefitsPage() {
         </select>
         {(filterType || filterStatus) && (
           <button onClick={() => { setFilterType(''); setFilterStatus('') }}
-            className="text-xs text-gray-400 hover:text-white border border-gray-700 px-3 py-2 rounded-lg transition">
+            className="text-xs text-gray-400 hover:text-white border border-[#1A6080]/30 px-3 py-2 rounded-lg transition">
             Clear
           </button>
         )}
@@ -366,7 +366,7 @@ export default function BenefitsPage() {
                     <td className="px-4 py-3.5">
                       <div className="flex gap-2">
                         <button onClick={() => openEdit(b)}
-                          className="text-xs border border-gray-700 text-gray-400 hover:text-white hover:border-gray-500 px-2.5 py-1 rounded-lg transition">
+                          className="text-xs border border-[#1A6080]/30 text-gray-400 hover:text-white hover:border-gray-500 px-2.5 py-1 rounded-lg transition">
                           Edit
                         </button>
                         <button onClick={() => remove(b.id)}
@@ -411,7 +411,7 @@ export default function BenefitsPage() {
                       </span>
                       <div className="flex gap-2 shrink-0">
                         <button onClick={() => openEdit(b)}
-                          className="text-xs border border-gray-700 text-gray-400 hover:text-white px-2 py-1 rounded-lg transition">
+                          className="text-xs border border-[#1A6080]/30 text-gray-400 hover:text-white px-2 py-1 rounded-lg transition">
                           Edit
                         </button>
                         <button onClick={() => remove(b.id)}

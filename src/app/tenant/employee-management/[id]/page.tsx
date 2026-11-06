@@ -1110,7 +1110,7 @@ export default function EmployeeProfilePage() {
                       {enrolSaving ? 'Enrolling…' : 'Enrol'}
                     </button>
                     <button onClick={() => setShowEnrolModal(false)}
-                      className="px-5 py-2 border border-gray-700 text-gray-400 hover:text-white text-sm rounded-lg transition">
+                      className="px-5 py-2 border border-[#1A6080]/30 text-gray-400 hover:text-white text-sm rounded-lg transition">
                       Cancel
                     </button>
                   </div>
@@ -1156,7 +1156,7 @@ export default function EmployeeProfilePage() {
                     enrolled:  'bg-[#0E3D52]/40 text-[#7dcfd7] border border-[#1A6080]/60',
                     completed: 'bg-green-900/50 text-green-300 border border-green-800',
                     overdue:   'bg-red-900/50 text-red-300 border border-red-800',
-                    expired:   'bg-gray-800 text-gray-400 border border-gray-700',
+                    expired:   'bg-[#0A1929] text-gray-400 border border-[#1A6080]/30',
                   }
                   const daysLeft = rec.expiryDate
                     ? Math.ceil((new Date(rec.expiryDate).getTime() - Date.now()) / 86400000)

@@ -230,11 +230,11 @@ export default function RolesPage() {
                 <input value={form.password} onChange={e => setForm(f => ({ ...f, password: e.target.value }))}
                   className={`${INPUT} font-mono`} />
                 <button type="button" onClick={copyPw}
-                  className="shrink-0 text-xs bg-gray-200 dark:bg-[#0E3D52]/60 hover:bg-gray-600 text-gray-600 dark:text-gray-300 px-3 py-2 rounded-lg transition">
+                  className="shrink-0 text-xs bg-gray-200 dark:bg-[#0E3D52]/60 hover:bg-[#0E3D52]/80 text-gray-600 dark:text-gray-300 px-3 py-2 rounded-lg transition">
                   {copied || 'Copy'}
                 </button>
                 <button type="button" onClick={() => setForm(f => ({ ...f, password: generatePassword() }))}
-                  className="shrink-0 text-xs bg-gray-200 dark:bg-[#0E3D52]/60 hover:bg-gray-600 text-gray-600 dark:text-gray-300 px-3 py-2 rounded-lg transition">
+                  className="shrink-0 text-xs bg-gray-200 dark:bg-[#0E3D52]/60 hover:bg-[#0E3D52]/80 text-gray-600 dark:text-gray-300 px-3 py-2 rounded-lg transition">
                   ↺
                 </button>
               </div>

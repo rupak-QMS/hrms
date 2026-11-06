@@ -28,7 +28,7 @@ const TYPES = [
 ]
 
 const RISK_RATINGS = [
-  { value: 'low',      label: 'Low',      color: 'text-gray-400',   bg: 'bg-gray-800/60 border-gray-700' },
+  { value: 'low',      label: 'Low',      color: 'text-gray-400',   bg: 'bg-[#0A1929]/60 border-[#1A6080]/30' },
   { value: 'medium',   label: 'Medium',   color: 'text-yellow-400', bg: 'bg-yellow-900/40 border-yellow-800' },
   { value: 'high',     label: 'High',     color: 'text-orange-400', bg: 'bg-orange-900/40 border-orange-800' },
   { value: 'critical', label: 'Critical', color: 'text-red-400',    bg: 'bg-red-900/50 border-red-800' },
@@ -294,13 +294,13 @@ export default function GrievancesPage() {
             return (
               <div key={g.id} className={`card-premium overflow-hidden group ${
                 g.riskRating === 'critical' ? 'border-red-800' :
-                g.riskRating === 'high'     ? 'border-orange-800/60' : 'border-gray-800'
+                g.riskRating === 'high'     ? 'border-orange-800/60' : 'border-[#1A6080]/20'
               }`}>
                 <div className="flex items-center gap-4 px-5 py-4 cursor-pointer" onClick={() => setExpanded(isOpen ? null : g.id)}>
                   <div className={`w-2 h-10 rounded-full shrink-0 ${
                     g.riskRating === 'critical' ? 'bg-red-500' :
                     g.riskRating === 'high'     ? 'bg-orange-500' :
-                    g.riskRating === 'medium'   ? 'bg-yellow-500' : 'bg-gray-600'
+                    g.riskRating === 'medium'   ? 'bg-yellow-500' : 'bg-[#0E3D52]/80'
                   }`} />
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 flex-wrap mb-0.5">
@@ -343,9 +343,9 @@ export default function GrievancesPage() {
                       <div className="flex items-center gap-0.5">
                         {STATUS_FLOW.map((s, i) => (
                           <div key={s.value} className="flex items-center flex-1">
-                            <div className={`flex-1 h-1.5 rounded-full ${i <= stageIdx ? 'bg-[#0E3D52]' : 'bg-gray-800'}`} />
+                            <div className={`flex-1 h-1.5 rounded-full ${i <= stageIdx ? 'bg-[#0E3D52]' : 'bg-[#0A1929]'}`} />
                             {i === STATUS_FLOW.length - 1 && (
-                              <div className={`w-3 h-3 rounded-full ml-0.5 ${i <= stageIdx ? 'bg-[#0E3D52]' : 'bg-gray-800'}`} />
+                              <div className={`w-3 h-3 rounded-full ml-0.5 ${i <= stageIdx ? 'bg-[#0E3D52]' : 'bg-[#0A1929]'}`} />
                             )}
                           </div>
                         ))}

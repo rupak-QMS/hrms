@@ -357,7 +357,7 @@ export default function NewClientPage() {
           <h2 className="text-xs font-semibold text-gray-500  dark:text-gray-400">Subscription Tier *</h2>
           {TIERS.map(t => (
             <label key={t.value} className={`flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition ${
-              form.tier === t.value ? 'border-[#0E3D52] bg-[#E0EEF4] dark:bg-[#0E3D52]/20' : 'border-gray-300 dark:border-[#1A6080]/30 hover:border-gray-600'
+              form.tier === t.value ? 'border-[#0E3D52] bg-[#E0EEF4] dark:bg-[#0E3D52]/20' : 'border-gray-300 dark:border-[#1A6080]/30 hover:border-[#1A6080]/40'
             }`}>
               <input type="radio" name="tier" value={t.value} checked={form.tier === t.value}
                 onChange={() => set('tier', t.value)} className="mt-0.5" />

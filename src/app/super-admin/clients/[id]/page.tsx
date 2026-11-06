@@ -350,7 +350,7 @@ function EditClientInner() {
             <div className="space-y-2 mt-2">
               {TIERS.map(t => (
                 <label key={t.value} className={`flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition ${
-                  form.tier === t.value ? 'border-[#0E3D52] bg-[#E0EEF4] dark:bg-[#0E3D52]/20' : 'border-gray-300 dark:border-[#1A6080]/30 hover:border-gray-600'}`}>
+                  form.tier === t.value ? 'border-[#0E3D52] bg-[#E0EEF4] dark:bg-[#0E3D52]/20' : 'border-gray-300 dark:border-[#1A6080]/30 hover:border-[#1A6080]/40'}`}>
                   <input type="radio" name="tier" value={t.value} checked={form.tier === t.value}
                     onChange={() => setForm(f => ({ ...f, tier: t.value }))} className="mt-0.5" />
                   <div className="flex-1">
@@ -532,7 +532,7 @@ function EditClientInner() {
               <div className="flex flex-wrap gap-2">
                 {FONT_OPTIONS.map(f => (
                   <button key={f} onClick={() => setTheme(t => ({ ...t, fontFamily: f }))}
-                    className={`px-3 py-1.5 rounded-lg border text-sm transition ${theme.fontFamily === f ? 'border-[#0E3D52] bg-[#E0EEF4] dark:bg-[#0E3D52]/20 text-[#0E3D52] dark:text-[#7dcfd7]' : 'border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-gray-600'}`}
+                    className={`px-3 py-1.5 rounded-lg border text-sm transition ${theme.fontFamily === f ? 'border-[#0E3D52] bg-[#E0EEF4] dark:bg-[#0E3D52]/20 text-[#0E3D52] dark:text-[#7dcfd7]' : 'border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-[#1A6080]/40'}`}
                     style={{ fontFamily: f }}>
                     {f}
                   </button>
@@ -545,7 +545,7 @@ function EditClientInner() {
               <div className="flex gap-2">
                 {RADIUS_OPTIONS.map(r => (
                   <button key={r.value} onClick={() => setTheme(t => ({ ...t, borderRadius: r.value }))}
-                    className={`flex-1 py-2 text-xs border transition ${theme.borderRadius === r.value ? 'border-[#0E3D52] bg-[#E0EEF4] dark:bg-[#0E3D52]/20 text-[#0E3D52] dark:text-[#7dcfd7]' : 'border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-gray-600'}`}
+                    className={`flex-1 py-2 text-xs border transition ${theme.borderRadius === r.value ? 'border-[#0E3D52] bg-[#E0EEF4] dark:bg-[#0E3D52]/20 text-[#0E3D52] dark:text-[#7dcfd7]' : 'border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-[#1A6080]/40'}`}
                     style={{ borderRadius: r.value }}>
                     {r.label}
                   </button>

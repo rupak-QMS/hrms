@@ -214,7 +214,7 @@ export default function MyPerformancePage() {
               <div className="flex gap-1.5">
                 {[1,2,3,4,5].map(n => (
                   <button key={n} type="button" onClick={() => setUpdatingGoal({ ...updatingGoal, selfRating: n })}
-                    className={`flex-1 py-2 rounded text-xs font-medium transition ${updatingGoal.selfRating === n ? 'bg-[#0E3D52] text-white' : 'bg-gray-200 dark:bg-[#0E3D52]/60 text-gray-600 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-600'}`}>
+                    className={`flex-1 py-2 rounded text-xs font-medium transition ${updatingGoal.selfRating === n ? 'bg-[#0E3D52] text-white' : 'bg-gray-200 dark:bg-[#0E3D52]/60 text-gray-600 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-[#0E3D52]/80'}`}>
                     {n}
                   </button>
                 ))}
@@ -276,7 +276,7 @@ export default function MyPerformancePage() {
                         {hasSelfAssess ? '✓ Self-Assessed' : 'Self-Assess'}
                       </button>
                       <button onClick={() => setExpanded(isOpen ? null : r.id)}
-                        className="text-xs border border-gray-700 text-gray-400 hover:text-white px-2.5 py-1.5 rounded-lg transition">
+                        className="text-xs border border-[#1A6080]/30 text-gray-400 hover:text-white px-2.5 py-1.5 rounded-lg transition">
                         {isOpen ? 'Hide ▲' : 'Details ▼'}
                       </button>
                     </div>
@@ -349,7 +349,7 @@ export default function MyPerformancePage() {
                         <span className={statusStyle}>
                           {GOAL_STATUSES.find(s => s.value === g.status)?.label ?? g.status}
                         </span>
-                        {g.category && <span className="text-xs px-2 py-0.5 rounded-full border border-gray-700 text-gray-400">{g.category}</span>}
+                        {g.category && <span className="text-xs px-2 py-0.5 rounded-full border border-[#1A6080]/30 text-gray-400">{g.category}</span>}
                       </div>
                       {g.description && <p className="text-xs text-gray-400 mt-1">{g.description}</p>}
                     </div>

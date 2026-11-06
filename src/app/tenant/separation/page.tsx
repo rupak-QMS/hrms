@@ -449,7 +449,7 @@ export default function SeparationPage() {
                   {saving ? 'Initiating…' : 'Begin Separation'}
                 </button>
                 <button type="button" onClick={() => setShowForm(false)}
-                  className="text-sm px-4 py-2 rounded-lg border border-gray-600 text-gray-400 hover:bg-[#0A1929] transition">
+                  className="text-sm px-4 py-2 rounded-lg border border-[#1A6080]/40 text-gray-400 hover:bg-[#0A1929] transition">
                   Cancel
                 </button>
               </div>
@@ -545,7 +545,7 @@ export default function SeparationPage() {
                         )}
                         {r.status === 'completed' && (
                           <button onClick={() => patch(r.id, { status: 'active' })}
-                            className="text-xs bg-gray-700 border border-gray-600 text-gray-300 hover:bg-gray-600 px-2.5 py-1.5 rounded-lg transition">
+                            className="text-xs bg-[#0E3D52]/70 border border-[#1A6080]/40 text-gray-300 hover:bg-[#0E3D52]/80 px-2.5 py-1.5 rounded-lg transition">
                             Reopen
                           </button>
                         )}
@@ -577,14 +577,14 @@ export default function SeparationPage() {
                                 Save Changes
                               </button>
                               <button onClick={() => setEditingId(null)}
-                                className="text-xs border border-gray-600 text-gray-400 hover:bg-[#0A1929] px-3 py-1.5 rounded-lg transition">
+                                className="text-xs border border-[#1A6080]/40 text-gray-400 hover:bg-[#0A1929] px-3 py-1.5 rounded-lg transition">
                                 Cancel
                               </button>
                             </div>
                           ) : r.status !== 'completed' ? (
                             <button
                               onClick={() => { setEditingId(r.id); setEditFields(p => ({ ...p, [r.id]: eField })) }}
-                              className="text-xs border border-gray-600 text-gray-400 hover:bg-[#0A1929] px-3 py-1.5 rounded-lg transition">
+                              className="text-xs border border-[#1A6080]/40 text-gray-400 hover:bg-[#0A1929] px-3 py-1.5 rounded-lg transition">
                               ✏️ Edit Details
                             </button>
                           ) : null}
@@ -653,7 +653,7 @@ export default function SeparationPage() {
                                 className={`flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition ${
                                   item.done
                                     ? 'bg-green-950/40 border-green-800/60'
-                                    : 'bg-gray-100 dark:bg-[#0A1929]/40 border-gray-200 dark:border-[#1A6080]/30 hover:border-gray-600'
+                                    : 'bg-gray-100 dark:bg-[#0A1929]/40 border-gray-200 dark:border-[#1A6080]/30 hover:border-[#1A6080]/40'
                                 } ${r.status === 'completed' ? 'pointer-events-none' : ''}`}>
                                 <input type="checkbox" checked={item.done} disabled={r.status === 'completed'}
                                   onChange={e => patch(r.id, { [item.key]: e.target.checked })}

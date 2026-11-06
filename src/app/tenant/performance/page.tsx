@@ -47,7 +47,7 @@ const GOAL_STATUSES = [
   { value: 'active',      label: 'Active',      color: 'text-[#4ebac4] border-[#1A6080]/60 bg-[#0E3D52]/30' },
   { value: 'completed',   label: 'Completed',   color: 'text-green-400 border-green-800 bg-green-900/30' },
   { value: 'on_hold',     label: 'On Hold',     color: 'text-amber-400 border-amber-800 bg-amber-900/30' },
-  { value: 'cancelled',   label: 'Cancelled',   color: 'text-gray-400 border-gray-700 bg-gray-800/30' },
+  { value: 'cancelled',   label: 'Cancelled',   color: 'text-gray-400 border-[#1A6080]/30 bg-[#0A1929]/30' },
 ]
 
 const GOAL_CATEGORIES = ['Communication', 'Leadership', 'Technical Skills', 'Teamwork', 'Customer Service', 'Process Improvement', 'Professional Development', 'Other']
@@ -69,7 +69,7 @@ function RatingButtons({ value, onChange, color = 'bg-[#0E3D52]' }: { value: num
     <div className="flex gap-1.5">
       {[1, 2, 3, 4, 5].map(n => (
         <button key={n} type="button" onClick={() => onChange(n)}
-          className={`flex-1 py-1.5 rounded text-xs font-medium transition ${value === n ? `${color} text-white` : 'bg-gray-200 dark:bg-[#0E3D52]/60 text-gray-600 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-600'}`}>
+          className={`flex-1 py-1.5 rounded text-xs font-medium transition ${value === n ? `${color} text-white` : 'bg-gray-200 dark:bg-[#0E3D52]/60 text-gray-600 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-[#0E3D52]/80'}`}>
           {n}
         </button>
       ))}
@@ -288,7 +288,7 @@ export default function PerformancePage() {
     return e ? `${e.firstName} ${e.lastName}` : '—'
   }
 
-  const goalStatusStyle = (s: string) => GOAL_STATUSES.find(x => x.value === s)?.color ?? 'text-gray-400 border-gray-700 bg-gray-800/30'
+  const goalStatusStyle = (s: string) => GOAL_STATUSES.find(x => x.value === s)?.color ?? 'text-gray-400 border-[#1A6080]/30 bg-[#0A1929]/30'
 
   function exportReviews() {
     exportCsv({
@@ -408,7 +408,7 @@ export default function PerformancePage() {
                       <input value={kpi.notes}
                         onChange={e => { const k = [...editing.kpis]; k[i] = { ...k[i], notes: e.target.value }; setEditing({ ...editing, kpis: k }) }}
                         placeholder="Notes for this area…"
-                        className="w-full bg-gray-200 dark:bg-[#0E3D52]/60 border border-gray-600 rounded px-2 py-1 text-xs text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none" />
+                        className="w-full bg-gray-200 dark:bg-[#0E3D52]/60 border border-[#1A6080]/40 rounded px-2 py-1 text-xs text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none" />
                     </div>
                   ))}
                 </div>
@@ -425,7 +425,7 @@ export default function PerformancePage() {
                     {OUTCOMES.map(o => (
                       <button key={o.value} type="button" onClick={() => setEditing({ ...editing, outcome: o.value })}
                         className={`text-sm px-3 py-1.5 rounded-lg border transition ${
-                          editing.outcome === o.value ? 'border-[#0E3D52] bg-[#0E3D52]/30 text-white' : 'border-gray-700 text-gray-400 hover:border-gray-600'
+                          editing.outcome === o.value ? 'border-[#0E3D52] bg-[#0E3D52]/30 text-white' : 'border-[#1A6080]/30 text-gray-400 hover:border-[#1A6080]/40'
                         }`}>
                         {o.label}
                       </button>
@@ -565,11 +565,11 @@ export default function PerformancePage() {
                                 </button>
                               )}
                               <button onClick={() => { setExpanded(expanded === r.id ? null : r.id) }}
-                                className={`text-xs border px-2.5 py-1 rounded-lg transition ${expanded === r.id ? 'border-amber-700 text-amber-400' : 'border-gray-700 text-gray-400 hover:border-gray-500'}`}>
+                                className={`text-xs border px-2.5 py-1 rounded-lg transition ${expanded === r.id ? 'border-amber-700 text-amber-400' : 'border-[#1A6080]/30 text-gray-400 hover:border-gray-500'}`}>
                                 {expanded === r.id ? 'Hide' : 'Details'}
                               </button>
                               <button onClick={() => openSelfAssess(r)}
-                                className={`text-xs border px-2.5 py-1 rounded-lg transition ${hasSelfAssess ? 'border-green-700 text-green-400' : 'border-gray-700 text-gray-400 hover:border-gray-500'}`}
+                                className={`text-xs border px-2.5 py-1 rounded-lg transition ${hasSelfAssess ? 'border-green-700 text-green-400' : 'border-[#1A6080]/30 text-gray-400 hover:border-gray-500'}`}
                                 title={hasSelfAssess ? 'Self-assessment submitted' : 'Add self-assessment'}>
                                 {hasSelfAssess ? '✓ Self-assess' : 'Self-assess'}
                               </button>
@@ -723,7 +723,7 @@ export default function PerformancePage() {
                   <div className="flex gap-2 flex-wrap">
                     {GOAL_STATUSES.map(s => (
                       <button key={s.value} type="button" onClick={() => setEditingGoal({ ...editingGoal, status: s.value })}
-                        className={`text-sm px-3 py-1.5 rounded-lg border transition ${editingGoal.status === s.value ? s.color : 'border-gray-700 text-gray-400 hover:border-gray-600'}`}>
+                        className={`text-sm px-3 py-1.5 rounded-lg border transition ${editingGoal.status === s.value ? s.color : 'border-[#1A6080]/30 text-gray-400 hover:border-[#1A6080]/40'}`}>
                         {s.label}
                       </button>
                     ))}
@@ -777,7 +777,7 @@ export default function PerformancePage() {
               <option value="">All statuses</option>
               {GOAL_STATUSES.map(s => <option key={s.value} value={s.value}>{s.label}</option>)}
             </select>
-            <button onClick={() => loadGoals()} className="text-sm text-gray-400 hover:text-white border border-gray-700 px-3 py-2 rounded-lg transition">Refresh</button>
+            <button onClick={() => loadGoals()} className="text-sm text-gray-400 hover:text-white border border-[#1A6080]/30 px-3 py-2 rounded-lg transition">Refresh</button>
           </div>
 
           {/* Goals list */}
@@ -800,7 +800,7 @@ export default function PerformancePage() {
                           {GOAL_STATUSES.find(s => s.value === g.status)?.label ?? g.status}
                         </span>
                         {g.category && (
-                          <span className="text-xs px-2 py-0.5 rounded-full border border-gray-700 text-gray-400">{g.category}</span>
+                          <span className="text-xs px-2 py-0.5 rounded-full border border-[#1A6080]/30 text-gray-400">{g.category}</span>
                         )}
                       </div>
                       <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{empName(g.employeeId)}</p>
@@ -808,7 +808,7 @@ export default function PerformancePage() {
                     </div>
                     <div className="flex gap-2 shrink-0">
                       <button onClick={() => setEditingGoal(g)}
-                        className="text-xs border border-gray-700 text-gray-400 hover:text-white hover:border-gray-500 px-2.5 py-1 rounded-lg transition">
+                        className="text-xs border border-[#1A6080]/30 text-gray-400 hover:text-white hover:border-gray-500 px-2.5 py-1 rounded-lg transition">
                         Edit
                       </button>
                       <button onClick={() => deleteGoal(g.id)}

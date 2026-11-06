@@ -22,7 +22,7 @@ type Stats = { total: number; pending: number; under_review: number; approved: n
 type Employee = { id: string; firstName: string; lastName: string; role?: string }
 
 const STATUS_STYLE: Record<string, string> = {
-  pending:      'bg-gray-800 text-gray-300 border-gray-600',
+  pending:      'bg-[#0A1929] text-gray-300 border-[#1A6080]/40',
   under_review: 'badge badge-blue',
   approved:     'badge badge-green',
   rejected:     'badge badge-red',
@@ -188,8 +188,8 @@ export default function PromotionsPage() {
       {/* Stats */}
       <div className="grid grid-cols-3 sm:grid-cols-6 gap-3">
         {[
-          ['Total',       stats.total,        'border-gray-700'],
-          ['Pending',     stats.pending,       'border-gray-600'],
+          ['Total',       stats.total,        'border-[#1A6080]/30'],
+          ['Pending',     stats.pending,       'border-[#1A6080]/40'],
           ['In Review',   stats.under_review,  'border-[#1A6080]'],
           ['Approved',    stats.approved,      'border-green-800'],
           ['Rejected',    stats.rejected,      'border-red-800'],
@@ -206,7 +206,7 @@ export default function PromotionsPage() {
       <div className="flex gap-2 flex-wrap">
         {['', 'pending', 'under_review', 'approved', 'rejected', 'implemented'].map(s => (
           <button key={s} onClick={() => setStatusFilter(s)}
-            className={`px-3 py-1.5 rounded-full text-xs font-medium border transition ${statusFilter === s ? 'border-[#0E3D52] bg-[#0E3D52]/30 text-white' : 'border-gray-700 text-gray-400 hover:border-gray-500'}`}>
+            className={`px-3 py-1.5 rounded-full text-xs font-medium border transition ${statusFilter === s ? 'border-[#0E3D52] bg-[#0E3D52]/30 text-white' : 'border-[#1A6080]/30 text-gray-400 hover:border-gray-500'}`}>
             {s === '' ? 'All' : STATUS_LABEL[s]}
           </button>
         ))}

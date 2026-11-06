@@ -542,8 +542,8 @@ export default function OfferLettersPage() {
       {/* Stats */}
       <div className="grid grid-cols-2 sm:grid-cols-6 gap-3">
         {[
-          { label: 'Total',    value: stats.total,    col: 'border-gray-700' },
-          { label: 'Draft',    value: stats.draft,    col: 'border-gray-600' },
+          { label: 'Total',    value: stats.total,    col: 'border-[#1A6080]/30' },
+          { label: 'Draft',    value: stats.draft,    col: 'border-[#1A6080]/40' },
           { label: 'Sent',     value: stats.sent,     col: 'border-[#1A6080]' },
           { label: 'Accepted', value: stats.accepted, col: 'border-green-700' },
           { label: 'Rejected', value: stats.rejected, col: 'border-red-700' },
@@ -695,13 +695,13 @@ export default function OfferLettersPage() {
                     />
                     <button
                       onClick={copyLink}
-                      className={`shrink-0 px-3 py-2 text-xs font-medium rounded-lg transition ${copied ? 'bg-green-600 text-white' : 'bg-gray-700 hover:bg-gray-600 text-white'}`}>
+                      className={`shrink-0 px-3 py-2 text-xs font-medium rounded-lg transition ${copied ? 'bg-green-600 text-white' : 'bg-[#0E3D52]/70 hover:bg-[#0E3D52]/80 text-white'}`}>
                       {copied ? '✓ Copied' : 'Copy'}
                     </button>
                     <a
                       href={candidateUrl(selected.acceptanceToken)}
                       target="_blank" rel="noreferrer"
-                      className="shrink-0 px-3 py-2 text-xs font-medium bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition">
+                      className="shrink-0 px-3 py-2 text-xs font-medium bg-[#0E3D52]/70 hover:bg-[#0E3D52]/80 text-white rounded-lg transition">
                       ↗
                     </a>
                   </div>
@@ -860,7 +860,7 @@ export default function OfferLettersPage() {
                   <button
                     type="button"
                     onClick={() => applyTemplate(selectedTemplate)}
-                    className="shrink-0 px-3 py-2 bg-gray-700 hover:bg-gray-600 text-white text-xs font-medium rounded-lg transition">
+                    className="shrink-0 px-3 py-2 bg-[#0E3D52]/70 hover:bg-[#0E3D52]/80 text-white text-xs font-medium rounded-lg transition">
                     Apply
                   </button>
                 </div>
@@ -930,7 +930,7 @@ export default function OfferLettersPage() {
                 <input
                   type="file"
                   accept=".docx,.pdf"
-                  className="w-full text-sm text-gray-400 file:mr-3 file:py-2 file:px-3 file:rounded-lg file:border-0 file:bg-gray-700 file:text-white file:text-xs hover:file:bg-gray-600 cursor-pointer"
+                  className="w-full text-sm text-gray-400 file:mr-3 file:py-2 file:px-3 file:rounded-lg file:border-0 file:bg-[#0E3D52]/70 file:text-white file:text-xs hover:file:bg-[#0E3D52]/80 cursor-pointer"
                   onChange={async (e) => {
                     const f = e.target.files?.[0]
                     if (!f) return

@@ -27,7 +27,7 @@ function StatCard({ label, value, sub, color = 'text-white', alert = false }: {
   label: string; value: string | number; sub?: string; color?: string; alert?: boolean
 }) {
   return (
-    <div className={`card-premium p-4 ${alert ? 'border-red-800' : 'border-gray-800'}`}>
+    <div className={`card-premium p-4 ${alert ? 'border-red-800' : 'border-[#1A6080]/20'}`}>
       <p className="text-xs text-gray-600 dark:text-gray-400">{label}</p>
       <p className={`text-2xl font-bold mt-1 ${color}`}>{value}</p>
       {sub && <p className="text-xs text-gray-500 mt-0.5 dark:text-gray-400">{sub}</p>}

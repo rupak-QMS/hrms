@@ -71,7 +71,7 @@ function expiryBadge(exp: string | null) {
     const d = Math.round((new Date(exp + 'T00:00:00').getTime() - Date.now()) / 86400000)
     return { text: `Expires in ${d}d`, cls: 'text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/30 border-amber-300 dark:border-amber-800' }
   }
-  return { text: `Expires ${fmtDate(exp)}`, cls: 'text-gray-500 bg-gray-800 border-gray-700' }
+  return { text: `Expires ${fmtDate(exp)}`, cls: 'text-gray-500 bg-[#0A1929] border-[#1A6080]/30' }
 }
 
 const INPUT = 'input-premium'
@@ -348,7 +348,7 @@ function DocSection({
           const badge = expiryBadge(d.expiryDate)
           const ss = STATUS_STYLE[d.status]
           return (
-            <div key={d.id} className={`card-premium border p-4 flex items-start gap-4 ${ss?.border ?? 'border-gray-700'}`}>
+            <div key={d.id} className={`card-premium border p-4 flex items-start gap-4 ${ss?.border ?? 'border-[#1A6080]/30'}`}>
               <span className="text-2xl mt-0.5 shrink-0">{mimeIcon(d.mimeType)}</span>
               <div className="flex-1 min-w-0">
                 <div className="flex items-start gap-2 flex-wrap">

@@ -247,7 +247,7 @@ export default function PublicHolidaysPage() {
             <button
               onClick={importHolidays}
               disabled={importing}
-              className="px-4 py-2 bg-gray-200 dark:bg-[#0E3D52]/60 hover:bg-gray-600 disabled:opacity-50 text-gray-900 dark:text-white text-sm font-medium rounded-lg transition-colors"
+              className="px-4 py-2 bg-gray-200 dark:bg-[#0E3D52]/60 hover:bg-[#0E3D52]/80 disabled:opacity-50 text-gray-900 dark:text-white text-sm font-medium rounded-lg transition-colors"
               title={`Auto-import ${year} public holidays from Nager.Date for ${tenantCountry}`}
             >
               {importing ? 'Importing…' : `Import ${year}`}
@@ -431,8 +431,8 @@ export default function PublicHolidaysPage() {
                           key={h.id}
                           className={`flex items-center gap-4 px-5 py-3.5 rounded-xl border transition-colors ${
                             isToday ? 'bg-[#E0EEF4] dark:bg-[#0E3D52]/40 border-[#4ebac4] dark:border-[#0E3D52]'
-                            : isPast ? 'bg-gray-800/30 border-gray-800 opacity-50'
-                            : 'bg-gray-800/60 border-gray-700'
+                            : isPast ? 'bg-[#0A1929]/30 border-[#1A6080]/20 opacity-50'
+                            : 'bg-[#0A1929]/60 border-[#1A6080]/30'
                           }`}
                         >
                           {/* Date block */}
@@ -461,7 +461,7 @@ export default function PublicHolidaysPage() {
                                 </span>
                               )}
                               {h.state && (
-                                <span className="text-xs px-2 py-0.5 rounded-full bg-gray-200 dark:bg-[#0E3D52]/60 text-gray-600 dark:text-gray-300 border border-gray-600">
+                                <span className="text-xs px-2 py-0.5 rounded-full bg-gray-200 dark:bg-[#0E3D52]/60 text-gray-600 dark:text-gray-300 border border-[#1A6080]/40">
                                   {h.state}
                                 </span>
                               )}

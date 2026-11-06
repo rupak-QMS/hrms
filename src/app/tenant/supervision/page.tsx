@@ -245,7 +245,7 @@ export default function SupervisionPage() {
             const draft = actionDraft[r.id] ?? ''
             return (
               <div key={r.id} className={`card-premium overflow-hidden ${
-                overdue ? 'border-red-900/60' : r.status === 'completed' ? 'border-green-900/50' : 'border-gray-800'
+                overdue ? 'border-red-900/60' : r.status === 'completed' ? 'border-green-900/50' : 'border-[#1A6080]/20'
               }`}>
                 <div className="flex items-center gap-4 px-5 py-4 cursor-pointer" onClick={() => setExpanded(isOpen ? null : r.id)}>
                   <div className="flex-1 min-w-0">

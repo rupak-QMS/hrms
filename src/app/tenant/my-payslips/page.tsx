@@ -161,7 +161,7 @@ export default function MyPayslipsPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={e => e.stopPropagation()}
-                      className="text-xs px-2.5 py-1 rounded-lg border border-gray-600 dark:border-[#1A6080]/40 text-gray-400 hover:text-white hover:border-gray-400 transition"
+                      className="text-xs px-2.5 py-1 rounded-lg border border-[#1A6080]/40 dark:border-[#1A6080]/40 text-gray-400 hover:text-white hover:border-gray-400 transition"
                       title="Print / Save as PDF"
                     >
                       🖨

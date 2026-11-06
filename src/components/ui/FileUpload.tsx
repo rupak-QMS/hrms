@@ -150,10 +150,10 @@ export default function FileUpload({
         onClick={() => !disabled && !uploading && inputRef.current?.click()}
         className={[
           'relative border-2 border-dashed rounded-xl p-5 text-center cursor-pointer transition-all select-none',
-          disabled   ? 'opacity-50 cursor-not-allowed border-gray-700'
+          disabled   ? 'opacity-50 cursor-not-allowed border-[#1A6080]/30'
             : dragging  ? 'border-[#4ebac4] bg-[#0E3D52]/20'
             : uploading ? 'border-[#0E3D52] bg-[#0E3D52]/10 cursor-wait'
-            : 'border-gray-700 hover:border-[#0E3D52] hover:bg-[#0E3D52]/10',
+            : 'border-[#1A6080]/30 hover:border-[#0E3D52] hover:bg-[#0E3D52]/10',
         ].join(' ')}
       >
         <input

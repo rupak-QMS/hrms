@@ -121,7 +121,7 @@ export default function LeaveSettingsPage() {
             <div
               key={t.key}
               className={`card-premium overflow-hidden transition ${
-                t._dirty ? 'border-[#1A6080]/60' : t.isActive ? 'border-gray-800' : 'border-gray-800/40 opacity-60'
+                t._dirty ? 'border-[#1A6080]/60' : t.isActive ? 'border-[#1A6080]/20' : 'border-[#1A6080]/20/40 opacity-60'
               }`}
             >
               {/* Row header */}
@@ -144,7 +144,7 @@ export default function LeaveSettingsPage() {
                     type="button"
                     onClick={() => update(t.key, 'isActive', !t.isActive)}
                     className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors ${
-                      t.isActive ? 'bg-[#0E3D52]' : 'bg-gray-700'
+                      t.isActive ? 'bg-[#0E3D52]' : 'bg-[#0E3D52]/70'
                     }`}
                   >
                     <span className={`inline-block h-3.5 w-3.5 transform rounded-full bg-white transition-transform  dark:bg-[#0F1E2E]${
@@ -219,7 +219,7 @@ export default function LeaveSettingsPage() {
                             className={`flex-1 min-w-[160px] flex items-start gap-3 border rounded-xl px-4 py-3 cursor-pointer transition ${
                               isChecked
                                 ? 'border-[#0E3D52] bg-[#E0EEF4] dark:bg-[#0E3D52]/20'
-                                : 'border-gray-200 dark:border-[#1A6080]/30 hover:border-gray-300 dark:hover:border-gray-600'
+                                : 'border-gray-200 dark:border-[#1A6080]/30 hover:border-gray-300 dark:hover:border-[#1A6080]/40'
                             }`}
                           >
                             <input

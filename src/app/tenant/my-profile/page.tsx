@@ -525,7 +525,7 @@ export default function MyProfilePage() {
             </div>
             <label className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 cursor-pointer select-none">
               <input type="checkbox" checked={contactForm.isPrimary} onChange={e => setContactForm(f => ({ ...f, isPrimary: e.target.checked }))}
-                className="rounded border-gray-600" />
+                className="rounded border-[#1A6080]/40" />
               Set as primary contact
             </label>
             <div className="flex gap-3">

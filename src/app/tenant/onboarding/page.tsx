@@ -48,7 +48,7 @@ const STATUS_STYLE: Record<string, string> = {
 }
 
 const CATEGORY_COLOR: Record<string, string> = {
-  admin:      'bg-gray-700 text-gray-300',
+  admin:      'bg-[#0E3D52]/70 text-gray-300',
   it:         'bg-[#0E3D52]/50 text-[#7dcfd7]',
   hr:         'bg-[#0E3D52]/60 text-[#4ebac4]',
   legal:      'bg-amber-900/60 text-amber-300',
@@ -390,7 +390,7 @@ export default function OnboardingPage() {
                               <p className="text-xs text-gray-500 dark:text-gray-400 truncate">{r.employeeEmail}</p>
                             )}
                           </div>
-                          <span className={`text-xs px-2.5 py-0.5 rounded-full border font-medium ${STATUS_STYLE[r.status] ?? 'bg-gray-800 text-gray-300 border-gray-700'}`}>
+                          <span className={`text-xs px-2.5 py-0.5 rounded-full border font-medium ${STATUS_STYLE[r.status] ?? 'bg-[#0A1929] text-gray-300 border-[#1A6080]/30'}`}>
                             {r.status === 'in_progress' ? 'In Progress' : r.status.charAt(0).toUpperCase() + r.status.slice(1)}
                           </span>
                           <span className="text-xs text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-[#0A1929] px-2 py-0.5 rounded-full">
@@ -447,14 +447,14 @@ export default function OnboardingPage() {
                                   <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold mb-1 ${
                                     i < stageIdx  ? 'bg-green-600 text-white' :
                                     i === stageIdx ? 'bg-[#0E3D52] text-white ring-2 ring-[#4ebac4]' :
-                                    'bg-gray-700 text-gray-400'
+                                    'bg-[#0E3D52]/70 text-gray-400'
                                   }`}>
                                     {i < stageIdx ? '✓' : i + 1}
                                   </div>
                                   <p className="text-[10px] text-gray-600 dark:text-gray-400 text-center leading-tight">{s.label}</p>
                                 </div>
                                 {i < STAGES.length - 1 && (
-                                  <div className={`h-0.5 flex-1 mx-1 rounded ${i < stageIdx ? 'bg-green-600' : 'bg-gray-700'}`} />
+                                  <div className={`h-0.5 flex-1 mx-1 rounded ${i < stageIdx ? 'bg-green-600' : 'bg-[#0E3D52]/70'}`} />
                                 )}
                               </div>
                             ))}
@@ -469,14 +469,14 @@ export default function OnboardingPage() {
                               {r.checklist.slice(0, 5).map(item => (
                                 <div key={item.id} className="flex items-center gap-2.5">
                                   <div className={`w-4 h-4 rounded flex items-center justify-center border shrink-0 ${
-                                    item.done ? 'bg-[#0E3D52] border-[#0E3D52]' : 'border-gray-600'
+                                    item.done ? 'bg-[#0E3D52] border-[#0E3D52]' : 'border-[#1A6080]/40'
                                   }`}>
                                     {item.done && <span className="text-white text-[10px]">✓</span>}
                                   </div>
                                   <span className={`text-xs ${item.done ? 'line-through text-gray-500' : 'text-gray-700 dark:text-gray-300'}`}>
                                     {item.task}
                                   </span>
-                                  <span className={`text-[10px] px-1.5 py-0.5 rounded-full ml-auto ${CATEGORY_COLOR[item.category] ?? 'bg-gray-700 text-gray-300'}`}>
+                                  <span className={`text-[10px] px-1.5 py-0.5 rounded-full ml-auto ${CATEGORY_COLOR[item.category] ?? 'bg-[#0E3D52]/70 text-gray-300'}`}>
                                     {item.category}
                                   </span>
                                 </div>

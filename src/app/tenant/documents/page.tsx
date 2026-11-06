@@ -699,7 +699,7 @@ export default function DocumentsPage() {
                       )}
                       {d.status !== 'archived' && (
                         <button onClick={() => updateStatus(d.id, 'archived')}
-                          className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-gray-600 px-2 py-1 rounded transition">
+                          className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-[#1A6080]/40 px-2 py-1 rounded transition">
                           Archive
                         </button>
                       )}

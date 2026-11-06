@@ -308,7 +308,7 @@ export default function ContractsPage() {
             const endLabel = endDateLabel(c.endDate)
             return (
               <div key={c.id} className={`card-premium overflow-hidden ${
-                c.status === 'signed' ? 'border-green-900/50' : 'border-gray-800'
+                c.status === 'signed' ? 'border-green-900/50' : 'border-[#1A6080]/20'
               }`}>
                 <div className="flex items-center gap-4 px-5 py-4">
                   <div className="flex-1 min-w-0 cursor-pointer" onClick={() => setExpanded(isOpen ? null : c.id)}>
@@ -521,7 +521,7 @@ export default function ContractsPage() {
               </div>
               <div className="flex justify-end gap-3 pt-1">
                 <button type="button" onClick={() => setEditContract(null)}
-                  className="px-4 py-2 text-sm rounded-lg border border-gray-600 text-gray-300 hover:bg-[#0A1929] transition">
+                  className="px-4 py-2 text-sm rounded-lg border border-[#1A6080]/40 text-gray-300 hover:bg-[#0A1929] transition">
                   Cancel
                 </button>
                 <button type="submit" disabled={editSaving}

@@ -709,7 +709,7 @@ export default function RecruitmentPage() {
                                     {isSaving ? 'Saving…' : 'Save Notes'}
                                   </button>
                                   <button disabled={isDeleting} onClick={() => deleteApp(a.id)}
-                                    className="w-full py-1 bg-gray-800 hover:bg-red-900/50 border border-gray-700 hover:border-red-800 disabled:opacity-50 text-gray-400 hover:text-red-400 text-xs rounded-lg transition">
+                                    className="w-full py-1 bg-[#0A1929] hover:bg-red-900/50 border border-[#1A6080]/30 hover:border-red-800 disabled:opacity-50 text-gray-400 hover:text-red-400 text-xs rounded-lg transition">
                                     {isDeleting ? 'Removing…' : 'Remove from Pipeline'}
                                   </button>
                                 </div>
@@ -734,7 +734,7 @@ export default function RecruitmentPage() {
 
                               {/* Move to stage */}
                               <div className="relative group">
-                                <button className="w-full py-1 text-xs text-gray-500 hover:text-white border border-gray-700 hover:border-gray-500 rounded-lg transition">
+                                <button className="w-full py-1 text-xs text-gray-500 hover:text-white border border-[#1A6080]/30 hover:border-gray-500 rounded-lg transition">
                                   Move to stage ▾
                                 </button>
                                 <div className="absolute bottom-full left-0 right-0 mb-1 bg-[#0F2C3D] border border-[#1A6080]/40 rounded-xl shadow-xl z-10 overflow-hidden hidden group-hover:block">

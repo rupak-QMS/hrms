@@ -294,7 +294,7 @@ export default function IntakePage() {
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
               {MODULES_LIST.map(m => (
                 <label key={m.id} className={`flex items-center gap-2 p-2 rounded-lg border cursor-pointer text-xs transition ${
-                  form.selectedModules.includes(m.id) ? 'border-[#0E3D52] bg-[#E0EEF4] dark:bg-[#E0EEF4] dark:bg-[#0E3D52]/20 text-[#0E3D52] dark:text-[#7dcfd7]' : 'border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-gray-600'
+                  form.selectedModules.includes(m.id) ? 'border-[#0E3D52] bg-[#E0EEF4] dark:bg-[#E0EEF4] dark:bg-[#0E3D52]/20 text-[#0E3D52] dark:text-[#7dcfd7]' : 'border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-[#1A6080]/40'
                 }`}>
                   <input type="checkbox" checked={form.selectedModules.includes(m.id)} onChange={() => toggleModule(m.id)}
                     className="accent-[#0E3D52]" />

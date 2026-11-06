@@ -754,7 +754,7 @@ export default function PayrollPage() {
                       Done
                     </button>
                     <button onClick={() => { setBulkResult(null); setBulkError('') }}
-                      className="px-4 py-2 border border-gray-700 text-gray-400 hover:text-white text-sm rounded-lg transition">
+                      className="px-4 py-2 border border-[#1A6080]/30 text-gray-400 hover:text-white text-sm rounded-lg transition">
                       Run Again
                     </button>
                   </div>
