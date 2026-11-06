@@ -190,7 +190,7 @@ export default function SelfServicePage() {
         {tab === '🏠 Overview' && (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Profile card */}
-            <div className="lg:col-span-2 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
+            <div className="lg:col-span-2 card-premium p-6">
               <h2 className="text-base font-semibold text-gray-900 dark:text-white mb-4">My Details</h2>
               <div className="grid grid-cols-2 gap-4 text-sm">
                 {[
@@ -213,7 +213,7 @@ export default function SelfServicePage() {
 
             {/* Quick actions */}
             <div className="space-y-4">
-              <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4">
+              <div className="card-premium p-4">
                 <h2 className="text-sm font-semibold text-gray-900 dark:text-white mb-3">Quick Actions</h2>
                 <div className="space-y-2">
                   {[
@@ -257,13 +257,13 @@ export default function SelfServicePage() {
               </button>
             </div>
             {leaveRequests.length === 0 ? (
-              <div className="bg-white dark:bg-gray-800 rounded-xl border border-dashed border-gray-200 dark:border-gray-700 p-8 text-center text-gray-400 dark:text-gray-500 text-sm">
+              <div className="rounded-xl border border-dashed border-[#b8d4e0] dark:border-[#1A6080]/40 bg-[#E0EEF4]/30 dark:bg-[#0E3D52]/05 p-8 text-center text-gray-400 dark:text-gray-500 text-sm">
                 No leave requests yet
               </div>
             ) : (
               <div className="space-y-3">
                 {leaveRequests.map(lr => (
-                  <div key={lr.id} className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4">
+                  <div key={lr.id} className="card-premium p-4">
                     <div className="flex items-start justify-between">
                       <div>
                         <p className="font-medium text-gray-900 dark:text-white">
@@ -290,17 +290,17 @@ export default function SelfServicePage() {
           <div>
             <h2 className="text-base font-semibold text-gray-900 dark:text-white mb-4">My Payslips</h2>
             {payslips.length === 0 ? (
-              <div className="bg-white dark:bg-gray-800 rounded-xl border border-dashed border-gray-200 dark:border-gray-700 p-8 text-center text-gray-400 dark:text-gray-500 text-sm">
+              <div className="rounded-xl border border-dashed border-[#b8d4e0] dark:border-[#1A6080]/40 bg-[#E0EEF4]/30 dark:bg-[#0E3D52]/05 p-8 text-center text-gray-400 dark:text-gray-500 text-sm">
                 No payslips available yet
               </div>
             ) : (
-              <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+              <div className="card-premium overflow-hidden">
                 <div className="table-responsive">
             <table className="table-premium">
                   <thead className="bg-gray-50 dark:bg-gray-700">
                     <tr>
                       {['Pay Run', 'Period', 'Pay Date', 'Hours', 'Gross', 'Tax', 'Super', 'Net Pay'].map(h => (
-                        <th key={h} className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase">{h}</th>
+                        <th key={h} className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400">{h}</th>
                       ))}
                     </tr>
                   </thead>

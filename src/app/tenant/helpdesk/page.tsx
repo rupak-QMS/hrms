@@ -165,7 +165,7 @@ export default function HelpdeskPage() {
       </div>
 
       {/* Ticket Table */}
-      <div className="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+      <div className="card-premium overflow-hidden">
         {loading ? (
           <div className="py-16 text-center text-sm text-gray-400">Loading…</div>
         ) : tickets.length === 0 ? (

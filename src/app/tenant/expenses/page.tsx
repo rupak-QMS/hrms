@@ -414,7 +414,7 @@ export default function ExpensesPage() {
           { label: 'Paid Out',       value: claims.filter(c => c.status === 'paid').length, sub: fmt(totPaid), color: 'green' },
           { label: 'Total Claims',   value: claims.length, sub: fmt(claims.reduce((s, c) => s + Number(c.amount), 0)), color: 'gray' },
         ].map(card => (
-          <div key={card.label} className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 shadow-sm">
+          <div key={card.label} className="card-premium p-4">
             <p className="text-xs text-gray-500 dark:text-gray-400">{card.label}</p>
             <p className="text-2xl font-bold text-gray-900 dark:text-white mt-1">{card.value}</p>
             <p className="page-premium-subtitle mt-0.5">{card.sub}</p>
@@ -445,7 +445,7 @@ export default function ExpensesPage() {
       </div>
 
       {/* Table */}
-      <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden">
+      <div className="card-premium shadow-sm overflow-hidden">
         {loading ? (
           <div className="flex items-center justify-center h-48 text-gray-500 dark:text-gray-400">Loading…</div>
         ) : filtered.length === 0 ? (

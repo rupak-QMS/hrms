@@ -315,9 +315,9 @@ export default function RosterShiftsPage() {
                 const isToday = iso === formatDate(new Date())
                 const dayShifts = shiftsOnDay(iso)
                 return (
-                  <div key={iso} className={`bg-white dark:bg-gray-800 rounded-xl border ${isToday ? 'border-blue-400 dark:border-[#0E3D52]' : 'border-gray-200 dark:border-gray-700'} flex flex-col min-h-[300px]`}>
+                  <div key={iso} className={`bg-white dark:bg-gray-800 rounded-xl border ${isToday ? 'border-[#1A6080] dark:border-[#4ebac4]' : 'border-gray-200 dark:border-gray-700'} flex flex-col min-h-[300px]`}>
                     {/* Day header */}
-                    <div className={`px-3 py-2 border-b ${isToday ? 'border-blue-400 dark:border-[#0E3D52] bg-[#E0EEF4] dark:bg-[#0E3D52]/20' : 'border-gray-200 dark:border-gray-700'} rounded-t-xl`}>
+                    <div className={`px-3 py-2 border-b ${isToday ? 'border-[#1A6080] dark:border-[#4ebac4] bg-[#E0EEF4] dark:bg-[#0E3D52]/20' : 'border-gray-200 dark:border-gray-700'} rounded-t-xl`}>
                       <p className={`text-xs font-semibold ${isToday ? 'text-[#0E3D52] dark:text-[#7dcfd7]' : 'text-gray-500 dark:text-gray-400'}`}>{DAYS[i]}</p>
                       <p className={`text-lg font-bold ${isToday ? 'text-blue-800 dark:text-blue-200' : 'text-gray-900 dark:text-white'}`}>{day.getDate()}</p>
                       {dayShifts.length > 0 && (
@@ -370,7 +370,7 @@ export default function RosterShiftsPage() {
                 <p>No shift swap requests</p>
               </div>
             ) : swapRequests.map(req => (
-              <div key={req.id} className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
+              <div key={req.id} className="card-premium p-5">
                 <div className="flex items-start justify-between">
                   <div>
                     <p className="font-medium text-gray-900 dark:text-white">

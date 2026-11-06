@@ -487,13 +487,13 @@ export default function PayrollFinancePage() {
                       <p className="text-xs text-gray-400">Review entries, then click <strong>Finalise</strong> to lock.</p>
                     )}
                   </div>
-                  <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+                  <div className="card-premium overflow-hidden">
                     <div className="table-responsive">
                       <table className="table-premium">
                         <thead className="bg-gray-50 dark:bg-gray-700">
                           <tr>
                             {['Employee', 'Type', 'Hours', 'Gross', 'PAYG Tax', 'Medicare', 'Super', 'Net Pay'].map(h => (
-                              <th key={h} className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase">{h}</th>
+                              <th key={h} className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400">{h}</th>
                             ))}
                           </tr>
                         </thead>
@@ -517,7 +517,7 @@ export default function PayrollFinancePage() {
                         {/* Totals footer */}
                         <tfoot className="bg-gray-50 dark:bg-gray-700 border-t-2 border-gray-200 dark:border-gray-600">
                           <tr>
-                            <td colSpan={3} className="px-4 py-3 text-xs font-bold text-gray-600 dark:text-gray-300 uppercase">Totals</td>
+                            <td colSpan={3} className="px-4 py-3 text-xs font-bold text-gray-600 dark:text-gray-300">Totals</td>
                             <td className="px-4 py-3 font-bold text-gray-900 dark:text-white text-sm tabular-nums">{fmt(selected.totalGross)}</td>
                             <td className="px-4 py-3 font-bold text-red-600 dark:text-red-400 text-sm tabular-nums">
                               {fmt(entries.reduce((s, e) => s + parseFloat(e.paygWithholding || '0'), 0))}

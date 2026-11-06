@@ -592,7 +592,7 @@ export default function IncidentBehaviourPage() {
                   ) : (
                     <div className="space-y-4">
                       {incidents.map(inc => (
-                        <div key={inc.id} className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
+                        <div key={inc.id} className="card-premium p-5">
                           <div className="flex items-start justify-between gap-4 mb-3">
                             <div className="flex items-center gap-2 flex-wrap">
                               {severityBadge(inc.severity)}
@@ -644,7 +644,7 @@ export default function IncidentBehaviourPage() {
                   ) : (
                     <div className="space-y-4">
                       {behaviourPlans.map(plan => (
-                        <div key={plan.id} className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
+                        <div key={plan.id} className="card-premium p-5">
                           <div className="flex items-center justify-between mb-3">
                             <h4 className="font-semibold text-gray-900 dark:text-white">{plan.planName}</h4>
                             <div className="flex items-center gap-2">
@@ -688,7 +688,7 @@ export default function IncidentBehaviourPage() {
                   ) : (
                     <div className="space-y-4">
                       {restrictivePractices.map(rp => (
-                        <div key={rp.id} className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
+                        <div key={rp.id} className="card-premium p-5">
                           <div className="flex items-center justify-between mb-3">
                             <div>
                               <h4 className="font-semibold text-gray-900 dark:text-white">{rp.practiceType}</h4>

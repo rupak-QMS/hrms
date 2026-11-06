@@ -325,7 +325,7 @@ export default function SuperannuationPage() {
                 { label: 'Pending Contributions', value: String(pending), color: 'text-yellow-600 dark:text-yellow-400' },
                 { label: 'Overdue', value: String(overdue), color: overdue > 0 ? 'text-red-600 dark:text-red-400' : 'text-gray-500' },
               ].map(({ label, value, color }) => (
-                <div key={label} className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4">
+                <div key={label} className="card-premium p-4">
                   <p className="text-xs text-gray-500 mb-1">{label}</p>
                   <p className={`text-2xl font-bold ${color}`}>{value}</p>
                 </div>
@@ -356,7 +356,7 @@ export default function SuperannuationPage() {
                   <div className="text-center py-12 text-gray-400">No super funds recorded. Click + Add Fund to get started.</div>
                 )}
                 {funds.map(fund => (
-                  <div key={fund.id} className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
+                  <div key={fund.id} className="card-premium p-5">
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
                         <div className="flex items-center gap-2 flex-wrap">

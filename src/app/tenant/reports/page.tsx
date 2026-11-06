@@ -393,7 +393,7 @@ export default function ReportsPage() {
               {Object.keys(summary).length > 0 && (
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
                   {Object.entries(summary).map(([k, v]) => (
-                    <div key={k} className="bg-white rounded-xl border border-gray-200 p-4 text-center dark:bg-gray-900 dark:border-gray-700">
+                    <div key={k} className="card-premium p-4 text-center">
                       <p className="page-premium-title">{v}</p>
                       <p className="text-xs text-gray-500 capitalize mt-0.5 dark:text-gray-400">{k.replace(/([A-Z])/g,' $1').toLowerCase()}</p>
                     </div>
@@ -425,9 +425,9 @@ export default function ReportsPage() {
 
               {/* Table */}
               {data.length === 0 ? (
-                <div className="bg-white rounded-xl border border-gray-200 py-12 text-center text-gray-600 dark:text-gray-400 text-sm dark:bg-gray-900 dark:border-gray-700">No data for this period</div>
+                <div className="card-premium py-12 text-center text-sm text-gray-600 dark:text-gray-400">No data for this period</div>
               ) : (
-                <div className="bg-white rounded-xl border border-gray-200 overflow-hidden dark:bg-gray-900 dark:border-gray-700">
+                <div className="card-premium overflow-hidden">
                   <div className="overflow-x-auto">
                     <div className="table-responsive">
             <table className="table-premium">

@@ -437,7 +437,7 @@ export default function PublicHolidaysPage() {
                         >
                           {/* Date block */}
                           <div className="text-center w-14 shrink-0">
-                            <p className="text-xs text-gray-500 uppercase dark:text-gray-400">
+                            <p className="text-xs text-gray-500 dark:text-gray-400">
                               {new Date(h.date + 'T00:00:00').toLocaleDateString('en-AU', { month: 'short' })}
                             </p>
                             <p className={`text-2xl font-bold leading-none ${isToday ? 'text-[#4ebac4]' : isPast ? 'text-gray-400 dark:text-gray-600' : 'text-foreground'}`}>

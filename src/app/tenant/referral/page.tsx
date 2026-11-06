@@ -113,13 +113,13 @@ export default function ReferralPage() {
             <p className="text-sm mt-1">Add a referral when an employee refers a candidate.</p>
           </div>
         ) : (
-          <div className="bg-white border border-gray-200 rounded-xl overflow-hidden dark:bg-gray-900 dark:border-gray-700">
+          <div className="card-premium overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-gray-100 bg-gray-50 dark:bg-gray-800 dark:border-gray-800">
                     {['Referred By','Candidate','Status','Bonus','Submitted','Notes',''].map(h=>(
-                      <th key={h} className="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase dark:text-gray-400">{h}</th>
+                      <th key={h} className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400">{h}</th>
                     ))}
                   </tr>
                 </thead>

@@ -218,11 +218,11 @@ export default function SalaryReviewsPage() {
 
         {/* KPI mini cards */}
         <div className="grid grid-cols-2 gap-2">
-          <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-3 text-center">
+          <div className="card-premium p-3 text-center">
             <p className="text-2xl font-bold text-yellow-600 dark:text-yellow-400">{pending}</p>
             <p className="text-xs text-gray-500">Pending Review</p>
           </div>
-          <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-3 text-center">
+          <div className="card-premium p-3 text-center">
             <p className="text-2xl font-bold text-green-600 dark:text-green-400">{approved}</p>
             <p className="text-xs text-gray-500">Approved</p>
           </div>

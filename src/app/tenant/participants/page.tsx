@@ -553,7 +553,7 @@ export default function ParticipantsPage() {
                 {subLoading ? <Spinner /> : goals.length === 0 ? <Empty label="No goals recorded" /> : (
                   <div className="space-y-3">
                     {goals.map(g => (
-                      <div key={g.id} className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4">
+                      <div key={g.id} className="card-premium p-4">
                         <div className="flex items-start justify-between gap-2">
                           <div>
                             <p className="font-medium text-gray-900 dark:text-white">{g.title}</p>
@@ -590,7 +590,7 @@ export default function ParticipantsPage() {
                 {subLoading ? <Spinner /> : plans.length === 0 ? <Empty label="No support plans recorded" /> : (
                   <div className="space-y-3">
                     {plans.map(p => (
-                      <div key={p.id} className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4">
+                      <div key={p.id} className="card-premium p-4">
                         <div className="flex items-start justify-between gap-2">
                           <div>
                             <p className="font-medium text-gray-900 dark:text-white">{p.title}</p>
@@ -635,7 +635,7 @@ export default function ParticipantsPage() {
                 {subLoading ? <Spinner /> : notes.length === 0 ? <Empty label="No notes recorded" /> : (
                   <div className="space-y-3">
                     {notes.map(n => (
-                      <div key={n.id} className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4">
+                      <div key={n.id} className="card-premium p-4">
                         <div className="flex items-start justify-between gap-2 mb-2">
                           <div className="flex items-center gap-2">
                             <span className="text-xs px-2 py-0.5 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-full">
@@ -670,7 +670,7 @@ export default function ParticipantsPage() {
                 {subLoading ? <Spinner /> : contacts.length === 0 ? <Empty label="No contacts recorded" /> : (
                   <div className="grid grid-cols-2 gap-3">
                     {contacts.map(c => (
-                      <div key={c.id} className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4">
+                      <div key={c.id} className="card-premium p-4">
                         <div className="flex items-start justify-between">
                           <div>
                             <p className="font-medium text-gray-900 dark:text-white">
@@ -955,7 +955,7 @@ export default function ParticipantsPage() {
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4">
+    <div className="card-premium p-4">
       <h4 className="text-xs font-semibold text-gray-400 dark:text-gray-500  mb-3">{title}</h4>
       <div className="space-y-2">{children}</div>
     </div>

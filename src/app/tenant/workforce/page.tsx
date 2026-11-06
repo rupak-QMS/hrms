@@ -54,7 +54,7 @@ export default function WorkforcePage() {
         )}
 
         {/* Headcount by department */}
-        <div className="bg-white border border-gray-200 rounded-xl overflow-hidden dark:bg-gray-900 dark:border-gray-700">
+        <div className="card-premium overflow-hidden">
           <div className="px-5 py-3 border-b border-gray-100 dark:border-gray-800">
             <h2 className="text-sm font-semibold text-gray-900 dark:text-white">Headcount by Department</h2>
           </div>
@@ -89,7 +89,7 @@ export default function WorkforcePage() {
         </div>
 
         {/* Positions */}
-        <div className="bg-white border border-gray-200 rounded-xl overflow-hidden dark:bg-gray-900 dark:border-gray-700">
+        <div className="card-premium overflow-hidden">
           <div className="px-5 py-3 border-b border-gray-100 dark:border-gray-800">
             <h2 className="text-sm font-semibold text-gray-900 dark:text-white">All Positions</h2>
           </div>

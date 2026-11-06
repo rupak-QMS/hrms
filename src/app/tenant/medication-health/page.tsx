@@ -594,7 +594,7 @@ export default function MedicationHealthPage() {
                 {subLoading ? <Spinner /> : medLogs.length === 0 ? <Empty label="No administration logs recorded" /> : (
                   <div className="space-y-2">
                     {medLogs.map(log => (
-                      <div key={log.id} className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4 flex items-start gap-4">
+                      <div key={log.id} className="card-premium p-4 flex items-start gap-4">
                         <span className={`text-xs px-2 py-1 rounded-full font-medium flex-shrink-0 ${outcomeColor[log.outcome] || ''}`}>
                           {LOG_OUTCOME_LABELS[log.outcome] || log.outcome}
                         </span>
@@ -629,7 +629,7 @@ export default function MedicationHealthPage() {
                 {subLoading ? <Spinner /> : medications.length === 0 ? <Empty label="No medications recorded" /> : (
                   <div className="space-y-3">
                     {medications.map(m => (
-                      <div key={m.id} className="group bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4">
+                      <div key={m.id} className="group card-premium p-4">
                         <div className="flex items-start justify-between gap-2">
                           <div>
                             <div className="flex items-center gap-2">
@@ -692,7 +692,7 @@ export default function MedicationHealthPage() {
                 {subLoading ? <Spinner /> : conditions.length === 0 ? <Empty label="No health conditions recorded" /> : (
                   <div className="space-y-3">
                     {conditions.map(c => (
-                      <div key={c.id} className="group bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4">
+                      <div key={c.id} className="group card-premium p-4">
                         {c.alerts && (
                           <div className="mb-3 p-2 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg flex items-start gap-2">
                             <span className="text-red-500 flex-shrink-0">⚠️</span>
@@ -757,7 +757,7 @@ export default function MedicationHealthPage() {
                 {subLoading ? <Spinner /> : appointments.length === 0 ? <Empty label="No appointments recorded" /> : (
                   <div className="space-y-3">
                     {appointments.map(a => (
-                      <div key={a.id} className="group bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4">
+                      <div key={a.id} className="group card-premium p-4">
                         <div className="flex items-start justify-between gap-2">
                           <div>
                             <div className="flex items-center gap-2">

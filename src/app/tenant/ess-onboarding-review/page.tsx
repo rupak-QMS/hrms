@@ -160,7 +160,7 @@ export default function EssOnboardingReviewPage() {
       {/* KPIs */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
         {kpis.map(k => (
-          <div key={k.label} className="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 p-4">
+          <div key={k.label} className="card-premium p-4">
             <p className="text-xs text-gray-500 dark:text-gray-400">{k.label}</p>
             <p className={`text-3xl font-bold mt-1 ${k.color}`}>{k.value}</p>
           </div>

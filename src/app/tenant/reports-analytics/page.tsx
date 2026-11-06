@@ -530,7 +530,7 @@ export default function ReportsAnalyticsPage() {
               )}
 
               {!running && results !== null && results.length === 0 && (
-                <div className="bg-white dark:bg-gray-800 rounded-xl border border-dashed border-gray-200 dark:border-gray-700 p-8 text-center text-gray-400 dark:text-gray-500 text-sm">
+                <div className="rounded-xl border border-dashed border-[#b8d4e0] dark:border-[#1A6080]/40 bg-[#E0EEF4]/30 dark:bg-[#0E3D52]/05 p-8 text-center text-gray-400 dark:text-gray-500 text-sm">
                   No data found for the selected filters
                 </div>
               )}
@@ -550,13 +550,13 @@ export default function ReportsAnalyticsPage() {
                       </div>
                     )}
                   </div>
-                  <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+                  <div className="card-premium overflow-hidden">
                     <div className="table-responsive">
             <table className="table-premium">
                       <thead className="bg-gray-50 dark:bg-gray-700">
                         <tr>
                           {columns.map(col => (
-                            <th key={col} className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase whitespace-nowrap">
+                            <th key={col} className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 whitespace-nowrap">
                               {prettyKey(col)}
                             </th>
                           ))}
