@@ -25,7 +25,7 @@ const BENEFIT_TYPES = [
     detail: 'Access to discounted products or services through our employee discount program.' },
   { value: 'wellbeing',         label: 'Wellbeing Allowance',         emoji: '💚', color: '#10b981',
     detail: 'Annual allowance to spend on health, fitness, or wellness activities of your choice.' },
-  { value: 'salary_packaging',  label: 'Salary Packaging',            emoji: '💼', color: '#6366f1',
+  { value: 'salary_packaging',  label: 'Salary Packaging',            emoji: '💼', color: '#E8973A',
     detail: 'Pre-tax salary packaging arrangements for eligible expenses to maximise take-home pay.' },
   { value: 'extra_leave',       label: 'Extra Leave',                 emoji: '🌴', color: '#14b8a6',
     detail: 'Additional paid leave days beyond the statutory entitlement.' },

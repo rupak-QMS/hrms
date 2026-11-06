@@ -45,7 +45,7 @@ type Activity = {
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 const LEAD_STAGES = [
-  { key: 'new',        label: 'New',         color: '#6366f1' },
+  { key: 'new',        label: 'New',         color: '#0E3D52' },
   { key: 'contacted',  label: 'Contacted',   color: '#f59e0b' },
   { key: 'qualified',  label: 'Qualified',   color: '#3b82f6' },
   { key: 'converted',  label: 'Converted',   color: '#10b981' },
@@ -66,7 +66,7 @@ const ACTIVITY_ICONS: Record<string,string> = { call:'📞', email:'📧', meeti
 
 const stageColor = (s: string) => {
   const map: Record<string,string> = {
-    new:'#6366f1', contacted:'#f59e0b', qualified:'#3b82f6', converted:'#10b981', lost:'#ef4444',
+    new:'#0E3D52', contacted:'#f59e0b', qualified:'#3b82f6', converted:'#10b981', lost:'#ef4444',
     prospecting:'#E8973A', qualification:'#f59e0b', proposal:'#3b82f6',
     negotiation:'#f97316', closed_won:'#10b981', closed_lost:'#ef4444',
   }
@@ -94,7 +94,7 @@ function ColorBadge({ label, color }: { label: string; color: string }) {
 
 function Avatar({ name, size = 32 }: { name: string; size?: number }) {
   const initials = name.split(' ').map(n => n[0]).join('').slice(0,2).toUpperCase()
-  const colors = ['#6366f1','#f59e0b','#10b981','#3b82f6','#ec4899','#14b8a6','#f97316']
+  const colors = ['#0E3D52','#f59e0b','#10b981','#3b82f6','#ec4899','#14b8a6','#f97316']
   const color = colors[name.charCodeAt(0) % colors.length]
   return (
     <div style={{ width: size, height: size, borderRadius: '50%', background: color, color:'#fff', display:'flex', alignItems:'center', justifyContent:'center', fontSize: size * 0.35, fontWeight: 700, flexShrink: 0 }}>
@@ -510,7 +510,7 @@ function AccountsTab() {
   }
 
   const ACCOUNT_TYPES = ['prospect','customer','partner','vendor']
-  const TYPE_COLORS: Record<string,string> = { prospect:'#6366f1', customer:'#10b981', partner:'#f59e0b', vendor:'#6b7280' }
+  const TYPE_COLORS: Record<string,string> = { prospect:'#0E3D52', customer:'#10b981', partner:'#f59e0b', vendor:'#6b7280' }
 
   const exportAccountsCsv = () => exportCsv({
     filename: 'crm-accounts',

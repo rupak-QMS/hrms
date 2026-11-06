@@ -28,7 +28,7 @@ const BENEFIT_TYPES = [
   { value: 'study_support',     label: 'Study Support',               emoji: '📚', color: '#3b82f6' },
   { value: 'discount',          label: 'Employee Discount',           emoji: '🏷️', color: '#f59e0b' },
   { value: 'wellbeing',         label: 'Wellbeing Allowance',         emoji: '💚', color: '#10b981' },
-  { value: 'salary_packaging',  label: 'Salary Packaging',            emoji: '💼', color: '#6366f1' },
+  { value: 'salary_packaging',  label: 'Salary Packaging',            emoji: '💼', color: '#E8973A' },
   { value: 'extra_leave',       label: 'Extra Leave',                 emoji: '🌴', color: '#14b8a6' },
   { value: 'flexible_work',     label: 'Flexible Work',               emoji: '🏠', color: '#f97316' },
   { value: 'other',             label: 'Other',                       emoji: '⭐', color: '#94a3b8' },
