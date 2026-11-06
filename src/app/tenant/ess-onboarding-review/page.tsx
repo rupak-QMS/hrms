@@ -201,7 +201,7 @@ export default function EssOnboardingReviewPage() {
           </div>
         ) : submissions.length === 0 ? (
           <div className="text-center py-16 text-gray-400 dark:text-gray-600">
-            <p className="text-4xl mb-3">📋</p>
+            <div className="w-14 h-14 rounded-2xl bg-[#0E3D52]/[0.07] dark:bg-[#4ebac4]/10 flex items-center justify-center mb-4 mx-auto ring-1 ring-[#0E3D52]/10 dark:ring-[#4ebac4]/15"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-[#1A6080] dark:text-[#4ebac4] opacity-70"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
             <p className="font-medium">No submissions found</p>
             <p className="text-sm mt-1">Try a different filter</p>
           </div>

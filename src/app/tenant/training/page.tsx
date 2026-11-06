@@ -528,7 +528,7 @@ function GapTab() {
 
   if (mandatory.length === 0) return (
     <div className="card-premium p-8 text-center text-gray-400">
-      <p className="text-2xl mb-2">📋</p>
+      <div className="w-10 h-10 rounded-xl bg-[#0E3D52]/[0.07] dark:bg-[#4ebac4]/10 flex items-center justify-center mb-3 mx-auto ring-1 ring-[#0E3D52]/10 dark:ring-[#4ebac4]/15"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-[#1A6080] dark:text-[#4ebac4] opacity-70"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
       <p className="font-medium">No mandatory courses configured</p>
       <p className="text-sm mt-1">Mark courses as mandatory in the Course Library to generate a gap report.</p>
     </div>
@@ -554,7 +554,7 @@ function GapTab() {
 
       {gaps.length === 0 ? (
         <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl p-8 text-center">
-          <p className="text-3xl mb-2">✅</p>
+          <div className="w-12 h-12 rounded-xl bg-green-50 dark:bg-green-900/20 flex items-center justify-center mb-3 mx-auto ring-1 ring-green-200 dark:ring-green-800"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-green-500"><polyline points="20 6 9 17 4 12"/></svg></div>
           <p className="font-medium text-green-700 dark:text-green-400">All employees compliant</p>
           <p className="text-sm text-green-600 dark:text-green-500 mt-1">Everyone has completed all {mandatory.length} mandatory course{mandatory.length !== 1 ? 's' : ''}</p>
         </div>

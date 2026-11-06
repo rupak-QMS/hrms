@@ -827,7 +827,7 @@ export default function RecruitmentPage() {
             {convertResult ? (
               /* Success state */
               <div className="text-center space-y-4">
-                <div className="text-5xl">🎉</div>
+                <div className="w-16 h-16 rounded-2xl bg-green-50 dark:bg-green-900/20 flex items-center justify-center mb-4 mx-auto ring-1 ring-green-200 dark:ring-green-800"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-green-500"><polyline points="20 6 9 17 4 12"/></svg></div>
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Employee Created!</h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
                   <strong>{convertApp.candidateFirstName} {convertApp.candidateLastName}</strong> has been added as an employee

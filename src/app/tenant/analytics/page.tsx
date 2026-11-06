@@ -79,7 +79,7 @@ export default function AnalyticsPage() {
         <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">Organisation-wide metrics across all HR modules</p>
       </div>
       <div className="flex flex-col items-center justify-center h-64 card-premium gap-3">
-        <span className="text-4xl">📊</span>
+        <div className="w-14 h-14 rounded-2xl bg-[#0E3D52]/[0.07] dark:bg-[#4ebac4]/10 flex items-center justify-center mb-4 mx-auto ring-1 ring-[#0E3D52]/10 dark:ring-[#4ebac4]/15"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-[#1A6080] dark:text-[#4ebac4] opacity-70"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
         <p className="text-gray-900 dark:text-white font-semibold">Access Restricted</p>
         <p className="text-sm text-gray-500 dark:text-gray-400 text-center max-w-xs">
           Analytics are available to managers and above. Contact your HR administrator if you need access.

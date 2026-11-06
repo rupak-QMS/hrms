@@ -401,7 +401,7 @@ export default function NDISAuditsPage() {
           <div className="flex items-center justify-center h-48 text-gray-400">Loading…</div>
         ) : audits.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-48 text-gray-400 gap-2">
-            <span className="text-3xl">📋</span>
+            <div className="w-12 h-12 rounded-xl bg-[#0E3D52]/[0.07] dark:bg-[#4ebac4]/10 flex items-center justify-center mb-3 mx-auto ring-1 ring-[#0E3D52]/10 dark:ring-[#4ebac4]/15"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-[#1A6080] dark:text-[#4ebac4] opacity-70"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
             <p className="text-sm">No audits found</p>
             <button onClick={() => setShowModal(true)} className="text-sm text-[#1A6080] dark:text-[#4ebac4] hover:underline">Create your first audit</button>
           </div>

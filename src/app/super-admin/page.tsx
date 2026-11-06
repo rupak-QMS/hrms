@@ -150,7 +150,7 @@ export default async function SuperAdminDashboard() {
           <div className="card-premium overflow-hidden">
             {d.recentLogs.length === 0 ? (
               <div className="px-4 py-10 text-center">
-                <p className="text-3xl mb-2">📋</p>
+                <div className="w-12 h-12 rounded-xl bg-[#0E3D52]/[0.07] dark:bg-[#4ebac4]/10 flex items-center justify-center mb-3 mx-auto ring-1 ring-[#0E3D52]/10 dark:ring-[#4ebac4]/15"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-[#1A6080] dark:text-[#4ebac4] opacity-70"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
                 <p className="text-[12px] text-muted-foreground">No audit events yet</p>
               </div>
             ) : d.recentLogs.map((log: any, i: number) => (
