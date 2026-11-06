@@ -354,7 +354,7 @@ export default function WhsPage() {
 
                     {/* Corrective actions */}
                     <div>
-                      <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 dark:text-gray-400">Corrective Actions</p>
+                      <p className="text-xs font-semibold text-gray-500  mb-2 dark:text-gray-400">Corrective Actions</p>
                       {inc.correctiveActions.length > 0 && (
                         <ul className="space-y-1 mb-2">
                           {inc.correctiveActions.map(a => (

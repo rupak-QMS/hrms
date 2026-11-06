@@ -142,7 +142,7 @@ export default function ModulesPage() {
           <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">
             <span className="text-[#0E3D52] dark:text-[#7dcfd7] font-medium">{tenantName}</span>
             {' · '}
-            <span className={`text-xs font-semibold uppercase tracking-wide ${
+            <span className={`text-xs font-semibold  ${
               tenantTier === 'enterprise' ? 'text-[#0E3D52] dark:text-[#4ebac4]' : tenantTier === 'professional' ? 'text-blue-600 dark:text-blue-400' : 'text-green-600 dark:text-green-400'
             }`}>{tenantTier}</span>
             {' · '}

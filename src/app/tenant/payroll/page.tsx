@@ -386,7 +386,7 @@ export default function PayrollPage() {
           {[
             { label: 'Total Runs',  value: stats.total,    color: 'text-gray-900 dark:text-white' },
             { label: 'Pending',     value: stats.pending,  color: 'text-yellow-500' },
-            { label: 'Approved',    value: stats.approved, color: 'text-blue-400' },
+            { label: 'Approved',    value: stats.approved, color: 'text-[#4ebac4]' },
             { label: 'Paid',        value: stats.paid,     color: 'text-green-400' },
             { label: 'Total Gross', value: `$${Number(stats.totalGross).toLocaleString('en-AU', { minimumFractionDigits: 2 })}`, color: 'text-gray-900 dark:text-white' },
             { label: 'Total Super', value: `$${Number(stats.totalSuper ?? 0).toLocaleString('en-AU', { minimumFractionDigits: 2 })}`, color: 'text-[#1A6080] dark:text-[#4ebac4]' },
@@ -475,7 +475,7 @@ export default function PayrollPage() {
                         </button>
                       )}
                       <button onClick={() => setSelected(r)} className="text-xs px-2 py-1 rounded border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition">View</button>
-                      {r.status === 'pending'  && <button onClick={() => updateStatus(r.id, 'approved')} className="text-xs px-2 py-1 rounded border border-blue-700 text-blue-400 hover:bg-blue-900/20 transition">Approve</button>}
+                      {r.status === 'pending'  && <button onClick={() => updateStatus(r.id, 'approved')} className="text-xs px-2 py-1 rounded border border-blue-700 text-[#4ebac4] hover:bg-blue-900/20 transition">Approve</button>}
                       {r.status === 'approved' && <button onClick={() => updateStatus(r.id, 'paid')}     className="text-xs px-2 py-1 rounded border border-green-700 text-green-400 hover:bg-green-900/20 transition">Mark Paid</button>}
                       {r.status === 'pending'  && (
                         <button onClick={() => deletePayroll(r.id)} title="Delete pay run"
@@ -867,14 +867,14 @@ function GeneratePdfButton({ recordId, onGenerated }: {
       <button
         onClick={() => generate(false)}
         disabled={loading || emailing}
-        className="text-xs px-3 py-1.5 rounded-lg border border-blue-700 text-blue-400 hover:bg-blue-900/30 transition disabled:opacity-50">
+        className="text-xs px-3 py-1.5 rounded-lg border border-blue-700 text-[#4ebac4] hover:bg-blue-900/30 transition disabled:opacity-50">
         {loading ? '⏳' : '⚡'} Generate
       </button>
       <button
         onClick={() => generate(true)}
         disabled={loading || emailing}
         title="Generate and email to employee"
-        className="text-xs px-3 py-1.5 rounded-lg border border-blue-700 text-blue-400 hover:bg-blue-900/30 transition disabled:opacity-50">
+        className="text-xs px-3 py-1.5 rounded-lg border border-blue-700 text-[#4ebac4] hover:bg-blue-900/30 transition disabled:opacity-50">
         {emailing ? '⏳' : '📧'}
       </button>
       </div>

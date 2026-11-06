@@ -296,7 +296,7 @@ export default function CompetencyPage() {
               <div className="space-y-4">
                 {Object.entries(grouped).map(([cat, comps]) => (
                   <div key={cat}>
-                    <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 px-1 dark:text-gray-400">{cat}</h3>
+                    <h3 className="text-xs font-semibold text-gray-500  mb-2 px-1 dark:text-gray-400">{cat}</h3>
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
                       {comps.map(c => {
                         const compAss = assessments.filter(a => a.competencyId === c.id)

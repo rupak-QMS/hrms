@@ -169,7 +169,7 @@ export default function PlatformSettingsPage() {
 
               {/* Platform info (read-only) */}
               <div className="border-t border-gray-200 dark:border-gray-800 pt-4 space-y-2">
-                <h3 className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-3">Platform Info</h3>
+                <h3 className="text-xs font-semibold text-gray-600 dark:text-gray-400  mb-3">Platform Info</h3>
                 <InfoRow label="Version"         value="v1.0.0" />
                 <InfoRow label="Framework"       value="Next.js 15 + .NET 8" />
                 <InfoRow label="Database"        value="PostgreSQL (Neon Serverless)" />

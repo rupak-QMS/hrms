@@ -97,7 +97,7 @@ export default function BillingPage() {
 
       {/* Tier Breakdown */}
       <div>
-        <h2 className="text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-4">Subscription Tiers</h2>
+        <h2 className="text-sm font-semibold text-gray-600 dark:text-gray-400  mb-4">Subscription Tiers</h2>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           {(Object.entries(TIER_CONFIG) as [string, typeof TIER_CONFIG.starter][]).map(([key, cfg]) => (
             <div key={key} className={`border rounded-xl p-5 ${cfg.color}`}>
@@ -122,18 +122,18 @@ export default function BillingPage() {
 
       {/* Per-Tenant Table */}
       <div>
-        <h2 className="text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-4">Client Subscriptions</h2>
+        <h2 className="text-sm font-semibold text-gray-600 dark:text-gray-400  mb-4">Client Subscriptions</h2>
         <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl overflow-hidden">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-gray-200 dark:border-gray-800">
-                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">Client</th>
-                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">Tier</th>
-                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">Modules</th>
-                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">Monthly</th>
-                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">Status</th>
-                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">Since</th>
-                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">Actions</th>
+                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 ">Client</th>
+                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 ">Tier</th>
+                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 ">Modules</th>
+                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 ">Monthly</th>
+                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 ">Status</th>
+                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 ">Since</th>
+                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 ">Actions</th>
               </tr>
             </thead>
             <tbody>

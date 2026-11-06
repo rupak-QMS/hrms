@@ -153,7 +153,7 @@ export default function CompetencyPage() {
             ) : (
               (categories.length > 0 ? categories : [null]).map(cat => (
                 <div key={cat ?? 'uncategorised'}>
-                  <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-3">{cat ?? 'Uncategorised'}</h3>
+                  <h3 className="text-xs font-semibold  text-gray-600 dark:text-gray-400 mb-3">{cat ?? 'Uncategorised'}</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                     {competencies.filter(c => c.category === cat).map(c => (
                       <div key={c.id} className="border border-gray-200 rounded-lg p-4 dark:border-gray-700">

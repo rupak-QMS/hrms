@@ -182,7 +182,7 @@ export default function MyBenefitsPage() {
                   <div className="border-t border-gray-100 dark:border-gray-800 px-5 py-4 space-y-3">
                     {/* Program detail */}
                     <div className="bg-gray-50 dark:bg-gray-800/40 rounded-lg p-3">
-                      <p className="text-xs text-gray-500 dark:text-gray-400 mb-1 font-medium uppercase tracking-wider">About this benefit</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 mb-1 font-medium ">About this benefit</p>
                       <p className="text-sm text-gray-300">{info?.detail ?? 'Contact HR for details on this benefit.'}</p>
                     </div>
                     {/* Your specific details */}
@@ -220,7 +220,7 @@ export default function MyBenefitsPage() {
       {/* Expired benefits (collapsed section) */}
       {expiredBenefits.length > 0 && (
         <div className="space-y-2">
-          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Expired Benefits ({expiredBenefits.length})</p>
+          <p className="text-xs font-semibold text-gray-500 ">Expired Benefits ({expiredBenefits.length})</p>
           <div className="card-premium overflow-hidden opacity-60">
             {expiredBenefits.map((b, i) => {
               const info = BENEFIT_TYPES.find(t => t.value === b.type)

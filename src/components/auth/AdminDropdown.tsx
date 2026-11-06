@@ -54,7 +54,7 @@ export default function AdminDropdown({ name, email }: Props) {
           <div className="px-4 py-3 border-b border-border">
             <p className="text-[13px] font-semibold text-foreground">{name}</p>
             <p className="text-[11px] text-muted-foreground truncate mt-0.5">{email}</p>
-            <span className="inline-block mt-1.5 text-[10px] px-2 py-0.5 rounded-full font-semibold uppercase tracking-wide badge-teal">
+            <span className="inline-block mt-1.5 text-[10px] px-2 py-0.5 rounded-full font-semibold  badge-teal">
               Super Admin
             </span>
           </div>

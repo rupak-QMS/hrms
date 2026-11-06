@@ -99,7 +99,7 @@ export default function CommandPalette() {
             if (groupItems.length === 0) return null
             return (
               <div key={g.kind}>
-                <div className={`px-4 pt-3 pb-1 text-[10px] font-semibold uppercase tracking-wider ${g.color}`}>{g.label}</div>
+                <div className={`px-4 pt-3 pb-1 text-[10px] font-semibold  ${g.color}`}>{g.label}</div>
                 {groupItems.map(item => {
                   const idx = items.indexOf(item); const active = idx === cursor
                   return (

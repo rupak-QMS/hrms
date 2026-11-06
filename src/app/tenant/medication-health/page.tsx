@@ -151,7 +151,7 @@ const outcomeColor: Record<string, string> = {
   missed:  'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-300',
   refused: 'bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300',
   held:    'bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300',
-  partial: 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300',
+  partial: 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-blue-900 dark:text-[#7dcfd7]',
 }
 const severityColor: Record<string, string> = {
   mild:     'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300',
@@ -160,7 +160,7 @@ const severityColor: Record<string, string> = {
   critical: 'bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300',
 }
 const apptStatusColor: Record<string, string> = {
-  scheduled: 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300',
+  scheduled: 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-blue-900 dark:text-[#7dcfd7]',
   completed: 'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300',
   cancelled: 'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-400',
   missed:    'bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300',
@@ -504,7 +504,7 @@ export default function MedicationHealthPage() {
           <input
             type="text" placeholder="Search participants…" value={search}
             onChange={e => setSearch(e.target.value)}
-            className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-[#0E3D52]/20 focus:outline-none"
           />
         </div>
         <div className="flex-1 overflow-y-auto">
@@ -516,7 +516,7 @@ export default function MedicationHealthPage() {
             </div>
           ) : participants.map(p => (
             <button key={p.id} onClick={() => selectParticipant(p)}
-              className={`w-full text-left px-4 py-3 border-b border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors ${selected?.id === p.id ? 'bg-blue-50 dark:bg-blue-900/30 border-l-2 border-l-blue-500' : ''}`}>
+              className={`w-full text-left px-4 py-3 border-b border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors ${selected?.id === p.id ? 'bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border-l-2 border-l-blue-500' : ''}`}>
               <p className="font-medium text-sm text-gray-900 dark:text-white">{displayName(p)}</p>
               <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">{p.fundingBody}{p.ndisNumber ? ` · ${p.ndisNumber}` : ''}</p>
             </button>
@@ -547,7 +547,7 @@ export default function MedicationHealthPage() {
               </div>
               {logsFor && (
                 <button onClick={() => { setLogsFor(null) }}
-                  className="flex items-center gap-1 text-sm text-blue-600 dark:text-blue-400 hover:underline">
+                  className="flex items-center gap-1 text-sm text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4] hover:underline">
                   ← Back to medications
                 </button>
               )}
@@ -558,7 +558,7 @@ export default function MedicationHealthPage() {
                 {DETAIL_TABS.map(tab => (
                   <button key={tab} onClick={() => changeTab(tab)}
                     className={`px-4 py-2 text-sm font-medium rounded-t-lg capitalize transition-colors ${activeTab === tab
-                      ? 'bg-gray-50 dark:bg-gray-900 border border-b-0 border-gray-200 dark:border-gray-700 text-blue-600 dark:text-blue-400'
+                      ? 'bg-gray-50 dark:bg-gray-900 border border-b-0 border-gray-200 dark:border-gray-700 text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4]'
                       : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'}`}>
                     {tab === 'medications' ? '💊 Medications' : tab === 'conditions' ? '🩺 Conditions' : '📅 Appointments'}
                   </button>
@@ -587,7 +587,7 @@ export default function MedicationHealthPage() {
                 <div className="flex justify-between items-center mb-4">
                   <h3 className="text-base font-semibold text-gray-900 dark:text-white">Administration Log ({medLogs.length})</h3>
                   <button onClick={() => { setLogForm({ ...blankLog }); setError(''); setShowLog(true) }}
-                    className="px-3 py-1.5 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                    className="px-3 py-1.5 bg-[#0E3D52] text-white text-sm rounded-lg hover:bg-[#1A6080] transition-colors">
                     + Log Administration
                   </button>
                 </div>
@@ -621,7 +621,7 @@ export default function MedicationHealthPage() {
                   <div className="flex gap-2">
                     <ExportButton onClick={exportMedsCsv} disabled={medications.length === 0} />
                     <button onClick={() => { setMedForm({ ...blankMed }); setEditMedId(null); setError(''); setShowMed(true) }}
-                      className="px-3 py-1.5 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                      className="px-3 py-1.5 bg-[#0E3D52] text-white text-sm rounded-lg hover:bg-[#1A6080] transition-colors">
                       + Add Medication
                     </button>
                   </div>
@@ -642,7 +642,7 @@ export default function MedicationHealthPage() {
                             <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${medStatusColor[m.status] || ''}`}>
                               {MED_STATUS_LABELS[m.status] || m.status}
                             </span>
-                            <button onClick={() => openEditMed(m)} className="opacity-0 group-hover:opacity-100 text-xs px-2 py-1 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded transition">Edit</button>
+                            <button onClick={() => openEditMed(m)} className="opacity-0 group-hover:opacity-100 text-xs px-2 py-1 text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4] hover:bg-[#E0EEF4] dark:hover:bg-blue-900/20 rounded transition">Edit</button>
                             <button onClick={() => setConfirm({ message: `Delete medication ${m.medicationName}?`, confirmLabel: 'Delete', onConfirm: () => deleteMedication(m.id) })}
                               className="opacity-0 group-hover:opacity-100 p-1 rounded text-gray-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition">
                               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
@@ -665,7 +665,7 @@ export default function MedicationHealthPage() {
                             {m.endDate && <span>End: {fmtDate(m.endDate)}</span>}
                           </div>
                           <button onClick={() => openLogs(m)}
-                            className="text-xs text-blue-600 dark:text-blue-400 hover:underline">
+                            className="text-xs text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4] hover:underline">
                             View log →
                           </button>
                         </div>
@@ -684,7 +684,7 @@ export default function MedicationHealthPage() {
                   <div className="flex gap-2">
                     <ExportButton onClick={exportCondsCsv} disabled={conditions.length === 0} />
                     <button onClick={() => { setCondForm({ ...blankCond }); setEditCondId(null); setError(''); setShowCond(true) }}
-                      className="px-3 py-1.5 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                      className="px-3 py-1.5 bg-[#0E3D52] text-white text-sm rounded-lg hover:bg-[#1A6080] transition-colors">
                       + Add Condition
                     </button>
                   </div>
@@ -712,11 +712,11 @@ export default function MedicationHealthPage() {
                               {SEVERITY_LABELS[c.severity] || c.severity}
                             </span>
                             <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${
-                              c.status === 'active' ? 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300'
+                              c.status === 'active' ? 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-blue-900 dark:text-[#7dcfd7]'
                               : 'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-400'}`}>
                               {CONDITION_STATUS_LABELS[c.status] || c.status}
                             </span>
-                            <button onClick={() => openEditCond(c)} className="opacity-0 group-hover:opacity-100 text-xs px-2 py-1 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded transition">Edit</button>
+                            <button onClick={() => openEditCond(c)} className="opacity-0 group-hover:opacity-100 text-xs px-2 py-1 text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4] hover:bg-[#E0EEF4] dark:hover:bg-blue-900/20 rounded transition">Edit</button>
                             <button onClick={() => setConfirm({ message: `Delete condition ${c.conditionName}?`, confirmLabel: 'Delete', onConfirm: () => deleteCondition(c.id) })}
                               className="opacity-0 group-hover:opacity-100 p-1 rounded text-gray-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition">
                               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
@@ -749,7 +749,7 @@ export default function MedicationHealthPage() {
                   <div className="flex gap-2">
                     <ExportButton onClick={exportApptsCsv} disabled={appointments.length === 0} />
                     <button onClick={() => { setApptForm({ ...blankAppt }); setEditApptId(null); setError(''); setShowAppt(true) }}
-                      className="px-3 py-1.5 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                      className="px-3 py-1.5 bg-[#0E3D52] text-white text-sm rounded-lg hover:bg-[#1A6080] transition-colors">
                       + Add Appointment
                     </button>
                   </div>
@@ -778,7 +778,7 @@ export default function MedicationHealthPage() {
                             <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${apptStatusColor[a.status] || ''}`}>
                               {APPT_STATUS_LABELS[a.status] || a.status}
                             </span>
-                            <button onClick={() => openEditAppt(a)} className="opacity-0 group-hover:opacity-100 text-xs px-2 py-1 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded transition">Edit</button>
+                            <button onClick={() => openEditAppt(a)} className="opacity-0 group-hover:opacity-100 text-xs px-2 py-1 text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4] hover:bg-[#E0EEF4] dark:hover:bg-blue-900/20 rounded transition">Edit</button>
                             <button onClick={() => setConfirm({ message: `Delete this appointment?`, confirmLabel: 'Delete', onConfirm: () => deleteAppointment(a.id) })}
                               className="opacity-0 group-hover:opacity-100 p-1 rounded text-gray-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition">
                               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
@@ -1037,7 +1037,7 @@ export default function MedicationHealthPage() {
 function Tag({ children, color = 'gray' }: { children: React.ReactNode; color?: 'gray' | 'blue' | 'orange' | 'purple' }) {
   const colors: Record<string, string> = {
     gray:   'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300',
-    blue:   'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300',
+    blue:   'bg-[#E0EEF4] text-[#0E3D52] dark:bg-blue-900 dark:text-[#7dcfd7]',
     orange: 'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-300',
     purple: 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52] dark:text-[#4ebac4]',
   }
@@ -1065,14 +1065,14 @@ function Input({ value, onChange, type = 'text', placeholder }: {
 }) {
   return (
     <input type={type} value={value} onChange={e => onChange(e.target.value)} placeholder={placeholder}
-      className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+      className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-[#0E3D52]/20 focus:outline-none" />
   )
 }
 
 function Select({ value, onChange, children }: { value: string; onChange: (v: string) => void; children: React.ReactNode }) {
   return (
     <select value={value} onChange={e => onChange(e.target.value)}
-      className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+      className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-[#0E3D52]/20 focus:outline-none">
       {children}
     </select>
   )
@@ -1081,14 +1081,14 @@ function Select({ value, onChange, children }: { value: string; onChange: (v: st
 function Textarea({ value, onChange, rows = 3 }: { value: string; onChange: (v: string) => void; rows?: number }) {
   return (
     <textarea value={value} onChange={e => onChange(e.target.value)} rows={rows}
-      className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:outline-none resize-none" />
+      className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-[#0E3D52]/20 focus:outline-none resize-none" />
   )
 }
 
 function Checkbox({ label, checked, onChange }: { label: string; checked: boolean; onChange: (v: boolean) => void }) {
   return (
     <label className="flex items-center gap-2 cursor-pointer">
-      <input type="checkbox" checked={checked} onChange={e => onChange(e.target.checked)} className="w-4 h-4 text-blue-600 rounded" />
+      <input type="checkbox" checked={checked} onChange={e => onChange(e.target.checked)} className="w-4 h-4 text-[#0E3D52] dark:text-[#4ebac4] rounded" />
       <span className="text-sm text-gray-700 dark:text-gray-300">{label}</span>
     </label>
   )
@@ -1112,7 +1112,7 @@ function Modal({ title, onClose, onSave, saving, error, children, wide }: {
             Cancel
           </button>
           <button onClick={onSave} disabled={saving}
-            className="px-4 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50">
+            className="px-4 py-2 text-sm bg-[#0E3D52] text-white rounded-lg hover:bg-[#1A6080] transition-colors disabled:opacity-50">
             {saving ? 'Saving…' : 'Save'}
           </button>
         </div>

@@ -106,7 +106,7 @@ function TwoFactorSection() {
   return (
     <div className="card-premium rounded-2xl p-6">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">Two-Factor Authentication</h2>
+        <h2 className="text-sm font-semibold text-gray-600 dark:text-gray-400 ">Two-Factor Authentication</h2>
         <span className={`text-xs px-2.5 py-1 rounded-full border font-medium ${enabled ? 'badge badge-green' : 'badge badge-gray'}`}>
           {enabled ? 'Enabled' : 'Disabled'}
         </span>
@@ -152,7 +152,7 @@ function TwoFactorSection() {
             value={code}
             onChange={e => setCode(e.target.value.replace(/\D/g, ''))}
             placeholder="6-digit code"
-            className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white text-center tracking-widest font-mono focus:outline-none focus:border-[#0E3D52]"
+            className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white text-center  font-mono focus:outline-none focus:border-[#0E3D52]"
           />
           <div className="flex gap-3">
             <button onClick={verifySetup} disabled={busy || code.length !== 6}
@@ -177,7 +177,7 @@ function TwoFactorSection() {
             value={code}
             onChange={e => setCode(e.target.value.replace(/\D/g, ''))}
             placeholder="6-digit code"
-            className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white text-center tracking-widest font-mono focus:outline-none focus:border-red-500"
+            className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white text-center  font-mono focus:outline-none focus:border-red-500"
           />
           <div className="flex gap-3">
             <button onClick={disableTotp} disabled={busy || code.length !== 6}
@@ -456,7 +456,7 @@ export default function MyProfilePage() {
 
       {/* Personal Information */}
       <div className="card-premium rounded-2xl p-6">
-        <h2 className="text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-4">Personal Information</h2>
+        <h2 className="text-sm font-semibold text-gray-600 dark:text-gray-400  mb-4">Personal Information</h2>
         <div className={ROW}><span className="text-gray-500 text-sm dark:text-gray-400">Full Name</span><span className="text-foreground text-sm font-medium">{profile.firstName} {profile.lastName}</span></div>
         <div className={ROW}><span className="text-gray-500 text-sm dark:text-gray-400">Preferred Name</span><span className="text-foreground text-sm">{profile.preferredName || '—'}</span></div>
         <div className={ROW}><span className="text-gray-500 text-sm dark:text-gray-400">Email</span><span className="text-foreground text-sm">{profile.email}</span></div>
@@ -469,7 +469,7 @@ export default function MyProfilePage() {
 
       {/* Employment Details */}
       <div className="card-premium rounded-2xl p-6">
-        <h2 className="text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-4">Employment Details</h2>
+        <h2 className="text-sm font-semibold text-gray-600 dark:text-gray-400  mb-4">Employment Details</h2>
         <div className={ROW}><span className="text-gray-500 text-sm dark:text-gray-400">Employee Number</span><span className="text-foreground text-sm font-mono">#{profile.employeeNumber}</span></div>
         <div className={ROW}><span className="text-gray-500 text-sm dark:text-gray-400">Organisation</span><span className="text-foreground text-sm">{profile.entityName || '—'}</span></div>
         <div className={ROW}><span className="text-gray-500 text-sm dark:text-gray-400">Employment Type</span><span className="text-foreground text-sm">{employmentTypeLabel[profile.employmentType] ?? profile.employmentType}</span></div>
@@ -484,7 +484,7 @@ export default function MyProfilePage() {
       {/* Emergency Contacts */}
       <div className="card-premium rounded-2xl p-6">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">Emergency Contacts</h2>
+          <h2 className="text-sm font-semibold text-gray-600 dark:text-gray-400 ">Emergency Contacts</h2>
           {editingContact !== 'new' && (
             <button
               onClick={() => { setEditingContact('new'); setContactForm(BLANK_CONTACT); setContactError('') }}
@@ -497,7 +497,7 @@ export default function MyProfilePage() {
         {/* Inline add/edit form */}
         {editingContact && (
           <form onSubmit={saveContact} className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-4 mb-4 space-y-3">
-            <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">
+            <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 ">
               {editingContact === 'new' ? 'New Emergency Contact' : 'Edit Contact'}
             </p>
             {contactError && <p className="text-xs text-red-400 bg-red-900/20 border border-red-800 rounded-lg px-3 py-2">{contactError}</p>}

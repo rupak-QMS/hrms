@@ -32,7 +32,7 @@ type OrgData = {
 // ─── Avatar colors ────────────────────────────────────────────────────────────
 
 const AVATAR_COLORS = [
-  'bg-[#E0EEF4]0', 'bg-violet-500', 'bg-sky-500',
+  'bg-[#E0EEF4]0', 'bg-[#0E3D52]', 'bg-sky-500',
   'bg-emerald-500', 'bg-amber-500', 'bg-rose-500',
   'bg-teal-500', 'bg-orange-500', 'bg-pink-500', 'bg-cyan-500',
 ]

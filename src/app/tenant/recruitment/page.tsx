@@ -401,7 +401,7 @@ export default function RecruitmentPage() {
           { label: 'Open',         value: stats.open,     color: 'text-green-400' },
           { label: 'Draft',        value: stats.draft,    color: 'text-gray-400' },
           { label: 'Closed',       value: stats.closed,   color: 'text-red-400' },
-          { label: 'Applications', value: stats.totalApps, color: 'text-blue-400' },
+          { label: 'Applications', value: stats.totalApps, color: 'text-[#4ebac4]' },
           { label: 'Hired',        value: stats.hired,    color: 'text-teal-400' },
         ].map(s => (
           <div key={s.label} className="card-premium p-4">
@@ -513,7 +513,7 @@ export default function RecruitmentPage() {
                       )}
                       <div className="flex items-center gap-4 mt-2 text-xs text-gray-500 dark:text-gray-400">
                         <span>Created {fmt(r.createdAt)}</span>
-                        <span className="text-blue-400">{r.applicationCount} application{r.applicationCount !== 1 ? 's' : ''}</span>
+                        <span className="text-[#4ebac4]">{r.applicationCount} application{r.applicationCount !== 1 ? 's' : ''}</span>
                         <span className="text-teal-400">{r.hiredCount} hired</span>
                         {r.closedAt && <span>Closed {fmt(r.closedAt)}</span>}
                       </div>
@@ -526,7 +526,7 @@ export default function RecruitmentPage() {
                       </button>
                       <button
                         onClick={() => { setEditingReq(r); setEditForm({ title: r.title, description: r.description ?? '' }) }}
-                        className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-blue-600 hover:text-blue-400 px-3 py-1.5 rounded-lg transition">
+                        className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-[#0E3D52] hover:text-[#4ebac4] px-3 py-1.5 rounded-lg transition">
                         Edit
                       </button>
                       {r.status === 'draft' && (
@@ -635,7 +635,7 @@ export default function RecruitmentPage() {
                     <div key={stage.value} className="w-60 flex-none space-y-2">
                       {/* Column header */}
                       <div className="flex items-center justify-between px-1">
-                        <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">{stage.label}</p>
+                        <p className="text-xs font-semibold text-gray-400 ">{stage.label}</p>
                         <span className="text-xs bg-gray-800 text-gray-400 rounded-full px-2 py-0.5">{cols.length}</span>
                       </div>
 
@@ -785,7 +785,7 @@ export default function RecruitmentPage() {
                 <thead>
                   <tr>
                     {['Candidate', 'Email', 'Phone', 'Source', 'Added'].map(h => (
-                      <th key={h} className="px-5 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">{h}</th>
+                      <th key={h} className="px-5 py-3 text-xs font-semibold text-gray-500 ">{h}</th>
                     ))}
                   </tr>
                 </thead>

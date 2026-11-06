@@ -37,7 +37,7 @@ const SHIFT_TYPE_LABELS: Record<string, string> = {
 }
 
 const SHIFT_TYPE_COLORS: Record<string, string> = {
-  standard:     'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300',
+  standard:     'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/20 dark:text-[#7dcfd7]',
   sleepover:    'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/20 dark:text-[#7dcfd7]',
   active_night: 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/40 dark:text-[#4ebac4]',
   on_call:      'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300',
@@ -305,7 +305,7 @@ export default function MySchedulePage() {
 
       {/* Feedback message */}
       {clockMsg && (
-        <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl px-4 py-2 text-sm text-blue-700 dark:text-blue-300">
+        <div className="bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border border-blue-200 dark:border-[#1A6080] rounded-xl px-4 py-2 text-sm text-[#0E3D52] dark:text-[#7dcfd7]">
           {clockMsg}
         </div>
       )}
@@ -344,7 +344,7 @@ export default function MySchedulePage() {
                     : 'bg-gray-50 dark:bg-gray-800/50'
                 }`}>
                   <div className="min-w-[2.5rem] text-center">
-                    <p className={`text-[10px] font-semibold uppercase tracking-wider ${
+                    <p className={`text-[10px] font-semibold  ${
                       today ? 'text-[#0E3D52] dark:text-[#4ebac4]' : 'text-gray-400 dark:text-gray-500'
                     }`}>
                       {WEEKDAYS[day.getDay()]}

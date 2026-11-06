@@ -238,11 +238,11 @@ export default function UsersPage() {
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-gray-200 dark:border-gray-800 text-left">
-              <th className="px-5 py-3 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">User</th>
-              <th className="px-5 py-3 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">Role</th>
-              <th className="px-5 py-3 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">Status</th>
-              <th className="px-5 py-3 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">Last Login</th>
-              <th className="px-5 py-3 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">Actions</th>
+              <th className="px-5 py-3 text-xs font-semibold  text-gray-500 dark:text-gray-400">User</th>
+              <th className="px-5 py-3 text-xs font-semibold  text-gray-500 dark:text-gray-400">Role</th>
+              <th className="px-5 py-3 text-xs font-semibold  text-gray-500 dark:text-gray-400">Status</th>
+              <th className="px-5 py-3 text-xs font-semibold  text-gray-500 dark:text-gray-400">Last Login</th>
+              <th className="px-5 py-3 text-xs font-semibold  text-gray-500 dark:text-gray-400">Actions</th>
             </tr>
           </thead>
           <tbody>

@@ -163,7 +163,7 @@ export default function NewClientPage() {
 
         {/* ── Organisation ── */}
         <section className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6 space-y-4">
-          <h2 className="text-xs font-semibold text-gray-500 uppercase tracking-wider dark:text-gray-400">Organisation Details</h2>
+          <h2 className="text-xs font-semibold text-gray-500  dark:text-gray-400">Organisation Details</h2>
 
           <div className={GRID2}>
             <div>
@@ -255,7 +255,7 @@ export default function NewClientPage() {
 
         {/* ── Country / Currency / Timezone ── */}
         <section className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6 space-y-4">
-          <h2 className="text-xs font-semibold text-gray-500 uppercase tracking-wider dark:text-gray-400">Region & Currency</h2>
+          <h2 className="text-xs font-semibold text-gray-500  dark:text-gray-400">Region & Currency</h2>
 
           <div className={GRID2}>
             <div>
@@ -308,7 +308,7 @@ export default function NewClientPage() {
 
         {/* ── Primary Contact ── */}
         <section className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6 space-y-4">
-          <h2 className="text-xs font-semibold text-gray-500 uppercase tracking-wider dark:text-gray-400">Primary Contact</h2>
+          <h2 className="text-xs font-semibold text-gray-500  dark:text-gray-400">Primary Contact</h2>
 
           <div className={GRID2}>
             <div>
@@ -336,7 +336,7 @@ export default function NewClientPage() {
           </div>
 
           <div className="border-t border-gray-200 dark:border-gray-800 pt-4">
-            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3 dark:text-gray-400">Billing Contact <span className="font-normal normal-case text-gray-600 dark:text-gray-400">(leave blank to use primary contact)</span></p>
+            <p className="text-xs font-semibold text-gray-500  mb-3 dark:text-gray-400">Billing Contact <span className="font-normal normal-case text-gray-600 dark:text-gray-400">(leave blank to use primary contact)</span></p>
             <div className={GRID2}>
               <div>
                 <label className={LABEL}>Billing Email</label>
@@ -354,7 +354,7 @@ export default function NewClientPage() {
 
         {/* ── Subscription Tier ── */}
         <section className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6 space-y-3">
-          <h2 className="text-xs font-semibold text-gray-500 uppercase tracking-wider dark:text-gray-400">Subscription Tier *</h2>
+          <h2 className="text-xs font-semibold text-gray-500  dark:text-gray-400">Subscription Tier *</h2>
           {TIERS.map(t => (
             <label key={t.value} className={`flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition ${
               form.tier === t.value ? 'border-[#0E3D52] bg-[#E0EEF4] dark:bg-[#0E3D52]/20' : 'border-gray-300 dark:border-gray-700 hover:border-gray-600'
@@ -376,7 +376,7 @@ export default function NewClientPage() {
 
         {/* ── Branding ── */}
         <section className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6 space-y-4">
-          <h2 className="text-xs font-semibold text-gray-500 uppercase tracking-wider dark:text-gray-400">Branding</h2>
+          <h2 className="text-xs font-semibold text-gray-500  dark:text-gray-400">Branding</h2>
           <div>
             <label className={LABEL}>Brand Primary Colour</label>
             <div className="flex items-center gap-3">
@@ -398,7 +398,7 @@ export default function NewClientPage() {
         {/* ── Admin Account ── */}
         <section className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6 space-y-4">
           <div>
-            <h2 className="text-xs font-semibold text-gray-500 uppercase tracking-wider dark:text-gray-400">Admin Account (optional)</h2>
+            <h2 className="text-xs font-semibold text-gray-500  dark:text-gray-400">Admin Account (optional)</h2>
             <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">Creates a Director-level login for the client portal immediately.</p>
           </div>
           <div className={GRID2}>
@@ -425,7 +425,7 @@ export default function NewClientPage() {
         {/* Summary */}
         {form.name && (
           <div className="bg-white dark:bg-gray-900 border border-[#b8d4e0] dark:border-[#1A6080] dark:border-[#1A6080]/50 rounded-xl p-5">
-            <p className="text-xs font-semibold text-[#0E3D52] dark:text-[#4ebac4] uppercase tracking-wider mb-3">Summary</p>
+            <p className="text-xs font-semibold text-[#0E3D52] dark:text-[#4ebac4]  mb-3">Summary</p>
             <div className="grid grid-cols-2 gap-x-8 gap-y-2 text-sm">
               <div className="flex justify-between"><span className="text-gray-600 dark:text-gray-400">Organisation</span><span className="text-gray-900 dark:text-white">{form.name}</span></div>
               <div className="flex justify-between"><span className="text-gray-600 dark:text-gray-400">Country</span><span className="text-gray-900 dark:text-white">{COUNTRIES.find(c => c.code === form.country)?.name}</span></div>

@@ -59,7 +59,7 @@ const STATUS_COLORS: Record<string, string> = {
 const TYPE_COLORS: Record<string, string> = {
   accrual: 'text-green-600 dark:text-green-400',
   taken: 'text-red-600 dark:text-red-400',
-  adjustment: 'text-blue-600 dark:text-blue-400',
+  adjustment: 'text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4]',
   expired: 'text-gray-500',
 }
 
@@ -194,7 +194,7 @@ export default function ToilPage() {
           <ExportButton onClick={exportToilCsv} disabled={balances.length === 0} />
           <button
             onClick={() => setShowModal(true)}
-            className="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition font-medium"
+            className="px-4 py-2 bg-[#0E3D52] text-white text-sm rounded-lg hover:bg-[#1A6080] transition font-medium"
           >
             + Record TOIL
           </button>
@@ -213,7 +213,7 @@ export default function ToilPage() {
             onClick={() => setActiveTab(key as 'balances' | 'entries' | 'pending')}
             className={`px-4 py-2 text-sm font-medium transition border-b-2 -mb-px ${
               activeTab === key
-                ? 'border-blue-600 text-blue-600'
+                ? 'border-[#0E3D52] text-[#0E3D52] dark:text-[#4ebac4]'
                 : 'border-transparent text-gray-500 hover:text-gray-700 dark:hover:text-gray-300'
             }`}
           >
@@ -228,7 +228,7 @@ export default function ToilPage() {
           <div className="table-responsive">
             <table className="table-premium">
             <thead>
-              <tr className="text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+              <tr className="text-left text-xs font-semibold text-gray-500 ">
                 <th className="pb-2 pr-4">Employee</th>
                 <th className="pb-2 pr-4">Balance</th>
                 <th className="pb-2 pr-4">Total Accrued</th>
@@ -296,7 +296,7 @@ export default function ToilPage() {
               <div className="table-responsive">
             <table className="table-premium">
                 <thead>
-                  <tr className="text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                  <tr className="text-left text-xs font-semibold text-gray-500 ">
                     <th className="pb-2 pr-4">Date</th>
                     <th className="pb-2 pr-4">Type</th>
                     <th className="pb-2 pr-4">Hours</th>
@@ -485,7 +485,7 @@ export default function ToilPage() {
                 Cancel
               </button>
               <button onClick={saveEntry} disabled={saving || !form.employeeId || !form.workDate || !form.hours}
-                className="flex-1 py-2 rounded-lg bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition disabled:opacity-50">
+                className="flex-1 py-2 rounded-lg bg-[#0E3D52] text-white text-sm font-medium hover:bg-[#1A6080] transition disabled:opacity-50">
                 {saving ? 'Saving…' : 'Record TOIL'}
               </button>
             </div>

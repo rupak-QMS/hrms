@@ -31,7 +31,7 @@ type Stats = { total: number; pending: number; in_progress: number; completed: n
 
 const STAGES = [
   { value: 'pre_start',     label: 'Pre-start',        color: 'bg-gray-500' },
-  { value: 'day1',          label: 'Day 1',             color: 'bg-blue-500' },
+  { value: 'day1',          label: 'Day 1',             color: 'bg-[#E0EEF4]0' },
   { value: 'week1',         label: 'Week 1',            color: 'bg-[#E0EEF4]0' },
   { value: 'weeks2_4',      label: 'Weeks 2–4',         color: 'bg-[#f0f7fb]0' },
   { value: 'end_probation', label: 'End of Probation',  color: 'bg-amber-500' },
@@ -49,7 +49,7 @@ const STATUS_STYLE: Record<string, string> = {
 
 const CATEGORY_COLOR: Record<string, string> = {
   admin:      'bg-gray-700 text-gray-300',
-  it:         'bg-blue-900/60 text-blue-300',
+  it:         'bg-blue-900/60 text-[#7dcfd7]',
   hr:         'bg-[#0E3D52]/60 text-[#4ebac4]',
   legal:      'bg-amber-900/60 text-amber-300',
   compliance: 'bg-red-900/60 text-red-300',
@@ -169,7 +169,7 @@ export default function OnboardingPage() {
         {[
           { label: 'Total',       value: stats.total,       color: 'text-foreground',       fs: '' },
           { label: 'Pending',     value: stats.pending,     color: 'text-yellow-400',  fs: 'pending' },
-          { label: 'In Progress', value: stats.in_progress, color: 'text-blue-400',    fs: 'in_progress' },
+          { label: 'In Progress', value: stats.in_progress, color: 'text-[#4ebac4]',    fs: 'in_progress' },
           { label: 'Completed',   value: stats.completed,   color: 'text-green-400',   fs: 'completed' },
         ].map(s => (
           <button key={s.label}
@@ -204,17 +204,17 @@ export default function OnboardingPage() {
           {/* Metric row */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="card-premium p-5">
-              <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider font-semibold mb-1">Active Onboardings</p>
-              <p className="text-3xl font-bold text-blue-400">{stats.pending + stats.in_progress}</p>
+              <p className="text-xs text-gray-500 dark:text-gray-400  font-semibold mb-1">Active Onboardings</p>
+              <p className="text-3xl font-bold text-[#4ebac4]">{stats.pending + stats.in_progress}</p>
               <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{stats.pending} pending · {stats.in_progress} in progress</p>
             </div>
             <div className="card-premium p-5">
-              <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider font-semibold mb-1">Avg. Days to Complete</p>
+              <p className="text-xs text-gray-500 dark:text-gray-400  font-semibold mb-1">Avg. Days to Complete</p>
               <p className="text-3xl font-bold text-[#1A6080] dark:text-[#4ebac4]">{avgDays !== null ? avgDays : '—'}</p>
               <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Based on {stats.completed} completed</p>
             </div>
             <div className="card-premium p-5">
-              <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider font-semibold mb-1">Completion Rate</p>
+              <p className="text-xs text-gray-500 dark:text-gray-400  font-semibold mb-1">Completion Rate</p>
               <p className="text-3xl font-bold text-green-400">
                 {stats.total ? Math.round((stats.completed / stats.total) * 100) : 0}%
               </p>
@@ -248,8 +248,8 @@ export default function OnboardingPage() {
 
           {/* Upcoming starters */}
           {upcoming.length > 0 && (
-            <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800/50 rounded-xl p-5">
-              <h3 className="text-sm font-semibold text-blue-300 mb-3">📅 Upcoming Starters (next 30 days)</h3>
+            <div className="bg-[#E0EEF4] dark:bg-blue-950/30 border border-blue-200 dark:border-[#1A6080]/50 rounded-xl p-5">
+              <h3 className="text-sm font-semibold text-[#7dcfd7] mb-3">📅 Upcoming Starters (next 30 days)</h3>
               <div className="space-y-2">
                 {upcoming.map(r => (
                   <div key={r.id} className="flex items-center justify-between">
@@ -260,7 +260,7 @@ export default function OnboardingPage() {
                       </span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <span className={`text-xs font-medium ${r.daysUntilStart <= 3 ? 'text-red-400' : r.daysUntilStart <= 7 ? 'text-amber-300' : 'text-blue-300'}`}>
+                      <span className={`text-xs font-medium ${r.daysUntilStart <= 3 ? 'text-red-400' : r.daysUntilStart <= 7 ? 'text-amber-300' : 'text-[#7dcfd7]'}`}>
                         {r.daysUntilStart === 0 ? 'Today!' : r.daysUntilStart === 1 ? 'Tomorrow' : `In ${r.daysUntilStart} days`}
                       </span>
                       <Link href={`/tenant/onboarding/${r.id}`}
@@ -439,7 +439,7 @@ export default function OnboardingPage() {
 
                         {/* Stage stepper */}
                         <div>
-                          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3 dark:text-gray-400">Stage Progress</p>
+                          <p className="text-xs font-semibold text-gray-500  mb-3 dark:text-gray-400">Stage Progress</p>
                           <div className="flex items-center gap-1">
                             {STAGES.map((s, i) => (
                               <div key={s.value} className="flex items-center flex-1">
@@ -464,7 +464,7 @@ export default function OnboardingPage() {
                         {/* Checklist preview — first 5 items */}
                         {r.checklist?.length > 0 && (
                           <div>
-                            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 dark:text-gray-400">Checklist Preview</p>
+                            <p className="text-xs font-semibold text-gray-500  mb-2 dark:text-gray-400">Checklist Preview</p>
                             <div className="space-y-1.5">
                               {r.checklist.slice(0, 5).map(item => (
                                 <div key={item.id} className="flex items-center gap-2.5">
@@ -506,7 +506,7 @@ export default function OnboardingPage() {
 
                         {r.notes && (
                           <div>
-                            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1 dark:text-gray-400">Notes</p>
+                            <p className="text-xs font-semibold text-gray-500  mb-1 dark:text-gray-400">Notes</p>
                             <p className="text-sm text-gray-600 dark:text-gray-300">{r.notes}</p>
                           </div>
                         )}

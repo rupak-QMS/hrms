@@ -47,7 +47,7 @@ const OUTCOME_GROUPS: Record<string, string> = {
 }
 
 const STATUS_BADGE: Record<string, { label: string; cls: string }> = {
-  scheduled:   { label: 'Scheduled',   cls: 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-400' },
+  scheduled:   { label: 'Scheduled',   cls: 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/20 dark:text-[#4ebac4]' },
   in_progress: { label: 'In Progress', cls: 'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-400' },
   completed:   { label: 'Completed',   cls: 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400' },
   overdue:     { label: 'Overdue',     cls: 'bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-400' },
@@ -364,7 +364,7 @@ export default function NDISAuditsPage() {
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
         {[
           { label: 'Total Audits',    value: total,     cls: 'text-gray-900 dark:text-white' },
-          { label: 'Scheduled',       value: scheduled, cls: 'text-blue-600 dark:text-blue-400' },
+          { label: 'Scheduled',       value: scheduled, cls: 'text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4]' },
           { label: 'Overdue',         value: overdue,   cls: 'text-red-600 dark:text-red-400' },
           { label: 'Non-Conformant',  value: nonConf,   cls: 'text-orange-600 dark:text-orange-400' },
         ].map(({ label, value, cls }) => (
@@ -412,7 +412,7 @@ export default function NDISAuditsPage() {
               <thead className="bg-gray-50 dark:bg-gray-800/60">
                 <tr>
                   {['Title / Standard', 'Type', 'Status', 'Result', 'Risk', 'Scheduled', 'Next Review', 'Auditor', ''].map(h => (
-                    <th key={h} className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide whitespace-nowrap">{h}</th>
+                    <th key={h} className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400  whitespace-nowrap">{h}</th>
                   ))}
                 </tr>
               </thead>
@@ -455,7 +455,7 @@ export default function NDISAuditsPage() {
                         <div className="flex items-center gap-2">
                           <button
                             onClick={() => { setEditAudit(audit); setShowModal(true) }}
-                            className="text-xs text-blue-500 hover:text-blue-700 dark:hover:text-blue-300 font-medium">
+                            className="text-xs text-[#1A6080] dark:text-[#4ebac4] hover:text-[#0E3D52] dark:hover:text-[#7dcfd7] font-medium">
                             Edit
                           </button>
                           <button

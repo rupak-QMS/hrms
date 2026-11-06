@@ -85,7 +85,7 @@ function severityBadge(s: string) {
     critical: 'bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-300',
     major:    'bg-orange-100 text-orange-800 dark:bg-orange-900/40 dark:text-orange-300',
     moderate: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/40 dark:text-yellow-300',
-    minor:    'bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300',
+    minor:    'bg-[#E0EEF4] text-blue-800 dark:bg-[#0E3D52]/20 dark:text-[#7dcfd7]',
   }
   return (
     <span className={`px-2 py-0.5 rounded text-xs font-medium ${map[s] ?? 'bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300'}`}>
@@ -480,7 +480,7 @@ export default function IncidentBehaviourPage() {
             <button
               key={p.id}
               onClick={() => handleSelect(p.id)}
-              className={`w-full text-left px-4 py-3 border-b border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors ${selectedId === p.id ? 'bg-blue-50 dark:bg-blue-900/30 border-l-2 border-l-blue-500' : ''}`}
+              className={`w-full text-left px-4 py-3 border-b border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors ${selectedId === p.id ? 'bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border-l-2 border-l-blue-500' : ''}`}
             >
               <p className="text-sm font-medium text-gray-900 dark:text-white">
                 {p.preferredName || p.firstName} {p.lastName}
@@ -561,12 +561,12 @@ export default function IncidentBehaviourPage() {
                     onClick={() => setActiveTab(tab.key)}
                     className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
                       activeTab === tab.key
-                        ? 'bg-blue-600 text-white'
+                        ? 'bg-[#0E3D52] text-white'
                         : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                     }`}
                   >
                     {tab.label}
-                    <span className={`ml-1.5 text-xs px-1.5 py-0.5 rounded-full ${activeTab === tab.key ? 'bg-blue-500 text-white' : 'bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300'}`}>
+                    <span className={`ml-1.5 text-xs px-1.5 py-0.5 rounded-full ${activeTab === tab.key ? 'bg-[#E0EEF4]0 text-white' : 'bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300'}`}>
                       {tab.count}
                     </span>
                   </button>
@@ -578,7 +578,7 @@ export default function IncidentBehaviourPage() {
             <div className="flex-1 overflow-y-auto p-6">
               {loading ? (
                 <div className="flex justify-center py-12">
-                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600" />
+                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#0E3D52]" />
                 </div>
               ) : (
 
@@ -602,7 +602,7 @@ export default function IncidentBehaviourPage() {
                             <div className="flex items-center gap-2 flex-shrink-0">
                               <p className="text-sm font-medium text-gray-900 dark:text-white">{inc.incidentDate}</p>
                               {inc.incidentTime && <p className="text-xs text-gray-500 dark:text-gray-400">{inc.incidentTime}</p>}
-                              <button onClick={() => openEditIncident(inc)} className="text-xs px-2 py-1 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded transition">Edit</button>
+                              <button onClick={() => openEditIncident(inc)} className="text-xs px-2 py-1 text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4] hover:bg-[#E0EEF4] dark:hover:bg-blue-900/20 rounded transition">Edit</button>
                               <button onClick={() => deleteIncident(inc.id)} className="text-xs px-2 py-1 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded transition">Delete</button>
                             </div>
                           </div>
@@ -611,8 +611,8 @@ export default function IncidentBehaviourPage() {
                           )}
                           <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">{inc.description}</p>
                           {inc.immediateAction && (
-                            <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-3 mb-3">
-                              <p className="text-xs font-medium text-blue-700 dark:text-blue-300 mb-1">Immediate Action</p>
+                            <div className="bg-[#E0EEF4] dark:bg-[#0E3D52]/20 rounded-lg p-3 mb-3">
+                              <p className="text-xs font-medium text-[#0E3D52] dark:text-[#7dcfd7] mb-1">Immediate Action</p>
                               <p className="text-sm text-blue-900 dark:text-blue-200">{inc.immediateAction}</p>
                             </div>
                           )}
@@ -649,7 +649,7 @@ export default function IncidentBehaviourPage() {
                             <h4 className="font-semibold text-gray-900 dark:text-white">{plan.planName}</h4>
                             <div className="flex items-center gap-2">
                               {statusBadge(plan.status)}
-                              <button onClick={() => openEditBehaviour(plan)} className="text-xs px-2 py-1 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded transition">Edit</button>
+                              <button onClick={() => openEditBehaviour(plan)} className="text-xs px-2 py-1 text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4] hover:bg-[#E0EEF4] dark:hover:bg-blue-900/20 rounded transition">Edit</button>
                               <button onClick={() => deleteBehaviourPlan(plan.id)} className="text-xs px-2 py-1 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded transition">Delete</button>
                             </div>
                           </div>
@@ -701,7 +701,7 @@ export default function IncidentBehaviourPage() {
                                 <span className="px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-300">✓ Approved</span>
                               )}
                               {statusBadge(rp.status)}
-                              <button onClick={() => openEditRestrictive(rp)} className="text-xs px-2 py-1 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded transition">Edit</button>
+                              <button onClick={() => openEditRestrictive(rp)} className="text-xs px-2 py-1 text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4] hover:bg-[#E0EEF4] dark:hover:bg-blue-900/20 rounded transition">Edit</button>
                               <button onClick={() => deleteRestrictivePractice(rp.id)} className="text-xs px-2 py-1 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded transition">Delete</button>
                             </div>
                           </div>

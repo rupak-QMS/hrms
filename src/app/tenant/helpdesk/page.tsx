@@ -36,7 +36,7 @@ const PRIORITY_COLOR: Record<Priority, string> = {
 }
 
 const STATUS_COLOR: Record<Status, string> = {
-  open:        'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400',
+  open:        'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/20 dark:text-[#4ebac4]',
   in_progress: 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/15 dark:text-[#4ebac4]',
   pending:     'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400',
   resolved:    'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400',
@@ -125,7 +125,7 @@ export default function HelpdeskPage() {
       {stats && (
         <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
           {[
-            { label: 'Open Tickets',    value: stats.totalOpen,      color: 'text-blue-600 dark:text-blue-400',    bg: 'bg-blue-50 dark:bg-blue-900/20' },
+            { label: 'Open Tickets',    value: stats.totalOpen,      color: 'text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4]',    bg: 'bg-[#E0EEF4] dark:bg-[#0E3D52]/20' },
             { label: 'SLA Breached',    value: stats.breached,       color: 'text-red-600 dark:text-red-400',      bg: 'bg-red-50 dark:bg-red-900/20' },
             { label: 'Critical Open',   value: stats.criticalOpen,   color: 'text-orange-600 dark:text-orange-400',bg: 'bg-orange-50 dark:bg-orange-900/20' },
             { label: 'Resolved Today',  value: stats.resolvedToday,  color: 'text-emerald-600 dark:text-emerald-400', bg: 'bg-emerald-50 dark:bg-emerald-900/20' },
@@ -178,7 +178,7 @@ export default function HelpdeskPage() {
             <thead>
               <tr className="border-b border-gray-100 dark:border-gray-800">
                 {['Ticket', 'Title', 'Category', 'Priority', 'Status', 'SLA', 'Age'].map(h => (
-                  <th key={h} className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">{h}</th>
+                  <th key={h} className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 ">{h}</th>
                 ))}
               </tr>
             </thead>

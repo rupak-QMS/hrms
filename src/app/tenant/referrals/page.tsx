@@ -183,7 +183,7 @@ export default function ReferralsPage() {
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
         {[
           { label:'Total',      value:stats.total,     color:'text-foreground' },
-          { label:'Pending',    value:stats.pending,   color:'text-blue-400' },
+          { label:'Pending',    value:stats.pending,   color:'text-[#4ebac4]' },
           { label:'Hired',      value:stats.hired,     color:'text-green-400' },
           { label:'Bonus Paid', value:stats.bonusPaid, color:'text-[#1A6080] dark:text-[#4ebac4]' },
         ].map(s => (

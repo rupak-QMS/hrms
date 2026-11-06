@@ -157,7 +157,7 @@ export default function SupervisionPage() {
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
         {[
           { label: 'Total',     value: stats.total,     color: 'text-foreground' },
-          { label: 'Scheduled', value: stats.scheduled, color: 'text-blue-400' },
+          { label: 'Scheduled', value: stats.scheduled, color: 'text-[#4ebac4]' },
           { label: 'Completed', value: stats.completed, color: 'text-green-400' },
           { label: 'Overdue',   value: stats.overdue,   color: 'text-red-400' },
         ].map(s => (
@@ -279,14 +279,14 @@ export default function SupervisionPage() {
                   <div className="border-t border-gray-200 dark:border-gray-800 px-5 py-4 space-y-4">
                     {r.notes && (
                       <div>
-                        <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1 dark:text-gray-400">Session Notes</p>
+                        <p className="text-xs font-semibold text-gray-500  mb-1 dark:text-gray-400">Session Notes</p>
                         <p className="text-sm text-gray-600 dark:text-gray-300 whitespace-pre-wrap">{r.notes}</p>
                       </div>
                     )}
 
                     {/* Action items */}
                     <div>
-                      <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 dark:text-gray-400">Action Items</p>
+                      <p className="text-xs font-semibold text-gray-500  mb-2 dark:text-gray-400">Action Items</p>
                       {r.actionItems.length === 0 ? (
                         <p className="text-xs text-gray-600 italic dark:text-gray-400">No action items yet.</p>
                       ) : (

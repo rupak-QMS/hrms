@@ -198,7 +198,7 @@ export default function DEIPage() {
         </div>
         <div className="card-premium p-4">
           <p className="text-xs text-gray-600 dark:text-gray-400">Disability</p>
-          <p className="text-2xl font-bold text-blue-400 mt-1">{summary.disability}</p>
+          <p className="text-2xl font-bold text-[#4ebac4] mt-1">{summary.disability}</p>
           <p className="text-xs text-gray-500 mt-0.5 dark:text-gray-400">{pct(summary.disability)} of workforce</p>
         </div>
         <div className="card-premium p-4">
@@ -210,7 +210,7 @@ export default function DEIPage() {
       {/* Gender breakdown */}
       {Object.keys(summary.byGender).length > 0 && (
         <div className="card-premium p-4">
-          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3 dark:text-gray-400">Gender</p>
+          <p className="text-xs font-semibold text-gray-500  mb-3 dark:text-gray-400">Gender</p>
           <div className="flex flex-wrap gap-3">
             {Object.entries(summary.byGender).map(([g, n]) => (
               <div key={g} className="bg-gray-100 dark:bg-gray-800 rounded-lg px-4 py-2">
@@ -279,7 +279,7 @@ export default function DEIPage() {
                     <td className="px-4 py-3 text-gray-600 dark:text-gray-400">{r.gender ?? '—'}</td>
                     <td className="px-4 py-3 text-gray-600 dark:text-gray-400 text-xs">{r.culturalBackground ?? '—'}</td>
                     <td className="px-4 py-3">{r.indigenousStatus ? <span className="text-amber-400">Yes</span> : <span className="text-gray-600 dark:text-gray-400">—</span>}</td>
-                    <td className="px-4 py-3">{r.disabilityStatus ? <span className="text-blue-400">Yes</span> : <span className="text-gray-600 dark:text-gray-400">—</span>}</td>
+                    <td className="px-4 py-3">{r.disabilityStatus ? <span className="text-[#4ebac4]">Yes</span> : <span className="text-gray-600 dark:text-gray-400">—</span>}</td>
                     <td className="px-4 py-3 text-gray-600 dark:text-gray-400 text-xs max-w-xs truncate">{r.adjustmentsRequired ?? '—'}</td>
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">

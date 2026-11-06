@@ -35,7 +35,7 @@ const STATUSES = ['available','assigned','maintenance','retired'] as const
 
 const STATUS_BADGE: Record<string, string> = {
   available:   'bg-green-100  dark:bg-green-900/30  text-green-700  dark:text-green-300  border-green-300  dark:border-green-700',
-  assigned:    'bg-blue-100   dark:bg-blue-900/30   text-blue-700   dark:text-blue-300   border-blue-300   dark:border-blue-700',
+  assigned:    'bg-[#E0EEF4]   dark:bg-[#0E3D52]/20   text-[#0E3D52]   dark:text-[#7dcfd7]   border-blue-300   dark:border-[#1A6080]',
   maintenance: 'bg-amber-100  dark:bg-amber-900/30  text-amber-700  dark:text-amber-300  border-amber-300  dark:border-amber-700',
   retired:     'bg-red-100    dark:bg-red-900/30    text-red-700    dark:text-red-300    border-red-300    dark:border-red-700',
 }
@@ -350,7 +350,7 @@ export default function AssetsPage() {
         {[
           { label:'Total',       value: stats.total,     color:'text-gray-900 dark:text-white',  filter:'' },
           { label:'Available',   value: stats.available, color:'text-green-600 dark:text-green-400', filter:'available' },
-          { label:'Assigned',    value: stats.assigned,  color:'text-blue-600  dark:text-blue-400',  filter:'assigned' },
+          { label:'Assigned',    value: stats.assigned,  color:'text-[#0E3D52] dark:text-[#4ebac4]  dark:text-[#4ebac4]',  filter:'assigned' },
           { label:'Maintenance', value: assets.filter(a => a.status === 'maintenance').length, color:'text-amber-600 dark:text-amber-400', filter:'maintenance' },
           { label:'Retired',     value: stats.retired,   color:'text-red-600   dark:text-red-400',   filter:'retired' },
         ].slice(0,4).map(s => (
@@ -477,7 +477,7 @@ export default function AssetsPage() {
                           <div className="flex flex-wrap gap-1">
                             {a.status === 'available' && (
                               <button onClick={() => setShowAssignForm(a.id)}
-                                className="text-xs bg-blue-50 dark:bg-blue-900/30 border border-blue-300 dark:border-blue-800 text-blue-600 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/50 px-2 py-1 rounded transition">
+                                className="text-xs bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border border-blue-300 dark:border-[#1A6080] text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#7dcfd7] hover:bg-[#E0EEF4] dark:hover:bg-blue-900/50 px-2 py-1 rounded transition">
                                 Assign
                               </button>
                             )}
@@ -507,7 +507,7 @@ export default function AssetsPage() {
                               </select>
                               <div className="flex gap-2">
                                 <button onClick={() => assign(a.id)} disabled={!assignForm.employeeId || saving}
-                                  className="text-xs bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white px-3 py-1.5 rounded transition">
+                                  className="text-xs bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-50 text-white px-3 py-1.5 rounded transition">
                                   Confirm
                                 </button>
                                 <button onClick={() => setShowAssignForm(null)}

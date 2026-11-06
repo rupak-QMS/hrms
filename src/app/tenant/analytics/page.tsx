@@ -39,7 +39,7 @@ function SectionHeader({ title, icon }: { title: string; icon: string }) {
   return (
     <div className="flex items-center gap-2 mb-3">
       <span className="text-lg">{icon}</span>
-      <h2 className="text-sm font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">{title}</h2>
+      <h2 className="text-sm font-semibold text-gray-600 dark:text-gray-300 ">{title}</h2>
     </div>
   )
 }
@@ -117,11 +117,11 @@ export default function AnalyticsPage() {
 
         {/* Employment type breakdown */}
         <div className="card-premium p-4">
-          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3 dark:text-gray-400">Employment Type</p>
+          <p className="text-xs font-semibold text-gray-500  mb-3 dark:text-gray-400">Employment Type</p>
           <div className="space-y-2.5">
             {[
               { label: 'Full Time',   value: headcount.fullTime,   color: 'bg-[#0E3D52]' },
-              { label: 'Part Time',   value: headcount.partTime,   color: 'bg-blue-600' },
+              { label: 'Part Time',   value: headcount.partTime,   color: 'bg-[#0E3D52]' },
               { label: 'Casual',      value: headcount.casual,     color: 'bg-amber-600' },
               { label: 'Contractor',  value: headcount.contractor, color: 'bg-teal-600' },
             ].map(row => (
@@ -170,7 +170,7 @@ export default function AnalyticsPage() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-4">
           <StatCard label="Total Enrolments" value={training.total} />
           <StatCard label="Completed" value={training.completed} color="text-green-400" />
-          <StatCard label="In Progress" value={training.inProgress} color="text-blue-400" />
+          <StatCard label="In Progress" value={training.inProgress} color="text-[#4ebac4]" />
           <StatCard label="Expired" value={training.expired}
             color={training.expired > 0 ? 'text-red-400' : 'text-gray-400'}
             alert={training.expired > 0} />

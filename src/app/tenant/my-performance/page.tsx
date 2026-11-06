@@ -47,7 +47,7 @@ const RATING_LABELS = ['', 'Unsatisfactory', 'Needs Improvement', 'Meets Expecta
 const INPUT = 'input-premium'
 
 function ProgressBar({ value }: { value: number }) {
-  const color = value >= 80 ? 'bg-green-500' : value >= 50 ? 'bg-blue-500' : value >= 25 ? 'bg-amber-500' : 'bg-red-500'
+  const color = value >= 80 ? 'bg-green-500' : value >= 50 ? 'bg-[#E0EEF4]0' : value >= 25 ? 'bg-amber-500' : 'bg-red-500'
   return (
     <div className="flex items-center gap-2">
       <div className="flex-1 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
@@ -141,7 +141,7 @@ export default function MyPerformancePage() {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
         {[
           { label: 'Reviews',       value: reviews.length,    color: 'text-foreground' },
-          { label: 'Active Goals',  value: activeGoals.length, color: 'text-blue-400' },
+          { label: 'Active Goals',  value: activeGoals.length, color: 'text-[#4ebac4]' },
           { label: 'Goals Done',    value: completedGoals.length, color: 'text-green-400' },
           { label: 'Avg Progress',  value: `${avgProgress}%`, color: 'text-[#1A6080] dark:text-[#4ebac4]' },
         ].map(s => (
@@ -288,7 +288,7 @@ export default function MyPerformancePage() {
                       {/* KPI breakdown */}
                       {r.kpis?.some(k => k.rating) && (
                         <div>
-                          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">KPI Breakdown</p>
+                          <p className="text-xs font-semibold text-gray-500  mb-2">KPI Breakdown</p>
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                             {r.kpis.map(kpi => (
                               <div key={kpi.id} className="flex items-center justify-between bg-gray-50 dark:bg-gray-800/40 rounded-lg px-3 py-2">
@@ -305,15 +305,15 @@ export default function MyPerformancePage() {
                       {/* Development plan */}
                       {r.developmentPlan && (
                         <div>
-                          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Development Plan</p>
+                          <p className="text-xs font-semibold text-gray-500  mb-1">Development Plan</p>
                           <p className="text-sm text-gray-300 bg-gray-50 dark:bg-gray-800/40 rounded-lg px-3 py-2">{r.developmentPlan}</p>
                         </div>
                       )}
 
                       {/* Self-assessment preview */}
                       {hasSelfAssess && (
-                        <div className="bg-blue-50 dark:bg-blue-900/10 border border-blue-200 dark:border-blue-900/30 rounded-lg p-3 space-y-2">
-                          <p className="text-xs font-semibold text-blue-400 uppercase tracking-wider">Your Self-Assessment</p>
+                        <div className="bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border border-blue-200 dark:border-blue-900/30 rounded-lg p-3 space-y-2">
+                          <p className="text-xs font-semibold text-[#4ebac4] ">Your Self-Assessment</p>
                           {ei.strengths    && <div><p className="text-xs text-gray-500">Strengths</p><p className="text-xs text-gray-300">{ei.strengths}</p></div>}
                           {ei.improvements && <div><p className="text-xs text-gray-500">Improvements</p><p className="text-xs text-gray-300">{ei.improvements}</p></div>}
                           {ei.goals        && <div><p className="text-xs text-gray-500">Next Period Goals</p><p className="text-xs text-gray-300">{ei.goals}</p></div>}
@@ -366,7 +366,7 @@ export default function MyPerformancePage() {
                       <span className="text-gray-500">Target: {new Date(g.targetDate + 'T00:00:00').toLocaleDateString('en-AU', { day:'numeric', month:'short', year:'numeric' })}</span>
                     )}
                     {g.selfRating != null && (
-                      <span className="text-blue-400">My rating: {g.selfRating}/5 · {RATING_LABELS[g.selfRating]}</span>
+                      <span className="text-[#4ebac4]">My rating: {g.selfRating}/5 · {RATING_LABELS[g.selfRating]}</span>
                     )}
                     {g.managerRating != null && (
                       <span className="text-green-400">Manager: {g.managerRating}/5 · {RATING_LABELS[g.managerRating]}</span>

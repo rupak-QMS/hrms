@@ -174,7 +174,7 @@ export default function CostEstimationPage() {
               {isExp && (
                 <div className="border-t border-gray-200 dark:border-gray-800 px-5 pb-5 pt-4">
                   <div className="flex items-center justify-between mb-3">
-                    <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">Module Breakdown</p>
+                    <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 ">Module Breakdown</p>
                     <Link href={`/super-admin/clients/${client.id}/integrations`}
                       className="text-xs text-[#4ebac4] hover:text-[#0E3D52] dark:text-[#7dcfd7]">
                       View Integrations →

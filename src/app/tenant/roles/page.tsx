@@ -197,7 +197,7 @@ export default function RolesPage() {
       {/* Role breakdown */}
       {Object.keys(roleCounts).length > 0 && (
         <div className="card-premium p-4">
-          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3 dark:text-gray-400">Breakdown by Role</p>
+          <p className="text-xs font-semibold text-gray-500  mb-3 dark:text-gray-400">Breakdown by Role</p>
           <div className="flex flex-wrap gap-2">
             {Object.entries(roleCounts).map(([role, count]) => (
               <span key={role} className={`text-xs px-3 py-1 rounded-full border ${ROLE_STYLE[role] ?? 'badge badge-gray'}`}>

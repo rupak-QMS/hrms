@@ -380,7 +380,7 @@ export default function SCHADSCalculatorPage() {
 
             {/* Classification summary */}
             <div className="pt-3 border-t border-gray-100 dark:border-gray-800">
-              <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">Rate Reference</p>
+              <p className="text-xs font-semibold text-gray-500 dark:text-gray-400  mb-2">Rate Reference</p>
               <div className="space-y-1">
                 <div className="flex justify-between text-xs">
                   <span className="text-gray-500 dark:text-gray-400">Base</span>

@@ -300,7 +300,7 @@ function ScreeningTab() {
                       </td>
                       <td className="px-5 py-3.5">
                         <span className="text-gray-600 dark:text-gray-300 text-sm">{r.checkType}</span>
-                        {r.employeeNdis && <span className="ml-2 text-xs bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-300 px-1.5 py-0.5 rounded">NDIS</span>}
+                        {r.employeeNdis && <span className="ml-2 text-xs bg-[#E0EEF4] dark:bg-[#0E3D52]/20 text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#7dcfd7] px-1.5 py-0.5 rounded">NDIS</span>}
                       </td>
                       <td className="px-5 py-3.5">
                         {editId === r.id ? (

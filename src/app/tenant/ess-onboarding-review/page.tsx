@@ -53,7 +53,7 @@ interface FullSubmission extends Submission {
 // ── badges ───────────────────────────────────────────────────────────────────
 const STATUS_BADGE: Record<string, string> = {
   draft:             'bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400',
-  submitted:         'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400',
+  submitted:         'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/20 dark:text-[#4ebac4]',
   hr_reviewed:       'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/30 dark:text-[#1A6080] dark:text-[#4ebac4]',
   completed:         'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400',
 }
@@ -142,7 +142,7 @@ export default function EssOnboardingReviewPage() {
 
   const kpis = [
     { label: 'Total',        value: allSubmissions.length,       color: 'text-gray-900 dark:text-white' },
-    { label: 'Submitted',    value: byStatus('submitted'),        color: 'text-blue-600 dark:text-blue-400' },
+    { label: 'Submitted',    value: byStatus('submitted'),        color: 'text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4]' },
     { label: 'HR Reviewed',  value: byStatus('hr_reviewed'),      color: 'text-[#0E3D52] dark:text-[#4ebac4]' },
     { label: 'Completed',    value: byStatus('completed'),        color: 'text-green-600 dark:text-green-400' },
   ]
@@ -176,14 +176,14 @@ export default function EssOnboardingReviewPage() {
           onChange={e => setSearch(e.target.value)}
           className="flex-1 px-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-gray-700
             bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100
-            focus:outline-none focus:ring-2 focus:ring-blue-500"
+            focus:outline-none focus:ring-2 focus:ring-[#0E3D52]/20"
         />
         <select
           value={statusFilter}
           onChange={e => setStatusFilter(e.target.value)}
           className="px-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-gray-700
             bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100
-            focus:outline-none focus:ring-2 focus:ring-blue-500"
+            focus:outline-none focus:ring-2 focus:ring-[#0E3D52]/20"
         >
           <option value="all">All statuses</option>
           <option value="draft">Draft</option>
@@ -197,7 +197,7 @@ export default function EssOnboardingReviewPage() {
       <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden">
         {loading ? (
           <div className="flex items-center justify-center py-16">
-            <div className="w-6 h-6 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" />
+            <div className="w-6 h-6 border-2 border-[#0E3D52] border-t-transparent rounded-full animate-spin" />
           </div>
         ) : submissions.length === 0 ? (
           <div className="text-center py-16 text-gray-400 dark:text-gray-600">
@@ -211,7 +211,7 @@ export default function EssOnboardingReviewPage() {
             <thead>
               <tr className="border-b border-gray-200 dark:border-gray-800">
                 {['Employee', 'Department', 'Status', 'Submitted', 'Reviewed By', ''].map(h => (
-                  <th key={h} className="text-left px-4 py-3 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                  <th key={h} className="text-left px-4 py-3 text-xs font-semibold text-gray-500 dark:text-gray-400 ">
                     {h}
                   </th>
                 ))}
@@ -242,8 +242,8 @@ export default function EssOnboardingReviewPage() {
                   <td className="px-4 py-3">
                     <button
                       onClick={() => openDetail(sub.id)}
-                      className="px-3 py-1 text-xs font-medium text-blue-600 dark:text-blue-400
-                        border border-blue-200 dark:border-blue-800 rounded-lg hover:bg-blue-50
+                      className="px-3 py-1 text-xs font-medium text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4]
+                        border border-blue-200 dark:border-[#1A6080] rounded-lg hover:bg-[#E0EEF4]
                         dark:hover:bg-blue-900/20 transition"
                     >
                       Review
@@ -266,7 +266,7 @@ export default function EssOnboardingReviewPage() {
           >
             {detailLoading ? (
               <div className="flex items-center justify-center h-full">
-                <div className="w-6 h-6 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" />
+                <div className="w-6 h-6 border-2 border-[#0E3D52] border-t-transparent rounded-full animate-spin" />
               </div>
             ) : selected ? (
               <div className="p-6">
@@ -335,7 +335,7 @@ export default function EssOnboardingReviewPage() {
                     placeholder="Add review notes or comments for payroll…"
                     className="w-full px-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-gray-700
                       bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100
-                      focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                      focus:outline-none focus:ring-2 focus:ring-[#0E3D52]/20 resize-none"
                   />
                 </div>
 
@@ -393,7 +393,7 @@ export default function EssOnboardingReviewPage() {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="mb-5">
-      <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-600 mb-2">{title}</p>
+      <p className="text-xs font-semibold st text-gray-400 dark:text-gray-600 mb-2">{title}</p>
       <div className="bg-gray-50 dark:bg-gray-800/50 rounded-xl px-4 py-1">
         {children}
       </div>

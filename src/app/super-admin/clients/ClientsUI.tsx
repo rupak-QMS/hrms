@@ -169,7 +169,7 @@ export default function ClientsUI({ initialClients, dbError }: { initialClients:
           <thead>
             <tr className="border-b border-gray-200 dark:border-gray-800 text-left">
               {['Client', 'Slug / URL', 'Tier', 'Status', 'Theme', 'Actions'].map(h => (
-                <th key={h} className="px-5 py-3 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">{h}</th>
+                <th key={h} className="px-5 py-3 text-xs font-semibold  text-gray-500 dark:text-gray-400">{h}</th>
               ))}
             </tr>
           </thead>

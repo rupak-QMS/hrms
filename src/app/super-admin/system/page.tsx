@@ -139,7 +139,7 @@ export default function SystemHealthPage() {
       {/* Platform Info */}
       {data?.platform && (
         <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6">
-          <h2 className="text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-4">Platform Information</h2>
+          <h2 className="text-sm font-semibold text-gray-600 dark:text-gray-400  mb-4">Platform Information</h2>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {[
               { label: 'Node.js',      value: data.platform.nodeVersion },
@@ -158,7 +158,7 @@ export default function SystemHealthPage() {
 
       {/* Infrastructure summary */}
       <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6">
-        <h2 className="text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-4">Infrastructure Stack</h2>
+        <h2 className="text-sm font-semibold text-gray-600 dark:text-gray-400  mb-4">Infrastructure Stack</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {[
             { name: 'Azure App Service',       role: 'Next.js + .NET 8 API hosting',   tier: 'Basic B3',        status: 'ok' as const },

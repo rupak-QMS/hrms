@@ -132,7 +132,7 @@ const displayName = (p: Participant) => `${p.firstName} ${p.lastName}`
 
 const goalStatusColor: Record<string, string> = {
   not_started: 'bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300',
-  in_progress:  'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300',
+  in_progress:  'bg-[#E0EEF4] text-[#0E3D52] dark:bg-blue-900 dark:text-[#7dcfd7]',
   achieved:     'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300',
   on_hold:      'bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300',
   discontinued: 'bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300',
@@ -399,7 +399,7 @@ export default function ParticipantsPage() {
             <div className="flex gap-2">
               <ExportButton onClick={exportParticipantsCsv} disabled={participants.length === 0} />
               <button onClick={openCreate}
-                className="px-3 py-1.5 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                className="px-3 py-1.5 bg-[#0E3D52] text-white text-sm rounded-lg hover:bg-[#1A6080] transition-colors">
                 + New
               </button>
             </div>
@@ -407,7 +407,7 @@ export default function ParticipantsPage() {
           <input
             type="text" placeholder="Search name, NDIS number…" value={search}
             onChange={e => setSearch(e.target.value)}
-            className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:outline-none mb-2"
+            className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-[#0E3D52]/20 focus:outline-none mb-2"
           />
           <div className="flex gap-2">
             <select value={filterActive} onChange={e => setFilterActive(e.target.value as 'all' | 'active' | 'inactive')}
@@ -434,7 +434,7 @@ export default function ParticipantsPage() {
             </div>
           ) : participants.map(p => (
             <button key={p.id} onClick={() => selectParticipant(p)}
-              className={`w-full text-left px-4 py-3 border-b border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors ${selected?.id === p.id ? 'bg-blue-50 dark:bg-blue-900/30 border-l-2 border-l-blue-500' : ''}`}>
+              className={`w-full text-left px-4 py-3 border-b border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors ${selected?.id === p.id ? 'bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border-l-2 border-l-blue-500' : ''}`}>
               <div className="flex items-center justify-between">
                 <span className="font-medium text-sm text-gray-900 dark:text-white">
                   {displayName(p)}{p.preferredName ? ` (${p.preferredName})` : ''}
@@ -473,7 +473,7 @@ export default function ParticipantsPage() {
                 </h2>
                 <div className="flex flex-wrap items-center gap-3 mt-1 text-sm text-gray-500 dark:text-gray-400">
                   {selected.ndisNumber && <span>NDIS: <strong className="text-gray-700 dark:text-gray-300">{selected.ndisNumber}</strong></span>}
-                  <span className="px-2 py-0.5 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded text-xs font-medium">{selected.fundingBody}</span>
+                  <span className="px-2 py-0.5 bg-[#E0EEF4] dark:bg-blue-900 text-[#0E3D52] dark:text-[#7dcfd7] rounded text-xs font-medium">{selected.fundingBody}</span>
                   {selected.supportLevel && <span className="px-2 py-0.5 bg-[#E0EEF4] dark:bg-[#0E3D52] text-[#0E3D52] dark:text-[#4ebac4] rounded text-xs">{selected.supportLevel} Support</span>}
                   {!selected.isActive && <span className="px-2 py-0.5 bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 rounded text-xs">Inactive</span>}
                 </div>
@@ -497,7 +497,7 @@ export default function ParticipantsPage() {
               {DETAIL_TABS.map(tab => (
                 <button key={tab} onClick={() => changeTab(tab)}
                   className={`px-4 py-2 text-sm font-medium rounded-t-lg capitalize transition-colors ${activeTab === tab
-                    ? 'bg-gray-50 dark:bg-gray-900 border border-b-0 border-gray-200 dark:border-gray-700 text-blue-600 dark:text-blue-400'
+                    ? 'bg-gray-50 dark:bg-gray-900 border border-b-0 border-gray-200 dark:border-gray-700 text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4]'
                     : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'}`}>
                   {tab === 'support-plans' ? 'Support Plans' : tab.charAt(0).toUpperCase() + tab.slice(1)}
                 </button>
@@ -546,7 +546,7 @@ export default function ParticipantsPage() {
                 <div className="flex justify-between items-center mb-4">
                   <h3 className="text-base font-semibold text-gray-900 dark:text-white">Goals ({goals.length})</h3>
                   <button onClick={() => { setGoalForm({ ...blankGoal }); setError(''); setShowGoal(true) }}
-                    className="px-3 py-1.5 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                    className="px-3 py-1.5 bg-[#0E3D52] text-white text-sm rounded-lg hover:bg-[#1A6080] transition-colors">
                     + Add Goal
                   </button>
                 </div>
@@ -583,7 +583,7 @@ export default function ParticipantsPage() {
                 <div className="flex justify-between items-center mb-4">
                   <h3 className="text-base font-semibold text-gray-900 dark:text-white">Support Plans ({plans.length})</h3>
                   <button onClick={() => { setPlanForm({ ...blankPlan }); setError(''); setShowPlan(true) }}
-                    className="px-3 py-1.5 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                    className="px-3 py-1.5 bg-[#0E3D52] text-white text-sm rounded-lg hover:bg-[#1A6080] transition-colors">
                     + Add Plan
                   </button>
                 </div>
@@ -628,7 +628,7 @@ export default function ParticipantsPage() {
                 <div className="flex justify-between items-center mb-4">
                   <h3 className="text-base font-semibold text-gray-900 dark:text-white">Notes ({notes.length})</h3>
                   <button onClick={() => { setNoteForm({ ...blankNote }); setError(''); setShowNote(true) }}
-                    className="px-3 py-1.5 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                    className="px-3 py-1.5 bg-[#0E3D52] text-white text-sm rounded-lg hover:bg-[#1A6080] transition-colors">
                     + Add Note
                   </button>
                 </div>
@@ -641,7 +641,7 @@ export default function ParticipantsPage() {
                             <span className="text-xs px-2 py-0.5 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-full">
                               {NOTE_TYPE_LABELS[n.noteType] || n.noteType}
                             </span>
-                            <span className="text-xs px-2 py-0.5 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 rounded-full">
+                            <span className="text-xs px-2 py-0.5 bg-[#E0EEF4] dark:bg-[#0E3D52]/20 text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#7dcfd7] rounded-full">
                               {NOTE_VISIBILITY_LABELS[n.visibility] || n.visibility}
                             </span>
                           </div>
@@ -663,7 +663,7 @@ export default function ParticipantsPage() {
                 <div className="flex justify-between items-center mb-4">
                   <h3 className="text-base font-semibold text-gray-900 dark:text-white">Contacts ({contacts.length})</h3>
                   <button onClick={() => { setContactForm({ ...blankContact }); setError(''); setShowContact(true) }}
-                    className="px-3 py-1.5 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                    className="px-3 py-1.5 bg-[#0E3D52] text-white text-sm rounded-lg hover:bg-[#1A6080] transition-colors">
                     + Add Contact
                   </button>
                 </div>
@@ -939,7 +939,7 @@ export default function ParticipantsPage() {
               <label className="flex items-center gap-2 cursor-pointer">
                 <input type="checkbox" checked={contactForm.isPrimary}
                   onChange={e => setContactForm(f => ({ ...f, isPrimary: e.target.checked }))}
-                  className="w-4 h-4 text-blue-600 rounded" />
+                  className="w-4 h-4 text-[#0E3D52] dark:text-[#4ebac4] rounded" />
                 <span className="text-sm text-gray-700 dark:text-gray-300">Primary contact</span>
               </label>
             </div>
@@ -956,7 +956,7 @@ export default function ParticipantsPage() {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4">
-      <h4 className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-3">{title}</h4>
+      <h4 className="text-xs font-semibold text-gray-400 dark:text-gray-500  mb-3">{title}</h4>
       <div className="space-y-2">{children}</div>
     </div>
   )
@@ -992,14 +992,14 @@ function Input({ value, onChange, type = 'text', placeholder }: {
 }) {
   return (
     <input type={type} value={value} onChange={e => onChange(e.target.value)} placeholder={placeholder}
-      className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+      className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-[#0E3D52]/20 focus:outline-none" />
   )
 }
 
 function Select({ value, onChange, children }: { value: string; onChange: (v: string) => void; children: React.ReactNode }) {
   return (
     <select value={value} onChange={e => onChange(e.target.value)}
-      className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+      className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-[#0E3D52]/20 focus:outline-none">
       {children}
     </select>
   )
@@ -1008,7 +1008,7 @@ function Select({ value, onChange, children }: { value: string; onChange: (v: st
 function Textarea({ value, onChange, rows = 3 }: { value: string; onChange: (v: string) => void; rows?: number }) {
   return (
     <textarea value={value} onChange={e => onChange(e.target.value)} rows={rows}
-      className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:outline-none resize-none" />
+      className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-[#0E3D52]/20 focus:outline-none resize-none" />
   )
 }
 
@@ -1030,7 +1030,7 @@ function Modal({ title, onClose, onSave, saving, error, children, wide }: {
             Cancel
           </button>
           <button onClick={onSave} disabled={saving}
-            className="px-4 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50">
+            className="px-4 py-2 text-sm bg-[#0E3D52] text-white rounded-lg hover:bg-[#1A6080] transition-colors disabled:opacity-50">
             {saving ? 'Saving…' : 'Save'}
           </button>
         </div>

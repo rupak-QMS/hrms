@@ -56,7 +56,7 @@ interface Contribution {
 
 const STATUS_COLORS: Record<string, string> = {
   active: 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300',
-  stapled: 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300',
+  stapled: 'bg-[#E0EEF4] text-blue-800 dark:bg-[#0E3D52]/20 dark:text-[#7dcfd7]',
   employer_default: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300',
   closed: 'bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400',
   pending: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300',
@@ -266,7 +266,7 @@ export default function SuperannuationPage() {
               onClick={() => selectEmployee(emp)}
               className={`w-full text-left px-3 py-2.5 rounded-lg text-sm transition ${
                 selectedEmployee?.id === emp.id
-                  ? 'bg-blue-600 text-white'
+                  ? 'bg-[#0E3D52] text-white'
                   : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700/50'
               }`}
             >
@@ -304,7 +304,7 @@ export default function SuperannuationPage() {
               <div className="flex gap-2">
                 <button
                   onClick={() => { setActiveTab('funds'); setShowFundModal(true); setEditingFund(null); setFundForm(EMPTY_FUND) }}
-                  className="px-4 py-2 rounded-lg bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition"
+                  className="px-4 py-2 rounded-lg bg-[#0E3D52] text-white text-sm font-medium hover:bg-[#1A6080] transition"
                 >
                   + Add Fund
                 </button>
@@ -340,7 +340,7 @@ export default function SuperannuationPage() {
                   onClick={() => setActiveTab(tab)}
                   className={`px-4 py-2 text-sm font-medium capitalize transition border-b-2 -mb-px ${
                     activeTab === tab
-                      ? 'border-blue-600 text-blue-600'
+                      ? 'border-[#0E3D52] text-[#0E3D52] dark:text-[#4ebac4]'
                       : 'border-transparent text-gray-500 hover:text-gray-700 dark:hover:text-gray-300'
                   }`}
                 >
@@ -362,7 +362,7 @@ export default function SuperannuationPage() {
                         <div className="flex items-center gap-2 flex-wrap">
                           <h4 className="font-semibold text-gray-900 dark:text-white">{fund.fundName}</h4>
                           {fund.isPrimary && (
-                            <span className="text-xs bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 px-2 py-0.5 rounded-full font-medium">Primary</span>
+                            <span className="text-xs bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/20 dark:text-[#7dcfd7] px-2 py-0.5 rounded-full font-medium">Primary</span>
                           )}
                           {fund.isSmsf && (
                             <span className="text-xs bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/30 dark:text-[#4ebac4] px-2 py-0.5 rounded-full font-medium">SMSF</span>
@@ -389,7 +389,7 @@ export default function SuperannuationPage() {
                       <div className="flex gap-3 ml-4 shrink-0">
                         <button
                           onClick={() => openEditFund(fund)}
-                          className="text-sm text-blue-600 hover:underline"
+                          className="text-sm text-[#0E3D52] dark:text-[#4ebac4] hover:underline"
                         >
                           Edit
                         </button>
@@ -413,7 +413,7 @@ export default function SuperannuationPage() {
                 <div className="table-responsive">
             <table className="table-premium">
                   <thead>
-                    <tr className="text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                    <tr className="text-left text-xs font-semibold text-gray-500 ">
                       <th className="pb-2 pr-4">Period</th>
                       <th className="pb-2 pr-4">Gross Earnings</th>
                       <th className="pb-2 pr-4">SG Rate</th>
@@ -564,7 +564,7 @@ export default function SuperannuationPage() {
                 Cancel
               </button>
               <button onClick={saveFund} disabled={saving || !fundForm.fundName}
-                className="flex-1 py-2 rounded-lg bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition disabled:opacity-50">
+                className="flex-1 py-2 rounded-lg bg-[#0E3D52] text-white text-sm font-medium hover:bg-[#1A6080] transition disabled:opacity-50">
                 {saving ? 'Saving…' : editingFund ? 'Update Fund' : 'Add Fund'}
               </button>
             </div>

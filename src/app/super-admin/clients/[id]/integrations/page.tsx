@@ -109,7 +109,7 @@ export default function ClientIntegrationsPage() {
       {/* Connected */}
       {connectedProviders.length > 0 && (
         <div>
-          <h2 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3 dark:text-gray-400">Connected</h2>
+          <h2 className="text-xs font-semibold text-gray-500  mb-3 dark:text-gray-400">Connected</h2>
           <div className="space-y-3">
             {connectedProviders.map(p => {
               const cfg = integrations[p.id]
@@ -198,7 +198,7 @@ export default function ClientIntegrationsPage() {
       {/* Available */}
       {otherProviders.length > 0 && (
         <div>
-          <h2 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3 dark:text-gray-400">
+          <h2 className="text-xs font-semibold text-gray-500  mb-3 dark:text-gray-400">
             Available for {country}
           </h2>
           <div className="space-y-3">

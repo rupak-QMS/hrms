@@ -332,7 +332,7 @@ export default function BenefitsPage() {
             <thead>
               <tr>
                 {['Employee', 'Benefit', 'Status', 'Period', 'Description', 'Actions'].map(h => (
-                  <th key={h} className="px-4 py-3 text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400">{h}</th>
+                  <th key={h} className="px-4 py-3 text-xs font-semibold  text-gray-600 dark:text-gray-400">{h}</th>
                 ))}
               </tr>
             </thead>

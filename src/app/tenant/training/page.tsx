@@ -372,7 +372,7 @@ function RecordsTab() {
       <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
         {[
           { label: 'Total',      value: stats.total,     color: 'text-foreground' },
-          { label: 'Enrolled',   value: stats.enrolled,  color: 'text-blue-400' },
+          { label: 'Enrolled',   value: stats.enrolled,  color: 'text-[#4ebac4]' },
           { label: 'Completed',  value: stats.completed, color: 'text-green-400' },
           { label: 'Overdue',    value: stats.overdue,   color: 'text-red-400' },
           { label: 'Expiring',   value: stats.expiring,  color: 'text-amber-400' },

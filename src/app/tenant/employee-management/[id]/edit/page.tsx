@@ -19,7 +19,7 @@ const EMPLOYMENT_TYPES = [
 
 const SECTION = ({ title, children }: { title: string; children: React.ReactNode }) => (
   <div className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-6 space-y-4">
-    <h2 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">{title}</h2>
+    <h2 className="text-sm font-semibold text-gray-500 dark:text-gray-400 ">{title}</h2>
     {children}
   </div>
 )
@@ -33,8 +33,8 @@ const FIELD = ({ label, required, children }: { label: string; required?: boolea
   </div>
 )
 
-const INPUT_CLS  = 'w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2.5 text-sm text-gray-800 dark:text-gray-200 placeholder-gray-400 focus:outline-none focus:border-blue-400 transition'
-const SELECT_CLS = 'w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2.5 text-sm text-gray-700 dark:text-gray-300 focus:outline-none focus:border-blue-400 transition'
+const INPUT_CLS  = 'w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2.5 text-sm text-gray-800 dark:text-gray-200 placeholder-gray-400 focus:outline-none focus:border-[#0E3D52] transition'
+const SELECT_CLS = 'w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2.5 text-sm text-gray-700 dark:text-gray-300 focus:outline-none focus:border-[#0E3D52] transition'
 
 type FormState = {
   firstName: string; lastName: string; preferredName: string

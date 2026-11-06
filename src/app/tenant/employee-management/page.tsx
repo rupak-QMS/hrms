@@ -168,12 +168,12 @@ EMP001,Jane,Smith,jane.smith@example.com,full_time,2026-01-15,,+61400000001,Yahw
           ) : (
             <>
               {/* Template download */}
-              <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-xl p-4">
-                <p className="text-sm font-medium text-blue-800 dark:text-blue-300 mb-1">Need a template?</p>
-                <p className="text-xs text-blue-600 dark:text-blue-400 mb-2">
-                  Required columns: <code className="bg-blue-100 dark:bg-blue-900/50 px-1 rounded">employee_number, first_name, last_name, email, employment_type, start_date</code>
+              <div className="bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border border-blue-200 dark:border-[#1A6080] rounded-xl p-4">
+                <p className="text-sm font-medium text-blue-800 dark:text-[#7dcfd7] mb-1">Need a template?</p>
+                <p className="text-xs text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4] mb-2">
+                  Required columns: <code className="bg-[#E0EEF4] dark:bg-[#0E3D52]/20 px-1 rounded">employee_number, first_name, last_name, email, employment_type, start_date</code>
                 </p>
-                <button onClick={downloadTemplate} className="text-xs text-blue-600 hover:text-blue-800 dark:text-blue-400 font-medium underline">
+                <button onClick={downloadTemplate} className="text-xs text-[#0E3D52] dark:text-[#4ebac4] hover:text-blue-800 dark:text-[#4ebac4] font-medium underline">
                   Download sample CSV →
                 </button>
               </div>
@@ -488,7 +488,7 @@ export default function EmployeeManagementPage() {
       {/* Stat cards */}
       <div className={`grid gap-4 ${isYPC ? 'grid-cols-3' : 'grid-cols-2 sm:grid-cols-4'}`}>
         {[
-          { label: 'Total',    value: employees.length, icon: '', cls: 'text-blue-600 dark:text-blue-400' },
+          { label: 'Total',    value: employees.length, icon: '', cls: 'text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4]' },
           { label: 'Active',   value: activeCount,       icon: '', cls: 'text-green-600 dark:text-green-400' },
           { label: 'Inactive', value: inactiveCount,     icon: '', cls: 'text-gray-500' },
           ...(!isYPC ? [{ label: 'NDIS', value: ndisCount, icon: '', cls: 'text-[#0E3D52] dark:text-[#4ebac4]' }] : []),
@@ -507,7 +507,7 @@ export default function EmployeeManagementPage() {
           placeholder="Search name, email, emp #…"
           value={search}
           onChange={e => setSearch(e.target.value)}
-          className="flex-1 min-w-[200px] bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 placeholder-gray-400 focus:outline-none focus:border-blue-400 dark:placeholder-gray-500"
+          className="flex-1 min-w-[200px] bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 placeholder-gray-400 focus:outline-none focus:border-[#0E3D52] dark:placeholder-gray-500"
         />
         <select
           value={status}
@@ -690,7 +690,7 @@ export default function EmployeeManagementPage() {
                         <Link
                           href={`/tenant/employee-management/${emp.id}`}
                           onClick={e => e.stopPropagation()}
-                          className="text-xs font-medium text-blue-500 hover:text-blue-700 dark:hover:text-blue-300"
+                          className="text-xs font-medium text-[#1A6080] dark:text-[#4ebac4] hover:text-[#0E3D52] dark:hover:text-[#7dcfd7]"
                         >
                           View →
                         </Link>

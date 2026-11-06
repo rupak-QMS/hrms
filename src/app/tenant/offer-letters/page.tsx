@@ -644,7 +644,7 @@ export default function OfferLettersPage() {
                 {/* Actions */}
                 <div className="flex flex-wrap gap-2">
                   <button onClick={printOffer}
-                    className="flex-1 py-2 text-xs font-medium bg-blue-700 hover:bg-blue-600 text-white rounded-lg transition">
+                    className="flex-1 py-2 text-xs font-medium bg-[#1A6080] hover:bg-[#0E3D52] text-white rounded-lg transition">
                     🖨 Print / PDF
                   </button>
                   {selected.status === 'draft' && (
@@ -707,7 +707,7 @@ export default function OfferLettersPage() {
                   </div>
                   <a
                     href={`mailto:${selected.candidateEmail}?subject=${emailSubject()}&body=${emailBody()}`}
-                    className="inline-flex items-center gap-1.5 text-xs px-3 py-2 bg-blue-700 hover:bg-blue-600 text-white rounded-lg transition">
+                    className="inline-flex items-center gap-1.5 text-xs px-3 py-2 bg-[#1A6080] hover:bg-[#0E3D52] text-white rounded-lg transition">
                     ✉ Email Candidate
                   </a>
                 </div>
@@ -730,7 +730,7 @@ export default function OfferLettersPage() {
               {/* Letter preview */}
               {selected.templateContent && (
                 <div className="card-premium p-5">
-                  <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-3">Letter Preview</p>
+                  <p className="text-xs font-semibold text-gray-600 dark:text-gray-400  mb-3">Letter Preview</p>
                   <pre className="text-xs text-gray-700 dark:text-gray-300 whitespace-pre-wrap font-sans leading-relaxed max-h-64 overflow-y-auto">
                     {selected.templateContent}
                   </pre>
@@ -739,7 +739,7 @@ export default function OfferLettersPage() {
 
               {/* History timeline */}
               <div className="card-premium p-5">
-                <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-4">History</p>
+                <p className="text-xs font-semibold text-gray-600 dark:text-gray-400  mb-4">History</p>
                 {events.length === 0 ? (
                   <p className="text-gray-600 text-sm text-center py-4 dark:text-gray-400">No events yet</p>
                 ) : (

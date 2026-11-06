@@ -17,7 +17,7 @@ type Stats = { total:number; draft:number; sent:number; signed:number; expired:n
 type Employee = { id:string; firstName:string; lastName:string }
 
 const STATUS_COLORS: Record<string,string> = {
-  draft:'bg-gray-100 text-gray-600', sent:'bg-blue-100 text-blue-700',
+  draft:'bg-gray-100 text-gray-600', sent:'bg-[#E0EEF4] text-[#0E3D52]',
   signed:'bg-green-100 text-green-700', expired:'bg-red-100 text-red-700',
 }
 
@@ -104,7 +104,7 @@ export default function ContractingPage() {
       </div>
 
       <div className="px-6 py-3 bg-gray-50 border-b border-gray-100 flex gap-6 dark:bg-gray-800 dark:border-gray-800">
-        {[{label:'Total',value:stats.total,cls:'text-gray-900'},{label:'Draft',value:stats.draft,cls:'text-gray-500'},{label:'Sent',value:stats.sent,cls:'text-blue-600'},{label:'Signed',value:stats.signed,cls:'text-green-600'},{label:'Expired',value:stats.expired,cls:'text-red-600'}].map(s=>(
+        {[{label:'Total',value:stats.total,cls:'text-gray-900'},{label:'Draft',value:stats.draft,cls:'text-gray-500'},{label:'Sent',value:stats.sent,cls:'text-[#0E3D52] dark:text-[#4ebac4]'},{label:'Signed',value:stats.signed,cls:'text-green-600'},{label:'Expired',value:stats.expired,cls:'text-red-600'}].map(s=>(
           <div key={s.label} className="text-center"><p className={`text-xl font-bold ${s.cls}`}>{s.value}</p><p className="text-xs text-gray-500 dark:text-gray-400">{s.label}</p></div>
         ))}
       </div>
@@ -297,25 +297,25 @@ function SendForSignaturePanel({
   // If sent but not signed — show status + copy link
   if (contract.status === 'sent' && !sent) {
     return (
-      <div className="border border-blue-200 bg-blue-50 rounded-xl p-4 space-y-3 dark:bg-blue-950/30 dark:border-blue-800">
+      <div className="border border-blue-200 bg-[#E0EEF4] rounded-xl p-4 space-y-3 dark:bg-blue-950/30 dark:border-[#1A6080]">
         <div className="flex items-center gap-2">
-          <span className="text-blue-600 text-lg">📧</span>
-          <p className="text-sm font-semibold text-blue-800 dark:text-blue-300">Awaiting employee signature</p>
+          <span className="text-[#0E3D52] dark:text-[#4ebac4] text-lg">📧</span>
+          <p className="text-sm font-semibold text-blue-800 dark:text-[#7dcfd7]">Awaiting employee signature</p>
         </div>
-        <p className="text-xs text-blue-700 dark:text-blue-400">
+        <p className="text-xs text-[#0E3D52] dark:text-[#4ebac4]">
           The signing link has been emailed to <strong>{contract.email}</strong>.
           You can also share the link directly:
         </p>
         <div className="flex gap-2">
           <input readOnly value={signingUrl}
-            className="flex-1 border border-blue-200 rounded-lg px-3 py-1.5 text-xs bg-white dark:bg-blue-900/30 dark:border-blue-700 dark:text-blue-200 truncate"/>
+            className="flex-1 border border-blue-200 rounded-lg px-3 py-1.5 text-xs bg-white dark:bg-[#0E3D52]/20 dark:border-[#1A6080] dark:text-blue-200 truncate"/>
           <button onClick={copyLink}
-            className="px-3 py-1.5 border border-blue-300 rounded-lg text-xs font-medium text-blue-700 hover:bg-blue-100 dark:text-blue-300 dark:border-blue-600 dark:hover:bg-blue-800 shrink-0">
+            className="px-3 py-1.5 border border-blue-300 rounded-lg text-xs font-medium text-[#0E3D52] hover:bg-[#E0EEF4] dark:text-[#7dcfd7] dark:border-[#0E3D52] dark:hover:bg-blue-800 shrink-0">
             {copyDone ? '✓ Copied' : 'Copy'}
           </button>
         </div>
         <button onClick={sendForSignature} disabled={sending}
-          className="text-xs text-blue-600 hover:underline dark:text-blue-400 disabled:opacity-50">
+          className="text-xs text-[#0E3D52] dark:text-[#4ebac4] hover:underline dark:text-[#4ebac4] disabled:opacity-50">
           {sending ? 'Resending…' : 'Resend email'}
         </button>
       </div>

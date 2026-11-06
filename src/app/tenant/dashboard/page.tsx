@@ -327,7 +327,7 @@ function PersonalDashboard({ userName, tenantName, primaryColor, greetingText, e
                     </div>
                   </div>
                   {b.carriedForward > 0 && (
-                    <span className="text-[10px] text-blue-500 dark:text-blue-400">+{b.carriedForward}d carried forward</span>
+                    <span className="text-[10px] text-[#1A6080] dark:text-[#4ebac4] dark:text-[#4ebac4]">+{b.carriedForward}d carried forward</span>
                   )}
                   {b.pending > 0 && (
                     <span className="text-[10px] text-yellow-600 dark:text-yellow-400">{b.pending}d pending</span>
@@ -906,7 +906,7 @@ export default function DashboardPage() {
                       ? 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400'
                       : days <= 7
                       ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400'
-                      : 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400'
+                      : 'bg-[#E0EEF4] dark:bg-[#0E3D52]/20 text-[#0E3D52] dark:text-[#4ebac4]'
                   }`}>
                     {days === 0 ? 'Today' : days === 1 ? 'Tomorrow' : `${days}d`}
                   </span>

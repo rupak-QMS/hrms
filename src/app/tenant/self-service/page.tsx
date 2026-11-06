@@ -67,7 +67,7 @@ const LEAVE_STATUS_COLORS: Record<string, string> = {
 }
 
 const PRIORITY_COLORS: Record<string, string> = {
-  info:     'border-l-4 border-blue-400 bg-blue-50 dark:bg-blue-900/20',
+  info:     'border-l-4 border-blue-400 bg-[#E0EEF4] dark:bg-[#0E3D52]/20',
   warning:  'border-l-4 border-yellow-400 bg-yellow-50 dark:bg-yellow-900/20',
   critical: 'border-l-4 border-red-400 bg-red-50 dark:bg-red-900/20',
 }

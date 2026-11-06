@@ -75,7 +75,7 @@ function formatTime(iso: string): string {
 
 function shiftTypeColor(t: string | null) {
   const map: Record<string, string> = {
-    standard:     'bg-blue-100 border-blue-300 text-blue-900 dark:bg-blue-900/40 dark:border-blue-600 dark:text-blue-200',
+    standard:     'bg-[#E0EEF4] border-blue-300 text-blue-900 dark:bg-[#0E3D52]/20 dark:border-[#0E3D52] dark:text-blue-200',
     sleepover:    'bg-[#E0EEF4] border-[#9ccfda] text-[#0E3D52] dark:bg-[#0E3D52]/40 dark:border-[#0E3D52] dark:text-[#9ccfda]',
     active_night: 'bg-[#E0EEF4] border-[#b8d4e0] text-[#0E3D52] dark:bg-[#0E3D52]/20 dark:border-[#0E3D52] dark:text-[#9ccfda]',
     on_call:      'bg-yellow-100 border-yellow-300 text-yellow-900 dark:bg-yellow-900/40 dark:border-yellow-600 dark:text-yellow-200',
@@ -86,7 +86,7 @@ function shiftTypeColor(t: string | null) {
 function statusDot(s: string) {
   const map: Record<string, string> = {
     draft:     'bg-gray-400',
-    published: 'bg-blue-500',
+    published: 'bg-[#E0EEF4]0',
     confirmed: 'bg-green-500',
     completed: 'bg-green-700',
     cancelled: 'bg-red-500',
@@ -255,7 +255,7 @@ export default function RosterShiftsPage() {
             {activeTab === 'roster' && (
               <>
                 <ExportButton onClick={exportShiftsCsv} disabled={shifts.length === 0} />
-                <button onClick={() => openAddShift()} className="px-3 py-1.5 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700">
+                <button onClick={() => openAddShift()} className="px-3 py-1.5 bg-[#0E3D52] text-white rounded-lg text-sm font-medium hover:bg-[#1A6080]">
                   + Add Shift
                 </button>
               </>
@@ -274,7 +274,7 @@ export default function RosterShiftsPage() {
               onClick={() => setActiveTab(tab.key)}
               className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
                 activeTab === tab.key
-                  ? 'bg-blue-600 text-white'
+                  ? 'bg-[#0E3D52] text-white'
                   : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
               }`}
             >
@@ -305,7 +305,7 @@ export default function RosterShiftsPage() {
         {activeTab === 'roster' ? (
           loading ? (
             <div className="flex justify-center py-16">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600" />
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#0E3D52]" />
             </div>
           ) : (
             /* ── Weekly Calendar Grid ──────────────────────────────────── */
@@ -315,10 +315,10 @@ export default function RosterShiftsPage() {
                 const isToday = iso === formatDate(new Date())
                 const dayShifts = shiftsOnDay(iso)
                 return (
-                  <div key={iso} className={`bg-white dark:bg-gray-800 rounded-xl border ${isToday ? 'border-blue-400 dark:border-blue-500' : 'border-gray-200 dark:border-gray-700'} flex flex-col min-h-[300px]`}>
+                  <div key={iso} className={`bg-white dark:bg-gray-800 rounded-xl border ${isToday ? 'border-blue-400 dark:border-[#0E3D52]' : 'border-gray-200 dark:border-gray-700'} flex flex-col min-h-[300px]`}>
                     {/* Day header */}
-                    <div className={`px-3 py-2 border-b ${isToday ? 'border-blue-400 dark:border-blue-500 bg-blue-50 dark:bg-blue-900/20' : 'border-gray-200 dark:border-gray-700'} rounded-t-xl`}>
-                      <p className={`text-xs font-semibold ${isToday ? 'text-blue-700 dark:text-blue-300' : 'text-gray-500 dark:text-gray-400'}`}>{DAYS[i]}</p>
+                    <div className={`px-3 py-2 border-b ${isToday ? 'border-blue-400 dark:border-[#0E3D52] bg-[#E0EEF4] dark:bg-[#0E3D52]/20' : 'border-gray-200 dark:border-gray-700'} rounded-t-xl`}>
+                      <p className={`text-xs font-semibold ${isToday ? 'text-[#0E3D52] dark:text-[#7dcfd7]' : 'text-gray-500 dark:text-gray-400'}`}>{DAYS[i]}</p>
                       <p className={`text-lg font-bold ${isToday ? 'text-blue-800 dark:text-blue-200' : 'text-gray-900 dark:text-white'}`}>{day.getDate()}</p>
                       {dayShifts.length > 0 && (
                         <p className="text-xs text-gray-500 dark:text-gray-400">{dayShifts.length} shift{dayShifts.length !== 1 ? 's' : ''}</p>
@@ -340,7 +340,7 @@ export default function RosterShiftsPage() {
                           )}
                           <div className="flex gap-1 mt-1.5">
                             {s.status === 'draft' && (
-                              <button onClick={() => publishShift(s.id)} className="px-1.5 py-0.5 rounded bg-blue-600 text-white text-xs hover:bg-blue-700">Publish</button>
+                              <button onClick={() => publishShift(s.id)} className="px-1.5 py-0.5 rounded bg-[#0E3D52] text-white text-xs hover:bg-[#1A6080]">Publish</button>
                             )}
                             <button onClick={() => deleteShift(s.id)} className="px-1.5 py-0.5 rounded bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300 text-xs hover:bg-red-200 dark:hover:bg-red-900/60">✕</button>
                           </div>
@@ -351,7 +351,7 @@ export default function RosterShiftsPage() {
                     {/* Add button */}
                     <button
                       onClick={() => openAddShift(iso)}
-                      className="mx-2 mb-2 py-1 text-xs text-gray-400 dark:text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-lg border border-dashed border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-600 transition-colors"
+                      className="mx-2 mb-2 py-1 text-xs text-gray-400 dark:text-gray-500 hover:text-[#0E3D52] dark:text-[#4ebac4] dark:hover:text-[#4ebac4] hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-lg border border-dashed border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-[#0E3D52] transition-colors"
                     >
                       + Add
                     </button>
@@ -399,7 +399,7 @@ export default function RosterShiftsPage() {
                     </span>
                     {req.status === 'pending' && (
                       <button onClick={() => { setReviewSwap(req); setReviewNotes('') }}
-                        className="px-3 py-1 text-xs bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                        className="px-3 py-1 text-xs bg-[#0E3D52] text-white rounded-lg hover:bg-[#1A6080]">
                         Review
                       </button>
                     )}
@@ -472,7 +472,7 @@ export default function RosterShiftsPage() {
             <div className="flex justify-end gap-3 p-6 border-t border-gray-200 dark:border-gray-700">
               <button onClick={() => setShowAddShift(false)} className="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Cancel</button>
               <button onClick={submitShift} disabled={saving || !shiftForm.employeeId || !shiftForm.date}
-                className="px-4 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50">
+                className="px-4 py-2 text-sm bg-[#0E3D52] text-white rounded-lg hover:bg-[#1A6080] disabled:opacity-50">
                 {saving ? 'Saving…' : 'Add Shift'}
               </button>
             </div>

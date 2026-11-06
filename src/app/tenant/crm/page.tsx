@@ -533,7 +533,7 @@ function AccountsTab() {
         <input placeholder="Search accounts…" value={search} onChange={e => setSearch(e.target.value)} className="input-premium max-w-[280px]" />
         <ExportButton onClick={exportAccountsCsv} disabled={accounts.length === 0} />
         <button onClick={() => setModal(true)}
-          className="ml-auto bg-blue-600 hover:bg-blue-700 text-white border-none rounded-lg px-4 py-2 font-semibold cursor-pointer text-sm transition-colors">
+          className="ml-auto bg-[#0E3D52] hover:bg-[#1A6080] text-white border-none rounded-lg px-4 py-2 font-semibold cursor-pointer text-sm transition-colors">
           + New Account
         </button>
       </div>
@@ -549,7 +549,7 @@ function AccountsTab() {
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
               </button>
               <div className="flex items-start gap-3 mb-2.5">
-                <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center text-lg flex-shrink-0">🏢</div>
+                <div className="w-10 h-10 rounded-xl bg-[#E0EEF4] dark:bg-[#0E3D52]/20 flex items-center justify-center text-lg flex-shrink-0">🏢</div>
                 <div className="flex-1 min-w-0">
                   <div className="font-bold text-[15px] text-gray-900 dark:text-white truncate">{a.name}</div>
                   {a.industry && <div className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{a.industry}</div>}
@@ -611,7 +611,7 @@ function AccountsTab() {
           <div className="flex gap-2.5 justify-end mt-2">
             <button onClick={() => setModal(false)} className="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 cursor-pointer text-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">Cancel</button>
             <button onClick={create} disabled={saving || !form.name.trim()}
-              className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white border-none cursor-pointer font-semibold text-sm transition-colors disabled:opacity-50">
+              className="px-4 py-2 rounded-lg bg-[#0E3D52] hover:bg-[#1A6080] text-white border-none cursor-pointer font-semibold text-sm transition-colors disabled:opacity-50">
               {saving ? 'Creating…' : 'Create Account'}
             </button>
           </div>

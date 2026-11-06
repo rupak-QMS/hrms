@@ -368,9 +368,9 @@ export default function TenantSettingsPage() {
           {/* ── DOMAIN TAB ── */}
           {tab === 'domain' && (
             <div className="card-premium p-6 space-y-5">
-              <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-3 text-xs text-blue-700 dark:text-blue-300">
+              <div className="bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border border-blue-200 dark:border-[#1A6080] rounded-lg p-3 text-xs text-[#0E3D52] dark:text-[#7dcfd7]">
                 <strong>DNS Configuration:</strong> Point your custom domain CNAME to{' '}
-                <code className="bg-blue-100 dark:bg-blue-900/50 px-1 rounded">cname.vercel-dns.com</code>, then enter it below.
+                <code className="bg-[#E0EEF4] dark:bg-[#0E3D52]/20 px-1 rounded">cname.vercel-dns.com</code>, then enter it below.
                 Vercel will automatically provision an SSL certificate.
               </div>
 
@@ -450,7 +450,7 @@ export default function TenantSettingsPage() {
               </div>
 
               <div className="border-t border-gray-200 dark:border-gray-800 pt-4">
-                <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-4">SMTP Server</p>
+                <p className="text-xs font-semibold text-gray-600 dark:text-gray-400  mb-4">SMTP Server</p>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className={LABEL}>SMTP Host</label>
@@ -498,7 +498,7 @@ export default function TenantSettingsPage() {
 
               {/* Employee Lifecycle */}
               <div>
-                <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-3">Employee Lifecycle</p>
+                <p className="text-xs font-semibold text-gray-600 dark:text-gray-400  mb-3">Employee Lifecycle</p>
                 <div className="space-y-3">
                   {[
                     { key: 'emailWelcome',    label: 'User invitation welcome',    desc: 'Send login credentials when a new portal user is invited' },
@@ -517,7 +517,7 @@ export default function TenantSettingsPage() {
 
               {/* Compliance & Documents */}
               <div className="border-t border-gray-200 dark:border-gray-800 pt-5">
-                <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-3">Compliance & Documents</p>
+                <p className="text-xs font-semibold text-gray-600 dark:text-gray-400  mb-3">Compliance & Documents</p>
                 <div className="space-y-3">
                   {[
                     { key: 'emailDocExpiry',  label: 'Document expiry alerts (to employee)', desc: 'Notify employee when their compliance document is expiring or has expired' },
@@ -535,7 +535,7 @@ export default function TenantSettingsPage() {
 
               {/* Payroll & Contracts */}
               <div className="border-t border-gray-200 dark:border-gray-800 pt-5">
-                <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-3">Payroll & Contracts</p>
+                <p className="text-xs font-semibold text-gray-600 dark:text-gray-400  mb-3">Payroll & Contracts</p>
                 <div className="space-y-3">
                   {[
                     { key: 'emailPayroll',   label: 'Payslip notifications',   desc: 'Email employee when their pay run is marked as paid' },
@@ -553,7 +553,7 @@ export default function TenantSettingsPage() {
 
               {/* HR Processes */}
               <div className="border-t border-gray-200 dark:border-gray-800 pt-5">
-                <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-3">HR Processes</p>
+                <p className="text-xs font-semibold text-gray-600 dark:text-gray-400  mb-3">HR Processes</p>
                 <div className="space-y-3">
                   {[
                     { key: 'emailGrievance',  label: 'Grievance alerts',           desc: 'Confirm to lodger; alert HR when a grievance is submitted or resolved' },
@@ -572,7 +572,7 @@ export default function TenantSettingsPage() {
 
               {/* Development */}
               <div className="border-t border-gray-200 dark:border-gray-800 pt-5">
-                <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-3">Development & Training</p>
+                <p className="text-xs font-semibold text-gray-600 dark:text-gray-400  mb-3">Development & Training</p>
                 <div className="space-y-3">
                   {[
                     { key: 'emailPerformance', label: 'Performance review notifications', desc: 'Notify employee when review is scheduled or completed' },
@@ -590,7 +590,7 @@ export default function TenantSettingsPage() {
 
               {/* Culture */}
               <div className="border-t border-gray-200 dark:border-gray-800 pt-5">
-                <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-3">Culture & Recruitment</p>
+                <p className="text-xs font-semibold text-gray-600 dark:text-gray-400  mb-3">Culture & Recruitment</p>
                 <div className="space-y-3">
                   {[
                     { key: 'emailRecognition', label: 'Recognition awards',       desc: 'Notify employee when they receive a recognition award' },
@@ -608,7 +608,7 @@ export default function TenantSettingsPage() {
 
               {/* Slack */}
               <div className="border-t border-gray-200 dark:border-gray-800 pt-5">
-                <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-3">Slack Integration</p>
+                <p className="text-xs font-semibold text-gray-600 dark:text-gray-400  mb-3">Slack Integration</p>
                 <label className={LABEL}>Incoming Webhook URL</label>
                 <input value={notif.slackWebhook ?? ''} placeholder="https://hooks.slack.com/services/..."
                   onChange={e => setSettings(s => ({ ...s, notifications: { ...s.notifications, slackWebhook: e.target.value } }))}

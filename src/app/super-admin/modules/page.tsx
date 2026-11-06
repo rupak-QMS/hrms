@@ -120,11 +120,11 @@ export default function ModulesPage() {
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-gray-200 dark:border-gray-800">
-              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider w-8">#</th>
-              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">Module</th>
-              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">Category</th>
-              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">Adoption</th>
-              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider w-48">Usage</th>
+              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400  w-8">#</th>
+              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 ">Module</th>
+              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 ">Category</th>
+              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 ">Adoption</th>
+              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400  w-48">Usage</th>
             </tr>
           </thead>
           <tbody>

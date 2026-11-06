@@ -70,7 +70,7 @@ const INPUT = 'input-premium'
 
 const EMP_TYPE_CONFIG: Record<string, { label: string; bg: string }> = {
   full_time:  { label: 'Full-time',  bg: 'bg-[#E0EEF4]0' },
-  part_time:  { label: 'Part-time',  bg: 'bg-blue-500' },
+  part_time:  { label: 'Part-time',  bg: 'bg-[#E0EEF4]0' },
   casual:     { label: 'Casual',     bg: 'bg-amber-500' },
   contractor: { label: 'Contractor', bg: 'bg-emerald-500' },
 }
@@ -320,7 +320,7 @@ export default function WorkforcePlanningPage() {
             {/* Summary stats */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
               <StatCard label="Active Employees" value={summary!.totalActive} color="text-foreground" />
-              <StatCard label="Departments"      value={summary!.departments} color="text-blue-400" />
+              <StatCard label="Departments"      value={summary!.departments} color="text-[#4ebac4]" />
               <StatCard label="Active Positions" value={summary!.positions}   color="text-[#1A6080] dark:text-[#4ebac4]" />
               <StatCard label="Open Plans"       value={planStats.openRoles}  color="text-amber-400" />
             </div>
@@ -358,7 +358,7 @@ export default function WorkforcePlanningPage() {
                   <thead>
                     <tr>
                       {['Department', 'Employees', 'Positions', 'Fill Rate'].map(h => (
-                        <th key={h} className="px-5 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">{h}</th>
+                        <th key={h} className="px-5 py-3 text-xs font-semibold text-gray-500 ">{h}</th>
                       ))}
                     </tr>
                   </thead>
@@ -379,7 +379,7 @@ export default function WorkforcePlanningPage() {
                                 <div className="flex items-center gap-2">
                                   <div className="w-20 h-1.5 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
                                     <div
-                                      className={`h-full rounded-full ${fillRate >= 100 ? 'bg-green-500' : fillRate >= 70 ? 'bg-blue-500' : 'bg-amber-500'}`}
+                                      className={`h-full rounded-full ${fillRate >= 100 ? 'bg-green-500' : fillRate >= 70 ? 'bg-[#E0EEF4]0' : 'bg-amber-500'}`}
                                       style={{ width: `${Math.min(fillRate, 100)}%` }}
                                     />
                                   </div>
@@ -455,7 +455,7 @@ export default function WorkforcePlanningPage() {
             <StatCard label="Planned Headcount" value={planStats.totalPlanned}   color="text-foreground" />
             <StatCard label="Current Headcount" value={planStats.totalCurrent}   color="text-green-400" />
             <StatCard label="Total Vacancies"   value={planStats.totalVacancies} color="text-amber-400" />
-            <StatCard label="Open Roles"        value={planStats.openRoles}      color="text-blue-400" />
+            <StatCard label="Open Roles"        value={planStats.openRoles}      color="text-[#4ebac4]" />
           </div>
 
           {/* Add / Edit form */}
@@ -633,7 +633,7 @@ export default function WorkforcePlanningPage() {
                 <thead>
                   <tr>
                     {['Role / Department', 'Planned', 'Current', 'Vacancies', 'Fill', 'Target Date', 'Status', ''].map(h => (
-                      <th key={h} className="px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">{h}</th>
+                      <th key={h} className="px-4 py-3 text-xs font-semibold text-gray-500 ">{h}</th>
                     ))}
                   </tr>
                 </thead>
@@ -665,7 +665,7 @@ export default function WorkforcePlanningPage() {
                           <div className="flex items-center gap-1.5">
                             <div className="w-14 h-1.5 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
                               <div
-                                className={`h-full rounded-full ${fillPct >= 100 ? 'bg-green-500' : fillPct >= 70 ? 'bg-blue-500' : 'bg-amber-500'}`}
+                                className={`h-full rounded-full ${fillPct >= 100 ? 'bg-green-500' : fillPct >= 70 ? 'bg-[#E0EEF4]0' : 'bg-amber-500'}`}
                                 style={{ width: `${Math.min(fillPct, 100)}%` }}
                               />
                             </div>

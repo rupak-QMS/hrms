@@ -323,7 +323,7 @@ export default function PromotionsPage() {
                 {/* Action buttons by status */}
                 {selected.status === 'pending' && (
                   <button onClick={() => action('under_review')}
-                    className="w-full py-2.5 bg-blue-700 hover:bg-blue-600 text-white text-sm font-medium rounded-lg transition">
+                    className="w-full py-2.5 bg-[#1A6080] hover:bg-[#0E3D52] text-white text-sm font-medium rounded-lg transition">
                     Submit for Review
                   </button>
                 )}
@@ -367,7 +367,7 @@ export default function PromotionsPage() {
 
               {/* History timeline */}
               <div className="card-premium p-5">
-                <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-4">Timeline</p>
+                <p className="text-xs font-semibold text-gray-600 dark:text-gray-400  mb-4">Timeline</p>
                 {events.length === 0 ? (
                   <p className="text-gray-600 text-sm text-center py-4 dark:text-gray-400">No events yet</p>
                 ) : (

@@ -15,7 +15,7 @@ type Stats = { total:number; pending:number; hired:number; paid:number }
 type Employee = { id:string; firstName:string; lastName:string }
 
 const STATUS_COLORS: Record<string,string> = {
-  pending:'bg-blue-100 text-blue-700', interviewed:'bg-yellow-100 text-yellow-700',
+  pending:'bg-[#E0EEF4] text-[#0E3D52]', interviewed:'bg-yellow-100 text-yellow-700',
   hired:'bg-green-100 text-green-700', rejected:'bg-red-100 text-red-700',
 }
 
@@ -96,7 +96,7 @@ export default function ReferralPage() {
       </div>
 
       <div className="px-6 py-3 bg-gray-50 border-b border-gray-100 flex gap-6 dark:bg-gray-800 dark:border-gray-800">
-        {[{label:'Total',value:stats.total,cls:'text-gray-900 dark:text-white'},{label:'Pending',value:stats.pending,cls:'text-blue-600'},{label:'Hired',value:stats.hired,cls:'text-green-600'},{label:'Bonus Paid',value:stats.paid,cls:'text-[#0E3D52]'}].map(s=>(
+        {[{label:'Total',value:stats.total,cls:'text-gray-900 dark:text-white'},{label:'Pending',value:stats.pending,cls:'text-[#0E3D52] dark:text-[#4ebac4]'},{label:'Hired',value:stats.hired,cls:'text-green-600'},{label:'Bonus Paid',value:stats.paid,cls:'text-[#0E3D52]'}].map(s=>(
           <div key={s.label} className="text-center"><p className={`text-xl font-bold ${s.cls}`}>{s.value}</p><p className="text-xs text-gray-500 dark:text-gray-400">{s.label}</p></div>
         ))}
       </div>

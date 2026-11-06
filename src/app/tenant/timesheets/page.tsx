@@ -39,7 +39,7 @@ type Timesheet = {
 
 const STATUS_COLOURS: Record<string, string> = {
   pending:   'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400',
-  submitted: 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400',
+  submitted: 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/20 dark:text-[#4ebac4]',
   approved:  'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400',
   rejected:  'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400',
 }
@@ -92,7 +92,7 @@ function RejectModal({ onConfirm, onClose }: {
           <h3 className="font-bold text-gray-900 dark:text-white">Reject Timesheet</h3>
         </div>
         <div className="p-6 space-y-3">
-          <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1 dark:text-gray-400">
+          <label className="block text-xs font-semibold text-gray-500  mb-1 dark:text-gray-400">
             Reason *
           </label>
           <textarea
@@ -202,7 +202,7 @@ function ClockCard({ onAction }: { onAction: () => void }) {
     }`}>
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
-          <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-1">
+          <p className="text-xs font-semibold text-gray-500 dark:text-gray-400  mb-1">
             {status === 'clocked_in' ? 'Currently Clocked In' : 'Clock Status'}
           </p>
           {status === 'clocked_in' ? (
@@ -531,10 +531,10 @@ export default function TimesheetsPage() {
       {/* Stats */}
       <div className="flex gap-3 flex-wrap">
         {[
-          { label: 'Entries',    value: timesheets.length,                                        color: 'text-blue-600 dark:text-blue-400' },
+          { label: 'Entries',    value: timesheets.length,                                        color: 'text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4]' },
           { label: 'Hours',      value: `${totalHours.toFixed(1)}h`,                              color: 'text-[#0E3D52] dark:text-[#4ebac4]' },
           { label: 'Pending',    value: timesheets.filter(t => t.status === 'pending').length,    color: 'text-yellow-600 dark:text-yellow-400' },
-          { label: 'Submitted',  value: pendingCount,                                             color: 'text-blue-600 dark:text-blue-400' },
+          { label: 'Submitted',  value: pendingCount,                                             color: 'text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4]' },
           { label: 'Approved',   value: timesheets.filter(t => t.status === 'approved').length,   color: 'text-green-600 dark:text-green-400' },
         ].map(c => (
           <div key={c.label} className="card-premium px-4 py-2 flex items-center gap-2">
@@ -570,19 +570,19 @@ export default function TimesheetsPage() {
                     </th>
                   )}
                   {isManager && (
-                    <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                    <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 ">
                       Employee
                     </th>
                   )}
-                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Date</th>
-                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Start</th>
-                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">End</th>
-                  <th className="px-4 py-3 text-right text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Break</th>
-                  <th className="px-4 py-3 text-right text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Hours</th>
-                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Details</th>
-                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Status</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 ">Date</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 ">Start</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 ">End</th>
+                  <th className="px-4 py-3 text-right text-xs font-semibold text-gray-500 dark:text-gray-400 ">Break</th>
+                  <th className="px-4 py-3 text-right text-xs font-semibold text-gray-500 dark:text-gray-400 ">Hours</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 ">Details</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 ">Status</th>
                   {isManager && (
-                    <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Action</th>
+                    <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 ">Action</th>
                   )}
                 </tr>
               </thead>

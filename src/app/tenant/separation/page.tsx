@@ -242,7 +242,7 @@ export default function SeparationPage() {
       <div className="grid grid-cols-3 lg:grid-cols-6 gap-3">
         {[
           { label: 'Total',        value: stats.total,       color: 'text-foreground' },
-          { label: 'Pending',      value: stats.pending,     color: 'text-blue-400' },
+          { label: 'Pending',      value: stats.pending,     color: 'text-[#4ebac4]' },
           { label: 'Active',       value: stats.active,      color: 'text-amber-400' },
           { label: 'Completed',    value: stats.completed,   color: 'text-green-400' },
           { label: 'Resignations', value: stats.resignation, color: 'text-[#1A6080] dark:text-[#4ebac4]' },
@@ -275,17 +275,17 @@ export default function SeparationPage() {
           {/* Key metrics */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="card-premium p-5">
-              <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider font-semibold mb-1">Active Offboardings</p>
+              <p className="text-xs text-gray-500 dark:text-gray-400  font-semibold mb-1">Active Offboardings</p>
               <p className="text-3xl font-bold text-amber-400">{stats.active + stats.pending}</p>
               <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{stats.pending} pending · {stats.active} in progress</p>
             </div>
             <div className="card-premium p-5">
-              <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider font-semibold mb-1">Avg. Offboarding Days</p>
+              <p className="text-xs text-gray-500 dark:text-gray-400  font-semibold mb-1">Avg. Offboarding Days</p>
               <p className="text-3xl font-bold text-[#1A6080] dark:text-[#4ebac4]">{avgDays !== null ? avgDays : '—'}</p>
               <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Based on {stats.completed} completed</p>
             </div>
             <div className="card-premium p-5">
-              <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider font-semibold mb-1">Completion Rate</p>
+              <p className="text-xs text-gray-500 dark:text-gray-400  font-semibold mb-1">Completion Rate</p>
               <p className="text-3xl font-bold text-green-400">
                 {stats.total ? Math.round((stats.completed / stats.total) * 100) : 0}%
               </p>
@@ -634,7 +634,7 @@ export default function SeparationPage() {
                             </div>
                             {r.reason && (
                               <div>
-                                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1 dark:text-gray-400">Reason</p>
+                                <p className="text-xs font-semibold text-gray-500  mb-1 dark:text-gray-400">Reason</p>
                                 <p className="text-sm text-gray-600 dark:text-gray-300">{r.reason}</p>
                               </div>
                             )}
@@ -643,7 +643,7 @@ export default function SeparationPage() {
 
                         {/* Offboarding checklist */}
                         <div>
-                          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 dark:text-gray-400">Offboarding Checklist</p>
+                          <p className="text-xs font-semibold text-gray-500  mb-2 dark:text-gray-400">Offboarding Checklist</p>
                           <div className="space-y-2">
                             {[
                               { label: 'Assets Returned',       desc: 'Laptop, access cards, keys, uniforms, PPE', done: r.assetsReturned,      key: 'assetsReturned' },
@@ -676,7 +676,7 @@ export default function SeparationPage() {
 
                         {/* Exit interview */}
                         <div>
-                          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 dark:text-gray-400">Exit Interview</p>
+                          <p className="text-xs font-semibold text-gray-500  mb-2 dark:text-gray-400">Exit Interview</p>
                           {r.exitInterviewAt && r.status === 'completed' ? (
                             <div className="bg-gray-100 dark:bg-gray-800/40 rounded-lg p-3 space-y-1">
                               <p className="text-xs text-gray-500 dark:text-gray-400">Conducted {new Date(r.exitInterviewAt).toLocaleDateString('en-AU')}</p>
@@ -720,7 +720,7 @@ export default function SeparationPage() {
 
                         {/* Event history */}
                         <div>
-                          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3 dark:text-gray-400">History & Notes</p>
+                          <p className="text-xs font-semibold text-gray-500  mb-3 dark:text-gray-400">History & Notes</p>
                           <div className="flex gap-2 mb-4">
                             <input value={noteFields[r.id] ?? ''}
                               onChange={e => setNoteFields(prev => ({ ...prev, [r.id]: e.target.value }))}

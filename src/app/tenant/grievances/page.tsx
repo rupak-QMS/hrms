@@ -181,7 +181,7 @@ export default function GrievancesPage() {
       <div className="grid grid-cols-3 lg:grid-cols-6 gap-3">
         {[
           { label: 'Total',    value: stats.total,    color: 'text-foreground' },
-          { label: 'New',      value: stats.new,      color: 'text-blue-400' },
+          { label: 'New',      value: stats.new,      color: 'text-[#4ebac4]' },
           { label: 'Active',   value: stats.active,   color: 'text-amber-400' },
           { label: 'Closed',   value: stats.closed,   color: 'text-green-400' },
           { label: 'Critical', value: stats.critical, color: 'text-red-400' },
@@ -339,7 +339,7 @@ export default function GrievancesPage() {
 
                     {/* Stage timeline */}
                     <div>
-                      <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 dark:text-gray-400">Investigation Stage</p>
+                      <p className="text-xs font-semibold text-gray-500  mb-2 dark:text-gray-400">Investigation Stage</p>
                       <div className="flex items-center gap-0.5">
                         {STATUS_FLOW.map((s, i) => (
                           <div key={s.value} className="flex items-center flex-1">

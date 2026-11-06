@@ -173,12 +173,12 @@ export default function AuditLogsPage() {
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-gray-200 dark:border-gray-800">
-                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">Date / Time</th>
-                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">Tenant</th>
-                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">Action</th>
-                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">Resource</th>
-                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">IP Address</th>
-                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">Detail</th>
+                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 ">Date / Time</th>
+                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 ">Tenant</th>
+                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 ">Action</th>
+                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 ">Resource</th>
+                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 ">IP Address</th>
+                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 ">Detail</th>
               </tr>
             </thead>
             <tbody>

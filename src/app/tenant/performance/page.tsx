@@ -44,7 +44,7 @@ const OUTCOMES = [
 ]
 
 const GOAL_STATUSES = [
-  { value: 'active',      label: 'Active',      color: 'text-blue-400 border-blue-800 bg-blue-900/30' },
+  { value: 'active',      label: 'Active',      color: 'text-[#4ebac4] border-blue-800 bg-blue-900/30' },
   { value: 'completed',   label: 'Completed',   color: 'text-green-400 border-green-800 bg-green-900/30' },
   { value: 'on_hold',     label: 'On Hold',     color: 'text-amber-400 border-amber-800 bg-amber-900/30' },
   { value: 'cancelled',   label: 'Cancelled',   color: 'text-gray-400 border-gray-700 bg-gray-800/30' },
@@ -78,7 +78,7 @@ function RatingButtons({ value, onChange, color = 'bg-[#0E3D52]' }: { value: num
 }
 
 function ProgressBar({ value }: { value: number }) {
-  const color = value >= 80 ? 'bg-green-500' : value >= 50 ? 'bg-blue-500' : value >= 25 ? 'bg-amber-500' : 'bg-red-500'
+  const color = value >= 80 ? 'bg-green-500' : value >= 50 ? 'bg-[#E0EEF4]0' : value >= 25 ? 'bg-amber-500' : 'bg-red-500'
   return (
     <div className="flex items-center gap-2">
       <div className="flex-1 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
@@ -334,7 +334,7 @@ export default function PerformancePage() {
       <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
         {[
           { label: 'Total',      value: stats.total,     color: 'text-foreground' },
-          { label: 'Scheduled',  value: stats.scheduled, color: 'text-blue-400' },
+          { label: 'Scheduled',  value: stats.scheduled, color: 'text-[#4ebac4]' },
           { label: 'Completed',  value: stats.completed, color: 'text-green-400' },
           { label: 'Overdue',    value: stats.overdue,   color: 'text-red-400' },
           { label: 'Probation',  value: stats.probation, color: 'text-amber-400' },
@@ -519,7 +519,7 @@ export default function PerformancePage() {
                 <thead>
                   <tr>
                     {['Employee','Type','Status','Scheduled','Rating','Outcome','Actions'].map(h => (
-                      <th key={h} className="px-4 py-3 text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400">{h}</th>
+                      <th key={h} className="px-4 py-3 text-xs font-semibold  text-gray-600 dark:text-gray-400">{h}</th>
                     ))}
                   </tr>
                 </thead>
@@ -593,7 +593,7 @@ export default function PerformancePage() {
                                 {/* KPI breakdown */}
                                 {r.kpis?.length > 0 && (
                                   <div className="bg-gray-50 dark:bg-gray-800/40 rounded-lg p-3 space-y-2">
-                                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">KPI Ratings</p>
+                                    <p className="text-xs font-semibold text-gray-500 ">KPI Ratings</p>
                                     {r.kpis.map(kpi => (
                                       <div key={kpi.id} className="flex items-center justify-between gap-2">
                                         <span className="text-xs text-gray-400 flex-1">{kpi.area}</span>
@@ -608,13 +608,13 @@ export default function PerformancePage() {
                                 <div className="space-y-3">
                                   {r.developmentPlan && (
                                     <div className="bg-gray-50 dark:bg-gray-800/40 rounded-lg p-3">
-                                      <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Development Plan</p>
+                                      <p className="text-xs font-semibold text-gray-500  mb-1">Development Plan</p>
                                       <p className="text-xs text-gray-400">{r.developmentPlan}</p>
                                     </div>
                                   )}
                                   {r.employeeInput && (r.employeeInput.strengths || r.employeeInput.improvements) && (
-                                    <div className="bg-blue-50 dark:bg-blue-900/10 border border-blue-200 dark:border-blue-900/30 rounded-lg p-3 space-y-2">
-                                      <p className="text-xs font-semibold text-blue-400 uppercase tracking-wider">Employee Self-Assessment</p>
+                                    <div className="bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border border-blue-200 dark:border-blue-900/30 rounded-lg p-3 space-y-2">
+                                      <p className="text-xs font-semibold text-[#4ebac4] ">Employee Self-Assessment</p>
                                       {r.employeeInput.strengths    && <div><p className="text-xs text-gray-500">Strengths</p><p className="text-xs text-gray-300">{r.employeeInput.strengths}</p></div>}
                                       {r.employeeInput.improvements && <div><p className="text-xs text-gray-500">Improvements</p><p className="text-xs text-gray-300">{r.employeeInput.improvements}</p></div>}
                                       {r.employeeInput.goals        && <div><p className="text-xs text-gray-500">Goals</p><p className="text-xs text-gray-300">{r.employeeInput.goals}</p></div>}
@@ -739,7 +739,7 @@ export default function PerformancePage() {
                 <div>
                   <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Self Rating (1–5)</label>
                   <RatingButtons value={editingGoal.selfRating} onChange={n => setEditingGoal({ ...editingGoal, selfRating: n })} />
-                  {editingGoal.selfRating && <p className="text-xs text-blue-400 mt-1">{RATING_LABELS[editingGoal.selfRating]}</p>}
+                  {editingGoal.selfRating && <p className="text-xs text-[#4ebac4] mt-1">{RATING_LABELS[editingGoal.selfRating]}</p>}
                 </div>
                 <div>
                   <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Manager Rating (1–5)</label>
@@ -829,7 +829,7 @@ export default function PerformancePage() {
                       </span>
                     )}
                     {g.selfRating != null && (
-                      <span className="text-blue-400">Self: {g.selfRating}/5 · {RATING_LABELS[g.selfRating]}</span>
+                      <span className="text-[#4ebac4]">Self: {g.selfRating}/5 · {RATING_LABELS[g.selfRating]}</span>
                     )}
                     {g.managerRating != null && (
                       <span className="text-green-400">Manager: {g.managerRating}/5 · {RATING_LABELS[g.managerRating]}</span>

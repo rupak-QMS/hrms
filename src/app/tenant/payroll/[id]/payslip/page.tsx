@@ -110,7 +110,7 @@ export default function PayslipPrintPage() {
             {tenant?.abn && <p className="text-xs text-gray-500 mt-0.5">ABN: {tenant.abn}</p>}
           </div>
           <div className="text-right">
-            <p className="text-2xl font-bold text-gray-900 uppercase tracking-wide">Payslip</p>
+            <p className="text-2xl font-bold text-gray-900 ">Payslip</p>
             <p className="text-xs text-gray-500 mt-1">Status: <span className="font-semibold text-gray-700 capitalize">{rec.status}</span></p>
             <p className="text-xs text-gray-500">Issued: {fmtDate(rec.createdAt.split('T')[0])}</p>
           </div>
@@ -119,13 +119,13 @@ export default function PayslipPrintPage() {
         {/* Employee info */}
         <div className="grid grid-cols-2 gap-6 mb-6">
           <div>
-            <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">Employee</p>
+            <p className="text-xs text-gray-400  mb-1">Employee</p>
             <p className="font-semibold text-gray-900">{rec.employeeFirstName} {rec.employeeLastName}</p>
             <p className="text-sm text-gray-600">{rec.employeeEmail}</p>
             {rec.employeeEntityName && <p className="text-xs text-gray-500 mt-0.5">{rec.employeeEntityName}</p>}
           </div>
           <div>
-            <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">Pay Period</p>
+            <p className="text-xs text-gray-400  mb-1">Pay Period</p>
             <p className="font-semibold text-gray-900">{fmtDate(rec.periodStart)}</p>
             <p className="text-sm text-gray-600">to {fmtDate(rec.periodEnd)}</p>
             <p className="text-xs text-gray-400 mt-0.5 capitalize">{frequency}</p>
@@ -136,8 +136,8 @@ export default function PayslipPrintPage() {
         <table className="table-premium mb-6">
           <thead>
             <tr className="bg-gray-100">
-              <th className="text-left px-3 py-2 text-xs font-semibold text-gray-600 uppercase tracking-wide">Earnings</th>
-              <th className="text-right px-3 py-2 text-xs font-semibold text-gray-600 uppercase tracking-wide">Amount</th>
+              <th className="text-left px-3 py-2 text-xs font-semibold text-gray-600 ">Earnings</th>
+              <th className="text-right px-3 py-2 text-xs font-semibold text-gray-600 ">Amount</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-100">
@@ -172,8 +172,8 @@ export default function PayslipPrintPage() {
         <table className="table-premium mb-6">
           <thead>
             <tr className="bg-gray-100">
-              <th className="text-left px-3 py-2 text-xs font-semibold text-gray-600 uppercase tracking-wide">Deductions</th>
-              <th className="text-right px-3 py-2 text-xs font-semibold text-gray-600 uppercase tracking-wide">Amount</th>
+              <th className="text-left px-3 py-2 text-xs font-semibold text-gray-600 ">Deductions</th>
+              <th className="text-right px-3 py-2 text-xs font-semibold text-gray-600 ">Amount</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-100">

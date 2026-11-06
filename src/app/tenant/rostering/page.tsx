@@ -81,7 +81,7 @@ type FillResult = {
 const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 
 const SHIFT_COLOURS: Record<string, { bg: string; text: string; border: string }> = {
-  standard:     { bg: 'bg-blue-100 dark:bg-blue-900/40',    text: 'text-blue-800 dark:text-blue-200',    border: 'border-blue-300 dark:border-blue-600' },
+  standard:     { bg: 'bg-[#E0EEF4] dark:bg-[#0E3D52]/20',    text: 'text-blue-800 dark:text-blue-200',    border: 'border-blue-300 dark:border-[#0E3D52]' },
   sleepover:    { bg: 'bg-[#E0EEF4] dark:bg-[#0E3D52]/40', text: 'text-[#1A6080] dark:text-[#9ccfda]', border: 'border-[#9ccfda] dark:border-[#0E3D52]' },
   active_night: { bg: 'bg-[#E0EEF4] dark:bg-[#0E3D52]/20', text: 'text-[#0E3D52] dark:text-[#9ccfda]', border: 'border-[#b8d4e0] dark:border-[#0E3D52]' },
   on_call:      { bg: 'bg-amber-100 dark:bg-amber-900/40',   text: 'text-amber-800 dark:text-amber-200',   border: 'border-amber-300 dark:border-amber-600' },
@@ -90,7 +90,7 @@ const SHIFT_COLOURS: Record<string, { bg: string; text: string; border: string }
 const STATUS_BADGE: Record<string, string> = {
   draft:     'bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400',
   published: 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400',
-  confirmed: 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-400',
+  confirmed: 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/20 dark:text-[#4ebac4]',
   completed: 'bg-gray-200 text-gray-500 dark:bg-gray-700 dark:text-gray-400',
   cancelled: 'bg-red-100 text-red-600 dark:bg-red-900/40 dark:text-red-400',
 }
@@ -199,19 +199,19 @@ function AvailabilityModal({
 
         {/* Add slot form */}
         <form onSubmit={handleSave} className="px-6 pb-6 space-y-4">
-          <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">Add / update slot</p>
+          <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 ">Add / update slot</p>
           {error && <p className="text-sm text-red-600 bg-red-50 dark:bg-red-900/20 rounded-lg px-3 py-2">{error}</p>}
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-semibold text-gray-500 mb-1 uppercase tracking-wide dark:text-gray-400">Day</label>
+              <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Day</label>
               <select value={form.dayOfWeek} onChange={e => setForm(f => ({ ...f, dayOfWeek: Number(e.target.value) }))}
                 className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
                 {DAYS.map((d, i) => <option key={i} value={i}>{d}</option>)}
               </select>
             </div>
             <div>
-              <label className="block text-xs font-semibold text-gray-500 mb-1 uppercase tracking-wide dark:text-gray-400">Status</label>
+              <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Status</label>
               <select value={form.isAvailable ? 'yes' : 'no'} onChange={e => setForm(f => ({ ...f, isAvailable: e.target.value === 'yes' }))}
                 className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
                 <option value="yes">Available</option>
@@ -222,19 +222,19 @@ function AvailabilityModal({
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-semibold text-gray-500 mb-1 uppercase tracking-wide dark:text-gray-400">From</label>
+              <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">From</label>
               <input type="time" value={form.startTime} onChange={e => setForm(f => ({ ...f, startTime: e.target.value }))}
                 className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none" />
             </div>
             <div>
-              <label className="block text-xs font-semibold text-gray-500 mb-1 uppercase tracking-wide dark:text-gray-400">To</label>
+              <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">To</label>
               <input type="time" value={form.endTime} onChange={e => setForm(f => ({ ...f, endTime: e.target.value }))}
                 className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none" />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-gray-500 mb-1 uppercase tracking-wide dark:text-gray-400">Note (optional)</label>
+            <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Note (optional)</label>
             <input type="text" value={form.note} onChange={e => setForm(f => ({ ...f, note: e.target.value }))} placeholder="e.g. Prefer mornings"
               className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none" />
           </div>
@@ -433,7 +433,7 @@ function ShiftModal({
           {error && <p className="text-sm text-red-600 bg-red-50 dark:bg-red-900/20 rounded-lg px-3 py-2">{error}</p>}
 
           <div>
-            <label className="block text-xs font-semibold text-gray-500 mb-1 uppercase tracking-wide dark:text-gray-400">Employee *</label>
+            <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Employee *</label>
             <select value={form.employeeId} onChange={f('employeeId')} required
               className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
               <option value="">Select employee…</option>
@@ -444,7 +444,7 @@ function ShiftModal({
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-gray-500 mb-1 uppercase tracking-wide dark:text-gray-400">NDIS Participant</label>
+            <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">NDIS Participant</label>
             <select value={form.participantId} onChange={f('participantId')}
               className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
               <option value="">No participant linked</option>
@@ -458,12 +458,12 @@ function ShiftModal({
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-semibold text-gray-500 mb-1 uppercase tracking-wide dark:text-gray-400">Date *</label>
+              <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Date *</label>
               <input type="date" value={form.date} onChange={f('date')} required
                 className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none" />
             </div>
             <div>
-              <label className="block text-xs font-semibold text-gray-500 mb-1 uppercase tracking-wide dark:text-gray-400">Shift Type</label>
+              <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Shift Type</label>
               <select value={form.shiftType} onChange={f('shiftType')}
                 className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
                 <option value="standard">Standard</option>
@@ -476,7 +476,7 @@ function ShiftModal({
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-semibold text-gray-500 mb-1 uppercase tracking-wide dark:text-gray-400">Start</label>
+              <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Start</label>
               <div className="flex gap-1">
                 <select value={form.startHour} onChange={f('startHour')}
                   className="flex-1 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-2 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
@@ -490,7 +490,7 @@ function ShiftModal({
               </div>
             </div>
             <div>
-              <label className="block text-xs font-semibold text-gray-500 mb-1 uppercase tracking-wide dark:text-gray-400">End</label>
+              <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">End</label>
               <div className="flex gap-1">
                 <select value={form.endHour} onChange={f('endHour')}
                   className="flex-1 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-2 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
@@ -507,19 +507,19 @@ function ShiftModal({
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-semibold text-gray-500 mb-1 uppercase tracking-wide dark:text-gray-400">Location</label>
+              <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Location</label>
               <input type="text" value={form.location} onChange={f('location')} placeholder="Site / address"
                 className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none" />
             </div>
             <div>
-              <label className="block text-xs font-semibold text-gray-500 mb-1 uppercase tracking-wide dark:text-gray-400">Client Site</label>
+              <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Client Site</label>
               <input type="text" value={form.clientSite} onChange={f('clientSite')} placeholder="Property name"
                 className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none" />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-gray-500 mb-1 uppercase tracking-wide dark:text-gray-400">Notes</label>
+            <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Notes</label>
             <textarea value={form.notes} onChange={f('notes')} rows={2} placeholder="Care instructions, special notes…"
               className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none resize-none" />
           </div>
@@ -837,7 +837,7 @@ export default function RosteringPage() {
       {/* Stats */}
       <div className="flex gap-3 flex-wrap">
         {[
-          { label: 'Shifts',      value: shifts.length,                                        color: 'text-blue-600 dark:text-blue-400' },
+          { label: 'Shifts',      value: shifts.length,                                        color: 'text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4]' },
           { label: 'Total hours', value: `${totalHours.toFixed(1)}h`,                          color: 'text-[#0E3D52] dark:text-[#4ebac4]' },
           { label: 'Draft',       value: draftCount,                                           color: 'text-amber-600 dark:text-amber-400' },
           { label: 'Published',   value: shifts.filter(s => s.status === 'published').length,  color: 'text-green-600 dark:text-green-400' },
@@ -859,17 +859,17 @@ export default function RosteringPage() {
             <table className="table-premium">
               <thead>
                 <tr>
-                  <th className="w-36 px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider bg-gray-50 dark:bg-gray-800 border-b border-r border-gray-100 dark:border-gray-700">
+                  <th className="w-36 px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400  bg-gray-50 dark:bg-gray-800 border-b border-r border-gray-100 dark:border-gray-700">
                     Employee
                   </th>
                   {weekDays.map((day, i) => {
                     const isToday = isoDate(day) === isoDate(new Date())
                     return (
                       <th key={i} className={`px-2 py-3 text-center bg-gray-50 dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700 ${i < 6 ? 'border-r border-gray-100 dark:border-gray-700' : ''}`}>
-                        <div className={`text-xs font-semibold uppercase tracking-wider ${isToday ? 'text-blue-600 dark:text-blue-400' : 'text-gray-500 dark:text-gray-400'}`}>
+                        <div className={`text-xs font-semibold  ${isToday ? 'text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4]' : 'text-gray-500 dark:text-gray-400'}`}>
                           {DAYS[i]}
                         </div>
-                        <div className={`text-sm font-bold mt-0.5 ${isToday ? 'text-blue-600 dark:text-blue-400' : 'text-gray-700 dark:text-gray-200'}`}>
+                        <div className={`text-sm font-bold mt-0.5 ${isToday ? 'text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4]' : 'text-gray-700 dark:text-gray-200'}`}>
                           {day.getDate()}
                         </div>
                       </th>
@@ -947,7 +947,7 @@ export default function RosteringPage() {
                     {showAvail && (
                       <tr key={`avail-${emp.id}`} className="bg-teal-50/30 dark:bg-teal-900/10">
                         <td className="px-4 py-1 border-r border-gray-100 dark:border-gray-700">
-                          <span className="text-[10px] font-semibold text-teal-600 dark:text-teal-400 uppercase tracking-wider">Avail</span>
+                          <span className="text-[10px] font-semibold text-teal-600 dark:text-teal-400 ">Avail</span>
                         </td>
                         {weekDays.map((_, di) => {
                           const slot = availMap.get(emp.id)?.get(di)

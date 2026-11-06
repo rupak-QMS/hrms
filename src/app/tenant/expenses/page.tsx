@@ -53,7 +53,7 @@ const CAT_LABELS: Record<string, string> = {
 
 const STATUS_COLORS: Record<ExpenseStatus, string> = {
   pending:  'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300',
-  approved: 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300',
+  approved: 'bg-[#E0EEF4] text-blue-800 dark:bg-[#0E3D52]/20 dark:text-[#7dcfd7]',
   rejected: 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300',
   paid:     'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300',
 }
@@ -185,7 +185,7 @@ function SubmitModal({ onClose, onSaved }: { onClose: () => void; onSaved: () =>
               Cancel
             </button>
             <button type="submit" disabled={saving}
-              className="flex-1 px-4 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50">
+              className="flex-1 px-4 py-2 text-sm bg-[#0E3D52] text-white rounded-lg hover:bg-[#1A6080] disabled:opacity-50">
               {saving ? 'Submitting…' : 'Submit Claim'}
             </button>
           </div>
@@ -262,7 +262,7 @@ function ReviewModal({ claim, onClose, onSaved }: { claim: Claim; onClose: () =>
             {claim.receiptUrl && (
               <div className="pt-2">
                 <a href={claim.receiptUrl} target="_blank" rel="noopener noreferrer"
-                  className="text-blue-600 dark:text-blue-400 hover:underline text-xs">
+                  className="text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4] hover:underline text-xs">
                   📎 View Receipt
                 </a>
               </div>
@@ -285,7 +285,7 @@ function ReviewModal({ claim, onClose, onSaved }: { claim: Claim; onClose: () =>
                   Reject
                 </button>
                 <button onClick={() => handleAction('approve')} disabled={saving}
-                  className="flex-1 px-4 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50">
+                  className="flex-1 px-4 py-2 text-sm bg-[#0E3D52] text-white rounded-lg hover:bg-[#1A6080] disabled:opacity-50">
                   {saving ? 'Processing…' : 'Approve'}
                 </button>
               </div>
@@ -400,7 +400,7 @@ export default function ExpensesPage() {
         <div className="flex items-center gap-2">
           <ExportButton onClick={exportExpenses} disabled={claims.length === 0} />
           <button onClick={() => setShowSubmit(true)}
-          className="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">
+          className="px-4 py-2 bg-[#0E3D52] text-white text-sm font-medium rounded-lg hover:bg-[#1A6080] transition-colors">
           + Submit Claim
         </button>
         </div>
@@ -459,7 +459,7 @@ export default function ExpensesPage() {
             <thead className="bg-gray-50 dark:bg-gray-700/50 border-b dark:border-gray-700">
               <tr>
                 {['Employee', 'Claim', 'Category', 'Amount', 'Date', 'Status', ''].map(h => (
-                  <th key={h} className="text-left px-4 py-3 text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+                  <th key={h} className="text-left px-4 py-3 text-xs font-medium text-gray-500 dark:text-gray-400 ">
                     {h}
                   </th>
                 ))}
@@ -492,7 +492,7 @@ export default function ExpensesPage() {
                   <td className="px-4 py-3">
                     <div className="flex items-center gap-2">
                       <button onClick={() => setReviewing(c)}
-                        className="text-xs text-blue-600 dark:text-blue-400 hover:underline font-medium">
+                        className="text-xs text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4] hover:underline font-medium">
                         {c.status === 'pending' ? 'Review' : 'View'}
                       </button>
                       {c.receiptUrl && (

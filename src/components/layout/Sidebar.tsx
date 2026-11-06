@@ -93,7 +93,7 @@ export default function Sidebar() {
       <nav className="flex-1 px-3 py-4 space-y-5">
         {navGroups.map((group) => (
           <div key={group.label}>
-            <p className="px-2 mb-1 text-[10px] font-semibold uppercase tracking-widest text-gray-600 dark:text-gray-400">
+            <p className="px-2 mb-1 text-[10px] font-semibold st text-gray-600 dark:text-gray-400">
               {group.label}
             </p>
             <ul className="space-y-0.5">

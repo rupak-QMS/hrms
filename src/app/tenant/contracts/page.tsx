@@ -225,7 +225,7 @@ export default function ContractsPage() {
         {[
           { label: 'Total',  value: stats.total,  color: 'text-foreground' },
           { label: 'Draft',  value: stats.draft,  color: 'text-gray-400' },
-          { label: 'Sent',   value: stats.sent,   color: 'text-blue-400' },
+          { label: 'Sent',   value: stats.sent,   color: 'text-[#4ebac4]' },
           { label: 'Signed', value: stats.signed, color: 'text-green-400' },
         ].map(s => (
           <div key={s.label} className="card-premium p-4">
@@ -329,7 +329,7 @@ export default function ContractsPage() {
                   <div className="flex items-center gap-2 shrink-0">
                     <div className="text-right cursor-pointer" onClick={() => setExpanded(isOpen ? null : c.id)}>
                       {c.signedAt && <p className="text-xs text-green-400">Signed {new Date(c.signedAt).toLocaleDateString('en-AU')}</p>}
-                      {c.sentAt && !c.signedAt && <p className="text-xs text-blue-400">Sent {new Date(c.sentAt).toLocaleDateString('en-AU')}</p>}
+                      {c.sentAt && !c.signedAt && <p className="text-xs text-[#4ebac4]">Sent {new Date(c.sentAt).toLocaleDateString('en-AU')}</p>}
                       {!c.sentAt && <p className="text-xs text-gray-600 dark:text-gray-400">{new Date(c.createdAt).toLocaleDateString('en-AU')}</p>}
                       <p className="text-xs text-gray-600 mt-0.5 dark:text-gray-400">{isOpen ? '▲' : '▼'}</p>
                     </div>
@@ -370,7 +370,7 @@ export default function ContractsPage() {
                       <div className="flex gap-2 flex-wrap">
                         {c.status === 'draft' && (
                           <button onClick={() => patch(c.id, { status: 'sent' })}
-                            className="text-xs bg-blue-900/40 border border-blue-800 text-blue-300 hover:bg-blue-900/60 px-3 py-1.5 rounded-lg transition">
+                            className="text-xs bg-blue-900/40 border border-blue-800 text-[#7dcfd7] hover:bg-blue-900/60 px-3 py-1.5 rounded-lg transition">
                             Mark as Sent
                           </button>
                         )}
@@ -389,7 +389,7 @@ export default function ContractsPage() {
 
                     {/* Document upload / link */}
                     <div>
-                      <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 dark:text-gray-400">Contract Document</p>
+                      <p className="text-xs font-semibold text-gray-500  mb-2 dark:text-gray-400">Contract Document</p>
                       <FileUpload
                         accept=".pdf,.doc,.docx"
                         currentUrl={c.pdfUrl}
@@ -401,7 +401,7 @@ export default function ContractsPage() {
                     {/* Signed PDF upload */}
                     {(c.status === 'signed' || c.signedPdfUrl) && (
                       <div>
-                        <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 dark:text-gray-400">Signed Copy</p>
+                        <p className="text-xs font-semibold text-gray-500  mb-2 dark:text-gray-400">Signed Copy</p>
                         <FileUpload
                           accept=".pdf"
                           currentUrl={c.signedPdfUrl}
@@ -413,7 +413,7 @@ export default function ContractsPage() {
 
                     {/* Tax & super */}
                     <div>
-                      <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 dark:text-gray-400">Tax & Superannuation</p>
+                      <p className="text-xs font-semibold text-gray-500  mb-2 dark:text-gray-400">Tax & Superannuation</p>
                       <div className="grid grid-cols-2 gap-3">
                         <label className="flex items-center gap-2 cursor-pointer">
                           <input type="checkbox"
@@ -437,7 +437,7 @@ export default function ContractsPage() {
                     {/* Notes (read-only preview) */}
                     {c.notes && (
                       <div>
-                        <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1 dark:text-gray-400">Notes</p>
+                        <p className="text-xs font-semibold text-gray-500  mb-1 dark:text-gray-400">Notes</p>
                         <p className="text-sm text-gray-400 whitespace-pre-wrap">{c.notes}</p>
                       </div>
                     )}

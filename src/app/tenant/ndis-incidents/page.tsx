@@ -46,7 +46,7 @@ const INCIDENT_TYPES: Record<string, string> = {
 }
 
 const STATUS_BADGE: Record<string, { label: string; cls: string }> = {
-  open:                    { label: 'Open',                 cls: 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-400' },
+  open:                    { label: 'Open',                 cls: 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/20 dark:text-[#4ebac4]' },
   under_review:            { label: 'Under Review',         cls: 'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-400' },
   reported_to_commission:  { label: 'Reported to Commission', cls: 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/40 dark:text-[#1A6080] dark:text-[#4ebac4]' },
   closed:                  { label: 'Closed',               cls: 'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-400' },
@@ -225,7 +225,7 @@ function IncidentModal({ initial, onClose, onSaved }: {
 
           {/* Reporting flags */}
           <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4 space-y-3">
-            <p className="text-xs font-semibold text-amber-700 dark:text-amber-400 uppercase tracking-wide">Reporting Obligations</p>
+            <p className="text-xs font-semibold text-amber-700 dark:text-amber-400 ">Reporting Obligations</p>
             <div className="flex items-center gap-2">
               <input type="checkbox" id="reportable" checked={form.isReportable}
                 onChange={e => chk('isReportable', e.target.checked)}
@@ -391,7 +391,7 @@ export default function NDISIncidentsPage() {
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
         {[
           { label: 'Total Incidents',       value: total,       cls: 'text-gray-900 dark:text-white' },
-          { label: 'Open',                  value: open,        cls: 'text-blue-600 dark:text-blue-400' },
+          { label: 'Open',                  value: open,        cls: 'text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4]' },
           { label: 'Critical Severity',     value: critical,    cls: 'text-red-600 dark:text-red-400' },
           { label: 'Pending NDIS Notify',   value: unnotified,  cls: 'text-orange-600 dark:text-orange-400' },
         ].map(({ label, value, cls }) => (
@@ -455,7 +455,7 @@ export default function NDISIncidentsPage() {
               <thead className="bg-gray-50 dark:bg-gray-800/60">
                 <tr>
                   {['Title', 'Type', 'Severity', 'Status', 'Participant', 'Date', 'Commission', ''].map(h => (
-                    <th key={h} className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide whitespace-nowrap">{h}</th>
+                    <th key={h} className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400  whitespace-nowrap">{h}</th>
                   ))}
                 </tr>
               </thead>
@@ -500,7 +500,7 @@ export default function NDISIncidentsPage() {
                         <div className="flex items-center gap-2">
                           <button
                             onClick={() => { setEditIncident(inc); setShowModal(true) }}
-                            className="text-xs text-blue-500 hover:text-blue-700 dark:hover:text-blue-300 font-medium">
+                            className="text-xs text-[#1A6080] dark:text-[#4ebac4] hover:text-[#0E3D52] dark:hover:text-[#7dcfd7] font-medium">
                             Edit
                           </button>
                           <button

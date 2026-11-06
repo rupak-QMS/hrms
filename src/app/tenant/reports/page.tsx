@@ -89,14 +89,14 @@ function HeadcountCharts({ summary }: { summary: Summary }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
       <div className="card-premium p-4">
-        <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-4 dark:text-gray-400">Active vs Inactive</p>
+        <p className="text-xs font-semibold text-gray-500  mb-4 dark:text-gray-400">Active vs Inactive</p>
         <BarChart data={[
           { label: 'Active',   value: summary.active   ?? 0, color: '#10b981' },
           { label: 'Inactive', value: summary.inactive ?? 0, color: '#6b7280' },
         ]} />
       </div>
       <div className="card-premium p-4">
-        <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-4 dark:text-gray-400">Employment Type</p>
+        <p className="text-xs font-semibold text-gray-500  mb-4 dark:text-gray-400">Employment Type</p>
         <DonutChart data={[
           { label: 'Full-time',  value: summary.fullTime   ?? 0, color: '#0E3D52' },
           { label: 'Part-time',  value: summary.partTime   ?? 0, color: '#06b6d4' },
@@ -112,7 +112,7 @@ function LeaveCharts({ summary }: { summary: Summary }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
       <div className="card-premium p-4">
-        <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-4 dark:text-gray-400">By Status</p>
+        <p className="text-xs font-semibold text-gray-500  mb-4 dark:text-gray-400">By Status</p>
         <DonutChart data={[
           { label: 'Approved', value: summary.approved ?? 0, color: '#10b981' },
           { label: 'Pending',  value: summary.pending  ?? 0, color: '#f59e0b' },
@@ -120,7 +120,7 @@ function LeaveCharts({ summary }: { summary: Summary }) {
         ].filter(d => d.value > 0)} />
       </div>
       <div className="card-premium p-4">
-        <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-4 dark:text-gray-400">Days Taken</p>
+        <p className="text-xs font-semibold text-gray-500  mb-4 dark:text-gray-400">Days Taken</p>
         <BarChart data={[
           { label: 'Approved Days', value: summary.totalDays ?? 0, color: '#10b981' },
         ]} />
@@ -132,7 +132,7 @@ function LeaveCharts({ summary }: { summary: Summary }) {
 function ComplianceCharts({ summary }: { summary: Summary }) {
   return (
     <div className="card-premium p-4">
-      <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-4 dark:text-gray-400">Status Breakdown</p>
+      <p className="text-xs font-semibold text-gray-500  mb-4 dark:text-gray-400">Status Breakdown</p>
       <div className="flex flex-wrap gap-8 items-start">
         <DonutChart data={[
           { label: 'Green',   value: summary.green   ?? 0, color: '#10b981' },
@@ -155,7 +155,7 @@ function ComplianceCharts({ summary }: { summary: Summary }) {
 function TurnoverCharts({ summary }: { summary: Summary }) {
   return (
     <div className="card-premium p-4">
-      <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-4 dark:text-gray-400">Separation Type</p>
+      <p className="text-xs font-semibold text-gray-500  mb-4 dark:text-gray-400">Separation Type</p>
       <BarChart data={[
         { label: 'Voluntary',   value: summary.voluntary   ?? 0, color: '#f59e0b' },
         { label: 'Involuntary', value: summary.involuntary ?? 0, color: '#ef4444' },
@@ -169,14 +169,14 @@ function WHSCharts({ summary }: { summary: Summary }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
       <div className="card-premium p-4">
-        <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-4 dark:text-gray-400">Open vs Closed</p>
+        <p className="text-xs font-semibold text-gray-500  mb-4 dark:text-gray-400">Open vs Closed</p>
         <BarChart data={[
           { label: 'Open',   value: summary.open   ?? 0, color: '#ef4444' },
           { label: 'Closed', value: summary.closed ?? 0, color: '#10b981' },
         ]} />
       </div>
       <div className="card-premium p-4">
-        <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-4 dark:text-gray-400">Severity</p>
+        <p className="text-xs font-semibold text-gray-500  mb-4 dark:text-gray-400">Severity</p>
         <BarChart data={[
           { label: 'Critical', value: summary.critical ?? 0, color: '#7f1d1d' },
           { label: 'High',     value: summary.high     ?? 0, color: '#ef4444' },
@@ -190,14 +190,14 @@ function TrainingGapCharts({ summary }: { summary: Summary }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
       <div className="card-premium p-4">
-        <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-4 dark:text-gray-400">Compliance</p>
+        <p className="text-xs font-semibold text-gray-500  mb-4 dark:text-gray-400">Compliance</p>
         <DonutChart data={[
           { label: 'Compliant',   value: summary.employeesCompliant ?? 0, color: '#10b981' },
           { label: 'Has Gaps',    value: summary.employeesWithGaps  ?? 0, color: '#ef4444' },
         ].filter(d => d.value > 0)} />
       </div>
       <div className="card-premium p-4">
-        <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-4 dark:text-gray-400">Gap Totals</p>
+        <p className="text-xs font-semibold text-gray-500  mb-4 dark:text-gray-400">Gap Totals</p>
         <BarChart data={[
           { label: 'Mandatory Courses', value: summary.mandatoryCourses  ?? 0, color: '#0E3D52' },
           { label: 'Total Gaps',        value: summary.totalGaps         ?? 0, color: '#ef4444' },
@@ -213,7 +213,7 @@ function PayrollCharts({ summary }: { summary: Summary }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
       <div className="card-premium p-4">
-        <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-4 dark:text-gray-400">Pay Run Status</p>
+        <p className="text-xs font-semibold text-gray-500  mb-4 dark:text-gray-400">Pay Run Status</p>
         <DonutChart data={[
           { label: 'Pending',  value: summary.pending  ?? 0, color: '#f59e0b' },
           { label: 'Approved', value: summary.approved ?? 0, color: '#06b6d4' },
@@ -221,7 +221,7 @@ function PayrollCharts({ summary }: { summary: Summary }) {
         ].filter(d => d.value > 0)} />
       </div>
       <div className="card-premium p-4">
-        <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-4 dark:text-gray-400">Financials</p>
+        <p className="text-xs font-semibold text-gray-500  mb-4 dark:text-gray-400">Financials</p>
         <div className="space-y-3">
           {[
             { label: 'Total Gross', value: summary.totalGross ?? 0, color: '#0E3D52' },
@@ -346,7 +346,7 @@ export default function ReportsPage() {
         {/* Sidebar */}
         <div className="w-64 border-r border-gray-200 bg-white flex flex-col dark:bg-gray-900 dark:border-gray-700">
           <div className="p-4 border-b border-gray-100 dark:border-gray-800">
-            <p className="text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-3">Report Type</p>
+            <p className="text-xs font-semibold  text-gray-600 dark:text-gray-400 mb-3">Report Type</p>
             <div className="space-y-1">
               {REPORTS.map(r => (
                 <button key={r.id} onClick={() => { setSelected(r.id); setRan(false); setData([]); setSummary({}) }}
@@ -358,7 +358,7 @@ export default function ReportsPage() {
           </div>
 
           <div className="p-4 space-y-3">
-            <p className="text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400">Date Range</p>
+            <p className="text-xs font-semibold  text-gray-600 dark:text-gray-400">Date Range</p>
             <div>
               <label className="text-xs text-gray-500 mb-1 block dark:text-gray-400">From</label>
               <input type="date" className="input-premium" value={dateFrom} onChange={e => setDateFrom(e.target.value)} />
@@ -434,7 +434,7 @@ export default function ReportsPage() {
                       <thead>
                         <tr className="border-b border-gray-100 bg-gray-50 dark:bg-gray-800 dark:border-gray-800">
                           {columns.map(c => (
-                            <th key={c} className="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wide whitespace-nowrap dark:text-gray-400">
+                            <th key={c} className="px-4 py-3 text-left text-xs font-semibold text-gray-500  whitespace-nowrap dark:text-gray-400">
                               {c.replace(/([A-Z])/g,' $1').replace(/^./,s=>s.toUpperCase())}
                             </th>
                           ))}

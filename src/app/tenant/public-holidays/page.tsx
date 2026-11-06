@@ -277,7 +277,7 @@ export default function PublicHolidaysPage() {
         <div className="bg-[#f0f7fb] dark:bg-[#0E3D52]/30 border border-[#b8d4e0] dark:border-[#1A6080] rounded-xl px-5 py-4 flex items-center gap-4">
           <span className="text-3xl"></span>
           <div>
-            <p className="text-xs text-[#1A6080] dark:text-[#4ebac4] font-medium uppercase tracking-wider">Next Public Holiday</p>
+            <p className="text-xs text-[#1A6080] dark:text-[#4ebac4] font-medium ">Next Public Holiday</p>
             <p className="text-foreground font-semibold">{nextHoliday.name}</p>
             <p className="text-sm text-gray-600 dark:text-gray-400">
               {fmt(nextHoliday.date)}
@@ -417,7 +417,7 @@ export default function PublicHolidaysPage() {
               const isPastMonth = new Date(year, m + 1, 1) < new Date()
               return (
                 <div key={m}>
-                  <h2 className={`text-xs font-semibold uppercase tracking-widest mb-3 ${isPastMonth ? 'text-gray-600' : 'text-[#1A6080] dark:text-[#4ebac4]'}`}>
+                  <h2 className={`text-xs font-semibold st mb-3 ${isPastMonth ? 'text-gray-600' : 'text-[#1A6080] dark:text-[#4ebac4]'}`}>
                     {MONTHS[m]}
                   </h2>
                   <div className="space-y-2">
@@ -456,7 +456,7 @@ export default function PublicHolidaysPage() {
                                 {h.country}
                               </span>
                               {h.isNational && (
-                                <span className="text-xs px-2 py-0.5 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-400 border border-blue-300 dark:border-blue-800">
+                                <span className="text-xs px-2 py-0.5 rounded-full bg-[#E0EEF4] dark:bg-[#0E3D52]/20 text-[#0E3D52] dark:text-[#4ebac4] border border-blue-300 dark:border-[#1A6080]">
                                   National
                                 </span>
                               )}

@@ -366,7 +366,7 @@ export default function ReportsAnalyticsPage() {
           {activeTab === 'run' ? (
             GROUPS.map(group => (
               <div key={group}>
-                <p className="text-[10px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider px-1 mb-1">{group}</p>
+                <p className="text-[10px] font-semibold text-gray-400 dark:text-gray-500  px-1 mb-1">{group}</p>
                 <div className="space-y-1">
                   {REPORT_CONFIGS.filter(r => r.group === group).map(cfg => (
                     <button

@@ -311,7 +311,7 @@ export default function OrganisationPage() {
                 <thead className="bg-[var(--card)] border-b border-[var(--border)]">
                   <tr>
                     {['Branch', 'Code', 'Location', 'Contact', 'Staff', 'Status', ''].map(h => (
-                      <th key={h} className="px-4 py-3 text-left text-xs font-medium text-[var(--txt3)] uppercase tracking-wide">{h}</th>
+                      <th key={h} className="px-4 py-3 text-left text-xs font-medium text-[var(--txt3)] ">{h}</th>
                     ))}
                   </tr>
                 </thead>
@@ -343,7 +343,7 @@ export default function OrganisationPage() {
                 <thead className="bg-[var(--card)] border-b border-[var(--border)]">
                   <tr>
                     {['Department', 'Parent', 'Description', 'Staff', 'Status', ''].map(h => (
-                      <th key={h} className="px-4 py-3 text-left text-xs font-medium text-[var(--txt3)] uppercase tracking-wide">{h}</th>
+                      <th key={h} className="px-4 py-3 text-left text-xs font-medium text-[var(--txt3)] ">{h}</th>
                     ))}
                   </tr>
                 </thead>
@@ -374,7 +374,7 @@ export default function OrganisationPage() {
                 <thead className="bg-[var(--card)] border-b border-[var(--border)]">
                   <tr>
                     {['Position', 'Department', 'Flags', 'Staff', 'Status', ''].map(h => (
-                      <th key={h} className="px-4 py-3 text-left text-xs font-medium text-[var(--txt3)] uppercase tracking-wide">{h}</th>
+                      <th key={h} className="px-4 py-3 text-left text-xs font-medium text-[var(--txt3)] ">{h}</th>
                     ))}
                   </tr>
                 </thead>
@@ -387,7 +387,7 @@ export default function OrganisationPage() {
                       <td className="px-4 py-3 text-[var(--txt2)]">{p.departmentName ?? '—'}</td>
                       <td className="px-4 py-3">
                         <div className="flex flex-wrap gap-1">
-                          {p.isParticipantFacing && <span className="text-xs bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 rounded px-1.5 py-0.5">Participant</span>}
+                          {p.isParticipantFacing && <span className="text-xs bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/20 dark:text-[#4ebac4] rounded px-1.5 py-0.5">Participant</span>}
                           {p.isRiskAssessed && <span className="text-xs bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 rounded px-1.5 py-0.5">Risk</span>}
                           {p.isKeyPersonnel && <span className="text-xs bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/30 dark:text-[#1A6080] dark:text-[#4ebac4] rounded px-1.5 py-0.5">Key</span>}
                           {p.isWhsSensitive && <span className="text-xs bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400 rounded px-1.5 py-0.5">WHS</span>}

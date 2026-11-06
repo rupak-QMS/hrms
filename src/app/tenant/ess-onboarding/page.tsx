@@ -74,7 +74,7 @@ function Input(props: React.InputHTMLAttributes<HTMLInputElement>) {
       {...props}
       className={`w-full px-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-gray-700
         bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100
-        focus:outline-none focus:ring-2 focus:ring-blue-500 ${props.className ?? ''}`}
+        focus:outline-none focus:ring-2 focus:ring-[#0E3D52]/20 ${props.className ?? ''}`}
     />
   )
 }
@@ -87,7 +87,7 @@ function Select({
       {...props}
       className="w-full px-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-gray-700
         bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100
-        focus:outline-none focus:ring-2 focus:ring-blue-500"
+        focus:outline-none focus:ring-2 focus:ring-[#0E3D52]/20"
     >
       {children}
     </select>
@@ -101,7 +101,7 @@ function Toggle({
     <label className="flex items-start gap-3 cursor-pointer">
       <div className="relative mt-0.5 shrink-0">
         <input type="checkbox" className="sr-only" checked={checked} onChange={e => onChange(e.target.checked)} />
-        <div className={`w-10 h-6 rounded-full transition-colors ${checked ? 'bg-blue-600' : 'bg-gray-300 dark:bg-gray-600'}`} />
+        <div className={`w-10 h-6 rounded-full transition-colors ${checked ? 'bg-[#0E3D52]' : 'bg-gray-300 dark:bg-gray-600'}`} />
         <div className={`absolute top-1 left-1 w-4 h-4 rounded-full bg-white shadow transition-transform ${checked ? 'translate-x-4' : ''}`} />
       </div>
       <div>
@@ -203,7 +203,7 @@ export default function EssOnboardingPage() {
           </p>
         )}
         {data.status && (
-          <span className="inline-block mt-4 px-4 py-1.5 rounded-full text-sm font-medium bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 capitalize">
+          <span className="inline-block mt-4 px-4 py-1.5 rounded-full text-sm font-medium bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/20 dark:text-[#4ebac4] capitalize">
             Status: {data.status.replace(/_/g, ' ')}
           </span>
         )}
@@ -229,9 +229,9 @@ export default function EssOnboardingPage() {
               onClick={() => step > s.id ? setStep(s.id) : undefined}
               className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-medium transition
                 ${step === s.id
-                  ? 'bg-blue-600 text-white'
+                  ? 'bg-[#0E3D52] text-white'
                   : step > s.id
-                    ? 'text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 cursor-pointer'
+                    ? 'text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4] hover:bg-[#E0EEF4] dark:hover:bg-blue-900/20 cursor-pointer'
                     : 'text-gray-400 dark:text-gray-600 cursor-default'
                 }`}
             >
@@ -287,7 +287,7 @@ export default function EssOnboardingPage() {
             <button
               onClick={() => save(step + 1)}
               disabled={saving}
-              className="px-5 py-2 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700
+              className="px-5 py-2 text-sm font-semibold text-white bg-[#0E3D52] hover:bg-[#1A6080]
                 rounded-lg disabled:opacity-60 transition"
             >
               Save & Continue →
@@ -359,7 +359,7 @@ function Step1Personal({ data, set }: { data: OnboardingData; set: (p: Partial<O
               onChange={e => set({ address: e.target.value })}
               className="w-full px-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-gray-700
                 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100
-                focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                focus:outline-none focus:ring-2 focus:ring-[#0E3D52]/20 resize-none"
             />
           </Field>
         </div>
@@ -485,8 +485,8 @@ function Step3Super({ data, set }: { data: OnboardingData; set: (p: Partial<Onbo
           />
         </Field>
 
-        <div className="p-4 rounded-xl border border-blue-100 bg-blue-50 dark:bg-blue-900/20 dark:border-blue-800">
-          <p className="text-xs text-blue-700 dark:text-blue-300">
+        <div className="p-4 rounded-xl border border-blue-100 bg-[#E0EEF4] dark:bg-[#0E3D52]/20 dark:border-[#1A6080]">
+          <p className="text-xs text-[#0E3D52] dark:text-[#7dcfd7]">
             <strong>Employer Contribution Rate:</strong> 11.5% (2024-25 financial year, as per Superannuation Guarantee).
             Contributions are made within 28 days of each quarter end.
           </p>

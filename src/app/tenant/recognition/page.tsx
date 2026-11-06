@@ -23,7 +23,7 @@ type Employee = { id: string; firstName: string; lastName: string }
 
 const REC_TYPES = [
   { value: 'employee_of_quarter', label: 'Employee of the Quarter', color: 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30' },
-  { value: 'peer',                label: 'Peer Recognition',         color: 'bg-blue-500/20 text-blue-400 border-blue-500/30' },
+  { value: 'peer',                label: 'Peer Recognition',         color: 'bg-[#E0EEF4]0/20 text-[#4ebac4] border-[#0E3D52]/30' },
   { value: 'safety_champion',     label: 'Safety Champion',          color: 'bg-green-500/20 text-green-400 border-green-500/30' },
   { value: 'above_beyond',        label: 'Above & Beyond',           color: 'bg-orange-500/20 text-orange-400 border-orange-500/30' },
   { value: 'ndis_excellence',     label: 'NDIS Excellence',          color: 'bg-[#f0f7fb]0/20 text-[#1A6080] dark:text-[#4ebac4] border-[#0E3D52]/30' },
@@ -42,7 +42,7 @@ function avatarInitials(first: string | null, last: string | null) {
 function avatarColor(name: string) {
   const colors = [
     'bg-[#1A6080] text-[#9ccfda]',
-    'bg-blue-700 text-blue-200',
+    'bg-[#1A6080] text-blue-200',
     'bg-green-700 text-green-200',
     'bg-orange-700 text-orange-200',
     'bg-pink-700 text-pink-200',
@@ -219,12 +219,12 @@ export default function RecognitionPage() {
       {/* Stats bar */}
       <div className="grid grid-cols-2 gap-4">
         <div className="card-premium p-4">
-          <p className="text-xs text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wide">This Month</p>
+          <p className="text-xs text-gray-500 dark:text-gray-400 font-medium ">This Month</p>
           <p className="text-3xl font-bold text-gray-900 dark:text-white mt-1">{thisMonthRecs.length}</p>
           <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">recognitions</p>
         </div>
         <div className="card-premium p-4">
-          <p className="text-xs text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wide">Top Recognized</p>
+          <p className="text-xs text-gray-500 dark:text-gray-400 font-medium ">Top Recognized</p>
           {topEmployee ? (
             <>
               <p className="text-base font-bold text-gray-900 dark:text-white mt-1 truncate">{topEmployee.name}</p>

@@ -748,7 +748,7 @@ export default function LeavePage() {
               {/* Weekday headers */}
               <div className="grid grid-cols-7 border-b border-gray-200 dark:border-gray-800">
                 {WEEKDAYS.map(d => (
-                  <div key={d} className="px-2 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider dark:text-gray-400">
+                  <div key={d} className="px-2 py-3 text-center text-xs font-medium text-gray-500  dark:text-gray-400">
                     {d}
                   </div>
                 ))}

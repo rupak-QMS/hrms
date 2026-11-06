@@ -256,7 +256,7 @@ export default function NotificationsPage() {
                 : {}
               return (
                 <li key={n.id}
-                  className={`flex gap-3 px-5 py-4 transition group ${!n.isRead ? 'bg-blue-50 dark:bg-blue-900/10' : 'hover:bg-gray-50 dark:hover:bg-gray-800/40'}`}>
+                  className={`flex gap-3 px-5 py-4 transition group ${!n.isRead ? 'bg-[#E0EEF4] dark:bg-[#0E3D52]/20' : 'hover:bg-gray-50 dark:hover:bg-gray-800/40'}`}>
                   <span className="text-xl shrink-0 mt-0.5">{TYPE_ICON[n.type] ?? '🔔'}</span>
                   <Wrapper {...(wrapperProps as any)} className={`flex-1 min-w-0 ${isClickable ? 'cursor-pointer' : ''}`}>
                     <div className="flex items-start justify-between gap-2">
@@ -271,7 +271,7 @@ export default function NotificationsPage() {
                   <div className="flex items-start gap-1 shrink-0 ml-1">
                     {!n.isRead && (
                       <button onClick={() => markRead(n.id)}
-                        className="text-xs text-blue-500 hover:text-blue-300 transition px-1 py-0.5 opacity-0 group-hover:opacity-100"
+                        className="text-xs text-[#1A6080] dark:text-[#4ebac4] hover:text-[#7dcfd7] transition px-1 py-0.5 opacity-0 group-hover:opacity-100"
                         title="Mark read">
                         ✓
                       </button>

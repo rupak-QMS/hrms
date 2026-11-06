@@ -44,7 +44,7 @@ interface Employee {
 
 const STATUS_COLORS: Record<string, string> = {
   draft: 'bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400',
-  submitted: 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300',
+  submitted: 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/20 dark:text-[#7dcfd7]',
   under_review: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300',
   approved: 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300',
   rejected: 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300',
@@ -62,7 +62,7 @@ const REVIEW_TYPE_LABEL: Record<string, string> = {
 }
 
 const NEXT_STATUSES: Record<string, { status: string; label: string; color: string }[]> = {
-  draft: [{ status: 'submitted', label: 'Submit for Review', color: 'bg-blue-600 hover:bg-blue-700' }],
+  draft: [{ status: 'submitted', label: 'Submit for Review', color: 'bg-[#0E3D52] hover:bg-[#1A6080]' }],
   submitted: [{ status: 'under_review', label: 'Begin Review', color: 'bg-yellow-600 hover:bg-yellow-700' }],
   under_review: [
     { status: 'approved', label: 'Approve', color: 'bg-green-600 hover:bg-green-700' },
@@ -209,7 +209,7 @@ export default function SalaryReviewsPage() {
           <ExportButton onClick={exportSalaryReviews} disabled={reviews.length === 0} />
           <button
             onClick={() => { setShowModal(true); setForm(EMPTY_FORM) }}
-            className="px-3 py-1.5 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition"
+            className="px-3 py-1.5 bg-[#0E3D52] text-white text-sm rounded-lg hover:bg-[#1A6080] transition"
           >
             + New
           </button>
@@ -255,7 +255,7 @@ export default function SalaryReviewsPage() {
               key={review.id}
               className={`group relative w-full text-left px-3 py-3 rounded-xl transition border cursor-pointer ${
                 selected?.id === review.id
-                  ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20'
+                  ? 'border-[#0E3D52] bg-[#E0EEF4] dark:bg-[#0E3D52]/20'
                   : 'border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:border-gray-300 dark:hover:border-gray-600'
               }`}
               onClick={() => openReview(review)}
@@ -353,7 +353,7 @@ export default function SalaryReviewsPage() {
                     </div>
                     <div>
                       <p className="text-xs text-gray-500 mb-1">Increment</p>
-                      <p className="text-lg font-bold text-blue-600 dark:text-blue-400">
+                      <p className="text-lg font-bold text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4]">
                         {selected.incrementAmount ? `$${parseFloat(selected.incrementAmount).toLocaleString('en-AU', { minimumFractionDigits: 2 })}` : '—'}
                         {selected.incrementPercent && ` (${parseFloat(selected.incrementPercent).toFixed(1)}%)`}
                       </p>
@@ -365,14 +365,14 @@ export default function SalaryReviewsPage() {
               {/* Justification */}
               {selected.justification && (
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Justification</p>
+                  <p className="text-xs font-semibold text-gray-500  mb-1">Justification</p>
                   <p className="text-sm text-gray-700 dark:text-gray-300">{selected.justification}</p>
                 </div>
               )}
 
               {/* Workflow trail */}
               <div>
-                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Workflow Trail</p>
+                <p className="text-xs font-semibold text-gray-500  mb-2">Workflow Trail</p>
                 <div className="space-y-1.5 text-xs text-gray-500">
                   {selected.submittedBy && <div>Submitted by {selected.submittedBy} on {new Date(selected.submittedAt!).toLocaleDateString()}</div>}
                   {selected.reviewedBy && <div>Reviewed by {selected.reviewedBy} on {new Date(selected.reviewedAt!).toLocaleDateString()}</div>}
@@ -390,7 +390,7 @@ export default function SalaryReviewsPage() {
 
               {/* HR Notes */}
               <div>
-                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">HR Notes</p>
+                <p className="text-xs font-semibold text-gray-500  mb-1">HR Notes</p>
                 <textarea
                   className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-sm text-gray-900 dark:text-white"
                   rows={3}
@@ -539,7 +539,7 @@ export default function SalaryReviewsPage() {
                 Cancel
               </button>
               <button onClick={saveReview} disabled={saving || !form.employeeId || !form.reviewDate || !form.currentSalary}
-                className="flex-1 py-2 rounded-lg bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition disabled:opacity-50">
+                className="flex-1 py-2 rounded-lg bg-[#0E3D52] text-white text-sm font-medium hover:bg-[#1A6080] transition disabled:opacity-50">
                 {saving ? 'Saving…' : 'Create Review'}
               </button>
             </div>
