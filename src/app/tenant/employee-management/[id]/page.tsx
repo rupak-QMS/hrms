@@ -1132,7 +1132,7 @@ export default function EmployeeProfilePage() {
                     { label: 'Enrolled',  value: enrolled,         cls: 'text-[#4ebac4]' },
                     { label: 'Overdue',   value: overdue + mandatory, cls: 'text-red-400' },
                   ].map(s => (
-                    <div key={s.label} className="bg-gray-800 rounded-xl p-3 text-center">
+                    <div key={s.label} className="card-premium p-3 text-center">
                       <p className={`text-xl font-bold ${s.cls}`}>{s.value}</p>
                       <p className="text-xs text-gray-500 mt-0.5">{s.label}</p>
                     </div>

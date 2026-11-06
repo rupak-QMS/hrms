@@ -583,7 +583,7 @@ export default function OfferLettersPage() {
             />
           ) : offers.map(o => (
             <div key={o.id} onClick={() => selectOffer(o)}
-              className={`p-4 rounded-xl border cursor-pointer transition ${selected?.id === o.id ? 'border-[#0E3D52] bg-[#0E3D52]/20' : 'border-gray-800 bg-gray-900 hover:border-gray-600'}`}>
+              className={`p-4 rounded-xl border cursor-pointer transition ${selected?.id === o.id ? 'border-[#0E3D52] bg-[#0E3D52]/20' : 'border-[#1A6080]/40 dark:bg-[#0E3D52]/10 hover:border-[#1A6080]'}`}>
               <div className="flex items-start justify-between gap-2 mb-1">
                 <p className="text-sm font-semibold text-white truncate">{o.candidateName}</p>
                 <span className={`shrink-0 text-xs px-2 py-0.5 rounded-full border ${STATUS_STYLE[o.status] ?? 'badge badge-gray'}`}>
