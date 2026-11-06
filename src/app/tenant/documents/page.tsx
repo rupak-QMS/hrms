@@ -674,7 +674,7 @@ export default function DocumentsPage() {
                       {isRealUrl(d.blobUrl) && (
                         <button
                           onClick={e => { e.stopPropagation(); setPreview(d) }}
-                          className="text-xs bg-blue-900/20 border border-blue-800 text-[#7dcfd7] hover:bg-blue-900/40 px-2 py-1 rounded transition"
+                          className="text-xs bg-[#0E3D52]/20 border border-[#1A6080]/40 text-[#7dcfd7] hover:bg-[#0E3D52]/40 px-2 py-1 rounded transition"
                           title="Preview document"
                         >
                           👁

@@ -44,7 +44,7 @@ const OUTCOMES = [
 ]
 
 const GOAL_STATUSES = [
-  { value: 'active',      label: 'Active',      color: 'text-[#4ebac4] border-blue-800 bg-blue-900/30' },
+  { value: 'active',      label: 'Active',      color: 'text-[#4ebac4] border-[#1A6080]/60 bg-[#0E3D52]/30' },
   { value: 'completed',   label: 'Completed',   color: 'text-green-400 border-green-800 bg-green-900/30' },
   { value: 'on_hold',     label: 'On Hold',     color: 'text-amber-400 border-amber-800 bg-amber-900/30' },
   { value: 'cancelled',   label: 'Cancelled',   color: 'text-gray-400 border-gray-700 bg-gray-800/30' },

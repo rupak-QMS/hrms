@@ -235,7 +235,7 @@ function PayrollCharts({ summary }: { summary: Summary }) {
                   <span className="text-gray-500 dark:text-gray-400">{item.label}</span>
                   <span className="text-gray-200 font-mono">{fmt(item.value)}</span>
                 </div>
-                <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
+                <div className="h-2 bg-[#0E3D52]/30 rounded-full overflow-hidden">
                   <div className="h-full rounded-full transition-all" style={{ width: `${pct}%`, background: item.color }} />
                 </div>
               </div>

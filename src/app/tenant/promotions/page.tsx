@@ -190,7 +190,7 @@ export default function PromotionsPage() {
         {[
           ['Total',       stats.total,        'border-gray-700'],
           ['Pending',     stats.pending,       'border-gray-600'],
-          ['In Review',   stats.under_review,  'border-blue-800'],
+          ['In Review',   stats.under_review,  'border-[#1A6080]'],
           ['Approved',    stats.approved,      'border-green-800'],
           ['Rejected',    stats.rejected,      'border-red-800'],
           ['Implemented', stats.implemented,   'border-[#1A6080]'],

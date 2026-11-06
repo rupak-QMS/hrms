@@ -1091,7 +1091,7 @@ export default function EmployeeProfilePage() {
                   <select
                     value={enrolCourseId}
                     onChange={e => setEnrolCourseId(e.target.value)}
-                    className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[#0E3D52]">
+                    className="w-full bg-[#0E3D52]/20 border border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[#0E3D52]">
                     <option value="">Select a course…</option>
                     {courses
                       .filter(c => !training.some(t => t.courseId === c.id && t.status !== 'expired'))
@@ -1153,7 +1153,7 @@ export default function EmployeeProfilePage() {
               <div className="space-y-2">
                 {training.map(rec => {
                   const STATUS_BADGE: Record<string, string> = {
-                    enrolled:  'bg-blue-900/50 text-[#7dcfd7] border border-blue-800',
+                    enrolled:  'bg-[#0E3D52]/40 text-[#7dcfd7] border border-[#1A6080]/60',
                     completed: 'bg-green-900/50 text-green-300 border border-green-800',
                     overdue:   'bg-red-900/50 text-red-300 border border-red-800',
                     expired:   'bg-gray-800 text-gray-400 border border-gray-700',
@@ -1163,7 +1163,7 @@ export default function EmployeeProfilePage() {
                     : null
 
                   return (
-                    <div key={rec.id} className="flex items-start gap-4 p-4 bg-gray-800/50 border border-gray-700 rounded-xl">
+                    <div key={rec.id} className="flex items-start gap-4 p-4 bg-[#0E3D52]/10 border border-[#1A6080]/30 rounded-xl">
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 flex-wrap">
                           <p className="text-sm font-medium text-foreground">

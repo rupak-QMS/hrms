@@ -370,7 +370,7 @@ export default function ContractsPage() {
                       <div className="flex gap-2 flex-wrap">
                         {c.status === 'draft' && (
                           <button onClick={() => patch(c.id, { status: 'sent' })}
-                            className="text-xs bg-blue-900/40 border border-blue-800 text-[#7dcfd7] hover:bg-blue-900/60 px-3 py-1.5 rounded-lg transition">
+                            className="text-xs bg-[#0E3D52]/40 border border-[#1A6080]/60 text-[#7dcfd7] hover:bg-[#0E3D52]/60 px-3 py-1.5 rounded-lg transition">
                             Mark as Sent
                           </button>
                         )}

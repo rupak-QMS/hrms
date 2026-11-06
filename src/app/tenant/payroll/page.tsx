@@ -475,7 +475,7 @@ export default function PayrollPage() {
                         </button>
                       )}
                       <button onClick={() => setSelected(r)} className="text-xs px-2 py-1 rounded border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition">View</button>
-                      {r.status === 'pending'  && <button onClick={() => updateStatus(r.id, 'approved')} className="text-xs px-2 py-1 rounded border border-blue-700 text-[#4ebac4] hover:bg-blue-900/20 transition">Approve</button>}
+                      {r.status === 'pending'  && <button onClick={() => updateStatus(r.id, 'approved')} className="text-xs px-2 py-1 rounded border border-[#1A6080]/60 text-[#4ebac4] hover:bg-[#0E3D52]/20 transition">Approve</button>}
                       {r.status === 'approved' && <button onClick={() => updateStatus(r.id, 'paid')}     className="text-xs px-2 py-1 rounded border border-green-700 text-green-400 hover:bg-green-900/20 transition">Mark Paid</button>}
                       {r.status === 'pending'  && (
                         <button onClick={() => deletePayroll(r.id)} title="Delete pay run"
@@ -867,14 +867,14 @@ function GeneratePdfButton({ recordId, onGenerated }: {
       <button
         onClick={() => generate(false)}
         disabled={loading || emailing}
-        className="text-xs px-3 py-1.5 rounded-lg border border-blue-700 text-[#4ebac4] hover:bg-blue-900/30 transition disabled:opacity-50">
+        className="text-xs px-3 py-1.5 rounded-lg border border-[#1A6080]/60 text-[#4ebac4] hover:bg-[#0E3D52]/30 transition disabled:opacity-50">
         {loading ? '⏳' : '⚡'} Generate
       </button>
       <button
         onClick={() => generate(true)}
         disabled={loading || emailing}
         title="Generate and email to employee"
-        className="text-xs px-3 py-1.5 rounded-lg border border-blue-700 text-[#4ebac4] hover:bg-blue-900/30 transition disabled:opacity-50">
+        className="text-xs px-3 py-1.5 rounded-lg border border-[#1A6080]/60 text-[#4ebac4] hover:bg-[#0E3D52]/30 transition disabled:opacity-50">
         {emailing ? '⏳' : '📧'}
       </button>
       </div>

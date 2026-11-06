@@ -544,7 +544,7 @@ export default function OfferLettersPage() {
         {[
           { label: 'Total',    value: stats.total,    col: 'border-gray-700' },
           { label: 'Draft',    value: stats.draft,    col: 'border-gray-600' },
-          { label: 'Sent',     value: stats.sent,     col: 'border-blue-700' },
+          { label: 'Sent',     value: stats.sent,     col: 'border-[#1A6080]' },
           { label: 'Accepted', value: stats.accepted, col: 'border-green-700' },
           { label: 'Rejected', value: stats.rejected, col: 'border-red-700' },
           { label: 'Expired',  value: stats.expired,  col: 'border-amber-700' },

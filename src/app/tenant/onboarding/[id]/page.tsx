@@ -42,7 +42,7 @@ const STAGES = Object.entries(STAGE_LABELS)
 
 const CATEGORY_COLOR: Record<string, string> = {
   admin:      'bg-gray-700 text-gray-300',
-  it:         'bg-blue-900/60 text-[#7dcfd7]',
+  it:         'bg-[#0E3D52]/50 text-[#7dcfd7]',
   hr:         'bg-[#0E3D52]/60 text-[#4ebac4]',
   legal:      'bg-amber-900/60 text-amber-300',
   compliance: 'bg-red-900/60 text-red-300',

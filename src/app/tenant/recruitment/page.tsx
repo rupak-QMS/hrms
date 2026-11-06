@@ -636,7 +636,7 @@ export default function RecruitmentPage() {
                       {/* Column header */}
                       <div className="flex items-center justify-between px-1">
                         <p className="text-xs font-semibold text-gray-400 ">{stage.label}</p>
-                        <span className="text-xs bg-gray-800 text-gray-400 rounded-full px-2 py-0.5">{cols.length}</span>
+                        <span className="text-xs bg-[#0E3D52]/30 text-[#4ebac4] rounded-full px-2 py-0.5">{cols.length}</span>
                       </div>
 
                       {/* Cards */}
@@ -692,7 +692,7 @@ export default function RecruitmentPage() {
                                       value={editingScore[a.id] ?? ''}
                                       onChange={e => setEditingScore(p => ({ ...p, [a.id]: e.target.value }))}
                                       placeholder="—"
-                                      className="w-full bg-gray-800 border border-gray-700 rounded-lg px-2 py-1 text-xs text-white focus:outline-none focus:border-[#0E3D52]"
+                                      className="w-full bg-[#0E3D52]/20 border border-[#1A6080]/40 rounded-lg px-2 py-1 text-xs text-white focus:outline-none focus:border-[#0E3D52]"
                                     />
                                   </div>
                                   <div>
@@ -701,7 +701,7 @@ export default function RecruitmentPage() {
                                       value={editingNotes[a.id] ?? ''}
                                       onChange={e => setEditingNotes(p => ({ ...p, [a.id]: e.target.value }))}
                                       rows={3} placeholder="Interview notes, feedback…"
-                                      className="w-full bg-gray-800 border border-gray-700 rounded-lg px-2 py-1 text-xs text-white resize-none focus:outline-none focus:border-[#0E3D52]"
+                                      className="w-full bg-[#0E3D52]/20 border border-[#1A6080]/40 rounded-lg px-2 py-1 text-xs text-white resize-none focus:outline-none focus:border-[#0E3D52]"
                                     />
                                   </div>
                                   <button disabled={isSaving} onClick={() => saveCardNotes(a.id)}
@@ -737,7 +737,7 @@ export default function RecruitmentPage() {
                                 <button className="w-full py-1 text-xs text-gray-500 hover:text-white border border-gray-700 hover:border-gray-500 rounded-lg transition">
                                   Move to stage ▾
                                 </button>
-                                <div className="absolute bottom-full left-0 right-0 mb-1 bg-gray-900 border border-gray-700 rounded-xl shadow-xl z-10 overflow-hidden hidden group-hover:block">
+                                <div className="absolute bottom-full left-0 right-0 mb-1 bg-[#0F2C3D] border border-[#1A6080]/40 rounded-xl shadow-xl z-10 overflow-hidden hidden group-hover:block">
                                   {otherStages.map(s => (
                                     <button key={s.value} onClick={() => moveStatus(a.id, s.value)}
                                       className="w-full text-left px-3 py-2 text-xs text-gray-300 hover:bg-gray-800 transition">
