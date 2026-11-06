@@ -242,7 +242,7 @@ export default function TenantSidebar({
               <p className="text-[13px] font-semibold leading-tight truncate text-white">
                 {tenantName}
               </p>
-              <p className="text-[10px] font-medium tracking-wide" style={{ color: mutedText }}>
+              <p className="text-[10px] font-medium" style={{ color: mutedText }}>
                 HR Management
               </p>
             </div>

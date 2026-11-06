@@ -41,7 +41,7 @@ export default function AdminLayoutShell({ children, name, email }: Props) {
               className="w-1 h-4 rounded-full shrink-0 hidden md:block"
               style={{ background: `linear-gradient(to bottom, ${ACCENT}, ${ACCENT}88)` }}
             />
-            <span className="text-[13px] font-medium text-muted-foreground tracking-wide select-none truncate">
+            <span className="text-[13px] font-medium text-muted-foreground select-none truncate">
               Platform Administration
             </span>
           </div>
