@@ -88,7 +88,7 @@ function RejectModal({ onConfirm, onClose }: {
   return (
     <div className="modal-overlay">
       <div className="card-premium w-full max-w-sm shadow-lg">
-        <div className="px-6 py-4 border-b border-gray-100 dark:border-gray-800">
+        <div className="px-6 py-4 border-b border-gray-100 dark:border-[#1A6080]/20">
           <h3 className="font-bold text-gray-900 dark:text-white">Reject Timesheet</h3>
         </div>
         <div className="p-6 space-y-3">
@@ -104,7 +104,7 @@ function RejectModal({ onConfirm, onClose }: {
           />
           <div className="flex gap-2 pt-1">
             <button onClick={onClose}
-              className="flex-1 py-2 rounded-xl text-sm font-semibold border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+              className="flex-1 py-2 rounded-xl text-sm font-semibold border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
               Cancel
             </button>
             <button
@@ -260,7 +260,7 @@ function TimesheetRow({
   const c = STATUS_COLOURS[ts.status] ?? STATUS_COLOURS.pending
   const approvable = ts.status === 'pending' || ts.status === 'submitted'
   return (
-    <tr className={`hover:bg-gray-50/60 dark:hover:bg-gray-800/30 transition border-b border-gray-50 dark:border-gray-800 ${isSelected ? 'bg-green-50/50 dark:bg-green-900/10' : ''}`}>
+    <tr className={`hover:bg-gray-50/60 dark:hover:bg-[#0E3D52]/30/30 transition border-b border-gray-50 dark:border-[#1A6080]/20 ${isSelected ? 'bg-green-50/50 dark:bg-green-900/10' : ''}`}>
       {isManager && (
         <td className="px-3 py-3 w-10">
           {approvable && (
@@ -492,13 +492,13 @@ export default function TimesheetsPage() {
           {/* Week nav */}
           <div className="flex items-center card-premium overflow-hidden">
             <button onClick={() => setWeekStart(w => addDays(w, -7))}
-              className="px-3 py-2 text-gray-500 hover:bg-gray-50 dark:hover:bg-gray-800 transition text-sm dark:text-gray-400">←</button>
+              className="px-3 py-2 text-gray-500 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition text-sm dark:text-gray-400">←</button>
             <button onClick={() => setWeekStart(getMondayOf(new Date()))}
-              className="px-3 py-2 text-xs font-medium text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 border-x border-gray-200 dark:border-gray-700 transition">
+              className="px-3 py-2 text-xs font-medium text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 border-x border-gray-200 dark:border-[#1A6080]/30 transition">
               This week
             </button>
             <button onClick={() => setWeekStart(w => addDays(w, 7))}
-              className="px-3 py-2 text-gray-500 hover:bg-gray-50 dark:hover:bg-gray-800 transition text-sm dark:text-gray-400">→</button>
+              className="px-3 py-2 text-gray-500 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition text-sm dark:text-gray-400">→</button>
           </div>
           {/* Status filter */}
           <select value={statusFilter} onChange={e => setStatusFilter(e.target.value)}
@@ -557,7 +557,7 @@ export default function TimesheetsPage() {
           <div className="overflow-x-auto">
             <table className="table-premium">
               <thead>
-                <tr className="bg-gray-50 dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
+                <tr className="bg-gray-50 dark:bg-gray-800 border-b border-gray-100 dark:border-[#1A6080]/30">
                   {isManager && (
                     <th className="px-3 py-3 w-10">
                       <input
@@ -602,7 +602,7 @@ export default function TimesheetsPage() {
               </tbody>
               {isManager && (
                 <tfoot>
-                  <tr className="bg-gray-50 dark:bg-gray-800 border-t border-gray-100 dark:border-gray-700">
+                  <tr className="bg-gray-50 dark:bg-gray-800 border-t border-gray-100 dark:border-[#1A6080]/30">
                     <td colSpan={5} className="px-4 py-2 section-label">
                       Total
                     </td>

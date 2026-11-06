@@ -498,13 +498,13 @@ export default function MedicationHealthPage() {
     <div className="flex h-[calc(100vh-64px)] overflow-hidden bg-gray-50 dark:bg-gray-900">
 
       {/* ── Left: Participant list ──────────────────────────────────────────── */}
-      <div className="w-72 flex-shrink-0 border-r border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 flex flex-col">
-        <div className="p-4 border-b border-gray-200 dark:border-gray-700">
+      <div className="w-72 flex-shrink-0 border-r border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 flex flex-col">
+        <div className="p-4 border-b border-gray-200 dark:border-[#1A6080]/30">
           <h1 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Medication & Health</h1>
           <input
             type="text" placeholder="Search participants…" value={search}
             onChange={e => setSearch(e.target.value)}
-            className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-[#0E3D52]/20 focus:outline-none"
+            className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-[#1A6080]/40 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-[#0E3D52]/20 focus:outline-none"
           />
         </div>
         <div className="flex-1 overflow-y-auto">
@@ -516,7 +516,7 @@ export default function MedicationHealthPage() {
             </div>
           ) : participants.map(p => (
             <button key={p.id} onClick={() => selectParticipant(p)}
-              className={`w-full text-left px-4 py-3 border-b border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors ${selected?.id === p.id ? 'bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border-l-2 border-l-[#0E3D52]' : ''}`}>
+              className={`w-full text-left px-4 py-3 border-b border-gray-100 dark:border-[#1A6080]/30 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors ${selected?.id === p.id ? 'bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border-l-2 border-l-[#0E3D52]' : ''}`}>
               <p className="font-medium text-sm text-gray-900 dark:text-white">{displayName(p)}</p>
               <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">{p.fundingBody}{p.ndisNumber ? ` · ${p.ndisNumber}` : ''}</p>
             </button>
@@ -537,7 +537,7 @@ export default function MedicationHealthPage() {
         <div className="flex-1 flex flex-col overflow-hidden">
 
           {/* Header */}
-          <div className="px-6 py-4 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+          <div className="px-6 py-4 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-[#1A6080]/30">
             <div className="flex items-center justify-between">
               <div>
                 <h2 className="page-premium-title">{displayName(selected)}</h2>
@@ -558,7 +558,7 @@ export default function MedicationHealthPage() {
                 {DETAIL_TABS.map(tab => (
                   <button key={tab} onClick={() => changeTab(tab)}
                     className={`px-4 py-2 text-sm font-medium rounded-t-lg capitalize transition-colors ${activeTab === tab
-                      ? 'bg-gray-50 dark:bg-gray-900 border border-b-0 border-gray-200 dark:border-gray-700 text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4]'
+                      ? 'bg-gray-50 dark:bg-gray-900 border border-b-0 border-gray-200 dark:border-[#1A6080]/30 text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4]'
                       : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'}`}>
                     {tab === 'medications' ? '💊 Medications' : tab === 'conditions' ? '🩺 Conditions' : '📅 Appointments'}
                   </button>
@@ -1065,14 +1065,14 @@ function Input({ value, onChange, type = 'text', placeholder }: {
 }) {
   return (
     <input type={type} value={value} onChange={e => onChange(e.target.value)} placeholder={placeholder}
-      className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-[#0E3D52]/20 focus:outline-none" />
+      className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-[#1A6080]/40 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-[#0E3D52]/20 focus:outline-none" />
   )
 }
 
 function Select({ value, onChange, children }: { value: string; onChange: (v: string) => void; children: React.ReactNode }) {
   return (
     <select value={value} onChange={e => onChange(e.target.value)}
-      className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-[#0E3D52]/20 focus:outline-none">
+      className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-[#1A6080]/40 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-[#0E3D52]/20 focus:outline-none">
       {children}
     </select>
   )
@@ -1081,7 +1081,7 @@ function Select({ value, onChange, children }: { value: string; onChange: (v: st
 function Textarea({ value, onChange, rows = 3 }: { value: string; onChange: (v: string) => void; rows?: number }) {
   return (
     <textarea value={value} onChange={e => onChange(e.target.value)} rows={rows}
-      className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-[#0E3D52]/20 focus:outline-none resize-none" />
+      className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-[#1A6080]/40 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-[#0E3D52]/20 focus:outline-none resize-none" />
   )
 }
 
@@ -1101,14 +1101,14 @@ function Modal({ title, onClose, onSave, saving, error, children, wide }: {
   return (
     <div className="modal-overlay">
       <div className={`bg-white dark:bg-[#0F1E2E] rounded-xl shadow-xl flex flex-col max-h-[90vh] ${wide ? 'w-full max-w-2xl' : 'w-full max-w-md'}`}>
-        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 dark:border-[#1A6080]/30">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{title}</h3>
           <button onClick={onClose} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 text-xl leading-none">×</button>
         </div>
         <div className="flex-1 overflow-y-auto px-6 py-4">{children}</div>
         {error && <p className="px-6 text-sm text-red-600 dark:text-red-400 pb-2">{error}</p>}
-        <div className="flex justify-end gap-3 px-6 py-4 border-t border-gray-200 dark:border-gray-700">
-          <button onClick={onClose} className="px-4 py-2 text-sm border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+        <div className="flex justify-end gap-3 px-6 py-4 border-t border-gray-200 dark:border-[#1A6080]/30">
+          <button onClick={onClose} className="px-4 py-2 text-sm border border-gray-300 dark:border-[#1A6080]/40 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors">
             Cancel
           </button>
           <button onClick={onSave} disabled={saving}

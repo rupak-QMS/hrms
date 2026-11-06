@@ -113,7 +113,7 @@ export default function AdminsPage() {
                 value={form.name}
                 onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
                 placeholder="Jane Smith"
-                className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
+                className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
               />
             </div>
             <div>
@@ -124,7 +124,7 @@ export default function AdminsPage() {
                 value={form.email}
                 onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
                 placeholder="jane@example.com"
-                className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
+                className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
               />
             </div>
             <div>
@@ -136,7 +136,7 @@ export default function AdminsPage() {
                 value={form.password}
                 onChange={e => setForm(f => ({ ...f, password: e.target.value }))}
                 placeholder="min 8 characters"
-                className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
+                className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
               />
             </div>
           </div>
@@ -151,7 +151,7 @@ export default function AdminsPage() {
             <button
               type="button"
               onClick={() => { setShowForm(false); setFormError('') }}
-              className="border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white text-sm px-4 py-2 rounded-lg transition"
+              className="border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white text-sm px-4 py-2 rounded-lg transition"
             >
               Cancel
             </button>
@@ -159,10 +159,10 @@ export default function AdminsPage() {
         </form>
       )}
 
-      <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl overflow-hidden">
+      <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl overflow-hidden">
         <table className="w-full text-sm">
           <thead>
-            <tr className="border-b border-gray-200 dark:border-gray-800 text-left">
+            <tr className="border-b border-gray-200 dark:border-[#1A6080]/20 text-left">
               <th className="px-5 py-3 text-xs font-semibold  text-gray-500 dark:text-gray-400">Admin</th>
               <th className="px-5 py-3 text-xs font-semibold  text-gray-500 dark:text-gray-400">Status</th>
               <th className="px-5 py-3 text-xs font-semibold  text-gray-500 dark:text-gray-400">Last Login</th>
@@ -180,7 +180,7 @@ export default function AdminsPage() {
               </tr>
             )}
             {admins.map(a => (
-              <tr key={a.id} className="border-b border-gray-200 dark:border-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800/50">
+              <tr key={a.id} className="border-b border-gray-200 dark:border-[#1A6080]/20 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30/50">
                 <td className="px-5 py-3.5">
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 rounded-full bg-[#E0EEF4] dark:bg-[#0E3D52] flex items-center justify-center text-[#9ccfda] text-xs font-bold shrink-0">

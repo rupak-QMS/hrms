@@ -329,7 +329,7 @@ export default function MyLeavePage() {
                 {saving ? 'Submitting…' : 'Submit Request'}
               </button>
               <button type="button" onClick={() => { setShowForm(false); setFormError(null) }}
-                className="px-5 py-2.5 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:text-white text-sm rounded-lg">
+                className="px-5 py-2.5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-white text-sm rounded-lg">
                 Cancel
               </button>
             </div>
@@ -355,7 +355,7 @@ export default function MyLeavePage() {
                   {/* Summary row */}
                   <button
                     onClick={() => setExpanded(isOpen ? null : r.id)}
-                    className="w-full flex items-center gap-4 px-5 py-4 text-left hover:bg-gray-50 dark:hover:bg-gray-800/30 transition">
+                    className="w-full flex items-center gap-4 px-5 py-4 text-left hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/30 transition">
                     <div className="text-2xl shrink-0">
                       {leaveTypes.find(t => t.key === r.leaveType)?.emoji ?? '📋'}
                     </div>
@@ -381,7 +381,7 @@ export default function MyLeavePage() {
 
                   {/* Expanded detail */}
                   {isOpen && (
-                    <div className="px-5 pb-4 border-t border-gray-200 dark:border-gray-800 pt-3 space-y-3">
+                    <div className="px-5 pb-4 border-t border-gray-200 dark:border-[#1A6080]/20 pt-3 space-y-3">
                       <div className="grid grid-cols-2 gap-4 text-sm">
                         <div>
                           <p className="text-xs text-gray-500 dark:text-gray-400">Requested on</p>
@@ -496,7 +496,7 @@ export default function MyLeavePage() {
                       setForm(f => ({ ...f, leaveType: b.key }))
                       setShowForm(true); setFormError(null)
                     }}
-                    className="w-full text-xs py-1.5 border border-gray-200 dark:border-gray-700 text-gray-500 dark:text-gray-400 hover:text-white hover:border-[#0E3D52] rounded-lg transition">
+                    className="w-full text-xs py-1.5 border border-gray-200 dark:border-[#1A6080]/30 text-gray-500 dark:text-gray-400 hover:text-white hover:border-[#0E3D52] rounded-lg transition">
                     Request {b.label}
                   </button>
                 </div>

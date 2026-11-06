@@ -276,7 +276,7 @@ export default function SupervisionPage() {
                 </div>
 
                 {isOpen && (
-                  <div className="border-t border-gray-200 dark:border-gray-800 px-5 py-4 space-y-4">
+                  <div className="border-t border-gray-200 dark:border-[#1A6080]/20 px-5 py-4 space-y-4">
                     {r.notes && (
                       <div>
                         <p className="text-xs font-semibold text-gray-500  mb-1 dark:text-gray-400">Session Notes</p>
@@ -311,7 +311,7 @@ export default function SupervisionPage() {
                             placeholder="Add action item… (Enter to add)"
                             className="flex-1 input-premium py-1.5 text-xs" />
                           <button onClick={() => addAction(r.id, r.actionItems)}
-                            className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-[#0E3D52] px-3 py-1.5 rounded-lg transition">
+                            className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:border-[#0E3D52] px-3 py-1.5 rounded-lg transition">
                             Add
                           </button>
                         </div>
@@ -336,7 +336,7 @@ export default function SupervisionPage() {
                       <p className="text-xs text-green-400">Completed {new Date(r.conductedAt).toLocaleDateString('en-AU')}</p>
                     )}
 
-                    <div className="pt-2 border-t border-gray-200 dark:border-gray-800 flex justify-end">
+                    <div className="pt-2 border-t border-gray-200 dark:border-[#1A6080]/20 flex justify-end">
                       <button onClick={() => setDeleteTarget(r.id)}
                         className="text-xs text-red-400 hover:text-red-300 transition">
                         Delete Session

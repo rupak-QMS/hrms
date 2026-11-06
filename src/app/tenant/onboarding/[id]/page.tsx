@@ -255,7 +255,7 @@ export default function OnboardingDetailPage() {
             {rec.status === 'in_progress' ? 'In Progress' : rec.status.charAt(0).toUpperCase() + rec.status.slice(1)}
           </span>
           <Link href="/tenant/onboarding"
-            className="text-xs border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:text-white px-3 py-1.5 rounded-lg transition">
+            className="text-xs border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-white px-3 py-1.5 rounded-lg transition">
             ← Back
           </Link>
         </div>
@@ -341,7 +341,7 @@ export default function OnboardingDetailPage() {
           {showBuddyEdit ? (
             <div className="space-y-2">
               <select value={buddyDraft} onChange={e => setBuddyDraft(e.target.value)}
-                className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]">
+                className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]">
                 <option value="">— No buddy —</option>
                 {allEmployees
                   .filter(e => e.id !== rec.employeeId)
@@ -378,7 +378,7 @@ export default function OnboardingDetailPage() {
             <div className="space-y-2">
               <textarea value={notesDraft} onChange={e => setNotesDraft(e.target.value)} rows={4}
                 placeholder="Add notes…"
-                className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52] resize-none" />
+                className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52] resize-none" />
               <button onClick={saveNotes} disabled={notesSaving}
                 className="w-full bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm py-1.5 rounded-lg transition">
                 {notesSaving ? 'Saving…' : 'Save Notes'}
@@ -408,10 +408,10 @@ export default function OnboardingDetailPage() {
             <p className="text-xs font-semibold text-[#4ebac4]">New Checklist Task</p>
             <input value={newTaskText} onChange={e => setNewTaskText(e.target.value)}
               placeholder="Task description…"
-              className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]" />
+              className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]" />
             <div className="flex gap-2 items-center">
               <select value={newTaskCat} onChange={e => setNewTaskCat(e.target.value)}
-                className="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]">
+                className="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]">
                 {CATEGORIES.map(c => <option key={c} value={c}>{c.charAt(0).toUpperCase() + c.slice(1)}</option>)}
               </select>
               <button onClick={addTask} disabled={taskSaving || !newTaskText.trim()}
@@ -424,7 +424,7 @@ export default function OnboardingDetailPage() {
 
         {Object.entries(grouped).map(([category, items]) => (
           <div key={category} className="card-premium overflow-hidden">
-            <div className="px-4 py-2.5 border-b border-gray-200 dark:border-gray-800 flex items-center justify-between">
+            <div className="px-4 py-2.5 border-b border-gray-200 dark:border-[#1A6080]/20 flex items-center justify-between">
               <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${CATEGORY_COLOR[category] ?? 'bg-gray-700 text-gray-300'}`}>
                 {category.charAt(0).toUpperCase() + category.slice(1)}
               </span>
@@ -432,10 +432,10 @@ export default function OnboardingDetailPage() {
                 {items.filter(t => t.done).length}/{items.length}
               </span>
             </div>
-            <ul className="divide-y divide-gray-200 dark:divide-gray-800/50">
+            <ul className="divide-y divide-gray-200 dark:divide-[#1A6080]/20/50">
               {items.map(item => (
                 <li key={item.id}
-                  className={`flex items-center gap-3 px-4 py-3.5 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800/30 transition ${saving ? 'pointer-events-none opacity-70' : ''}`}
+                  className={`flex items-center gap-3 px-4 py-3.5 cursor-pointer hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30/30 transition ${saving ? 'pointer-events-none opacity-70' : ''}`}
                   onClick={() => toggleItem(item.id)}
                 >
                   <div className={`w-5 h-5 rounded flex items-center justify-center border-2 shrink-0 transition ${

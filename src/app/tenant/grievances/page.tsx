@@ -334,7 +334,7 @@ export default function GrievancesPage() {
                 </div>
 
                 {isOpen && (
-                  <div className="border-t border-gray-200 dark:border-gray-800 px-5 py-4 space-y-4">
+                  <div className="border-t border-gray-200 dark:border-[#1A6080]/20 px-5 py-4 space-y-4">
                     <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-wrap">{g.description}</p>
 
                     {/* Stage timeline */}
@@ -372,7 +372,7 @@ export default function GrievancesPage() {
                               value={outcomeText[g.id] ?? ''}
                               onChange={e => setOutcomeText(prev => ({ ...prev, [g.id]: e.target.value }))}
                               placeholder="Outcome / resolution notes…"
-                              className="flex-1 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-1.5 text-xs text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-green-600" />
+                              className="flex-1 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-1.5 text-xs text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-green-600" />
                             <button onClick={() => close(g.id)}
                               className="text-xs bg-green-900/40 border border-green-800 text-green-300 hover:bg-green-900/60 px-3 py-1.5 rounded-lg transition whitespace-nowrap">
                               Close

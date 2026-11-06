@@ -174,7 +174,7 @@ export default function CompetencyPage() {
       </div>
 
       {/* Tabs */}
-      <div className="flex border-b border-gray-200 dark:border-gray-800">
+      <div className="flex border-b border-gray-200 dark:border-[#1A6080]/20">
         {(['library', 'assessments'] as const).map(t => (
           <button key={t} onClick={() => setTab(t)}
             className={`px-5 py-2.5 text-sm font-medium border-b-2 transition ${tab === t ? 'border-[#0E3D52] text-[#1A6080] dark:text-[#4ebac4]' : 'border-transparent text-gray-500 hover:text-gray-300'}`}>
@@ -361,12 +361,12 @@ export default function CompetencyPage() {
                         <th className="px-4 py-3 section-label"></th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-gray-200 dark:divide-gray-800">
+                    <tbody className="divide-y divide-gray-200 dark:divide-[#1A6080]/20">
                       {assessments.map(a => {
                         const comp = competencies.find(c => c.id === a.competencyId)
                         const emp  = employees.find(e => e.id === a.employeeId)
                         return (
-                          <tr key={a.id} className="group hover:bg-gray-100 dark:hover:bg-gray-800/40">
+                          <tr key={a.id} className="group hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30/40">
                             <td className="px-4 py-3 text-gray-700 dark:text-gray-200">{emp ? `${emp.firstName} ${emp.lastName}` : '—'}</td>
                             <td className="px-4 py-3 text-gray-600 dark:text-gray-300">{comp?.name ?? '—'}</td>
                             <td className="px-4 py-3">

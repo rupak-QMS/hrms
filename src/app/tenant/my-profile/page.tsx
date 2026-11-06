@@ -35,7 +35,7 @@ type EmergencyContact = {
 
 const INPUT = 'input-premium'
 const LABEL = 'block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1'
-const ROW   = 'flex justify-between items-center py-2.5 border-b border-gray-200 dark:border-gray-800 last:border-0'
+const ROW   = 'flex justify-between items-center py-2.5 border-b border-gray-200 dark:border-[#1A6080]/20 last:border-0'
 
 // ── 2FA Section ───────────────────────────────────────────────────────────────
 type TotpStep = 'idle' | 'setup' | 'disable'
@@ -152,7 +152,7 @@ function TwoFactorSection() {
             value={code}
             onChange={e => setCode(e.target.value.replace(/\D/g, ''))}
             placeholder="6-digit code"
-            className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white text-center  font-mono focus:outline-none focus:border-[#0E3D52]"
+            className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white text-center  font-mono focus:outline-none focus:border-[#0E3D52]"
           />
           <div className="flex gap-3">
             <button onClick={verifySetup} disabled={busy || code.length !== 6}
@@ -160,7 +160,7 @@ function TwoFactorSection() {
               {busy ? 'Verifying…' : 'Verify & Enable'}
             </button>
             <button onClick={cancelStep}
-              className="px-5 py-2.5 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:text-white text-sm rounded-lg">
+              className="px-5 py-2.5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-white text-sm rounded-lg">
               Cancel
             </button>
           </div>
@@ -177,7 +177,7 @@ function TwoFactorSection() {
             value={code}
             onChange={e => setCode(e.target.value.replace(/\D/g, ''))}
             placeholder="6-digit code"
-            className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white text-center  font-mono focus:outline-none focus:border-red-500"
+            className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white text-center  font-mono focus:outline-none focus:border-red-500"
           />
           <div className="flex gap-3">
             <button onClick={disableTotp} disabled={busy || code.length !== 6}
@@ -185,7 +185,7 @@ function TwoFactorSection() {
               {busy ? 'Processing…' : 'Confirm Disable'}
             </button>
             <button onClick={cancelStep}
-              className="px-5 py-2.5 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:text-white text-sm rounded-lg">
+              className="px-5 py-2.5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-white text-sm rounded-lg">
               Cancel
             </button>
           </div>
@@ -443,7 +443,7 @@ export default function MyProfilePage() {
                 {saving ? 'Saving…' : 'Save Changes'}
               </button>
               <button type="button" onClick={() => setEditing(false)}
-                className="px-5 py-2.5 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:text-white text-sm rounded-lg">
+                className="px-5 py-2.5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-white text-sm rounded-lg">
                 Cancel
               </button>
             </div>
@@ -496,7 +496,7 @@ export default function MyProfilePage() {
 
         {/* Inline add/edit form */}
         {editingContact && (
-          <form onSubmit={saveContact} className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-4 mb-4 space-y-3">
+          <form onSubmit={saveContact} className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-xl p-4 mb-4 space-y-3">
             <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 ">
               {editingContact === 'new' ? 'New Emergency Contact' : 'Edit Contact'}
             </p>
@@ -534,7 +534,7 @@ export default function MyProfilePage() {
                 {contactSaving ? 'Saving…' : editingContact === 'new' ? 'Add Contact' : 'Save Changes'}
               </button>
               <button type="button" onClick={() => { setEditingContact(null); setContactForm(BLANK_CONTACT) }}
-                className="px-4 py-2 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 text-sm rounded-lg hover:text-white transition">
+                className="px-4 py-2 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 text-sm rounded-lg hover:text-white transition">
                 Cancel
               </button>
             </div>
@@ -546,7 +546,7 @@ export default function MyProfilePage() {
         ) : (
           <div className="space-y-3">
             {contacts.map(c => (
-              <div key={c.id} className="bg-gray-100 dark:bg-gray-800/60 border border-gray-300 dark:border-gray-700 rounded-xl px-4 py-3">
+              <div key={c.id} className="bg-gray-100 dark:bg-gray-800/60 border border-gray-300 dark:border-[#1A6080]/30 rounded-xl px-4 py-3">
                 <div className="flex items-center justify-between mb-1">
                   <div className="flex items-center gap-2">
                     <p className="font-medium text-foreground text-sm">{c.name}</p>

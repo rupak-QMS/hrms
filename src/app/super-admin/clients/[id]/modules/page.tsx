@@ -170,7 +170,7 @@ export default function ModulesPage() {
       </div>
 
       {/* Tier legend */}
-      <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-4 flex flex-wrap gap-4 text-xs text-gray-600 dark:text-gray-400">
+      <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-4 flex flex-wrap gap-4 text-xs text-gray-600 dark:text-gray-400">
         <span className="font-semibold text-gray-600 dark:text-gray-300">Tier includes:</span>
         <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-green-500" />Starter — modules 01–09</span>
         <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-[#1A6080]" />Professional — modules 01–19</span>
@@ -184,7 +184,7 @@ export default function ModulesPage() {
         placeholder="Search modules…"
         value={search}
         onChange={e => setSearch(e.target.value)}
-        className="w-full max-w-sm bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
+        className="w-full max-w-sm bg-white dark:bg-gray-900 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-4 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
       />
 
       {/* Module categories */}
@@ -223,7 +223,7 @@ export default function ModulesPage() {
               </div>
 
               {/* Modules list */}
-              <div className="divide-y divide-gray-200 dark:divide-gray-800/60 bg-white dark:bg-gray-900">
+              <div className="divide-y divide-gray-200 dark:divide-[#1A6080]/20/60 bg-white dark:bg-gray-900">
                 {mods.map(mod => {
                   const state   = states.find(s => s.id === mod.id)
                   const enabled = state?.isEnabled ?? false
@@ -231,7 +231,7 @@ export default function ModulesPage() {
                   const num     = String(mod.id).padStart(2, '0')
 
                   return (
-                    <div key={mod.id} className={`flex items-center justify-between px-5 py-3 transition ${!locked && !enabled ? 'opacity-60' : ''} hover:bg-gray-100 dark:hover:bg-gray-800/20`}>
+                    <div key={mod.id} className={`flex items-center justify-between px-5 py-3 transition ${!locked && !enabled ? 'opacity-60' : ''} hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30/20`}>
                       <div className="flex items-center gap-3 min-w-0">
                         <span className="text-xs font-mono text-gray-500 shrink-0 w-6 dark:text-gray-400">{num}</span>
                         <span className={`text-sm ${enabled ? 'text-gray-900 dark:text-white font-medium' : 'text-gray-500 dark:text-gray-400'}`}>{mod.name}</span>
@@ -276,7 +276,7 @@ export default function ModulesPage() {
         </button>
         <Link
           href="/super-admin/clients"
-          className="border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white text-sm px-4 py-2.5 rounded-lg transition"
+          className="border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white text-sm px-4 py-2.5 rounded-lg transition"
         >
           Done
         </Link>

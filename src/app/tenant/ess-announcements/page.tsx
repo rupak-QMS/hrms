@@ -346,7 +346,7 @@ export default function EssAnnouncementsPage() {
               <div className="flex justify-end gap-3 pt-2">
                 <button
                   onClick={() => { setShowModal(false); setSaveError('') }}
-                  className="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                  className="px-4 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/40 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition-colors"
                 >
                   Cancel
                 </button>
@@ -375,7 +375,7 @@ export default function EssAnnouncementsPage() {
             <div className="flex justify-end gap-3">
               <button
                 onClick={() => { setDeleteId(null); setDeleteError('') }}
-                className="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                className="px-4 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/40 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition-colors"
               >
                 Cancel
               </button>
@@ -441,7 +441,7 @@ function AnnouncementTable({
                 <div className="flex justify-end gap-2">
                   <button
                     onClick={() => onEdit(a)}
-                    className="text-xs px-2.5 py-1 rounded-md border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                    className="text-xs px-2.5 py-1 rounded-md border border-gray-300 dark:border-[#1A6080]/40 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition-colors"
                   >
                     Edit
                   </button>

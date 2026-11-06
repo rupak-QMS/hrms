@@ -72,7 +72,7 @@ export default function CompliancePage() {
       </div>
 
       {/* Tab bar */}
-      <div className="flex gap-1 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-1 w-fit">
+      <div className="flex gap-1 bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-1 w-fit">
         {([
           { key: 'screening', label: 'Screening',   desc: 'Module 6' },
           { key: 'tracking',  label: 'Tracking',    desc: 'Module 8' },
@@ -206,9 +206,9 @@ function ScreeningTab() {
       <div className="flex gap-3 flex-wrap">
         <input value={search} onChange={e => { setSearch(e.target.value); load(e.target.value, filterStatus) }}
           placeholder="Search employee…"
-          className="flex-1 min-w-48 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]" />
+          className="flex-1 min-w-48 bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]" />
         <select value={filterStatus} onChange={e => { setFilterStatus(e.target.value); load(search, e.target.value) }}
-          className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]">
+          className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]">
           <option value="">All statuses</option>
           <option value="pending">Pending</option>
           <option value="green">Verified</option>
@@ -652,7 +652,7 @@ function LockTab() {
               <p className="section-label mb-2">Active Exceptions ({active.length})</p>
               <div className="card-premium border-amber-500/30 overflow-hidden">
                 {active.map(r => (
-                  <div key={r.id} className="flex items-center gap-4 px-5 py-4 border-b border-gray-200 dark:border-gray-800/50 last:border-0">
+                  <div key={r.id} className="flex items-center gap-4 px-5 py-4 border-b border-gray-200 dark:border-[#1A6080]/20/50 last:border-0">
                     <div className="flex-1">
                       <p className="text-foreground font-medium text-sm">{r.employeeFirstName} {r.employeeLastName}</p>
                       <p className="text-gray-600 dark:text-gray-400 text-xs mt-0.5">{r.reason}</p>
@@ -676,7 +676,7 @@ function LockTab() {
               <p className="section-label mb-2">Expired / Revoked</p>
               <div className="card-premium overflow-hidden opacity-60">
                 {inactive.slice(0,5).map(r => (
-                  <div key={r.id} className="flex items-center gap-4 px-5 py-3 border-b border-gray-200 dark:border-gray-800/50 last:border-0">
+                  <div key={r.id} className="flex items-center gap-4 px-5 py-3 border-b border-gray-200 dark:border-[#1A6080]/20/50 last:border-0">
                     <div className="flex-1">
                       <p className="text-gray-600 dark:text-gray-300 text-sm">{r.employeeFirstName} {r.employeeLastName}</p>
                       <p className="text-gray-500 text-xs dark:text-gray-400">{r.reason}</p>

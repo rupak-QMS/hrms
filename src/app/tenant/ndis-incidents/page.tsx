@@ -137,7 +137,7 @@ function IncidentModal({ initial, onClose, onSaved }: {
   return (
     <div className="modal-overlay">
       <div className="bg-white dark:bg-[#0F1E2E] rounded-xl shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
-        <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-gray-100 dark:border-gray-800">
+        <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-gray-100 dark:border-[#1A6080]/20">
           <h2 className="text-lg font-bold text-gray-900 dark:text-white">
             {initial ? 'Edit Incident' : 'New Reportable Incident'}
           </h2>
@@ -149,14 +149,14 @@ function IncidentModal({ initial, onClose, onSaved }: {
           <div>
             <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Title *</label>
             <input value={form.title} onChange={e => set('title', e.target.value)} required
-              className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm" />
+              className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm" />
           </div>
 
           <div className="grid grid-cols-2 gap-3">
             <div>
               <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Incident Type *</label>
               <select value={form.incidentType} onChange={e => set('incidentType', e.target.value)}
-                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm">
+                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm">
                 {Object.entries(INCIDENT_TYPES).map(([v, l]) => <option key={v} value={v}>{l}</option>)}
               </select>
             </div>
@@ -164,7 +164,7 @@ function IncidentModal({ initial, onClose, onSaved }: {
               <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Sub-category</label>
               <input value={form.incidentCategory} onChange={e => set('incidentCategory', e.target.value)}
                 placeholder="Optional sub-category"
-                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm" />
+                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm" />
             </div>
           </div>
 
@@ -172,14 +172,14 @@ function IncidentModal({ initial, onClose, onSaved }: {
             <div>
               <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Status</label>
               <select value={form.status} onChange={e => set('status', e.target.value)}
-                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm">
+                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm">
                 {Object.entries(STATUS_BADGE).map(([v, { label }]) => <option key={v} value={v}>{label}</option>)}
               </select>
             </div>
             <div>
               <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Severity</label>
               <select value={form.severity} onChange={e => set('severity', e.target.value)}
-                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm">
+                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm">
                 {Object.entries(SEVERITY_BADGE).map(([v, { label }]) => <option key={v} value={v}>{label}</option>)}
               </select>
             </div>
@@ -189,12 +189,12 @@ function IncidentModal({ initial, onClose, onSaved }: {
             <div>
               <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Incident Date *</label>
               <input type="datetime-local" value={form.incidentDate} onChange={e => set('incidentDate', e.target.value)} required
-                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm" />
+                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm" />
             </div>
             <div>
               <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Location</label>
               <input value={form.location} onChange={e => set('location', e.target.value)}
-                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm" />
+                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm" />
             </div>
           </div>
 
@@ -202,25 +202,25 @@ function IncidentModal({ initial, onClose, onSaved }: {
             <div>
               <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Participant Name</label>
               <input value={form.participantName} onChange={e => set('participantName', e.target.value)}
-                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm" />
+                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm" />
             </div>
             <div>
               <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Worker Name</label>
               <input value={form.workerName} onChange={e => set('workerName', e.target.value)}
-                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm" />
+                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm" />
             </div>
           </div>
 
           <div>
             <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Description *</label>
             <textarea rows={3} value={form.description} onChange={e => set('description', e.target.value)} required
-              className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm resize-none" />
+              className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm resize-none" />
           </div>
 
           <div>
             <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Immediate Actions Taken</label>
             <textarea rows={2} value={form.immediateActions} onChange={e => set('immediateActions', e.target.value)}
-              className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm resize-none" />
+              className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm resize-none" />
           </div>
 
           {/* Reporting flags */}
@@ -243,12 +243,12 @@ function IncidentModal({ initial, onClose, onSaved }: {
                 <div>
                   <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Notify Date</label>
                   <input type="date" value={form.commissionNotifyDate} onChange={e => set('commissionNotifyDate', e.target.value)}
-                    className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm" />
+                    className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm" />
                 </div>
                 <div>
                   <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Commission Ref #</label>
                   <input value={form.commissionRefNumber} onChange={e => set('commissionRefNumber', e.target.value)}
-                    className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm" />
+                    className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm" />
                 </div>
               </div>
             )}
@@ -263,24 +263,24 @@ function IncidentModal({ initial, onClose, onSaved }: {
           <div>
             <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Root Cause Analysis</label>
             <textarea rows={2} value={form.rootCause} onChange={e => set('rootCause', e.target.value)}
-              className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm resize-none" />
+              className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm resize-none" />
           </div>
 
           <div>
             <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Assigned To</label>
             <input value={form.assignedTo} onChange={e => set('assignedTo', e.target.value)}
-              className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm" />
+              className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm" />
           </div>
 
           <div>
             <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Notes</label>
             <textarea rows={2} value={form.notes} onChange={e => set('notes', e.target.value)}
-              className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm resize-none" />
+              className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm resize-none" />
           </div>
 
           <div className="flex justify-end gap-3 pt-2">
             <button type="button" onClick={onClose}
-              className="px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800">
+              className="px-4 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30">
               Cancel
             </button>
             <button type="submit" disabled={saving}
@@ -419,20 +419,20 @@ export default function NDISIncidentsPage() {
           value={search}
           onChange={e => setSearch(e.target.value)}
           placeholder="Search incidents…"
-          className="px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm w-56"
+          className="px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm w-56"
         />
         <select value={filterStatus} onChange={e => setFilterStatus(e.target.value)}
-          className="px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm">
+          className="px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm">
           <option value="">All Statuses</option>
           {Object.entries(STATUS_BADGE).map(([v, { label }]) => <option key={v} value={v}>{label}</option>)}
         </select>
         <select value={filterSeverity} onChange={e => setFilterSeverity(e.target.value)}
-          className="px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm">
+          className="px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm">
           <option value="">All Severities</option>
           {Object.entries(SEVERITY_BADGE).map(([v, { label }]) => <option key={v} value={v}>{label}</option>)}
         </select>
         <select value={filterType} onChange={e => setFilterType(e.target.value)}
-          className="px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm">
+          className="px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm">
           <option value="">All Types</option>
           {Object.entries(INCIDENT_TYPES).map(([v, l]) => <option key={v} value={v}>{l}</option>)}
         </select>
@@ -459,12 +459,12 @@ export default function NDISIncidentsPage() {
                   ))}
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-50 dark:divide-gray-800">
+              <tbody className="divide-y divide-gray-50 dark:divide-[#1A6080]/20">
                 {incidents.map(inc => {
                   const sb = STATUS_BADGE[inc.status] ?? STATUS_BADGE.open
                   const sev = SEVERITY_BADGE[inc.severity] ?? SEVERITY_BADGE.medium
                   return (
-                    <tr key={inc.id} className="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition">
+                    <tr key={inc.id} className="hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/50 transition">
                       <td className="px-4 py-3 max-w-xs">
                         <p className="font-medium text-gray-900 dark:text-white truncate">{inc.title}</p>
                         {inc.location && <p className="text-xs text-gray-500 dark:text-gray-400 truncate">📍 {inc.location}</p>}

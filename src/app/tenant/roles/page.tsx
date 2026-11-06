@@ -263,15 +263,15 @@ export default function RolesPage() {
           <div className="table-responsive">
             <table className="table-premium">
             <thead>
-              <tr className="border-b border-gray-200 dark:border-gray-800">
+              <tr className="border-b border-gray-200 dark:border-[#1A6080]/20">
                 {['Email', 'Role', '2FA', 'Last Login', 'Status', '', ''].map(h => (
                   <th key={h} className="px-4 py-3 text-left section-label">{h}</th>
                 ))}
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-200 dark:divide-gray-800/60">
+            <tbody className="divide-y divide-gray-200 dark:divide-[#1A6080]/20/60">
               {users.map(u => (
-                <tr key={u.id} className={`hover:bg-gray-100 dark:hover:bg-gray-800/30 ${!u.isActive ? 'opacity-50' : ''}`}>
+                <tr key={u.id} className={`hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30/30 ${!u.isActive ? 'opacity-50' : ''}`}>
                   <td className="px-4 py-3 text-gray-700 dark:text-gray-200 font-mono text-xs">{u.email}</td>
                   <td className="px-4 py-3">
                     <PermissionGate permission="roles:write"
@@ -283,7 +283,7 @@ export default function RolesPage() {
                       {editId === u.id ? (
                         <div className="flex gap-1.5">
                           <select value={editRole} onChange={e => setEditRole(e.target.value)}
-                            className="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded px-2 py-1 text-xs text-gray-900 dark:text-white">
+                            className="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded px-2 py-1 text-xs text-gray-900 dark:text-white">
                             {ROLES.map(r => <option key={r} value={r}>{ROLE_LABEL[r] ?? r}</option>)}
                           </select>
                           <button onClick={() => changeRole(u.id, editRole)}

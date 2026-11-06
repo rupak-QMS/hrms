@@ -152,7 +152,7 @@ export default function NotificationsPage() {
         <div className="flex gap-2">
           {unread > 0 && (
             <button onClick={markAllRead}
-              className="text-sm px-3 py-1.5 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:text-white rounded-lg transition">
+              className="text-sm px-3 py-1.5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-white rounded-lg transition">
               Mark all read
             </button>
           )}
@@ -175,7 +175,7 @@ export default function NotificationsPage() {
         <div className="flex items-center gap-3 mb-4">
           <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Notify if expiring within</label>
           <select value={daysAhead} onChange={e => setDaysAhead(Number(e.target.value))}
-            className="bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white">
+            className="bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white">
             {[3, 7, 14, 30].map(d => <option key={d} value={d}>{d} days</option>)}
           </select>
         </div>
@@ -185,7 +185,7 @@ export default function NotificationsPage() {
         )}
 
         {result && (
-          <div className={`rounded-xl p-4 mb-4 border ${result.sent > 0 ? 'bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800' : 'bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700'}`}>
+          <div className={`rounded-xl p-4 mb-4 border ${result.sent > 0 ? 'bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800' : 'bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-[#1A6080]/30'}`}>
             <p className="text-sm font-semibold text-gray-900 dark:text-white mb-1">
               {result.sent > 0 ? 'Alerts sent' : 'ℹ️ Scan complete'}
             </p>
@@ -239,7 +239,7 @@ export default function NotificationsPage() {
 
       {/* In-app Notifications */}
       <div className="card-premium overflow-hidden">
-        <div className="px-5 py-4 border-b border-gray-100 dark:border-gray-800 flex items-center justify-between gap-4 flex-wrap">
+        <div className="px-5 py-4 border-b border-gray-100 dark:border-[#1A6080]/20 flex items-center justify-between gap-4 flex-wrap">
           <h2 className="font-semibold text-gray-900 dark:text-white">In-app Notifications</h2>
 
           {/* Type filter tabs */}
@@ -247,13 +247,13 @@ export default function NotificationsPage() {
             <div className="flex gap-1 flex-wrap">
               <button
                 onClick={() => setTypeFilter('')}
-                className={`text-xs px-2.5 py-1 rounded-full border transition ${typeFilter === '' ? 'bg-[#0E3D52] border-[#0E3D52] text-white' : 'border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:text-white'}`}>
+                className={`text-xs px-2.5 py-1 rounded-full border transition ${typeFilter === '' ? 'bg-[#0E3D52] border-[#0E3D52] text-white' : 'border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-white'}`}>
                 All ({notifications.length})
               </button>
               {presentTypes.map(t => (
                 <button key={t}
                   onClick={() => setTypeFilter(t === typeFilter ? '' : t)}
-                  className={`text-xs px-2.5 py-1 rounded-full border transition flex items-center gap-1 ${typeFilter === t ? 'bg-[#0E3D52] border-[#0E3D52] text-white' : 'border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:text-white'}`}>
+                  className={`text-xs px-2.5 py-1 rounded-full border transition flex items-center gap-1 ${typeFilter === t ? 'bg-[#0E3D52] border-[#0E3D52] text-white' : 'border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-white'}`}>
                   {t.replace('_', ' ')}
                 </button>
               ))}
@@ -270,7 +270,7 @@ export default function NotificationsPage() {
             message={typeFilter ? `No ${typeFilter} notifications.` : 'System notifications will appear here.'}
           />
         ) : (
-          <ul className="divide-y divide-gray-100 dark:divide-gray-800">
+          <ul className="divide-y divide-gray-100 dark:divide-[#1A6080]/20">
             {filtered.map(n => {
               const isClickable = !!n.link
               const Wrapper = isClickable ? 'a' : 'div'
@@ -279,7 +279,7 @@ export default function NotificationsPage() {
                 : {}
               return (
                 <li key={n.id}
-                  className={`flex gap-3 px-5 py-4 transition group ${!n.isRead ? 'bg-[#E0EEF4] dark:bg-[#0E3D52]/20' : 'hover:bg-gray-50 dark:hover:bg-gray-800/40'}`}>
+                  className={`flex gap-3 px-5 py-4 transition group ${!n.isRead ? 'bg-[#E0EEF4] dark:bg-[#0E3D52]/20' : 'hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/40'}`}>
                   <NotifIcon type={n.type ?? 'general'} />
                   <Wrapper {...(wrapperProps as any)} className={`flex-1 min-w-0 ${isClickable ? 'cursor-pointer' : ''}`}>
                     <div className="flex items-start justify-between gap-2">
@@ -312,7 +312,7 @@ export default function NotificationsPage() {
         )}
 
         {filtered.length > 0 && (
-          <div className="px-5 py-3 border-t border-gray-100 dark:border-gray-800 text-xs text-gray-500 dark:text-gray-500">
+          <div className="px-5 py-3 border-t border-gray-100 dark:border-[#1A6080]/20 text-xs text-gray-500 dark:text-gray-500">
             {filtered.length} notification{filtered.length !== 1 ? 's' : ''}
             {typeFilter && ` · filtered by ${typeFilter}`}
             {unread > 0 && ` · ${unread} unread`}

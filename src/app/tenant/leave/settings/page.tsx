@@ -21,7 +21,7 @@ type LeaveTypeRow = {
   _dirty?: boolean
 }
 
-const INPUT = 'w-full bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]'
+const INPUT = 'w-full bg-white dark:bg-gray-900 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]'
 const LABEL = 'block text-xs font-medium text-gray-500 mb-1'
 
 export default function LeaveSettingsPage() {
@@ -125,7 +125,7 @@ export default function LeaveSettingsPage() {
               }`}
             >
               {/* Row header */}
-              <div className="flex items-center justify-between px-5 py-4 border-b border-gray-200 dark:border-gray-800">
+              <div className="flex items-center justify-between px-5 py-4 border-b border-gray-200 dark:border-[#1A6080]/20">
                 <div className="flex items-center gap-3">
                   <span className="text-2xl">{t.emoji}</span>
                   <div>
@@ -197,7 +197,7 @@ export default function LeaveSettingsPage() {
                   </div>
 
                   {/* Carry-forward */}
-                  <div className="border-t border-gray-100 dark:border-gray-800 pt-4">
+                  <div className="border-t border-gray-100 dark:border-[#1A6080]/20 pt-4">
                     <p className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-3">
                       Year-end carry-forward
                     </p>
@@ -219,7 +219,7 @@ export default function LeaveSettingsPage() {
                             className={`flex-1 min-w-[160px] flex items-start gap-3 border rounded-xl px-4 py-3 cursor-pointer transition ${
                               isChecked
                                 ? 'border-[#0E3D52] bg-[#E0EEF4] dark:bg-[#0E3D52]/20'
-                                : 'border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
+                                : 'border-gray-200 dark:border-[#1A6080]/30 hover:border-gray-300 dark:hover:border-gray-600'
                             }`}
                           >
                             <input
@@ -269,7 +269,7 @@ export default function LeaveSettingsPage() {
       )}
 
       {!loading && types.length > 0 && (
-        <div className="bg-white dark:bg-gray-900/60 border border-gray-200 dark:border-gray-800 rounded-xl px-5 py-4 text-xs text-gray-600 leading-relaxed dark:text-gray-400">
+        <div className="bg-white dark:bg-gray-900/60 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl px-5 py-4 text-xs text-gray-600 leading-relaxed dark:text-gray-400">
           <p className="font-medium text-gray-500 mb-1 dark:text-gray-400">Notes</p>
           <p>• Setting a type to <strong className="text-gray-600 dark:text-gray-400">Inactive</strong> hides it from the leave request form. Existing requests are not affected.</p>
           <p>• Entitlement changes apply to balance calculations going forward. Historical requests are recalculated on the next view.</p>

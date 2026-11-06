@@ -93,7 +93,7 @@ function LifecycleSteps({ status }: { status: string }) {
               <div className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold border-2 z-10
                 ${done    ? 'bg-[#0E3D52] border-[#0E3D52] text-white'
                 : current ? 'bg-white border-[#0E3D52] text-[#0E3D52] dark:text-[#4ebac4] dark:bg-gray-800'
-                :           'bg-white border-gray-200 text-gray-400 dark:bg-gray-800 dark:border-gray-600'}`}>
+                :           'bg-white border-gray-200 text-gray-400 dark:bg-gray-800 dark:border-[#1A6080]/40'}`}>
                 {done ? '✓' : i + 1}
               </div>
               <span className={`text-xs mt-1 ${done || current ? 'text-[#0E3D52] dark:text-[#4ebac4] font-medium' : 'text-gray-400'}`}>
@@ -290,8 +290,8 @@ export default function PayrollFinancePage() {
     <div className="flex h-full bg-gray-50 dark:bg-gray-900">
 
       {/* LEFT PANEL — run list */}
-      <div className="w-80 flex-shrink-0 border-r border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 flex flex-col">
-        <div className="p-4 border-b border-gray-200 dark:border-gray-700">
+      <div className="w-80 flex-shrink-0 border-r border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 flex flex-col">
+        <div className="p-4 border-b border-gray-200 dark:border-[#1A6080]/30">
           <div className="flex items-center justify-between mb-3">
             <h2 className="text-lg font-semibold text-gray-900 dark:text-white">💰 Payroll Runs</h2>
             <div className="flex items-center gap-2">
@@ -320,7 +320,7 @@ export default function PayrollFinancePage() {
               <div
                 key={run.id}
                 onClick={() => selectRun(run)}
-                className={`p-4 border-b border-gray-100 dark:border-gray-700 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 ${
+                className={`p-4 border-b border-gray-100 dark:border-[#1A6080]/30 cursor-pointer hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 ${
                   selected?.id === run.id ? 'bg-[#E0EEF4] dark:bg-[#0E3D52]/15 border-l-4 border-l-[#0E3D52]' : ''}`}
               >
                 <div className="flex items-start justify-between gap-2">
@@ -357,7 +357,7 @@ export default function PayrollFinancePage() {
         ) : (
           <>
             {/* Header */}
-            <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 p-6">
+            <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-[#1A6080]/30 p-6">
               <div className="flex items-start justify-between">
                 <div>
                   <h1 className="page-premium-title">{selected.name}</h1>
@@ -415,11 +415,11 @@ export default function PayrollFinancePage() {
                     <>
                       <button
                         onClick={() => exportAba(selected.id, selected.name)}
-                        className="px-4 py-2 border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700"
+                        className="px-4 py-2 border border-gray-200 dark:border-[#1A6080]/40 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40"
                       >📄 Re-export ABA</button>
                       <button
                         onClick={() => generatePayslips(selected.id)}
-                        className="px-4 py-2 border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700"
+                        className="px-4 py-2 border border-gray-200 dark:border-[#1A6080]/40 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40"
                       >📑 Payslip PDFs</button>
                     </>
                   )}
@@ -497,9 +497,9 @@ export default function PayrollFinancePage() {
                             ))}
                           </tr>
                         </thead>
-                        <tbody className="divide-y divide-gray-100 dark:divide-gray-700">
+                        <tbody className="divide-y divide-gray-100 dark:divide-[#1A6080]/30">
                           {entries.map(e => (
-                            <tr key={e.id} className="hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                            <tr key={e.id} className="hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40/50">
                               <td className="px-4 py-3">
                                 <p className="font-medium text-gray-900 dark:text-white">{e.firstName} {e.lastName}</p>
                                 <p className="text-xs text-gray-400">{e.employeeNumber}</p>
@@ -515,7 +515,7 @@ export default function PayrollFinancePage() {
                           ))}
                         </tbody>
                         {/* Totals footer */}
-                        <tfoot className="bg-gray-50 dark:bg-gray-700 border-t-2 border-gray-200 dark:border-gray-600">
+                        <tfoot className="bg-gray-50 dark:bg-gray-700 border-t-2 border-gray-200 dark:border-[#1A6080]/40">
                           <tr>
                             <td colSpan={3} className="px-4 py-3 text-xs font-bold text-gray-600 dark:text-gray-300">Totals</td>
                             <td className="px-4 py-3 font-bold text-gray-900 dark:text-white text-sm tabular-nums">{fmt(selected.totalGross)}</td>
@@ -549,7 +549,7 @@ export default function PayrollFinancePage() {
       {showModal && (
         <div className="modal-overlay">
           <div className="bg-white dark:bg-[#0F1E2E] rounded-xl shadow-xl w-full max-w-lg">
-            <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
+            <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-[#1A6080]/30">
               <h3 className="text-lg font-bold text-gray-900 dark:text-white">New Payroll Run</h3>
               <button onClick={() => setShowModal(false)} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 text-2xl">×</button>
             </div>
@@ -558,30 +558,30 @@ export default function PayrollFinancePage() {
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Run Name *</label>
                 <input required value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
                   placeholder="e.g. Fortnight 1 – Nov 2026"
-                  className="w-full border border-gray-200 dark:border-gray-600 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white" />
+                  className="w-full border border-gray-200 dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white" />
               </div>
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Period Start *</label>
                   <input required type="date" value={form.periodStart} onChange={e => setForm(f => ({ ...f, periodStart: e.target.value }))}
-                    className="w-full border border-gray-200 dark:border-gray-600 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white" />
+                    className="w-full border border-gray-200 dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Period End *</label>
                   <input required type="date" value={form.periodEnd} onChange={e => setForm(f => ({ ...f, periodEnd: e.target.value }))}
-                    className="w-full border border-gray-200 dark:border-gray-600 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white" />
+                    className="w-full border border-gray-200 dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white" />
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Pay Date</label>
                   <input type="date" value={form.payDate} onChange={e => setForm(f => ({ ...f, payDate: e.target.value }))}
-                    className="w-full border border-gray-200 dark:border-gray-600 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white" />
+                    className="w-full border border-gray-200 dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Frequency</label>
                   <select value={form.frequency} onChange={e => setForm(f => ({ ...f, frequency: e.target.value }))}
-                    className="w-full border border-gray-200 dark:border-gray-600 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+                    className="w-full border border-gray-200 dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
                     <option value="weekly">Weekly</option>
                     <option value="fortnightly">Fortnightly</option>
                     <option value="monthly">Monthly</option>
@@ -591,11 +591,11 @@ export default function PayrollFinancePage() {
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Notes</label>
                 <textarea rows={2} value={form.notes} onChange={e => setForm(f => ({ ...f, notes: e.target.value }))}
-                  className="w-full border border-gray-200 dark:border-gray-600 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white resize-none" />
+                  className="w-full border border-gray-200 dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white resize-none" />
               </div>
               <div className="flex gap-3 pt-2">
                 <button type="button" onClick={() => setShowModal(false)}
-                  className="flex-1 px-4 py-2 border border-gray-200 dark:border-gray-600 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">
+                  className="flex-1 px-4 py-2 border border-gray-200 dark:border-[#1A6080]/40 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40">
                   Cancel
                 </button>
                 <button type="submit" disabled={submitting}

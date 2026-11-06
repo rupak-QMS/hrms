@@ -337,7 +337,7 @@ export default function ContractsPage() {
                     <button
                       onClick={() => openEdit(c)}
                       title="Edit contract"
-                      className="p-1.5 rounded-lg text-gray-500 hover:text-[#1A6080] dark:text-[#4ebac4] hover:bg-gray-800 transition"
+                      className="p-1.5 rounded-lg text-gray-500 hover:text-[#1A6080] dark:text-[#4ebac4] hover:bg-[#0A1929] transition"
                     >
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
@@ -353,7 +353,7 @@ export default function ContractsPage() {
                         onConfirm: () => deleteContract(c.id),
                       })}
                       title="Delete contract"
-                      className="p-1.5 rounded-lg text-gray-500 hover:text-red-400 hover:bg-gray-800 transition"
+                      className="p-1.5 rounded-lg text-gray-500 hover:text-red-400 hover:bg-[#0A1929] transition"
                     >
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
@@ -364,7 +364,7 @@ export default function ContractsPage() {
                 </div>
 
                 {isOpen && (
-                  <div className="border-t border-gray-200 dark:border-gray-800 px-5 py-4 space-y-4">
+                  <div className="border-t border-gray-200 dark:border-[#1A6080]/20 px-5 py-4 space-y-4">
                     {/* Status actions */}
                     {c.status !== 'signed' && c.status !== 'void' && (
                       <div className="flex gap-2 flex-wrap">
@@ -381,7 +381,7 @@ export default function ContractsPage() {
                           </button>
                         )}
                         <button onClick={() => patch(c.id, { status: 'void' })}
-                          className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-red-700 hover:text-red-400 px-3 py-1.5 rounded-lg transition">
+                          className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-red-700 hover:text-red-400 px-3 py-1.5 rounded-lg transition">
                           Void
                         </button>
                       </div>
@@ -429,7 +429,7 @@ export default function ContractsPage() {
                         </div>
                       </div>
                       <button onClick={() => saveTaxSuper(c.id)}
-                        className="mt-2 text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-[#0E3D52] px-3 py-1.5 rounded-lg transition">
+                        className="mt-2 text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:border-[#0E3D52] px-3 py-1.5 rounded-lg transition">
                         Save Tax & Super
                       </button>
                     </div>
@@ -521,7 +521,7 @@ export default function ContractsPage() {
               </div>
               <div className="flex justify-end gap-3 pt-1">
                 <button type="button" onClick={() => setEditContract(null)}
-                  className="px-4 py-2 text-sm rounded-lg border border-gray-600 text-gray-300 hover:bg-gray-800 transition">
+                  className="px-4 py-2 text-sm rounded-lg border border-gray-600 text-gray-300 hover:bg-[#0A1929] transition">
                   Cancel
                 </button>
                 <button type="submit" disabled={editSaving}

@@ -133,7 +133,7 @@ export default function UsersPage() {
           </p>
         </div>
         <div className="flex gap-2">
-          <Link href={`/super-admin/clients/${id}`} className="text-xs border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white px-3 py-1.5 rounded-lg transition">← Edit Client</Link>
+          <Link href={`/super-admin/clients/${id}`} className="text-xs border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white px-3 py-1.5 rounded-lg transition">← Edit Client</Link>
           <button
             onClick={() => { setShowForm(true); setError('') }}
             className="bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm font-medium px-4 py-1.5 rounded-lg transition"
@@ -169,7 +169,7 @@ export default function UsersPage() {
                 value={form.email}
                 onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
                 placeholder="user@organisation.com"
-                className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
+                className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
               />
             </div>
             <div>
@@ -179,7 +179,7 @@ export default function UsersPage() {
                 value={form.password}
                 onChange={e => setForm(f => ({ ...f, password: e.target.value }))}
                 placeholder="min 8 characters"
-                className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
+                className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
               />
             </div>
             <div>
@@ -187,7 +187,7 @@ export default function UsersPage() {
               <select
                 value={form.role}
                 onChange={e => setForm(f => ({ ...f, role: e.target.value }))}
-                className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
+                className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
               >
                 {ROLES.map(r => <option key={r.value} value={r.value}>{r.label}</option>)}
               </select>
@@ -197,7 +197,7 @@ export default function UsersPage() {
             <button type="submit" disabled={saving} className="bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm font-medium px-5 py-2 rounded-lg transition">
               {saving ? 'Creating…' : 'Create User'}
             </button>
-            <button type="button" onClick={() => { setShowForm(false); setError('') }} className="border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white text-sm px-4 py-2 rounded-lg transition">
+            <button type="button" onClick={() => { setShowForm(false); setError('') }} className="border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white text-sm px-4 py-2 rounded-lg transition">
               Cancel
             </button>
           </div>
@@ -207,7 +207,7 @@ export default function UsersPage() {
       {/* Password reset modal */}
       {resetTarget && (
         <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
-          <div className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-xl p-6 w-full max-w-sm space-y-4">
+          <div className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-[#1A6080]/30 rounded-xl p-6 w-full max-w-sm space-y-4">
             <h2 className="text-gray-900 dark:text-white font-semibold">Reset Password</h2>
             <p className="text-sm text-gray-600 dark:text-gray-400">{resetTarget.email}</p>
             <input
@@ -215,7 +215,7 @@ export default function UsersPage() {
               value={newPassword}
               onChange={e => setNewPassword(e.target.value)}
               placeholder="New password"
-              className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
+              className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
             />
             <div className="flex gap-2">
               <button
@@ -225,7 +225,7 @@ export default function UsersPage() {
               >
                 {saving ? 'Saving…' : 'Reset'}
               </button>
-              <button onClick={() => { setResetTarget(null); setNewPassword('') }} className="flex-1 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 text-sm py-2 rounded-lg transition">
+              <button onClick={() => { setResetTarget(null); setNewPassword('') }} className="flex-1 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 text-sm py-2 rounded-lg transition">
                 Cancel
               </button>
             </div>
@@ -234,10 +234,10 @@ export default function UsersPage() {
       )}
 
       {/* User table */}
-      <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl overflow-hidden">
+      <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl overflow-hidden">
         <table className="w-full text-sm">
           <thead>
-            <tr className="border-b border-gray-200 dark:border-gray-800 text-left">
+            <tr className="border-b border-gray-200 dark:border-[#1A6080]/20 text-left">
               <th className="px-5 py-3 text-xs font-semibold  text-gray-500 dark:text-gray-400">User</th>
               <th className="px-5 py-3 text-xs font-semibold  text-gray-500 dark:text-gray-400">Role</th>
               <th className="px-5 py-3 text-xs font-semibold  text-gray-500 dark:text-gray-400">Status</th>
@@ -253,7 +253,7 @@ export default function UsersPage() {
                 </td>
               </tr>
             ) : users.map(u => (
-              <tr key={u.id} className="border-b border-gray-200 dark:border-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800/50">
+              <tr key={u.id} className="border-b border-gray-200 dark:border-[#1A6080]/20 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30/50">
                 <td className="px-5 py-3.5">
                   <div className="flex items-center gap-3">
                     <div className="w-7 h-7 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-xs font-bold text-gray-600 dark:text-gray-300">

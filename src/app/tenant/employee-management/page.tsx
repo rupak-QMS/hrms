@@ -75,12 +75,12 @@ EMP001,Jane,Smith,jane.smith@example.com,full_time,2026-01-15,,+61400000001,Yahw
     <div className="modal-overlay">
       <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/40 rounded-xl w-full max-w-lg shadow-xl overflow-hidden">
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-gray-800">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-[#1A6080]/20">
           <div>
             <h2 className="text-lg font-bold text-gray-900 dark:text-white">Import Employees</h2>
             <p className="text-xs text-gray-500 mt-0.5 dark:text-gray-400">Upload a CSV to bulk-add employees</p>
           </div>
-          <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 transition dark:text-gray-400"></button>
+          <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 text-gray-500 transition dark:text-gray-400"></button>
         </div>
 
         <div className="p-6 space-y-5">
@@ -116,7 +116,7 @@ EMP001,Jane,Smith,jane.smith@example.com,full_time,2026-01-15,,+61400000001,Yahw
                   {preview.skipped > 0 && <span className="text-amber-600 font-semibold">⚠ {preview.skipped} will be skipped</span>}
                   <span className="text-gray-500">{preview.total} total rows</span>
                 </div>
-                <div className="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
+                <div className="border border-gray-200 dark:border-[#1A6080]/30 rounded-xl overflow-hidden">
                   <table className="w-full text-xs">
                     <thead className="bg-gray-50 dark:bg-gray-800 text-gray-500 dark:text-gray-400">
                       <tr>
@@ -126,7 +126,7 @@ EMP001,Jane,Smith,jane.smith@example.com,full_time,2026-01-15,,+61400000001,Yahw
                         <th className="text-left px-3 py-2">Status</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-gray-100 dark:divide-gray-800 max-h-40 overflow-y-auto">
+                    <tbody className="divide-y divide-gray-100 dark:divide-[#1A6080]/20 max-h-40 overflow-y-auto">
                       {(preview.preview ?? []).slice(0, 20).map(r => (
                         <tr key={r.row} className={r.status === 'valid' ? '' : 'bg-amber-50 dark:bg-amber-900/10'}>
                           <td className="px-3 py-1.5 text-gray-500">{r.row}</td>
@@ -142,7 +142,7 @@ EMP001,Jane,Smith,jane.smith@example.com,full_time,2026-01-15,,+61400000001,Yahw
                     </tbody>
                   </table>
                   {(preview.preview?.length ?? 0) > 20 && (
-                    <p className="text-xs text-gray-400 px-3 py-2 border-t border-gray-100 dark:border-gray-800">
+                    <p className="text-xs text-gray-400 px-3 py-2 border-t border-gray-100 dark:border-[#1A6080]/20">
                       …and {(preview.preview?.length ?? 0) - 20} more rows
                     </p>
                   )}
@@ -155,7 +155,7 @@ EMP001,Jane,Smith,jane.smith@example.com,full_time,2026-01-15,,+61400000001,Yahw
                 </div>
               )}
               <div className="flex gap-3">
-                <button onClick={() => { setPreview(null); setStatus('idle') }} className="flex-1 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+                <button onClick={() => { setPreview(null); setStatus('idle') }} className="flex-1 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 dark:border-[#1A6080]/30 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
                   Back
                 </button>
                 {preview.imported > 0 && (
@@ -180,7 +180,7 @@ EMP001,Jane,Smith,jane.smith@example.com,full_time,2026-01-15,,+61400000001,Yahw
 
               {/* File picker */}
               <div
-                className="border-2 border-dashed border-gray-200 dark:border-gray-700 rounded-xl p-8 text-center cursor-pointer hover:border-[#1A6080] transition"
+                className="border-2 border-dashed border-gray-200 dark:border-[#1A6080]/30 rounded-xl p-8 text-center cursor-pointer hover:border-[#1A6080] transition"
                 onClick={() => inputRef.current?.click()}
               >
                 <input
@@ -214,7 +214,7 @@ EMP001,Jane,Smith,jane.smith@example.com,full_time,2026-01-15,,+61400000001,Yahw
               )}
 
               <div className="flex gap-3">
-                <button onClick={onClose} className="flex-1 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+                <button onClick={onClose} className="flex-1 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
                   Cancel
                 </button>
                 <button
@@ -470,7 +470,7 @@ export default function EmployeeManagementPage() {
           <div className="flex items-center gap-2">
             <button
               onClick={() => setShowImport(true)}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold border border-gray-200 dark:border-[#1A6080]/30 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition"
             >
               Import CSV
             </button>
@@ -507,12 +507,12 @@ export default function EmployeeManagementPage() {
           placeholder="Search name, email, emp #…"
           value={search}
           onChange={e => setSearch(e.target.value)}
-          className="flex-1 min-w-[200px] bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 placeholder-gray-400 focus:outline-none focus:border-[#0E3D52] dark:placeholder-gray-500"
+          className="flex-1 min-w-[200px] bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 placeholder-gray-400 focus:outline-none focus:border-[#0E3D52] dark:placeholder-gray-500"
         />
         <select
           value={status}
           onChange={e => setStatus(e.target.value)}
-          className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-700 dark:text-gray-300 focus:outline-none"
+          className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-700 dark:text-gray-300 focus:outline-none"
         >
           <option value="">All Status</option>
           <option value="active">Active</option>
@@ -521,7 +521,7 @@ export default function EmployeeManagementPage() {
         <select
           value={empType}
           onChange={e => setEmpType(e.target.value)}
-          className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-700 dark:text-gray-300 focus:outline-none"
+          className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-700 dark:text-gray-300 focus:outline-none"
         >
           <option value="">All Types</option>
           {Object.entries(EMP_TYPE_LABEL).map(([v, l]) => (
@@ -570,7 +570,7 @@ export default function EmployeeManagementPage() {
                   {bulkLoading ? 'Working…' : 'Deactivate'}
                 </button>
               </PermissionGate>
-              <button onClick={bulkExport} className="px-3 py-1 text-xs rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-50">
+              <button onClick={bulkExport} className="px-3 py-1 text-xs rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 text-gray-700 dark:text-gray-300 hover:bg-gray-50">
                 Export selected
               </button>
               <button onClick={() => setSelected(new Set())} className="ml-auto text-xs text-[#1A6080] hover:text-[#0E3D52] dark:text-[#4ebac4]">Clear</button>
@@ -584,7 +584,7 @@ export default function EmployeeManagementPage() {
                     <input type="checkbox"
                       checked={employees.length > 0 && selected.size === employees.length}
                       onChange={e => setSelected(e.target.checked ? new Set(employees.map(e => e.id)) : new Set())}
-                      className="rounded border-gray-300 dark:border-gray-600"
+                      className="rounded border-gray-300 dark:border-[#1A6080]/40"
                     />
                   </th>
                   {['Emp #', 'Name', 'Role / Dept', 'Type', 'Entity', 'Start Date', 'Compliance', 'Status', ''].map(h => (
@@ -618,7 +618,7 @@ export default function EmployeeManagementPage() {
                             e.target.checked ? s.add(emp.id) : s.delete(emp.id)
                             return s
                           })}
-                          className="rounded border-gray-300 dark:border-gray-600"
+                          className="rounded border-gray-300 dark:border-[#1A6080]/40"
                         />
                       </td>
                       <td className="px-4 py-3 font-mono text-xs text-gray-500 dark:text-gray-400">{emp.employeeNumber}</td>
@@ -626,7 +626,7 @@ export default function EmployeeManagementPage() {
                         <div className="flex items-center gap-3">
                           {emp.photoUrl ? (
                             <img src={emp.photoUrl} alt={fullName}
-                              className="w-8 h-8 rounded-full object-cover shrink-0 border border-gray-200 dark:border-gray-700" />
+                              className="w-8 h-8 rounded-full object-cover shrink-0 border border-gray-200 dark:border-[#1A6080]/30" />
                           ) : (
                             <div
                               className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0"
@@ -678,7 +678,7 @@ export default function EmployeeManagementPage() {
                             className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-xs font-medium transition-all ${
                               emp.isActive
                                 ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 hover:bg-green-200 dark:hover:bg-green-900/50'
-                                : 'bg-gray-100 dark:bg-gray-800 text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-700'
+                                : 'bg-gray-100 dark:bg-gray-800 text-gray-500 hover:bg-gray-200 dark:hover:bg-[#0E3D52]/40'
                             } ${togglingId === emp.id ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
                           >
                             <span className={`w-1.5 h-1.5 rounded-full ${emp.isActive ? 'bg-green-500' : 'bg-gray-400'}`} />
@@ -707,7 +707,7 @@ export default function EmployeeManagementPage() {
                   <button
                     onClick={() => { const p = Math.max(1, page - 1); setPage(p); fetchEmployees(p) }}
                     disabled={page === 1}
-                    className="px-3 py-1 rounded border border-gray-200 dark:border-gray-700 disabled:opacity-40 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                    className="px-3 py-1 rounded border border-gray-200 dark:border-[#1A6080]/30 disabled:opacity-40 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition-colors"
                   >
                     ← Prev
                   </button>
@@ -715,7 +715,7 @@ export default function EmployeeManagementPage() {
                   <button
                     onClick={() => { const p = Math.min(totalPages, page + 1); setPage(p); fetchEmployees(p) }}
                     disabled={page === totalPages}
-                    className="px-3 py-1 rounded border border-gray-200 dark:border-gray-700 disabled:opacity-40 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                    className="px-3 py-1 rounded border border-gray-200 dark:border-[#1A6080]/30 disabled:opacity-40 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition-colors"
                   >
                     Next →
                   </button>

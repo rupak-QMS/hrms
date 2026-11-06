@@ -117,7 +117,7 @@ function Modal({ title, onClose, children }: { title: string; onClose: () => voi
     <div className="modal-overlay"
       onClick={e => e.target === e.currentTarget && onClose()}>
       <div className="card-premium w-full max-w-lg max-h-[90vh] overflow-auto shadow-lg">
-        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 dark:border-[#1A6080]/30">
           <h2 className="m-0 text-base font-bold text-gray-900 dark:text-white">{title}</h2>
           <button onClick={onClose} className="bg-transparent border-none text-xl cursor-pointer text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 leading-none">✕</button>
         </div>
@@ -312,7 +312,7 @@ function LeadsTab() {
             <textarea className="input-premium min-h-[80px] resize-y" value={form.notes} onChange={e => setForm(p => ({ ...p, notes: e.target.value }))} placeholder="Add any notes…" />
           </Field>
           <div className="flex gap-2.5 justify-end mt-2">
-            <button onClick={() => setModal(false)} className="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 cursor-pointer text-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">Cancel</button>
+            <button onClick={() => setModal(false)} className="px-4 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/40 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 cursor-pointer text-sm hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors">Cancel</button>
             <button onClick={create} disabled={saving || !form.firstName.trim()}
               className="px-4 py-2 rounded-lg bg-[#0E3D52] hover:bg-[#1A6080] text-white border-none cursor-pointer font-semibold text-sm transition-colors disabled:opacity-50">
               {saving ? 'Creating…' : 'Create Lead'}
@@ -459,7 +459,7 @@ function ContactsTab() {
             <textarea className="input-premium min-h-[80px] resize-y" value={form.notes} onChange={e => setForm(p => ({ ...p, notes: e.target.value }))} />
           </Field>
           <div className="flex gap-2.5 justify-end mt-2">
-            <button onClick={() => setModal(false)} className="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 cursor-pointer text-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">Cancel</button>
+            <button onClick={() => setModal(false)} className="px-4 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/40 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 cursor-pointer text-sm hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors">Cancel</button>
             <button onClick={create} disabled={saving || !form.firstName.trim()}
               className="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white border-none cursor-pointer font-semibold text-sm transition-colors disabled:opacity-50">
               {saving ? 'Creating…' : 'Create Contact'}
@@ -609,7 +609,7 @@ function AccountsTab() {
             <textarea className="input-premium min-h-[80px] resize-y" value={form.notes} onChange={e => setForm(p => ({ ...p, notes: e.target.value }))} />
           </Field>
           <div className="flex gap-2.5 justify-end mt-2">
-            <button onClick={() => setModal(false)} className="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 cursor-pointer text-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">Cancel</button>
+            <button onClick={() => setModal(false)} className="px-4 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/40 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 cursor-pointer text-sm hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors">Cancel</button>
             <button onClick={create} disabled={saving || !form.name.trim()}
               className="px-4 py-2 rounded-lg bg-[#0E3D52] hover:bg-[#1A6080] text-white border-none cursor-pointer font-semibold text-sm transition-colors disabled:opacity-50">
               {saving ? 'Creating…' : 'Create Account'}
@@ -781,7 +781,7 @@ function DealsTab() {
             <textarea className="input-premium min-h-[80px] resize-y" value={form.notes} onChange={e => setForm(p => ({ ...p, notes: e.target.value }))} />
           </Field>
           <div className="flex gap-2.5 justify-end mt-2">
-            <button onClick={() => setModal(false)} className="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 cursor-pointer text-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">Cancel</button>
+            <button onClick={() => setModal(false)} className="px-4 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/40 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 cursor-pointer text-sm hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors">Cancel</button>
             <button onClick={create} disabled={saving || !form.title.trim()}
               className="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white border-none cursor-pointer font-semibold text-sm transition-colors disabled:opacity-50">
               {saving ? 'Creating…' : 'Create Deal'}
@@ -928,7 +928,7 @@ function ActivitiesTab() {
             <textarea className="input-premium min-h-[80px] resize-y" value={form.notes} onChange={e => setForm(p => ({ ...p, notes: e.target.value }))} />
           </Field>
           <div className="flex gap-2.5 justify-end mt-2">
-            <button onClick={() => setModal(false)} className="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 cursor-pointer text-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">Cancel</button>
+            <button onClick={() => setModal(false)} className="px-4 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/40 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 cursor-pointer text-sm hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors">Cancel</button>
             <button onClick={create} disabled={saving || !form.subject.trim()}
               className="px-4 py-2 rounded-lg bg-amber-500 hover:bg-amber-600 text-white border-none cursor-pointer font-semibold text-sm transition-colors disabled:opacity-50">
               {saving ? 'Saving…' : 'Log Activity'}
@@ -954,7 +954,7 @@ export default function CRMPage() {
       </div>
 
       {/* Tabs */}
-      <div className="flex gap-0 mb-6 border-b-2 border-gray-100 dark:border-gray-800 overflow-x-auto">
+      <div className="flex gap-0 mb-6 border-b-2 border-gray-100 dark:border-[#1A6080]/20 overflow-x-auto">
         {TABS.map(t => (
           <button key={t.key} onClick={() => setTab(t.key as typeof tab)}
             className={`px-4 py-2.5 border-none bg-transparent cursor-pointer text-sm font-semibold whitespace-nowrap transition-colors -mb-0.5 border-b-2 ${

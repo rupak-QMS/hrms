@@ -360,7 +360,7 @@ export default function RecruitmentPage() {
             </div>
             <div className="flex gap-3 justify-end">
               <button type="button" onClick={() => setEditingReq(null)}
-                className="px-4 py-2 text-sm rounded-lg border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                className="px-4 py-2 text-sm rounded-lg border border-gray-300 dark:border-[#1A6080]/40 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 transition">
                 Cancel
               </button>
               <button type="submit" disabled={savingEdit}
@@ -526,7 +526,7 @@ export default function RecruitmentPage() {
                       </button>
                       <button
                         onClick={() => { setEditingReq(r); setEditForm({ title: r.title, description: r.description ?? '' }) }}
-                        className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-[#0E3D52] hover:text-[#4ebac4] px-3 py-1.5 rounded-lg transition">
+                        className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-[#0E3D52] hover:text-[#4ebac4] px-3 py-1.5 rounded-lg transition">
                         Edit
                       </button>
                       {r.status === 'draft' && (
@@ -537,20 +537,20 @@ export default function RecruitmentPage() {
                       )}
                       {r.status === 'open' && (
                         <button onClick={() => updateReqStatus(r.id, 'closed')}
-                          className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-red-700 hover:text-red-400 px-3 py-1.5 rounded-lg transition">
+                          className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-red-700 hover:text-red-400 px-3 py-1.5 rounded-lg transition">
                           Close Role
                         </button>
                       )}
                       {r.status === 'closed' && (
                         <button onClick={() => updateReqStatus(r.id, 'open')}
-                          className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-green-700 hover:text-green-400 px-3 py-1.5 rounded-lg transition">
+                          className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-green-700 hover:text-green-400 px-3 py-1.5 rounded-lg transition">
                           Reopen
                         </button>
                       )}
                       <button
                         onClick={() => deleteReq(r.id)}
                         disabled={deletingReq === r.id}
-                        className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-red-700 hover:text-red-400 px-3 py-1.5 rounded-lg transition disabled:opacity-50">
+                        className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-red-700 hover:text-red-400 px-3 py-1.5 rounded-lg transition disabled:opacity-50">
                         {deletingReq === r.id ? '…' : 'Delete'}
                       </button>
                     </div>
@@ -652,7 +652,7 @@ export default function RecruitmentPage() {
                                 stage.value === 'hired'    ? 'border-green-800' :
                                 stage.value === 'rejected' ? 'border-red-900/70' :
                                 stage.value === 'offer'    ? 'border-teal-800' :
-                                'border-gray-200 dark:border-gray-800'
+                                'border-gray-200 dark:border-[#1A6080]/20'
                               }`}>
 
                               {/* Card header */}
@@ -685,7 +685,7 @@ export default function RecruitmentPage() {
 
                               {/* Expanded notes/score */}
                               {isExpanded && (
-                                <div className="space-y-2 pt-1 border-t border-gray-200 dark:border-gray-800">
+                                <div className="space-y-2 pt-1 border-t border-gray-200 dark:border-[#1A6080]/20">
                                   <div>
                                     <label className="text-xs text-gray-500 mb-1 block">Interview Score (0–10)</label>
                                     <input type="number" min="0" max="10" step="0.5"
@@ -740,7 +740,7 @@ export default function RecruitmentPage() {
                                 <div className="absolute bottom-full left-0 right-0 mb-1 bg-[#0F2C3D] border border-[#1A6080]/40 rounded-xl shadow-xl z-10 overflow-hidden hidden group-hover:block">
                                   {otherStages.map(s => (
                                     <button key={s.value} onClick={() => moveStatus(a.id, s.value)}
-                                      className="w-full text-left px-3 py-2 text-xs text-gray-300 hover:bg-gray-800 transition">
+                                      className="w-full text-left px-3 py-2 text-xs text-gray-300 hover:bg-[#0A1929] transition">
                                       → {s.label}
                                     </button>
                                   ))}
@@ -789,9 +789,9 @@ export default function RecruitmentPage() {
                     ))}
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-100 dark:divide-gray-800/60">
+                <tbody className="divide-y divide-gray-100 dark:divide-[#1A6080]/20/60">
                   {visibleCandidates.map(c => (
-                    <tr key={c.id} className="hover:bg-gray-50 dark:hover:bg-gray-800/30">
+                    <tr key={c.id} className="hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/30">
                       <td className="px-5 py-3">
                         <div className="flex items-center gap-2">
                           <div className="w-7 h-7 rounded-full bg-[#0E3D52] flex items-center justify-center text-white text-xs font-bold shrink-0">
@@ -804,7 +804,7 @@ export default function RecruitmentPage() {
                       <td className="px-5 py-3 text-gray-500 dark:text-gray-400">{c.phone ?? '—'}</td>
                       <td className="px-5 py-3">
                         {c.source ? (
-                          <span className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 px-2 py-0.5 rounded-full">
+                          <span className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 px-2 py-0.5 rounded-full">
                             {c.source}
                           </span>
                         ) : <span className="text-gray-400">—</span>}
@@ -837,7 +837,7 @@ export default function RecruitmentPage() {
                 <div className="flex gap-3 pt-2">
                   <button
                     onClick={() => setConvertApp(null)}
-                    className="flex-1 px-4 py-2 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition"
+                    className="flex-1 px-4 py-2 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition"
                   >Close</button>
                   <a
                     href="/tenant/employees"
@@ -896,7 +896,7 @@ export default function RecruitmentPage() {
                   <button
                     type="button"
                     onClick={() => { setConvertApp(null); setConvertError('') }}
-                    className="flex-1 px-4 py-2 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition"
+                    className="flex-1 px-4 py-2 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition"
                   >Cancel</button>
                   <button
                     disabled={!convertForm.startDate || convertSaving}

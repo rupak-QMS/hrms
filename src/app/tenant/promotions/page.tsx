@@ -357,7 +357,7 @@ export default function PromotionsPage() {
                 <div className="flex gap-2">
                   <input value={inlineNote} onChange={e=>setInlineNote(e.target.value)}
                     placeholder="Add a note to this case…"
-                    className="flex-1 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
+                    className="flex-1 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
                   <button onClick={addNote} disabled={addingNote || !inlineNote.trim()}
                     className="px-3 py-2 bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-50 text-white text-xs font-medium rounded-lg transition">
                     Add
@@ -375,7 +375,7 @@ export default function PromotionsPage() {
                     {events.map((ev, i) => (
                       <div key={ev.id} className="flex gap-3 items-start">
                         <div className="flex flex-col items-center shrink-0">
-                          <div className="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 flex items-center justify-center text-sm">
+                          <div className="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 flex items-center justify-center text-sm">
                             {EVENT_ICON[ev.event] ?? ''}
                           </div>
                           {i < events.length-1 && <div className="w-px h-4 bg-gray-200 dark:bg-gray-700 mt-1" />}
@@ -405,7 +405,7 @@ export default function PromotionsPage() {
       {showForm && (
         <div className="modal-overlay">
           <div className="card-premium w-full max-w-xl max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-800">
+            <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-[#1A6080]/20">
               <h2 className="text-lg font-bold text-foreground">Raise Promotion Case</h2>
               <button onClick={()=>setShowForm(false)} className="text-gray-600 dark:text-gray-400 hover:text-white text-xl">×</button>
             </div>
@@ -460,7 +460,7 @@ export default function PromotionsPage() {
                   {saving ? 'Submitting…' : 'Raise Promotion Case'}
                 </button>
                 <button type="button" onClick={()=>setShowForm(false)}
-                  className="px-5 py-2.5 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:text-white text-sm rounded-lg">
+                  className="px-5 py-2.5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-white text-sm rounded-lg">
                   Cancel
                 </button>
               </div>

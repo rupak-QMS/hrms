@@ -47,7 +47,7 @@ const RATING_LABELS = ['', 'Unsatisfactory', 'Needs Improvement', 'Meets Expecta
 const INPUT = 'input-premium'
 
 function ProgressBar({ value }: { value: number }) {
-  const color = value >= 80 ? 'bg-green-500' : value >= 50 ? 'bg-[#E0EEF4]0' : value >= 25 ? 'bg-amber-500' : 'bg-red-500'
+  const color = value >= 80 ? 'bg-green-500' : value >= 50 ? 'bg-amber-400' : value >= 25 ? 'bg-amber-500' : 'bg-red-500'
   return (
     <div className="flex items-center gap-2">
       <div className="flex-1 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
@@ -189,7 +189,7 @@ export default function MyPerformancePage() {
                 {selfSaving ? 'Saving…' : 'Save Self-Assessment'}
               </button>
               <button onClick={() => setSelfAssessModal(null)}
-                className="px-5 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:text-white text-sm rounded-lg transition">
+                className="px-5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:text-white text-sm rounded-lg transition">
                 Cancel
               </button>
             </div>
@@ -227,7 +227,7 @@ export default function MyPerformancePage() {
                 {goalSaving ? 'Saving…' : 'Save'}
               </button>
               <button onClick={() => setUpdatingGoal(null)}
-                className="px-5 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:text-white text-sm rounded-lg transition">
+                className="px-5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:text-white text-sm rounded-lg transition">
                 Cancel
               </button>
             </div>
@@ -284,7 +284,7 @@ export default function MyPerformancePage() {
 
                   {/* Expanded detail */}
                   {isOpen && (
-                    <div className="border-t border-gray-200 dark:border-gray-800 px-5 py-4 space-y-4">
+                    <div className="border-t border-gray-200 dark:border-[#1A6080]/20 px-5 py-4 space-y-4">
                       {/* KPI breakdown */}
                       {r.kpis?.some(k => k.rating) && (
                         <div>

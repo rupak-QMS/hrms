@@ -131,7 +131,7 @@ function AuditModal({ initial, onClose, onSaved }: {
   return (
     <div className="modal-overlay">
       <div className="bg-white dark:bg-[#0F1E2E] rounded-xl shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
-        <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-gray-100 dark:border-gray-800">
+        <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-gray-100 dark:border-[#1A6080]/20">
           <h2 className="text-lg font-bold text-gray-900 dark:text-white">
             {initial ? 'Edit Audit' : 'New NDIS Audit'}
           </h2>
@@ -143,21 +143,21 @@ function AuditModal({ initial, onClose, onSaved }: {
           <div>
             <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Title *</label>
             <input value={form.title} onChange={e => set('title', e.target.value)} required
-              className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm" />
+              className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm" />
           </div>
 
           <div className="grid grid-cols-2 gap-3">
             <div>
               <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Audit Type *</label>
               <select value={form.auditType} onChange={e => set('auditType', e.target.value)}
-                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm">
+                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm">
                 {Object.entries(AUDIT_TYPES).map(([v, l]) => <option key={v} value={v}>{l}</option>)}
               </select>
             </div>
             <div>
               <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Outcome Group</label>
               <select value={form.outcomeGroup ?? ''} onChange={e => set('outcomeGroup', e.target.value)}
-                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm">
+                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm">
                 <option value="">— None —</option>
                 {Object.entries(OUTCOME_GROUPS).map(([v, l]) => <option key={v} value={v}>{l}</option>)}
               </select>
@@ -168,21 +168,21 @@ function AuditModal({ initial, onClose, onSaved }: {
             <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Standard *</label>
             <input value={form.standard} onChange={e => set('standard', e.target.value)} required
               placeholder="e.g. NDIS Practice Standard 1.1 — Person-centred Supports"
-              className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm" />
+              className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm" />
           </div>
 
           <div className="grid grid-cols-3 gap-3">
             <div>
               <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Status</label>
               <select value={form.status} onChange={e => set('status', e.target.value)}
-                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm">
+                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm">
                 {Object.entries(STATUS_BADGE).map(([v, { label }]) => <option key={v} value={v}>{label}</option>)}
               </select>
             </div>
             <div>
               <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Result</label>
               <select value={form.result ?? ''} onChange={e => set('result', e.target.value)}
-                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm">
+                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm">
                 <option value="">— Pending —</option>
                 {Object.entries(RESULT_BADGE).map(([v, { label }]) => <option key={v} value={v}>{label}</option>)}
               </select>
@@ -190,7 +190,7 @@ function AuditModal({ initial, onClose, onSaved }: {
             <div>
               <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Risk Rating</label>
               <select value={form.riskRating ?? ''} onChange={e => set('riskRating', e.target.value)}
-                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm">
+                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm">
                 <option value="">— None —</option>
                 {Object.entries(RISK_BADGE).map(([v, { label }]) => <option key={v} value={v}>{label}</option>)}
               </select>
@@ -201,17 +201,17 @@ function AuditModal({ initial, onClose, onSaved }: {
             <div>
               <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Scheduled Date *</label>
               <input type="date" value={form.scheduledDate} onChange={e => set('scheduledDate', e.target.value)} required
-                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm" />
+                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm" />
             </div>
             <div>
               <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Completed Date</label>
               <input type="date" value={form.completedDate ?? ''} onChange={e => set('completedDate', e.target.value)}
-                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm" />
+                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm" />
             </div>
             <div>
               <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Next Review</label>
               <input type="date" value={form.nextReviewDate ?? ''} onChange={e => set('nextReviewDate', e.target.value)}
-                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm" />
+                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm" />
             </div>
           </div>
 
@@ -219,42 +219,42 @@ function AuditModal({ initial, onClose, onSaved }: {
             <div>
               <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Auditor Name</label>
               <input value={form.auditorName ?? ''} onChange={e => set('auditorName', e.target.value)}
-                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm" />
+                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm" />
             </div>
             <div>
               <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Auditor Org</label>
               <input value={form.auditorOrg ?? ''} onChange={e => set('auditorOrg', e.target.value)}
-                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm" />
+                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm" />
             </div>
           </div>
 
           <div>
             <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Assigned To</label>
             <input value={form.assignedTo ?? ''} onChange={e => set('assignedTo', e.target.value)}
-              className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm" />
+              className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm" />
           </div>
 
           <div>
             <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Finding Summary</label>
             <textarea rows={3} value={form.findingSummary ?? ''} onChange={e => set('findingSummary', e.target.value)}
-              className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm resize-none" />
+              className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm resize-none" />
           </div>
 
           <div>
             <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Corrective Actions</label>
             <textarea rows={3} value={form.correctiveActions ?? ''} onChange={e => set('correctiveActions', e.target.value)}
-              className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm resize-none" />
+              className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm resize-none" />
           </div>
 
           <div>
             <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Notes</label>
             <textarea rows={2} value={form.notes ?? ''} onChange={e => set('notes', e.target.value)}
-              className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm resize-none" />
+              className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm resize-none" />
           </div>
 
           <div className="flex justify-end gap-3 pt-2">
             <button type="button" onClick={onClose}
-              className="px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800">
+              className="px-4 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30">
               Cancel
             </button>
             <button type="submit" disabled={saving}
@@ -381,15 +381,15 @@ export default function NDISAuditsPage() {
           value={search}
           onChange={e => setSearch(e.target.value)}
           placeholder="Search audits…"
-          className="px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm w-56"
+          className="px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm w-56"
         />
         <select value={filterStatus} onChange={e => setFilterStatus(e.target.value)}
-          className="px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm">
+          className="px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm">
           <option value="">All Statuses</option>
           {Object.entries(STATUS_BADGE).map(([v, { label }]) => <option key={v} value={v}>{label}</option>)}
         </select>
         <select value={filterType} onChange={e => setFilterType(e.target.value)}
-          className="px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm">
+          className="px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm">
           <option value="">All Types</option>
           {Object.entries(AUDIT_TYPES).map(([v, l]) => <option key={v} value={v}>{l}</option>)}
         </select>
@@ -416,13 +416,13 @@ export default function NDISAuditsPage() {
                   ))}
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-50 dark:divide-gray-800">
+              <tbody className="divide-y divide-gray-50 dark:divide-[#1A6080]/20">
                 {audits.map(audit => {
                   const sb = STATUS_BADGE[audit.status] ?? STATUS_BADGE.scheduled
                   const rb = audit.result ? RESULT_BADGE[audit.result] : null
                   const risk = audit.riskRating ? RISK_BADGE[audit.riskRating] : null
                   return (
-                    <tr key={audit.id} className="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition">
+                    <tr key={audit.id} className="hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/50 transition">
                       <td className="px-4 py-3 max-w-xs">
                         <p className="font-medium text-gray-900 dark:text-white truncate">{audit.title}</p>
                         <p className="text-xs text-gray-500 dark:text-gray-400 truncate">{audit.standard}</p>

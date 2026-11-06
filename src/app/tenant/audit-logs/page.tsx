@@ -90,7 +90,7 @@ export default function AuditLogsPage() {
         </button>
         {(filterResource || filterAction || filterSince) && (
           <button onClick={() => { setFilterResource(''); setFilterAction(''); setFilterSince(''); setPage(0); load('','','',0) }}
-            className="text-xs text-gray-600 dark:text-gray-400 hover:text-white px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-700 hover:border-gray-600 transition">
+            className="text-xs text-gray-600 dark:text-gray-400 hover:text-white px-3 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/30 hover:border-gray-600 transition">
             Clear
           </button>
         )}
@@ -121,7 +121,7 @@ export default function AuditLogsPage() {
                   <th></th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200 dark:divide-gray-800/60">
+              <tbody className="divide-y divide-gray-200 dark:divide-[#1A6080]/20/60">
                 {logs.map(log => {
                   const isOpen = expanded === log.id
                   const hasDetails = log.oldValues !== null || log.newValues !== null
@@ -129,7 +129,7 @@ export default function AuditLogsPage() {
                     <>
                       <tr key={log.id}
                         onClick={() => hasDetails && setExpanded(isOpen ? null : log.id)}
-                        className={`hover:bg-gray-100 dark:hover:bg-gray-800/40 ${hasDetails ? 'cursor-pointer' : ''}`}>
+                        className={`hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30/40 ${hasDetails ? 'cursor-pointer' : ''}`}>
                         <td className="px-4 py-3 text-gray-600 dark:text-gray-400 text-xs font-mono whitespace-nowrap">
                           {new Date(log.createdAt).toLocaleString('en-AU', { day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit',second:'2-digit' })}
                         </td>
@@ -188,12 +188,12 @@ export default function AuditLogsPage() {
             <div className="flex gap-2">
               <button disabled={page === 0}
                 onClick={() => { const p = page - 1; setPage(p); load(filterResource, filterAction, filterSince, p) }}
-                className="text-xs px-3 py-1.5 rounded-lg border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-[#0E3D52] hover:text-[#4ebac4] disabled:opacity-40 disabled:cursor-not-allowed transition">
+                className="text-xs px-3 py-1.5 rounded-lg border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-[#0E3D52] hover:text-[#4ebac4] disabled:opacity-40 disabled:cursor-not-allowed transition">
                 ← Prev
               </button>
               <button disabled={logs.length < PAGE}
                 onClick={() => { const p = page + 1; setPage(p); load(filterResource, filterAction, filterSince, p) }}
-                className="text-xs px-3 py-1.5 rounded-lg border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-[#0E3D52] hover:text-[#4ebac4] disabled:opacity-40 disabled:cursor-not-allowed transition">
+                className="text-xs px-3 py-1.5 rounded-lg border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-[#0E3D52] hover:text-[#4ebac4] disabled:opacity-40 disabled:cursor-not-allowed transition">
                 Next →
               </button>
             </div>

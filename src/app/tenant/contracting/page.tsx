@@ -92,7 +92,7 @@ export default function ContractingPage() {
 
   return (
     <div className="h-full flex flex-col">
-      <div className="px-6 py-4 border-b border-gray-200 bg-white flex items-center justify-between dark:bg-gray-900 dark:border-gray-700">
+      <div className="px-6 py-4 border-b border-gray-200 bg-white flex items-center justify-between dark:bg-gray-900 dark:border-[#1A6080]/30">
         <div>
           <h1 className="text-xl font-semibold text-gray-900 dark:text-white">Contracting</h1>
           <p className="text-sm text-gray-500 mt-0.5 dark:text-gray-400">Employment contracts — draft, send, track signatures</p>
@@ -103,24 +103,24 @@ export default function ContractingPage() {
         </div>
       </div>
 
-      <div className="px-6 py-3 bg-gray-50 border-b border-gray-100 flex gap-6 dark:bg-gray-800 dark:border-gray-800">
+      <div className="px-6 py-3 bg-gray-50 border-b border-gray-100 flex gap-6 dark:bg-gray-800 dark:border-[#1A6080]/20">
         {[{label:'Total',value:stats.total,cls:'text-gray-900'},{label:'Draft',value:stats.draft,cls:'text-gray-500'},{label:'Sent',value:stats.sent,cls:'text-[#0E3D52] dark:text-[#4ebac4]'},{label:'Signed',value:stats.signed,cls:'text-green-600'},{label:'Expired',value:stats.expired,cls:'text-red-600'}].map(s=>(
           <div key={s.label} className="text-center"><p className={`text-xl font-bold ${s.cls}`}>{s.value}</p><p className="text-xs text-gray-500 dark:text-gray-400">{s.label}</p></div>
         ))}
       </div>
 
       <div className="flex flex-1 overflow-hidden">
-        <div className="w-80 border-r border-gray-200 flex flex-col bg-white dark:bg-gray-900 dark:border-gray-700">
-          <div className="p-3 border-b border-gray-100 space-y-2 dark:border-gray-800">
-            <input className="w-full border border-gray-200 rounded-lg px-3 py-1.5 text-sm dark:border-gray-700" placeholder="Search…" value={search} onChange={e=>setSearch(e.target.value)}/>
-            <select className="w-full border border-gray-200 rounded-lg px-2 py-1.5 text-xs dark:border-gray-700" value={statusFilter} onChange={e=>setStatus(e.target.value)}>
+        <div className="w-80 border-r border-gray-200 flex flex-col bg-white dark:bg-gray-900 dark:border-[#1A6080]/30">
+          <div className="p-3 border-b border-gray-100 space-y-2 dark:border-[#1A6080]/20">
+            <input className="w-full border border-gray-200 rounded-lg px-3 py-1.5 text-sm dark:border-[#1A6080]/30" placeholder="Search…" value={search} onChange={e=>setSearch(e.target.value)}/>
+            <select className="w-full border border-gray-200 rounded-lg px-2 py-1.5 text-xs dark:border-[#1A6080]/30" value={statusFilter} onChange={e=>setStatus(e.target.value)}>
               <option value="">All statuses</option>
               {['draft','sent','signed','expired'].map(s=><option key={s} value={s}>{s}</option>)}
             </select>
           </div>
           <div className="flex-1 overflow-y-auto">
             {loading ? <p className="p-4 text-sm text-gray-600 dark:text-gray-400">Loading…</p> : contracts.length===0 ? <p className="p-6 text-sm text-gray-600 dark:text-gray-400 text-center">No contracts</p> : contracts.map(c=>(
-              <div key={c.id} className={`group relative border-b border-gray-100 hover:bg-gray-50 transition dark:border-gray-800 ${selected?.id===c.id?'bg-[#E0EEF4] border-l-2 border-l-[#0E3D52]':''}`}>
+              <div key={c.id} className={`group relative border-b border-gray-100 hover:bg-gray-50 transition dark:border-[#1A6080]/20 ${selected?.id===c.id?'bg-[#E0EEF4] border-l-2 border-l-[#0E3D52]':''}`}>
                 <button onClick={()=>setSelected(c)} className="w-full text-left px-4 py-3">
                   <div className="flex items-start justify-between gap-2">
                     <div className="min-w-0">
@@ -194,7 +194,7 @@ export default function ContractingPage() {
                   <a href={selected.pdfUrl} target="_blank" rel="noopener noreferrer"
                     className="text-xs text-[#0E3D52] dark:text-[#4ebac4] hover:underline">Open in new tab ↗</a>
                 </div>
-                <iframe src={selected.pdfUrl} className="w-full h-96 border border-gray-200 rounded-lg dark:border-gray-700" title="Contract PDF"/>
+                <iframe src={selected.pdfUrl} className="w-full h-96 border border-gray-200 rounded-lg dark:border-[#1A6080]/30" title="Contract PDF"/>
               </div>
             )}
           </div>
@@ -217,7 +217,7 @@ export default function ContractingPage() {
               </select>
             </div>
             <div className="flex gap-3 mt-5">
-              <button onClick={()=>setShowCreate(false)} className="flex-1 px-4 py-2 border border-gray-200 rounded-lg text-sm text-gray-600 dark:text-gray-400 dark:border-gray-700">Cancel</button>
+              <button onClick={()=>setShowCreate(false)} className="flex-1 px-4 py-2 border border-gray-200 rounded-lg text-sm text-gray-600 dark:text-gray-400 dark:border-[#1A6080]/30">Cancel</button>
               <button onClick={create} disabled={saving||!form.employeeId} className="flex-1 btn-primary">{saving?'Creating…':'Create'}</button>
             </div>
           </div>
@@ -324,7 +324,7 @@ function SendForSignaturePanel({
 
   // Draft (or just-sent) — show upload + send form
   return (
-    <div className="border border-gray-200 rounded-xl p-4 space-y-3 dark:border-gray-700">
+    <div className="border border-gray-200 rounded-xl p-4 space-y-3 dark:border-[#1A6080]/30">
       <div className="flex items-center gap-2">
         <span className="text-gray-500 text-lg">📄</span>
         <p className="text-sm font-semibold text-gray-800 dark:text-gray-200">Send for e-signature</p>
@@ -343,9 +343,9 @@ function SendForSignaturePanel({
           </div>
           <div className="flex gap-2">
             <input readOnly value={signingUrl}
-              className="flex-1 border border-gray-200 rounded-lg px-3 py-1.5 text-xs dark:border-gray-700 dark:bg-gray-800 truncate"/>
+              className="flex-1 border border-gray-200 rounded-lg px-3 py-1.5 text-xs dark:border-[#1A6080]/30 dark:bg-gray-800 truncate"/>
             <button onClick={copyLink}
-              className="px-3 py-1.5 border border-gray-200 rounded-lg text-xs font-medium text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-800 shrink-0">
+              className="px-3 py-1.5 border border-gray-200 rounded-lg text-xs font-medium text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:border-[#1A6080]/40 dark:hover:bg-[#0E3D52]/30 shrink-0">
               {copyDone ? '✓ Copied' : 'Copy link'}
             </button>
           </div>
@@ -368,7 +368,7 @@ function SendForSignaturePanel({
             ) : null}
             <div
               onClick={() => fileRef.current?.click()}
-              className="border-2 border-dashed border-gray-200 rounded-lg p-4 text-center cursor-pointer hover:border-[#1A6080] hover:bg-[#E0EEF4] transition dark:border-gray-700 dark:hover:border-[#0E3D52] dark:hover:bg-[#0E3D52]/10"
+              className="border-2 border-dashed border-gray-200 rounded-lg p-4 text-center cursor-pointer hover:border-[#1A6080] hover:bg-[#E0EEF4] transition dark:border-[#1A6080]/30 dark:hover:border-[#0E3D52] dark:hover:bg-[#0E3D52]/10"
             >
               {file ? (
                 <div className="flex items-center justify-center gap-2">
@@ -400,7 +400,7 @@ function SendForSignaturePanel({
               {sending ? 'Sending…' : '📧 Send for Signature'}
             </button>
             <button onClick={copyLink} title="Copy signing link"
-              className="px-3 py-2 border border-gray-200 rounded-lg text-sm text-gray-600 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-800">
+              className="px-3 py-2 border border-gray-200 rounded-lg text-sm text-gray-600 hover:bg-gray-50 dark:border-[#1A6080]/30 dark:text-gray-400 dark:hover:bg-[#0E3D52]/30">
               {copyDone ? '✓' : '🔗'}
             </button>
           </div>

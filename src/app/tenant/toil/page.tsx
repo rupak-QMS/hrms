@@ -202,7 +202,7 @@ export default function ToilPage() {
       </div>
 
       {/* Tabs */}
-      <div className="flex gap-1 border-b border-gray-200 dark:border-gray-700">
+      <div className="flex gap-1 border-b border-gray-200 dark:border-[#1A6080]/30">
         {[
           { key: 'balances', label: 'All Balances' },
           { key: 'entries', label: 'Entry Ledger' },
@@ -237,7 +237,7 @@ export default function ToilPage() {
                 <th className="pb-2">Last Updated</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-100 dark:divide-gray-700">
+            <tbody className="divide-y divide-gray-100 dark:divide-[#1A6080]/30">
               {balances.length === 0 && (
                 <tr><td colSpan={6} className="py-8 text-center text-gray-400">No TOIL balances yet. Record an accrual to get started.</td></tr>
               )}
@@ -269,7 +269,7 @@ export default function ToilPage() {
         <div className="flex flex-col gap-3 flex-1">
           <div className="flex gap-3 flex-wrap">
             <select
-              className="px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+              className="px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
               value={selectedEmployee}
               onChange={e => setSelectedEmployee(e.target.value)}
             >
@@ -280,7 +280,7 @@ export default function ToilPage() {
             </select>
             {selectedEmployee && (
               <input
-                className="px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                className="px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
                 placeholder="Search entries…"
                 value={searchEntries}
                 onChange={e => setSearchEntries(e.target.value)}
@@ -307,7 +307,7 @@ export default function ToilPage() {
                     <th className="pb-2"></th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-100 dark:divide-gray-700">
+                <tbody className="divide-y divide-gray-100 dark:divide-[#1A6080]/30">
                   {entries.length === 0 && (
                     <tr><td colSpan={8} className="py-8 text-center text-gray-400">No entries found</td></tr>
                   )}
@@ -392,7 +392,7 @@ export default function ToilPage() {
               {rejecting === entry.id && (
                 <div className="mt-3 flex gap-2">
                   <input
-                    className="flex-1 px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-sm text-gray-900 dark:text-white"
+                    className="flex-1 px-3 py-1.5 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-900 text-sm text-gray-900 dark:text-white"
                     placeholder="Reason for rejection…"
                     value={rejectReason}
                     onChange={e => setRejectReason(e.target.value)}
@@ -405,7 +405,7 @@ export default function ToilPage() {
                   </button>
                   <button
                     onClick={() => { setRejecting(null); setRejectReason('') }}
-                    className="px-3 py-1.5 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 text-xs rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition"
+                    className="px-3 py-1.5 border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 text-xs rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition"
                   >
                     Cancel
                   </button>
@@ -427,7 +427,7 @@ export default function ToilPage() {
             <div className="space-y-3">
               <div>
                 <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Employee *</label>
-                <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
                   value={form.employeeId} onChange={e => setForm(f => ({ ...f, employeeId: e.target.value }))}>
                   <option value="">Select employee…</option>
                   {employees.map(emp => (
@@ -438,7 +438,7 @@ export default function ToilPage() {
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Entry Type</label>
-                  <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                  <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
                     value={form.entryType} onChange={e => setForm(f => ({ ...f, entryType: e.target.value }))}>
                     <option value="accrual">Accrual (overtime worked)</option>
                     <option value="taken">Taken (TOIL leave)</option>
@@ -448,19 +448,19 @@ export default function ToilPage() {
                 </div>
                 <div>
                   <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Work Date *</label>
-                  <input type="date" className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                  <input type="date" className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
                     value={form.workDate} onChange={e => setForm(f => ({ ...f, workDate: e.target.value }))} />
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Hours *</label>
-                  <input type="number" step="0.25" min="0.25" className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                  <input type="number" step="0.25" min="0.25" className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
                     value={form.hours} onChange={e => setForm(f => ({ ...f, hours: e.target.value }))} placeholder="e.g. 2.5" />
                 </div>
                 <div>
                   <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Multiplier</label>
-                  <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                  <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
                     value={form.multiplier} onChange={e => setForm(f => ({ ...f, multiplier: e.target.value }))}>
                     <option value="1.0">1.0× (standard)</option>
                     <option value="1.5">1.5× (time and a half)</option>
@@ -470,7 +470,7 @@ export default function ToilPage() {
               </div>
               <div>
                 <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Description</label>
-                <input className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                <input className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
                   value={form.description} onChange={e => setForm(f => ({ ...f, description: e.target.value }))} placeholder="e.g. Emergency on-call weekend coverage" />
               </div>
               {form.entryType !== 'accrual' && (
@@ -481,7 +481,7 @@ export default function ToilPage() {
             </div>
             <div className="flex gap-2 mt-5">
               <button onClick={() => setShowModal(false)}
-                className="flex-1 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+                className="flex-1 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
                 Cancel
               </button>
               <button onClick={saveEntry} disabled={saving || !form.employeeId || !form.workDate || !form.hours}

@@ -171,12 +171,12 @@ function AvailabilityModal({
   return (
     <div className="modal-overlay">
       <div className="card-premium w-full max-w-lg shadow-lg max-h-[90vh] overflow-y-auto">
-        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-gray-800">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-[#1A6080]/20">
           <div>
             <h2 className="text-lg font-bold text-gray-900 dark:text-white">Availability</h2>
             <p className="text-sm text-gray-500 dark:text-gray-400">{employeeName}</p>
           </div>
-          <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-400">✕</button>
+          <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 text-gray-600 dark:text-gray-400">✕</button>
         </div>
 
         {/* Existing slots */}
@@ -206,14 +206,14 @@ function AvailabilityModal({
             <div>
               <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Day</label>
               <select value={form.dayOfWeek} onChange={e => setForm(f => ({ ...f, dayOfWeek: Number(e.target.value) }))}
-                className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
+                className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
                 {DAYS.map((d, i) => <option key={i} value={i}>{d}</option>)}
               </select>
             </div>
             <div>
               <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Status</label>
               <select value={form.isAvailable ? 'yes' : 'no'} onChange={e => setForm(f => ({ ...f, isAvailable: e.target.value === 'yes' }))}
-                className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
+                className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
                 <option value="yes">Available</option>
                 <option value="no">Unavailable</option>
               </select>
@@ -224,24 +224,24 @@ function AvailabilityModal({
             <div>
               <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">From</label>
               <input type="time" value={form.startTime} onChange={e => setForm(f => ({ ...f, startTime: e.target.value }))}
-                className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none" />
+                className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none" />
             </div>
             <div>
               <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">To</label>
               <input type="time" value={form.endTime} onChange={e => setForm(f => ({ ...f, endTime: e.target.value }))}
-                className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none" />
+                className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none" />
             </div>
           </div>
 
           <div>
             <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Note (optional)</label>
             <input type="text" value={form.note} onChange={e => setForm(f => ({ ...f, note: e.target.value }))} placeholder="e.g. Prefer mornings"
-              className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none" />
+              className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none" />
           </div>
 
           <div className="flex gap-3 pt-1">
             <button type="button" onClick={onClose}
-              className="flex-1 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+              className="flex-1 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
               Close
             </button>
             <button type="submit" disabled={saving}
@@ -287,9 +287,9 @@ function FillTimesheetsModal({
   return (
     <div className="modal-overlay">
       <div className="card-premium w-full max-w-md shadow-lg">
-        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-gray-800">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-[#1A6080]/20">
           <h2 className="text-lg font-bold text-gray-900 dark:text-white">Fill Timesheets</h2>
-          <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-400">✕</button>
+          <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 text-gray-600 dark:text-gray-400">✕</button>
         </div>
         <div className="p-6 space-y-4">
           <p className="text-sm text-gray-600 dark:text-gray-400">
@@ -301,7 +301,7 @@ function FillTimesheetsModal({
           {error && <p className="text-sm text-red-600 bg-red-50 dark:bg-red-900/20 rounded-lg px-3 py-2">{error}</p>}
 
           {result && (
-            <div className="rounded-xl border border-gray-200 dark:border-gray-700 divide-y divide-gray-100 dark:divide-gray-800">
+            <div className="rounded-xl border border-gray-200 dark:border-[#1A6080]/30 divide-y divide-gray-100 dark:divide-[#1A6080]/20">
               <div className="grid grid-cols-3 text-center py-3">
                 <div>
                   <p className="text-2xl font-bold text-green-600 dark:text-green-400">{result.created}</p>
@@ -324,7 +324,7 @@ function FillTimesheetsModal({
 
           <div className="flex gap-3">
             <button onClick={onClose}
-              className="flex-1 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+              className="flex-1 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
               {result ? 'Close' : 'Cancel'}
             </button>
             {!result && (
@@ -422,11 +422,11 @@ function ShiftModal({
   return (
     <div className="modal-overlay">
       <div className="card-premium w-full max-w-lg shadow-lg max-h-[90vh] overflow-y-auto">
-        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-gray-800">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-[#1A6080]/20">
           <h2 className="text-lg font-bold text-gray-900 dark:text-white">
             {mode === 'create' ? 'Add Shift' : 'Edit Shift'}
           </h2>
-          <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-400">✕</button>
+          <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 text-gray-600 dark:text-gray-400">✕</button>
         </div>
 
         <form onSubmit={handleSave} className="p-6 space-y-4">
@@ -435,7 +435,7 @@ function ShiftModal({
           <div>
             <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Employee *</label>
             <select value={form.employeeId} onChange={f('employeeId')} required
-              className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
+              className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
               <option value="">Select employee…</option>
               {employees.map(e => (
                 <option key={e.id} value={e.id}>{e.firstName} {e.lastName}</option>
@@ -446,7 +446,7 @@ function ShiftModal({
           <div>
             <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">NDIS Participant</label>
             <select value={form.participantId} onChange={f('participantId')}
-              className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
+              className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
               <option value="">No participant linked</option>
               {participants.map(p => (
                 <option key={p.id} value={p.id}>
@@ -460,12 +460,12 @@ function ShiftModal({
             <div>
               <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Date *</label>
               <input type="date" value={form.date} onChange={f('date')} required
-                className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none" />
+                className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none" />
             </div>
             <div>
               <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Shift Type</label>
               <select value={form.shiftType} onChange={f('shiftType')}
-                className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
+                className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
                 <option value="standard">Standard</option>
                 <option value="sleepover">Sleepover</option>
                 <option value="active_night">Active Night</option>
@@ -479,12 +479,12 @@ function ShiftModal({
               <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Start</label>
               <div className="flex gap-1">
                 <select value={form.startHour} onChange={f('startHour')}
-                  className="flex-1 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-2 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
+                  className="flex-1 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-2 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
                   {hours.map(h => <option key={h}>{h}</option>)}
                 </select>
                 <span className="self-center text-gray-600 dark:text-gray-400 text-sm">:</span>
                 <select value={form.startMin} onChange={f('startMin')}
-                  className="flex-1 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-2 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
+                  className="flex-1 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-2 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
                   {mins.map(m => <option key={m}>{m}</option>)}
                 </select>
               </div>
@@ -493,12 +493,12 @@ function ShiftModal({
               <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">End</label>
               <div className="flex gap-1">
                 <select value={form.endHour} onChange={f('endHour')}
-                  className="flex-1 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-2 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
+                  className="flex-1 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-2 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
                   {hours.map(h => <option key={h}>{h}</option>)}
                 </select>
                 <span className="self-center text-gray-600 dark:text-gray-400 text-sm">:</span>
                 <select value={form.endMin} onChange={f('endMin')}
-                  className="flex-1 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-2 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
+                  className="flex-1 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-2 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
                   {mins.map(m => <option key={m}>{m}</option>)}
                 </select>
               </div>
@@ -509,19 +509,19 @@ function ShiftModal({
             <div>
               <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Location</label>
               <input type="text" value={form.location} onChange={f('location')} placeholder="Site / address"
-                className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none" />
+                className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none" />
             </div>
             <div>
               <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Client Site</label>
               <input type="text" value={form.clientSite} onChange={f('clientSite')} placeholder="Property name"
-                className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none" />
+                className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none" />
             </div>
           </div>
 
           <div>
             <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Notes</label>
             <textarea value={form.notes} onChange={f('notes')} rows={2} placeholder="Care instructions, special notes…"
-              className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none resize-none" />
+              className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none resize-none" />
           </div>
 
           <ConfirmModal state={confirmState} onClose={() => setConfirmState(null)} />
@@ -539,7 +539,7 @@ function ShiftModal({
               </button>
             )}
             <button type="button" onClick={onClose}
-              className="flex-1 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+              className="flex-1 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
               Cancel
             </button>
             <button type="submit" disabled={saving}
@@ -793,13 +793,13 @@ export default function RosteringPage() {
         <div className="flex items-center gap-2 flex-wrap">
           <div className="flex items-center card-premium overflow-hidden">
             <button onClick={() => setWeekStart(w => addDays(w, -7))}
-              className="px-3 py-2 text-gray-500 hover:bg-gray-50 dark:hover:bg-gray-800 transition text-sm dark:text-gray-400">←</button>
+              className="px-3 py-2 text-gray-500 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition text-sm dark:text-gray-400">←</button>
             <button onClick={() => setWeekStart(getMondayOf(new Date()))}
-              className="px-3 py-2 text-xs font-medium text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 border-x border-gray-200 dark:border-gray-700 transition">
+              className="px-3 py-2 text-xs font-medium text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 border-x border-gray-200 dark:border-[#1A6080]/30 transition">
               Today
             </button>
             <button onClick={() => setWeekStart(w => addDays(w, 7))}
-              className="px-3 py-2 text-gray-500 hover:bg-gray-50 dark:hover:bg-gray-800 transition text-sm dark:text-gray-400">→</button>
+              className="px-3 py-2 text-gray-500 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition text-sm dark:text-gray-400">→</button>
           </div>
 
           {/* Availability toggle */}
@@ -813,7 +813,7 @@ export default function RosteringPage() {
             <>
               {/* Fill timesheets */}
               <button onClick={() => setShowFill(true)}
-                className="px-3 py-2 rounded-xl text-sm font-semibold border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+                className="px-3 py-2 rounded-xl text-sm font-semibold border border-gray-300 dark:border-[#1A6080]/40 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
                 📋 Fill Timesheets
               </button>
 
@@ -859,13 +859,13 @@ export default function RosteringPage() {
             <table className="table-premium">
               <thead>
                 <tr>
-                  <th className="w-36 px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400  bg-gray-50 dark:bg-gray-800 border-b border-r border-gray-100 dark:border-gray-700">
+                  <th className="w-36 px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400  bg-gray-50 dark:bg-gray-800 border-b border-r border-gray-100 dark:border-[#1A6080]/30">
                     Employee
                   </th>
                   {weekDays.map((day, i) => {
                     const isToday = isoDate(day) === isoDate(new Date())
                     return (
-                      <th key={i} className={`px-2 py-3 text-center bg-gray-50 dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700 ${i < 6 ? 'border-r border-gray-100 dark:border-gray-700' : ''}`}>
+                      <th key={i} className={`px-2 py-3 text-center bg-gray-50 dark:bg-gray-800 border-b border-gray-100 dark:border-[#1A6080]/30 ${i < 6 ? 'border-r border-gray-100 dark:border-[#1A6080]/30' : ''}`}>
                         <div className={`text-xs font-semibold  ${isToday ? 'text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4]' : 'text-gray-500 dark:text-gray-400'}`}>
                           {DAYS[i]}
                         </div>
@@ -877,7 +877,7 @@ export default function RosteringPage() {
                   })}
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-50 dark:divide-gray-800">
+              <tbody className="divide-y divide-gray-50 dark:divide-[#1A6080]/20">
                 {visibleEmployees.length === 0 ? (
                   <EmptyState
                     as="table"
@@ -890,8 +890,8 @@ export default function RosteringPage() {
                 ) : visibleEmployees.map(emp => (
                   <>
                     {/* Shift row */}
-                    <tr key={emp.id} className="hover:bg-gray-50/40 dark:hover:bg-gray-800/20 transition">
-                      <td className="px-4 py-2 border-r border-gray-100 dark:border-gray-700 w-36">
+                    <tr key={emp.id} className="hover:bg-gray-50/40 dark:hover:bg-[#0E3D52]/30/20 transition">
+                      <td className="px-4 py-2 border-r border-gray-100 dark:border-[#1A6080]/30 w-36">
                         <div className="flex items-center gap-2">
                           <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0"
                             style={{ background: 'var(--primary)' }}>
@@ -912,7 +912,7 @@ export default function RosteringPage() {
                       {weekDays.map((day, di) => {
                         const dayShifts = getShiftsFor(emp.id, day)
                         return (
-                          <td key={di} className={`px-1 py-1 align-top min-w-[110px] ${di < 6 ? 'border-r border-gray-100 dark:border-gray-700' : ''}`}>
+                          <td key={di} className={`px-1 py-1 align-top min-w-[110px] ${di < 6 ? 'border-r border-gray-100 dark:border-[#1A6080]/30' : ''}`}>
                             <div className="space-y-1 min-h-14">
                               {dayShifts.map(shift => {
                                 const c = SHIFT_COLOURS[shift.shiftType ?? 'standard'] ?? SHIFT_COLOURS.standard
@@ -933,7 +933,7 @@ export default function RosteringPage() {
                               })}
                               <PermissionGate permission="rostering:write">
                                 <button onClick={() => openCreate(day, emp.id)}
-                                  className="w-full py-1 text-[11px] text-gray-400 dark:text-gray-600 hover:text-gray-500 dark:hover:text-gray-400 transition text-center rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+                                  className="w-full py-1 text-[11px] text-gray-400 dark:text-gray-600 hover:text-gray-500 dark:hover:text-gray-400 transition text-center rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30">
                                   + add
                                 </button>
                               </PermissionGate>
@@ -946,13 +946,13 @@ export default function RosteringPage() {
                     {/* Availability row (shown when toggled) */}
                     {showAvail && (
                       <tr key={`avail-${emp.id}`} className="bg-teal-50/30 dark:bg-teal-900/10">
-                        <td className="px-4 py-1 border-r border-gray-100 dark:border-gray-700">
+                        <td className="px-4 py-1 border-r border-gray-100 dark:border-[#1A6080]/30">
                           <span className="text-[10px] font-semibold text-teal-600 dark:text-teal-400 ">Avail</span>
                         </td>
                         {weekDays.map((_, di) => {
                           const slot = availMap.get(emp.id)?.get(di)
                           return (
-                            <td key={di} className={`px-1 py-1 text-center ${di < 6 ? 'border-r border-gray-100 dark:border-gray-700' : ''}`}>
+                            <td key={di} className={`px-1 py-1 text-center ${di < 6 ? 'border-r border-gray-100 dark:border-[#1A6080]/30' : ''}`}>
                               {slot ? (
                                 <span className={`text-[10px] px-1.5 py-0.5 rounded font-medium ${slot.isAvailable ? 'bg-teal-100 text-teal-700 dark:bg-teal-900/30 dark:text-teal-300' : 'bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400'}`}>
                                   {slot.isAvailable ? `${slot.startTime}–${slot.endTime}` : '✕'}

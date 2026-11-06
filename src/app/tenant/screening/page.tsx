@@ -210,7 +210,7 @@ export default function ScreeningPage() {
   return (
     <div className="h-full flex flex-col">
       {/* Header */}
-      <div className="px-6 py-4 border-b border-gray-200 bg-white dark:bg-gray-900 dark:border-gray-700 flex items-center justify-between gap-3">
+      <div className="px-6 py-4 border-b border-gray-200 bg-white dark:bg-gray-900 dark:border-[#1A6080]/30 flex items-center justify-between gap-3">
         <div>
           <h1 className="text-xl font-semibold text-gray-900 dark:text-white">Screening &amp; Checks</h1>
           <p className="text-sm text-gray-500 mt-0.5 dark:text-gray-400">Police checks, WWCC, NDIS screening, working rights</p>
@@ -227,7 +227,7 @@ export default function ScreeningPage() {
       </div>
 
       {/* Stats */}
-      <div className="px-6 py-3 bg-gray-50 dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700 flex gap-6 flex-wrap">
+      <div className="px-6 py-3 bg-gray-50 dark:bg-gray-800 border-b border-gray-100 dark:border-[#1A6080]/30 flex gap-6 flex-wrap">
         {[
           { label: 'Total',          value: stats.total,       cls: 'text-gray-900 dark:text-white' },
           { label: 'Clear',          value: stats.green,       cls: 'text-green-600 dark:text-green-400' },
@@ -244,15 +244,15 @@ export default function ScreeningPage() {
       </div>
 
       {/* Filters */}
-      <div className="px-4 py-3 border-b border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 flex gap-2 flex-wrap">
+      <div className="px-4 py-3 border-b border-gray-100 dark:border-[#1A6080]/20 bg-white dark:bg-gray-900 flex gap-2 flex-wrap">
         <input
-          className="border border-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white rounded-lg px-3 py-1.5 text-sm flex-1 min-w-[160px]"
+          className="border border-gray-200 dark:border-[#1A6080]/30 dark:bg-gray-800 dark:text-white rounded-lg px-3 py-1.5 text-sm flex-1 min-w-[160px]"
           placeholder="Search employee, email, reference…"
           value={search}
           onChange={e => setSearch(e.target.value)}
         />
         <select
-          className="border border-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white rounded-lg px-2 py-1.5 text-sm"
+          className="border border-gray-200 dark:border-[#1A6080]/30 dark:bg-gray-800 dark:text-white rounded-lg px-2 py-1.5 text-sm"
           value={statusFilter}
           onChange={e => setStatus(e.target.value)}
         >
@@ -263,7 +263,7 @@ export default function ScreeningPage() {
           <option value="pending">Pending</option>
         </select>
         <select
-          className="border border-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white rounded-lg px-2 py-1.5 text-sm"
+          className="border border-gray-200 dark:border-[#1A6080]/30 dark:bg-gray-800 dark:text-white rounded-lg px-2 py-1.5 text-sm"
           value={typeFilter}
           onChange={e => setType(e.target.value)}
         >
@@ -288,7 +288,7 @@ export default function ScreeningPage() {
         ) : (
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/60">
+              <tr className="border-b border-gray-100 dark:border-[#1A6080]/20 bg-gray-50 dark:bg-gray-800/60">
                 <th className="text-left px-4 py-3 font-medium text-gray-600 dark:text-gray-400">Employee</th>
                 <th className="text-left px-4 py-3 font-medium text-gray-600 dark:text-gray-400">Check Type</th>
                 <th className="text-left px-4 py-3 font-medium text-gray-600 dark:text-gray-400">Status</th>
@@ -302,7 +302,7 @@ export default function ScreeningPage() {
               {records.map(r => (
                 <tr
                   key={r.id}
-                  className="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/40 transition group"
+                  className="border-b border-gray-100 dark:border-[#1A6080]/20 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/40 transition group"
                 >
                   <td className="px-4 py-3">
                     <p className="font-medium text-gray-900 dark:text-white">{r.firstName} {r.lastName}</p>
@@ -400,7 +400,7 @@ export default function ScreeningPage() {
               </div>
             </div>
             <div className="flex gap-3 mt-6">
-              <button onClick={() => setShowCreate(false)} className="flex-1 px-4 py-2 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+              <button onClick={() => setShowCreate(false)} className="flex-1 px-4 py-2 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
                 Cancel
               </button>
               <button onClick={create} disabled={saving || !form.employeeId} className="flex-1 btn-primary disabled:opacity-50 transition">
@@ -474,7 +474,7 @@ export default function ScreeningPage() {
               )}
             </div>
             <div className="flex gap-3 mt-6">
-              <button onClick={() => setEditRecord(null)} className="flex-1 px-4 py-2 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+              <button onClick={() => setEditRecord(null)} className="flex-1 px-4 py-2 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
                 Cancel
               </button>
               <button onClick={saveEdit} disabled={saving} className="flex-1 btn-primary disabled:opacity-50 transition">

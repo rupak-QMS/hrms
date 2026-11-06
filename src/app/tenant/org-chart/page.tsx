@@ -109,9 +109,9 @@ function HorizontalBranch({ count }: { count: number }) {
       <div className="w-px h-4 bg-gray-300 dark:bg-gray-600" />
       <div className="flex items-start">
         {/* Left arm */}
-        <div className="w-1/2 border-t border-l border-gray-300 dark:border-gray-600 h-4" />
+        <div className="w-1/2 border-t border-l border-gray-300 dark:border-[#1A6080]/40 h-4" />
         {/* Right arm */}
-        <div className="w-1/2 border-t border-gray-300 dark:border-gray-600 h-4" />
+        <div className="w-1/2 border-t border-gray-300 dark:border-[#1A6080]/40 h-4" />
       </div>
     </div>
   )
@@ -144,7 +144,7 @@ function EmployeeCard({
       >
         {/* Avatar */}
         <div className="flex flex-col items-center pt-4 pb-2 px-3">
-          <div className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-semibold text-sm ${color} shadow-md mb-2 ring-2 ring-white dark:ring-gray-800`}>
+          <div className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-semibold text-sm ${color} shadow-md mb-2 ring-2 ring-white dark:ring-[#0E3D52]`}>
             {initials}
           </div>
 
@@ -175,7 +175,7 @@ function EmployeeCard({
 
         {/* Expand/collapse toggle */}
         {hasChildren && (
-          <div className="border-t border-gray-100 dark:border-gray-700">
+          <div className="border-t border-gray-100 dark:border-[#1A6080]/30">
             <button
               onClick={onToggle}
               className="w-full py-1.5 text-xs text-gray-500 dark:text-gray-400 hover:text-[#0E3D52] dark:text-[#4ebac4] dark:hover:text-[#4ebac4] flex items-center justify-center gap-1 transition-colors"
@@ -235,7 +235,7 @@ function OrgTreeNode({
             {/* Top horizontal line spanning children */}
             {node.children.length > 1 && (
               <div
-                className="absolute top-0 left-0 right-0 border-t border-gray-300 dark:border-gray-600"
+                className="absolute top-0 left-0 right-0 border-t border-gray-300 dark:border-[#1A6080]/40"
                 style={{ marginLeft: '50%', marginRight: '50%', left: '26px', right: '26px' }}
               />
             )}
@@ -327,7 +327,7 @@ export default function OrgChartPage() {
             value={search}
             onChange={e => setSearch(e.target.value)}
             placeholder="Search by name…"
-            className="w-full pl-8 pr-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0E3D52]"
+            className="w-full pl-8 pr-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0E3D52]"
           />
         </div>
 
@@ -335,7 +335,7 @@ export default function OrgChartPage() {
         <select
           value={deptFilter}
           onChange={e => setDeptFilter(e.target.value)}
-          className="py-2 px-3 text-sm rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-[#0E3D52] min-w-[160px]"
+          className="py-2 px-3 text-sm rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-[#0E3D52] min-w-[160px]"
         >
           <option value="">All Departments</option>
           {data?.allDepartments.sort((a, b) => a.name.localeCompare(b.name)).map(d => (
@@ -347,13 +347,13 @@ export default function OrgChartPage() {
         <div className="flex gap-2 ml-auto">
           <button
             onClick={expandAll}
-            className="px-3 py-2 text-xs font-medium rounded-lg border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            className="px-3 py-2 text-xs font-medium rounded-lg border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 transition-colors"
           >
             Expand All
           </button>
           <button
             onClick={collapseAll}
-            className="px-3 py-2 text-xs font-medium rounded-lg border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            className="px-3 py-2 text-xs font-medium rounded-lg border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 transition-colors"
           >
             Collapse All
           </button>

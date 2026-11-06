@@ -272,9 +272,9 @@ export default function DEIPage() {
                   ))}
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200 dark:divide-gray-800/60">
+              <tbody className="divide-y divide-gray-200 dark:divide-[#1A6080]/20/60">
                 {filtered.map(r => (
-                  <tr key={r.id} className="hover:bg-gray-100 dark:hover:bg-gray-800/30 group">
+                  <tr key={r.id} className="hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30/30 group">
                     <td className="px-4 py-3 text-gray-700 dark:text-gray-200">{r.employeeFirstName} {r.employeeLastName}</td>
                     <td className="px-4 py-3 text-gray-600 dark:text-gray-400">{r.gender ?? '—'}</td>
                     <td className="px-4 py-3 text-gray-600 dark:text-gray-400 text-xs">{r.culturalBackground ?? '—'}</td>

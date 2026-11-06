@@ -116,7 +116,7 @@ export default function CompetencyPage() {
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {assessments.map(a => (
-                    <div key={a.id} className="border border-gray-200 rounded-xl p-4 space-y-2 dark:border-gray-700">
+                    <div key={a.id} className="border border-gray-200 rounded-xl p-4 space-y-2 dark:border-[#1A6080]/30">
                       <div className="flex items-start justify-between gap-2">
                         <div>
                           <p className="text-sm font-medium text-gray-900 dark:text-white">{a.competencyName}</p>
@@ -156,7 +156,7 @@ export default function CompetencyPage() {
                   <h3 className="text-xs font-semibold  text-gray-600 dark:text-gray-400 mb-3">{cat ?? 'Uncategorised'}</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                     {competencies.filter(c => c.category === cat).map(c => (
-                      <div key={c.id} className="border border-gray-200 rounded-lg p-4 dark:border-gray-700">
+                      <div key={c.id} className="border border-gray-200 rounded-lg p-4 dark:border-[#1A6080]/30">
                         <p className="text-sm font-medium text-gray-900 dark:text-white">{c.name}</p>
                         {c.description && <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">{c.description}</p>}
                       </div>
@@ -177,10 +177,10 @@ export default function CompetencyPage() {
             <div className="space-y-3">
               <input className="input-premium" placeholder="Name *" value={compForm.name} onChange={e => setCompForm(f => ({...f, name:e.target.value}))} />
               <input className="input-premium" placeholder="Category (e.g. Clinical, Safety)" value={compForm.category} onChange={e => setCompForm(f => ({...f, category:e.target.value}))} />
-              <textarea className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm resize-none dark:border-gray-700" rows={2} placeholder="Description" value={compForm.description} onChange={e => setCompForm(f => ({...f, description:e.target.value}))} />
+              <textarea className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm resize-none dark:border-[#1A6080]/30" rows={2} placeholder="Description" value={compForm.description} onChange={e => setCompForm(f => ({...f, description:e.target.value}))} />
             </div>
             <div className="flex gap-3 mt-5">
-              <button onClick={() => setShowAddComp(false)} className="flex-1 px-4 py-2 border border-gray-200 rounded-lg text-sm text-gray-600 dark:text-gray-400 dark:border-gray-700">Cancel</button>
+              <button onClick={() => setShowAddComp(false)} className="flex-1 px-4 py-2 border border-gray-200 rounded-lg text-sm text-gray-600 dark:text-gray-400 dark:border-[#1A6080]/30">Cancel</button>
               <button onClick={addCompetency} disabled={saving || !compForm.name} className="flex-1 btn-primary">{saving ? 'Adding…' : 'Add'}</button>
             </div>
           </div>
@@ -210,7 +210,7 @@ export default function CompetencyPage() {
               <input className="input-premium" placeholder="Evidence reference" value={assessForm.evidence} onChange={e => setAssessForm(f => ({...f, evidence:e.target.value}))} />
             </div>
             <div className="flex gap-3 mt-5">
-              <button onClick={() => setShowAssess(false)} className="flex-1 px-4 py-2 border border-gray-200 rounded-lg text-sm text-gray-600 dark:text-gray-400 dark:border-gray-700">Cancel</button>
+              <button onClick={() => setShowAssess(false)} className="flex-1 px-4 py-2 border border-gray-200 rounded-lg text-sm text-gray-600 dark:text-gray-400 dark:border-[#1A6080]/30">Cancel</button>
               <button onClick={addAssessment} disabled={saving || !assessForm.competencyId} className="flex-1 btn-primary">{saving ? 'Saving…' : 'Record'}</button>
             </div>
           </div>

@@ -371,7 +371,7 @@ export default function RecognitionPage() {
               Delete recognition for <strong>{confirmDelete.recipientFirstName} {confirmDelete.recipientLastName}</strong>? This cannot be undone.
             </p>
             <div className="flex gap-2 justify-end">
-              <button onClick={() => setConfirmDelete(null)} className="text-sm px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+              <button onClick={() => setConfirmDelete(null)} className="text-sm px-4 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
                 Cancel
               </button>
               <button
@@ -463,12 +463,12 @@ function RecognitionModal({
             <input
               type="checkbox" id="isPublic" checked={form.isPublic}
               onChange={e => setForm(f => ({ ...f, isPublic: e.target.checked }))}
-              className="rounded border-gray-300 dark:border-gray-600 text-[#0E3D52]"
+              className="rounded border-gray-300 dark:border-[#1A6080]/40 text-[#0E3D52]"
             />
             <label htmlFor="isPublic" className="text-sm text-gray-700 dark:text-gray-300">Make public (visible to all staff)</label>
           </div>
           <div className="flex gap-2 justify-end pt-1">
-            <button type="button" onClick={onClose} className="text-sm px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+            <button type="button" onClick={onClose} className="text-sm px-4 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
               Cancel
             </button>
             <button type="submit" disabled={saving} className="text-sm px-5 py-2 rounded-lg bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white font-medium transition">

@@ -560,9 +560,9 @@ export default function OfferLettersPage() {
       <div className="flex gap-3 flex-wrap">
         <input value={search} onChange={e=>{setSearch(e.target.value)}}
           placeholder="Search candidate / position…"
-          className="flex-1 min-w-[200px] bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
+          className="flex-1 min-w-[200px] bg-white dark:bg-gray-900 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
         <select value={statusFilter} onChange={e=>setStatusFilter(e.target.value)}
-          className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none">
+          className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none">
           <option value="">All Status</option>
           {Object.keys(STATUS_STYLE).map(s => <option key={s} value={s}>{s.charAt(0).toUpperCase()+s.slice(1)}</option>)}
         </select>
@@ -667,7 +667,7 @@ export default function OfferLettersPage() {
                   )}
                   {['draft','sent'].includes(selected.status) && (
                     <button onClick={() => updateStatus('withdrawn')}
-                      className="flex-1 py-2 text-xs font-medium border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:text-white rounded-lg transition">
+                      className="flex-1 py-2 text-xs font-medium border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-white rounded-lg transition">
                       ↩ Withdraw
                     </button>
                   )}
@@ -691,7 +691,7 @@ export default function OfferLettersPage() {
                     <input
                       readOnly
                       value={candidateUrl(selected.acceptanceToken)}
-                      className="flex-1 text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-gray-900 dark:text-gray-200 font-mono"
+                      className="flex-1 text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-gray-900 dark:text-gray-200 font-mono"
                     />
                     <button
                       onClick={copyLink}
@@ -719,7 +719,7 @@ export default function OfferLettersPage() {
                 <div className="flex gap-2">
                   <input value={noteText} onChange={e=>setNoteText(e.target.value)}
                     placeholder="Internal note…"
-                    className="flex-1 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
+                    className="flex-1 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
                   <button onClick={addNote} disabled={addingNote || !noteText.trim()}
                     className="px-3 py-2 bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-50 text-white text-xs font-medium rounded-lg transition">
                     Add
@@ -747,7 +747,7 @@ export default function OfferLettersPage() {
                     {events.map((ev, i) => (
                       <div key={ev.id} className="flex gap-3 items-start">
                         <div className="flex flex-col items-center shrink-0">
-                          <div className="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 flex items-center justify-center text-sm">
+                          <div className="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 flex items-center justify-center text-sm">
                             {EVENT_ICON[ev.event] ?? '📌'}
                           </div>
                           {i < events.length - 1 && <div className="w-px h-4 bg-gray-200 dark:bg-gray-700 mt-1" />}
@@ -774,7 +774,7 @@ export default function OfferLettersPage() {
       {showForm && (
         <div className="modal-overlay">
           <div className="card-premium w-full max-w-2xl max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-800">
+            <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-[#1A6080]/20">
               <h2 className="text-lg font-bold text-foreground">New Offer Letter</h2>
               <button onClick={()=>{ setShowForm(false); setFormError('') }} className="text-gray-600 dark:text-gray-400 hover:text-white text-xl">×</button>
             </div>
@@ -888,7 +888,7 @@ export default function OfferLettersPage() {
                   {saving ? 'Creating…' : 'Create Offer Letter'}
                 </button>
                 <button type="button" onClick={()=>{ setShowForm(false); setFormError('') }}
-                  className="px-5 py-2.5 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:text-white text-sm rounded-lg">
+                  className="px-5 py-2.5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-white text-sm rounded-lg">
                   Cancel
                 </button>
               </div>
@@ -900,7 +900,7 @@ export default function OfferLettersPage() {
       {showUpload && (
         <div className="modal-overlay">
           <div className="card-premium w-full max-w-xl max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between p-5 border-b border-gray-200 dark:border-gray-800">
+            <div className="flex items-center justify-between p-5 border-b border-gray-200 dark:border-[#1A6080]/20">
               <h2 className="text-base font-bold text-white">Upload Offer Template</h2>
               <button onClick={() => setShowUpload(false)} className="text-gray-600 dark:text-gray-400 hover:text-white text-xl">×</button>
             </div>
@@ -1009,7 +1009,7 @@ export default function OfferLettersPage() {
                 <button
                   type="button"
                   onClick={() => setShowUpload(false)}
-                  className="px-5 py-2.5 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:text-white text-sm rounded-lg transition">
+                  className="px-5 py-2.5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-white text-sm rounded-lg transition">
                   Cancel
                 </button>
               </div>

@@ -137,7 +137,7 @@ export default function NewOnboardingPage() {
             {loading ? 'Creating…' : 'Create Onboarding Record →'}
           </button>
           <button type="button" onClick={() => router.back()}
-            className="border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:text-white text-sm px-4 py-2.5 rounded-lg transition">
+            className="border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:text-white text-sm px-4 py-2.5 rounded-lg transition">
             Cancel
           </button>
         </div>

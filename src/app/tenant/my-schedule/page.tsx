@@ -223,17 +223,17 @@ export default function MySchedulePage() {
         {/* Week nav */}
         <div className="flex items-center gap-2">
           <button onClick={prevWeek}
-            className="p-2 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition text-gray-600 dark:text-gray-400">
+            className="p-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition text-gray-600 dark:text-gray-400">
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
             </svg>
           </button>
           <button onClick={thisWeek}
-            className="px-3 py-1.5 text-sm font-medium rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition text-gray-700 dark:text-gray-300">
+            className="px-3 py-1.5 text-sm font-medium rounded-lg border border-gray-200 dark:border-[#1A6080]/30 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition text-gray-700 dark:text-gray-300">
             Today
           </button>
           <button onClick={nextWeek}
-            className="p-2 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition text-gray-600 dark:text-gray-400">
+            className="p-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition text-gray-600 dark:text-gray-400">
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
             </svg>
@@ -290,7 +290,7 @@ export default function MySchedulePage() {
           )}
         </div>
       ) : (
-        <div className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl px-5 py-4 flex items-center justify-between gap-4 flex-wrap">
+        <div className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-2xl px-5 py-4 flex items-center justify-between gap-4 flex-wrap">
           <div>
             <p className="text-sm font-medium text-gray-700 dark:text-gray-300">Not clocked in</p>
             <p className="text-xs text-gray-500 dark:text-gray-400">Clock in when your shift starts</p>
@@ -335,7 +335,7 @@ export default function MySchedulePage() {
                 className={`card-premium overflow-hidden transition ${
                   today
                     ? 'border-[#9ccfda] dark:border-[#1A6080]'
-                    : 'border-gray-200 dark:border-gray-800'
+                    : 'border-gray-200 dark:border-[#1A6080]/20'
                 }`}>
                 {/* Day header */}
                 <div className={`px-5 py-3 flex items-center gap-3 ${
@@ -374,7 +374,7 @@ export default function MySchedulePage() {
                 {dayShifts.length === 0 ? (
                   <div className="px-5 py-4 text-sm text-gray-400 dark:text-gray-600 italic">No shifts scheduled</div>
                 ) : (
-                  <div className="divide-y divide-gray-100 dark:divide-gray-800">
+                  <div className="divide-y divide-gray-100 dark:divide-[#1A6080]/20">
                     {dayShifts.map(shift => {
                       const isNow = today && new Date() >= new Date(shift.startTime) && new Date() <= new Date(shift.endTime)
                       return (

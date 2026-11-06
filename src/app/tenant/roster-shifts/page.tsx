@@ -248,7 +248,7 @@ export default function RosterShiftsPage() {
     <div className="flex flex-col h-full bg-gray-50 dark:bg-gray-900">
 
       {/* ── Header ───────────────────────────────────────────────────────── */}
-      <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-6 py-4">
+      <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-[#1A6080]/30 px-6 py-4">
         <div className="flex items-center justify-between">
           <h2 className="text-lg font-semibold text-gray-900 dark:text-white">📅 Roster &amp; Shifts</h2>
           <div className="flex items-center gap-2">
@@ -275,7 +275,7 @@ export default function RosterShiftsPage() {
               className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
                 activeTab === tab.key
                   ? 'bg-[#0E3D52] text-white'
-                  : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                  : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/40'
               }`}
             >
               {tab.label}
@@ -286,14 +286,14 @@ export default function RosterShiftsPage() {
         {/* Week navigator */}
         {activeTab === 'roster' && (
           <div className="flex items-center gap-3 mt-4">
-            <button onClick={prevWeek} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300">◀</button>
+            <button onClick={prevWeek} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-[#0E3D52]/40 text-gray-600 dark:text-gray-300">◀</button>
             <span className="text-sm font-medium text-gray-900 dark:text-white min-w-[200px] text-center">
               {weekStart.toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })}
               {' — '}
               {addDays(weekStart, 6).toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })}
             </span>
-            <button onClick={nextWeek} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300">▶</button>
-            <button onClick={goToday} className="px-2 py-1 text-xs rounded-lg border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">Today</button>
+            <button onClick={nextWeek} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-[#0E3D52]/40 text-gray-600 dark:text-gray-300">▶</button>
+            <button onClick={goToday} className="px-2 py-1 text-xs rounded-lg border border-gray-300 dark:border-[#1A6080]/40 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/40">Today</button>
             <span className="text-xs text-gray-500 dark:text-gray-400 ml-2">{shifts.length} shifts this week</span>
           </div>
         )}
@@ -315,9 +315,9 @@ export default function RosterShiftsPage() {
                 const isToday = iso === formatDate(new Date())
                 const dayShifts = shiftsOnDay(iso)
                 return (
-                  <div key={iso} className={`bg-white dark:bg-gray-800 rounded-xl border ${isToday ? 'border-[#1A6080] dark:border-[#4ebac4]' : 'border-gray-200 dark:border-gray-700'} flex flex-col min-h-[300px]`}>
+                  <div key={iso} className={`bg-white dark:bg-gray-800 rounded-xl border ${isToday ? 'border-[#1A6080] dark:border-[#4ebac4]' : 'border-gray-200 dark:border-[#1A6080]/30'} flex flex-col min-h-[300px]`}>
                     {/* Day header */}
-                    <div className={`px-3 py-2 border-b ${isToday ? 'border-[#1A6080] dark:border-[#4ebac4] bg-[#E0EEF4] dark:bg-[#0E3D52]/20' : 'border-gray-200 dark:border-gray-700'} rounded-t-xl`}>
+                    <div className={`px-3 py-2 border-b ${isToday ? 'border-[#1A6080] dark:border-[#4ebac4] bg-[#E0EEF4] dark:bg-[#0E3D52]/20' : 'border-gray-200 dark:border-[#1A6080]/30'} rounded-t-xl`}>
                       <p className={`text-xs font-semibold ${isToday ? 'text-[#0E3D52] dark:text-[#7dcfd7]' : 'text-gray-500 dark:text-gray-400'}`}>{DAYS[i]}</p>
                       <p className={`text-lg font-bold ${isToday ? 'text-[#0E3D52] dark:text-[#4ebac4]' : 'text-gray-900 dark:text-white'}`}>{day.getDate()}</p>
                       {dayShifts.length > 0 && (
@@ -351,7 +351,7 @@ export default function RosterShiftsPage() {
                     {/* Add button */}
                     <button
                       onClick={() => openAddShift(iso)}
-                      className="mx-2 mb-2 py-1 text-xs text-gray-400 dark:text-gray-500 hover:text-[#0E3D52] dark:text-[#4ebac4] dark:hover:text-[#4ebac4] hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-lg border border-dashed border-gray-200 dark:border-gray-700 hover:border-[#1A6080] dark:hover:border-[#0E3D52] transition-colors"
+                      className="mx-2 mb-2 py-1 text-xs text-gray-400 dark:text-gray-500 hover:text-[#0E3D52] dark:text-[#4ebac4] dark:hover:text-[#4ebac4] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40/50 rounded-lg border border-dashed border-gray-200 dark:border-[#1A6080]/30 hover:border-[#1A6080] dark:hover:border-[#0E3D52] transition-colors"
                     >
                       + Add
                     </button>
@@ -417,7 +417,7 @@ export default function RosterShiftsPage() {
       {showAddShift && (
         <div className="modal-overlay">
           <div className="bg-white dark:bg-[#0F1E2E] rounded-xl shadow-xl w-full max-w-lg flex flex-col">
-            <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
+            <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-[#1A6080]/30">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Add Shift</h3>
               <button onClick={() => setShowAddShift(false)} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 text-xl">✕</button>
             </div>
@@ -469,8 +469,8 @@ export default function RosterShiftsPage() {
                 <textarea rows={2} className={inputCls} value={shiftForm.notes} onChange={e => setShiftForm(f => ({ ...f, notes: e.target.value }))} />
               </div>
             </div>
-            <div className="flex justify-end gap-3 p-6 border-t border-gray-200 dark:border-gray-700">
-              <button onClick={() => setShowAddShift(false)} className="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Cancel</button>
+            <div className="flex justify-end gap-3 p-6 border-t border-gray-200 dark:border-[#1A6080]/30">
+              <button onClick={() => setShowAddShift(false)} className="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/40 rounded-lg">Cancel</button>
               <button onClick={submitShift} disabled={saving || !shiftForm.employeeId || !shiftForm.date}
                 className="px-4 py-2 text-sm bg-[#0E3D52] text-white rounded-lg hover:bg-[#1A6080] disabled:opacity-50">
                 {saving ? 'Saving…' : 'Add Shift'}
@@ -486,7 +486,7 @@ export default function RosterShiftsPage() {
       {reviewSwap && (
         <div className="modal-overlay">
           <div className="bg-white dark:bg-[#0F1E2E] rounded-xl shadow-xl w-full max-w-md flex flex-col">
-            <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
+            <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-[#1A6080]/30">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Review Swap Request</h3>
               <button onClick={() => setReviewSwap(null)} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 text-xl">✕</button>
             </div>
@@ -500,8 +500,8 @@ export default function RosterShiftsPage() {
                 <textarea rows={3} placeholder="Add a note to your decision…" className={inputCls} value={reviewNotes} onChange={e => setReviewNotes(e.target.value)} />
               </div>
             </div>
-            <div className="flex justify-end gap-3 p-6 border-t border-gray-200 dark:border-gray-700">
-              <button onClick={() => setReviewSwap(null)} className="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Cancel</button>
+            <div className="flex justify-end gap-3 p-6 border-t border-gray-200 dark:border-[#1A6080]/30">
+              <button onClick={() => setReviewSwap(null)} className="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/40 rounded-lg">Cancel</button>
               <button onClick={() => reviewSwapRequest('declined')} disabled={saving}
                 className="px-4 py-2 text-sm bg-red-600 text-white rounded-lg hover:bg-red-700 disabled:opacity-50">
                 {saving ? '…' : 'Decline'}

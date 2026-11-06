@@ -138,7 +138,7 @@ export default function MyPayslipsPage() {
                 {/* Summary row — click to expand */}
                 <button
                   onClick={() => setExpanded(isOpen ? null : p.id)}
-                  className="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-gray-100 dark:hover:bg-gray-800/40 transition"
+                  className="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30/40 transition"
                 >
                   <div className="flex items-center gap-4">
                     <div className="text-left">
@@ -161,7 +161,7 @@ export default function MyPayslipsPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={e => e.stopPropagation()}
-                      className="text-xs px-2.5 py-1 rounded-lg border border-gray-600 dark:border-gray-600 text-gray-400 hover:text-white hover:border-gray-400 transition"
+                      className="text-xs px-2.5 py-1 rounded-lg border border-gray-600 dark:border-[#1A6080]/40 text-gray-400 hover:text-white hover:border-gray-400 transition"
                       title="Print / Save as PDF"
                     >
                       🖨
@@ -177,7 +177,7 @@ export default function MyPayslipsPage() {
 
                 {/* Expanded payslip breakdown */}
                 {isOpen && (
-                  <div className="border-t border-gray-200 dark:border-gray-800 px-5 py-4 space-y-2">
+                  <div className="border-t border-gray-200 dark:border-[#1A6080]/20 px-5 py-4 space-y-2">
                     <div className="grid grid-cols-2 gap-x-8 gap-y-2 text-sm">
                       <div className="flex justify-between">
                         <span className="text-gray-500 dark:text-gray-400">Gross Pay</span>
@@ -196,7 +196,7 @@ export default function MyPayslipsPage() {
                         <span className="text-[#1A6080] dark:text-[#4ebac4] font-mono">{fmt(p.superContribution)}</span>
                       </div>
                     </div>
-                    <div className="border-t border-gray-200 dark:border-gray-800 pt-2 flex justify-between text-sm">
+                    <div className="border-t border-gray-200 dark:border-[#1A6080]/20 pt-2 flex justify-between text-sm">
                       <span className="text-gray-600 dark:text-gray-400 font-medium">Net Pay</span>
                       <span className="text-green-400 font-bold font-mono text-base">{fmt(p.netPay)}</span>
                     </div>
@@ -212,7 +212,7 @@ export default function MyPayslipsPage() {
       )}
 
       {payslips.length > 0 && (
-        <div className="bg-gray-100 dark:bg-gray-800/40 border border-gray-200 dark:border-gray-800 rounded-xl p-4 text-xs text-gray-500 dark:text-gray-400">
+        <div className="bg-gray-100 dark:bg-gray-800/40 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-4 text-xs text-gray-500 dark:text-gray-400">
           <p className="font-medium text-gray-600 dark:text-gray-400 mb-1">Year-to-Date Summary (Paid runs)</p>
           <div className="flex gap-6">
             <span>Gross: <span className="text-foreground">{fmt(totalGross)}</span></span>

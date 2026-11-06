@@ -83,13 +83,13 @@ export default function CommandPalette() {
 
   return (
     <div className="fixed inset-0 z-[80] flex items-start justify-center pt-[12vh] px-4 bg-black/50 backdrop-blur-sm" onClick={() => setOpen(false)}>
-      <div className="w-full max-w-lg bg-white dark:bg-[#0F1E2E] rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 overflow-hidden" onClick={e => e.stopPropagation()}>
-        <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-100 dark:border-gray-800">
+      <div className="w-full max-w-lg bg-white dark:bg-[#0F1E2E] rounded-xl shadow-xl border border-gray-200 dark:border-[#1A6080]/30 overflow-hidden" onClick={e => e.stopPropagation()}>
+        <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-100 dark:border-[#1A6080]/20">
           <span className="text-gray-400 text-sm flex-shrink-0">
             {loading ? <span className="inline-block w-4 h-4 border-2 border-gray-300 border-t-[#0E3D52] rounded-full animate-spin" /> : ''}
           </span>
           <input ref={inputRef} value={query} onChange={e => handleInput(e.target.value)} onKeyDown={handleKeyDown} placeholder="Search employees, documents, participants…" className="flex-1 text-sm bg-transparent outline-none text-gray-900 dark:text-white placeholder-gray-400" />
-          <kbd className="hidden sm:inline-flex items-center gap-1 px-1.5 py-0.5 text-[10px] font-mono text-gray-400 bg-gray-100 dark:bg-gray-800 rounded border border-gray-200 dark:border-gray-700">ESC</kbd>
+          <kbd className="hidden sm:inline-flex items-center gap-1 px-1.5 py-0.5 text-[10px] font-mono text-gray-400 bg-gray-100 dark:bg-gray-800 rounded border border-gray-200 dark:border-[#1A6080]/30">ESC</kbd>
         </div>
         <div className="max-h-[60vh] overflow-y-auto">
           {!hasResults && !isEmpty && query.length < 2 && <div className="px-4 py-6 text-center text-xs text-gray-400">Type at least 2 characters to search</div>}
@@ -103,7 +103,7 @@ export default function CommandPalette() {
                 {groupItems.map(item => {
                   const idx = items.indexOf(item); const active = idx === cursor
                   return (
-                    <button key={item.data.id} onClick={() => navigate(item.href)} onMouseEnter={() => setCursor(idx)} className={`w-full text-left flex items-center gap-3 px-4 py-2.5 transition-colors ${active ? 'bg-[#E0EEF4] dark:bg-[#0E3D52]/20' : 'hover:bg-gray-50 dark:hover:bg-gray-800/50'}`}>
+                    <button key={item.data.id} onClick={() => navigate(item.href)} onMouseEnter={() => setCursor(idx)} className={`w-full text-left flex items-center gap-3 px-4 py-2.5 transition-colors ${active ? 'bg-[#E0EEF4] dark:bg-[#0E3D52]/20' : 'hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/50'}`}>
                       <span className="text-lg flex-shrink-0">{item.icon}</span>
                       <div className="flex-1 min-w-0">
                         <p className={`text-sm font-medium truncate ${active ? 'text-[#0E3D52] dark:text-[#4ebac4]' : 'text-gray-900 dark:text-white'}`}>{item.label}</p>
@@ -116,7 +116,7 @@ export default function CommandPalette() {
               </div>
             )
           })}
-          {hasResults && <div className="px-4 py-2 border-t border-gray-100 dark:border-gray-800 flex gap-4 text-[10px] text-gray-400"><span>↑↓ navigate</span><span>↵ open</span><span>esc close</span><span className="ml-auto">{total} result{total !== 1 ? 's' : ''}</span></div>}
+          {hasResults && <div className="px-4 py-2 border-t border-gray-100 dark:border-[#1A6080]/20 flex gap-4 text-[10px] text-gray-400"><span>↑↓ navigate</span><span>↵ open</span><span>esc close</span><span className="ml-auto">{total} result{total !== 1 ? 's' : ''}</span></div>}
         </div>
       </div>
     </div>

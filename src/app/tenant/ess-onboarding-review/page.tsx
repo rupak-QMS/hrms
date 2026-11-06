@@ -69,7 +69,7 @@ function StatusBadge({ status }: { status: string }) {
 function DetailRow({ label, value }: { label: string; value?: string | boolean | null }) {
   if (value === undefined || value === null || value === '') return null
   return (
-    <div className="flex gap-3 py-2 border-b border-gray-100 dark:border-gray-800 last:border-0">
+    <div className="flex gap-3 py-2 border-b border-gray-100 dark:border-[#1A6080]/20 last:border-0">
       <span className="text-xs text-gray-500 dark:text-gray-400 w-44 shrink-0">{label}</span>
       <span className="text-sm text-gray-900 dark:text-gray-100">
         {typeof value === 'boolean' ? (value ? '✓ Yes' : '✗ No') : value}
@@ -174,14 +174,14 @@ export default function EssOnboardingReviewPage() {
           placeholder="Search by name or email…"
           value={search}
           onChange={e => setSearch(e.target.value)}
-          className="flex-1 px-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-gray-700
+          className="flex-1 px-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-[#1A6080]/30
             bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100
             focus:outline-none focus:ring-2 focus:ring-[#0E3D52]/20"
         />
         <select
           value={statusFilter}
           onChange={e => setStatusFilter(e.target.value)}
-          className="px-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-gray-700
+          className="px-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-[#1A6080]/30
             bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100
             focus:outline-none focus:ring-2 focus:ring-[#0E3D52]/20"
         >
@@ -194,7 +194,7 @@ export default function EssOnboardingReviewPage() {
       </div>
 
       {/* Table */}
-      <div className="bg-white dark:bg-[#0F1E2E] rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden">
+      <div className="bg-white dark:bg-[#0F1E2E] rounded-xl border border-gray-200 dark:border-[#1A6080]/20 overflow-hidden">
         {loading ? (
           <div className="flex items-center justify-center py-16">
             <div className="w-6 h-6 border-2 border-[#0E3D52] border-t-transparent rounded-full animate-spin" />
@@ -209,7 +209,7 @@ export default function EssOnboardingReviewPage() {
           <div className="table-responsive">
             <table className="table-premium">
             <thead>
-              <tr className="border-b border-gray-200 dark:border-gray-800">
+              <tr className="border-b border-gray-200 dark:border-[#1A6080]/20">
                 {['Employee', 'Department', 'Status', 'Submitted', 'Reviewed By', ''].map(h => (
                   <th key={h} className="text-left px-4 py-3 text-xs font-semibold text-gray-500 dark:text-gray-400 ">
                     {h}
@@ -217,9 +217,9 @@ export default function EssOnboardingReviewPage() {
                 ))}
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-100 dark:divide-gray-800">
+            <tbody className="divide-y divide-gray-100 dark:divide-[#1A6080]/20">
               {submissions.map(sub => (
-                <tr key={sub.id} className="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition">
+                <tr key={sub.id} className="hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/50 transition">
                   <td className="px-4 py-3">
                     <p className="font-medium text-gray-900 dark:text-white">{sub.employeeName}</p>
                     <p className="text-xs text-gray-500 dark:text-gray-400">{sub.employeeEmail}</p>
@@ -277,7 +277,7 @@ export default function EssOnboardingReviewPage() {
                     <p className="text-sm text-gray-500 dark:text-gray-400">{selected.employeeEmail}</p>
                     <div className="mt-2"><StatusBadge status={selected.status} /></div>
                   </div>
-                  <button onClick={() => setSelected(null)} className="p-1 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                  <button onClick={() => setSelected(null)} className="p-1 rounded-lg hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 transition">
                     <svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
@@ -333,7 +333,7 @@ export default function EssOnboardingReviewPage() {
                     value={hrNotes}
                     onChange={e => setHrNotes(e.target.value)}
                     placeholder="Add review notes or comments for payroll…"
-                    className="w-full px-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-gray-700
+                    className="w-full px-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-[#1A6080]/30
                       bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100
                       focus:outline-none focus:ring-2 focus:ring-[#0E3D52]/20 resize-none"
                   />
@@ -374,8 +374,8 @@ export default function EssOnboardingReviewPage() {
                       }}
                       disabled={saving}
                       className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300
-                        border border-gray-200 dark:border-gray-700 rounded-lg
-                        hover:bg-gray-50 dark:hover:bg-gray-800 disabled:opacity-60 transition"
+                        border border-gray-200 dark:border-[#1A6080]/30 rounded-lg
+                        hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 disabled:opacity-60 transition"
                     >
                       Save Notes
                     </button>

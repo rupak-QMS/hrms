@@ -13,7 +13,7 @@ const TIERS = [
   { value: 'enterprise',   label: 'Enterprise',    modules: 30, price: 217, desc: 'All 30 modules — full platform' },
 ]
 
-const INPUT  = 'w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]'
+const INPUT  = 'w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]'
 const LABEL  = 'block text-sm font-medium text-gray-600 dark:text-gray-300 mb-1'
 const GRID2  = 'grid grid-cols-2 gap-4'
 
@@ -162,7 +162,7 @@ export default function NewClientPage() {
       <form onSubmit={handleSubmit} className="space-y-6">
 
         {/* ── Organisation ── */}
-        <section className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6 space-y-4">
+        <section className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6 space-y-4">
           <h2 className="text-xs font-semibold text-gray-500  dark:text-gray-400">Organisation Details</h2>
 
           <div className={GRID2}>
@@ -254,7 +254,7 @@ export default function NewClientPage() {
         </section>
 
         {/* ── Country / Currency / Timezone ── */}
-        <section className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6 space-y-4">
+        <section className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6 space-y-4">
           <h2 className="text-xs font-semibold text-gray-500  dark:text-gray-400">Region & Currency</h2>
 
           <div className={GRID2}>
@@ -307,7 +307,7 @@ export default function NewClientPage() {
         </section>
 
         {/* ── Primary Contact ── */}
-        <section className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6 space-y-4">
+        <section className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6 space-y-4">
           <h2 className="text-xs font-semibold text-gray-500  dark:text-gray-400">Primary Contact</h2>
 
           <div className={GRID2}>
@@ -335,7 +335,7 @@ export default function NewClientPage() {
             </div>
           </div>
 
-          <div className="border-t border-gray-200 dark:border-gray-800 pt-4">
+          <div className="border-t border-gray-200 dark:border-[#1A6080]/20 pt-4">
             <p className="text-xs font-semibold text-gray-500  mb-3 dark:text-gray-400">Billing Contact <span className="font-normal normal-case text-gray-600 dark:text-gray-400">(leave blank to use primary contact)</span></p>
             <div className={GRID2}>
               <div>
@@ -353,11 +353,11 @@ export default function NewClientPage() {
         </section>
 
         {/* ── Subscription Tier ── */}
-        <section className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6 space-y-3">
+        <section className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6 space-y-3">
           <h2 className="text-xs font-semibold text-gray-500  dark:text-gray-400">Subscription Tier *</h2>
           {TIERS.map(t => (
             <label key={t.value} className={`flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition ${
-              form.tier === t.value ? 'border-[#0E3D52] bg-[#E0EEF4] dark:bg-[#0E3D52]/20' : 'border-gray-300 dark:border-gray-700 hover:border-gray-600'
+              form.tier === t.value ? 'border-[#0E3D52] bg-[#E0EEF4] dark:bg-[#0E3D52]/20' : 'border-gray-300 dark:border-[#1A6080]/30 hover:border-gray-600'
             }`}>
               <input type="radio" name="tier" value={t.value} checked={form.tier === t.value}
                 onChange={() => set('tier', t.value)} className="mt-0.5" />
@@ -375,7 +375,7 @@ export default function NewClientPage() {
         </section>
 
         {/* ── Branding ── */}
-        <section className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6 space-y-4">
+        <section className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6 space-y-4">
           <h2 className="text-xs font-semibold text-gray-500  dark:text-gray-400">Branding</h2>
           <div>
             <label className={LABEL}>Brand Primary Colour</label>
@@ -385,18 +385,18 @@ export default function NewClientPage() {
                 className="w-10 h-10 rounded cursor-pointer border-0 bg-transparent" />
               <input type="text" value={form.primaryColor}
                 onChange={e => set('primaryColor', e.target.value)}
-                className="w-32 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
+                className="w-32 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
               <div className="flex-1 h-10 rounded-lg"
                 style={{ background: `linear-gradient(135deg, ${form.primaryColor}, ${form.primaryColor}88)` }} />
             </div>
           </div>
-          <div className="bg-gray-100 dark:bg-gray-800/60 border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-3 text-xs text-gray-600 dark:text-gray-400">
+          <div className="bg-gray-100 dark:bg-gray-800/60 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-4 py-3 text-xs text-gray-600 dark:text-gray-400">
             Logo upload is available after creation via <strong className="text-gray-600 dark:text-gray-300">Edit Client → Logo & Branding</strong>
           </div>
         </section>
 
         {/* ── Admin Account ── */}
-        <section className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6 space-y-4">
+        <section className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6 space-y-4">
           <div>
             <h2 className="text-xs font-semibold text-gray-500  dark:text-gray-400">Admin Account (optional)</h2>
             <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">Creates a Director-level login for the client portal immediately.</p>
@@ -443,7 +443,7 @@ export default function NewClientPage() {
             {loading ? 'Creating…' : 'Create Client & Configure Modules →'}
           </button>
           <button type="button" onClick={() => router.back()}
-            className="border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white text-sm font-medium px-4 py-2.5 rounded-lg transition">
+            className="border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white text-sm font-medium px-4 py-2.5 rounded-lg transition">
             Cancel
           </button>
         </div>

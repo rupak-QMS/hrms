@@ -214,7 +214,7 @@ function LibraryTab() {
           <div className="card-premium p-6 w-full max-w-md space-y-4">
             <h3 className="text-lg font-bold text-foreground">Enrol Employees</h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">Course: <span className="text-foreground font-medium">{enrollCourse.title}</span></p>
-            <div className="max-h-60 overflow-y-auto space-y-1 border border-gray-200 dark:border-gray-800 rounded-lg p-2">
+            <div className="max-h-60 overflow-y-auto space-y-1 border border-gray-200 dark:border-[#1A6080]/20 rounded-lg p-2">
               {employees.map(e => (
                 <label key={e.id} className="flex items-center gap-2 px-2 py-1.5 rounded hover:bg-gray-100 dark:bg-gray-800 cursor-pointer">
                   <input type="checkbox"
@@ -232,7 +232,7 @@ function LibraryTab() {
                 {enrolling ? 'Enrolling…' : 'Enrol Selected'}
               </button>
               <button onClick={() => { setEnrollCourse(null); setEnrollIds([]) }}
-                className="px-4 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:text-white text-sm rounded-lg transition">
+                className="px-4 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:text-white text-sm rounded-lg transition">
                 Cancel
               </button>
             </div>
@@ -251,7 +251,7 @@ function LibraryTab() {
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
           {courseList.map(c => (
-            <div key={c.id} className="card-premium p-5 flex flex-col gap-3 hover:border-gray-300 dark:border-gray-700 transition">
+            <div key={c.id} className="card-premium p-5 flex flex-col gap-3 hover:border-gray-300 dark:border-[#1A6080]/30 transition">
               <div className="flex items-start justify-between gap-2">
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-1">
@@ -278,7 +278,7 @@ function LibraryTab() {
                     + Enrol
                   </button>
                   <button onClick={() => archiveCourse(c.id)}
-                    className="text-xs text-gray-500 hover:text-red-400 border border-gray-200 dark:border-gray-800 px-2.5 py-1.5 rounded-lg transition dark:text-gray-400">
+                    className="text-xs text-gray-500 hover:text-red-400 border border-gray-200 dark:border-[#1A6080]/20 px-2.5 py-1.5 rounded-lg transition dark:text-gray-400">
                     Archive
                   </button>
                 </div>
@@ -546,7 +546,7 @@ function GapTab() {
         </div>
         {gaps.length > 0 && (
           <button onClick={exportCSV}
-            className="px-3 py-2 text-sm border border-gray-200 dark:border-gray-700 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800">
+            className="px-3 py-2 text-sm border border-gray-200 dark:border-[#1A6080]/30 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30">
             ⬇ Export CSV
           </button>
         )}
@@ -570,9 +570,9 @@ function GapTab() {
                 <th>Total Gaps</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-100 dark:divide-gray-800">
+            <tbody className="divide-y divide-gray-100 dark:divide-[#1A6080]/20">
               {gaps.map(g => (
-                <tr key={g.employeeId} className="hover:bg-gray-50 dark:hover:bg-gray-800/50">
+                <tr key={g.employeeId} className="hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/50">
                   <td className="px-5 py-3.5">
                     <p className="font-medium text-gray-900 dark:text-white">{g.firstName} {g.lastName}</p>
                     <p className="text-xs text-gray-500 dark:text-gray-400">{g.email} · {g.employmentType?.replace(/_/g,' ')}</p>

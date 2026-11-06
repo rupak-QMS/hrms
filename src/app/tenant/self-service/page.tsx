@@ -156,7 +156,7 @@ export default function SelfServicePage() {
   return (
     <div className="flex flex-col h-full bg-gray-50 dark:bg-gray-900">
       {/* Header */}
-      <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-6 py-4">
+      <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-[#1A6080]/30 px-6 py-4">
         <div className="flex items-center gap-4">
           {profile?.photoUrl ? (
             <img src={profile.photoUrl} alt="" className="w-14 h-14 rounded-full object-cover" />
@@ -178,7 +178,7 @@ export default function SelfServicePage() {
         <div className="flex gap-1 mt-4">
           {TABS.map(t => (
             <button key={t} onClick={() => setTab(t)}
-              className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${tab === t ? 'bg-[#E0EEF4] dark:bg-[#0E3D52]/15 text-[#0E3D52] dark:text-[#4ebac4]' : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'}`}>
+              className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${tab === t ? 'bg-[#E0EEF4] dark:bg-[#0E3D52]/15 text-[#0E3D52] dark:text-[#4ebac4]' : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/40'}`}>
               {t}
             </button>
           ))}
@@ -221,7 +221,7 @@ export default function SelfServicePage() {
                     { label: '💵 View Payslips', action: () => setTab('💵 Payslips') },
                   ].map(({ label, action }) => (
                     <button key={label} onClick={action}
-                      className="w-full text-left px-3 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg border border-gray-100 dark:border-gray-600">
+                      className="w-full text-left px-3 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 rounded-lg border border-gray-100 dark:border-[#1A6080]/40">
                       {label}
                     </button>
                   ))}
@@ -304,9 +304,9 @@ export default function SelfServicePage() {
                       ))}
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-gray-100 dark:divide-gray-700">
+                  <tbody className="divide-y divide-gray-100 dark:divide-[#1A6080]/30">
                     {payslips.map(p => (
-                      <tr key={p.entryId} className="hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                      <tr key={p.entryId} className="hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40/50">
                         <td className="px-4 py-3 font-medium text-gray-900 dark:text-white">{p.runName}</td>
                         <td className="px-4 py-3 text-gray-500 dark:text-gray-400 text-xs">
                           {fmtDate(p.periodStart)} – {fmtDate(p.periodEnd)}
@@ -332,7 +332,7 @@ export default function SelfServicePage() {
       {showLeaveModal && (
         <div className="modal-overlay">
           <div className="bg-white dark:bg-[#0F1E2E] rounded-xl shadow-xl w-full max-w-md">
-            <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
+            <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-[#1A6080]/30">
               <h3 className="text-lg font-bold text-gray-900 dark:text-white">Request Leave</h3>
               <button onClick={() => setShowLeaveModal(false)} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 text-2xl">×</button>
             </div>
@@ -340,7 +340,7 @@ export default function SelfServicePage() {
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Leave Type *</label>
                 <select required value={leaveForm.leaveType} onChange={e => setLeaveForm(f => ({ ...f, leaveType: e.target.value }))}
-                  className="w-full border border-gray-200 dark:border-gray-600 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+                  className="w-full border border-gray-200 dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
                   {Object.entries(LEAVE_TYPE_LABELS).map(([v, l]) => <option key={v} value={v}>{l}</option>)}
                 </select>
               </div>
@@ -348,28 +348,28 @@ export default function SelfServicePage() {
                 <div>
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Start Date *</label>
                   <input required type="date" value={leaveForm.startDate} onChange={e => setLeaveForm(f => ({ ...f, startDate: e.target.value }))}
-                    className="w-full border border-gray-200 dark:border-gray-600 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white" />
+                    className="w-full border border-gray-200 dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">End Date *</label>
                   <input required type="date" value={leaveForm.endDate} onChange={e => setLeaveForm(f => ({ ...f, endDate: e.target.value }))}
-                    className="w-full border border-gray-200 dark:border-gray-600 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white" />
+                    className="w-full border border-gray-200 dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white" />
                 </div>
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Total Days</label>
                 <input type="number" step="0.5" min="0.5" value={leaveForm.totalDays} onChange={e => setLeaveForm(f => ({ ...f, totalDays: e.target.value }))}
                   placeholder="e.g. 2"
-                  className="w-full border border-gray-200 dark:border-gray-600 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white" />
+                  className="w-full border border-gray-200 dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white" />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Reason</label>
                 <textarea rows={3} value={leaveForm.reason} onChange={e => setLeaveForm(f => ({ ...f, reason: e.target.value }))}
-                  className="w-full border border-gray-200 dark:border-gray-600 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white resize-none" />
+                  className="w-full border border-gray-200 dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white resize-none" />
               </div>
               <div className="flex gap-3 pt-2">
                 <button type="button" onClick={() => setShowLeaveModal(false)}
-                  className="flex-1 px-4 py-2 border border-gray-200 dark:border-gray-600 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">
+                  className="flex-1 px-4 py-2 border border-gray-200 dark:border-[#1A6080]/40 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40">
                   Cancel
                 </button>
                 <button type="submit" disabled={submitting}

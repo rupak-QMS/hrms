@@ -200,7 +200,7 @@ export default function TenantUserDropdown({ email, role, initial, primaryColor,
       {/* Trigger button */}
       <button
         onClick={handleOpen}
-        className={`flex items-center gap-2 px-2 py-1.5 rounded-lg transition-colors duration-150 ${open ? 'bg-gray-100 dark:bg-gray-800' : 'hover:bg-gray-100 dark:hover:bg-gray-800'}`}
+        className={`flex items-center gap-2 px-2 py-1.5 rounded-lg transition-colors duration-150 ${open ? 'bg-gray-100 dark:bg-gray-800' : 'hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30'}`}
       >
         <div
           className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0"

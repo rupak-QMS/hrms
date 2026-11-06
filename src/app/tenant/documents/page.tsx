@@ -137,11 +137,11 @@ function DocPreviewModal({ doc, onClose }: { doc: Doc; onClose: () => void }) {
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-4xl bg-white dark:bg-[#0F1E2E] rounded-xl shadow-xl flex flex-col overflow-hidden border border-gray-200 dark:border-gray-700"
+        className="relative w-full max-w-4xl bg-white dark:bg-[#0F1E2E] rounded-xl shadow-xl flex flex-col overflow-hidden border border-gray-200 dark:border-[#1A6080]/30"
         onClick={e => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-5 py-4 border-b border-gray-200 dark:border-gray-700 shrink-0">
+        <div className="flex items-center justify-between px-5 py-4 border-b border-gray-200 dark:border-[#1A6080]/30 shrink-0">
           <div className="flex items-center gap-2 min-w-0">
             <span className="text-lg shrink-0">{mimeIcon(doc.mimeType)}</span>
             <h2 className="text-sm font-semibold text-gray-900 dark:text-white truncate">{doc.title}</h2>
@@ -151,7 +151,7 @@ function DocPreviewModal({ doc, onClose }: { doc: Doc; onClose: () => void }) {
           </div>
           <button
             onClick={onClose}
-            className="ml-3 shrink-0 p-1.5 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-800 dark:hover:text-white transition-colors"
+            className="ml-3 shrink-0 p-1.5 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 hover:text-gray-800 dark:hover:text-white transition-colors"
             aria-label="Close preview"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -197,7 +197,7 @@ function DocPreviewModal({ doc, onClose }: { doc: Doc; onClose: () => void }) {
         </div>
 
         {/* Footer */}
-        <div className="flex items-center justify-end px-5 py-3 border-t border-gray-200 dark:border-gray-700 shrink-0 bg-white dark:bg-gray-900">
+        <div className="flex items-center justify-end px-5 py-3 border-t border-gray-200 dark:border-[#1A6080]/30 shrink-0 bg-white dark:bg-gray-900">
           <a
             href={doc.blobUrl}
             target="_blank"
@@ -504,7 +504,7 @@ export default function DocumentsPage() {
               {saving ? 'Saving…' : 'Add to Register'}
             </button>
             <button type="button" onClick={() => setShowForm(false)}
-              className="px-5 py-2 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:text-white text-sm rounded-lg">
+              className="px-5 py-2 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-white text-sm rounded-lg">
               Cancel
             </button>
           </div>
@@ -536,14 +536,14 @@ export default function DocumentsPage() {
           className={`px-3 py-1.5 text-xs rounded-lg border font-medium transition-colors whitespace-nowrap ${
             expiryFilter
               ? 'bg-amber-500 text-white border-amber-500'
-              : 'bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-amber-400 hover:text-amber-600'
+              : 'bg-white dark:bg-gray-900 border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-amber-400 hover:text-amber-600'
           }`}
         >
           ⚠️ Expiring soon
         </button>
         {(filterCat || filterStat || search || expiryFilter) && (
           <button onClick={() => { setFilterCat(''); setFilterStat(''); setSearch(''); setExpiryFilter(false); load('', '', false) }}
-            className="text-xs text-gray-600 dark:text-gray-400 hover:text-white px-3 py-2 border border-gray-300 dark:border-gray-700 rounded-lg">
+            className="text-xs text-gray-600 dark:text-gray-400 hover:text-white px-3 py-2 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg">
             Clear
           </button>
         )}
@@ -590,12 +590,12 @@ export default function DocumentsPage() {
           <div className="table-responsive">
             <table className="table-premium">
             <thead>
-              <tr className="border-b border-gray-200 dark:border-gray-800">
+              <tr className="border-b border-gray-200 dark:border-[#1A6080]/20">
                 <th className="w-8 px-3 py-3">
                   <input type="checkbox"
                     checked={docs.length > 0 && selectedDocs.size === docs.length}
                     onChange={e => setSelectedDocs(e.target.checked ? new Set(docs.map(d => d.id)) : new Set())}
-                    className="rounded border-gray-300 dark:border-gray-600"
+                    className="rounded border-gray-300 dark:border-[#1A6080]/40"
                   />
                 </th>
                 <th className="px-4 py-3 text-left section-label">Document</th>
@@ -606,10 +606,10 @@ export default function DocumentsPage() {
                 <th className="px-4 py-3 text-left section-label">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-200 dark:divide-gray-800/60">
+            <tbody className="divide-y divide-gray-200 dark:divide-[#1A6080]/20/60">
               {filtered.map(d => (
                 <>
-                <tr key={d.id} className="hover:bg-gray-100 dark:hover:bg-gray-800/30 group">
+                <tr key={d.id} className="hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30/30 group">
                   <td className="px-3" onClick={e => e.stopPropagation()}>
                     <input type="checkbox"
                       checked={selectedDocs.has(d.id)}
@@ -618,7 +618,7 @@ export default function DocumentsPage() {
                         e.target.checked ? s.add(d.id) : s.delete(d.id)
                         return s
                       })}
-                      className="rounded border-gray-300 dark:border-gray-600"
+                      className="rounded border-gray-300 dark:border-[#1A6080]/40"
                     />
                   </td>
                   <td className="px-4 py-3">
@@ -699,7 +699,7 @@ export default function DocumentsPage() {
                       )}
                       {d.status !== 'archived' && (
                         <button onClick={() => updateStatus(d.id, 'archived')}
-                          className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-gray-600 px-2 py-1 rounded transition">
+                          className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-gray-600 px-2 py-1 rounded transition">
                           Archive
                         </button>
                       )}
@@ -749,7 +749,7 @@ export default function DocumentsPage() {
                           {editSaving ? 'Saving…' : 'Save Changes'}
                         </button>
                         <button onClick={() => setEditing(null)}
-                          className="px-4 py-1.5 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:text-white text-xs rounded-lg transition">
+                          className="px-4 py-1.5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-white text-xs rounded-lg transition">
                           Cancel
                         </button>
                       </div>
@@ -761,7 +761,7 @@ export default function DocumentsPage() {
             </tbody>
           </table>
           </div>
-          <div className="px-4 py-3 border-t border-gray-200 dark:border-gray-800">
+          <div className="px-4 py-3 border-t border-gray-200 dark:border-[#1A6080]/20">
             <p className="text-xs text-gray-600 dark:text-gray-400">{filtered.length} document{filtered.length !== 1 ? 's' : ''} shown</p>
           </div>
         </div>

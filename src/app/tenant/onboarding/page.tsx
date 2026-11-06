@@ -175,7 +175,7 @@ export default function OnboardingPage() {
           <button key={s.label}
             onClick={() => { setFilterStatus(s.fs); setTab('Pipeline'); load(search, s.fs, filterStage) }}
             className={`card-premium p-5 text-left transition hover:border-[#1A6080] ${
-              filterStatus === s.fs && tab === 'Pipeline' ? 'border-[#0E3D52]' : 'border-gray-200 dark:border-gray-800'
+              filterStatus === s.fs && tab === 'Pipeline' ? 'border-[#0E3D52]' : 'border-gray-200 dark:border-[#1A6080]/20'
             }`}>
             <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">{s.label}</p>
             <p className={`text-3xl font-bold ${s.color}`}>{s.value}</p>
@@ -184,7 +184,7 @@ export default function OnboardingPage() {
       </div>
 
       {/* Tabs */}
-      <div className="flex gap-1 border-b border-gray-200 dark:border-gray-800">
+      <div className="flex gap-1 border-b border-gray-200 dark:border-[#1A6080]/20">
         {TABS.map(t => (
           <button key={t} onClick={() => setTab(t)}
             className={`px-4 py-2.5 text-sm font-medium border-b-2 -mb-px transition ${
@@ -277,12 +277,12 @@ export default function OnboardingPage() {
           {/* Recent completions */}
           {recentCompletions.length > 0 && (
             <div className="card-premium overflow-hidden">
-              <div className="px-5 py-4 border-b border-gray-200 dark:border-gray-800">
+              <div className="px-5 py-4 border-b border-gray-200 dark:border-[#1A6080]/20">
                 <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-200">Recent Completions</h3>
               </div>
-              <ul className="divide-y divide-gray-100 dark:divide-gray-800">
+              <ul className="divide-y divide-gray-100 dark:divide-[#1A6080]/20">
                 {recentCompletions.map(r => (
-                  <li key={r.id} className="flex items-center justify-between px-5 py-3.5 hover:bg-gray-50 dark:hover:bg-gray-800/40 transition">
+                  <li key={r.id} className="flex items-center justify-between px-5 py-3.5 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/40 transition">
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 rounded-full bg-green-900/50 flex items-center justify-center text-green-300 text-sm font-bold">
                         {(r.employeeFirstName?.[0] ?? '?').toUpperCase()}
@@ -343,7 +343,7 @@ export default function OnboardingPage() {
             </select>
             {(search || filterStatus || filterStage) && (
               <button onClick={() => { setSearch(''); setFilterStatus(''); setFilterStage(''); load('', '', '') }}
-                className="text-xs text-gray-600 dark:text-gray-400 hover:text-white border border-gray-300 dark:border-gray-700 px-3 py-2 rounded-lg transition">
+                className="text-xs text-gray-600 dark:text-gray-400 hover:text-white border border-gray-300 dark:border-[#1A6080]/30 px-3 py-2 rounded-lg transition">
                 Clear
               </button>
             )}
@@ -371,7 +371,7 @@ export default function OnboardingPage() {
 
                 return (
                   <div key={r.id} className={`card-premium overflow-hidden transition ${
-                    r.status === 'completed' ? 'border-green-900' : 'border-gray-200 dark:border-gray-800'
+                    r.status === 'completed' ? 'border-green-900' : 'border-gray-200 dark:border-[#1A6080]/20'
                   }`}>
                     {/* Card header */}
                     <div className="flex items-center gap-4 px-5 py-4">
@@ -435,7 +435,7 @@ export default function OnboardingPage() {
 
                     {/* Expanded detail */}
                     {isOpen && (
-                      <div className="border-t border-gray-200 dark:border-gray-800 px-5 py-4 space-y-4">
+                      <div className="border-t border-gray-200 dark:border-[#1A6080]/20 px-5 py-4 space-y-4">
 
                         {/* Stage stepper */}
                         <div>

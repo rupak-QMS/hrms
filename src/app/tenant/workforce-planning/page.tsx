@@ -350,7 +350,7 @@ export default function WorkforcePlanningPage() {
             {/* Headcount by department */}
             {wf.headcountByDepartment.length > 0 && (
               <div className="card-premium overflow-hidden">
-                <div className="px-5 py-4 border-b border-gray-100 dark:border-gray-800">
+                <div className="px-5 py-4 border-b border-gray-100 dark:border-[#1A6080]/20">
                   <h2 className="text-sm font-semibold text-gray-900 dark:text-white">Headcount by Department</h2>
                 </div>
                 <div className="table-responsive">
@@ -362,13 +362,13 @@ export default function WorkforcePlanningPage() {
                       ))}
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-gray-100 dark:divide-gray-800/60">
+                  <tbody className="divide-y divide-gray-100 dark:divide-[#1A6080]/20/60">
                     {wf.headcountByDepartment
                       .sort((a, b) => b.count - a.count)
                       .map(d => {
                         const fillRate = d.positions > 0 ? Math.round((d.count / d.positions) * 100) : null
                         return (
-                          <tr key={d.id} className="hover:bg-gray-50 dark:hover:bg-gray-800/30">
+                          <tr key={d.id} className="hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/30">
                             <td className="px-5 py-3 text-gray-700 dark:text-gray-200 font-medium">{d.name}</td>
                             <td className="px-5 py-3 text-gray-600 dark:text-gray-300">{d.count}</td>
                             <td className="px-5 py-3 text-gray-600 dark:text-gray-400">{d.positions}</td>
@@ -407,10 +407,10 @@ export default function WorkforcePlanningPage() {
               if (recent.length === 0) return null
               return (
                 <div className="card-premium overflow-hidden">
-                  <div className="px-5 py-4 border-b border-gray-100 dark:border-gray-800">
+                  <div className="px-5 py-4 border-b border-gray-100 dark:border-[#1A6080]/20">
                     <h2 className="text-sm font-semibold text-gray-900 dark:text-white">Recent Hires</h2>
                   </div>
-                  <div className="divide-y divide-gray-100 dark:divide-gray-800/60">
+                  <div className="divide-y divide-gray-100 dark:divide-[#1A6080]/20/60">
                     {recent.map(e => {
                       const cfg = EMP_TYPE_CONFIG[e.employmentType]
                       return (
@@ -568,7 +568,7 @@ export default function WorkforcePlanningPage() {
                 <button
                   type="button"
                   onClick={cancelForm}
-                  className="text-sm px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+                  className="text-sm px-4 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 transition"
                 >
                   Cancel
                 </button>
@@ -637,12 +637,12 @@ export default function WorkforcePlanningPage() {
                     ))}
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-100 dark:divide-gray-800/60">
+                <tbody className="divide-y divide-gray-100 dark:divide-[#1A6080]/20/60">
                   {visiblePlans.map(p => {
                     const fillPct   = p.plannedCount > 0 ? Math.round((p.currentCount / p.plannedCount) * 100) : 0
                     const isDeleting = deleting === p.id
                     return (
-                      <tr key={p.id} className="hover:bg-gray-50 dark:hover:bg-gray-800/30">
+                      <tr key={p.id} className="hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/30">
                         <td className="px-4 py-3">
                           <p className="text-gray-700 dark:text-gray-200 font-medium">
                             {p.positionTitle ?? 'General'}
@@ -685,21 +685,21 @@ export default function WorkforcePlanningPage() {
                             {p.status === 'open' && (
                               <button
                                 onClick={() => markFilled(p.id)}
-                                className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-green-700 hover:text-green-400 px-2 py-1 rounded transition"
+                                className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-green-700 hover:text-green-400 px-2 py-1 rounded transition"
                               >
                                 Mark Filled
                               </button>
                             )}
                             <button
                               onClick={() => openEdit(p)}
-                              className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-[#0E3D52] hover:text-[#1A6080] dark:text-[#4ebac4] px-2 py-1 rounded transition"
+                              className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-[#0E3D52] hover:text-[#1A6080] dark:text-[#4ebac4] px-2 py-1 rounded transition"
                             >
                               Edit
                             </button>
                             <button
                               onClick={() => deletePlan(p.id)}
                               disabled={isDeleting}
-                              className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-red-700 hover:text-red-400 px-2 py-1 rounded transition disabled:opacity-50"
+                              className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-red-700 hover:text-red-400 px-2 py-1 rounded transition disabled:opacity-50"
                             >
                               {isDeleting ? '…' : 'Delete'}
                             </button>

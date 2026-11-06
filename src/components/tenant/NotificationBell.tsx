@@ -200,7 +200,7 @@ export default function NotificationBell({ primaryColor }: { primaryColor: strin
     <div className="relative" ref={triggerRef}>
       <button
         onClick={handleOpen}
-        className="relative p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+        className="relative p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 transition"
         aria-label="Notifications"
       >
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

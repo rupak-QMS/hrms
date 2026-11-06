@@ -345,8 +345,8 @@ export default function ReportsAnalyticsPage() {
   return (
     <div className="flex h-full bg-gray-50 dark:bg-gray-900">
       {/* LEFT: Report picker */}
-      <div className="w-72 flex-shrink-0 border-r border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 flex flex-col">
-        <div className="p-4 border-b border-gray-200 dark:border-gray-700">
+      <div className="w-72 flex-shrink-0 border-r border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 flex flex-col">
+        <div className="p-4 border-b border-gray-200 dark:border-[#1A6080]/30">
           <h2 className="text-lg font-semibold text-gray-900 dark:text-white">📊 Reports</h2>
           <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Choose a report to run</p>
           {/* Tabs */}
@@ -372,7 +372,7 @@ export default function ReportsAnalyticsPage() {
                     <button
                       key={cfg.type}
                       onClick={() => { setSelected(cfg); setFilters({}); setResults(null); setError(null) }}
-                      className={`w-full text-left p-3 rounded-xl border transition-all ${selected?.type === cfg.type ? 'border-[#b8d4e0] bg-[#E0EEF4] dark:bg-[#0E3D52]/15 dark:border-[#0E3D52]' : 'border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700'}`}
+                      className={`w-full text-left p-3 rounded-xl border transition-all ${selected?.type === cfg.type ? 'border-[#b8d4e0] bg-[#E0EEF4] dark:bg-[#0E3D52]/15 dark:border-[#0E3D52]' : 'border-gray-100 dark:border-[#1A6080]/30 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40'}`}
                     >
                       <div className="flex items-center gap-2">
                         <span className="text-xl">{cfg.icon}</span>
@@ -399,7 +399,7 @@ export default function ReportsAnalyticsPage() {
                 savedReports.map(r => {
                   const cfg = REPORT_CONFIGS.find(c => c.type === r.reportType)
                   return (
-                    <div key={r.id} className="border border-gray-100 dark:border-gray-700 rounded-xl p-3 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all">
+                    <div key={r.id} className="border border-gray-100 dark:border-[#1A6080]/30 rounded-xl p-3 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-all">
                       <div className="flex items-start justify-between gap-2">
                         <div className="flex-1 min-w-0">
                           <p className="text-sm font-medium text-gray-900 dark:text-white truncate">{r.name}</p>
@@ -443,7 +443,7 @@ export default function ReportsAnalyticsPage() {
         ) : (
           <>
             {/* Report header + filters */}
-            <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 p-6">
+            <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-[#1A6080]/30 p-6">
               <div className="flex items-start justify-between">
                 <div>
                   <h1 className="page-premium-title">
@@ -456,16 +456,16 @@ export default function ReportsAnalyticsPage() {
                     <>
                       <button
                         onClick={() => exportCSV(columns, results, `${selected.type}_${new Date().toISOString().split('T')[0]}.csv`)}
-                        className="px-3 py-2 border border-gray-200 dark:border-gray-600 text-sm font-medium text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
+                        className="px-3 py-2 border border-gray-200 dark:border-[#1A6080]/40 text-sm font-medium text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40">
                         ⬇ CSV
                       </button>
                       <button
                         onClick={() => exportPDF(selected.label, columns, results, filters)}
-                        className="px-3 py-2 border border-gray-200 dark:border-gray-600 text-sm font-medium text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
+                        className="px-3 py-2 border border-gray-200 dark:border-[#1A6080]/40 text-sm font-medium text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40">
                         🖨 PDF
                       </button>
                       <button onClick={() => setSaveModal(true)}
-                        className="px-3 py-2 border border-gray-200 dark:border-gray-600 text-sm font-medium text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
+                        className="px-3 py-2 border border-gray-200 dark:border-[#1A6080]/40 text-sm font-medium text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40">
                         💾 Save
                       </button>
                     </>
@@ -487,7 +487,7 @@ export default function ReportsAnalyticsPage() {
                         <select
                           value={filters[f.key] || ''}
                           onChange={e => setFilters(prev => ({ ...prev, [f.key]: e.target.value }))}
-                          className="border border-gray-200 dark:border-gray-600 rounded-lg px-3 py-1.5 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+                          className="border border-gray-200 dark:border-[#1A6080]/40 rounded-lg px-3 py-1.5 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
                           {f.options?.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
                         </select>
                       ) : (
@@ -495,7 +495,7 @@ export default function ReportsAnalyticsPage() {
                           type={f.type}
                           value={filters[f.key] || (f.type === 'number' ? '30' : '')}
                           onChange={e => setFilters(prev => ({ ...prev, [f.key]: e.target.value }))}
-                          className="border border-gray-200 dark:border-gray-600 rounded-lg px-3 py-1.5 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white w-36" />
+                          className="border border-gray-200 dark:border-[#1A6080]/40 rounded-lg px-3 py-1.5 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white w-36" />
                       )}
                     </div>
                   ))}
@@ -562,9 +562,9 @@ export default function ReportsAnalyticsPage() {
                           ))}
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-gray-100 dark:divide-gray-700">
+                      <tbody className="divide-y divide-gray-100 dark:divide-[#1A6080]/30">
                         {results.map((row, i) => (
-                          <tr key={i} className="hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                          <tr key={i} className="hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40/50">
                             {columns.map(col => (
                               <td key={col} className="px-4 py-3 text-gray-700 dark:text-gray-300 whitespace-nowrap capitalize">
                                 {formatValue(col, row[col])}
@@ -593,16 +593,16 @@ export default function ReportsAnalyticsPage() {
               value={saveName}
               onChange={e => setSaveName(e.target.value)}
               placeholder="Report name…"
-              className="w-full border border-gray-200 dark:border-gray-600 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white mb-3"
+              className="w-full border border-gray-200 dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white mb-3"
             />
             <label className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 mb-4 cursor-pointer">
               <input type="checkbox" checked={saveShared} onChange={e => setSaveShared(e.target.checked)}
-                className="rounded border-gray-300 dark:border-gray-600" />
+                className="rounded border-gray-300 dark:border-[#1A6080]/40" />
               Share with all users in this organisation
             </label>
             <div className="flex gap-3">
               <button onClick={() => setSaveModal(false)}
-                className="flex-1 px-4 py-2 border border-gray-200 dark:border-gray-600 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">
+                className="flex-1 px-4 py-2 border border-gray-200 dark:border-[#1A6080]/40 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40">
                 Cancel
               </button>
               <button onClick={saveReport} disabled={saving || !saveName}

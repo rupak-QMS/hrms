@@ -256,7 +256,7 @@ export default function SeparationPage() {
       </div>
 
       {/* Tabs */}
-      <div className="flex gap-1 border-b border-gray-200 dark:border-gray-800">
+      <div className="flex gap-1 border-b border-gray-200 dark:border-[#1A6080]/20">
         {TABS.map(t => (
           <button key={t} onClick={() => setTab(t)}
             className={`px-4 py-2.5 text-sm font-medium border-b-2 -mb-px transition ${
@@ -345,7 +345,7 @@ export default function SeparationPage() {
 
           {/* Recent separations table */}
           <div className="card-premium overflow-hidden">
-            <div className="px-5 py-4 border-b border-gray-200 dark:border-gray-800">
+            <div className="px-5 py-4 border-b border-gray-200 dark:border-[#1A6080]/20">
               <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-200">Recent Separations</h3>
             </div>
             {recent.length === 0 ? (
@@ -354,7 +354,7 @@ export default function SeparationPage() {
               <div className="table-responsive">
             <table className="table-premium">
                 <thead>
-                  <tr className="border-b border-gray-200 dark:border-gray-800">
+                  <tr className="border-b border-gray-200 dark:border-[#1A6080]/20">
                     {['Employee', 'Type', 'Status', 'Last Working Day', 'Progress'].map(h => (
                       <th key={h} className="px-5 py-3 text-left section-label">{h}</th>
                     ))}
@@ -365,7 +365,7 @@ export default function SeparationPage() {
                     const pct = progress(r)
                     return (
                       <tr key={r.id}
-                        className={`border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition cursor-pointer ${i % 2 !== 0 ? 'bg-white dark:bg-gray-900/50' : ''}`}
+                        className={`border-b border-gray-100 dark:border-[#1A6080]/20 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/50 transition cursor-pointer ${i % 2 !== 0 ? 'bg-white dark:bg-gray-900/50' : ''}`}
                         onClick={() => { setTab('Records'); setTimeout(() => { setExpanded(r.id); loadEvents(r.id) }, 50) }}>
                         <td className="px-5 py-3 font-medium text-gray-900 dark:text-white">
                           {r.employeeFirstName} {r.employeeLastName}
@@ -449,7 +449,7 @@ export default function SeparationPage() {
                   {saving ? 'Initiating…' : 'Begin Separation'}
                 </button>
                 <button type="button" onClick={() => setShowForm(false)}
-                  className="text-sm px-4 py-2 rounded-lg border border-gray-600 text-gray-400 hover:bg-gray-800 transition">
+                  className="text-sm px-4 py-2 rounded-lg border border-gray-600 text-gray-400 hover:bg-[#0A1929] transition">
                   Cancel
                 </button>
               </div>
@@ -499,7 +499,7 @@ export default function SeparationPage() {
 
                 return (
                   <div key={r.id} className={`card-premium overflow-hidden ${
-                    r.status === 'completed' ? 'border-green-900' : r.type === 'termination' ? 'border-red-900/50' : 'border-gray-200 dark:border-gray-800'
+                    r.status === 'completed' ? 'border-green-900' : r.type === 'termination' ? 'border-red-900/50' : 'border-gray-200 dark:border-[#1A6080]/20'
                   }`}>
                     {/* Card header row */}
                     <div className="flex items-center gap-4 px-5 py-4">
@@ -566,7 +566,7 @@ export default function SeparationPage() {
 
                     {/* Expanded detail */}
                     {isOpen && (
-                      <div className="border-t border-gray-200 dark:border-gray-800 px-5 py-4 space-y-5">
+                      <div className="border-t border-gray-200 dark:border-[#1A6080]/20 px-5 py-4 space-y-5">
 
                         {/* Edit toggle */}
                         <div className="flex justify-end">
@@ -577,14 +577,14 @@ export default function SeparationPage() {
                                 Save Changes
                               </button>
                               <button onClick={() => setEditingId(null)}
-                                className="text-xs border border-gray-600 text-gray-400 hover:bg-gray-800 px-3 py-1.5 rounded-lg transition">
+                                className="text-xs border border-gray-600 text-gray-400 hover:bg-[#0A1929] px-3 py-1.5 rounded-lg transition">
                                 Cancel
                               </button>
                             </div>
                           ) : r.status !== 'completed' ? (
                             <button
                               onClick={() => { setEditingId(r.id); setEditFields(p => ({ ...p, [r.id]: eField })) }}
-                              className="text-xs border border-gray-600 text-gray-400 hover:bg-gray-800 px-3 py-1.5 rounded-lg transition">
+                              className="text-xs border border-gray-600 text-gray-400 hover:bg-[#0A1929] px-3 py-1.5 rounded-lg transition">
                               ✏️ Edit Details
                             </button>
                           ) : null}
@@ -653,7 +653,7 @@ export default function SeparationPage() {
                                 className={`flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition ${
                                   item.done
                                     ? 'bg-green-950/40 border-green-800/60'
-                                    : 'bg-gray-100 dark:bg-gray-800/40 border-gray-200 dark:border-gray-700 hover:border-gray-600'
+                                    : 'bg-gray-100 dark:bg-gray-800/40 border-gray-200 dark:border-[#1A6080]/30 hover:border-gray-600'
                                 } ${r.status === 'completed' ? 'pointer-events-none' : ''}`}>
                                 <input type="checkbox" checked={item.done} disabled={r.status === 'completed'}
                                   onChange={e => patch(r.id, { [item.key]: e.target.checked })}
@@ -741,7 +741,7 @@ export default function SeparationPage() {
                               {(sepEvents[r.id] ?? []).map((ev, i, arr) => (
                                 <div key={ev.id} className="flex gap-3 items-start">
                                   <div className="flex flex-col items-center shrink-0">
-                                    <div className="w-7 h-7 rounded-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 flex items-center justify-center text-xs">
+                                    <div className="w-7 h-7 rounded-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 flex items-center justify-center text-xs">
                                       {EVENT_ICON[ev.event] ?? '📝'}
                                     </div>
                                     {i < arr.length - 1 && <div className="w-px h-3 bg-gray-200 dark:bg-gray-700 mt-1" />}

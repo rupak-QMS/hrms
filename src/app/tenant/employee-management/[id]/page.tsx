@@ -78,7 +78,7 @@ const age  = (d: string | null) => {
 
 function Row({ label, value }: { label: string; value: React.ReactNode }) {
   return (
-    <div className="flex flex-col sm:flex-row sm:items-center gap-1 py-3 border-b border-gray-50 dark:border-gray-800 last:border-0">
+    <div className="flex flex-col sm:flex-row sm:items-center gap-1 py-3 border-b border-gray-50 dark:border-[#1A6080]/20 last:border-0">
       <span className="sm:w-44 text-xs font-medium text-gray-600 dark:text-gray-400  shrink-0">{label}</span>
       <span className="text-sm text-gray-800 dark:text-gray-200">{value ?? '—'}</span>
     </div>
@@ -726,7 +726,7 @@ export default function EmployeeProfilePage() {
       })()}
 
       {/* Tabs */}
-      <div className="flex gap-1 border-b border-gray-200 dark:border-gray-800">
+      <div className="flex gap-1 border-b border-gray-200 dark:border-[#1A6080]/20">
         {TABS.map(t => (
           <button
             key={t}
@@ -812,26 +812,26 @@ export default function EmployeeProfilePage() {
                   <div>
                     <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Full Name *</label>
                     <input required value={contactForm.name} onChange={e => { markDirty(); setContactForm(f => ({ ...f, name: e.target.value })) }}
-                      className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none focus:border-[#0E3D52]"
+                      className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none focus:border-[#0E3D52]"
                       placeholder="e.g. John Smith" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Relationship</label>
                     <input value={contactForm.relationship} onChange={e => { markDirty(); setContactForm(f => ({ ...f, relationship: e.target.value })) }}
-                      className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none focus:border-[#0E3D52]"
+                      className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none focus:border-[#0E3D52]"
                       placeholder="e.g. Spouse, Parent, Sibling" />
                   </div>
                   <div className="grid grid-cols-2 gap-3">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Phone</label>
                       <input value={contactForm.phone} onChange={e => { markDirty(); setContactForm(f => ({ ...f, phone: e.target.value })) }}
-                        className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none focus:border-[#0E3D52]"
+                        className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none focus:border-[#0E3D52]"
                         placeholder="+61 4xx xxx xxx" />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
                       <input type="email" value={contactForm.email} onChange={e => { markDirty(); setContactForm(f => ({ ...f, email: e.target.value })) }}
-                        className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none focus:border-[#0E3D52]"
+                        className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none focus:border-[#0E3D52]"
                         placeholder="john@example.com" />
                     </div>
                   </div>
@@ -854,7 +854,7 @@ export default function EmployeeProfilePage() {
                       {contactSaving ? 'Saving…' : editingContact ? 'Save Changes' : 'Add Contact'}
                     </button>
                     <button type="button" onClick={() => { markClean(); setShowContactForm(false) }}
-                      className="px-4 py-2 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 text-sm rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+                      className="px-4 py-2 border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 text-sm rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30">
                       Cancel
                     </button>
                   </div>
@@ -876,7 +876,7 @@ export default function EmployeeProfilePage() {
             ) : (
               <div className="space-y-3">
                 {contacts.map(c => (
-                  <div key={c.id} className="flex items-start gap-4 p-4 bg-gray-50 dark:bg-gray-800/60 rounded-xl border border-gray-100 dark:border-gray-700">
+                  <div key={c.id} className="flex items-start gap-4 p-4 bg-gray-50 dark:bg-gray-800/60 rounded-xl border border-gray-100 dark:border-[#1A6080]/30">
                     <div
                       className="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-bold shrink-0"
                       style={{ background: 'var(--primary)' }}
@@ -1252,7 +1252,7 @@ export default function EmployeeProfilePage() {
                 }
 
                 return (
-                  <div key={p.id} className="border border-gray-100 dark:border-gray-800 rounded-xl p-5 space-y-4">
+                  <div key={p.id} className="border border-gray-100 dark:border-[#1A6080]/20 rounded-xl p-5 space-y-4">
                     {/* Title row */}
                     <div className="flex items-start justify-between gap-3">
                       <div>
@@ -1343,7 +1343,7 @@ export default function EmployeeProfilePage() {
                       {/* Letter buttons */}
                       <div className="flex flex-wrap gap-1.5 ml-auto">
                         <button onClick={() => printNominationLetter(p)}
-                          className="px-2.5 py-1.5 text-xs font-medium border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition">
+                          className="px-2.5 py-1.5 text-xs font-medium border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 rounded-lg transition">
                           🖨 Nomination Letter
                         </button>
                         {['approved','implemented'].includes(p.status) && (
@@ -1385,7 +1385,7 @@ export default function EmployeeProfilePage() {
                 onChange={e => { markDirty(); setNoteContent(e.target.value) }}
                 placeholder="Add a note about this employee…"
                 rows={3}
-                className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-sm text-gray-800 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52] resize-y"
+                className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-[#1A6080]/30 rounded-xl px-4 py-3 text-sm text-gray-800 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52] resize-y"
               />
               <div className="flex justify-end">
                 <button
@@ -1448,7 +1448,7 @@ export default function EmployeeProfilePage() {
                   })()
 
                   return (
-                    <div key={note.id} className="flex gap-3 p-4 bg-gray-50 dark:bg-gray-800/60 rounded-xl border border-gray-100 dark:border-gray-700">
+                    <div key={note.id} className="flex gap-3 p-4 bg-gray-50 dark:bg-gray-800/60 rounded-xl border border-gray-100 dark:border-[#1A6080]/30">
                       <div
                         className="w-9 h-9 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0"
                         style={{ background: 'var(--primary)' }}
@@ -1514,7 +1514,7 @@ export default function EmployeeProfilePage() {
                   <textarea
                     value={reviewNotes}
                     onChange={e => setReviewNotes(e.target.value)}
-                    className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none min-h-[80px] resize-y"
+                    className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none min-h-[80px] resize-y"
                     placeholder={reviewModal.action === 'approved' ? 'Any additional conditions or comments…' : 'Reason for rejection…'}
                   />
                 </div>
@@ -1531,7 +1531,7 @@ export default function EmployeeProfilePage() {
                   {promoUpdating === reviewModal.id ? 'Saving…' : reviewModal.action === 'implemented' ? 'Confirm & Implement' : reviewModal.action === 'approved' ? 'Approve' : 'Reject'}
                 </button>
                 <button onClick={() => setReviewModal(null)}
-                  className="px-4 py-2 text-sm border border-gray-300 dark:border-gray-700 text-gray-500 hover:text-white rounded-lg transition">
+                  className="px-4 py-2 text-sm border border-gray-300 dark:border-[#1A6080]/30 text-gray-500 hover:text-white rounded-lg transition">
                   Cancel
                 </button>
               </div>
@@ -1543,7 +1543,7 @@ export default function EmployeeProfilePage() {
         {showPromoForm && (
           <div className="modal-overlay">
             <div className="card-premium w-full max-w-lg max-h-[90vh] overflow-y-auto">
-              <div className="flex items-center justify-between p-5 border-b border-gray-200 dark:border-gray-800">
+              <div className="flex items-center justify-between p-5 border-b border-gray-200 dark:border-[#1A6080]/20">
                 <h2 className="text-base font-bold text-white">Raise Promotion / Salary Request</h2>
                 <button onClick={() => setShowPromoForm(false)} className="text-gray-400 hover:text-white text-xl">×</button>
               </div>
@@ -1560,7 +1560,7 @@ export default function EmployeeProfilePage() {
                         proposedTitle: t === 'salary_hike' ? (emp?.positionTitle ?? '') : f.proposedTitle,
                       }))
                     }}
-                    className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]">
+                    className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]">
                     <option value="promotion">Promotion (Title + Salary change)</option>
                     <option value="salary_hike">Annual Salary Hike (salary only)</option>
                     <option value="designation">Designation Change (title only)</option>
@@ -1575,7 +1575,7 @@ export default function EmployeeProfilePage() {
                       required
                       value={promoForm.proposedTitle}
                       onChange={e => setPromoForm(f => ({ ...f, proposedTitle: e.target.value }))}
-                      className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
+                      className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
                       placeholder="e.g. Senior Support Worker"
                     />
                   </div>
@@ -1591,7 +1591,7 @@ export default function EmployeeProfilePage() {
                       <input
                         readOnly
                         value={emp?.annualSalary ? Math.round(Number(emp.annualSalary)) : ''}
-                        className="w-full bg-gray-200 dark:bg-gray-700 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-500 dark:text-gray-400"
+                        className="w-full bg-gray-200 dark:bg-gray-700 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-500 dark:text-gray-400"
                       />
                     </div>
                     <div>
@@ -1603,7 +1603,7 @@ export default function EmployeeProfilePage() {
                         type="number"
                         value={promoForm.proposedSalary}
                         onChange={e => setPromoForm(f => ({ ...f, proposedSalary: e.target.value }))}
-                        className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
+                        className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
                         placeholder="e.g. 72000"
                       />
                     </div>
@@ -1617,7 +1617,7 @@ export default function EmployeeProfilePage() {
                     type="date"
                     value={promoForm.effectiveDate}
                     onChange={e => setPromoForm(f => ({ ...f, effectiveDate: e.target.value }))}
-                    className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
+                    className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
                   />
                 </div>
 
@@ -1628,7 +1628,7 @@ export default function EmployeeProfilePage() {
                     required
                     value={promoForm.justification}
                     onChange={e => setPromoForm(f => ({ ...f, justification: e.target.value }))}
-                    className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52] min-h-[80px] resize-y"
+                    className="w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52] min-h-[80px] resize-y"
                     placeholder="Describe the reason for this request (performance, CPI review, restructure, etc.)…"
                   />
                 </div>
@@ -1639,7 +1639,7 @@ export default function EmployeeProfilePage() {
                     {promoSaving ? 'Submitting…' : 'Raise Request'}
                   </button>
                   <button type="button" onClick={() => setShowPromoForm(false)}
-                    className="px-5 py-2.5 border border-gray-300 dark:border-gray-700 text-gray-500 hover:text-white text-sm rounded-lg">
+                    className="px-5 py-2.5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-500 hover:text-white text-sm rounded-lg">
                     Cancel
                   </button>
                 </div>

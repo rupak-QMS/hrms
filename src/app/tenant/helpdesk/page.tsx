@@ -143,9 +143,9 @@ export default function HelpdeskPage() {
       <div className="flex flex-wrap gap-2">
         <input value={q} onChange={e => { setQ(e.target.value); setPage(1) }}
           placeholder="Search tickets…"
-          className="px-3 py-1.5 text-sm border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#0E3D52] w-48" />
+          className="px-3 py-1.5 text-sm border border-gray-200 dark:border-[#1A6080]/30 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#0E3D52] w-48" />
         <select value={status} onChange={e => { setStatus(e.target.value); setPage(1) }}
-          className="px-3 py-1.5 text-sm border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#0E3D52]">
+          className="px-3 py-1.5 text-sm border border-gray-200 dark:border-[#1A6080]/30 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#0E3D52]">
           <option value="">All statuses</option>
           <option value="open">Open</option>
           <option value="in_progress">In Progress</option>
@@ -154,7 +154,7 @@ export default function HelpdeskPage() {
           <option value="closed">Closed</option>
         </select>
         <select value={priority} onChange={e => { setPriority(e.target.value); setPage(1) }}
-          className="px-3 py-1.5 text-sm border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#0E3D52]">
+          className="px-3 py-1.5 text-sm border border-gray-200 dark:border-[#1A6080]/30 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#0E3D52]">
           <option value="">All priorities</option>
           <option value="critical">Critical</option>
           <option value="high">High</option>
@@ -176,7 +176,7 @@ export default function HelpdeskPage() {
         ) : (
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-gray-100 dark:border-gray-800">
+              <tr className="border-b border-gray-100 dark:border-[#1A6080]/20">
                 {['Ticket', 'Title', 'Category', 'Priority', 'Status', 'SLA', 'Age'].map(h => (
                   <th key={h} className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 ">{h}</th>
                 ))}
@@ -184,7 +184,7 @@ export default function HelpdeskPage() {
             </thead>
             <tbody>
               {tickets.map(t => (
-                <tr key={t.id} className="border-b border-gray-50 dark:border-gray-800/50 hover:bg-gray-50 dark:hover:bg-white/[0.02] transition-colors">
+                <tr key={t.id} className="border-b border-gray-50 dark:border-[#1A6080]/20/50 hover:bg-gray-50 dark:hover:bg-white/[0.02] transition-colors">
                   <td className="px-4 py-3 font-mono text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap">{t.ticketNumber}</td>
                   <td className="px-4 py-3 max-w-xs">
                     <p className="font-medium text-gray-900 dark:text-white truncate">{t.title}</p>
@@ -226,17 +226,17 @@ export default function HelpdeskPage() {
       {pages > 1 && (
         <div className="flex justify-center gap-2">
           <button disabled={page === 1} onClick={() => setPage(p => p - 1)}
-            className="px-3 py-1.5 text-sm border border-gray-200 dark:border-gray-700 rounded-lg disabled:opacity-40 hover:bg-gray-50 dark:hover:bg-white/[0.04] transition">← Prev</button>
+            className="px-3 py-1.5 text-sm border border-gray-200 dark:border-[#1A6080]/30 rounded-lg disabled:opacity-40 hover:bg-gray-50 dark:hover:bg-white/[0.04] transition">← Prev</button>
           <span className="px-3 py-1.5 text-sm text-gray-500 dark:text-gray-400">Page {page} of {pages}</span>
           <button disabled={page === pages} onClick={() => setPage(p => p + 1)}
-            className="px-3 py-1.5 text-sm border border-gray-200 dark:border-gray-700 rounded-lg disabled:opacity-40 hover:bg-gray-50 dark:hover:bg-white/[0.04] transition">Next →</button>
+            className="px-3 py-1.5 text-sm border border-gray-200 dark:border-[#1A6080]/30 rounded-lg disabled:opacity-40 hover:bg-gray-50 dark:hover:bg-white/[0.04] transition">Next →</button>
         </div>
       )}
 
       {/* New Ticket Modal */}
       {showNew && (
         <div className="modal-overlay" onClick={() => setShowNew(false)}>
-          <div className="w-full max-w-md bg-white dark:bg-[#0F1E2E] rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 p-6" onClick={e => e.stopPropagation()}>
+          <div className="w-full max-w-md bg-white dark:bg-[#0F1E2E] rounded-xl shadow-xl border border-gray-200 dark:border-[#1A6080]/30 p-6" onClick={e => e.stopPropagation()}>
             <h2 className="text-base font-semibold text-gray-900 dark:text-white mb-4">New Support Ticket</h2>
             <div className="space-y-3">
               <div>
@@ -275,7 +275,7 @@ export default function HelpdeskPage() {
               </div>
             </div>
             <div className="flex gap-3 mt-5">
-              <button onClick={() => setShowNew(false)} className="flex-1 px-4 py-2 text-sm border border-gray-200 dark:border-gray-700 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/[0.04] transition">Cancel</button>
+              <button onClick={() => setShowNew(false)} className="flex-1 px-4 py-2 text-sm border border-gray-200 dark:border-[#1A6080]/30 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/[0.04] transition">Cancel</button>
               <button onClick={submit} disabled={submitting || !newForm.title || !newForm.description}
                 className="flex-1 px-4 py-2 text-sm bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-50 text-white rounded-lg font-medium transition">
                 {submitting ? 'Submitting…' : 'Submit Ticket'}

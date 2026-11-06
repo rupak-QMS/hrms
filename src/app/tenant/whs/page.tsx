@@ -326,7 +326,7 @@ export default function WhsPage() {
 
                 {/* Expanded detail */}
                 {isOpen && (
-                  <div className="border-t border-gray-200 dark:border-gray-800 px-5 py-4 space-y-4">
+                  <div className="border-t border-gray-200 dark:border-[#1A6080]/20 px-5 py-4 space-y-4">
                     <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{inc.description}</p>
 
                     {/* Status actions */}
@@ -346,7 +346,7 @@ export default function WhsPage() {
                       )}
                       {inc.status === 'closed' && (
                         <button onClick={() => updateStatus(inc.id, 'open')}
-                          className="text-xs border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:text-white px-3 py-1.5 rounded-lg transition">
+                          className="text-xs border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-white px-3 py-1.5 rounded-lg transition">
                           Reopen
                         </button>
                       )}

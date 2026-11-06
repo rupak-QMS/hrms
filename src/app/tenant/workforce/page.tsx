@@ -27,7 +27,7 @@ export default function WorkforcePage() {
 
   return (
     <div className="h-full flex flex-col">
-      <div className="px-6 py-4 border-b border-gray-200 bg-white dark:bg-gray-900 dark:border-gray-700">
+      <div className="px-6 py-4 border-b border-gray-200 bg-white dark:bg-gray-900 dark:border-[#1A6080]/30">
         <h1 className="text-xl font-semibold text-gray-900 dark:text-white">Workforce Planning</h1>
         <p className="text-sm text-gray-500 mt-0.5 dark:text-gray-400">Headcount overview, departments, and positions</p>
       </div>
@@ -55,7 +55,7 @@ export default function WorkforcePage() {
 
         {/* Headcount by department */}
         <div className="card-premium overflow-hidden">
-          <div className="px-5 py-3 border-b border-gray-100 dark:border-gray-800">
+          <div className="px-5 py-3 border-b border-gray-100 dark:border-[#1A6080]/20">
             <h2 className="text-sm font-semibold text-gray-900 dark:text-white">Headcount by Department</h2>
           </div>
           {depts.length === 0 ? (
@@ -63,7 +63,7 @@ export default function WorkforcePage() {
           ) : (
             <div className="table-responsive">
             <table className="table-premium">
-              <thead><tr className="border-b border-gray-100 bg-gray-50 dark:bg-gray-800 dark:border-gray-800">
+              <thead><tr className="border-b border-gray-100 bg-gray-50 dark:bg-gray-800 dark:border-[#1A6080]/20">
                 <th>Department</th>
                 <th>Active Staff</th>
                 <th>Positions</th>
@@ -90,7 +90,7 @@ export default function WorkforcePage() {
 
         {/* Positions */}
         <div className="card-premium overflow-hidden">
-          <div className="px-5 py-3 border-b border-gray-100 dark:border-gray-800">
+          <div className="px-5 py-3 border-b border-gray-100 dark:border-[#1A6080]/20">
             <h2 className="text-sm font-semibold text-gray-900 dark:text-white">All Positions</h2>
           </div>
           {positions.length === 0 ? (
@@ -98,7 +98,7 @@ export default function WorkforcePage() {
           ) : (
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 p-4">
               {positions.map(p => (
-                <div key={p.id} className="border border-gray-100 rounded-lg p-3 dark:border-gray-800">
+                <div key={p.id} className="border border-gray-100 rounded-lg p-3 dark:border-[#1A6080]/20">
                   <p className="text-sm font-medium text-gray-900 dark:text-white">{p.title}</p>
                   <p className="text-xs text-gray-600 dark:text-gray-400 mt-0.5">{depts.find(d => d.id === p.departmentId)?.name ?? 'Unassigned'}</p>
                 </div>

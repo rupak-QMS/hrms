@@ -244,7 +244,7 @@ export default function TenantSettingsPage() {
       )}
 
       {/* Tab nav */}
-      <div className="flex border-b border-gray-200 dark:border-gray-800">
+      <div className="flex border-b border-gray-200 dark:border-[#1A6080]/20">
         {([
           { id: 'branding',      label: 'Branding' },
           { id: 'domain',        label: 'Domain' },
@@ -276,7 +276,7 @@ export default function TenantSettingsPage() {
 
                 <div className="flex items-start gap-5">
                   {/* Preview box */}
-                  <div className="w-28 h-28 rounded-xl bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 flex items-center justify-center overflow-hidden shrink-0">
+                  <div className="w-28 h-28 rounded-xl bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 flex items-center justify-center overflow-hidden shrink-0">
                     {logoUrl ? (
                       <Image src={logoUrl} alt="Logo" width={200} height={80} className="max-h-full max-w-full object-contain p-2" unoptimized />
                     ) : (
@@ -297,7 +297,7 @@ export default function TenantSettingsPage() {
                     <button
                       onClick={() => { setError(''); fileRef.current?.click() }}
                       disabled={logoUploading}
-                      className="w-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:bg-gray-700 border border-gray-300 dark:border-gray-700 disabled:opacity-60 text-gray-900 dark:text-white text-sm px-4 py-2.5 rounded-lg transition"
+                      className="w-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:bg-gray-700 border border-gray-300 dark:border-[#1A6080]/30 disabled:opacity-60 text-gray-900 dark:text-white text-sm px-4 py-2.5 rounded-lg transition"
                     >
                       {logoUploading ? '⏳ Uploading…' : 'Upload Logo'}
                     </button>
@@ -325,7 +325,7 @@ export default function TenantSettingsPage() {
                 </div>
 
                 {/* Live sidebar preview */}
-                <div className="rounded-xl overflow-hidden border border-gray-300 dark:border-gray-700">
+                <div className="rounded-xl overflow-hidden border border-gray-300 dark:border-[#1A6080]/30">
                   <div className="bg-gray-100 dark:bg-gray-800 px-3 py-1.5 text-xs text-gray-500 dark:text-gray-400">Sidebar preview</div>
                   <div className="bg-white dark:bg-gray-900 p-4">
                     <div className="w-56 bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden">
@@ -449,7 +449,7 @@ export default function TenantSettingsPage() {
                 </div>
               </div>
 
-              <div className="border-t border-gray-200 dark:border-gray-800 pt-4">
+              <div className="border-t border-gray-200 dark:border-[#1A6080]/20 pt-4">
                 <p className="text-xs font-semibold text-gray-600 dark:text-gray-400  mb-4">SMTP Server</p>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
@@ -516,7 +516,7 @@ export default function TenantSettingsPage() {
               </div>
 
               {/* Compliance & Documents */}
-              <div className="border-t border-gray-200 dark:border-gray-800 pt-5">
+              <div className="border-t border-gray-200 dark:border-[#1A6080]/20 pt-5">
                 <p className="text-xs font-semibold text-gray-600 dark:text-gray-400  mb-3">Compliance & Documents</p>
                 <div className="space-y-3">
                   {[
@@ -534,7 +534,7 @@ export default function TenantSettingsPage() {
               </div>
 
               {/* Payroll & Contracts */}
-              <div className="border-t border-gray-200 dark:border-gray-800 pt-5">
+              <div className="border-t border-gray-200 dark:border-[#1A6080]/20 pt-5">
                 <p className="text-xs font-semibold text-gray-600 dark:text-gray-400  mb-3">Payroll & Contracts</p>
                 <div className="space-y-3">
                   {[
@@ -552,7 +552,7 @@ export default function TenantSettingsPage() {
               </div>
 
               {/* HR Processes */}
-              <div className="border-t border-gray-200 dark:border-gray-800 pt-5">
+              <div className="border-t border-gray-200 dark:border-[#1A6080]/20 pt-5">
                 <p className="text-xs font-semibold text-gray-600 dark:text-gray-400  mb-3">HR Processes</p>
                 <div className="space-y-3">
                   {[
@@ -571,7 +571,7 @@ export default function TenantSettingsPage() {
               </div>
 
               {/* Development */}
-              <div className="border-t border-gray-200 dark:border-gray-800 pt-5">
+              <div className="border-t border-gray-200 dark:border-[#1A6080]/20 pt-5">
                 <p className="text-xs font-semibold text-gray-600 dark:text-gray-400  mb-3">Development & Training</p>
                 <div className="space-y-3">
                   {[
@@ -589,7 +589,7 @@ export default function TenantSettingsPage() {
               </div>
 
               {/* Culture */}
-              <div className="border-t border-gray-200 dark:border-gray-800 pt-5">
+              <div className="border-t border-gray-200 dark:border-[#1A6080]/20 pt-5">
                 <p className="text-xs font-semibold text-gray-600 dark:text-gray-400  mb-3">Culture & Recruitment</p>
                 <div className="space-y-3">
                   {[
@@ -607,7 +607,7 @@ export default function TenantSettingsPage() {
               </div>
 
               {/* Slack */}
-              <div className="border-t border-gray-200 dark:border-gray-800 pt-5">
+              <div className="border-t border-gray-200 dark:border-[#1A6080]/20 pt-5">
                 <p className="text-xs font-semibold text-gray-600 dark:text-gray-400  mb-3">Slack Integration</p>
                 <label className={LABEL}>Incoming Webhook URL</label>
                 <input value={notif.slackWebhook ?? ''} placeholder="https://hooks.slack.com/services/..."
@@ -690,7 +690,7 @@ export default function TenantSettingsPage() {
                       </div>
 
                       {lt.isActive && (
-                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1 border-t border-gray-200 dark:border-gray-800">
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1 border-t border-gray-200 dark:border-[#1A6080]/20">
                           <div>
                             <label className={LABEL}>Full-Time (days/yr)</label>
                             <input
@@ -793,12 +793,12 @@ export default function TenantSettingsPage() {
                       {xeroStatus.tokenExpired ? 'Token expired' : '● Connected'}
                     </span>
                   ) : (
-                    <span className="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400">Not connected</span>
+                    <span className="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400">Not connected</span>
                   )}
                 </div>
 
                 {xeroStatus?.connected && (
-                  <div className="bg-gray-100 dark:bg-gray-800/60 border border-gray-300 dark:border-gray-700 rounded-lg p-3 text-sm space-y-1">
+                  <div className="bg-gray-100 dark:bg-gray-800/60 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg p-3 text-sm space-y-1">
                     <div className="flex justify-between">
                       <span className="text-gray-600 dark:text-gray-400">Organisation</span>
                       <span className="text-foreground font-medium">{xeroStatus.orgName}</span>
@@ -816,7 +816,7 @@ export default function TenantSettingsPage() {
                   </div>
                 )}
 
-                <div className="border-t border-gray-200 dark:border-gray-800 pt-4">
+                <div className="border-t border-gray-200 dark:border-[#1A6080]/20 pt-4">
                   <p className="text-xs text-gray-500 mb-3 dark:text-gray-400">
                     When you export a pay run to Xero, a Manual Journal is created with these account codes:
                     <br />
@@ -874,12 +874,12 @@ export default function TenantSettingsPage() {
                       {myobStatus.tokenExpired ? 'Token expired' : '● Connected'}
                     </span>
                   ) : (
-                    <span className="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400">Not connected</span>
+                    <span className="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400">Not connected</span>
                   )}
                 </div>
 
                 {myobStatus?.connected && (
-                  <div className="bg-gray-100 dark:bg-gray-800/60 border border-gray-300 dark:border-gray-700 rounded-lg p-3 text-sm space-y-1">
+                  <div className="bg-gray-100 dark:bg-gray-800/60 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg p-3 text-sm space-y-1">
                     <div className="flex justify-between">
                       <span className="text-gray-600 dark:text-gray-400">Company File</span>
                       <span className="text-foreground font-medium">{myobStatus.companyFileName}</span>
@@ -893,7 +893,7 @@ export default function TenantSettingsPage() {
                   </div>
                 )}
 
-                <div className="border-t border-gray-200 dark:border-gray-800 pt-4">
+                <div className="border-t border-gray-200 dark:border-[#1A6080]/20 pt-4">
                   <p className="text-xs text-gray-500 mb-3 dark:text-gray-400">
                     When you export a pay run to MYOB, a General Journal Transaction is created with these account codes:
                     <br />

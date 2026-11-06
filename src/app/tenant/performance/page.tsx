@@ -417,7 +417,7 @@ export default function PerformancePage() {
                   <input type="number" min="1" max="5" step="0.1" value={editing.rating}
                     onChange={e => setEditing({ ...editing, rating: e.target.value })}
                     placeholder="Leave blank to auto-average KPIs"
-                    className="w-32 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
+                    className="w-32 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
                 </div>
                 <div>
                   <label className="text-xs text-gray-600 dark:text-gray-400 mb-2 block">Outcome</label>
@@ -443,7 +443,7 @@ export default function PerformancePage() {
                     {saving ? 'Saving…' : 'Mark Complete'}
                   </button>
                   <button onClick={() => setEditing(null)}
-                    className="px-5 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:text-white text-sm rounded-lg transition">
+                    className="px-5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:text-white text-sm rounded-lg transition">
                     Cancel
                   </button>
                 </div>
@@ -477,7 +477,7 @@ export default function PerformancePage() {
                     {selfSaving ? 'Saving…' : 'Save Self-Assessment'}
                   </button>
                   <button onClick={() => setSelfAssessModal(null)}
-                    className="px-5 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:text-white text-sm rounded-lg transition">
+                    className="px-5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:text-white text-sm rounded-lg transition">
                     Cancel
                   </button>
                 </div>
@@ -529,7 +529,7 @@ export default function PerformancePage() {
                     const hasSelfAssess = ei && (ei.strengths || ei.improvements || ei.goals || ei.comments)
                     return (
                       <>
-                        <tr key={r.id} className="border-b border-gray-200 dark:border-gray-800/50 last:border-0 hover:bg-gray-50 dark:hover:bg-gray-800/20 transition">
+                        <tr key={r.id} className="border-b border-gray-200 dark:border-[#1A6080]/20/50 last:border-0 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/20 transition">
                           <td className="px-4 py-3.5">
                             <p className="text-foreground font-medium">{r.employeeFirstName} {r.employeeLastName}</p>
                             <p className="text-gray-500 text-xs dark:text-gray-400">{r.employeeEmail}</p>
@@ -587,7 +587,7 @@ export default function PerformancePage() {
 
                         {/* Expanded detail row */}
                         {expanded === r.id && (
-                          <tr key={`${r.id}-detail`} className="border-b border-gray-200 dark:border-gray-800/50">
+                          <tr key={`${r.id}-detail`} className="border-b border-gray-200 dark:border-[#1A6080]/20/50">
                             <td colSpan={7} className="px-4 pb-4 pt-0">
                               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
                                 {/* KPI breakdown */}
@@ -757,7 +757,7 @@ export default function PerformancePage() {
                     {goalSaving ? 'Saving…' : 'Save Changes'}
                   </button>
                   <button onClick={() => setEditingGoal(null)}
-                    className="px-5 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:text-white text-sm rounded-lg transition">
+                    className="px-5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:text-white text-sm rounded-lg transition">
                     Cancel
                   </button>
                 </div>

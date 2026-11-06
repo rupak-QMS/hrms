@@ -41,7 +41,7 @@ const STATUS_STYLE: Record<string, { badge: string; border: string; label: strin
   active:         { badge: 'badge badge-green',  border: 'border-green-800/60 dark:border-green-800',   label: 'Active' },
   pending_review: { badge: 'badge badge-amber',  border: 'border-amber-800/60 dark:border-amber-800',   label: 'Pending Review' },
   expired:        { badge: 'badge badge-red',    border: 'border-red-800/60 dark:border-red-800',       label: 'Expired' },
-  archived:       { badge: 'badge badge-gray',   border: 'border-gray-300 dark:border-gray-700',        label: 'Archived' },
+  archived:       { badge: 'badge badge-gray',   border: 'border-gray-300 dark:border-[#1A6080]/30',        label: 'Archived' },
 }
 
 const MIME_ICON: Record<string, string> = {
@@ -276,7 +276,7 @@ export default function MyDocumentsPage() {
               {saving ? 'Uploading…' : 'Submit for Review'}
             </button>
             <button type="button" onClick={() => setShowForm(false)}
-              className="px-5 py-2 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:text-white text-sm rounded-lg">
+              className="px-5 py-2 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-white text-sm rounded-lg">
               Cancel
             </button>
           </div>

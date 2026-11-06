@@ -460,8 +460,8 @@ export default function IncidentBehaviourPage() {
     <div className="flex h-full bg-gray-50 dark:bg-gray-900">
 
       {/* ── Left Panel: Participant List ──────────────────────────────────── */}
-      <div className="w-72 flex-shrink-0 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 flex flex-col">
-        <div className="p-4 border-b border-gray-200 dark:border-gray-700">
+      <div className="w-72 flex-shrink-0 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-[#1A6080]/30 flex flex-col">
+        <div className="p-4 border-b border-gray-200 dark:border-[#1A6080]/30">
           <h2 className="text-base font-semibold text-gray-900 dark:text-white mb-3">
             🚨 Incidents &amp; Behaviour
           </h2>
@@ -480,7 +480,7 @@ export default function IncidentBehaviourPage() {
             <button
               key={p.id}
               onClick={() => handleSelect(p.id)}
-              className={`w-full text-left px-4 py-3 border-b border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors ${selectedId === p.id ? 'bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border-l-2 border-l-[#0E3D52]' : ''}`}
+              className={`w-full text-left px-4 py-3 border-b border-gray-100 dark:border-[#1A6080]/30 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40/50 transition-colors ${selectedId === p.id ? 'bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border-l-2 border-l-[#0E3D52]' : ''}`}
             >
               <p className="text-sm font-medium text-gray-900 dark:text-white">
                 {p.preferredName || p.firstName} {p.lastName}
@@ -506,7 +506,7 @@ export default function IncidentBehaviourPage() {
         ) : (
           <>
             {/* Header */}
-            <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-6 py-4">
+            <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-[#1A6080]/30 px-6 py-4">
               <div className="flex items-center justify-between">
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
@@ -562,7 +562,7 @@ export default function IncidentBehaviourPage() {
                     className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
                       activeTab === tab.key
                         ? 'bg-[#0E3D52] text-white'
-                        : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                        : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/40'
                     }`}
                   >
                     {tab.label}
@@ -669,7 +669,7 @@ export default function IncidentBehaviourPage() {
                               <p className="text-sm text-gray-800 dark:text-gray-200">{x.value}</p>
                             </div>
                           ))}
-                          <div className="flex flex-wrap gap-4 text-xs text-gray-500 dark:text-gray-400 mt-3 pt-3 border-t border-gray-100 dark:border-gray-700">
+                          <div className="flex flex-wrap gap-4 text-xs text-gray-500 dark:text-gray-400 mt-3 pt-3 border-t border-gray-100 dark:border-[#1A6080]/30">
                             {plan.authorisedBy && <span>Authorised by: {plan.authorisedBy}</span>}
                             {plan.reviewDate && <span>Review: {plan.reviewDate}</span>}
                           </div>
@@ -715,7 +715,7 @@ export default function IncidentBehaviourPage() {
                             {rp.nextReviewDate  && <span>Next review: {rp.nextReviewDate}</span>}
                           </div>
                           {rp.notes && (
-                            <div className="mt-3 pt-3 border-t border-gray-100 dark:border-gray-700">
+                            <div className="mt-3 pt-3 border-t border-gray-100 dark:border-[#1A6080]/30">
                               <p className="text-xs text-gray-500 dark:text-gray-400">{rp.notes}</p>
                             </div>
                           )}
@@ -736,7 +736,7 @@ export default function IncidentBehaviourPage() {
       {showIncidentModal && (
         <div className="modal-overlay">
           <div className="bg-white dark:bg-[#0F1E2E] rounded-xl shadow-xl w-full max-w-2xl max-h-[90vh] flex flex-col">
-            <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
+            <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-[#1A6080]/30">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{editIncidentId ? 'Edit Incident' : 'Log Incident'}</h3>
               <button onClick={() => setShowIncidentModal(false)} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 text-xl">✕</button>
             </div>
@@ -852,8 +852,8 @@ export default function IncidentBehaviourPage() {
                 <textarea rows={2} placeholder="Outcome or resolution notes" className={inputCls} value={incidentForm.outcome} onChange={e => setIncidentForm(f => ({ ...f, outcome: e.target.value }))} />
               </div>
             </div>
-            <div className="flex justify-end gap-3 p-6 border-t border-gray-200 dark:border-gray-700">
-              <button onClick={() => { setShowIncidentModal(false); setEditIncidentId(null) }} className="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Cancel</button>
+            <div className="flex justify-end gap-3 p-6 border-t border-gray-200 dark:border-[#1A6080]/30">
+              <button onClick={() => { setShowIncidentModal(false); setEditIncidentId(null) }} className="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/40 rounded-lg">Cancel</button>
               <button onClick={submitIncident} disabled={saving || !incidentForm.incidentDate || !incidentForm.description}
                 className="px-4 py-2 text-sm bg-red-600 text-white rounded-lg hover:bg-red-700 disabled:opacity-50">
                 {saving ? 'Saving…' : editIncidentId ? 'Update Incident' : 'Log Incident'}
@@ -869,7 +869,7 @@ export default function IncidentBehaviourPage() {
       {showBehaviourModal && (
         <div className="modal-overlay">
           <div className="bg-white dark:bg-[#0F1E2E] rounded-xl shadow-xl w-full max-w-2xl max-h-[90vh] flex flex-col">
-            <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
+            <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-[#1A6080]/30">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{editBehaviourId ? 'Edit Behaviour Support Plan' : 'Add Behaviour Support Plan'}</h3>
               <button onClick={() => setShowBehaviourModal(false)} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 text-xl">✕</button>
             </div>
@@ -931,8 +931,8 @@ export default function IncidentBehaviourPage() {
                 <textarea rows={2} className={inputCls} value={behaviourForm.notes} onChange={e => setBehaviourForm(f => ({ ...f, notes: e.target.value }))} />
               </div>
             </div>
-            <div className="flex justify-end gap-3 p-6 border-t border-gray-200 dark:border-gray-700">
-              <button onClick={() => { setShowBehaviourModal(false); setEditBehaviourId(null) }} className="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Cancel</button>
+            <div className="flex justify-end gap-3 p-6 border-t border-gray-200 dark:border-[#1A6080]/30">
+              <button onClick={() => { setShowBehaviourModal(false); setEditBehaviourId(null) }} className="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/40 rounded-lg">Cancel</button>
               <button onClick={submitBehaviourPlan} disabled={saving || !behaviourForm.planName}
                 className="px-4 py-2 text-sm bg-[#0E3D52] text-white rounded-lg hover:bg-[#1A6080] disabled:opacity-50">
                 {saving ? 'Saving…' : editBehaviourId ? 'Update Plan' : 'Save Plan'}
@@ -948,7 +948,7 @@ export default function IncidentBehaviourPage() {
       {showRestrictiveModal && (
         <div className="modal-overlay">
           <div className="bg-white dark:bg-[#0F1E2E] rounded-xl shadow-xl w-full max-w-2xl max-h-[90vh] flex flex-col">
-            <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
+            <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-[#1A6080]/30">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{editRestrictiveId ? 'Edit Restrictive Practice' : 'Add Restrictive Practice'}</h3>
               <button onClick={() => setShowRestrictiveModal(false)} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 text-xl">✕</button>
             </div>
@@ -1023,8 +1023,8 @@ export default function IncidentBehaviourPage() {
                 <textarea rows={2} className={inputCls} value={restrictiveForm.notes} onChange={e => setRestrictiveForm(f => ({ ...f, notes: e.target.value }))} />
               </div>
             </div>
-            <div className="flex justify-end gap-3 p-6 border-t border-gray-200 dark:border-gray-700">
-              <button onClick={() => { setShowRestrictiveModal(false); setEditRestrictiveId(null) }} className="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Cancel</button>
+            <div className="flex justify-end gap-3 p-6 border-t border-gray-200 dark:border-[#1A6080]/30">
+              <button onClick={() => { setShowRestrictiveModal(false); setEditRestrictiveId(null) }} className="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/40 rounded-lg">Cancel</button>
               <button onClick={submitRestrictive} disabled={saving || !restrictiveForm.practiceType || !restrictiveForm.description}
                 className="px-4 py-2 text-sm bg-orange-600 text-white rounded-lg hover:bg-orange-700 disabled:opacity-50">
                 {saving ? 'Saving…' : editRestrictiveId ? 'Update Practice' : 'Save Practice'}

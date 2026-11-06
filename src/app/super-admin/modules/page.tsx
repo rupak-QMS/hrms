@@ -75,22 +75,22 @@ export default function ModulesPage() {
 
       {/* Summary cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-4">
+        <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-4">
           <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">Total Modules</p>
           <p className="text-2xl font-bold text-gray-900 dark:text-white">28</p>
         </div>
-        <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-4">
+        <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-4">
           <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">Active Toggles</p>
           <p className="text-2xl font-bold text-green-600 dark:text-green-400">{totalEnabled}</p>
           <p className="text-xs text-gray-500 mt-0.5 dark:text-gray-400">of {maxPossible} possible</p>
         </div>
-        <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-4">
+        <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-4">
           <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">Avg Modules/Client</p>
           <p className="text-2xl font-bold text-[#0E3D52] dark:text-[#4ebac4]">
             {tenantCount ? Math.round(totalEnabled / tenantCount) : 0}
           </p>
         </div>
-        <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-4">
+        <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-4">
           <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">Platform Adoption</p>
           <p className="text-2xl font-bold text-[#1A6080] dark:text-[#4ebac4]">
             {maxPossible ? Math.round((totalEnabled / maxPossible) * 100) : 0}%
@@ -107,7 +107,7 @@ export default function ModulesPage() {
             className={`text-xs px-3 py-1.5 rounded-full border transition ${
               categoryFilter === cat
                 ? 'bg-[#1A6080] border-[#0E3D52] text-white'
-                : 'border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:text-white hover:border-gray-500'
+                : 'border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:text-white hover:border-gray-500'
             }`}
           >
             {cat}
@@ -116,10 +116,10 @@ export default function ModulesPage() {
       </div>
 
       {/* Module list */}
-      <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl overflow-hidden">
+      <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl overflow-hidden">
         <table className="w-full text-sm">
           <thead>
-            <tr className="border-b border-gray-200 dark:border-gray-800">
+            <tr className="border-b border-gray-200 dark:border-[#1A6080]/20">
               <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400  w-8">#</th>
               <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 ">Module</th>
               <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 ">Category</th>
@@ -141,7 +141,7 @@ export default function ModulesPage() {
               <>
                 <tr
                   key={mod.id}
-                  className="border-b border-gray-200 dark:border-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800/20 cursor-pointer transition"
+                  className="border-b border-gray-200 dark:border-[#1A6080]/20/50 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30/20 cursor-pointer transition"
                   onClick={() => setExpanded(expanded === mod.id ? null : mod.id)}
                 >
                   <td className="px-4 py-3 text-gray-600 text-xs dark:text-gray-400">{mod.id}</td>
@@ -172,7 +172,7 @@ export default function ModulesPage() {
                   </td>
                 </tr>
                 {expanded === mod.id && mod.enabledFor.length > 0 && (
-                  <tr key={`${mod.id}-clients`} className="bg-gray-100 dark:bg-gray-800/20 border-b border-gray-200 dark:border-gray-800/50">
+                  <tr key={`${mod.id}-clients`} className="bg-gray-100 dark:bg-gray-800/20 border-b border-gray-200 dark:border-[#1A6080]/20/50">
                     <td colSpan={5} className="px-6 py-2">
                       <p className="text-xs text-gray-500 mb-1 dark:text-gray-400">Enabled for:</p>
                       <div className="flex flex-wrap gap-1.5">

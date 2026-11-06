@@ -72,7 +72,7 @@ function Input(props: React.InputHTMLAttributes<HTMLInputElement>) {
   return (
     <input
       {...props}
-      className={`w-full px-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-gray-700
+      className={`w-full px-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-[#1A6080]/30
         bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100
         focus:outline-none focus:ring-2 focus:ring-[#0E3D52]/20 ${props.className ?? ''}`}
     />
@@ -85,7 +85,7 @@ function Select({
   return (
     <select
       {...props}
-      className="w-full px-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-gray-700
+      className="w-full px-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-[#1A6080]/30
         bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100
         focus:outline-none focus:ring-2 focus:ring-[#0E3D52]/20"
     >
@@ -261,8 +261,8 @@ export default function EssOnboardingPage() {
           onClick={() => setStep(s => Math.max(1, s - 1))}
           disabled={step === 1}
           className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300
-            border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50
-            dark:hover:bg-gray-800 disabled:opacity-40 disabled:cursor-not-allowed transition"
+            border border-gray-200 dark:border-[#1A6080]/30 rounded-lg hover:bg-gray-50
+            dark:hover:bg-[#0E3D52]/30 disabled:opacity-40 disabled:cursor-not-allowed transition"
         >
           ← Back
         </button>
@@ -277,8 +277,8 @@ export default function EssOnboardingPage() {
             onClick={() => save()}
             disabled={saving}
             className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300
-              border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50
-              dark:hover:bg-gray-800 disabled:opacity-60 transition"
+              border border-gray-200 dark:border-[#1A6080]/30 rounded-lg hover:bg-gray-50
+              dark:hover:bg-[#0E3D52]/30 disabled:opacity-60 transition"
           >
             {saving ? 'Saving…' : 'Save'}
           </button>
@@ -357,7 +357,7 @@ function Step1Personal({ data, set }: { data: OnboardingData; set: (p: Partial<O
               placeholder="Street, Suburb, State, Postcode"
               value={data.address ?? ''}
               onChange={e => set({ address: e.target.value })}
-              className="w-full px-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-gray-700
+              className="w-full px-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-[#1A6080]/30
                 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100
                 focus:outline-none focus:ring-2 focus:ring-[#0E3D52]/20 resize-none"
             />

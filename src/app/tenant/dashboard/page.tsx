@@ -697,7 +697,7 @@ export default function DashboardPage() {
                     <MiniBar items={data.headcount.byEntity.map((e, i) => ({
                       label: e.name, value: e.count, color: ENTITY_COLORS[i % ENTITY_COLORS.length],
                     }))} />
-                    <div className="flex flex-wrap gap-3 pt-2 border-t border-gray-200 dark:border-gray-800">
+                    <div className="flex flex-wrap gap-3 pt-2 border-t border-gray-200 dark:border-[#1A6080]/20">
                       {data.headcount.byEntity.map((e, i) => (
                         <div key={e.name} className="flex items-center gap-1.5 text-xs text-gray-600 dark:text-gray-400">
                           <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ background: ENTITY_COLORS[i % ENTITY_COLORS.length] }} />
@@ -894,7 +894,7 @@ export default function DashboardPage() {
             {probation.map(emp => {
               const days = daysUntilProbationEnd(emp.probationEndDate)
               return (
-                <div key={emp.id} className="flex items-center gap-3 py-2 border-b border-gray-100 dark:border-gray-800 last:border-0">
+                <div key={emp.id} className="flex items-center gap-3 py-2 border-b border-gray-100 dark:border-[#1A6080]/20 last:border-0">
                   <div className="flex-1 min-w-0">
                     <Link href={`/tenant/employee-management/${emp.id}`} className="text-sm font-medium text-gray-900 dark:text-white hover:text-[#0E3D52] dark:text-[#4ebac4] dark:hover:text-[#4ebac4] truncate block">
                       {emp.firstName} {emp.lastName}

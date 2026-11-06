@@ -312,7 +312,7 @@ export default function AssetsPage() {
               </div>
               <div className="flex justify-end gap-3 pt-1">
                 <button type="button" onClick={() => setEditAsset(null)}
-                  className="px-4 py-2 text-sm rounded-lg border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+                  className="px-4 py-2 text-sm rounded-lg border border-gray-300 dark:border-[#1A6080]/40 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
                   Cancel
                 </button>
                 <button type="submit" disabled={saving}
@@ -363,7 +363,7 @@ export default function AssetsPage() {
       </div>
 
       {/* Tabs */}
-      <div className="flex border-b border-gray-200 dark:border-gray-800">
+      <div className="flex border-b border-gray-200 dark:border-[#1A6080]/20">
         {(['assets','assignments'] as const).map(t => (
           <button key={t} onClick={() => setTab(t)}
             className={`px-4 py-2.5 text-sm font-medium border-b-2 transition capitalize ${tab === t ? 'border-[#0E3D52] text-[#1A6080] dark:text-[#4ebac4]' : 'border-transparent text-gray-500 hover:text-gray-300'}`}>
@@ -446,13 +446,13 @@ export default function AssetsPage() {
               <div className="table-responsive">
                 <table className="table-premium">
                   <thead>
-                    <tr className="border-b border-gray-200 dark:border-gray-800">
+                    <tr className="border-b border-gray-200 dark:border-[#1A6080]/20">
                       {['Asset','Category','Serial','Assigned To','Status',''].map(h => (
                         <th key={h} className="px-4 py-3 text-left section-label">{h}</th>
                       ))}
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-gray-200 dark:divide-gray-800/60">
+                  <tbody className="divide-y divide-gray-200 dark:divide-[#1A6080]/20/60">
                     {filteredAssets.length === 0 ? (
                       <EmptyState
                         as="table"
@@ -463,13 +463,13 @@ export default function AssetsPage() {
                         action={!search && !filterStatus && !filterCategory ? { label: '+ Add Asset', onClick: () => setShowAssetForm(true) } : undefined}
                       />
                     ) : filteredAssets.map(a => (
-                      <tr key={a.id} className="hover:bg-gray-50 dark:hover:bg-gray-800/30">
+                      <tr key={a.id} className="hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/30">
                         <td className="px-4 py-3 text-gray-700 dark:text-gray-200 font-medium">{a.name}</td>
                         <td className="px-4 py-3 text-gray-600 dark:text-gray-400 text-xs">{a.category}</td>
                         <td className="px-4 py-3 text-gray-500 text-xs font-mono dark:text-gray-400">{a.serialNumber ?? '—'}</td>
                         <td className="px-4 py-3 text-gray-600 dark:text-gray-400 text-xs">{assignedEmployee(a.id) ?? '—'}</td>
                         <td className="px-4 py-3">
-                          <span className={`text-xs px-2 py-0.5 rounded-full border font-medium ${STATUS_BADGE[a.status] ?? 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 border-gray-300 dark:border-gray-700'}`}>
+                          <span className={`text-xs px-2 py-0.5 rounded-full border font-medium ${STATUS_BADGE[a.status] ?? 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 border-gray-300 dark:border-[#1A6080]/30'}`}>
                             {a.status}
                           </span>
                         </td>
@@ -482,12 +482,12 @@ export default function AssetsPage() {
                               </button>
                             )}
                             <button onClick={() => openEdit(a)}
-                              className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-[#4ebac4] hover:text-[#1A6080] dark:text-[#4ebac4] px-2 py-1 rounded transition">
+                              className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:border-[#4ebac4] hover:text-[#1A6080] dark:text-[#4ebac4] px-2 py-1 rounded transition">
                               Edit
                             </button>
                             {a.status !== 'retired' && (
                               <button onClick={() => retire(a.id)}
-                                className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-500 dark:text-gray-400 hover:border-red-400 hover:text-red-400 px-2 py-1 rounded transition">
+                                className="text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 text-gray-500 dark:text-gray-400 hover:border-red-400 hover:text-red-400 px-2 py-1 rounded transition">
                                 Retire
                               </button>
                             )}

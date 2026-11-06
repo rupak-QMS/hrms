@@ -35,7 +35,7 @@ function ConfirmModal({ state, onConfirm, onCancel }: {
   const isDelete = state.type === 'delete'
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-      <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl p-6 max-w-sm w-full mx-4">
+      <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/30 rounded-xl shadow-xl p-6 max-w-sm w-full mx-4">
         <h3 className="text-base font-semibold text-gray-900 dark:text-white mb-2">
           {isDelete ? 'Delete client?' : 'Login as tenant?'}
         </h3>
@@ -47,7 +47,7 @@ function ConfirmModal({ state, onConfirm, onCancel }: {
         <div className="flex gap-3 justify-end">
           <button
             onClick={onCancel}
-            className="px-4 py-2 text-sm rounded-lg border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+            className="px-4 py-2 text-sm rounded-lg border border-gray-300 dark:border-[#1A6080]/40 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 transition"
           >
             Cancel
           </button>
@@ -161,13 +161,13 @@ export default function ClientsUI({ initialClients, dbError }: { initialClients:
         placeholder="Search clients by name or slug…"
         value={search}
         onChange={e => setSearch(e.target.value)}
-        className="w-full max-w-sm bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
+        className="w-full max-w-sm bg-white dark:bg-gray-900 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-4 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
       />
 
-      <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl overflow-hidden">
+      <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl overflow-hidden">
         <table className="w-full text-sm">
           <thead>
-            <tr className="border-b border-gray-200 dark:border-gray-800 text-left">
+            <tr className="border-b border-gray-200 dark:border-[#1A6080]/20 text-left">
               {['Client', 'Slug / URL', 'Tier', 'Status', 'Theme', 'Actions'].map(h => (
                 <th key={h} className="px-5 py-3 text-xs font-semibold  text-gray-500 dark:text-gray-400">{h}</th>
               ))}
@@ -185,7 +185,7 @@ export default function ClientsUI({ initialClients, dbError }: { initialClients:
             ) : filtered.map((c, i) => (
               <tr
                 key={c.id}
-                className={`border-b border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition ${i % 2 !== 0 ? 'bg-white dark:bg-gray-900/50' : ''}`}
+                className={`border-b border-gray-200 dark:border-[#1A6080]/20 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/50 transition ${i % 2 !== 0 ? 'bg-white dark:bg-gray-900/50' : ''}`}
               >
                 <td className="px-5 py-3.5">
                   <div className="flex items-center gap-3">
@@ -233,7 +233,7 @@ export default function ClientsUI({ initialClients, dbError }: { initialClients:
                 <td className="px-5 py-3.5">
                   <div className="flex items-center gap-2">
                     <div
-                      className="w-5 h-5 rounded-full border border-gray-300 dark:border-gray-600"
+                      className="w-5 h-5 rounded-full border border-gray-300 dark:border-[#1A6080]/40"
                       style={{ backgroundColor: c.primaryColor || '#6d28d9' }}
                       title={c.primaryColor}
                     />

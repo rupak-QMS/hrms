@@ -268,7 +268,7 @@ export default function BenefitsPage() {
               {saving ? 'Saving…' : editingId ? 'Save Changes' : 'Assign Benefit'}
             </button>
             <button type="button" onClick={cancelForm}
-              className="px-4 py-2 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:text-white text-sm rounded-lg transition">
+              className="px-4 py-2 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-white text-sm rounded-lg transition">
               Cancel
             </button>
           </div>
@@ -341,7 +341,7 @@ export default function BenefitsPage() {
                 const status = getStatus(b)
                 const info   = typeInfo(b.type)
                 return (
-                  <tr key={b.id} className="border-b border-gray-100 dark:border-gray-800/50 last:border-0 hover:bg-gray-50 dark:hover:bg-gray-800/20 transition">
+                  <tr key={b.id} className="border-b border-gray-100 dark:border-[#1A6080]/20/50 last:border-0 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/20 transition">
                     <td className="px-4 py-3.5">
                       <p className="text-foreground font-medium">{b.employeeFirstName} {b.employeeLastName}</p>
                     </td>
@@ -387,13 +387,13 @@ export default function BenefitsPage() {
         <div className="space-y-4">
           {grouped.map(group => (
             <div key={group.value} className="card-premium overflow-hidden">
-              <div className="flex items-center gap-3 px-5 py-3.5 border-b border-gray-100 dark:border-gray-800"
+              <div className="flex items-center gap-3 px-5 py-3.5 border-b border-gray-100 dark:border-[#1A6080]/20"
                 style={{ borderLeft: `4px solid ${group.color}` }}>
                 <span className="text-xl">{group.emoji}</span>
                 <p className="text-sm font-semibold text-foreground">{group.label}</p>
                 <span className="ml-auto text-xs text-gray-500 dark:text-gray-400">{group.items.length} assigned</span>
               </div>
-              <div className="divide-y divide-gray-100 dark:divide-gray-800/50">
+              <div className="divide-y divide-gray-100 dark:divide-[#1A6080]/20/50">
                 {group.items.map(b => {
                   const status = getStatus(b)
                   return (

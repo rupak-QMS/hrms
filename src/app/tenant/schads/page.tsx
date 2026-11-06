@@ -220,7 +220,7 @@ export default function SCHADSCalculatorPage() {
               <select
                 value={classificationLevel}
                 onChange={e => setClassificationLevel(e.target.value)}
-                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm">
+                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm">
                 {CLASSIFICATION_GROUPS.map(group => (
                   <optgroup key={group.label} label={group.label}>
                     {group.options.map(opt => (
@@ -254,7 +254,7 @@ export default function SCHADSCalculatorPage() {
               )}
             </div>
 
-            <div className="pt-1 border-t border-gray-100 dark:border-gray-800">
+            <div className="pt-1 border-t border-gray-100 dark:border-[#1A6080]/20">
               <div className="flex items-center justify-between">
                 <span className="text-sm text-gray-600 dark:text-gray-400">Base Rate</span>
                 <span className="page-premium-title">${effectiveBaseRate.toFixed(2)}<span className="text-sm font-normal text-gray-500">/hr</span></span>
@@ -285,7 +285,7 @@ export default function SCHADSCalculatorPage() {
                         value={hours[pt.key] ?? ''}
                         onChange={e => setHour(pt.key, e.target.value)}
                         placeholder={pt.key === 'sleepover' ? '# nights' : '# hours'}
-                        className="w-full px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm text-right"
+                        className="w-full px-3 py-1.5 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm text-right"
                       />
                     </div>
                     <div className="col-span-2 text-right text-sm font-medium text-gray-900 dark:text-white">
@@ -319,7 +319,7 @@ export default function SCHADSCalculatorPage() {
                         value={allowances[al.key] ?? ''}
                         onChange={e => setAllow(al.key, e.target.value)}
                         placeholder={`# ${al.per}s`}
-                        className="w-full px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm text-right"
+                        className="w-full px-3 py-1.5 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm text-right"
                       />
                     </div>
                     <div className="col-span-2 text-right text-sm font-medium text-gray-900 dark:text-white">
@@ -350,7 +350,7 @@ export default function SCHADSCalculatorPage() {
                   ))}
                 </div>
 
-                <div className="border-t border-gray-100 dark:border-gray-800 pt-3 space-y-2">
+                <div className="border-t border-gray-100 dark:border-[#1A6080]/20 pt-3 space-y-2">
                   <div className="flex justify-between">
                     <span className="text-sm text-gray-600 dark:text-gray-400">Gross Earnings</span>
                     <span className="text-sm font-semibold text-gray-900 dark:text-white">${grossTotal.toFixed(2)}</span>
@@ -359,7 +359,7 @@ export default function SCHADSCalculatorPage() {
                     <span className="text-sm text-gray-600 dark:text-gray-400">Super ({(SUPER_RATE * 100).toFixed(1)}%)</span>
                     <span className="text-sm text-gray-900 dark:text-white">${superAmount.toFixed(2)}</span>
                   </div>
-                  <div className="flex justify-between pt-2 border-t border-gray-100 dark:border-gray-800">
+                  <div className="flex justify-between pt-2 border-t border-gray-100 dark:border-[#1A6080]/20">
                     <span className="text-sm font-bold text-gray-900 dark:text-white">Total Package</span>
                     <span className="text-lg font-bold text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4]">${totalPackage.toFixed(2)}</span>
                   </div>
@@ -367,7 +367,7 @@ export default function SCHADSCalculatorPage() {
 
                 <div className="pt-2 space-y-2">
                   <button onClick={copyResult}
-                    className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+                    className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
                     📋 Copy Result
                   </button>
                   <button onClick={reset}
@@ -379,7 +379,7 @@ export default function SCHADSCalculatorPage() {
             )}
 
             {/* Classification summary */}
-            <div className="pt-3 border-t border-gray-100 dark:border-gray-800">
+            <div className="pt-3 border-t border-gray-100 dark:border-[#1A6080]/20">
               <p className="text-xs font-semibold text-gray-500 dark:text-gray-400  mb-2">Rate Reference</p>
               <div className="space-y-1">
                 <div className="flex justify-between text-xs">
@@ -411,13 +411,13 @@ export default function SCHADSCalculatorPage() {
             <h2 className="font-semibold text-gray-900 dark:text-white mb-3">All Penalty Rates</h2>
             <table className="table-premium">
               <thead>
-                <tr className="text-gray-500 dark:text-gray-400 border-b border-gray-100 dark:border-gray-800">
+                <tr className="text-gray-500 dark:text-gray-400 border-b border-gray-100 dark:border-[#1A6080]/20">
                   <th className="text-left pb-2">Period</th>
                   <th className="text-right pb-2">%</th>
                   <th className="text-right pb-2">Rate</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-50 dark:divide-gray-800">
+              <tbody className="divide-y divide-gray-50 dark:divide-[#1A6080]/20">
                 {PENALTY_TYPES.map(pt => (
                   <tr key={pt.key}>
                     <td className="py-1.5 text-gray-700 dark:text-gray-300">{pt.label}</td>

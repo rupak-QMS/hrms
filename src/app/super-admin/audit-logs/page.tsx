@@ -119,19 +119,19 @@ export default function AuditLogsPage() {
       </div>
 
       {/* Filters */}
-      <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-4">
+      <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           <input
             type="text"
             placeholder="Search action / resource…"
             value={search}
             onChange={e => setSearch(e.target.value)}
-            className="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
+            className="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
           />
           <select
             value={tenantId}
             onChange={e => setTenantId(e.target.value)}
-            className="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
+            className="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
           >
             <option value="">All Tenants</option>
             {tenants.map(t => (
@@ -142,13 +142,13 @@ export default function AuditLogsPage() {
             type="date"
             value={from}
             onChange={e => setFrom(e.target.value)}
-            className="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
+            className="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
           />
           <input
             type="date"
             value={to}
             onChange={e => setTo(e.target.value)}
-            className="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
+            className="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]"
           />
         </div>
         <div className="flex gap-2 mt-3">
@@ -160,7 +160,7 @@ export default function AuditLogsPage() {
           </button>
           <button
             onClick={() => { setSearch(''); setTenantId(''); setFrom(''); setTo('') }}
-            className="border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white text-sm px-4 py-1.5 rounded-lg transition"
+            className="border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white text-sm px-4 py-1.5 rounded-lg transition"
           >
             Clear
           </button>
@@ -168,11 +168,11 @@ export default function AuditLogsPage() {
       </div>
 
       {/* Table */}
-      <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl overflow-hidden">
+      <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-gray-200 dark:border-gray-800">
+              <tr className="border-b border-gray-200 dark:border-[#1A6080]/20">
                 <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 ">Date / Time</th>
                 <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 ">Tenant</th>
                 <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 ">Action</th>
@@ -197,7 +197,7 @@ export default function AuditLogsPage() {
                 <>
                   <tr
                     key={log.id}
-                    className="border-b border-gray-200 dark:border-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800/30 transition cursor-pointer"
+                    className="border-b border-gray-200 dark:border-[#1A6080]/20/50 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30/30 transition cursor-pointer"
                     onClick={() => setExpanded(expanded === log.id ? null : log.id)}
                   >
                     <td className="px-4 py-3 text-gray-600 dark:text-gray-300 whitespace-nowrap text-xs">{formatDate(log.createdAt)}</td>
@@ -216,7 +216,7 @@ export default function AuditLogsPage() {
                     </td>
                   </tr>
                   {expanded === log.id && (log.oldValues || log.newValues) && (
-                    <tr key={`${log.id}-detail`} className="bg-gray-100 dark:bg-gray-800/20 border-b border-gray-200 dark:border-gray-800/50">
+                    <tr key={`${log.id}-detail`} className="bg-gray-100 dark:bg-gray-800/20 border-b border-gray-200 dark:border-[#1A6080]/20/50">
                       <td colSpan={6} className="px-6 py-3">
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono">
                           {log.oldValues && (
@@ -246,20 +246,20 @@ export default function AuditLogsPage() {
         </div>
 
         {/* Pagination */}
-        <div className="flex items-center justify-between px-4 py-3 border-t border-gray-200 dark:border-gray-800">
+        <div className="flex items-center justify-between px-4 py-3 border-t border-gray-200 dark:border-[#1A6080]/20">
           <span className="text-xs text-gray-500 dark:text-gray-400">Page {page} · 50 rows per page</span>
           <div className="flex gap-2">
             <button
               onClick={() => load(page - 1)}
               disabled={page <= 1 || loading}
-              className="text-xs px-3 py-1.5 rounded border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white disabled:opacity-40 transition"
+              className="text-xs px-3 py-1.5 rounded border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white disabled:opacity-40 transition"
             >
               ← Prev
             </button>
             <button
               onClick={() => load(page + 1)}
               disabled={logs.length < 50 || loading}
-              className="text-xs px-3 py-1.5 rounded border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white disabled:opacity-40 transition"
+              className="text-xs px-3 py-1.5 rounded border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white disabled:opacity-40 transition"
             >
               Next →
             </button>

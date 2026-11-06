@@ -229,14 +229,14 @@ export default function SalaryReviewsPage() {
         </div>
 
         <input
-          className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+          className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
           placeholder="Search employee…"
           value={search}
           onChange={e => setSearch(e.target.value)}
         />
 
         <select
-          className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+          className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
           value={statusFilter}
           onChange={e => setStatusFilter(e.target.value)}
         >
@@ -256,7 +256,7 @@ export default function SalaryReviewsPage() {
               className={`group relative w-full text-left px-3 py-3 rounded-xl transition border cursor-pointer ${
                 selected?.id === review.id
                   ? 'border-[#0E3D52] bg-[#E0EEF4] dark:bg-[#0E3D52]/20'
-                  : 'border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:border-gray-300 dark:hover:border-gray-600'
+                  : 'border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 hover:border-gray-300 dark:hover:border-gray-600'
               }`}
               onClick={() => openReview(review)}
             >
@@ -301,7 +301,7 @@ export default function SalaryReviewsPage() {
           </div>
         ) : (
           <div className="h-full overflow-y-auto">
-            <div className="bg-white dark:bg-[#0F1E2E] rounded-xl border border-gray-200 dark:border-gray-700 p-6 space-y-5">
+            <div className="bg-white dark:bg-[#0F1E2E] rounded-xl border border-gray-200 dark:border-[#1A6080]/30 p-6 space-y-5">
               {/* Header */}
               <div className="flex items-start justify-between">
                 <div>
@@ -392,7 +392,7 @@ export default function SalaryReviewsPage() {
               <div>
                 <p className="text-xs font-semibold text-gray-500  mb-1">HR Notes</p>
                 <textarea
-                  className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-sm text-gray-900 dark:text-white"
+                  className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-900 text-sm text-gray-900 dark:text-white"
                   rows={3}
                   value={hrNotes}
                   onChange={e => setHrNotes(e.target.value)}
@@ -410,7 +410,7 @@ export default function SalaryReviewsPage() {
                 <div>
                   <p className="text-xs font-medium text-gray-500 mb-1">Rejection Reason (if rejecting)</p>
                   <input
-                    className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-sm text-gray-900 dark:text-white"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-900 text-sm text-gray-900 dark:text-white"
                     value={rejectionReason}
                     onChange={e => setRejectionReason(e.target.value)}
                     placeholder="Reason for rejection…"
@@ -448,7 +448,7 @@ export default function SalaryReviewsPage() {
             <div className="space-y-3">
               <div>
                 <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Employee *</label>
-                <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
                   value={form.employeeId} onChange={e => setForm(f => ({ ...f, employeeId: e.target.value }))}>
                   <option value="">Select employee…</option>
                   {employees.map(emp => (
@@ -459,26 +459,26 @@ export default function SalaryReviewsPage() {
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Review Type</label>
-                  <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                  <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
                     value={form.reviewType} onChange={e => setForm(f => ({ ...f, reviewType: e.target.value }))}>
                     {Object.entries(REVIEW_TYPE_LABEL).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
                   </select>
                 </div>
                 <div>
                   <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Review Date *</label>
-                  <input type="date" className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                  <input type="date" className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
                     value={form.reviewDate} onChange={e => setForm(f => ({ ...f, reviewDate: e.target.value }))} />
                 </div>
               </div>
               <div className="grid grid-cols-3 gap-3">
                 <div className="col-span-2">
                   <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Current Salary ($) *</label>
-                  <input type="number" step="0.01" className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                  <input type="number" step="0.01" className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
                     value={form.currentSalary} onChange={e => setForm(f => ({ ...f, currentSalary: e.target.value }))} />
                 </div>
                 <div>
                   <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Basis</label>
-                  <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                  <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
                     value={form.currentBasis} onChange={e => setForm(f => ({ ...f, currentBasis: e.target.value }))}>
                     <option value="annual">Annual</option>
                     <option value="hourly">Hourly</option>
@@ -489,12 +489,12 @@ export default function SalaryReviewsPage() {
               <div className="grid grid-cols-3 gap-3">
                 <div className="col-span-2">
                   <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Proposed Salary ($)</label>
-                  <input type="number" step="0.01" className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                  <input type="number" step="0.01" className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
                     value={form.proposedSalary} onChange={e => setForm(f => ({ ...f, proposedSalary: e.target.value }))} />
                 </div>
                 <div>
                   <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Basis</label>
-                  <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                  <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
                     value={form.proposedBasis} onChange={e => setForm(f => ({ ...f, proposedBasis: e.target.value }))}>
                     <option value="annual">Annual</option>
                     <option value="hourly">Hourly</option>
@@ -504,7 +504,7 @@ export default function SalaryReviewsPage() {
               </div>
               <div>
                 <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Performance Rating</label>
-                <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
                   value={form.performanceRating} onChange={e => setForm(f => ({ ...f, performanceRating: e.target.value }))}>
                   <option value="">— Not set —</option>
                   <option value="outstanding">Outstanding</option>
@@ -516,17 +516,17 @@ export default function SalaryReviewsPage() {
               </div>
               <div>
                 <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Effective Date</label>
-                <input type="date" className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                <input type="date" className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
                   value={form.effectiveDate} onChange={e => setForm(f => ({ ...f, effectiveDate: e.target.value }))} />
               </div>
               <div>
                 <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Justification</label>
-                <textarea className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white" rows={3}
+                <textarea className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white" rows={3}
                   value={form.justification} onChange={e => setForm(f => ({ ...f, justification: e.target.value }))} />
               </div>
               <div>
                 <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Status</label>
-                <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
+                <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-white"
                   value={form.status} onChange={e => setForm(f => ({ ...f, status: e.target.value }))}>
                   <option value="draft">Draft</option>
                   <option value="submitted">Submit immediately</option>
@@ -535,7 +535,7 @@ export default function SalaryReviewsPage() {
             </div>
             <div className="flex gap-2 mt-5">
               <button onClick={() => setShowModal(false)}
-                className="flex-1 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+                className="flex-1 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
                 Cancel
               </button>
               <button onClick={saveReview} disabled={saving || !form.employeeId || !form.reviewDate || !form.currentSalary}
