@@ -139,9 +139,9 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
 // ─── Tabs ────────────────────────────────────────────────────────────────────
 
 const TABS = [
-  { key:'leads',     label:'🎯 Leads',      desc:'Pipeline & scoring' },
+  { key:'leads',     label:'Leads',      desc:'Pipeline & scoring' },
   { key:'contacts',  label:'👤 Contacts',   desc:'People' },
-  { key:'accounts',  label:'🏢 Accounts',   desc:'Companies' },
+  { key:'accounts',  label:'Accounts',   desc:'Companies' },
   { key:'deals',     label:'💰 Deals',      desc:'Revenue pipeline' },
   { key:'activities',label:'📋 Activities', desc:'Tasks & calls' },
 ]
@@ -549,7 +549,7 @@ function AccountsTab() {
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
               </button>
               <div className="flex items-start gap-3 mb-2.5">
-                <div className="w-10 h-10 rounded-xl bg-[#E0EEF4] dark:bg-[#0E3D52]/20 flex items-center justify-center text-lg flex-shrink-0">🏢</div>
+                <div className="w-10 h-10 rounded-xl bg-[#E0EEF4] dark:bg-[#0E3D52]/20 flex items-center justify-center flex-shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-[#1A6080] dark:text-[#4ebac4]"><rect x="2" y="7" width="20" height="14" rx="1"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
                 <div className="flex-1 min-w-0">
                   <div className="font-bold text-[15px] text-gray-900 dark:text-white truncate">{a.name}</div>
                   {a.industry && <div className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{a.industry}</div>}

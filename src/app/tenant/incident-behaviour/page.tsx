@@ -658,7 +658,7 @@ export default function IncidentBehaviourPage() {
                           )}
                           {[
                             { label: '⚡ Triggers',               value: plan.triggers },
-                            { label: '🔔 Early Warnings',         value: plan.earlyWarnings },
+                            { label: 'Early Warnings',         value: plan.earlyWarnings },
                             { label: '🛡️ Prevention Strategies',   value: plan.preventionStrategies },
                             { label: '😌 De-escalation',          value: plan.deEscalationStrategies },
                             { label: '🔧 Response Strategies',    value: plan.responseStrategies },

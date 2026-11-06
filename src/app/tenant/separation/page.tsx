@@ -45,7 +45,7 @@ const STATUS_STYLE: Record<string, string> = {
 }
 
 const EVENT_ICON: Record<string, string> = {
-  initiated:                '🚀',
+  initiated:                '→',
   notice_received:          '📩',
   exit_interview_scheduled: '📅',
   exit_interview_done:      '✅',

@@ -26,11 +26,11 @@ type AlertResult = {
 const TYPE_ICON: Record<string, string> = {
   leave:           '🌴',
   payroll:         '💰',
-  onboarding:      '🚀',
+  onboarding:      '·',
   compliance:      '🔒',
   document:        '📄',
   document_expiry: '📄',
-  recruitment:     '🎯',
+  recruitment:     '·',
   training:        '📚',
   performance:     '⭐',
   system:          '🔔',

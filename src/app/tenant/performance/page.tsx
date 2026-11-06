@@ -353,7 +353,7 @@ export default function PerformancePage() {
             className={`px-5 py-2 rounded-lg text-sm font-medium transition capitalize ${
               tab === t ? 'bg-white dark:bg-gray-900 text-white shadow-sm' : 'text-gray-500 dark:text-gray-400 hover:text-gray-300'
             }`}>
-            {t === 'reviews' ? '📋 Reviews' : '🎯 Goals'}
+            {t === 'reviews' ? 'Reviews' : 'Goals'}
           </button>
         ))}
       </div>
