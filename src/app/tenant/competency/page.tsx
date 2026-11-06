@@ -66,7 +66,7 @@ export default function CompetencyPage() {
 
   return (
     <div className="h-full flex flex-col">
-      <div className="px-6 py-4 border-b border-gray-200 bg-white flex items-center justify-between dark:bg-gray-900 dark:border-gray-700">
+      <div className="px-6 py-4 border-b border-gray-200 bg-white flex items-center justify-between dark:bg-[#0A1929] dark:border-[#1A6080]/30">
         <div>
           <h1 className="text-xl font-semibold text-gray-900 dark:text-white">Competency & Skills</h1>
           <p className="text-sm text-gray-500 mt-0.5 dark:text-gray-400">Skill matrix and competency assessments per employee</p>
@@ -82,7 +82,7 @@ export default function CompetencyPage() {
       </div>
 
       {/* Tabs */}
-      <div className="flex border-b border-gray-200 bg-white px-6 dark:bg-gray-900 dark:border-gray-700">
+      <div className="flex border-b border-gray-200 bg-white px-6 dark:bg-[#0A1929] dark:border-[#1A6080]/30">
         {(['matrix','library'] as const).map(t => (
           <button key={t} onClick={() => setTab(t)}
             className={`px-4 py-2.5 text-sm font-medium border-b-2 -mb-px transition capitalize ${tab===t ? 'border-[#0E3D52] text-[#0E3D52] dark:text-[#4ebac4]' : 'border-transparent text-gray-500 hover:text-gray-700'}`}>
@@ -172,7 +172,7 @@ export default function CompetencyPage() {
       {/* Add competency modal */}
       {showAddComp && (
         <div className="modal-overlay">
-          <div className="bg-white rounded-xl shadow-xl w-full max-w-sm p-6 dark:bg-gray-900">
+          <div className="bg-white rounded-xl shadow-xl w-full max-w-sm p-6 dark:bg-[#0F1E2E]">
             <h3 className="text-lg font-semibold text-gray-900 mb-4 dark:text-white">Add Competency</h3>
             <div className="space-y-3">
               <input className="input-premium" placeholder="Name *" value={compForm.name} onChange={e => setCompForm(f => ({...f, name:e.target.value}))} />
@@ -190,7 +190,7 @@ export default function CompetencyPage() {
       {/* Record assessment modal */}
       {showAssess && (
         <div className="modal-overlay">
-          <div className="bg-white rounded-xl shadow-xl w-full max-w-sm p-6 dark:bg-gray-900">
+          <div className="bg-white rounded-xl shadow-xl w-full max-w-sm p-6 dark:bg-[#0F1E2E]">
             <h3 className="text-lg font-semibold text-gray-900 mb-4 dark:text-white">Record Assessment</h3>
             <div className="space-y-3">
               <select className="input-premium" value={assessForm.competencyId} onChange={e => setAssessForm(f => ({...f, competencyId:e.target.value}))}>

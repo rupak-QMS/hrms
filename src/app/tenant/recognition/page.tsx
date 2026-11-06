@@ -42,7 +42,7 @@ function avatarInitials(first: string | null, last: string | null) {
 function avatarColor(name: string) {
   const colors = [
     'bg-[#1A6080] text-[#9ccfda]',
-    'bg-[#1A6080] text-blue-200',
+    'bg-[#1A6080] text-[#7dcfd7]',
     'bg-green-700 text-green-200',
     'bg-orange-700 text-orange-200',
     'bg-pink-700 text-pink-200',

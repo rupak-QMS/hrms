@@ -415,7 +415,7 @@ export default function NewClientPage() {
           </div>
 
           {form.adminEmail && form.adminPassword && (
-            <div className="bg-blue-50 dark:bg-blue-950/50 border border-blue-200 dark:border-blue-800 rounded-lg p-3 text-xs text-blue-700 dark:text-blue-300">
+            <div className="bg-[#E0EEF4] dark:bg-[#0E3D52]/25 border border-[#1A6080]/30 dark:border-[#1A6080]/60 rounded-lg p-3 text-xs text-[#0E3D52] dark:text-[#4ebac4]">
               A Director account will be created for <strong>{form.adminEmail}</strong>.
               A welcome email with login details will be sent once email integration is active.
             </div>

@@ -534,7 +534,7 @@ export default function PayrollFinancePage() {
                   </div>
 
                   {/* AU Compliance note */}
-                  <div className="mt-4 p-3 bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border border-blue-100 dark:border-[#1A6080] rounded-lg text-xs text-[#0E3D52] dark:text-[#4ebac4]">
+                  <div className="mt-4 p-3 bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border border-[#1A6080]/20 dark:border-[#1A6080] rounded-lg text-xs text-[#0E3D52] dark:text-[#4ebac4]">
                     🇦🇺 <strong>AU Compliance:</strong> PAYG withholding calculated per ATO Schedule 1 weekly tax tables (2024–25).
                     Medicare levy at 2%. Superannuation at 11.5% SG rate. Annual leave accruing at 17.3% of ordinary hours.
                   </div>

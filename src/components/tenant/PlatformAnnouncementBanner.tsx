@@ -24,12 +24,12 @@ const PRIORITY_STYLES: Record<'info' | 'warning' | 'critical', {
   bg: string; border: string; icon: string; titleColor: string; textColor: string; closeColor: string
 }> = {
   info: {
-    bg:         'bg-[#E0EEF4] dark:bg-blue-950/50',
-    border:     'border-blue-200 dark:border-[#1A6080]',
+    bg:         'bg-[#E0EEF4] dark:bg-[#0E3D52]/25',
+    border:     'border-[#1A6080]/30 dark:border-[#1A6080]',
     icon:       'ℹ',
-    titleColor: 'text-blue-800 dark:text-blue-200',
+    titleColor: 'text-[#0E3D52] dark:text-[#7dcfd7]',
     textColor:  'text-[#0E3D52] dark:text-[#7dcfd7]',
-    closeColor: 'text-[#4ebac4] hover:text-[#0E3D52] dark:text-[#1A6080] dark:text-[#4ebac4] dark:hover:text-blue-200',
+    closeColor: 'text-[#4ebac4] hover:text-[#0E3D52] dark:text-[#1A6080] dark:text-[#4ebac4] dark:hover:text-[#7dcfd7]',
   },
   warning: {
     bg:         'bg-amber-50 dark:bg-amber-950/50',

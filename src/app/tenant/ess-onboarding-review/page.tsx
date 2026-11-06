@@ -243,8 +243,8 @@ export default function EssOnboardingReviewPage() {
                     <button
                       onClick={() => openDetail(sub.id)}
                       className="px-3 py-1 text-xs font-medium text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4]
-                        border border-blue-200 dark:border-[#1A6080] rounded-lg hover:bg-[#E0EEF4]
-                        dark:hover:bg-blue-900/20 transition"
+                        border border-[#1A6080]/30 dark:border-[#1A6080] rounded-lg hover:bg-[#E0EEF4]
+                        dark:hover:bg-[#0E3D52]/30 transition"
                     >
                       Review
                     </button>

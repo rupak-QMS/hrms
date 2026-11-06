@@ -159,7 +159,7 @@ export default function ClientIntegrationsPage() {
                         </div>
                       )}
                       {p.authType === 'oauth2' && (
-                        <div className="bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800 rounded-lg p-3 text-xs text-blue-700 dark:text-blue-300">
+                        <div className="bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border border-[#1A6080]/30 dark:border-[#1A6080]/60 rounded-lg p-3 text-xs text-[#0E3D52] dark:text-[#4ebac4]">
                           OAuth2 connection is managed at the tenant level. The tenant connects via Settings → Integrations in their portal.
                           Record the Xero Tenant ID here if needed for reference.
                         </div>
@@ -248,7 +248,7 @@ export default function ClientIntegrationsPage() {
                       </div>
                     )}
                     {p.authType === 'oauth2' && (
-                      <div className="bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800 rounded-lg p-3 text-xs text-blue-700 dark:text-blue-300">
+                      <div className="bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border border-[#1A6080]/30 dark:border-[#1A6080]/60 rounded-lg p-3 text-xs text-[#0E3D52] dark:text-[#4ebac4]">
                         <p className="font-semibold mb-1">OAuth2 Integration</p>
                         <p>The tenant connects their {p.name} account via their portal under Settings → Integrations.
                         Once connected, record their {p.name} Organisation ID below for reference.</p>

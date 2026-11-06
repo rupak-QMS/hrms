@@ -53,7 +53,7 @@ const CAT_LABELS: Record<string, string> = {
 
 const STATUS_COLORS: Record<ExpenseStatus, string> = {
   pending:  'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300',
-  approved: 'bg-[#E0EEF4] text-blue-800 dark:bg-[#0E3D52]/20 dark:text-[#7dcfd7]',
+  approved: 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/20 dark:text-[#7dcfd7]',
   rejected: 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300',
   paid:     'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300',
 }
@@ -174,7 +174,7 @@ function SubmitModal({ onClose, onSaved }: { onClose: () => void; onSaved: () =>
             <input ref={fileRef} type="file" accept=".pdf,.jpg,.jpeg,.png" className="hidden"
               onChange={e => setFile(e.target.files?.[0] ?? null)} />
             <button type="button" onClick={() => fileRef.current?.click()}
-              className="w-full border-2 border-dashed dark:border-gray-600 rounded-lg p-4 text-center text-sm text-gray-500 dark:text-gray-400 hover:border-blue-400 transition-colors">
+              className="w-full border-2 border-dashed dark:border-gray-600 rounded-lg p-4 text-center text-sm text-gray-500 dark:text-gray-400 hover:border-[#1A6080] transition-colors">
               {file ? `✓ ${file.name}` : '📎 Click to attach receipt (PDF/JPG/PNG)'}
             </button>
           </div>

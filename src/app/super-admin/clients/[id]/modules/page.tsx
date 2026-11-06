@@ -39,7 +39,7 @@ const ALL_MODULES = [
 const CATEGORIES = ['Core', 'Compliance', 'Learning', 'Talent', 'Performance', 'Safety', 'Intelligence', 'Experience', 'Operations'] as const
 
 const CATEGORY_STYLE: Record<string, { border: string; header: string; badge: string }> = {
-  Core:         { border: 'border-blue-200 dark:border-blue-800',   header: 'bg-blue-50 dark:bg-blue-950/60',   badge: 'bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200' },
+  Core:         { border: 'border-[#1A6080]/30 dark:border-[#1A6080]/60',   header: 'bg-[#E0EEF4] dark:bg-[#0E3D52]/30',   badge: 'bg-[#E0EEF4] dark:bg-[#0E3D52]/30 text-[#0E3D52] dark:text-[#7dcfd7]' },
   Compliance:   { border: 'border-green-200 dark:border-green-800',  header: 'bg-green-50 dark:bg-green-950/60',  badge: 'bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-200' },
   Learning:     { border: 'border-[#b8d4e0] dark:border-[#1A6080] dark:border-[#1A6080]', header: 'bg-[#E0EEF4] dark:bg-[#0E3D52]/40', badge: 'bg-[#E0EEF4] dark:bg-[#0E3D52] text-[#0E3D52] dark:text-[#9ccfda]' },
   Talent:       { border: 'border-yellow-200 dark:border-yellow-800', header: 'bg-yellow-50 dark:bg-yellow-950/60', badge: 'bg-yellow-100 dark:bg-yellow-900 text-yellow-700 dark:text-yellow-200' },
@@ -58,7 +58,7 @@ const TIER_DEFAULTS: Record<string, number[]> = {
 
 function tierBadge(mod: typeof ALL_MODULES[0]) {
   if (mod.starterOn)      return <span className="text-[10px] px-1.5 py-0.5 rounded bg-green-100 dark:bg-green-900/60 text-green-700 dark:text-green-300 border border-green-300 dark:border-green-700">Starter</span>
-  if (mod.proOn)          return <span className="text-[10px] px-1.5 py-0.5 rounded bg-blue-100 dark:bg-blue-900/60 text-blue-700 dark:text-blue-300 border border-blue-300 dark:border-blue-700">Pro</span>
+  if (mod.proOn)          return <span className="text-[10px] px-1.5 py-0.5 rounded bg-[#E0EEF4] dark:bg-[#0E3D52]/30 text-[#0E3D52] dark:text-[#4ebac4] border border-[#1A6080]/50 dark:border-[#1A6080]">Pro</span>
   if (mod.enterpriseOn)   return <span className="text-[10px] px-1.5 py-0.5 rounded bg-[#E0EEF4] dark:bg-[#0E3D52]/60 text-[#0E3D52] dark:text-[#7dcfd7] border border-[#b8d4e0] dark:border-[#1A6080]">Enterprise</span>
   return null
 }
@@ -143,7 +143,7 @@ export default function ModulesPage() {
             <span className="text-[#0E3D52] dark:text-[#7dcfd7] font-medium">{tenantName}</span>
             {' · '}
             <span className={`text-xs font-semibold  ${
-              tenantTier === 'enterprise' ? 'text-[#0E3D52] dark:text-[#4ebac4]' : tenantTier === 'professional' ? 'text-blue-600 dark:text-blue-400' : 'text-green-600 dark:text-green-400'
+              tenantTier === 'enterprise' ? 'text-[#0E3D52] dark:text-[#4ebac4]' : tenantTier === 'professional' ? 'text-[#1A6080] dark:text-[#4ebac4]' : 'text-green-600 dark:text-green-400'
             }`}>{tenantTier}</span>
             {' · '}
             <span className="text-gray-900 dark:text-white font-semibold">{enabledCount}</span>

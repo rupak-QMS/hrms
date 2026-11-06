@@ -1354,7 +1354,7 @@ export default function EmployeeProfilePage() {
                             </button>
                             {!isHike && (
                               <button onClick={() => printDesignationLetter(p)}
-                                className="px-2.5 py-1.5 text-xs font-medium border border-blue-300 dark:border-[#1A6080] text-[#0E3D52] dark:text-[#4ebac4] hover:bg-[#E0EEF4] dark:hover:bg-blue-900/20 rounded-lg transition">
+                                className="px-2.5 py-1.5 text-xs font-medium border border-[#1A6080]/50 dark:border-[#1A6080] text-[#0E3D52] dark:text-[#4ebac4] hover:bg-[#E0EEF4] dark:hover:bg-[#0E3D52]/30 rounded-lg transition">
                                 🖨 Designation Letter
                               </button>
                             )}

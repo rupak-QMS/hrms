@@ -36,7 +36,7 @@ const PRIORITY_CONFIG: Record<Priority, {
     label:       'Info',
     icon:        'ℹ',
     dot:         '#3b82f6',
-    badgeClass:  'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-700/50',
+    badgeClass:  'bg-[#E0EEF4] dark:bg-[#0E3D52]/20 text-[#0E3D52] dark:text-[#4ebac4] border-[#1A6080]/30 dark:border-[#1A6080]/50',
     borderLight: 'rgba(59,130,246,0.2)',
     borderDark:  'rgba(96,165,250,0.15)',
     glowLight:   'rgba(59,130,246,0.04)',

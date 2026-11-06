@@ -132,7 +132,7 @@ const displayName = (p: Participant) => `${p.firstName} ${p.lastName}`
 
 const goalStatusColor: Record<string, string> = {
   not_started: 'bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300',
-  in_progress:  'bg-[#E0EEF4] text-[#0E3D52] dark:bg-blue-900 dark:text-[#7dcfd7]',
+  in_progress:  'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/30 dark:text-[#7dcfd7]',
   achieved:     'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300',
   on_hold:      'bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300',
   discontinued: 'bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300',
@@ -388,10 +388,10 @@ export default function ParticipantsPage() {
   // ─── Render ────────────────────────────────────────────────────────────────
 
   return (
-    <div className="flex h-[calc(100vh-64px)] overflow-hidden bg-gray-50 dark:bg-gray-900">
+    <div className="flex h-[calc(100vh-64px)] overflow-hidden bg-[#EDF1F5] dark:bg-[#070F1A]">
 
       {/* ── Left: Participant List ─────────────────────────────────────────── */}
-      <div className="w-80 flex-shrink-0 border-r border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 flex flex-col">
+      <div className="w-80 flex-shrink-0 border-r border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] flex flex-col">
         {/* Header */}
         <div className="p-4 border-b border-gray-200 dark:border-gray-700">
           <div className="flex items-center justify-between mb-3">
@@ -464,7 +464,7 @@ export default function ParticipantsPage() {
         <div className="flex-1 flex flex-col overflow-hidden">
 
           {/* Detail header */}
-          <div className="px-6 py-4 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+          <div className="px-6 py-4 bg-white dark:bg-[#0A1929] border-b border-gray-200 dark:border-[#1A6080]/30">
             <div className="flex items-start justify-between">
               <div>
                 <h2 className="page-premium-title">
@@ -473,7 +473,7 @@ export default function ParticipantsPage() {
                 </h2>
                 <div className="flex flex-wrap items-center gap-3 mt-1 text-sm text-gray-500 dark:text-gray-400">
                   {selected.ndisNumber && <span>NDIS: <strong className="text-gray-700 dark:text-gray-300">{selected.ndisNumber}</strong></span>}
-                  <span className="px-2 py-0.5 bg-[#E0EEF4] dark:bg-blue-900 text-[#0E3D52] dark:text-[#7dcfd7] rounded text-xs font-medium">{selected.fundingBody}</span>
+                  <span className="px-2 py-0.5 bg-[#E0EEF4] dark:bg-[#0E3D52]/30 text-[#0E3D52] dark:text-[#7dcfd7] rounded text-xs font-medium">{selected.fundingBody}</span>
                   {selected.supportLevel && <span className="px-2 py-0.5 bg-[#E0EEF4] dark:bg-[#0E3D52] text-[#0E3D52] dark:text-[#4ebac4] rounded text-xs">{selected.supportLevel} Support</span>}
                   {!selected.isActive && <span className="px-2 py-0.5 bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 rounded text-xs">Inactive</span>}
                 </div>
@@ -497,7 +497,7 @@ export default function ParticipantsPage() {
               {DETAIL_TABS.map(tab => (
                 <button key={tab} onClick={() => changeTab(tab)}
                   className={`px-4 py-2 text-sm font-medium rounded-t-lg capitalize transition-colors ${activeTab === tab
-                    ? 'bg-gray-50 dark:bg-gray-900 border border-b-0 border-gray-200 dark:border-gray-700 text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4]'
+                    ? 'bg-[#EDF1F5] dark:bg-[#070F1A] border border-b-0 border-gray-200 dark:border-gray-700 text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4]'
                     : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'}`}>
                   {tab === 'support-plans' ? 'Support Plans' : tab.charAt(0).toUpperCase() + tab.slice(1)}
                 </button>
@@ -506,7 +506,7 @@ export default function ParticipantsPage() {
           </div>
 
           {/* Tab content */}
-          <div className="flex-1 overflow-y-auto bg-gray-50 dark:bg-gray-900 p-6">
+          <div className="flex-1 overflow-y-auto bg-[#EDF1F5] dark:bg-[#070F1A] p-6">
 
             {/* ── Overview ── */}
             {activeTab === 'overview' && (

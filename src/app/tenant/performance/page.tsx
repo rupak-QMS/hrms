@@ -613,7 +613,7 @@ export default function PerformancePage() {
                                     </div>
                                   )}
                                   {r.employeeInput && (r.employeeInput.strengths || r.employeeInput.improvements) && (
-                                    <div className="bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border border-blue-200 dark:border-blue-900/30 rounded-lg p-3 space-y-2">
+                                    <div className="bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border border-[#1A6080]/30 dark:border-[#1A6080]/20 rounded-lg p-3 space-y-2">
                                       <p className="text-xs font-semibold text-[#4ebac4] ">Employee Self-Assessment</p>
                                       {r.employeeInput.strengths    && <div><p className="text-xs text-gray-500">Strengths</p><p className="text-xs text-gray-300">{r.employeeInput.strengths}</p></div>}
                                       {r.employeeInput.improvements && <div><p className="text-xs text-gray-500">Improvements</p><p className="text-xs text-gray-300">{r.employeeInput.improvements}</p></div>}

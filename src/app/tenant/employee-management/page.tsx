@@ -168,19 +168,19 @@ EMP001,Jane,Smith,jane.smith@example.com,full_time,2026-01-15,,+61400000001,Yahw
           ) : (
             <>
               {/* Template download */}
-              <div className="bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border border-blue-200 dark:border-[#1A6080] rounded-xl p-4">
-                <p className="text-sm font-medium text-blue-800 dark:text-[#7dcfd7] mb-1">Need a template?</p>
+              <div className="bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border border-[#1A6080]/30 dark:border-[#1A6080] rounded-xl p-4">
+                <p className="text-sm font-medium text-[#0E3D52] dark:text-[#7dcfd7] mb-1">Need a template?</p>
                 <p className="text-xs text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4] mb-2">
                   Required columns: <code className="bg-[#E0EEF4] dark:bg-[#0E3D52]/20 px-1 rounded">employee_number, first_name, last_name, email, employment_type, start_date</code>
                 </p>
-                <button onClick={downloadTemplate} className="text-xs text-[#0E3D52] dark:text-[#4ebac4] hover:text-blue-800 dark:text-[#4ebac4] font-medium underline">
+                <button onClick={downloadTemplate} className="text-xs text-[#0E3D52] dark:text-[#4ebac4] hover:text-[#0E3D52] dark:text-[#4ebac4] font-medium underline">
                   Download sample CSV →
                 </button>
               </div>
 
               {/* File picker */}
               <div
-                className="border-2 border-dashed border-gray-200 dark:border-gray-700 rounded-xl p-8 text-center cursor-pointer hover:border-blue-400 transition"
+                className="border-2 border-dashed border-gray-200 dark:border-gray-700 rounded-xl p-8 text-center cursor-pointer hover:border-[#1A6080] transition"
                 onClick={() => inputRef.current?.click()}
               >
                 <input

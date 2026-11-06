@@ -24,8 +24,8 @@ const TIER_CONFIG = {
   professional: {
     label:    'Professional',
     modules:  20,
-    color:    'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-800',
-    badge:    'bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200',
+    color:    'bg-[#E0EEF4] dark:bg-[#0E3D52]/20 text-[#0E3D52] dark:text-[#4ebac4] border-[#1A6080]/30 dark:border-[#1A6080]/60',
+    badge:    'bg-[#E0EEF4] dark:bg-[#0E3D52]/30 text-[#0E3D52] dark:text-[#7dcfd7]',
     price:    120,
     features: '+ Talent, Learning, Performance, Safety (20 modules)',
   },
@@ -90,7 +90,7 @@ export default function BillingPage() {
         </div>
         <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-5">
           <p className="text-xs text-gray-600 dark:text-gray-400 mb-2">Annual Run Rate</p>
-          <p className="text-3xl font-bold text-blue-600 dark:text-blue-400">${(totalMRR * 12).toLocaleString()}</p>
+          <p className="text-3xl font-bold text-[#1A6080] dark:text-[#4ebac4]">${(totalMRR * 12).toLocaleString()}</p>
           <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">AUD / year</p>
         </div>
       </div>

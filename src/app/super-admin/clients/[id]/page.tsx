@@ -281,7 +281,7 @@ function EditClientInner() {
         <div className="flex gap-2">
           <Link href={`/super-admin/clients/${id}/users`}        className="text-xs border border-green-300 dark:border-green-700 text-green-700 dark:text-green-300 hover:bg-green-100 dark:bg-green-900/30 px-3 py-1.5 rounded-lg transition">Users</Link>
           <Link href={`/super-admin/clients/${id}/modules`}      className="text-xs border border-[#b8d4e0] dark:border-[#1A6080] text-[#0E3D52] dark:text-[#7dcfd7] hover:bg-[#E0EEF4] dark:bg-[#0E3D52]/20 px-3 py-1.5 rounded-lg transition">Modules</Link>
-          <Link href={`/super-admin/clients/${id}/integrations`} className="text-xs border border-blue-300 dark:border-blue-700 text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:bg-blue-900/30 px-3 py-1.5 rounded-lg transition">Integrations</Link>
+          <Link href={`/super-admin/clients/${id}/integrations`} className="text-xs border border-[#1A6080]/50 dark:border-[#1A6080] text-[#0E3D52] dark:text-[#4ebac4] hover:bg-[#E0EEF4] dark:bg-[#0E3D52]/20 px-3 py-1.5 rounded-lg transition">Integrations</Link>
         </div>
       </div>
 

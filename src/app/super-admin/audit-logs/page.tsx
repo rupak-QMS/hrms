@@ -18,7 +18,7 @@ type AuditLog = {
 type Tenant = { id: string; name: string }
 
 const ACTION_COLORS: Record<string, string> = {
-  login:    'bg-blue-50 dark:bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300',
+  login:    'bg-[#E0EEF4] dark:bg-[#E0EEF4] dark:bg-[#0E3D52]/25 text-[#0E3D52] dark:text-[#4ebac4]',
   logout:   'bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300',
   create:   'bg-green-50 dark:bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300',
   update:   'bg-yellow-50 dark:bg-yellow-100 dark:bg-yellow-900/50 text-yellow-700 dark:text-yellow-300',

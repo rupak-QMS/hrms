@@ -456,7 +456,7 @@ export default function PublicHolidaysPage() {
                                 {h.country}
                               </span>
                               {h.isNational && (
-                                <span className="text-xs px-2 py-0.5 rounded-full bg-[#E0EEF4] dark:bg-[#0E3D52]/20 text-[#0E3D52] dark:text-[#4ebac4] border border-blue-300 dark:border-[#1A6080]">
+                                <span className="text-xs px-2 py-0.5 rounded-full bg-[#E0EEF4] dark:bg-[#0E3D52]/20 text-[#0E3D52] dark:text-[#4ebac4] border border-[#1A6080]/50 dark:border-[#1A6080]">
                                   National
                                 </span>
                               )}

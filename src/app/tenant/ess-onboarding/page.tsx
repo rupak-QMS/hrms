@@ -231,7 +231,7 @@ export default function EssOnboardingPage() {
                 ${step === s.id
                   ? 'bg-[#0E3D52] text-white'
                   : step > s.id
-                    ? 'text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4] hover:bg-[#E0EEF4] dark:hover:bg-blue-900/20 cursor-pointer'
+                    ? 'text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4] hover:bg-[#E0EEF4] dark:hover:bg-[#0E3D52]/30 cursor-pointer'
                     : 'text-gray-400 dark:text-gray-600 cursor-default'
                 }`}
             >
@@ -240,7 +240,7 @@ export default function EssOnboardingPage() {
               <span className="sm:hidden">{s.id}</span>
             </button>
             {i < STEPS.length - 1 && (
-              <div className={`w-6 h-px mx-1 ${step > s.id ? 'bg-blue-400' : 'bg-gray-200 dark:bg-gray-700'}`} />
+              <div className={`w-6 h-px mx-1 ${step > s.id ? 'bg-[#1A6080]' : 'bg-gray-200 dark:bg-gray-700'}`} />
             )}
           </div>
         ))}
@@ -485,7 +485,7 @@ function Step3Super({ data, set }: { data: OnboardingData; set: (p: Partial<Onbo
           />
         </Field>
 
-        <div className="p-4 rounded-xl border border-blue-100 bg-[#E0EEF4] dark:bg-[#0E3D52]/20 dark:border-[#1A6080]">
+        <div className="p-4 rounded-xl border border-[#1A6080]/20 bg-[#E0EEF4] dark:bg-[#0E3D52]/20 dark:border-[#1A6080]">
           <p className="text-xs text-[#0E3D52] dark:text-[#7dcfd7]">
             <strong>Employer Contribution Rate:</strong> 11.5% (2024-25 financial year, as per Superannuation Guarantee).
             Contributions are made within 28 days of each quarter end.

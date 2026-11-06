@@ -151,7 +151,7 @@ const outcomeColor: Record<string, string> = {
   missed:  'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-300',
   refused: 'bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300',
   held:    'bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300',
-  partial: 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-blue-900 dark:text-[#7dcfd7]',
+  partial: 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/30 dark:text-[#7dcfd7]',
 }
 const severityColor: Record<string, string> = {
   mild:     'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300',
@@ -160,7 +160,7 @@ const severityColor: Record<string, string> = {
   critical: 'bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300',
 }
 const apptStatusColor: Record<string, string> = {
-  scheduled: 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-blue-900 dark:text-[#7dcfd7]',
+  scheduled: 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/30 dark:text-[#7dcfd7]',
   completed: 'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300',
   cancelled: 'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-400',
   missed:    'bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300',
@@ -642,7 +642,7 @@ export default function MedicationHealthPage() {
                             <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${medStatusColor[m.status] || ''}`}>
                               {MED_STATUS_LABELS[m.status] || m.status}
                             </span>
-                            <button onClick={() => openEditMed(m)} className="opacity-0 group-hover:opacity-100 text-xs px-2 py-1 text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4] hover:bg-[#E0EEF4] dark:hover:bg-blue-900/20 rounded transition">Edit</button>
+                            <button onClick={() => openEditMed(m)} className="opacity-0 group-hover:opacity-100 text-xs px-2 py-1 text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4] hover:bg-[#E0EEF4] dark:hover:bg-[#0E3D52]/30 rounded transition">Edit</button>
                             <button onClick={() => setConfirm({ message: `Delete medication ${m.medicationName}?`, confirmLabel: 'Delete', onConfirm: () => deleteMedication(m.id) })}
                               className="opacity-0 group-hover:opacity-100 p-1 rounded text-gray-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition">
                               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
@@ -712,11 +712,11 @@ export default function MedicationHealthPage() {
                               {SEVERITY_LABELS[c.severity] || c.severity}
                             </span>
                             <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${
-                              c.status === 'active' ? 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-blue-900 dark:text-[#7dcfd7]'
+                              c.status === 'active' ? 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/30 dark:text-[#7dcfd7]'
                               : 'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-400'}`}>
                               {CONDITION_STATUS_LABELS[c.status] || c.status}
                             </span>
-                            <button onClick={() => openEditCond(c)} className="opacity-0 group-hover:opacity-100 text-xs px-2 py-1 text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4] hover:bg-[#E0EEF4] dark:hover:bg-blue-900/20 rounded transition">Edit</button>
+                            <button onClick={() => openEditCond(c)} className="opacity-0 group-hover:opacity-100 text-xs px-2 py-1 text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4] hover:bg-[#E0EEF4] dark:hover:bg-[#0E3D52]/30 rounded transition">Edit</button>
                             <button onClick={() => setConfirm({ message: `Delete condition ${c.conditionName}?`, confirmLabel: 'Delete', onConfirm: () => deleteCondition(c.id) })}
                               className="opacity-0 group-hover:opacity-100 p-1 rounded text-gray-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition">
                               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
@@ -778,7 +778,7 @@ export default function MedicationHealthPage() {
                             <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${apptStatusColor[a.status] || ''}`}>
                               {APPT_STATUS_LABELS[a.status] || a.status}
                             </span>
-                            <button onClick={() => openEditAppt(a)} className="opacity-0 group-hover:opacity-100 text-xs px-2 py-1 text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4] hover:bg-[#E0EEF4] dark:hover:bg-blue-900/20 rounded transition">Edit</button>
+                            <button onClick={() => openEditAppt(a)} className="opacity-0 group-hover:opacity-100 text-xs px-2 py-1 text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4] hover:bg-[#E0EEF4] dark:hover:bg-[#0E3D52]/30 rounded transition">Edit</button>
                             <button onClick={() => setConfirm({ message: `Delete this appointment?`, confirmLabel: 'Delete', onConfirm: () => deleteAppointment(a.id) })}
                               className="opacity-0 group-hover:opacity-100 p-1 rounded text-gray-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition">
                               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
@@ -1037,7 +1037,7 @@ export default function MedicationHealthPage() {
 function Tag({ children, color = 'gray' }: { children: React.ReactNode; color?: 'gray' | 'blue' | 'orange' | 'purple' }) {
   const colors: Record<string, string> = {
     gray:   'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300',
-    blue:   'bg-[#E0EEF4] text-[#0E3D52] dark:bg-blue-900 dark:text-[#7dcfd7]',
+    blue:   'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/30 dark:text-[#7dcfd7]',
     orange: 'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-300',
     purple: 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52] dark:text-[#4ebac4]',
   }

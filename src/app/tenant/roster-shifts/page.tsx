@@ -75,7 +75,7 @@ function formatTime(iso: string): string {
 
 function shiftTypeColor(t: string | null) {
   const map: Record<string, string> = {
-    standard:     'bg-[#E0EEF4] border-blue-300 text-blue-900 dark:bg-[#0E3D52]/20 dark:border-[#0E3D52] dark:text-blue-200',
+    standard:     'bg-[#E0EEF4] border-[#1A6080]/40 text-[#0E3D52] dark:bg-[#0E3D52]/20 dark:border-[#0E3D52] dark:text-[#7dcfd7]',
     sleepover:    'bg-[#E0EEF4] border-[#9ccfda] text-[#0E3D52] dark:bg-[#0E3D52]/40 dark:border-[#0E3D52] dark:text-[#9ccfda]',
     active_night: 'bg-[#E0EEF4] border-[#b8d4e0] text-[#0E3D52] dark:bg-[#0E3D52]/20 dark:border-[#0E3D52] dark:text-[#9ccfda]',
     on_call:      'bg-yellow-100 border-yellow-300 text-yellow-900 dark:bg-yellow-900/40 dark:border-yellow-600 dark:text-yellow-200',
@@ -319,7 +319,7 @@ export default function RosterShiftsPage() {
                     {/* Day header */}
                     <div className={`px-3 py-2 border-b ${isToday ? 'border-[#1A6080] dark:border-[#4ebac4] bg-[#E0EEF4] dark:bg-[#0E3D52]/20' : 'border-gray-200 dark:border-gray-700'} rounded-t-xl`}>
                       <p className={`text-xs font-semibold ${isToday ? 'text-[#0E3D52] dark:text-[#7dcfd7]' : 'text-gray-500 dark:text-gray-400'}`}>{DAYS[i]}</p>
-                      <p className={`text-lg font-bold ${isToday ? 'text-blue-800 dark:text-blue-200' : 'text-gray-900 dark:text-white'}`}>{day.getDate()}</p>
+                      <p className={`text-lg font-bold ${isToday ? 'text-[#0E3D52] dark:text-[#4ebac4]' : 'text-gray-900 dark:text-white'}`}>{day.getDate()}</p>
                       {dayShifts.length > 0 && (
                         <p className="text-xs text-gray-500 dark:text-gray-400">{dayShifts.length} shift{dayShifts.length !== 1 ? 's' : ''}</p>
                       )}
@@ -351,7 +351,7 @@ export default function RosterShiftsPage() {
                     {/* Add button */}
                     <button
                       onClick={() => openAddShift(iso)}
-                      className="mx-2 mb-2 py-1 text-xs text-gray-400 dark:text-gray-500 hover:text-[#0E3D52] dark:text-[#4ebac4] dark:hover:text-[#4ebac4] hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-lg border border-dashed border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-[#0E3D52] transition-colors"
+                      className="mx-2 mb-2 py-1 text-xs text-gray-400 dark:text-gray-500 hover:text-[#0E3D52] dark:text-[#4ebac4] dark:hover:text-[#4ebac4] hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-lg border border-dashed border-gray-200 dark:border-gray-700 hover:border-[#1A6080] dark:hover:border-[#0E3D52] transition-colors"
                     >
                       + Add
                     </button>

@@ -56,7 +56,7 @@ interface Contribution {
 
 const STATUS_COLORS: Record<string, string> = {
   active: 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300',
-  stapled: 'bg-[#E0EEF4] text-blue-800 dark:bg-[#0E3D52]/20 dark:text-[#7dcfd7]',
+  stapled: 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/20 dark:text-[#7dcfd7]',
   employer_default: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300',
   closed: 'bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400',
   pending: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300',
@@ -271,7 +271,7 @@ export default function SuperannuationPage() {
               }`}
             >
               <div className="font-medium">{emp.firstName} {emp.lastName}</div>
-              <div className={`text-xs truncate ${selectedEmployee?.id === emp.id ? 'text-blue-100' : 'text-gray-400'}`}>
+              <div className={`text-xs truncate ${selectedEmployee?.id === emp.id ? 'text-[#E0EEF4]' : 'text-gray-400'}`}>
                 {emp.email}
               </div>
             </button>

@@ -32,7 +32,7 @@ const TYPE_COLOR: Record<string, { bg: string; text: string }> = {
   document:        { bg: 'bg-[#0E3D52]/[0.07] dark:bg-[#4ebac4]/10', text: 'text-[#1A6080] dark:text-[#4ebac4]' },
   document_expiry: { bg: 'bg-amber-50 dark:bg-amber-900/20',  text: 'text-amber-500' },
   recruitment:     { bg: 'bg-[#0E3D52]/[0.07] dark:bg-[#4ebac4]/10', text: 'text-[#1A6080] dark:text-[#4ebac4]' },
-  training:        { bg: 'bg-blue-50 dark:bg-blue-900/20',    text: 'text-blue-600 dark:text-blue-400' },
+  training:        { bg: 'bg-[#E0EEF4] dark:bg-[#0E3D52]/15',    text: 'text-[#1A6080] dark:text-[#4ebac4]' },
   performance:     { bg: 'bg-[#0E3D52]/[0.07] dark:bg-[#4ebac4]/10', text: 'text-[#1A6080] dark:text-[#4ebac4]' },
   system:          { bg: 'bg-gray-50 dark:bg-gray-800',       text: 'text-gray-500 dark:text-gray-400' },
   general:         { bg: 'bg-gray-50 dark:bg-gray-800',       text: 'text-gray-500 dark:text-gray-400' },

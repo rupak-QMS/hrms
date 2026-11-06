@@ -317,7 +317,7 @@ export default function IntakePage() {
                   placeholder="min 8 characters" className={INPUT} /></div>
             </div>
             {form.adminEmail && (
-              <div className="bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800 rounded-lg p-3 text-xs text-blue-700 dark:text-blue-300">
+              <div className="bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border border-[#1A6080]/30 dark:border-[#1A6080]/60 rounded-lg p-3 text-xs text-[#0E3D52] dark:text-[#4ebac4]">
                 A welcome email with login credentials will be sent to <strong>{form.adminEmail}</strong> once email integration is active.
               </div>
             )}

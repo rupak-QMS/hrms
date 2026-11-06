@@ -13,7 +13,7 @@ type ModuleStat = {
 }
 
 const CATEGORY_COLORS: Record<string, string> = {
-  Core:         'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-800',
+  Core:         'bg-[#E0EEF4] dark:bg-[#0E3D52]/20 text-[#0E3D52] dark:text-[#4ebac4] border-[#1A6080]/30 dark:border-[#1A6080]/60',
   Compliance:   'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 border-green-200 dark:border-green-800',
   Learning:     'bg-[#E0EEF4] dark:bg-[#0E3D52]/20 text-[#0E3D52] dark:text-[#7dcfd7] border-[#b8d4e0] dark:border-[#1A6080] dark:border-[#1A6080]',
   Talent:       'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 border-yellow-200 dark:border-yellow-800',
@@ -92,7 +92,7 @@ export default function ModulesPage() {
         </div>
         <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-4">
           <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">Platform Adoption</p>
-          <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+          <p className="text-2xl font-bold text-[#1A6080] dark:text-[#4ebac4]">
             {maxPossible ? Math.round((totalEnabled / maxPossible) * 100) : 0}%
           </p>
         </div>
@@ -152,7 +152,7 @@ export default function ModulesPage() {
                     </span>
                   </td>
                   <td className="px-4 py-3">
-                    <span className={`text-sm font-semibold ${mod.percentage === 100 ? 'text-green-600 dark:text-green-400' : mod.percentage > 50 ? 'text-blue-600 dark:text-blue-400' : 'text-gray-600 dark:text-gray-400'}`}>
+                    <span className={`text-sm font-semibold ${mod.percentage === 100 ? 'text-green-600 dark:text-green-400' : mod.percentage > 50 ? 'text-[#1A6080] dark:text-[#4ebac4]' : 'text-gray-600 dark:text-gray-400'}`}>
                       {mod.enabledCount}/{tenantCount}
                     </span>
                     <span className="text-xs text-gray-500 ml-1 dark:text-gray-400">({mod.percentage}%)</span>

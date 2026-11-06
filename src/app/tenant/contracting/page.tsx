@@ -297,10 +297,10 @@ function SendForSignaturePanel({
   // If sent but not signed — show status + copy link
   if (contract.status === 'sent' && !sent) {
     return (
-      <div className="border border-blue-200 bg-[#E0EEF4] rounded-xl p-4 space-y-3 dark:bg-blue-950/30 dark:border-[#1A6080]">
+      <div className="border border-[#1A6080]/30 bg-[#E0EEF4] rounded-xl p-4 space-y-3 dark:bg-[#0E3D52]/15 dark:border-[#1A6080]">
         <div className="flex items-center gap-2">
           <span className="text-[#0E3D52] dark:text-[#4ebac4] text-lg">📧</span>
-          <p className="text-sm font-semibold text-blue-800 dark:text-[#7dcfd7]">Awaiting employee signature</p>
+          <p className="text-sm font-semibold text-[#0E3D52] dark:text-[#7dcfd7]">Awaiting employee signature</p>
         </div>
         <p className="text-xs text-[#0E3D52] dark:text-[#4ebac4]">
           The signing link has been emailed to <strong>{contract.email}</strong>.
@@ -308,9 +308,9 @@ function SendForSignaturePanel({
         </p>
         <div className="flex gap-2">
           <input readOnly value={signingUrl}
-            className="flex-1 border border-blue-200 rounded-lg px-3 py-1.5 text-xs bg-white dark:bg-[#0E3D52]/20 dark:border-[#1A6080] dark:text-blue-200 truncate"/>
+            className="flex-1 border border-[#1A6080]/30 rounded-lg px-3 py-1.5 text-xs bg-white dark:bg-[#0E3D52]/20 dark:border-[#1A6080] dark:text-[#7dcfd7] truncate"/>
           <button onClick={copyLink}
-            className="px-3 py-1.5 border border-blue-300 rounded-lg text-xs font-medium text-[#0E3D52] hover:bg-[#E0EEF4] dark:text-[#7dcfd7] dark:border-[#0E3D52] dark:hover:bg-blue-800 shrink-0">
+            className="px-3 py-1.5 border border-[#1A6080]/50 rounded-lg text-xs font-medium text-[#0E3D52] hover:bg-[#E0EEF4] dark:text-[#7dcfd7] dark:border-[#0E3D52] dark:hover:bg-[#0E3D52] shrink-0">
             {copyDone ? '✓ Copied' : 'Copy'}
           </button>
         </div>

@@ -312,7 +312,7 @@ export default function MyPerformancePage() {
 
                       {/* Self-assessment preview */}
                       {hasSelfAssess && (
-                        <div className="bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border border-blue-200 dark:border-blue-900/30 rounded-lg p-3 space-y-2">
+                        <div className="bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border border-[#1A6080]/30 dark:border-[#1A6080]/20 rounded-lg p-3 space-y-2">
                           <p className="text-xs font-semibold text-[#4ebac4] ">Your Self-Assessment</p>
                           {ei.strengths    && <div><p className="text-xs text-gray-500">Strengths</p><p className="text-xs text-gray-300">{ei.strengths}</p></div>}
                           {ei.improvements && <div><p className="text-xs text-gray-500">Improvements</p><p className="text-xs text-gray-300">{ei.improvements}</p></div>}

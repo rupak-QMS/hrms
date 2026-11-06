@@ -305,7 +305,7 @@ export default function MySchedulePage() {
 
       {/* Feedback message */}
       {clockMsg && (
-        <div className="bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border border-blue-200 dark:border-[#1A6080] rounded-xl px-4 py-2 text-sm text-[#0E3D52] dark:text-[#7dcfd7]">
+        <div className="bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border border-[#1A6080]/30 dark:border-[#1A6080] rounded-xl px-4 py-2 text-sm text-[#0E3D52] dark:text-[#7dcfd7]">
           {clockMsg}
         </div>
       )}

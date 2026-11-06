@@ -209,7 +209,7 @@ export default function MyDocumentsPage() {
 
       {/* Info note */}
       {linked && (
-        <div className="bg-[#E0EEF4] dark:bg-blue-950/30 border border-blue-200 dark:border-[#1A6080]/40 rounded-xl px-4 py-3">
+        <div className="bg-[#E0EEF4] dark:bg-[#0E3D52]/15 border border-[#1A6080]/30 dark:border-[#1A6080]/40 rounded-xl px-4 py-3">
           <p className="text-xs text-[#7dcfd7]">
             Documents you upload are sent to <strong>Pending Review</strong>. HR will activate them once verified.
             Expiry dates trigger alerts to HR before they lapse.

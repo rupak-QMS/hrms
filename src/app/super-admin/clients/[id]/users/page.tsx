@@ -27,7 +27,7 @@ const ROLES = [
 
 const ROLE_COLORS: Record<string, string> = {
   director:            'bg-[#E0EEF4] dark:bg-[#0E3D52] text-[#0E3D52] dark:text-[#9ccfda]',
-  hr_officer:          'bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200',
+  hr_officer:          'bg-[#E0EEF4] dark:bg-[#0E3D52]/30 text-[#0E3D52] dark:text-[#7dcfd7]',
   compliance_manager:  'bg-amber-100 dark:bg-amber-900 text-amber-200',
   operations_manager:  'bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-200',
   team_leader:         'bg-teal-100 dark:bg-teal-900 text-teal-200',
@@ -144,12 +144,12 @@ export default function UsersPage() {
       </div>
 
       {/* Login info banner */}
-      <div className="bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-xl p-4 text-sm text-blue-700 dark:text-blue-300">
-        <strong className="text-blue-200">Client login URL:</strong>{' '}
+      <div className="bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border border-[#1A6080]/30 dark:border-[#1A6080]/60 rounded-xl p-4 text-sm text-[#0E3D52] dark:text-[#4ebac4]">
+        <strong className="text-[#7dcfd7]">Client login URL:</strong>{' '}
         <code className="text-[#0E3D52] dark:text-[#7dcfd7]">
           {typeof window !== 'undefined' ? window.location.origin : ''}/login?tenant={tenantSlug}
         </code>
-        <p className="text-xs text-blue-600 dark:text-blue-400 mt-1">Users visit this URL and sign in with their email + password.</p>
+        <p className="text-xs text-[#1A6080] dark:text-[#4ebac4] mt-1">Users visit this URL and sign in with their email + password.</p>
       </div>
 
       {success && (

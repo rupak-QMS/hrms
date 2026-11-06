@@ -95,7 +95,7 @@ export default function CostEstimationPage() {
           <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">Monthly (AUD)</p>
         </div>
         <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-4 text-center">
-          <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">{fmtAUD(totalAnnualAUD)}</p>
+          <p className="text-2xl font-bold text-[#0E3D52] dark:text-[#4ebac4]">{fmtAUD(totalAnnualAUD)}</p>
           <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">Annual (AUD)</p>
         </div>
       </div>

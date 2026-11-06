@@ -46,7 +46,7 @@ function ResetForm() {
 
   if (!valid) {
     return (
-      <div className="bg-white border border-gray-200 rounded-2xl p-8 text-center shadow-sm dark:bg-gray-900 dark:border-gray-700">
+      <div className="bg-white border border-gray-200 rounded-xl p-8 text-center shadow-sm dark:bg-[#0F1E2E] dark:border-[#1A6080]/40">
         <div className="text-4xl mb-3">⏰</div>
         <h2 className="text-lg font-semibold text-gray-900 mb-2 dark:text-white">Link expired or invalid</h2>
         <p className="text-sm text-gray-500 dark:text-gray-400">This reset link has expired or already been used.</p>
@@ -59,7 +59,7 @@ function ResetForm() {
 
   if (status === 'done') {
     return (
-      <div className="bg-white border border-gray-200 rounded-2xl p-8 text-center shadow-sm dark:bg-gray-900 dark:border-gray-700">
+      <div className="bg-white border border-gray-200 rounded-xl p-8 text-center shadow-sm dark:bg-[#0F1E2E] dark:border-[#1A6080]/40">
         <div className="text-4xl mb-3"></div>
         <h2 className="text-lg font-semibold text-gray-900 mb-2 dark:text-white">Password updated!</h2>
         <p className="text-sm text-gray-500 dark:text-gray-400">Redirecting you to sign in…</p>
@@ -68,7 +68,7 @@ function ResetForm() {
   }
 
   return (
-    <form onSubmit={submit} className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm space-y-4 dark:bg-gray-900 dark:border-gray-700">
+    <form onSubmit={submit} className="bg-white border border-gray-200 rounded-xl p-8 shadow-sm space-y-4 dark:bg-[#0F1E2E] dark:border-[#1A6080]/40">
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300">New password</label>
         <input
@@ -79,7 +79,7 @@ function ResetForm() {
           value={password}
           onChange={e => setPassword(e.target.value)}
           placeholder="Min. 8 characters"
-          className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 dark:border-gray-600"
+          className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0E3D52] dark:border-[#1A6080]/40"
         />
       </div>
       <div>
@@ -91,7 +91,7 @@ function ResetForm() {
           value={confirm}
           onChange={e => setConfirm(e.target.value)}
           placeholder="Repeat password"
-          className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 dark:border-gray-600"
+          className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0E3D52] dark:border-[#1A6080]/40"
         />
       </div>
 

@@ -22,7 +22,7 @@ type ConfirmState = {
 
 const TIER_COLORS: Record<string, string> = {
   enterprise:   'bg-[#E0EEF4] dark:bg-[#0E3D52] text-[#0E3D52] dark:text-[#9ccfda]',
-  professional: 'bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200',
+  professional: 'bg-[#E0EEF4] dark:bg-[#0E3D52]/30 text-[#0E3D52] dark:text-[#7dcfd7]',
   starter:      'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300',
 }
 
@@ -242,7 +242,7 @@ export default function ClientsUI({ initialClients, dbError }: { initialClients:
                 </td>
                 <td className="px-5 py-3.5">
                   <div className="flex items-center gap-2 flex-wrap">
-                    <Link href={`/super-admin/clients/${c.id}`}         className="text-xs text-blue-500 dark:text-blue-300 hover:underline font-medium">Edit</Link>
+                    <Link href={`/super-admin/clients/${c.id}`}         className="text-xs text-[#1A6080] dark:text-[#4ebac4] hover:underline font-medium">Edit</Link>
                     <Link href={`/super-admin/clients/${c.id}/users`}   className="text-xs text-green-500 dark:text-green-300 hover:underline font-medium">Users</Link>
                     <Link href={`/super-admin/clients/${c.id}/modules`} className="text-xs text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#7dcfd7] hover:underline font-medium">Modules</Link>
                     <Link href={`/super-admin/clients/${c.id}?tab=theme`} className="text-xs text-pink-500 dark:text-pink-300 hover:underline font-medium">Theme</Link>

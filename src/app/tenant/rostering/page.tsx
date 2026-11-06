@@ -81,7 +81,7 @@ type FillResult = {
 const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 
 const SHIFT_COLOURS: Record<string, { bg: string; text: string; border: string }> = {
-  standard:     { bg: 'bg-[#E0EEF4] dark:bg-[#0E3D52]/20',    text: 'text-blue-800 dark:text-blue-200',    border: 'border-blue-300 dark:border-[#0E3D52]' },
+  standard:     { bg: 'bg-[#E0EEF4] dark:bg-[#0E3D52]/20',    text: 'text-[#0E3D52] dark:text-[#7dcfd7]',    border: 'border-[#1A6080]/40 dark:border-[#0E3D52]' },
   sleepover:    { bg: 'bg-[#E0EEF4] dark:bg-[#0E3D52]/40', text: 'text-[#1A6080] dark:text-[#9ccfda]', border: 'border-[#9ccfda] dark:border-[#0E3D52]' },
   active_night: { bg: 'bg-[#E0EEF4] dark:bg-[#0E3D52]/20', text: 'text-[#0E3D52] dark:text-[#9ccfda]', border: 'border-[#b8d4e0] dark:border-[#0E3D52]' },
   on_call:      { bg: 'bg-amber-100 dark:bg-amber-900/40',   text: 'text-amber-800 dark:text-amber-200',   border: 'border-amber-300 dark:border-amber-600' },

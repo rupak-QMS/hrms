@@ -296,7 +296,7 @@ export default function OfferPage({ params }: { params: Promise<{ token: string 
                 value={typedSig}
                 onChange={e => setTypedSig(e.target.value)}
                 placeholder={offer.candidateName}
-                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-2xl italic text-gray-800 focus:outline-none focus:border-blue-400"
+                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-2xl italic text-gray-800 focus:outline-none focus:border-[#1A6080]"
                 style={{ fontFamily: 'Georgia, serif' }}
               />
             </div>

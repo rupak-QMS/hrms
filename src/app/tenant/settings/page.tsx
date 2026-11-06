@@ -368,7 +368,7 @@ export default function TenantSettingsPage() {
           {/* ── DOMAIN TAB ── */}
           {tab === 'domain' && (
             <div className="card-premium p-6 space-y-5">
-              <div className="bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border border-blue-200 dark:border-[#1A6080] rounded-lg p-3 text-xs text-[#0E3D52] dark:text-[#7dcfd7]">
+              <div className="bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border border-[#1A6080]/30 dark:border-[#1A6080] rounded-lg p-3 text-xs text-[#0E3D52] dark:text-[#7dcfd7]">
                 <strong>DNS Configuration:</strong> Point your custom domain CNAME to{' '}
                 <code className="bg-[#E0EEF4] dark:bg-[#0E3D52]/20 px-1 rounded">cname.vercel-dns.com</code>, then enter it below.
                 Vercel will automatically provision an SSL certificate.

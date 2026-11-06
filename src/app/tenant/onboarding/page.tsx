@@ -248,7 +248,7 @@ export default function OnboardingPage() {
 
           {/* Upcoming starters */}
           {upcoming.length > 0 && (
-            <div className="bg-[#E0EEF4] dark:bg-blue-950/30 border border-blue-200 dark:border-[#1A6080]/50 rounded-xl p-5">
+            <div className="bg-[#E0EEF4] dark:bg-[#0E3D52]/15 border border-[#1A6080]/30 dark:border-[#1A6080]/50 rounded-xl p-5">
               <h3 className="text-sm font-semibold text-[#7dcfd7] mb-3">📅 Upcoming Starters (next 30 days)</h3>
               <div className="space-y-2">
                 {upcoming.map(r => (

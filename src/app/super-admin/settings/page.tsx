@@ -183,7 +183,7 @@ export default function PlatformSettingsPage() {
           {activeSection === 'email' && (
             <>
               <h2 className="text-base font-semibold text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-800 pb-3">Email / SMTP Configuration</h2>
-              <div className="bg-blue-50 dark:bg-blue-100 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-3 text-xs text-blue-700 dark:text-blue-300">
+              <div className="bg-[#E0EEF4] dark:bg-[#E0EEF4] dark:bg-[#0E3D52]/15 border border-[#1A6080]/30 dark:border-[#1A6080]/60 rounded-lg p-3 text-xs text-[#0E3D52] dark:text-[#4ebac4]">
                 Brevo SMTP provides 300 emails/day (9,000/month) on the free tier — covering all HRMS notifications, reminders, and alerts.
               </div>
               <Field label="SMTP Host">
