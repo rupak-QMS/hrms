@@ -434,7 +434,7 @@ export default function ParticipantsPage() {
             </div>
           ) : participants.map(p => (
             <button key={p.id} onClick={() => selectParticipant(p)}
-              className={`w-full text-left px-4 py-3 border-b border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors ${selected?.id === p.id ? 'bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border-l-2 border-l-blue-500' : ''}`}>
+              className={`w-full text-left px-4 py-3 border-b border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors ${selected?.id === p.id ? 'bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border-l-2 border-l-[#0E3D52]' : ''}`}>
               <div className="flex items-center justify-between">
                 <span className="font-medium text-sm text-gray-900 dark:text-white">
                   {displayName(p)}{p.preferredName ? ` (${p.preferredName})` : ''}

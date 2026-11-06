@@ -211,7 +211,7 @@ export default function ExperiencePage() {
           <ExportButton onClick={handleExport} disabled={records.length === 0} />
           <button
             onClick={openCreate}
-            className="bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm px-4 py-2 rounded-lg transition"
+            className="btn-primary"
           >
             + Add Record
           </button>
@@ -462,7 +462,7 @@ export default function ExperiencePage() {
                 <button
                   type="submit"
                   disabled={saving}
-                  className="px-4 py-2 text-sm bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white rounded-lg transition"
+                  className="btn-primary"
                 >
                   {saving ? 'Saving…' : editRecord ? 'Save Changes' : 'Add Record'}
                 </button>

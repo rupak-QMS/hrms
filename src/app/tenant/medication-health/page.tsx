@@ -516,7 +516,7 @@ export default function MedicationHealthPage() {
             </div>
           ) : participants.map(p => (
             <button key={p.id} onClick={() => selectParticipant(p)}
-              className={`w-full text-left px-4 py-3 border-b border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors ${selected?.id === p.id ? 'bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border-l-2 border-l-blue-500' : ''}`}>
+              className={`w-full text-left px-4 py-3 border-b border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors ${selected?.id === p.id ? 'bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border-l-2 border-l-[#0E3D52]' : ''}`}>
               <p className="font-medium text-sm text-gray-900 dark:text-white">{displayName(p)}</p>
               <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">{p.fundingBody}{p.ndisNumber ? ` · ${p.ndisNumber}` : ''}</p>
             </button>

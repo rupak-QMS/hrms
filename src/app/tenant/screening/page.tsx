@@ -219,7 +219,7 @@ export default function ScreeningPage() {
           <ExportButton onClick={handleExport} disabled={records.length === 0} />
           <button
             onClick={() => { setForm({ ...EMPTY_FORM }); setShowCreate(true) }}
-            className="px-4 py-2 bg-[#0E3D52] text-white rounded-lg text-sm font-medium hover:bg-[#1A6080] transition"
+            className="btn-primary"
           >
             + Add Check
           </button>
@@ -403,7 +403,7 @@ export default function ScreeningPage() {
               <button onClick={() => setShowCreate(false)} className="flex-1 px-4 py-2 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition">
                 Cancel
               </button>
-              <button onClick={create} disabled={saving || !form.employeeId} className="flex-1 px-4 py-2 bg-[#0E3D52] text-white rounded-lg text-sm font-medium hover:bg-[#1A6080] disabled:opacity-50 transition">
+              <button onClick={create} disabled={saving || !form.employeeId} className="flex-1 btn-primary disabled:opacity-50 transition">
                 {saving ? 'Adding…' : 'Add Record'}
               </button>
             </div>
@@ -477,7 +477,7 @@ export default function ScreeningPage() {
               <button onClick={() => setEditRecord(null)} className="flex-1 px-4 py-2 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition">
                 Cancel
               </button>
-              <button onClick={saveEdit} disabled={saving} className="flex-1 px-4 py-2 bg-[#0E3D52] text-white rounded-lg text-sm font-medium hover:bg-[#1A6080] disabled:opacity-50 transition">
+              <button onClick={saveEdit} disabled={saving} className="flex-1 btn-primary disabled:opacity-50 transition">
                 {saving ? 'Saving…' : 'Save Changes'}
               </button>
             </div>

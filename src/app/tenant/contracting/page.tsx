@@ -99,7 +99,7 @@ export default function ContractingPage() {
         </div>
         <div className="flex items-center gap-2">
           <ExportButton onClick={exportContracts} disabled={contracts.length === 0} />
-          <button onClick={()=>setShowCreate(true)} className="px-4 py-2 bg-[#0E3D52] text-white rounded-lg text-sm font-medium hover:bg-[#1A6080]">+ New Contract</button>
+          <button onClick={()=>setShowCreate(true)} className="btn-primary">+ New Contract</button>
         </div>
       </div>
 
@@ -218,7 +218,7 @@ export default function ContractingPage() {
             </div>
             <div className="flex gap-3 mt-5">
               <button onClick={()=>setShowCreate(false)} className="flex-1 px-4 py-2 border border-gray-200 rounded-lg text-sm text-gray-600 dark:text-gray-400 dark:border-gray-700">Cancel</button>
-              <button onClick={create} disabled={saving||!form.employeeId} className="flex-1 px-4 py-2 bg-[#0E3D52] text-white rounded-lg text-sm font-medium disabled:opacity-50">{saving?'Creating…':'Create'}</button>
+              <button onClick={create} disabled={saving||!form.employeeId} className="flex-1 btn-primary">{saving?'Creating…':'Create'}</button>
             </div>
           </div>
         </div>
@@ -396,7 +396,7 @@ function SendForSignaturePanel({
 
           <div className="flex gap-2">
             <button onClick={sendForSignature} disabled={sending}
-              className="flex-1 px-4 py-2 bg-[#0E3D52] text-white rounded-lg text-sm font-medium hover:bg-[#1A6080] disabled:opacity-50">
+              className="flex-1 btn-primary disabled:opacity-50">
               {sending ? 'Sending…' : '📧 Send for Signature'}
             </button>
             <button onClick={copyLink} title="Copy signing link"

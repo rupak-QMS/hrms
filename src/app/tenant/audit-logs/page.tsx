@@ -85,7 +85,7 @@ export default function AuditLogsPage() {
             className="input-premium focus:outline-none focus:border-[#0E3D52]" />
         </div>
         <button onClick={applyFilters}
-          className="bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm px-4 py-2 rounded-lg transition">
+          className="btn-primary">
           Apply
         </button>
         {(filterResource || filterAction || filterSince) && (

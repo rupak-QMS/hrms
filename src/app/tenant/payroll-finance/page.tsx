@@ -599,7 +599,7 @@ export default function PayrollFinancePage() {
                   Cancel
                 </button>
                 <button type="submit" disabled={submitting}
-                  className="flex-1 px-4 py-2 bg-[#0E3D52] text-white rounded-lg text-sm font-medium hover:bg-[#1A6080] disabled:opacity-50">
+                  className="flex-1 btn-primary disabled:opacity-50">
                   {submitting ? 'Creating…' : 'Create Run'}
                 </button>
               </div>

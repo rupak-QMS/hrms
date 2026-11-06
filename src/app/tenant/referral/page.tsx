@@ -91,7 +91,7 @@ export default function ReferralPage() {
         </div>
         <div className="flex items-center gap-2">
           <ExportButton onClick={exportData} disabled={referrals.length === 0} />
-          <button onClick={()=>setShowCreate(true)} className="px-4 py-2 bg-[#0E3D52] text-white rounded-lg text-sm font-medium hover:bg-[#1A6080]">+ Add Referral</button>
+          <button onClick={()=>setShowCreate(true)} className="btn-primary">+ Add Referral</button>
         </div>
       </div>
 
@@ -178,7 +178,7 @@ export default function ReferralPage() {
             </div>
             <div className="flex gap-3 mt-5">
               <button onClick={()=>setShowCreate(false)} className="flex-1 px-4 py-2 border border-gray-200 rounded-lg text-sm text-gray-600 dark:text-gray-400 dark:border-gray-700">Cancel</button>
-              <button onClick={create} disabled={saving||!form.referrerId||!form.referredName} className="flex-1 px-4 py-2 bg-[#0E3D52] text-white rounded-lg text-sm font-medium disabled:opacity-50">{saving?'Adding…':'Add'}</button>
+              <button onClick={create} disabled={saving||!form.referrerId||!form.referredName} className="flex-1 btn-primary">{saving?'Adding…':'Add'}</button>
             </div>
           </div>
         </div>

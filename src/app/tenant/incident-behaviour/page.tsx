@@ -480,7 +480,7 @@ export default function IncidentBehaviourPage() {
             <button
               key={p.id}
               onClick={() => handleSelect(p.id)}
-              className={`w-full text-left px-4 py-3 border-b border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors ${selectedId === p.id ? 'bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border-l-2 border-l-blue-500' : ''}`}
+              className={`w-full text-left px-4 py-3 border-b border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors ${selectedId === p.id ? 'bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border-l-2 border-l-[#0E3D52]' : ''}`}
             >
               <p className="text-sm font-medium text-gray-900 dark:text-white">
                 {p.preferredName || p.firstName} {p.lastName}

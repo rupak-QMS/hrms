@@ -67,7 +67,7 @@ const LEAVE_STATUS_COLORS: Record<string, string> = {
 }
 
 const PRIORITY_COLORS: Record<string, string> = {
-  info:     'border-l-4 border-blue-400 bg-[#E0EEF4] dark:bg-[#0E3D52]/20',
+  info:     'border-l-4 border-[#1A6080] bg-[#E0EEF4] dark:bg-[#0E3D52]/20',
   warning:  'border-l-4 border-yellow-400 bg-yellow-50 dark:bg-yellow-900/20',
   critical: 'border-l-4 border-red-400 bg-red-50 dark:bg-red-900/20',
 }
@@ -373,7 +373,7 @@ export default function SelfServicePage() {
                   Cancel
                 </button>
                 <button type="submit" disabled={submitting}
-                  className="flex-1 px-4 py-2 bg-[#0E3D52] text-white rounded-lg text-sm font-medium hover:bg-[#1A6080] disabled:opacity-50">
+                  className="flex-1 btn-primary disabled:opacity-50">
                   {submitting ? 'Submitting…' : 'Submit Request'}
                 </button>
               </div>
