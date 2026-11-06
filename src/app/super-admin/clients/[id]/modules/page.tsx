@@ -173,7 +173,7 @@ export default function ModulesPage() {
       <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-4 flex flex-wrap gap-4 text-xs text-gray-600 dark:text-gray-400">
         <span className="font-semibold text-gray-600 dark:text-gray-300">Tier includes:</span>
         <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-green-500" />Starter — modules 01–09</span>
-        <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-blue-500" />Professional — modules 01–19</span>
+        <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-[#1A6080]" />Professional — modules 01–19</span>
         <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-[#E0EEF4]0" />Enterprise — all 28 modules</span>
         <span className="flex items-center gap-1.5"><span className="text-gray-500 dark:text-gray-400"></span> Core modules always on</span>
       </div>

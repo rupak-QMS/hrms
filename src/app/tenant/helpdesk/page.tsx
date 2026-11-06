@@ -143,9 +143,9 @@ export default function HelpdeskPage() {
       <div className="flex flex-wrap gap-2">
         <input value={q} onChange={e => { setQ(e.target.value); setPage(1) }}
           placeholder="Search tickets…"
-          className="px-3 py-1.5 text-sm border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 w-48" />
+          className="px-3 py-1.5 text-sm border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#0E3D52] w-48" />
         <select value={status} onChange={e => { setStatus(e.target.value); setPage(1) }}
-          className="px-3 py-1.5 text-sm border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+          className="px-3 py-1.5 text-sm border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#0E3D52]">
           <option value="">All statuses</option>
           <option value="open">Open</option>
           <option value="in_progress">In Progress</option>
@@ -154,7 +154,7 @@ export default function HelpdeskPage() {
           <option value="closed">Closed</option>
         </select>
         <select value={priority} onChange={e => { setPriority(e.target.value); setPage(1) }}
-          className="px-3 py-1.5 text-sm border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+          className="px-3 py-1.5 text-sm border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#0E3D52]">
           <option value="">All priorities</option>
           <option value="critical">Critical</option>
           <option value="high">High</option>
@@ -242,18 +242,18 @@ export default function HelpdeskPage() {
               <div>
                 <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Title *</label>
                 <input value={newForm.title} onChange={e => setNewForm(f => ({ ...f, title: e.target.value }))}
-                  className="w-full px-3 py-2 text-sm border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Brief summary of the issue" />
+                  className="w-full px-3 py-2 text-sm border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#0E3D52]" placeholder="Brief summary of the issue" />
               </div>
               <div>
                 <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Description *</label>
                 <textarea value={newForm.description} onChange={e => setNewForm(f => ({ ...f, description: e.target.value }))} rows={4}
-                  className="w-full px-3 py-2 text-sm border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-none" placeholder="Describe the issue in detail…" />
+                  className="w-full px-3 py-2 text-sm border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#0E3D52] resize-none" placeholder="Describe the issue in detail…" />
               </div>
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Category</label>
                   <select value={newForm.category} onChange={e => setNewForm(f => ({ ...f, category: e.target.value }))}
-                    className="w-full px-3 py-2 text-sm border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    className="w-full px-3 py-2 text-sm border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#0E3D52]">
                     <option value="it">IT</option>
                     <option value="hr">HR</option>
                     <option value="payroll">Payroll</option>
@@ -265,7 +265,7 @@ export default function HelpdeskPage() {
                 <div>
                   <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Priority</label>
                   <select value={newForm.priority} onChange={e => setNewForm(f => ({ ...f, priority: e.target.value }))}
-                    className="w-full px-3 py-2 text-sm border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    className="w-full px-3 py-2 text-sm border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#0E3D52]">
                     <option value="low">Low (72h SLA)</option>
                     <option value="medium">Medium (24h SLA)</option>
                     <option value="high">High (8h SLA)</option>

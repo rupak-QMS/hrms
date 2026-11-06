@@ -297,7 +297,7 @@ export default function IntakePage() {
                   form.selectedModules.includes(m.id) ? 'border-[#0E3D52] bg-[#E0EEF4] dark:bg-[#E0EEF4] dark:bg-[#0E3D52]/20 text-[#0E3D52] dark:text-[#7dcfd7]' : 'border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-gray-600'
                 }`}>
                   <input type="checkbox" checked={form.selectedModules.includes(m.id)} onChange={() => toggleModule(m.id)}
-                    className="accent-purple-500" />
+                    className="accent-[#0E3D52]" />
                   {m.name}
                 </label>
               ))}

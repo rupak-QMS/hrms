@@ -25,7 +25,7 @@ const CATEGORY_COLORS: Record<string, string> = {
 }
 
 const BAR_COLORS: Record<string, string> = {
-  Core: 'bg-blue-500', Compliance: 'bg-green-500', Learning: 'bg-[#E0EEF4]0',
+  Core: 'bg-[#0E3D52]', Compliance: 'bg-green-500', Learning: 'bg-[#E8973A]',
   Talent: 'bg-yellow-500', Performance: 'bg-orange-500', Safety: 'bg-red-500',
   Intelligence: 'bg-cyan-500', Experience: 'bg-pink-500', Operations: 'bg-teal-500',
 }
@@ -161,7 +161,7 @@ export default function ModulesPage() {
                     <div className="flex items-center gap-2">
                       <div className="flex-1 bg-gray-100 dark:bg-gray-800 rounded-full h-2">
                         <div
-                          className={`h-2 rounded-full transition-all ${BAR_COLORS[mod.category] ?? 'bg-[#E0EEF4]0'}`}
+                          className={`h-2 rounded-full transition-all ${BAR_COLORS[mod.category] ?? 'bg-[#E8973A]'}`}
                           style={{ width: `${mod.percentage}%` }}
                         />
                       </div>
