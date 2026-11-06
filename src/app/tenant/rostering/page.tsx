@@ -170,7 +170,7 @@ function AvailabilityModal({
 
   return (
     <div className="modal-overlay">
-      <div className="card-premium w-full max-w-lg shadow-2xl max-h-[90vh] overflow-y-auto">
+      <div className="card-premium w-full max-w-lg shadow-lg max-h-[90vh] overflow-y-auto">
         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-gray-800">
           <div>
             <h2 className="text-lg font-bold text-gray-900 dark:text-white">Availability</h2>
@@ -286,7 +286,7 @@ function FillTimesheetsModal({
 
   return (
     <div className="modal-overlay">
-      <div className="card-premium w-full max-w-md shadow-2xl">
+      <div className="card-premium w-full max-w-md shadow-lg">
         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-gray-800">
           <h2 className="text-lg font-bold text-gray-900 dark:text-white">Fill Timesheets</h2>
           <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-400">✕</button>
@@ -421,7 +421,7 @@ function ShiftModal({
 
   return (
     <div className="modal-overlay">
-      <div className="card-premium w-full max-w-lg shadow-2xl max-h-[90vh] overflow-y-auto">
+      <div className="card-premium w-full max-w-lg shadow-lg max-h-[90vh] overflow-y-auto">
         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-gray-800">
           <h2 className="text-lg font-bold text-gray-900 dark:text-white">
             {mode === 'create' ? 'Add Shift' : 'Edit Shift'}

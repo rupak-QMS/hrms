@@ -73,7 +73,7 @@ EMP001,Jane,Smith,jane.smith@example.com,full_time,2026-01-15,,+61400000001,Yahw
 
   return (
     <div className="modal-overlay">
-      <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl w-full max-w-lg shadow-2xl overflow-hidden">
+      <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/40 rounded-xl w-full max-w-lg shadow-xl overflow-hidden">
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-gray-800">
           <div>

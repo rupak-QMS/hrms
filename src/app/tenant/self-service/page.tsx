@@ -331,7 +331,7 @@ export default function SelfServicePage() {
       {/* LEAVE REQUEST MODAL */}
       {showLeaveModal && (
         <div className="modal-overlay">
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-md">
+          <div className="bg-white dark:bg-[#0F1E2E] rounded-xl shadow-xl w-full max-w-md">
             <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
               <h3 className="text-lg font-bold text-gray-900 dark:text-white">Request Leave</h3>
               <button onClick={() => setShowLeaveModal(false)} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 text-2xl">×</button>

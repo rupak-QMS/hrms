@@ -136,7 +136,7 @@ function IncidentModal({ initial, onClose, onSaved }: {
 
   return (
     <div className="modal-overlay">
-      <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+      <div className="bg-white dark:bg-[#0F1E2E] rounded-xl shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
         <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-gray-100 dark:border-gray-800">
           <h2 className="text-lg font-bold text-gray-900 dark:text-white">
             {initial ? 'Edit Incident' : 'New Reportable Incident'}
@@ -395,7 +395,7 @@ export default function NDISIncidentsPage() {
           { label: 'Critical Severity',     value: critical,    cls: 'text-red-600 dark:text-red-400' },
           { label: 'Pending NDIS Notify',   value: unnotified,  cls: 'text-orange-600 dark:text-orange-400' },
         ].map(({ label, value, cls }) => (
-          <div key={label} className="card-premium rounded-2xl p-4">
+          <div key={label} className="card-premium p-4">
             <p className="text-xs text-gray-500 dark:text-gray-400">{label}</p>
             <p className={`text-3xl font-bold mt-1 ${cls}`}>{value}</p>
           </div>
@@ -439,7 +439,7 @@ export default function NDISIncidentsPage() {
       </div>
 
       {/* Table */}
-      <div className="card-premium rounded-2xl overflow-hidden">
+      <div className="card-premium overflow-hidden">
         {loading ? (
           <div className="flex items-center justify-center h-48 text-gray-400">Loading…</div>
         ) : incidents.length === 0 ? (

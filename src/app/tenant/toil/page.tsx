@@ -422,7 +422,7 @@ export default function ToilPage() {
       {/* Record TOIL Modal */}
       {showModal && (
         <div className="modal-overlay">
-          <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl w-full max-w-md p-6 m-4">
+          <div className="bg-white dark:bg-[#0F1E2E] rounded-xl shadow-xl w-full max-w-md p-6 m-4">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Record TOIL</h3>
             <div className="space-y-3">
               <div>

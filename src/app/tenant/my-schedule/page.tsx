@@ -319,7 +319,7 @@ export default function MySchedulePage() {
 
       {/* Schedule */}
       {loading ? (
-        <div className="card-premium rounded-2xl py-16 text-center text-sm text-gray-500 dark:text-gray-400">
+        <div className="card-premium py-16 text-center text-sm text-gray-500 dark:text-gray-400">
           Loading shifts…
         </div>
       ) : (

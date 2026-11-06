@@ -166,7 +166,7 @@ export default function NotificationsPage() {
       </div>
 
       {/* Email Alert Panel */}
-      <div className="card-premium rounded-2xl p-5">
+      <div className="card-premium p-5">
         <h2 className="font-semibold text-gray-900 dark:text-white mb-1">Document Expiry Alerts</h2>
         <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
           Scan for compliance documents expiring soon and email employees + compliance managers.
@@ -223,7 +223,7 @@ export default function NotificationsPage() {
       </div>
 
       {/* Cron Setup Hint */}
-      <div className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-5">
+      <div className="bg-gray-50 dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/30 rounded-xl p-5">
         <h3 className="font-semibold text-gray-700 dark:text-gray-300 mb-2 text-sm">⏰ Automate with Vercel Cron</h3>
         <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">Add this to <code>vercel.json</code> in your project root to run expiry alerts every day at 7am UTC:</p>
         <pre className="bg-gray-100 dark:bg-gray-800 rounded-lg p-3 text-xs text-gray-700 dark:text-gray-300 overflow-x-auto">{`{
@@ -238,7 +238,7 @@ export default function NotificationsPage() {
       </div>
 
       {/* In-app Notifications */}
-      <div className="card-premium rounded-2xl overflow-hidden">
+      <div className="card-premium overflow-hidden">
         <div className="px-5 py-4 border-b border-gray-100 dark:border-gray-800 flex items-center justify-between gap-4 flex-wrap">
           <h2 className="font-semibold text-gray-900 dark:text-white">In-app Notifications</h2>
 

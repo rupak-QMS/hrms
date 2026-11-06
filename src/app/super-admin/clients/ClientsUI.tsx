@@ -35,7 +35,7 @@ function ConfirmModal({ state, onConfirm, onCancel }: {
   const isDelete = state.type === 'delete'
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-      <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-2xl p-6 max-w-sm w-full mx-4">
+      <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl p-6 max-w-sm w-full mx-4">
         <h3 className="text-base font-semibold text-gray-900 dark:text-white mb-2">
           {isDelete ? 'Delete client?' : 'Login as tenant?'}
         </h3>

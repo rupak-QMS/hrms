@@ -817,7 +817,7 @@ export default function LeavePage() {
       {showForm && (
         <div className="modal-overlay">
           <form onSubmit={submit}
-            className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-2xl p-6 w-full max-w-lg space-y-4 shadow-2xl">
+            className="bg-white dark:bg-[#0F1E2E] border border-gray-300 dark:border-[#1A6080]/40 rounded-xl p-6 w-full max-w-lg space-y-4 shadow-xl">
             <div className="flex items-center justify-between">
               <h2 className="text-lg font-semibold text-foreground">New Leave Request</h2>
               <button type="button" onClick={() => { setShowForm(false); setFormError(null) }}

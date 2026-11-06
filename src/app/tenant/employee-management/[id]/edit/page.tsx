@@ -18,7 +18,7 @@ const EMPLOYMENT_TYPES = [
 ]
 
 const SECTION = ({ title, children }: { title: string; children: React.ReactNode }) => (
-  <div className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-6 space-y-4">
+  <div className="bg-white dark:bg-[#0F1E2E] border border-gray-100 dark:border-[#1A6080]/30 rounded-xl p-6 space-y-4">
     <h2 className="text-sm font-semibold text-gray-500 dark:text-gray-400 ">{title}</h2>
     {children}
   </div>

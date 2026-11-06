@@ -357,7 +357,7 @@ export default function ScreeningPage() {
       {/* Create modal */}
       {showCreate && (
         <div className="modal-overlay">
-          <div className="card-premium w-full max-w-md p-6 shadow-2xl">
+          <div className="card-premium w-full max-w-md p-6 shadow-lg">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Add Screening Record</h3>
               <button onClick={() => setShowCreate(false)} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
@@ -414,7 +414,7 @@ export default function ScreeningPage() {
       {/* Edit modal */}
       {editRecord && (
         <div className="modal-overlay">
-          <div className="card-premium w-full max-w-lg p-6 shadow-2xl">
+          <div className="card-premium w-full max-w-lg p-6 shadow-lg">
             <div className="flex items-center justify-between mb-1">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Edit Screening Record</h3>
               <button onClick={() => setEditRecord(null)} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">

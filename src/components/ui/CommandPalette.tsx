@@ -83,7 +83,7 @@ export default function CommandPalette() {
 
   return (
     <div className="fixed inset-0 z-[80] flex items-start justify-center pt-[12vh] px-4 bg-black/50 backdrop-blur-sm" onClick={() => setOpen(false)}>
-      <div className="w-full max-w-lg bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden" onClick={e => e.stopPropagation()}>
+      <div className="w-full max-w-lg bg-white dark:bg-[#0F1E2E] rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 overflow-hidden" onClick={e => e.stopPropagation()}>
         <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-100 dark:border-gray-800">
           <span className="text-gray-400 text-sm flex-shrink-0">
             {loading ? <span className="inline-block w-4 h-4 border-2 border-gray-300 border-t-[#0E3D52] rounded-full animate-spin" /> : ''}

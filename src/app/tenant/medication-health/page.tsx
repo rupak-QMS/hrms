@@ -1100,7 +1100,7 @@ function Modal({ title, onClose, onSave, saving, error, children, wide }: {
 }) {
   return (
     <div className="modal-overlay">
-      <div className={`bg-white dark:bg-gray-800 rounded-2xl shadow-2xl flex flex-col max-h-[90vh] ${wide ? 'w-full max-w-2xl' : 'w-full max-w-md'}`}>
+      <div className={`bg-white dark:bg-[#0F1E2E] rounded-xl shadow-xl flex flex-col max-h-[90vh] ${wide ? 'w-full max-w-2xl' : 'w-full max-w-md'}`}>
         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 dark:border-gray-700">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{title}</h3>
           <button onClick={onClose} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 text-xl leading-none">×</button>

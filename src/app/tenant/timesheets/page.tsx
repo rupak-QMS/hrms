@@ -87,7 +87,7 @@ function RejectModal({ onConfirm, onClose }: {
   const [reason, setReason] = useState('')
   return (
     <div className="modal-overlay">
-      <div className="card-premium w-full max-w-sm shadow-2xl">
+      <div className="card-premium w-full max-w-sm shadow-lg">
         <div className="px-6 py-4 border-b border-gray-100 dark:border-gray-800">
           <h3 className="font-bold text-gray-900 dark:text-white">Reject Timesheet</h3>
         </div>

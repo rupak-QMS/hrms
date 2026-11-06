@@ -773,7 +773,7 @@ export default function OfferLettersPage() {
       {/* New Offer Form Modal */}
       {showForm && (
         <div className="modal-overlay">
-          <div className="card-premium rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+          <div className="card-premium w-full max-w-2xl max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-800">
               <h2 className="text-lg font-bold text-foreground">New Offer Letter</h2>
               <button onClick={()=>{ setShowForm(false); setFormError('') }} className="text-gray-600 dark:text-gray-400 hover:text-white text-xl">×</button>
@@ -899,7 +899,7 @@ export default function OfferLettersPage() {
       {/* Upload Template Modal */}
       {showUpload && (
         <div className="modal-overlay">
-          <div className="card-premium rounded-2xl w-full max-w-xl max-h-[90vh] overflow-y-auto">
+          <div className="card-premium w-full max-w-xl max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between p-5 border-b border-gray-200 dark:border-gray-800">
               <h2 className="text-base font-bold text-white">Upload Offer Template</h2>
               <button onClick={() => setShowUpload(false)} className="text-gray-600 dark:text-gray-400 hover:text-white text-xl">×</button>

@@ -463,7 +463,7 @@ export default function ContractsPage() {
       {/* Edit modal */}
       {editContract && (
         <div className="modal-overlay">
-          <div className="card-premium w-full max-w-lg shadow-2xl p-6 space-y-4 overflow-y-auto max-h-[90vh]">
+          <div className="card-premium w-full max-w-lg shadow-lg p-6 space-y-4 overflow-y-auto max-h-[90vh]">
             <div className="flex items-center justify-between">
               <h3 className="text-base font-semibold text-white">
                 Edit Contract — {editContract.employeeFirstName} {editContract.employeeLastName}

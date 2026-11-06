@@ -116,7 +116,7 @@ function Modal({ title, onClose, children }: { title: string; onClose: () => voi
   return (
     <div className="modal-overlay"
       onClick={e => e.target === e.currentTarget && onClose()}>
-      <div className="card-premium w-full max-w-lg max-h-[90vh] overflow-auto shadow-2xl">
+      <div className="card-premium w-full max-w-lg max-h-[90vh] overflow-auto shadow-lg">
         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 dark:border-gray-700">
           <h2 className="m-0 text-base font-bold text-gray-900 dark:text-white">{title}</h2>
           <button onClick={onClose} className="bg-transparent border-none text-xl cursor-pointer text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 leading-none">✕</button>

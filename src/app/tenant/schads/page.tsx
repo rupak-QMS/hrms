@@ -212,7 +212,7 @@ export default function SCHADSCalculatorPage() {
         <div className="lg:col-span-2 space-y-5">
 
           {/* Classification & Employment Type */}
-          <div className="card-premium rounded-2xl p-5 space-y-4">
+          <div className="card-premium p-5 space-y-4">
             <h2 className="font-semibold text-gray-900 dark:text-white">Classification</h2>
 
             <div>
@@ -263,7 +263,7 @@ export default function SCHADSCalculatorPage() {
           </div>
 
           {/* Hours by penalty type */}
-          <div className="card-premium rounded-2xl p-5 space-y-4">
+          <div className="card-premium p-5 space-y-4">
             <h2 className="font-semibold text-gray-900 dark:text-white">Hours Worked</h2>
             <div className="space-y-3">
               {PENALTY_TYPES.filter(pt => pt.key !== 'early_late').map(pt => {
@@ -298,7 +298,7 @@ export default function SCHADSCalculatorPage() {
           </div>
 
           {/* Allowances */}
-          <div className="card-premium rounded-2xl p-5 space-y-4">
+          <div className="card-premium p-5 space-y-4">
             <h2 className="font-semibold text-gray-900 dark:text-white">Allowances</h2>
             <div className="space-y-3">
               {ALLOWANCES.filter(a => a.key !== 'sleepover_flat').map(al => {
@@ -334,7 +334,7 @@ export default function SCHADSCalculatorPage() {
 
         {/* Right — Summary */}
         <div className="space-y-5">
-          <div className="card-premium rounded-2xl p-5 space-y-4 sticky top-6">
+          <div className="card-premium p-5 space-y-4 sticky top-6">
             <h2 className="font-semibold text-gray-900 dark:text-white">Pay Summary</h2>
 
             {lines.length === 0 ? (
@@ -407,7 +407,7 @@ export default function SCHADSCalculatorPage() {
           </div>
 
           {/* Quick penalty rate table */}
-          <div className="card-premium rounded-2xl p-5">
+          <div className="card-premium p-5">
             <h2 className="font-semibold text-gray-900 dark:text-white mb-3">All Penalty Rates</h2>
             <table className="table-premium">
               <thead>

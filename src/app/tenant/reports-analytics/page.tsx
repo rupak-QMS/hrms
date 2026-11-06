@@ -586,7 +586,7 @@ export default function ReportsAnalyticsPage() {
       {/* SAVE MODAL */}
       {saveModal && (
         <div className="modal-overlay">
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-sm p-6">
+          <div className="bg-white dark:bg-[#0F1E2E] rounded-xl shadow-xl w-full max-w-sm p-6">
             <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Save Report</h3>
             <input
               autoFocus

@@ -247,7 +247,7 @@ export default function EssOnboardingPage() {
       </div>
 
       {/* Step content */}
-      <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 p-6 mb-6">
+      <div className="bg-white dark:bg-[#0F1E2E] rounded-xl border border-gray-200 dark:border-[#1A6080]/30 p-6 mb-6">
         {step === 1 && <Step1Personal data={data} set={set} />}
         {step === 2 && <Step2Tax data={data} set={set} />}
         {step === 3 && <Step3Super data={data} set={set} />}

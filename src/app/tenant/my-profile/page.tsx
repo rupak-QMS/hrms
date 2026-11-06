@@ -104,7 +104,7 @@ function TwoFactorSection() {
   if (enabled === null) return null  // still loading
 
   return (
-    <div className="card-premium rounded-2xl p-6">
+    <div className="card-premium p-6">
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-sm font-semibold text-gray-600 dark:text-gray-400 ">Two-Factor Authentication</h2>
         <span className={`text-xs px-2.5 py-1 rounded-full border font-medium ${enabled ? 'badge badge-green' : 'badge badge-gray'}`}>
@@ -341,7 +341,7 @@ export default function MyProfilePage() {
   if (!linked || !profile) {
     return (
       <div className="p-6 max-w-2xl mx-auto">
-        <div className="card-premium rounded-2xl p-10 text-center">
+        <div className="card-premium p-10 text-center">
           <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-gray-800 mx-auto mb-3">
                 <svg className="w-6 h-6 text-gray-600 dark:text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
@@ -455,7 +455,7 @@ export default function MyProfilePage() {
       )}
 
       {/* Personal Information */}
-      <div className="card-premium rounded-2xl p-6">
+      <div className="card-premium p-6">
         <h2 className="text-sm font-semibold text-gray-600 dark:text-gray-400  mb-4">Personal Information</h2>
         <div className={ROW}><span className="text-gray-500 text-sm dark:text-gray-400">Full Name</span><span className="text-foreground text-sm font-medium">{profile.firstName} {profile.lastName}</span></div>
         <div className={ROW}><span className="text-gray-500 text-sm dark:text-gray-400">Preferred Name</span><span className="text-foreground text-sm">{profile.preferredName || '—'}</span></div>
@@ -468,7 +468,7 @@ export default function MyProfilePage() {
       </div>
 
       {/* Employment Details */}
-      <div className="card-premium rounded-2xl p-6">
+      <div className="card-premium p-6">
         <h2 className="text-sm font-semibold text-gray-600 dark:text-gray-400  mb-4">Employment Details</h2>
         <div className={ROW}><span className="text-gray-500 text-sm dark:text-gray-400">Employee Number</span><span className="text-foreground text-sm font-mono">#{profile.employeeNumber}</span></div>
         <div className={ROW}><span className="text-gray-500 text-sm dark:text-gray-400">Organisation</span><span className="text-foreground text-sm">{profile.entityName || '—'}</span></div>
@@ -482,7 +482,7 @@ export default function MyProfilePage() {
       </div>
 
       {/* Emergency Contacts */}
-      <div className="card-premium rounded-2xl p-6">
+      <div className="card-premium p-6">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-sm font-semibold text-gray-600 dark:text-gray-400 ">Emergency Contacts</h2>
           {editingContact !== 'new' && (

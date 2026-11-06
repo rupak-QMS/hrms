@@ -256,7 +256,7 @@ export default function EssAnnouncementsPage() {
       {/* Create / Edit Modal */}
       {showModal && (
         <div className="modal-overlay">
-          <div className="card-premium w-full max-w-lg max-h-[92vh] overflow-y-auto shadow-2xl">
+          <div className="card-premium w-full max-w-lg max-h-[92vh] overflow-y-auto shadow-lg">
             <div className="p-6 space-y-5">
               <div className="flex items-center justify-between">
                 <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
@@ -366,7 +366,7 @@ export default function EssAnnouncementsPage() {
       {/* Delete Confirm */}
       {deleteId && (
         <div className="modal-overlay">
-          <div className="card-premium w-full max-w-sm shadow-2xl p-6 space-y-4">
+          <div className="card-premium w-full max-w-sm shadow-lg p-6 space-y-4">
             <h2 className="text-base font-semibold text-gray-900 dark:text-white">Delete announcement?</h2>
             <p className="text-sm text-gray-500 dark:text-gray-400">This cannot be undone.</p>
             {deleteError && (

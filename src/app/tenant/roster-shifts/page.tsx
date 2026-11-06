@@ -416,7 +416,7 @@ export default function RosterShiftsPage() {
       ══════════════════════════════════════════════════════════════════════ */}
       {showAddShift && (
         <div className="modal-overlay">
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-lg flex flex-col">
+          <div className="bg-white dark:bg-[#0F1E2E] rounded-xl shadow-xl w-full max-w-lg flex flex-col">
             <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Add Shift</h3>
               <button onClick={() => setShowAddShift(false)} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 text-xl">✕</button>
@@ -485,7 +485,7 @@ export default function RosterShiftsPage() {
       ══════════════════════════════════════════════════════════════════════ */}
       {reviewSwap && (
         <div className="modal-overlay">
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-md flex flex-col">
+          <div className="bg-white dark:bg-[#0F1E2E] rounded-xl shadow-xl w-full max-w-md flex flex-col">
             <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Review Swap Request</h3>
               <button onClick={() => setReviewSwap(null)} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 text-xl">✕</button>

@@ -65,7 +65,7 @@ export default function QuickAdd() {
       onClick={() => setOpen(false)}
     >
       <div
-        className="w-full max-w-sm bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden"
+        className="w-full max-w-sm bg-white dark:bg-[#0F1E2E] rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 overflow-hidden"
         onClick={e => e.stopPropagation()}
         onKeyDown={handleKeyDown}
         tabIndex={-1}

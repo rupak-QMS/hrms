@@ -194,7 +194,7 @@ export default function EssOnboardingReviewPage() {
       </div>
 
       {/* Table */}
-      <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden">
+      <div className="bg-white dark:bg-[#0F1E2E] rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden">
         {loading ? (
           <div className="flex items-center justify-center py-16">
             <div className="w-6 h-6 border-2 border-[#0E3D52] border-t-transparent rounded-full animate-spin" />
@@ -261,7 +261,7 @@ export default function EssOnboardingReviewPage() {
       {(selected || detailLoading) && (
         <div className="fixed inset-0 bg-black/50 z-50 flex justify-end" onClick={() => setSelected(null)}>
           <div
-            className="w-full max-w-2xl bg-white dark:bg-gray-900 h-full overflow-y-auto shadow-2xl"
+            className="w-full max-w-2xl bg-white dark:bg-gray-900 h-full overflow-y-auto shadow-xl"
             onClick={e => e.stopPropagation()}
           >
             {detailLoading ? (

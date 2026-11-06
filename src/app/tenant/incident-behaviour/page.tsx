@@ -735,7 +735,7 @@ export default function IncidentBehaviourPage() {
       ══════════════════════════════════════════════════════════════════════ */}
       {showIncidentModal && (
         <div className="modal-overlay">
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] flex flex-col">
+          <div className="bg-white dark:bg-[#0F1E2E] rounded-xl shadow-xl w-full max-w-2xl max-h-[90vh] flex flex-col">
             <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{editIncidentId ? 'Edit Incident' : 'Log Incident'}</h3>
               <button onClick={() => setShowIncidentModal(false)} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 text-xl">✕</button>
@@ -868,7 +868,7 @@ export default function IncidentBehaviourPage() {
       ══════════════════════════════════════════════════════════════════════ */}
       {showBehaviourModal && (
         <div className="modal-overlay">
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] flex flex-col">
+          <div className="bg-white dark:bg-[#0F1E2E] rounded-xl shadow-xl w-full max-w-2xl max-h-[90vh] flex flex-col">
             <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{editBehaviourId ? 'Edit Behaviour Support Plan' : 'Add Behaviour Support Plan'}</h3>
               <button onClick={() => setShowBehaviourModal(false)} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 text-xl">✕</button>
@@ -947,7 +947,7 @@ export default function IncidentBehaviourPage() {
       ══════════════════════════════════════════════════════════════════════ */}
       {showRestrictiveModal && (
         <div className="modal-overlay">
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] flex flex-col">
+          <div className="bg-white dark:bg-[#0F1E2E] rounded-xl shadow-xl w-full max-w-2xl max-h-[90vh] flex flex-col">
             <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{editRestrictiveId ? 'Edit Restrictive Practice' : 'Add Restrictive Practice'}</h3>
               <button onClick={() => setShowRestrictiveModal(false)} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 text-xl">✕</button>

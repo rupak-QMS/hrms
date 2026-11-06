@@ -195,7 +195,7 @@ export default function MyLeavePage() {
   if (!linked) {
     return (
       <div className="p-6 max-w-2xl mx-auto">
-        <div className="card-premium rounded-2xl p-10 text-center">
+        <div className="card-premium p-10 text-center">
           <p className="text-lg font-semibold text-foreground mb-2">Profile Not Linked</p>
           <p className="text-gray-600 dark:text-gray-400 text-sm">
             Your account is not linked to an employee record. Contact HR to set this up.
@@ -261,7 +261,7 @@ export default function MyLeavePage() {
       {showForm && (
         <div className="modal-overlay">
           <form onSubmit={submitRequest}
-            className="card-premium rounded-2xl p-6 w-full max-w-md space-y-4 shadow-2xl">
+            className="card-premium p-6 w-full max-w-md space-y-4 shadow-lg">
             <div className="flex items-center justify-between">
               <h2 className="text-lg font-semibold text-foreground">New Leave Request</h2>
               <button type="button" onClick={() => { setShowForm(false); setFormError(null) }}
@@ -443,7 +443,7 @@ export default function MyLeavePage() {
                 : 'text-green-400'
 
               return (
-                <div key={b.key} className="card-premium rounded-2xl p-5 space-y-3">
+                <div key={b.key} className="card-premium p-5 space-y-3">
                   <div className="flex items-center gap-2.5">
                     <span className="text-2xl">{b.emoji}</span>
                     <div>

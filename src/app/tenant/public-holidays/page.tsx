@@ -294,7 +294,7 @@ export default function PublicHolidaysPage() {
         <div className="modal-overlay">
           <form
             onSubmit={saveHoliday}
-            className="card-premium rounded-2xl p-6 w-full max-w-md space-y-4"
+            className="card-premium p-6 w-full max-w-md space-y-4"
           >
             <div className="flex items-center justify-between mb-2">
               <h2 className="text-lg font-semibold text-foreground">

@@ -88,7 +88,7 @@ export default function MyBenefitsPage() {
   if (!linked) {
     return (
       <div className="p-6 max-w-2xl mx-auto">
-        <div className="card-premium rounded-2xl p-10 text-center">
+        <div className="card-premium p-10 text-center">
           <p className="text-lg font-semibold text-white mb-2">Profile Not Linked</p>
           <p className="text-gray-600 dark:text-gray-400 text-sm">
             Your account is not linked to an employee record. Contact HR to set this up.
@@ -127,7 +127,7 @@ export default function MyBenefitsPage() {
 
       {/* No benefits state */}
       {benefits.length === 0 && (
-        <div className="card-premium rounded-2xl py-16 text-center">
+        <div className="card-premium py-16 text-center">
           <div className="text-4xl mb-3">🎁</div>
           <p className="text-gray-600 dark:text-gray-300 font-medium">No benefits assigned yet</p>
           <p className="text-gray-500 text-sm mt-1 dark:text-gray-400">

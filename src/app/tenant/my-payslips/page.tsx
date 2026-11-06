@@ -64,7 +64,7 @@ export default function MyPayslipsPage() {
   if (!linked) {
     return (
       <div className="p-6 max-w-2xl mx-auto">
-        <div className="card-premium rounded-2xl p-10 text-center">
+        <div className="card-premium p-10 text-center">
           <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-gray-800 mx-auto mb-3">
                 <svg className="w-6 h-6 text-gray-600 dark:text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
@@ -117,7 +117,7 @@ export default function MyPayslipsPage() {
 
       {/* Payslip list */}
       {payslips.length === 0 ? (
-        <div className="card-premium rounded-2xl p-12 text-center">
+        <div className="card-premium p-12 text-center">
           <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-gray-800 mx-auto mb-3">
                 <svg className="w-6 h-6 text-gray-600 dark:text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
@@ -133,7 +133,7 @@ export default function MyPayslipsPage() {
             return (
               <div
                 key={p.id}
-                className="card-premium rounded-2xl overflow-hidden"
+                className="card-premium overflow-hidden"
               >
                 {/* Summary row — click to expand */}
                 <button

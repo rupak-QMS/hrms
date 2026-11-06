@@ -474,7 +474,7 @@ export default function SuperannuationPage() {
       {/* Fund Modal */}
       {showFundModal && (
         <div className="modal-overlay">
-          <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl w-full max-w-lg p-6 m-4 max-h-[90vh] overflow-y-auto">
+          <div className="bg-white dark:bg-[#0F1E2E] rounded-xl shadow-xl w-full max-w-lg p-6 m-4 max-h-[90vh] overflow-y-auto">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
               {editingFund ? 'Edit Super Fund' : 'Add Super Fund'}
             </h3>
@@ -575,7 +575,7 @@ export default function SuperannuationPage() {
       {/* Contribution Modal */}
       {showContribModal && (
         <div className="modal-overlay">
-          <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl w-full max-w-lg p-6 m-4 max-h-[90vh] overflow-y-auto">
+          <div className="bg-white dark:bg-[#0F1E2E] rounded-xl shadow-xl w-full max-w-lg p-6 m-4 max-h-[90vh] overflow-y-auto">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Record Contribution</h3>
             <div className="space-y-3">
               <div>

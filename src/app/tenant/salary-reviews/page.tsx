@@ -301,7 +301,7 @@ export default function SalaryReviewsPage() {
           </div>
         ) : (
           <div className="h-full overflow-y-auto">
-            <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 space-y-5">
+            <div className="bg-white dark:bg-[#0F1E2E] rounded-xl border border-gray-200 dark:border-gray-700 p-6 space-y-5">
               {/* Header */}
               <div className="flex items-start justify-between">
                 <div>
@@ -443,7 +443,7 @@ export default function SalaryReviewsPage() {
       {/* New Review Modal */}
       {showModal && (
         <div className="modal-overlay">
-          <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl w-full max-w-lg p-6 m-4 max-h-[90vh] overflow-y-auto">
+          <div className="bg-white dark:bg-[#0F1E2E] rounded-xl shadow-xl w-full max-w-lg p-6 m-4 max-h-[90vh] overflow-y-auto">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">New Salary Review</h3>
             <div className="space-y-3">
               <div>

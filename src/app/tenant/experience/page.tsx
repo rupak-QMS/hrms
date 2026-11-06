@@ -330,7 +330,7 @@ export default function ExperiencePage() {
       {/* Create / Edit Modal */}
       {showModal && (
         <div className="modal-overlay">
-          <div className="card-premium w-full max-w-2xl shadow-2xl max-h-[90vh] overflow-y-auto">
+          <div className="card-premium w-full max-w-2xl shadow-lg max-h-[90vh] overflow-y-auto">
             <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between">
               <h2 className="text-base font-semibold text-gray-900 dark:text-white">
                 {editRecord ? 'Edit Experience Record' : 'Add Experience Record'}
