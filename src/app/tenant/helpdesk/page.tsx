@@ -32,7 +32,7 @@ const PRIORITY_COLOR: Record<Priority, string> = {
   critical: 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400',
   high:     'bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400',
   medium:   'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400',
-  low:      'bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400',
+  low:      'bg-slate-100 text-slate-600 dark:bg-[#0A1929] dark:text-[#4ebac4]/60',
 }
 
 const STATUS_COLOR: Record<Status, string> = {

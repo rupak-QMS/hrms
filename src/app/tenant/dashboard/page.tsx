@@ -421,7 +421,7 @@ function PersonalDashboard({ userName, tenantName, primaryColor, greetingText, e
             <Link key={m.key} href={`/tenant/${m.key}`}
               className="group card-premium px-4 py-4 flex flex-col items-center gap-2 text-center transition-all hover:-translate-y-px hover:shadow-sm">
               <span className="text-2xl leading-none">{m.icon}</span>
-              <span className="text-[12px] text-gray-500 dark:text-slate-400 group-hover:text-gray-800 dark:group-hover:text-white font-medium transition-colors">{m.label}</span>
+              <span className="text-[12px] text-gray-500 dark:text-[#4ebac4]/60 group-hover:text-gray-800 dark:group-hover:text-white font-medium transition-colors">{m.label}</span>
             </Link>
           ))}
         </div>
@@ -649,7 +649,7 @@ export default function DashboardPage() {
                 >
                   {s.href ? (
                     <Link href={s.href} className="block">
-                      <p className="text-[11px] text-gray-400 dark:text-slate-500 font-medium">{s.label}</p>
+                      <p className="text-[11px] text-gray-400 dark:text-[#4ebac4]/50 font-medium">{s.label}</p>
                       <p
                         className={`text-2xl font-bold mt-1.5 tabular-nums ${!s.accent ? 'text-gray-900 dark:text-white' : ''}`}
                         style={s.accent ? { color: s.accent } : undefined}
@@ -659,7 +659,7 @@ export default function DashboardPage() {
                     </Link>
                   ) : (
                     <>
-                      <p className="text-[11px] text-gray-400 dark:text-slate-500 font-medium">{s.label}</p>
+                      <p className="text-[11px] text-gray-400 dark:text-[#4ebac4]/50 font-medium">{s.label}</p>
                       <p className="text-2xl font-bold mt-1.5 tabular-nums" style={{ color: s.accent ?? undefined }}>{s.value}</p>
                     </>
                   )}
@@ -1058,7 +1058,7 @@ export default function DashboardPage() {
             <Link key={m.key} href={`/tenant/${m.key}`}
               className="group card-premium px-4 py-4 flex flex-col items-center gap-2 text-center transition-all hover:-translate-y-px hover:shadow-sm">
               <span className="text-2xl leading-none">{m.icon}</span>
-              <span className="text-[12px] text-gray-500 dark:text-slate-400 group-hover:text-gray-800 dark:group-hover:text-white font-medium transition-colors">{m.label}</span>
+              <span className="text-[12px] text-gray-500 dark:text-[#4ebac4]/60 group-hover:text-gray-800 dark:group-hover:text-white font-medium transition-colors">{m.label}</span>
             </Link>
           ))}
         </div>
