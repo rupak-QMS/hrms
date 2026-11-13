@@ -82,8 +82,8 @@
   .dark input, .dark textarea, .dark select { color-scheme: dark; }
   ::-webkit-scrollbar { width: 6px; height: 6px; }
   ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { @apply bg-gray-300 dark:bg-gray-700 rounded-full; }
-  ::-webkit-scrollbar-thumb:hover { @apply bg-gray-400 dark:bg-gray-600; }
+  ::-webkit-scrollbar-thumb { @apply bg-gray-300 dark:bg-[#1A6080]/40 rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-gray-400 dark:bg-[#1A6080]/60; }
   ::selection { @apply bg-teal-100 dark:bg-teal-900 text-gray-900 dark:text-white; }
   :focus-visible { outline: 2px solid hsl(var(--ring)); outline-offset: 2px; }
 }

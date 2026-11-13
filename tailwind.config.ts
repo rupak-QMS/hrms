@@ -72,8 +72,8 @@ const config: Config = {
       },
       fontFamily: {
         // Resolved at runtime from CSS variables set by next/font in layout.tsx
-        sans:    ['var(--font-inter)',    'Inter',              'system-ui', 'sans-serif'],
-        display: ['var(--font-jakarta)',  'Plus Jakarta Sans',  'Inter',     'system-ui', 'sans-serif'],
+        sans:    ['var(--font-dm-sans)', 'DM Sans',    'system-ui', 'sans-serif'],
+        display: ['var(--font-sora)',    'Sora',       'system-ui', 'sans-serif'],
         mono:    ['var(--font-mono)',     'JetBrains Mono',     'Fira Code', 'Consolas',  'monospace'],
       },
       boxShadow: {
