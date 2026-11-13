@@ -311,7 +311,7 @@ export default function PerformancePage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-foreground">Performance Management</h1>
+          <h1 className="text-2xl font-bold font-display text-foreground">Performance Management</h1>
           <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Probation check-ins, KPI reviews and performance plans</p>
         </div>
         {tab === 'reviews' ? (
@@ -529,7 +529,7 @@ export default function PerformancePage() {
                     const hasSelfAssess = ei && (ei.strengths || ei.improvements || ei.goals || ei.comments)
                     return (
                       <>
-                        <tr key={r.id} className="border-b border-gray-200 dark:border-[#1A6080]/20/50 last:border-0 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/20 transition">
+                        <tr key={r.id} className="border-b border-gray-200 dark:border-[#1A6080]/20/50 last:border-0 hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30/20 transition">
                           <td className="px-4 py-3.5">
                             <p className="text-foreground font-medium">{r.employeeFirstName} {r.employeeLastName}</p>
                             <p className="text-gray-500 text-xs dark:text-[#8aaabb]">{r.employeeEmail}</p>
@@ -565,11 +565,11 @@ export default function PerformancePage() {
                                 </button>
                               )}
                               <button onClick={() => { setExpanded(expanded === r.id ? null : r.id) }}
-                                className={`text-xs border px-2.5 py-1 rounded-lg transition ${expanded === r.id ? 'border-amber-700 text-amber-400' : 'border-[#1A6080]/30 text-gray-400 hover:border-gray-500'}`}>
+                                className={`text-xs border px-2.5 py-1 rounded-lg transition ${expanded === r.id ? 'border-amber-700 text-amber-400' : 'border-[#1A6080]/30 text-gray-400 hover:border-gray-50 dark:border-[#1A6080]/200'}`}>
                                 {expanded === r.id ? 'Hide' : 'Details'}
                               </button>
                               <button onClick={() => openSelfAssess(r)}
-                                className={`text-xs border px-2.5 py-1 rounded-lg transition ${hasSelfAssess ? 'border-green-700 text-green-400' : 'border-[#1A6080]/30 text-gray-400 hover:border-gray-500'}`}
+                                className={`text-xs border px-2.5 py-1 rounded-lg transition ${hasSelfAssess ? 'border-green-700 text-green-400' : 'border-[#1A6080]/30 text-gray-400 hover:border-gray-50 dark:border-[#1A6080]/200'}`}
                                 title={hasSelfAssess ? 'Self-assessment submitted' : 'Add self-assessment'}>
                                 {hasSelfAssess ? '✓ Self-assess' : 'Self-assess'}
                               </button>
@@ -808,7 +808,7 @@ export default function PerformancePage() {
                     </div>
                     <div className="flex gap-2 shrink-0">
                       <button onClick={() => setEditingGoal(g)}
-                        className="text-xs border border-[#1A6080]/30 text-gray-400 hover:text-white hover:border-gray-500 px-2.5 py-1 rounded-lg transition">
+                        className="text-xs border border-[#1A6080]/30 text-gray-400 hover:text-white hover:border-gray-50 dark:border-[#1A6080]/200 px-2.5 py-1 rounded-lg transition">
                         Edit
                       </button>
                       <button onClick={() => deleteGoal(g.id)}

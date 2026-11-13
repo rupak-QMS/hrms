@@ -415,11 +415,11 @@ export default function PayrollFinancePage() {
                     <>
                       <button
                         onClick={() => exportAba(selected.id, selected.name)}
-                        className="px-4 py-2 border border-gray-200 dark:border-[#1A6080]/40 text-gray-700 dark:text-[#C8D8E4] text-sm font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40"
+                        className="px-4 py-2 border border-gray-200 dark:border-[#1A6080]/40 text-gray-700 dark:text-[#C8D8E4] text-sm font-medium rounded-lg hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/40"
                       >📄 Re-export ABA</button>
                       <button
                         onClick={() => generatePayslips(selected.id)}
-                        className="px-4 py-2 border border-gray-200 dark:border-[#1A6080]/40 text-gray-700 dark:text-[#C8D8E4] text-sm font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40"
+                        className="px-4 py-2 border border-gray-200 dark:border-[#1A6080]/40 text-gray-700 dark:text-[#C8D8E4] text-sm font-medium rounded-lg hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/40"
                       >📑 Payslip PDFs</button>
                     </>
                   )}
@@ -499,7 +499,7 @@ export default function PayrollFinancePage() {
                         </thead>
                         <tbody className="divide-y divide-gray-100 dark:divide-[#1A6080]/30">
                           {entries.map(e => (
-                            <tr key={e.id} className="hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40/50">
+                            <tr key={e.id} className="hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/40/50">
                               <td className="px-4 py-3">
                                 <p className="font-medium text-gray-900 dark:text-white">{e.firstName} {e.lastName}</p>
                                 <p className="text-xs text-gray-400">{e.employeeNumber}</p>
@@ -595,7 +595,7 @@ export default function PayrollFinancePage() {
               </div>
               <div className="flex gap-3 pt-2">
                 <button type="button" onClick={() => setShowModal(false)}
-                  className="flex-1 px-4 py-2 border border-gray-200 dark:border-[#1A6080]/40 rounded-lg text-sm font-medium text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40">
+                  className="flex-1 px-4 py-2 border border-gray-200 dark:border-[#1A6080]/40 rounded-lg text-sm font-medium text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/40">
                   Cancel
                 </button>
                 <button type="submit" disabled={submitting}

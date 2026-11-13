@@ -176,7 +176,7 @@ function AvailabilityModal({
             <h2 className="text-lg font-bold text-gray-900 dark:text-white">Availability</h2>
             <p className="text-sm text-gray-500 dark:text-[#9BB0BC]">{employeeName}</p>
           </div>
-          <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 text-gray-600 dark:text-[#9BB0BC]">✕</button>
+          <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-gray-100 dark:bg-[#0F1E2E] dark:hover:bg-[#0E3D52]/30 text-gray-600 dark:text-[#9BB0BC]">✕</button>
         </div>
 
         {/* Existing slots */}
@@ -241,7 +241,7 @@ function AvailabilityModal({
 
           <div className="flex gap-3 pt-1">
             <button type="button" onClick={onClose}
-              className="flex-1 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
+              className="flex-1 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30 transition">
               Close
             </button>
             <button type="submit" disabled={saving}
@@ -289,7 +289,7 @@ function FillTimesheetsModal({
       <div className="card-premium w-full max-w-md shadow-lg">
         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-[#1A6080]/20">
           <h2 className="text-lg font-bold text-gray-900 dark:text-white">Fill Timesheets</h2>
-          <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 text-gray-600 dark:text-[#9BB0BC]">✕</button>
+          <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-gray-100 dark:bg-[#0F1E2E] dark:hover:bg-[#0E3D52]/30 text-gray-600 dark:text-[#9BB0BC]">✕</button>
         </div>
         <div className="p-6 space-y-4">
           <p className="text-sm text-gray-600 dark:text-[#9BB0BC]">
@@ -324,7 +324,7 @@ function FillTimesheetsModal({
 
           <div className="flex gap-3">
             <button onClick={onClose}
-              className="flex-1 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
+              className="flex-1 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30 transition">
               {result ? 'Close' : 'Cancel'}
             </button>
             {!result && (
@@ -426,7 +426,7 @@ function ShiftModal({
           <h2 className="text-lg font-bold text-gray-900 dark:text-white">
             {mode === 'create' ? 'Add Shift' : 'Edit Shift'}
           </h2>
-          <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 text-gray-600 dark:text-[#9BB0BC]">✕</button>
+          <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-gray-100 dark:bg-[#0F1E2E] dark:hover:bg-[#0E3D52]/30 text-gray-600 dark:text-[#9BB0BC]">✕</button>
         </div>
 
         <form onSubmit={handleSave} className="p-6 space-y-4">
@@ -539,7 +539,7 @@ function ShiftModal({
               </button>
             )}
             <button type="button" onClick={onClose}
-              className="flex-1 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
+              className="flex-1 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30 transition">
               Cancel
             </button>
             <button type="submit" disabled={saving}
@@ -793,13 +793,13 @@ export default function RosteringPage() {
         <div className="flex items-center gap-2 flex-wrap">
           <div className="flex items-center card-premium overflow-hidden">
             <button onClick={() => setWeekStart(w => addDays(w, -7))}
-              className="px-3 py-2 text-gray-500 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition text-sm dark:text-[#8aaabb]">←</button>
+              className="px-3 py-2 text-gray-500 hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30 transition text-sm dark:text-[#8aaabb]">←</button>
             <button onClick={() => setWeekStart(getMondayOf(new Date()))}
-              className="px-3 py-2 text-xs font-medium text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 border-x border-gray-200 dark:border-[#1A6080]/30 transition">
+              className="px-3 py-2 text-xs font-medium text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30 border-x border-gray-200 dark:border-[#1A6080]/30 transition">
               Today
             </button>
             <button onClick={() => setWeekStart(w => addDays(w, 7))}
-              className="px-3 py-2 text-gray-500 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition text-sm dark:text-[#8aaabb]">→</button>
+              className="px-3 py-2 text-gray-500 hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30 transition text-sm dark:text-[#8aaabb]">→</button>
           </div>
 
           {/* Availability toggle */}
@@ -813,7 +813,7 @@ export default function RosteringPage() {
             <>
               {/* Fill timesheets */}
               <button onClick={() => setShowFill(true)}
-                className="px-3 py-2 rounded-xl text-sm font-semibold border border-gray-300 dark:border-[#1A6080]/40 text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
+                className="px-3 py-2 rounded-xl text-sm font-semibold border border-gray-300 dark:border-[#1A6080]/40 text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30 transition">
                 📋 Fill Timesheets
               </button>
 
@@ -890,7 +890,7 @@ export default function RosteringPage() {
                 ) : visibleEmployees.map(emp => (
                   <>
                     {/* Shift row */}
-                    <tr key={emp.id} className="hover:bg-gray-50/40 dark:hover:bg-[#0E3D52]/30/20 transition">
+                    <tr key={emp.id} className="hover:bg-gray-50 dark:bg-[#070F1A]/40 dark:hover:bg-[#0E3D52]/30/20 transition">
                       <td className="px-4 py-2 border-r border-gray-100 dark:border-[#1A6080]/30 w-36">
                         <div className="flex items-center gap-2">
                           <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0"
@@ -933,7 +933,7 @@ export default function RosteringPage() {
                               })}
                               <PermissionGate permission="rostering:write">
                                 <button onClick={() => openCreate(day, emp.id)}
-                                  className="w-full py-1 text-[11px] text-gray-400 dark:text-[#9BB0BC] hover:text-gray-500 dark:hover:text-gray-400 transition text-center rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30">
+                                  className="w-full py-1 text-[11px] text-gray-400 dark:text-[#9BB0BC] hover:text-gray-500 dark:hover:text-gray-400 transition text-center rounded-lg hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30">
                                   + add
                                 </button>
                               </PermissionGate>

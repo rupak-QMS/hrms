@@ -223,17 +223,17 @@ export default function MySchedulePage() {
         {/* Week nav */}
         <div className="flex items-center gap-2">
           <button onClick={prevWeek}
-            className="p-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition text-gray-600 dark:text-[#9BB0BC]">
+            className="p-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30 transition text-gray-600 dark:text-[#9BB0BC]">
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
             </svg>
           </button>
           <button onClick={thisWeek}
-            className="px-3 py-1.5 text-sm font-medium rounded-lg border border-gray-200 dark:border-[#1A6080]/30 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition text-gray-700 dark:text-[#C8D8E4]">
+            className="px-3 py-1.5 text-sm font-medium rounded-lg border border-gray-200 dark:border-[#1A6080]/30 hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30 transition text-gray-700 dark:text-[#C8D8E4]">
             Today
           </button>
           <button onClick={nextWeek}
-            className="p-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition text-gray-600 dark:text-[#9BB0BC]">
+            className="p-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30 transition text-gray-600 dark:text-[#9BB0BC]">
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
             </svg>
@@ -395,11 +395,11 @@ export default function MySchedulePage() {
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2 flex-wrap mb-1.5">
                               {shift.shiftType && (
-                                <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${SHIFT_TYPE_COLORS[shift.shiftType] ?? 'bg-gray-100 text-gray-600'}`}>
+                                <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${SHIFT_TYPE_COLORS[shift.shiftType] ?? 'bg-gray-100 dark:bg-[#0F1E2E] text-gray-600'}`}>
                                   {SHIFT_TYPE_LABELS[shift.shiftType] ?? shift.shiftType}
                                 </span>
                               )}
-                              <span className={`text-xs px-2 py-0.5 rounded-full ${STATUS_STYLE[shift.status] ?? 'bg-gray-100 text-gray-500'}`}>
+                              <span className={`text-xs px-2 py-0.5 rounded-full ${STATUS_STYLE[shift.status] ?? 'bg-gray-100 dark:bg-[#0F1E2E] text-gray-500'}`}>
                                 {shift.status.charAt(0).toUpperCase() + shift.status.slice(1)}
                               </span>
                               {isNow && (

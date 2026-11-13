@@ -120,7 +120,7 @@ export default function ContractingPage() {
           </div>
           <div className="flex-1 overflow-y-auto">
             {loading ? <p className="p-4 text-sm text-gray-600 dark:text-[#9BB0BC]">Loading…</p> : contracts.length===0 ? <p className="p-6 text-sm text-gray-600 dark:text-[#9BB0BC] text-center">No contracts</p> : contracts.map(c=>(
-              <div key={c.id} className={`group relative border-b border-gray-100 hover:bg-gray-50 transition dark:border-[#1A6080]/20 ${selected?.id===c.id?'bg-[#E0EEF4] border-l-2 border-l-[#0E3D52]':''}`}>
+              <div key={c.id} className={`group relative border-b border-gray-100 hover:bg-gray-50 dark:bg-[#070F1A] transition dark:border-[#1A6080]/20 ${selected?.id===c.id?'bg-[#E0EEF4] border-l-2 border-l-[#0E3D52]':''}`}>
                 <button onClick={()=>setSelected(c)} className="w-full text-left px-4 py-3">
                   <div className="flex items-start justify-between gap-2">
                     <div className="min-w-0">
@@ -345,7 +345,7 @@ function SendForSignaturePanel({
             <input readOnly value={signingUrl}
               className="flex-1 border border-gray-200 rounded-lg px-3 py-1.5 text-xs dark:border-[#1A6080]/30 dark:bg-[#0A1929] truncate"/>
             <button onClick={copyLink}
-              className="px-3 py-1.5 border border-gray-200 rounded-lg text-xs font-medium text-gray-600 hover:bg-gray-50 dark:text-[#8aaabb] dark:border-[#1A6080]/40 dark:hover:bg-[#0E3D52]/30 shrink-0">
+              className="px-3 py-1.5 border border-gray-200 rounded-lg text-xs font-medium text-gray-600 hover:bg-gray-50 dark:bg-[#070F1A] dark:text-[#8aaabb] dark:border-[#1A6080]/40 dark:hover:bg-[#0E3D52]/30 shrink-0">
               {copyDone ? '✓ Copied' : 'Copy link'}
             </button>
           </div>
@@ -400,7 +400,7 @@ function SendForSignaturePanel({
               {sending ? 'Sending…' : '📧 Send for Signature'}
             </button>
             <button onClick={copyLink} title="Copy signing link"
-              className="px-3 py-2 border border-gray-200 rounded-lg text-sm text-gray-600 hover:bg-gray-50 dark:border-[#1A6080]/30 dark:text-[#8aaabb] dark:hover:bg-[#0E3D52]/30">
+              className="px-3 py-2 border border-gray-200 rounded-lg text-sm text-gray-600 hover:bg-gray-50 dark:bg-[#070F1A] dark:border-[#1A6080]/30 dark:text-[#8aaabb] dark:hover:bg-[#0E3D52]/30">
               {copyDone ? '✓' : '🔗'}
             </button>
           </div>

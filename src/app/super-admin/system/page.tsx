@@ -57,7 +57,7 @@ export default function SystemHealthPage() {
     <div className="space-y-8">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">System Health</h1>
+          <h1 className="text-2xl font-bold font-display text-gray-900 dark:text-white">System Health</h1>
           <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">
             Real-time platform status ·{' '}
             {loading ? 'Checking…' : lastChecked ? `Last checked ${lastChecked.toLocaleTimeString('en-AU')}` : error ? `Failed: ${error}` : 'Not checked'}

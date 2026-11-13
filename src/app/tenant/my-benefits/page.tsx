@@ -107,7 +107,7 @@ export default function MyBenefitsPage() {
 
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-bold text-foreground">My Benefits</h1>
+        <h1 className="text-2xl font-bold font-display text-foreground">My Benefits</h1>
         {employee && (
           <p className="text-sm text-gray-600 dark:text-[#9BB0BC] mt-0.5">
             {employee.firstName} {employee.lastName} · {activeBenefits.length} active benefit{activeBenefits.length !== 1 ? 's' : ''}
@@ -150,7 +150,7 @@ export default function MyBenefitsPage() {
                 style={{ borderLeft: `4px solid ${info?.color ?? '#6b7280'}` }}>
                 <button
                   onClick={() => setExpanded(isOpen ? null : b.id)}
-                  className="w-full flex items-center gap-4 px-5 py-4 text-left hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/30 transition">
+                  className="w-full flex items-center gap-4 px-5 py-4 text-left hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30/30 transition">
                   <span className="text-3xl shrink-0">{info?.emoji ?? '⭐'}</span>
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-semibold text-foreground">{info?.label ?? b.type}</p>

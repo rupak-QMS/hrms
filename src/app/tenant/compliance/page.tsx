@@ -197,7 +197,7 @@ function ScreeningTab() {
         ].map(s => (
           <div key={s.label} className="card-premium p-4">
             <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">{s.label}</p>
-            <p className={`text-3xl font-bold mt-1 ${s.color}`}>{s.value}</p>
+            <p className={`text-3xl font-bold font-display mt-1 ${s.color}`}>{s.value}</p>
           </div>
         ))}
       </div>
@@ -435,7 +435,7 @@ function TrackingTab() {
         ].map(s => (
           <div key={s.label} className="card-premium p-4">
             <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">{s.label}</p>
-            <p className={`text-3xl font-bold mt-1 ${s.color}`}>{s.value}</p>
+            <p className={`text-3xl font-bold font-display mt-1 ${s.color}`}>{s.value}</p>
           </div>
         ))}
       </div>

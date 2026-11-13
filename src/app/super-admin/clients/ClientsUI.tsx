@@ -47,7 +47,7 @@ function ConfirmModal({ state, onConfirm, onCancel }: {
         <div className="flex gap-3 justify-end">
           <button
             onClick={onCancel}
-            className="px-4 py-2 text-sm rounded-lg border border-gray-300 dark:border-[#1A6080]/40 text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 transition"
+            className="px-4 py-2 text-sm rounded-lg border border-gray-300 dark:border-[#1A6080]/40 text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-100 dark:bg-[#0F1E2E] dark:hover:bg-[#0E3D52]/30 transition"
           >
             Cancel
           </button>
@@ -143,7 +143,7 @@ export default function ClientsUI({ initialClients, dbError }: { initialClients:
 
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Clients</h1>
+          <h1 className="text-2xl font-bold font-display text-gray-900 dark:text-white">Clients</h1>
           <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">
             {clients.length} client{clients.length !== 1 ? 's' : ''} · {clients.filter(c => c.isActive).length} active
           </p>

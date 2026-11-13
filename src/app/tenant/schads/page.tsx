@@ -367,7 +367,7 @@ export default function SCHADSCalculatorPage() {
 
                 <div className="pt-2 space-y-2">
                   <button onClick={copyResult}
-                    className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 text-sm text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
+                    className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 text-sm text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30 transition">
                     📋 Copy Result
                   </button>
                   <button onClick={reset}

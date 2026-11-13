@@ -137,7 +137,7 @@ export default function CompetencyPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-foreground">Competency Management</h1>
+          <h1 className="text-2xl font-bold font-display text-foreground">Competency Management</h1>
           <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Define competency frameworks and track employee assessments</p>
         </div>
         <div className="flex gap-2">
@@ -366,7 +366,7 @@ export default function CompetencyPage() {
                         const comp = competencies.find(c => c.id === a.competencyId)
                         const emp  = employees.find(e => e.id === a.employeeId)
                         return (
-                          <tr key={a.id} className="group hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30/40">
+                          <tr key={a.id} className="group hover:bg-gray-100 dark:bg-[#0F1E2E] dark:hover:bg-[#0E3D52]/30/40">
                             <td className="px-4 py-3 text-gray-700 dark:text-[#C8D8E4]">{emp ? `${emp.firstName} ${emp.lastName}` : '—'}</td>
                             <td className="px-4 py-3 text-gray-600 dark:text-[#C8D8E4]">{comp?.name ?? '—'}</td>
                             <td className="px-4 py-3">

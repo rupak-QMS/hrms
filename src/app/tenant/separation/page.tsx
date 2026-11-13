@@ -226,7 +226,7 @@ export default function SeparationPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-foreground">Separation & Exit Management</h1>
+          <h1 className="text-2xl font-bold font-display text-foreground">Separation & Exit Management</h1>
           <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Manage employee departures, offboarding checklists, and exit interviews</p>
         </div>
         <div className="flex items-center gap-2">
@@ -276,17 +276,17 @@ export default function SeparationPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="card-premium p-5">
               <p className="text-xs text-gray-500 dark:text-[#9BB0BC]  font-semibold mb-1">Active Offboardings</p>
-              <p className="text-3xl font-bold text-amber-400">{stats.active + stats.pending}</p>
+              <p className="text-3xl font-bold font-display text-amber-400">{stats.active + stats.pending}</p>
               <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-1">{stats.pending} pending · {stats.active} in progress</p>
             </div>
             <div className="card-premium p-5">
               <p className="text-xs text-gray-500 dark:text-[#9BB0BC]  font-semibold mb-1">Avg. Offboarding Days</p>
-              <p className="text-3xl font-bold text-[#1A6080] dark:text-[#4ebac4]">{avgDays !== null ? avgDays : '—'}</p>
+              <p className="text-3xl font-bold font-display text-[#1A6080] dark:text-[#4ebac4]">{avgDays !== null ? avgDays : '—'}</p>
               <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-1">Based on {stats.completed} completed</p>
             </div>
             <div className="card-premium p-5">
               <p className="text-xs text-gray-500 dark:text-[#9BB0BC]  font-semibold mb-1">Completion Rate</p>
-              <p className="text-3xl font-bold text-green-400">
+              <p className="text-3xl font-bold font-display text-green-400">
                 {stats.total ? Math.round((stats.completed / stats.total) * 100) : 0}%
               </p>
               <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-1">{stats.completed} of {stats.total} fully offboarded</p>

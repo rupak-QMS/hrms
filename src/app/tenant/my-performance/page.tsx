@@ -133,7 +133,7 @@ export default function MyPerformancePage() {
     <div className="p-6 max-w-4xl mx-auto space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-bold text-foreground">My Performance</h1>
+        <h1 className="text-2xl font-bold font-display text-foreground">My Performance</h1>
         <p className="text-sm text-gray-600 dark:text-[#9BB0BC] mt-1">Your reviews, goals and self-assessments</p>
       </div>
 

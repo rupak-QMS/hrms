@@ -138,7 +138,7 @@ export default function ModulesPage() {
           <div className="flex items-center gap-2 mb-1">
             <Link href={`/super-admin/clients/${id}`} className="text-gray-500 hover:text-gray-600 dark:text-[#C8D8E4] text-sm transition dark:text-[#8aaabb]">← Edit Client</Link>
           </div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Module Configuration</h1>
+          <h1 className="text-2xl font-bold font-display text-gray-900 dark:text-white">Module Configuration</h1>
           <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">
             <span className="text-[#0E3D52] dark:text-[#7dcfd7] font-medium">{tenantName}</span>
             {' · '}
@@ -231,7 +231,7 @@ export default function ModulesPage() {
                   const num     = String(mod.id).padStart(2, '0')
 
                   return (
-                    <div key={mod.id} className={`flex items-center justify-between px-5 py-3 transition ${!locked && !enabled ? 'opacity-60' : ''} hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30/20`}>
+                    <div key={mod.id} className={`flex items-center justify-between px-5 py-3 transition ${!locked && !enabled ? 'opacity-60' : ''} hover:bg-gray-100 dark:bg-[#0F1E2E] dark:hover:bg-[#0E3D52]/30/20`}>
                       <div className="flex items-center gap-3 min-w-0">
                         <span className="text-xs font-mono text-gray-500 shrink-0 w-6 dark:text-[#8aaabb]">{num}</span>
                         <span className={`text-sm ${enabled ? 'text-gray-900 dark:text-white font-medium' : 'text-gray-500 dark:text-[#9BB0BC]'}`}>{mod.name}</span>

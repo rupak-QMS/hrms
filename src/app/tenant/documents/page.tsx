@@ -151,7 +151,7 @@ function DocPreviewModal({ doc, onClose }: { doc: Doc; onClose: () => void }) {
           </div>
           <button
             onClick={onClose}
-            className="ml-3 shrink-0 p-1.5 rounded-lg text-gray-500 dark:text-[#9BB0BC] hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 hover:text-gray-800 dark:hover:text-white transition-colors"
+            className="ml-3 shrink-0 p-1.5 rounded-lg text-gray-500 dark:text-[#9BB0BC] hover:bg-gray-100 dark:bg-[#0F1E2E] dark:hover:bg-[#0E3D52]/30 hover:text-gray-800 dark:hover:text-white transition-colors"
             aria-label="Close preview"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -381,7 +381,7 @@ export default function DocumentsPage() {
       {/* Header */}
       <div className="flex items-center justify-between flex-wrap gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-foreground">Document Management</h1>
+          <h1 className="text-2xl font-bold font-display text-foreground">Document Management</h1>
           <p className="text-sm text-gray-600 dark:text-[#9BB0BC] mt-0.5">Centralised register with expiry tracking and Vercel Blob storage</p>
         </div>
         <button
@@ -609,7 +609,7 @@ export default function DocumentsPage() {
             <tbody className="divide-y divide-gray-200 dark:divide-[#1A6080]/20/60">
               {filtered.map(d => (
                 <>
-                <tr key={d.id} className="hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30/30 group">
+                <tr key={d.id} className="hover:bg-gray-100 dark:bg-[#0F1E2E] dark:hover:bg-[#0E3D52]/30/30 group">
                   <td className="px-3" onClick={e => e.stopPropagation()}>
                     <input type="checkbox"
                       checked={selectedDocs.has(d.id)}

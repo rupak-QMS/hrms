@@ -167,7 +167,7 @@ export default function EngagementPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-foreground">Employee Voice &amp; Surveys</h1>
+          <h1 className="text-2xl font-bold font-display text-foreground">Employee Voice &amp; Surveys</h1>
           <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Create surveys, collect responses, and track engagement</p>
         </div>
         <div className="flex items-center gap-2">

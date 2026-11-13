@@ -217,7 +217,7 @@ export default function PublicHolidaysPage() {
       {/* Header */}
       <div className="flex items-center justify-between flex-wrap gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-foreground">{countryFlag(tenantCountry)} Public Holidays</h1>
+          <h1 className="text-2xl font-bold font-display text-foreground">{countryFlag(tenantCountry)} Public Holidays</h1>
           <p className="text-sm text-gray-600 dark:text-[#9BB0BC] mt-0.5">
             {canManage
               ? `Manage public holidays for your organisation (${COUNTRY_NAMES[tenantCountry] ?? tenantCountry})`

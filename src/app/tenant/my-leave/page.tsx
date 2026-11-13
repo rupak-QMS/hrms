@@ -211,7 +211,7 @@ export default function MyLeavePage() {
       {/* Header */}
       <div className="flex items-center justify-between flex-wrap gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-foreground">My Leave</h1>
+          <h1 className="text-2xl font-bold font-display text-foreground">My Leave</h1>
           {employee && (
             <p className="text-sm text-gray-600 dark:text-[#9BB0BC] mt-0.5">
               {employee.firstName} {employee.lastName}
@@ -355,7 +355,7 @@ export default function MyLeavePage() {
                   {/* Summary row */}
                   <button
                     onClick={() => setExpanded(isOpen ? null : r.id)}
-                    className="w-full flex items-center gap-4 px-5 py-4 text-left hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/30 transition">
+                    className="w-full flex items-center gap-4 px-5 py-4 text-left hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30/30 transition">
                     <div className="text-2xl shrink-0">
                       {leaveTypes.find(t => t.key === r.leaveType)?.emoji ?? '📋'}
                     </div>

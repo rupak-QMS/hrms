@@ -189,7 +189,7 @@ export default function ToilPage() {
   return (
     <div className="flex flex-col h-full p-6 gap-4">
       <div className="flex items-center justify-between">
-        <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">TOIL Tracking</h2>
+        <h2 className="text-2xl font-semibold font-display text-gray-900 dark:text-white">TOIL Tracking</h2>
         <div className="flex items-center gap-2">
           <ExportButton onClick={exportToilCsv} disabled={balances.length === 0} />
           <button
@@ -405,7 +405,7 @@ export default function ToilPage() {
                   </button>
                   <button
                     onClick={() => { setRejecting(null); setRejectReason('') }}
-                    className="px-3 py-1.5 border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] text-xs rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition"
+                    className="px-3 py-1.5 border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] text-xs rounded-lg hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/40 transition"
                   >
                     Cancel
                   </button>
@@ -481,7 +481,7 @@ export default function ToilPage() {
             </div>
             <div className="flex gap-2 mt-5">
               <button onClick={() => setShowModal(false)}
-                className="flex-1 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 text-sm text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
+                className="flex-1 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 text-sm text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30 transition">
                 Cancel
               </button>
               <button onClick={saveEntry} disabled={saving || !form.employeeId || !form.workDate || !form.hours}

@@ -116,7 +116,7 @@ export default function ResetPasswordPage() {
           <div className="w-12 h-12 rounded-xl bg-brand-600 flex items-center justify-center mx-auto mb-4">
             <span className="text-white text-xl"></span>
           </div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Set new password</h1>
+          <h1 className="text-2xl font-bold font-display text-gray-900 dark:text-white">Set new password</h1>
           <p className="text-sm text-gray-500 mt-1 dark:text-[#8aaabb]">Choose a strong password for your account.</p>
         </div>
         <Suspense fallback={<div className="text-center text-sm text-gray-400">Loading…</div>}>

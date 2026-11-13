@@ -562,7 +562,7 @@ export default function IncidentBehaviourPage() {
                     className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
                       activeTab === tab.key
                         ? 'bg-[#0E3D52] text-white'
-                        : 'text-gray-600 dark:text-[#C8D8E4] hover:bg-gray-100 dark:hover:bg-[#0E3D52]/40'
+                        : 'text-gray-600 dark:text-[#C8D8E4] hover:bg-gray-100 dark:bg-[#0F1E2E] dark:hover:bg-[#0E3D52]/40'
                     }`}
                   >
                     {tab.label}
@@ -853,7 +853,7 @@ export default function IncidentBehaviourPage() {
               </div>
             </div>
             <div className="flex justify-end gap-3 p-6 border-t border-gray-200 dark:border-[#1A6080]/30">
-              <button onClick={() => { setShowIncidentModal(false); setEditIncidentId(null) }} className="px-4 py-2 text-sm text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-100 dark:hover:bg-[#0E3D52]/40 rounded-lg">Cancel</button>
+              <button onClick={() => { setShowIncidentModal(false); setEditIncidentId(null) }} className="px-4 py-2 text-sm text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-100 dark:bg-[#0F1E2E] dark:hover:bg-[#0E3D52]/40 rounded-lg">Cancel</button>
               <button onClick={submitIncident} disabled={saving || !incidentForm.incidentDate || !incidentForm.description}
                 className="px-4 py-2 text-sm bg-red-600 text-white rounded-lg hover:bg-red-700 disabled:opacity-50">
                 {saving ? 'Saving…' : editIncidentId ? 'Update Incident' : 'Log Incident'}
@@ -932,7 +932,7 @@ export default function IncidentBehaviourPage() {
               </div>
             </div>
             <div className="flex justify-end gap-3 p-6 border-t border-gray-200 dark:border-[#1A6080]/30">
-              <button onClick={() => { setShowBehaviourModal(false); setEditBehaviourId(null) }} className="px-4 py-2 text-sm text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-100 dark:hover:bg-[#0E3D52]/40 rounded-lg">Cancel</button>
+              <button onClick={() => { setShowBehaviourModal(false); setEditBehaviourId(null) }} className="px-4 py-2 text-sm text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-100 dark:bg-[#0F1E2E] dark:hover:bg-[#0E3D52]/40 rounded-lg">Cancel</button>
               <button onClick={submitBehaviourPlan} disabled={saving || !behaviourForm.planName}
                 className="px-4 py-2 text-sm bg-[#0E3D52] text-white rounded-lg hover:bg-[#1A6080] disabled:opacity-50">
                 {saving ? 'Saving…' : editBehaviourId ? 'Update Plan' : 'Save Plan'}
@@ -1024,7 +1024,7 @@ export default function IncidentBehaviourPage() {
               </div>
             </div>
             <div className="flex justify-end gap-3 p-6 border-t border-gray-200 dark:border-[#1A6080]/30">
-              <button onClick={() => { setShowRestrictiveModal(false); setEditRestrictiveId(null) }} className="px-4 py-2 text-sm text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-100 dark:hover:bg-[#0E3D52]/40 rounded-lg">Cancel</button>
+              <button onClick={() => { setShowRestrictiveModal(false); setEditRestrictiveId(null) }} className="px-4 py-2 text-sm text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-100 dark:bg-[#0F1E2E] dark:hover:bg-[#0E3D52]/40 rounded-lg">Cancel</button>
               <button onClick={submitRestrictive} disabled={saving || !restrictiveForm.practiceType || !restrictiveForm.description}
                 className="px-4 py-2 text-sm bg-orange-600 text-white rounded-lg hover:bg-orange-700 disabled:opacity-50">
                 {saving ? 'Saving…' : editRestrictiveId ? 'Update Practice' : 'Save Practice'}

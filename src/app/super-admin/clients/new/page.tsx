@@ -153,7 +153,7 @@ export default function NewClientPage() {
   return (
     <div className="max-w-3xl space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Add New Client</h1>
+        <h1 className="text-2xl font-bold font-display text-gray-900 dark:text-white">Add New Client</h1>
         <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Onboard a new organisation onto the HRMS platform</p>
       </div>
 

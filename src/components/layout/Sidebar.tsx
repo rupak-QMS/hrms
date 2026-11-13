@@ -106,7 +106,7 @@ export default function Sidebar() {
                       className={`flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm transition ${
                         active
                           ? 'bg-brand-50 text-brand-700 font-medium'
-                          : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                          : 'text-gray-600 hover:bg-gray-50 dark:bg-[#070F1A] hover:text-gray-900'
                       }`}
                     >
                       <span className="text-base leading-none">{item.icon}</span>

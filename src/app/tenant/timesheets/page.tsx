@@ -104,7 +104,7 @@ function RejectModal({ onConfirm, onClose }: {
           />
           <div className="flex gap-2 pt-1">
             <button onClick={onClose}
-              className="flex-1 py-2 rounded-xl text-sm font-semibold border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
+              className="flex-1 py-2 rounded-xl text-sm font-semibold border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30 transition">
               Cancel
             </button>
             <button
@@ -492,13 +492,13 @@ export default function TimesheetsPage() {
           {/* Week nav */}
           <div className="flex items-center card-premium overflow-hidden">
             <button onClick={() => setWeekStart(w => addDays(w, -7))}
-              className="px-3 py-2 text-gray-500 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition text-sm dark:text-[#8aaabb]">←</button>
+              className="px-3 py-2 text-gray-500 hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30 transition text-sm dark:text-[#8aaabb]">←</button>
             <button onClick={() => setWeekStart(getMondayOf(new Date()))}
-              className="px-3 py-2 text-xs font-medium text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 border-x border-gray-200 dark:border-[#1A6080]/30 transition">
+              className="px-3 py-2 text-xs font-medium text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30 border-x border-gray-200 dark:border-[#1A6080]/30 transition">
               This week
             </button>
             <button onClick={() => setWeekStart(w => addDays(w, 7))}
-              className="px-3 py-2 text-gray-500 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition text-sm dark:text-[#8aaabb]">→</button>
+              className="px-3 py-2 text-gray-500 hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30 transition text-sm dark:text-[#8aaabb]">→</button>
           </div>
           {/* Status filter */}
           <select value={statusFilter} onChange={e => setStatusFilter(e.target.value)}

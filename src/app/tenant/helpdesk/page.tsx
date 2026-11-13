@@ -184,7 +184,7 @@ export default function HelpdeskPage() {
             </thead>
             <tbody>
               {tickets.map(t => (
-                <tr key={t.id} className="border-b border-gray-50 dark:border-[#1A6080]/20/50 hover:bg-gray-50 dark:hover:bg-white/[0.02] transition-colors">
+                <tr key={t.id} className="border-b border-gray-50 dark:border-[#1A6080]/20/50 hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-white/[0.02] transition-colors">
                   <td className="px-4 py-3 font-mono text-xs text-gray-500 dark:text-[#9BB0BC] whitespace-nowrap">{t.ticketNumber}</td>
                   <td className="px-4 py-3 max-w-xs">
                     <p className="font-medium text-gray-900 dark:text-white truncate">{t.title}</p>
@@ -226,10 +226,10 @@ export default function HelpdeskPage() {
       {pages > 1 && (
         <div className="flex justify-center gap-2">
           <button disabled={page === 1} onClick={() => setPage(p => p - 1)}
-            className="px-3 py-1.5 text-sm border border-gray-200 dark:border-[#1A6080]/30 rounded-lg disabled:opacity-40 hover:bg-gray-50 dark:hover:bg-white/[0.04] transition">← Prev</button>
+            className="px-3 py-1.5 text-sm border border-gray-200 dark:border-[#1A6080]/30 rounded-lg disabled:opacity-40 hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-white/[0.04] transition">← Prev</button>
           <span className="px-3 py-1.5 text-sm text-gray-500 dark:text-[#9BB0BC]">Page {page} of {pages}</span>
           <button disabled={page === pages} onClick={() => setPage(p => p + 1)}
-            className="px-3 py-1.5 text-sm border border-gray-200 dark:border-[#1A6080]/30 rounded-lg disabled:opacity-40 hover:bg-gray-50 dark:hover:bg-white/[0.04] transition">Next →</button>
+            className="px-3 py-1.5 text-sm border border-gray-200 dark:border-[#1A6080]/30 rounded-lg disabled:opacity-40 hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-white/[0.04] transition">Next →</button>
         </div>
       )}
 
@@ -275,7 +275,7 @@ export default function HelpdeskPage() {
               </div>
             </div>
             <div className="flex gap-3 mt-5">
-              <button onClick={() => setShowNew(false)} className="flex-1 px-4 py-2 text-sm border border-gray-200 dark:border-[#1A6080]/30 rounded-lg text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:hover:bg-white/[0.04] transition">Cancel</button>
+              <button onClick={() => setShowNew(false)} className="flex-1 px-4 py-2 text-sm border border-gray-200 dark:border-[#1A6080]/30 rounded-lg text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-white/[0.04] transition">Cancel</button>
               <button onClick={submit} disabled={submitting || !newForm.title || !newForm.description}
                 className="flex-1 px-4 py-2 text-sm bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-50 text-white rounded-lg font-medium transition">
                 {submitting ? 'Submitting…' : 'Submit Ticket'}

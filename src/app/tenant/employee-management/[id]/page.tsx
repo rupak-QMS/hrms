@@ -854,7 +854,7 @@ export default function EmployeeProfilePage() {
                       {contactSaving ? 'Saving…' : editingContact ? 'Save Changes' : 'Add Contact'}
                     </button>
                     <button type="button" onClick={() => { markClean(); setShowContactForm(false) }}
-                      className="px-4 py-2 border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] text-sm rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30">
+                      className="px-4 py-2 border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] text-sm rounded-lg hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30">
                       Cancel
                     </button>
                   </div>
@@ -1343,7 +1343,7 @@ export default function EmployeeProfilePage() {
                       {/* Letter buttons */}
                       <div className="flex flex-wrap gap-1.5 ml-auto">
                         <button onClick={() => printNominationLetter(p)}
-                          className="px-2.5 py-1.5 text-xs font-medium border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#C8D8E4] hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 rounded-lg transition">
+                          className="px-2.5 py-1.5 text-xs font-medium border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#C8D8E4] hover:bg-gray-100 dark:bg-[#0F1E2E] dark:hover:bg-[#0E3D52]/30 rounded-lg transition">
                           🖨 Nomination Letter
                         </button>
                         {['approved','implemented'].includes(p.status) && (

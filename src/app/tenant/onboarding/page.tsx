@@ -152,7 +152,7 @@ export default function OnboardingPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-foreground">Onboarding & Induction</h1>
+          <h1 className="text-2xl font-bold font-display text-foreground">Onboarding & Induction</h1>
           <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Track new employee onboarding progress across all stages</p>
         </div>
         <div className="flex items-center gap-2">
@@ -178,7 +178,7 @@ export default function OnboardingPage() {
               filterStatus === s.fs && tab === 'Pipeline' ? 'border-[#0E3D52]' : 'border-gray-200 dark:border-[#1A6080]/20'
             }`}>
             <p className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1">{s.label}</p>
-            <p className={`text-3xl font-bold ${s.color}`}>{s.value}</p>
+            <p className={`text-3xl font-bold font-display ${s.color}`}>{s.value}</p>
           </button>
         ))}
       </div>
@@ -205,17 +205,17 @@ export default function OnboardingPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="card-premium p-5">
               <p className="text-xs text-gray-500 dark:text-[#9BB0BC]  font-semibold mb-1">Active Onboardings</p>
-              <p className="text-3xl font-bold text-[#4ebac4]">{stats.pending + stats.in_progress}</p>
+              <p className="text-3xl font-bold font-display text-[#4ebac4]">{stats.pending + stats.in_progress}</p>
               <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-1">{stats.pending} pending · {stats.in_progress} in progress</p>
             </div>
             <div className="card-premium p-5">
               <p className="text-xs text-gray-500 dark:text-[#9BB0BC]  font-semibold mb-1">Avg. Days to Complete</p>
-              <p className="text-3xl font-bold text-[#1A6080] dark:text-[#4ebac4]">{avgDays !== null ? avgDays : '—'}</p>
+              <p className="text-3xl font-bold font-display text-[#1A6080] dark:text-[#4ebac4]">{avgDays !== null ? avgDays : '—'}</p>
               <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-1">Based on {stats.completed} completed</p>
             </div>
             <div className="card-premium p-5">
               <p className="text-xs text-gray-500 dark:text-[#9BB0BC]  font-semibold mb-1">Completion Rate</p>
-              <p className="text-3xl font-bold text-green-400">
+              <p className="text-3xl font-bold font-display text-green-400">
                 {stats.total ? Math.round((stats.completed / stats.total) * 100) : 0}%
               </p>
               <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-1">{stats.completed} of {stats.total} fully onboarded</p>
@@ -282,7 +282,7 @@ export default function OnboardingPage() {
               </div>
               <ul className="divide-y divide-gray-100 dark:divide-[#1A6080]/20">
                 {recentCompletions.map(r => (
-                  <li key={r.id} className="flex items-center justify-between px-5 py-3.5 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/40 transition">
+                  <li key={r.id} className="flex items-center justify-between px-5 py-3.5 hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30/40 transition">
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 rounded-full bg-green-900/50 flex items-center justify-center text-green-300 text-sm font-bold">
                         {(r.employeeFirstName?.[0] ?? '?').toUpperCase()}

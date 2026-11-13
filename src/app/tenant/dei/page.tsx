@@ -173,7 +173,7 @@ export default function DEIPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-foreground">Diversity, Equity &amp; Inclusion</h1>
+          <h1 className="text-2xl font-bold font-display text-foreground">Diversity, Equity &amp; Inclusion</h1>
           <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Self-reported diversity data to support equity and inclusion initiatives</p>
         </div>
         <div className="flex items-center gap-2">
@@ -274,7 +274,7 @@ export default function DEIPage() {
               </thead>
               <tbody className="divide-y divide-gray-200 dark:divide-[#1A6080]/20/60">
                 {filtered.map(r => (
-                  <tr key={r.id} className="hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30/30 group">
+                  <tr key={r.id} className="hover:bg-gray-100 dark:bg-[#0F1E2E] dark:hover:bg-[#0E3D52]/30/30 group">
                     <td className="px-4 py-3 text-gray-700 dark:text-[#C8D8E4]">{r.employeeFirstName} {r.employeeLastName}</td>
                     <td className="px-4 py-3 text-gray-600 dark:text-[#9BB0BC]">{r.gender ?? '—'}</td>
                     <td className="px-4 py-3 text-gray-600 dark:text-[#9BB0BC] text-xs">{r.culturalBackground ?? '—'}</td>

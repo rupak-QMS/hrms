@@ -191,7 +191,7 @@ export default function BenefitsPage() {
       {/* Header */}
       <div className="flex items-center justify-between flex-wrap gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-foreground">Employee Benefits</h1>
+          <h1 className="text-2xl font-bold font-display text-foreground">Employee Benefits</h1>
           <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Track and manage benefit assignments across the team</p>
         </div>
         <div className="flex items-center gap-2">
@@ -341,7 +341,7 @@ export default function BenefitsPage() {
                 const status = getStatus(b)
                 const info   = typeInfo(b.type)
                 return (
-                  <tr key={b.id} className="border-b border-gray-100 dark:border-[#1A6080]/20/50 last:border-0 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/20 transition">
+                  <tr key={b.id} className="border-b border-gray-100 dark:border-[#1A6080]/20/50 last:border-0 hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30/20 transition">
                     <td className="px-4 py-3.5">
                       <p className="text-foreground font-medium">{b.employeeFirstName} {b.employeeLastName}</p>
                     </td>
@@ -366,7 +366,7 @@ export default function BenefitsPage() {
                     <td className="px-4 py-3.5">
                       <div className="flex gap-2">
                         <button onClick={() => openEdit(b)}
-                          className="text-xs border border-[#1A6080]/30 text-gray-400 hover:text-white hover:border-gray-500 px-2.5 py-1 rounded-lg transition">
+                          className="text-xs border border-[#1A6080]/30 text-gray-400 hover:text-white hover:border-gray-50 dark:border-[#1A6080]/200 px-2.5 py-1 rounded-lg transition">
                           Edit
                         </button>
                         <button onClick={() => remove(b.id)}

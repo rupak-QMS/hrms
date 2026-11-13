@@ -221,7 +221,7 @@ export default function SelfServicePage() {
                     { label: '💵 View Payslips', action: () => setTab('💵 Payslips') },
                   ].map(({ label, action }) => (
                     <button key={label} onClick={action}
-                      className="w-full text-left px-3 py-2 text-sm text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 rounded-lg border border-gray-100 dark:border-[#1A6080]/40">
+                      className="w-full text-left px-3 py-2 text-sm text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/40 rounded-lg border border-gray-100 dark:border-[#1A6080]/40">
                       {label}
                     </button>
                   ))}
@@ -306,7 +306,7 @@ export default function SelfServicePage() {
                   </thead>
                   <tbody className="divide-y divide-gray-100 dark:divide-[#1A6080]/30">
                     {payslips.map(p => (
-                      <tr key={p.entryId} className="hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40/50">
+                      <tr key={p.entryId} className="hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/40/50">
                         <td className="px-4 py-3 font-medium text-gray-900 dark:text-white">{p.runName}</td>
                         <td className="px-4 py-3 text-gray-500 dark:text-[#9BB0BC] text-xs">
                           {fmtDate(p.periodStart)} – {fmtDate(p.periodEnd)}
@@ -369,7 +369,7 @@ export default function SelfServicePage() {
               </div>
               <div className="flex gap-3 pt-2">
                 <button type="button" onClick={() => setShowLeaveModal(false)}
-                  className="flex-1 px-4 py-2 border border-gray-200 dark:border-[#1A6080]/40 rounded-lg text-sm font-medium text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40">
+                  className="flex-1 px-4 py-2 border border-gray-200 dark:border-[#1A6080]/40 rounded-lg text-sm font-medium text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/40">
                   Cancel
                 </button>
                 <button type="submit" disabled={submitting}

@@ -61,7 +61,7 @@ export default function NewOnboardingPage() {
   return (
     <div className="max-w-2xl space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-foreground">Start Onboarding</h1>
+        <h1 className="text-2xl font-bold font-display text-foreground">Start Onboarding</h1>
         <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Create an onboarding record for a new employee</p>
       </div>
 

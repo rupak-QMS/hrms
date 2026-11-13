@@ -151,7 +151,8 @@
 /* ── Page wrapper helpers */
 .page-premium { @apply space-y-5; }
 .page-premium-header { @apply flex items-center justify-between; }
-.page-premium-title { @apply text-[20px] font-semibold tracking-tight; color: hsl(var(--foreground)); }
+.page-premium-title {
+  font-family: var(--font-sora), Sora, system-ui, sans-serif; @apply text-[20px] font-semibold tracking-tight; color: hsl(var(--foreground)); }
 .page-premium-subtitle { @apply text-[13px] mt-0.5; color: rgba(71,85,105,0.7); }
 .dark .page-premium-subtitle { color: rgba(148,163,184,0.4); }
 

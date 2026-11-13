@@ -85,7 +85,7 @@ export default async function NotFound() {
       </p>
 
       {/* Headline */}
-      <h1 className="text-2xl font-semibold text-gray-900 dark:text-[#E8F0F5] mb-3 text-center">
+      <h1 className="text-2xl font-semibold font-display text-gray-900 dark:text-[#E8F0F5] mb-3 text-center">
         {headline}
       </h1>
 

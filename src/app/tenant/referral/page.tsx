@@ -125,7 +125,7 @@ export default function ReferralPage() {
                 </thead>
                 <tbody>
                   {referrals.map(r=>(
-                    <tr key={r.id} className="border-b border-gray-100 dark:border-[#1A6080]/20 last:border-0 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/50">
+                    <tr key={r.id} className="border-b border-gray-100 dark:border-[#1A6080]/20 last:border-0 hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30/50">
                       <td className="px-4 py-3 font-medium text-gray-900 dark:text-white">{r.referrerFirstName} {r.referrerLastName}</td>
                       <td className="px-4 py-3">
                         <p className="text-gray-900 dark:text-white">{r.referredName}</p>

@@ -65,7 +65,7 @@ export default function BillingPage() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Billing & Subscriptions</h1>
+        <h1 className="text-2xl font-bold font-display text-gray-900 dark:text-white">Billing & Subscriptions</h1>
         <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Per-tenant subscription status and tier overview</p>
       </div>
 
@@ -73,24 +73,24 @@ export default function BillingPage() {
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-5">
           <p className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-2">Monthly Revenue</p>
-          <p className="text-3xl font-bold text-green-600 dark:text-green-400">${totalMRR.toLocaleString()}</p>
+          <p className="text-3xl font-bold font-display text-green-600 dark:text-green-400">${totalMRR.toLocaleString()}</p>
           <p className="text-xs text-gray-500 mt-1 dark:text-[#8aaabb]">AUD / month</p>
         </div>
         <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-5">
           <p className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-2">Active Subscriptions</p>
-          <p className="text-3xl font-bold text-gray-900 dark:text-white">{activeClients.length}</p>
+          <p className="text-3xl font-bold font-display text-gray-900 dark:text-white">{activeClients.length}</p>
           <p className="text-xs text-gray-500 mt-1 dark:text-[#8aaabb]">of {clients.length} total</p>
         </div>
         <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-5">
           <p className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-2">Avg Revenue / Client</p>
-          <p className="text-3xl font-bold text-[#0E3D52] dark:text-[#4ebac4]">
+          <p className="text-3xl font-bold font-display text-[#0E3D52] dark:text-[#4ebac4]">
             ${activeClients.length ? Math.round(totalMRR / activeClients.length) : 0}
           </p>
           <p className="text-xs text-gray-500 mt-1 dark:text-[#8aaabb]">AUD / month</p>
         </div>
         <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-5">
           <p className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-2">Annual Run Rate</p>
-          <p className="text-3xl font-bold text-[#1A6080] dark:text-[#4ebac4]">${(totalMRR * 12).toLocaleString()}</p>
+          <p className="text-3xl font-bold font-display text-[#1A6080] dark:text-[#4ebac4]">${(totalMRR * 12).toLocaleString()}</p>
           <p className="text-xs text-gray-500 mt-1 dark:text-[#8aaabb]">AUD / year</p>
         </div>
       </div>
@@ -144,7 +144,7 @@ export default function BillingPage() {
               ) : clients.map(client => {
                 const cfg = TIER_CONFIG[client.tier as keyof typeof TIER_CONFIG] ?? TIER_CONFIG.starter
                 return (
-                  <tr key={client.id} className="border-b border-gray-200 dark:border-[#1A6080]/20/50 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30/20 transition">
+                  <tr key={client.id} className="border-b border-gray-200 dark:border-[#1A6080]/20/50 hover:bg-gray-100 dark:bg-[#0F1E2E] dark:hover:bg-[#0E3D52]/30/20 transition">
                     <td className="px-4 py-3">
                       <p className="font-medium text-gray-900 dark:text-white">{client.name}</p>
                       <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{client.slug}</p>

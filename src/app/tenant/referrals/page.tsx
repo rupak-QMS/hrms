@@ -168,7 +168,7 @@ export default function ReferralsPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-foreground">Referral Program</h1>
+          <h1 className="text-2xl font-bold font-display text-foreground">Referral Program</h1>
           <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Track employee referrals and bonus payments</p>
         </div>
         <div className="flex items-center gap-2">

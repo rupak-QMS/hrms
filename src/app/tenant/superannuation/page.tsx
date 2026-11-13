@@ -267,7 +267,7 @@ export default function SuperannuationPage() {
               className={`w-full text-left px-3 py-2.5 rounded-lg text-sm transition ${
                 selectedEmployee?.id === emp.id
                   ? 'bg-[#0E3D52] text-white'
-                  : 'text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-100 dark:hover:bg-[#0E3D52]/40/50'
+                  : 'text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-100 dark:bg-[#0F1E2E] dark:hover:bg-[#0E3D52]/40/50'
               }`}
             >
               <div className="font-medium">{emp.firstName} {emp.lastName}</div>
@@ -560,7 +560,7 @@ export default function SuperannuationPage() {
             </div>
             <div className="flex gap-2 mt-5">
               <button onClick={() => { setShowFundModal(false); setEditingFund(null) }}
-                className="flex-1 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 text-sm text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
+                className="flex-1 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 text-sm text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30 transition">
                 Cancel
               </button>
               <button onClick={saveFund} disabled={saving || !fundForm.fundName}
@@ -642,7 +642,7 @@ export default function SuperannuationPage() {
             </div>
             <div className="flex gap-2 mt-5">
               <button onClick={() => setShowContribModal(false)}
-                className="flex-1 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 text-sm text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
+                className="flex-1 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 text-sm text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30 transition">
                 Cancel
               </button>
               <button onClick={saveContribution} disabled={saving || !contribForm.superFundId || !contribForm.periodStart || !contribForm.dueDate}

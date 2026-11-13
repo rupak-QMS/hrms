@@ -436,7 +436,7 @@ export default function PayrollPage() {
                   <p className="text-gray-500 dark:text-[#9BB0BC] text-sm">No pay runs yet — create your first one.</p>
                 </td></tr>
               ) : records.map(r => (
-                <tr key={r.id} className="hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/40 transition">
+                <tr key={r.id} className="hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30/40 transition">
                   <td className="px-4 py-3">
                     <p className="font-medium text-gray-900 dark:text-white">{r.employeeFirstName} {r.employeeLastName}</p>
                     <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">{r.employeeEmail}</p>

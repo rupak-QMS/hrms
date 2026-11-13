@@ -83,7 +83,7 @@ export default function LeaveSettingsPage() {
             className="text-gray-500 hover:text-white transition dark:text-[#8aaabb]">
             ← Leave
           </Link>
-          <h1 className="text-2xl font-bold text-foreground">Leave Settings</h1>
+          <h1 className="text-2xl font-bold font-display text-foreground">Leave Settings</h1>
         </div>
         <div className="flex items-center gap-3">
           {saved && (

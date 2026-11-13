@@ -57,7 +57,7 @@ export default function AuditLogsPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-foreground">Audit Log</h1>
+        <h1 className="text-2xl font-bold font-display text-foreground">Audit Log</h1>
         <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Immutable record of all system actions — who did what, and when</p>
       </div>
 
@@ -129,7 +129,7 @@ export default function AuditLogsPage() {
                     <>
                       <tr key={log.id}
                         onClick={() => hasDetails && setExpanded(isOpen ? null : log.id)}
-                        className={`hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30/40 ${hasDetails ? 'cursor-pointer' : ''}`}>
+                        className={`hover:bg-gray-100 dark:bg-[#0F1E2E] dark:hover:bg-[#0E3D52]/30/40 ${hasDetails ? 'cursor-pointer' : ''}`}>
                         <td className="px-4 py-3 text-gray-600 dark:text-[#9BB0BC] text-xs font-mono whitespace-nowrap">
                           {new Date(log.createdAt).toLocaleString('en-AU', { day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit',second:'2-digit' })}
                         </td>

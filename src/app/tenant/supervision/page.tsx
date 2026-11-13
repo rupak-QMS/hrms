@@ -141,7 +141,7 @@ export default function SupervisionPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-foreground">Supervision Management</h1>
+          <h1 className="text-2xl font-bold font-display text-foreground">Supervision Management</h1>
           <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Schedule and track employee supervision sessions and action items</p>
         </div>
         <div className="flex items-center gap-2">

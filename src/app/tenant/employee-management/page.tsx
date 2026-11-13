@@ -80,7 +80,7 @@ EMP001,Jane,Smith,jane.smith@example.com,full_time,2026-01-15,,+61400000001,Yahw
             <h2 className="text-lg font-bold text-gray-900 dark:text-white">Import Employees</h2>
             <p className="text-xs text-gray-500 mt-0.5 dark:text-[#8aaabb]">Upload a CSV to bulk-add employees</p>
           </div>
-          <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 text-gray-500 transition dark:text-[#8aaabb]"></button>
+          <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-gray-100 dark:bg-[#0F1E2E] dark:hover:bg-[#0E3D52]/30 text-gray-500 transition dark:text-[#8aaabb]"></button>
         </div>
 
         <div className="p-6 space-y-5">
@@ -155,7 +155,7 @@ EMP001,Jane,Smith,jane.smith@example.com,full_time,2026-01-15,,+61400000001,Yahw
                 </div>
               )}
               <div className="flex gap-3">
-                <button onClick={() => { setPreview(null); setStatus('idle') }} className="flex-1 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 dark:border-[#1A6080]/30 text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
+                <button onClick={() => { setPreview(null); setStatus('idle') }} className="flex-1 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 dark:border-[#1A6080]/30 text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30 transition">
                   Back
                 </button>
                 {preview.imported > 0 && (
@@ -214,7 +214,7 @@ EMP001,Jane,Smith,jane.smith@example.com,full_time,2026-01-15,,+61400000001,Yahw
               )}
 
               <div className="flex gap-3">
-                <button onClick={onClose} className="flex-1 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
+                <button onClick={onClose} className="flex-1 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30 transition">
                   Cancel
                 </button>
                 <button
@@ -416,7 +416,7 @@ export default function EmployeeManagementPage() {
   if (denied) return (
     <div className="space-y-4">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Employees</h1>
+        <h1 className="text-2xl font-bold font-display text-gray-900 dark:text-white">Employees</h1>
         <p className="text-sm text-gray-500 dark:text-[#9BB0BC] mt-0.5">Manage your workforce</p>
       </div>
       <div className="flex flex-col items-center justify-center h-64 card-premium gap-3">
@@ -432,7 +432,7 @@ export default function EmployeeManagementPage() {
   if (fetchError) return (
     <div className="space-y-4">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Employees</h1>
+        <h1 className="text-2xl font-bold font-display text-gray-900 dark:text-white">Employees</h1>
         <p className="text-sm text-gray-500 dark:text-[#9BB0BC] mt-0.5">Manage your workforce</p>
       </div>
       <div className="flex flex-col items-center justify-center h-64 card-premium gap-3">
@@ -470,7 +470,7 @@ export default function EmployeeManagementPage() {
           <div className="flex items-center gap-2">
             <button
               onClick={() => setShowImport(true)}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold border border-gray-200 dark:border-[#1A6080]/30 text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold border border-gray-200 dark:border-[#1A6080]/30 text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30 transition"
             >
               Import CSV
             </button>
@@ -707,7 +707,7 @@ export default function EmployeeManagementPage() {
                   <button
                     onClick={() => { const p = Math.max(1, page - 1); setPage(p); fetchEmployees(p) }}
                     disabled={page === 1}
-                    className="px-3 py-1 rounded border border-gray-200 dark:border-[#1A6080]/30 disabled:opacity-40 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition-colors"
+                    className="px-3 py-1 rounded border border-gray-200 dark:border-[#1A6080]/30 disabled:opacity-40 hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30 transition-colors"
                   >
                     ← Prev
                   </button>
@@ -715,7 +715,7 @@ export default function EmployeeManagementPage() {
                   <button
                     onClick={() => { const p = Math.min(totalPages, page + 1); setPage(p); fetchEmployees(p) }}
                     disabled={page === totalPages}
-                    className="px-3 py-1 rounded border border-gray-200 dark:border-[#1A6080]/30 disabled:opacity-40 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition-colors"
+                    className="px-3 py-1 rounded border border-gray-200 dark:border-[#1A6080]/30 disabled:opacity-40 hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30 transition-colors"
                   >
                     Next →
                   </button>

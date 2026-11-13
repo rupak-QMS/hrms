@@ -89,7 +89,7 @@ export default function MyPayslipsPage() {
 
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-bold text-foreground">My Payslips</h1>
+        <h1 className="text-2xl font-bold font-display text-foreground">My Payslips</h1>
         {employee && (
           <p className="text-sm text-gray-600 dark:text-[#9BB0BC] mt-0.5">
             {employee.firstName} {employee.lastName} · {employee.email}
@@ -138,7 +138,7 @@ export default function MyPayslipsPage() {
                 {/* Summary row — click to expand */}
                 <button
                   onClick={() => setExpanded(isOpen ? null : p.id)}
-                  className="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30/40 transition"
+                  className="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-gray-100 dark:bg-[#0F1E2E] dark:hover:bg-[#0E3D52]/30/40 transition"
                 >
                   <div className="flex items-center gap-4">
                     <div className="text-left">

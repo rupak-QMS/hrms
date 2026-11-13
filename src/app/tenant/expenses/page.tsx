@@ -181,7 +181,7 @@ function SubmitModal({ onClose, onSaved }: { onClose: () => void; onSaved: () =>
 
           <div className="flex gap-3 pt-2">
             <button type="button" onClick={onClose}
-              className="flex-1 px-4 py-2 text-sm border dark:border-[#1A6080]/40 rounded-lg text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40">
+              className="flex-1 px-4 py-2 text-sm border dark:border-[#1A6080]/40 rounded-lg text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/40">
               Cancel
             </button>
             <button type="submit" disabled={saving}
@@ -467,7 +467,7 @@ export default function ExpensesPage() {
             </thead>
             <tbody className="divide-y divide-gray-100 dark:divide-[#1A6080]/30">
               {filtered.map(c => (
-                <tr key={c.id} className="hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40/30 transition-colors">
+                <tr key={c.id} className="hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/40/30 transition-colors">
                   <td className="px-4 py-3">
                     <div className="font-medium text-gray-900 dark:text-white">
                       {c.employeeFirstName} {c.employeeLastName}

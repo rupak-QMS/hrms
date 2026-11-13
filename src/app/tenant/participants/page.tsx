@@ -480,7 +480,7 @@ export default function ParticipantsPage() {
               </div>
               <div className="flex items-center gap-2">
                 <button onClick={openEdit}
-                  className="px-3 py-1.5 text-sm border border-gray-300 dark:border-[#1A6080]/40 text-gray-700 dark:text-[#C8D8E4] rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors">
+                  className="px-3 py-1.5 text-sm border border-gray-300 dark:border-[#1A6080]/40 text-gray-700 dark:text-[#C8D8E4] rounded-lg hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/40 transition-colors">
                   Edit
                 </button>
                 {selected.isActive && (
@@ -1026,7 +1026,7 @@ function Modal({ title, onClose, onSave, saving, error, children, wide }: {
         <div className="flex-1 overflow-y-auto px-6 py-4">{children}</div>
         {error && <p className="px-6 text-sm text-red-600 dark:text-red-400 pb-2">{error}</p>}
         <div className="flex justify-end gap-3 px-6 py-4 border-t border-gray-200 dark:border-[#1A6080]/30">
-          <button onClick={onClose} className="px-4 py-2 text-sm border border-gray-300 dark:border-[#1A6080]/40 text-gray-700 dark:text-[#C8D8E4] rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors">
+          <button onClick={onClose} className="px-4 py-2 text-sm border border-gray-300 dark:border-[#1A6080]/40 text-gray-700 dark:text-[#C8D8E4] rounded-lg hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/40 transition-colors">
             Cancel
           </button>
           <button onClick={onSave} disabled={saving}

@@ -77,7 +77,7 @@ export default function AdminsPage() {
     <div className="max-w-3xl space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Super Admins</h1>
+          <h1 className="text-2xl font-bold font-display text-gray-900 dark:text-white">Super Admins</h1>
           <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Platform-level administrator accounts</p>
         </div>
         <button
@@ -180,7 +180,7 @@ export default function AdminsPage() {
               </tr>
             )}
             {admins.map(a => (
-              <tr key={a.id} className="border-b border-gray-200 dark:border-[#1A6080]/20 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30/50">
+              <tr key={a.id} className="border-b border-gray-200 dark:border-[#1A6080]/20 hover:bg-gray-100 dark:bg-[#0F1E2E] dark:hover:bg-[#0E3D52]/30/50">
                 <td className="px-5 py-3.5">
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 rounded-full bg-[#E0EEF4] dark:bg-[#0E3D52] flex items-center justify-center text-[#9ccfda] text-xs font-bold shrink-0">

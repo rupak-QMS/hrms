@@ -146,7 +146,7 @@ export default function IntakePage() {
     <div className="max-w-4xl space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Client Intake Form</h1>
+          <h1 className="text-2xl font-bold font-display text-gray-900 dark:text-white">Client Intake Form</h1>
           <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">
             Fill in online and submit, or download as JSON for the client to complete offline
           </p>

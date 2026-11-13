@@ -107,7 +107,7 @@ export default function AuditLogsPage() {
 
       <div className="flex items-center justify-between flex-wrap gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Platform Audit Log</h1>
+          <h1 className="text-2xl font-bold font-display text-gray-900 dark:text-white">Platform Audit Log</h1>
           <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Tamper-evident log of all actions across all tenants</p>
         </div>
         <button
@@ -197,7 +197,7 @@ export default function AuditLogsPage() {
                 <>
                   <tr
                     key={log.id}
-                    className="border-b border-gray-200 dark:border-[#1A6080]/20/50 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30/30 transition cursor-pointer"
+                    className="border-b border-gray-200 dark:border-[#1A6080]/20/50 hover:bg-gray-100 dark:bg-[#0F1E2E] dark:hover:bg-[#0E3D52]/30/30 transition cursor-pointer"
                     onClick={() => setExpanded(expanded === log.id ? null : log.id)}
                   >
                     <td className="px-4 py-3 text-gray-600 dark:text-[#C8D8E4] whitespace-nowrap text-xs">{formatDate(log.createdAt)}</td>

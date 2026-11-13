@@ -243,7 +243,7 @@ export default function OnboardingDetailPage() {
             {(rec.employeeFirstName?.[0] ?? '?').toUpperCase()}
           </div>
           <div>
-            <h1 className="text-2xl font-bold text-foreground">
+            <h1 className="text-2xl font-bold font-display text-foreground">
               {rec.employeeFirstName} {rec.employeeLastName}
             </h1>
             <p className="text-gray-600 dark:text-[#9BB0BC] text-sm">{rec.employeeEmail}</p>
@@ -435,7 +435,7 @@ export default function OnboardingDetailPage() {
             <ul className="divide-y divide-gray-200 dark:divide-[#1A6080]/20/50">
               {items.map(item => (
                 <li key={item.id}
-                  className={`flex items-center gap-3 px-4 py-3.5 cursor-pointer hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30/30 transition ${saving ? 'pointer-events-none opacity-70' : ''}`}
+                  className={`flex items-center gap-3 px-4 py-3.5 cursor-pointer hover:bg-gray-100 dark:bg-[#0F1E2E] dark:hover:bg-[#0E3D52]/30/30 transition ${saving ? 'pointer-events-none opacity-70' : ''}`}
                   onClick={() => toggleItem(item.id)}
                 >
                   <div className={`w-5 h-5 rounded flex items-center justify-center border-2 shrink-0 transition ${

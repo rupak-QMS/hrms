@@ -123,7 +123,7 @@ export default function CompetencyPage() {
                           {a.competencyCategory && <p className="text-xs text-gray-600 dark:text-[#9BB0BC] capitalize">{a.competencyCategory}</p>}
                         </div>
                         {a.outcome && (
-                          <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-medium ${OUTCOME_COLORS[a.outcome] ?? 'bg-gray-100 text-gray-500'}`}>
+                          <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-medium ${OUTCOME_COLORS[a.outcome] ?? 'bg-gray-100 dark:bg-[#0F1E2E] text-gray-500'}`}>
                             {a.outcome.replace(/_/g,' ')}
                           </span>
                         )}

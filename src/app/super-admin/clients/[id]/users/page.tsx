@@ -127,7 +127,7 @@ export default function UsersPage() {
     <div className="space-y-6 max-w-4xl">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Users</h1>
+          <h1 className="text-2xl font-bold font-display text-gray-900 dark:text-white">Users</h1>
           <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">
             Manage login accounts for <span className="text-[#0E3D52] dark:text-[#7dcfd7] font-medium">{tenantName}</span>
           </p>
@@ -253,7 +253,7 @@ export default function UsersPage() {
                 </td>
               </tr>
             ) : users.map(u => (
-              <tr key={u.id} className="border-b border-gray-200 dark:border-[#1A6080]/20 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30/50">
+              <tr key={u.id} className="border-b border-gray-200 dark:border-[#1A6080]/20 hover:bg-gray-100 dark:bg-[#0F1E2E] dark:hover:bg-[#0E3D52]/30/50">
                 <td className="px-5 py-3.5">
                   <div className="flex items-center gap-3">
                     <div className="w-7 h-7 rounded-full bg-gray-200 dark:bg-[#0E3D52]/60 flex items-center justify-center text-xs font-bold text-gray-600 dark:text-[#C8D8E4]">

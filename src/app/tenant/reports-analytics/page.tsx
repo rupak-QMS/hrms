@@ -399,7 +399,7 @@ export default function ReportsAnalyticsPage() {
                 savedReports.map(r => {
                   const cfg = REPORT_CONFIGS.find(c => c.type === r.reportType)
                   return (
-                    <div key={r.id} className="border border-gray-100 dark:border-[#1A6080]/30 rounded-xl p-3 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-all">
+                    <div key={r.id} className="border border-gray-100 dark:border-[#1A6080]/30 rounded-xl p-3 hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/40 transition-all">
                       <div className="flex items-start justify-between gap-2">
                         <div className="flex-1 min-w-0">
                           <p className="text-sm font-medium text-gray-900 dark:text-white truncate">{r.name}</p>
@@ -456,16 +456,16 @@ export default function ReportsAnalyticsPage() {
                     <>
                       <button
                         onClick={() => exportCSV(columns, results, `${selected.type}_${new Date().toISOString().split('T')[0]}.csv`)}
-                        className="px-3 py-2 border border-gray-200 dark:border-[#1A6080]/40 text-sm font-medium text-gray-700 dark:text-[#C8D8E4] rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40">
+                        className="px-3 py-2 border border-gray-200 dark:border-[#1A6080]/40 text-sm font-medium text-gray-700 dark:text-[#C8D8E4] rounded-lg hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/40">
                         ⬇ CSV
                       </button>
                       <button
                         onClick={() => exportPDF(selected.label, columns, results, filters)}
-                        className="px-3 py-2 border border-gray-200 dark:border-[#1A6080]/40 text-sm font-medium text-gray-700 dark:text-[#C8D8E4] rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40">
+                        className="px-3 py-2 border border-gray-200 dark:border-[#1A6080]/40 text-sm font-medium text-gray-700 dark:text-[#C8D8E4] rounded-lg hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/40">
                         🖨 PDF
                       </button>
                       <button onClick={() => setSaveModal(true)}
-                        className="px-3 py-2 border border-gray-200 dark:border-[#1A6080]/40 text-sm font-medium text-gray-700 dark:text-[#C8D8E4] rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40">
+                        className="px-3 py-2 border border-gray-200 dark:border-[#1A6080]/40 text-sm font-medium text-gray-700 dark:text-[#C8D8E4] rounded-lg hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/40">
                         💾 Save
                       </button>
                     </>
@@ -564,7 +564,7 @@ export default function ReportsAnalyticsPage() {
                       </thead>
                       <tbody className="divide-y divide-gray-100 dark:divide-[#1A6080]/30">
                         {results.map((row, i) => (
-                          <tr key={i} className="hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40/50">
+                          <tr key={i} className="hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/40/50">
                             {columns.map(col => (
                               <td key={col} className="px-4 py-3 text-gray-700 dark:text-[#C8D8E4] whitespace-nowrap capitalize">
                                 {formatValue(col, row[col])}
@@ -602,7 +602,7 @@ export default function ReportsAnalyticsPage() {
             </label>
             <div className="flex gap-3">
               <button onClick={() => setSaveModal(false)}
-                className="flex-1 px-4 py-2 border border-gray-200 dark:border-[#1A6080]/40 rounded-lg text-sm font-medium text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40">
+                className="flex-1 px-4 py-2 border border-gray-200 dark:border-[#1A6080]/40 rounded-lg text-sm font-medium text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/40">
                 Cancel
               </button>
               <button onClick={saveReport} disabled={saving || !saveName}

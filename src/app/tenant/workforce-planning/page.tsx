@@ -273,7 +273,7 @@ export default function WorkforcePlanningPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-foreground">Workforce Planning</h1>
+          <h1 className="text-2xl font-bold font-display text-foreground">Workforce Planning</h1>
           <p className="text-gray-500 dark:text-[#9BB0BC] text-sm mt-1">
             Headcount targets, live workforce snapshot, and position management
           </p>
@@ -368,7 +368,7 @@ export default function WorkforcePlanningPage() {
                       .map(d => {
                         const fillRate = d.positions > 0 ? Math.round((d.count / d.positions) * 100) : null
                         return (
-                          <tr key={d.id} className="hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/30">
+                          <tr key={d.id} className="hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30/30">
                             <td className="px-5 py-3 text-gray-700 dark:text-[#C8D8E4] font-medium">{d.name}</td>
                             <td className="px-5 py-3 text-gray-600 dark:text-[#C8D8E4]">{d.count}</td>
                             <td className="px-5 py-3 text-gray-600 dark:text-[#9BB0BC]">{d.positions}</td>
@@ -568,7 +568,7 @@ export default function WorkforcePlanningPage() {
                 <button
                   type="button"
                   onClick={cancelForm}
-                  className="text-sm px-4 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 transition"
+                  className="text-sm px-4 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-100 dark:bg-[#0F1E2E] dark:hover:bg-[#0E3D52]/30 transition"
                 >
                   Cancel
                 </button>
@@ -642,7 +642,7 @@ export default function WorkforcePlanningPage() {
                     const fillPct   = p.plannedCount > 0 ? Math.round((p.currentCount / p.plannedCount) * 100) : 0
                     const isDeleting = deleting === p.id
                     return (
-                      <tr key={p.id} className="hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/30">
+                      <tr key={p.id} className="hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30/30">
                         <td className="px-4 py-3">
                           <p className="text-gray-700 dark:text-[#C8D8E4] font-medium">
                             {p.positionTitle ?? 'General'}

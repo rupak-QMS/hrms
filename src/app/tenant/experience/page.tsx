@@ -204,7 +204,7 @@ export default function ExperiencePage() {
       {/* Header */}
       <div className="flex items-start justify-between flex-wrap gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Work History</h1>
+          <h1 className="text-2xl font-bold font-display text-gray-900 dark:text-white">Work History</h1>
           <p className="text-sm text-gray-500 dark:text-[#9BB0BC] mt-1">Employee experience and employment history records</p>
         </div>
         <div className="flex gap-2">
@@ -280,7 +280,7 @@ export default function ExperiencePage() {
               </thead>
               <tbody className="divide-y divide-gray-100 dark:divide-[#1A6080]/20/60">
                 {records.map(r => (
-                  <tr key={r.id} className="hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/30">
+                  <tr key={r.id} className="hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30/30">
                     <td className="px-4 py-3 font-medium text-gray-900 dark:text-white text-sm whitespace-nowrap">
                       {r.firstName} {r.lastName}
                     </td>
@@ -455,7 +455,7 @@ export default function ExperiencePage() {
                 <button
                   type="button"
                   onClick={() => setShowModal(false)}
-                  className="px-4 py-2 text-sm border border-gray-300 dark:border-[#1A6080]/40 rounded-lg text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition"
+                  className="px-4 py-2 text-sm border border-gray-300 dark:border-[#1A6080]/40 rounded-lg text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30 transition"
                 >
                   Cancel
                 </button>

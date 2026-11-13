@@ -162,7 +162,7 @@ export default function EditEmployeePage() {
           ← Back to Profile
         </Link>
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Edit Employee</h1>
+          <h1 className="text-2xl font-bold font-display text-gray-900 dark:text-white">Edit Employee</h1>
           <p className="text-sm text-gray-500 mt-0.5 dark:text-[#8aaabb]">Update employee details below</p>
         </div>
       </div>

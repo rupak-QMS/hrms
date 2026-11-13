@@ -530,7 +530,7 @@ export default function OfferLettersPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-foreground">Offer Letters</h1>
+          <h1 className="text-2xl font-bold font-display text-foreground">Offer Letters</h1>
           <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-0.5">Generate, send and track candidate offer letters</p>
         </div>
         <button onClick={initForm}

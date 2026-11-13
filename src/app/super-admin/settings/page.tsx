@@ -105,7 +105,7 @@ export default function PlatformSettingsPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Platform Settings</h1>
+        <h1 className="text-2xl font-bold font-display text-gray-900 dark:text-white">Platform Settings</h1>
         <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Global configuration for the HRMS platform</p>
       </div>
 

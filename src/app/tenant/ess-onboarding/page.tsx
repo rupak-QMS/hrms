@@ -192,7 +192,7 @@ export default function EssOnboardingPage() {
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Onboarding Submitted!</h1>
+        <h1 className="text-2xl font-bold font-display text-gray-900 dark:text-white mb-2">Onboarding Submitted!</h1>
         <p className="text-gray-600 dark:text-[#9BB0BC] mb-6">
           Your onboarding information has been submitted for HR review.
           You&apos;ll be notified once it has been processed.
@@ -261,7 +261,7 @@ export default function EssOnboardingPage() {
           onClick={() => setStep(s => Math.max(1, s - 1))}
           disabled={step === 1}
           className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-[#C8D8E4]
-            border border-gray-200 dark:border-[#1A6080]/30 rounded-lg hover:bg-gray-50
+            border border-gray-200 dark:border-[#1A6080]/30 rounded-lg hover:bg-gray-50 dark:bg-[#070F1A]
             dark:hover:bg-[#0E3D52]/30 disabled:opacity-40 disabled:cursor-not-allowed transition"
         >
           ← Back
@@ -277,7 +277,7 @@ export default function EssOnboardingPage() {
             onClick={() => save()}
             disabled={saving}
             className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-[#C8D8E4]
-              border border-gray-200 dark:border-[#1A6080]/30 rounded-lg hover:bg-gray-50
+              border border-gray-200 dark:border-[#1A6080]/30 rounded-lg hover:bg-gray-50 dark:bg-[#070F1A]
               dark:hover:bg-[#0E3D52]/30 disabled:opacity-60 transition"
           >
             {saving ? 'Saving…' : 'Save'}

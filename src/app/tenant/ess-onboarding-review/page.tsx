@@ -162,7 +162,7 @@ export default function EssOnboardingReviewPage() {
         {kpis.map(k => (
           <div key={k.label} className="card-premium p-4">
             <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{k.label}</p>
-            <p className={`text-3xl font-bold mt-1 ${k.color}`}>{k.value}</p>
+            <p className={`text-3xl font-bold font-display mt-1 ${k.color}`}>{k.value}</p>
           </div>
         ))}
       </div>
@@ -219,7 +219,7 @@ export default function EssOnboardingReviewPage() {
             </thead>
             <tbody className="divide-y divide-gray-100 dark:divide-[#1A6080]/20">
               {submissions.map(sub => (
-                <tr key={sub.id} className="hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/50 transition">
+                <tr key={sub.id} className="hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30/50 transition">
                   <td className="px-4 py-3">
                     <p className="font-medium text-gray-900 dark:text-white">{sub.employeeName}</p>
                     <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{sub.employeeEmail}</p>
@@ -277,7 +277,7 @@ export default function EssOnboardingReviewPage() {
                     <p className="text-sm text-gray-500 dark:text-[#9BB0BC]">{selected.employeeEmail}</p>
                     <div className="mt-2"><StatusBadge status={selected.status} /></div>
                   </div>
-                  <button onClick={() => setSelected(null)} className="p-1 rounded-lg hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 transition">
+                  <button onClick={() => setSelected(null)} className="p-1 rounded-lg hover:bg-gray-100 dark:bg-[#0F1E2E] dark:hover:bg-[#0E3D52]/30 transition">
                     <svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
@@ -375,7 +375,7 @@ export default function EssOnboardingReviewPage() {
                       disabled={saving}
                       className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-[#C8D8E4]
                         border border-gray-200 dark:border-[#1A6080]/30 rounded-lg
-                        hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 disabled:opacity-60 transition"
+                        hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30 disabled:opacity-60 transition"
                     >
                       Save Notes
                     </button>

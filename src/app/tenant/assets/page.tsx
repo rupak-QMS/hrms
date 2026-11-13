@@ -312,7 +312,7 @@ export default function AssetsPage() {
               </div>
               <div className="flex justify-end gap-3 pt-1">
                 <button type="button" onClick={() => setEditAsset(null)}
-                  className="px-4 py-2 text-sm rounded-lg border border-gray-300 dark:border-[#1A6080]/40 text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
+                  className="px-4 py-2 text-sm rounded-lg border border-gray-300 dark:border-[#1A6080]/40 text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30 transition">
                   Cancel
                 </button>
                 <button type="submit" disabled={saving}
@@ -328,7 +328,7 @@ export default function AssetsPage() {
       {/* Header */}
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Asset Management</h1>
+          <h1 className="text-2xl font-bold font-display text-gray-900 dark:text-white">Asset Management</h1>
           <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Track equipment, uniforms, and PPE assigned to employees</p>
         </div>
         <div className="flex items-center gap-2">
@@ -463,7 +463,7 @@ export default function AssetsPage() {
                         action={!search && !filterStatus && !filterCategory ? { label: '+ Add Asset', onClick: () => setShowAssetForm(true) } : undefined}
                       />
                     ) : filteredAssets.map(a => (
-                      <tr key={a.id} className="hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/30">
+                      <tr key={a.id} className="hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30/30">
                         <td className="px-4 py-3 text-gray-700 dark:text-[#C8D8E4] font-medium">{a.name}</td>
                         <td className="px-4 py-3 text-gray-600 dark:text-[#9BB0BC] text-xs">{a.category}</td>
                         <td className="px-4 py-3 text-gray-500 text-xs font-mono dark:text-[#8aaabb]">{a.serialNumber ?? '—'}</td>

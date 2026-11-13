@@ -302,7 +302,7 @@ export default function ScreeningPage() {
               {records.map(r => (
                 <tr
                   key={r.id}
-                  className="border-b border-gray-100 dark:border-[#1A6080]/20 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/40 transition group"
+                  className="border-b border-gray-100 dark:border-[#1A6080]/20 hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30/40 transition group"
                 >
                   <td className="px-4 py-3">
                     <p className="font-medium text-gray-900 dark:text-white">{r.firstName} {r.lastName}</p>
@@ -400,7 +400,7 @@ export default function ScreeningPage() {
               </div>
             </div>
             <div className="flex gap-3 mt-6">
-              <button onClick={() => setShowCreate(false)} className="flex-1 px-4 py-2 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg text-sm text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
+              <button onClick={() => setShowCreate(false)} className="flex-1 px-4 py-2 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg text-sm text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30 transition">
                 Cancel
               </button>
               <button onClick={create} disabled={saving || !form.employeeId} className="flex-1 btn-primary disabled:opacity-50 transition">
@@ -474,7 +474,7 @@ export default function ScreeningPage() {
               )}
             </div>
             <div className="flex gap-3 mt-6">
-              <button onClick={() => setEditRecord(null)} className="flex-1 px-4 py-2 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg text-sm text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
+              <button onClick={() => setEditRecord(null)} className="flex-1 px-4 py-2 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg text-sm text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30 transition">
                 Cancel
               </button>
               <button onClick={saveEdit} disabled={saving} className="flex-1 btn-primary disabled:opacity-50 transition">

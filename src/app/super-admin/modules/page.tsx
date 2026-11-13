@@ -69,7 +69,7 @@ export default function ModulesPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Module Analytics</h1>
+        <h1 className="text-2xl font-bold font-display text-gray-900 dark:text-white">Module Analytics</h1>
         <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Usage of all 28 feature modules across {tenantCount} client{tenantCount !== 1 ? 's' : ''}</p>
       </div>
 
@@ -141,7 +141,7 @@ export default function ModulesPage() {
               <>
                 <tr
                   key={mod.id}
-                  className="border-b border-gray-200 dark:border-[#1A6080]/20/50 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30/20 cursor-pointer transition"
+                  className="border-b border-gray-200 dark:border-[#1A6080]/20/50 hover:bg-gray-100 dark:bg-[#0F1E2E] dark:hover:bg-[#0E3D52]/30/20 cursor-pointer transition"
                   onClick={() => setExpanded(expanded === mod.id ? null : mod.id)}
                 >
                   <td className="px-4 py-3 text-gray-600 text-xs dark:text-[#8aaabb]">{mod.id}</td>

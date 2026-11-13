@@ -49,7 +49,7 @@ export default function TrainingPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-foreground">Training & LMS</h1>
+        <h1 className="text-2xl font-bold font-display text-foreground">Training & LMS</h1>
         <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Manage courses, enrolments and completion records</p>
       </div>
 
@@ -546,7 +546,7 @@ function GapTab() {
         </div>
         {gaps.length > 0 && (
           <button onClick={exportCSV}
-            className="px-3 py-2 text-sm border border-gray-200 dark:border-[#1A6080]/30 rounded-lg text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30">
+            className="px-3 py-2 text-sm border border-gray-200 dark:border-[#1A6080]/30 rounded-lg text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30">
             ⬇ Export CSV
           </button>
         )}
@@ -572,7 +572,7 @@ function GapTab() {
             </thead>
             <tbody className="divide-y divide-gray-100 dark:divide-[#1A6080]/20">
               {gaps.map(g => (
-                <tr key={g.employeeId} className="hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/50">
+                <tr key={g.employeeId} className="hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30/50">
                   <td className="px-5 py-3.5">
                     <p className="font-medium text-gray-900 dark:text-white">{g.firstName} {g.lastName}</p>
                     <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{g.email} · {g.employmentType?.replace(/_/g,' ')}</p>

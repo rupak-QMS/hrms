@@ -202,7 +202,7 @@ export default function RecognitionPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Recognition & Rewards</h1>
+          <h1 className="text-2xl font-bold font-display text-gray-900 dark:text-white">Recognition & Rewards</h1>
           <p className="text-sm text-gray-500 dark:text-[#9BB0BC] mt-0.5">Celebrate employee achievements and peer nominations</p>
         </div>
         <div className="flex items-center gap-2">
@@ -220,7 +220,7 @@ export default function RecognitionPage() {
       <div className="grid grid-cols-2 gap-4">
         <div className="card-premium p-4">
           <p className="text-xs text-gray-500 dark:text-[#9BB0BC] font-medium ">This Month</p>
-          <p className="text-3xl font-bold text-gray-900 dark:text-white mt-1">{thisMonthRecs.length}</p>
+          <p className="text-3xl font-bold font-display text-gray-900 dark:text-white mt-1">{thisMonthRecs.length}</p>
           <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-0.5">recognitions</p>
         </div>
         <div className="card-premium p-4">
@@ -304,7 +304,7 @@ export default function RecognitionPage() {
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-2">
                       <p className="font-semibold text-gray-900 dark:text-white truncate">{fullName}</p>
-                      <span className={`flex-shrink-0 text-xs px-2 py-0.5 rounded-full border font-medium ${typeInfo?.color ?? 'bg-gray-500/20 text-gray-400 border-gray-500/30'}`}>
+                      <span className={`flex-shrink-0 text-xs px-2 py-0.5 rounded-full border font-medium ${typeInfo?.color ?? 'bg-gray-50 dark:bg-[#070F1A]0/20 text-gray-400 border-gray-50 dark:border-[#1A6080]/200/30'}`}>
                         {typeInfo?.label ?? r.type}
                       </span>
                     </div>
@@ -371,7 +371,7 @@ export default function RecognitionPage() {
               Delete recognition for <strong>{confirmDelete.recipientFirstName} {confirmDelete.recipientLastName}</strong>? This cannot be undone.
             </p>
             <div className="flex gap-2 justify-end">
-              <button onClick={() => setConfirmDelete(null)} className="text-sm px-4 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
+              <button onClick={() => setConfirmDelete(null)} className="text-sm px-4 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30 transition">
                 Cancel
               </button>
               <button
@@ -468,7 +468,7 @@ function RecognitionModal({
             <label htmlFor="isPublic" className="text-sm text-gray-700 dark:text-[#C8D8E4]">Make public (visible to all staff)</label>
           </div>
           <div className="flex gap-2 justify-end pt-1">
-            <button type="button" onClick={onClose} className="text-sm px-4 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
+            <button type="button" onClick={onClose} className="text-sm px-4 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30 transition">
               Cancel
             </button>
             <button type="submit" disabled={saving} className="text-sm px-5 py-2 rounded-lg bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white font-medium transition">

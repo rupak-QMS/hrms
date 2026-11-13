@@ -120,7 +120,7 @@ export default function NewEmployeePage() {
           ← Back
         </Link>
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Add Employee</h1>
+          <h1 className="text-2xl font-bold font-display text-gray-900 dark:text-white">Add Employee</h1>
           <p className="text-sm text-gray-500 mt-0.5 dark:text-[#8aaabb]">Fill in the employee's details below</p>
         </div>
       </div>

@@ -170,7 +170,7 @@ export default function PromotionsPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-foreground">Promotions</h1>
+          <h1 className="text-2xl font-bold font-display text-foreground">Promotions</h1>
           <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-0.5">Raise, review and track promotion cases</p>
         </div>
         <div className="flex items-center gap-2">
@@ -206,7 +206,7 @@ export default function PromotionsPage() {
       <div className="flex gap-2 flex-wrap">
         {['', 'pending', 'under_review', 'approved', 'rejected', 'implemented'].map(s => (
           <button key={s} onClick={() => setStatusFilter(s)}
-            className={`px-3 py-1.5 rounded-full text-xs font-medium border transition ${statusFilter === s ? 'border-[#0E3D52] bg-[#0E3D52]/30 text-white' : 'border-[#1A6080]/30 text-gray-400 hover:border-gray-500'}`}>
+            className={`px-3 py-1.5 rounded-full text-xs font-medium border transition ${statusFilter === s ? 'border-[#0E3D52] bg-[#0E3D52]/30 text-white' : 'border-[#1A6080]/30 text-gray-400 hover:border-gray-50 dark:border-[#1A6080]/200'}`}>
             {s === '' ? 'All' : STATUS_LABEL[s]}
           </button>
         ))}

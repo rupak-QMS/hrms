@@ -310,7 +310,7 @@ export default function OrgChartPage() {
     <div className="p-6 min-h-screen bg-gray-50 dark:bg-[#070F1A]">
       {/* Header */}
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-[#E8F0F5]">Organisation Chart</h1>
+        <h1 className="text-2xl font-bold font-display text-gray-900 dark:text-[#E8F0F5]">Organisation Chart</h1>
         <p className="text-sm text-gray-500 dark:text-[#9BB0BC] mt-1">
           Visual hierarchy of your organisation
           {data && <span className="ml-1">— {data.total} active employees</span>}
@@ -347,13 +347,13 @@ export default function OrgChartPage() {
         <div className="flex gap-2 ml-auto">
           <button
             onClick={expandAll}
-            className="px-3 py-2 text-xs font-medium rounded-lg border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#C8D8E4] hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 transition-colors"
+            className="px-3 py-2 text-xs font-medium rounded-lg border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#C8D8E4] hover:bg-gray-100 dark:bg-[#0F1E2E] dark:hover:bg-[#0E3D52]/30 transition-colors"
           >
             Expand All
           </button>
           <button
             onClick={collapseAll}
-            className="px-3 py-2 text-xs font-medium rounded-lg border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#C8D8E4] hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 transition-colors"
+            className="px-3 py-2 text-xs font-medium rounded-lg border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#C8D8E4] hover:bg-gray-100 dark:bg-[#0F1E2E] dark:hover:bg-[#0E3D52]/30 transition-colors"
           >
             Collapse All
           </button>

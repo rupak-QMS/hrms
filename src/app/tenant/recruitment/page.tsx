@@ -360,7 +360,7 @@ export default function RecruitmentPage() {
             </div>
             <div className="flex gap-3 justify-end">
               <button type="button" onClick={() => setEditingReq(null)}
-                className="px-4 py-2 text-sm rounded-lg border border-gray-300 dark:border-[#1A6080]/40 text-gray-600 dark:text-[#C8D8E4] hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 transition">
+                className="px-4 py-2 text-sm rounded-lg border border-gray-300 dark:border-[#1A6080]/40 text-gray-600 dark:text-[#C8D8E4] hover:bg-gray-100 dark:bg-[#0F1E2E] dark:hover:bg-[#0E3D52]/30 transition">
                 Cancel
               </button>
               <button type="submit" disabled={savingEdit}
@@ -375,7 +375,7 @@ export default function RecruitmentPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-foreground">Recruitment & ATS</h1>
+          <h1 className="text-2xl font-bold font-display text-foreground">Recruitment & ATS</h1>
           <p className="text-gray-500 dark:text-[#9BB0BC] text-sm mt-1">Manage job requisitions and candidate pipelines</p>
         </div>
         <div className="flex gap-2">
@@ -734,7 +734,7 @@ export default function RecruitmentPage() {
 
                               {/* Move to stage */}
                               <div className="relative group">
-                                <button className="w-full py-1 text-xs text-gray-500 hover:text-white border border-[#1A6080]/30 hover:border-gray-500 rounded-lg transition">
+                                <button className="w-full py-1 text-xs text-gray-500 hover:text-white border border-[#1A6080]/30 hover:border-gray-50 dark:border-[#1A6080]/200 rounded-lg transition">
                                   Move to stage ▾
                                 </button>
                                 <div className="absolute bottom-full left-0 right-0 mb-1 bg-[#0F2C3D] border border-[#1A6080]/40 rounded-xl shadow-xl z-10 overflow-hidden hidden group-hover:block">
@@ -791,7 +791,7 @@ export default function RecruitmentPage() {
                 </thead>
                 <tbody className="divide-y divide-gray-100 dark:divide-[#1A6080]/20/60">
                   {visibleCandidates.map(c => (
-                    <tr key={c.id} className="hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/30">
+                    <tr key={c.id} className="hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30/30">
                       <td className="px-5 py-3">
                         <div className="flex items-center gap-2">
                           <div className="w-7 h-7 rounded-full bg-[#0E3D52] flex items-center justify-center text-white text-xs font-bold shrink-0">
@@ -837,7 +837,7 @@ export default function RecruitmentPage() {
                 <div className="flex gap-3 pt-2">
                   <button
                     onClick={() => setConvertApp(null)}
-                    className="flex-1 px-4 py-2 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg text-sm text-gray-600 dark:text-[#C8D8E4] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition"
+                    className="flex-1 px-4 py-2 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg text-sm text-gray-600 dark:text-[#C8D8E4] hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30 transition"
                   >Close</button>
                   <a
                     href="/tenant/employees"
@@ -896,7 +896,7 @@ export default function RecruitmentPage() {
                   <button
                     type="button"
                     onClick={() => { setConvertApp(null); setConvertError('') }}
-                    className="flex-1 px-4 py-2 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg text-sm text-gray-600 dark:text-[#C8D8E4] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition"
+                    className="flex-1 px-4 py-2 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg text-sm text-gray-600 dark:text-[#C8D8E4] hover:bg-gray-50 dark:bg-[#070F1A] dark:hover:bg-[#0E3D52]/30 transition"
                   >Cancel</button>
                   <button
                     disabled={!convertForm.startDate || convertSaving}

@@ -149,7 +149,7 @@ export default function RolesPage() {
   if (denied) return (
     <div className="space-y-4">
       <div>
-        <h1 className="text-2xl font-bold text-foreground">Roles & Access</h1>
+        <h1 className="text-2xl font-bold font-display text-foreground">Roles & Access</h1>
         <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Manage portal users and their access roles</p>
       </div>
       <div className="flex flex-col items-center justify-center h-64 card-premium gap-3">
@@ -166,7 +166,7 @@ export default function RolesPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-foreground">Roles & Access</h1>
+          <h1 className="text-2xl font-bold font-display text-foreground">Roles & Access</h1>
           <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Manage portal users and their access roles</p>
         </div>
         <PermissionGate permission="roles:write">
@@ -271,7 +271,7 @@ export default function RolesPage() {
             </thead>
             <tbody className="divide-y divide-gray-200 dark:divide-[#1A6080]/20/60">
               {users.map(u => (
-                <tr key={u.id} className={`hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30/30 ${!u.isActive ? 'opacity-50' : ''}`}>
+                <tr key={u.id} className={`hover:bg-gray-100 dark:bg-[#0F1E2E] dark:hover:bg-[#0E3D52]/30/30 ${!u.isActive ? 'opacity-50' : ''}`}>
                   <td className="px-4 py-3 text-gray-700 dark:text-[#C8D8E4] font-mono text-xs">{u.email}</td>
                   <td className="px-4 py-3">
                     <PermissionGate permission="roles:write"

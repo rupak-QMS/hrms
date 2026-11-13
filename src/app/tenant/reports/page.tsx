@@ -350,7 +350,7 @@ export default function ReportsPage() {
             <div className="space-y-1">
               {REPORTS.map(r => (
                 <button key={r.id} onClick={() => { setSelected(r.id); setRan(false); setData([]); setSummary({}) }}
-                  className={`w-full text-left px-3 py-2.5 rounded-lg text-sm transition ${selected===r.id ? 'bg-[#E0EEF4] text-[#0E3D52] font-medium' : 'text-gray-600 hover:bg-gray-50'}`}>
+                  className={`w-full text-left px-3 py-2.5 rounded-lg text-sm transition ${selected===r.id ? 'bg-[#E0EEF4] text-[#0E3D52] font-medium' : 'text-gray-600 hover:bg-gray-50 dark:bg-[#070F1A]'}`}>
                   <span className="mr-2">{r.icon}</span>{r.label}
                 </button>
               ))}

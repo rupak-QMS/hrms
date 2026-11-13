@@ -18,14 +18,14 @@ export default function Topbar() {
       {/* Right */}
       <div className="flex items-center gap-4">
         {/* Tenant selector */}
-        <button className="flex items-center gap-1.5 text-sm text-gray-600 border border-gray-200 rounded-lg px-3 py-1.5 hover:bg-gray-50 dark:text-[#8aaabb] dark:border-[#1A6080]/30">
+        <button className="flex items-center gap-1.5 text-sm text-gray-600 border border-gray-200 rounded-lg px-3 py-1.5 hover:bg-gray-50 dark:bg-[#070F1A] dark:text-[#8aaabb] dark:border-[#1A6080]/30">
           <span className="w-2 h-2 bg-green-500 rounded-full" />
           Yahweh Care
           <ChevronDown className="h-3.5 w-3.5" />
         </button>
 
         {/* Notifications */}
-        <button className="relative p-2 rounded-lg hover:bg-gray-100">
+        <button className="relative p-2 rounded-lg hover:bg-gray-100 dark:bg-[#0F1E2E]">
           <Bell className="h-5 w-5 text-gray-600 dark:text-[#9BB0BC]" />
           <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full" />
         </button>

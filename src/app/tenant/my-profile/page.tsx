@@ -395,7 +395,7 @@ export default function MyProfilePage() {
             />
           </div>
           <div>
-            <h1 className="text-2xl font-bold text-foreground">
+            <h1 className="text-2xl font-bold font-display text-foreground">
               {profile.preferredName || profile.firstName} {profile.lastName}
             </h1>
             <p className="text-sm text-gray-600 dark:text-[#9BB0BC]">

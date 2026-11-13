@@ -160,7 +160,7 @@ export default function WhsPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-foreground">WHS & Injury Management</h1>
+          <h1 className="text-2xl font-bold font-display text-foreground">WHS & Injury Management</h1>
           <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Report incidents, track investigations and corrective actions</p>
         </div>
         <div className="flex items-center gap-2">
@@ -361,7 +361,7 @@ export default function WhsPage() {
                             <li key={a.id} className="flex items-center gap-2 text-sm cursor-pointer group"
                               onClick={() => toggleAction(inc, a.id)}>
                               <div className={`w-4 h-4 rounded border-2 flex items-center justify-center shrink-0 transition ${
-                                a.done ? 'bg-green-600 border-green-600' : 'border-[#1A6080]/40 group-hover:border-gray-400'
+                                a.done ? 'bg-green-600 border-green-600' : 'border-[#1A6080]/40 group-hover:border-gray-400 dark:border-[#1A6080]/50'
                               }`}>
                                 {a.done && <span className="text-white text-xs"></span>}
                               </div>

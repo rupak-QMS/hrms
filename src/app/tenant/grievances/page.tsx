@@ -165,7 +165,7 @@ export default function GrievancesPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-foreground">Grievances & Investigations</h1>
+          <h1 className="text-2xl font-bold font-display text-foreground">Grievances & Investigations</h1>
           <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Lodge and manage grievances, misconduct, and NDIS safeguarding concerns</p>
         </div>
         <div className="flex items-center gap-2">

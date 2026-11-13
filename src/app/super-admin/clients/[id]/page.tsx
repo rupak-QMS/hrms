@@ -274,7 +274,7 @@ function EditClientInner() {
             </div>
           )}
           <div>
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">{form.name}</h1>
+            <h1 className="text-2xl font-bold font-display text-gray-900 dark:text-white">{form.name}</h1>
             <p className="text-gray-600 dark:text-[#9BB0BC] text-sm">{form.slug} · {form.tier}</p>
           </div>
         </div>
