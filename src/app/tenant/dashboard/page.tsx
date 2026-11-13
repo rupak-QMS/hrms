@@ -112,7 +112,7 @@ function MiniBar({ items }: { items: { label: string; value: number; color: stri
     <div className="space-y-2.5">
       {items.map(item => (
         <div key={item.label} className="flex items-center gap-3">
-          <span className="text-xs text-gray-500 w-28 shrink-0 truncate dark:text-gray-400">{item.label}</span>
+          <span className="text-xs text-gray-500 w-28 shrink-0 truncate dark:text-[#8aaabb]">{item.label}</span>
           <div className="flex-1 h-1.5 bg-gray-100 dark:bg-[#0A1929] rounded-full overflow-hidden">
             <div
               className="h-full rounded-full transition-all"
@@ -310,7 +310,7 @@ function PersonalDashboard({ userName, tenantName, primaryColor, greetingText, e
                 <div key={b.key} className="bg-black/[0.02] dark:bg-white/[0.04] rounded-xl border border-black/[0.04] dark:border-white/[0.04] p-3 flex flex-col gap-2">
                   <div className="flex items-center gap-1.5">
                     <span className="text-base">{b.emoji}</span>
-                    <span className="text-xs font-medium text-gray-700 dark:text-gray-300 truncate">{b.label}</span>
+                    <span className="text-xs font-medium text-gray-700 dark:text-[#C8D8E4] truncate">{b.label}</span>
                   </div>
                   <div>
                     <div className="flex justify-between items-end mb-1">
@@ -353,9 +353,9 @@ function PersonalDashboard({ userName, tenantName, primaryColor, greetingText, e
             <Link href="/tenant/leave" className="text-xs text-[#0E3D52] hover:text-[#1A6080] dark:text-[#4ebac4] dark:hover:text-[#7dcfd7]">View all →</Link>
           </div>
           {loadingPersonal ? (
-            <p className="text-xs text-gray-500 dark:text-gray-400">Loading…</p>
+            <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Loading…</p>
           ) : leaveRequests.length === 0 ? (
-            <p className="text-xs text-gray-500 dark:text-gray-400">No leave requests yet.</p>
+            <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">No leave requests yet.</p>
           ) : (
             <div className="space-y-2.5">
               {pendingCount > 0 && (
@@ -369,7 +369,7 @@ function PersonalDashboard({ userName, tenantName, primaryColor, greetingText, e
                     <p className="text-xs font-medium text-gray-900 dark:text-white">
                       {LEAVE_TYPE_LABEL[r.leaveType] ?? r.leaveType}
                     </p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                    <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">
                       {fmtDate(r.startDate)} · {r.totalDays}d
                     </p>
                   </div>
@@ -394,16 +394,16 @@ function PersonalDashboard({ userName, tenantName, primaryColor, greetingText, e
             <Link href="/tenant/public-holidays" className="text-xs text-[#0E3D52] hover:text-[#1A6080] dark:text-[#4ebac4] dark:hover:text-[#7dcfd7]">All →</Link>
           </div>
           {loadingPersonal ? (
-            <p className="text-xs text-gray-500 dark:text-gray-400">Loading…</p>
+            <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Loading…</p>
           ) : holidays.length === 0 ? (
-            <p className="text-xs text-gray-500 dark:text-gray-400">No upcoming holidays on record.</p>
+            <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">No upcoming holidays on record.</p>
           ) : (
             <div className="space-y-2.5">
               {holidays.map(h => (
                 <div key={h.date + h.name} className="flex justify-between gap-2">
                   <div>
                     <p className="text-xs font-medium text-gray-900 dark:text-white">{h.name}</p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">{fmtHolidayDate(h.date)}</p>
+                    <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{fmtHolidayDate(h.date)}</p>
                   </div>
                   <span className="text-xs text-[#0E3D52] dark:text-[#4ebac4] shrink-0 font-medium">{daysUntil(h.date)}</span>
                 </div>
@@ -622,7 +622,7 @@ export default function DashboardPage() {
 
       {error && (
         <div className="card-premium p-8 text-center">
-          <p className="text-gray-500 text-sm dark:text-gray-400">
+          <p className="text-gray-500 text-sm dark:text-[#8aaabb]">
             Could not load live stats ({error}). You may not have manager-level access.
           </p>
         </div>
@@ -681,7 +681,7 @@ export default function DashboardPage() {
             <div className="card-premium p-6 space-y-4">
               <h3 className="text-sm font-semibold text-gray-900 dark:text-white">By Employment Type</h3>
               {data.headcount.byEmploymentType.length === 0
-                ? <p className="text-sm text-gray-600 dark:text-gray-400">No data yet</p>
+                ? <p className="text-sm text-gray-600 dark:text-[#9BB0BC]">No data yet</p>
                 : <MiniBar items={data.headcount.byEmploymentType.map(e => ({
                     label: EMP_TYPE_LABEL[e.type] ?? e.type,
                     value: e.count,
@@ -692,14 +692,14 @@ export default function DashboardPage() {
             <div className="card-premium p-6 space-y-4">
               <h3 className="text-sm font-semibold text-gray-900 dark:text-white">By Entity</h3>
               {data.headcount.byEntity.length === 0
-                ? <p className="text-sm text-gray-600 dark:text-gray-400">No entity data yet — set entity on employee profiles</p>
+                ? <p className="text-sm text-gray-600 dark:text-[#9BB0BC]">No entity data yet — set entity on employee profiles</p>
                 : <>
                     <MiniBar items={data.headcount.byEntity.map((e, i) => ({
                       label: e.name, value: e.count, color: ENTITY_COLORS[i % ENTITY_COLORS.length],
                     }))} />
                     <div className="flex flex-wrap gap-3 pt-2 border-t border-gray-200 dark:border-[#1A6080]/20">
                       {data.headcount.byEntity.map((e, i) => (
-                        <div key={e.name} className="flex items-center gap-1.5 text-xs text-gray-600 dark:text-gray-400">
+                        <div key={e.name} className="flex items-center gap-1.5 text-xs text-gray-600 dark:text-[#9BB0BC]">
                           <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ background: ENTITY_COLORS[i % ENTITY_COLORS.length] }} />
                           {e.name} <span className="text-gray-900 dark:text-white font-medium">{e.count}</span>
                         </div>
@@ -721,9 +721,9 @@ export default function DashboardPage() {
                 </div>
                 {data.payroll.lastRunPeriodEnd ? (
                   <>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                    <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">
                       {fmtDate(data.payroll.lastRunPeriodStart)} → {fmtDate(data.payroll.lastRunPeriodEnd)}
-                      <span className="ml-2 text-gray-600 dark:text-gray-400">· {data.payroll.lastRunCount} employee{data.payroll.lastRunCount !== 1 ? 's' : ''}</span>
+                      <span className="ml-2 text-gray-600 dark:text-[#9BB0BC]">· {data.payroll.lastRunCount} employee{data.payroll.lastRunCount !== 1 ? 's' : ''}</span>
                     </p>
                     <div className="grid grid-cols-3 gap-3">
                       {[
@@ -732,14 +732,14 @@ export default function DashboardPage() {
                         { label: 'Super', value: data.payroll.lastRunSuper, color: 'text-[#0E3D52] dark:text-[#4ebac4]' },
                       ].map(s => (
                         <div key={s.label} className="bg-black/[0.03] dark:bg-white/[0.04] rounded-lg px-3 py-3">
-                          <p className="text-xs text-gray-500 dark:text-gray-400">{s.label}</p>
+                          <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{s.label}</p>
                           <p className={`text-sm font-bold mt-0.5 ${s.color}`}>{fmt(s.value)}</p>
                         </div>
                       ))}
                     </div>
                   </>
                 ) : (
-                  <div className="py-6 text-center text-gray-600 text-sm dark:text-gray-400">No pay runs yet</div>
+                  <div className="py-6 text-center text-gray-600 text-sm dark:text-[#8aaabb]">No pay runs yet</div>
                 )}
               </div>
 
@@ -752,12 +752,12 @@ export default function DashboardPage() {
                     { label: 'Super', value: data.payroll.ytdSuper, color: 'text-[#0E3D52] dark:text-[#4ebac4]' },
                   ].map(s => (
                     <div key={s.label} className="bg-black/[0.03] dark:bg-white/[0.04] rounded-lg px-3 py-3">
-                      <p className="text-xs text-gray-500 dark:text-gray-400">{s.label}</p>
+                      <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{s.label}</p>
                       <p className={`text-sm font-bold mt-0.5 ${s.color}`}>{fmt(s.value)}</p>
                     </div>
                   ))}
                 </div>
-                <p className="text-xs text-gray-600 dark:text-gray-400">All pay runs from 1 Jan {new Date().getFullYear()}</p>
+                <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">All pay runs from 1 Jan {new Date().getFullYear()}</p>
               </div>
             </div>
           </section>
@@ -777,7 +777,7 @@ export default function DashboardPage() {
                   { label: 'Approved YTD',          value: `${data.leave.approvedDaysThisYear}d` },
                 ].map(r => (
                   <div key={r.label} className="flex justify-between items-center">
-                    <span className="text-xs text-gray-500 dark:text-gray-400">{r.label}</span>
+                    <span className="text-xs text-gray-500 dark:text-[#9BB0BC]">{r.label}</span>
                     <span className={`text-sm font-bold ${'alert' in r && r.alert ? 'text-yellow-600 dark:text-yellow-400' : 'text-gray-900 dark:text-white'}`}>{r.value}</span>
                   </div>
                 ))}
@@ -796,13 +796,13 @@ export default function DashboardPage() {
                 <Link href="/tenant/public-holidays" className="text-xs text-[#0E3D52] hover:text-[#1A6080] dark:text-[#4ebac4] dark:hover:text-[#7dcfd7]">All →</Link>
               </div>
               {data.holidays.upcoming.length === 0
-                ? <p className="text-xs text-gray-600 dark:text-gray-400">No upcoming holidays on record</p>
+                ? <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">No upcoming holidays on record</p>
                 : <div className="space-y-2.5">
                     {data.holidays.upcoming.map(h => (
                       <div key={h.date + h.name} className="flex justify-between gap-2">
                         <div>
                           <p className="text-xs text-gray-900 dark:text-white font-medium leading-tight">{h.name}</p>
-                          <p className="text-xs text-gray-600 dark:text-gray-400">{fmtHolidayDate(h.date)}</p>
+                          <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">{fmtHolidayDate(h.date)}</p>
                         </div>
                         <span className="text-xs text-[#0E3D52] dark:text-[#4ebac4] shrink-0 font-medium">{daysUntil(h.date)}</span>
                       </div>
@@ -818,12 +818,12 @@ export default function DashboardPage() {
               </div>
               <div className="space-y-2.5">
                 <div className="flex justify-between">
-                  <span className="text-xs text-gray-500 dark:text-gray-400">Expiring in 30 days</span>
-                  <span className={`text-sm font-bold ${data.documents.expiringIn30Days > 0 ? 'text-amber-600 dark:text-amber-400' : 'text-gray-600 dark:text-gray-400'}`}>{data.documents.expiringIn30Days}</span>
+                  <span className="text-xs text-gray-500 dark:text-[#9BB0BC]">Expiring in 30 days</span>
+                  <span className={`text-sm font-bold ${data.documents.expiringIn30Days > 0 ? 'text-amber-600 dark:text-amber-400' : 'text-gray-600 dark:text-[#9BB0BC]'}`}>{data.documents.expiringIn30Days}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-xs text-gray-500 dark:text-gray-400">Already expired</span>
-                  <span className={`text-sm font-bold ${data.documents.expiredActive > 0 ? 'text-red-600 dark:text-red-400' : 'text-gray-600 dark:text-gray-400'}`}>{data.documents.expiredActive}</span>
+                  <span className="text-xs text-gray-500 dark:text-[#9BB0BC]">Already expired</span>
+                  <span className={`text-sm font-bold ${data.documents.expiredActive > 0 ? 'text-red-600 dark:text-red-400' : 'text-gray-600 dark:text-[#9BB0BC]'}`}>{data.documents.expiredActive}</span>
                 </div>
               </div>
             </div>
@@ -835,12 +835,12 @@ export default function DashboardPage() {
               </div>
               <div className="space-y-2.5">
                 <div className="flex justify-between">
-                  <span className="text-xs text-gray-500 dark:text-gray-400">Open incidents</span>
-                  <span className={`text-sm font-bold ${data.incidents.open > 0 ? 'text-amber-600 dark:text-amber-400' : 'text-gray-600 dark:text-gray-400'}`}>{data.incidents.open}</span>
+                  <span className="text-xs text-gray-500 dark:text-[#9BB0BC]">Open incidents</span>
+                  <span className={`text-sm font-bold ${data.incidents.open > 0 ? 'text-amber-600 dark:text-amber-400' : 'text-gray-600 dark:text-[#9BB0BC]'}`}>{data.incidents.open}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-xs text-gray-500 dark:text-gray-400">Critical open</span>
-                  <span className={`text-sm font-bold ${data.incidents.openCritical > 0 ? 'text-red-600 dark:text-red-400' : 'text-gray-600 dark:text-gray-400'}`}>{data.incidents.openCritical}</span>
+                  <span className="text-xs text-gray-500 dark:text-[#9BB0BC]">Critical open</span>
+                  <span className={`text-sm font-bold ${data.incidents.openCritical > 0 ? 'text-red-600 dark:text-red-400' : 'text-gray-600 dark:text-[#9BB0BC]'}`}>{data.incidents.openCritical}</span>
                 </div>
               </div>
               {data.incidents.openCritical > 0 && (
@@ -870,7 +870,7 @@ export default function DashboardPage() {
                 <div key={item.id} className="flex items-start gap-3">
                   <span className="text-base flex-shrink-0 mt-0.5">{icon}</span>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm text-gray-700 dark:text-gray-300 truncate">{text}</p>
+                    <p className="text-sm text-gray-700 dark:text-[#C8D8E4] truncate">{text}</p>
                     <p className="text-xs text-gray-400 mt-0.5">{timeAgo(item.createdAt)}</p>
                   </div>
                 </div>
@@ -899,7 +899,7 @@ export default function DashboardPage() {
                     <Link href={`/tenant/employee-management/${emp.id}`} className="text-sm font-medium text-gray-900 dark:text-white hover:text-[#0E3D52] dark:text-[#4ebac4] dark:hover:text-[#4ebac4] truncate block">
                       {emp.firstName} {emp.lastName}
                     </Link>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 capitalize">{emp.employmentType?.replace('_', ' ')}</p>
+                    <p className="text-xs text-gray-500 dark:text-[#9BB0BC] capitalize">{emp.employmentType?.replace('_', ' ')}</p>
                   </div>
                   <span className={`text-xs font-semibold px-2 py-1 rounded-lg flex-shrink-0 ${
                     days <= 3
@@ -924,16 +924,16 @@ export default function DashboardPage() {
       {overdueTraining.length > 0 && (
         <div className="card-premium p-4">
           <div className="flex items-center justify-between mb-3">
-            <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-200">⚠️ Overdue Training</h3>
+            <h3 className="text-sm font-semibold text-gray-700 dark:text-[#C8D8E4]">⚠️ Overdue Training</h3>
             <span className="badge badge-red">{overdueTraining.length}</span>
           </div>
           <div className="space-y-2">
             {overdueTraining.slice(0, 5).map((t, i) => (
               <div key={i} className="flex items-center justify-between text-xs">
-                <span className="text-gray-700 dark:text-gray-300 truncate max-w-[160px]">
+                <span className="text-gray-700 dark:text-[#C8D8E4] truncate max-w-[160px]">
                   {t.firstName} {t.lastName}
                 </span>
-                <span className="text-gray-500 dark:text-gray-400 truncate max-w-[120px] ml-2">
+                <span className="text-gray-500 dark:text-[#9BB0BC] truncate max-w-[120px] ml-2">
                   {t.courseTitle ?? 'Unknown course'}
                 </span>
               </div>
@@ -950,7 +950,7 @@ export default function DashboardPage() {
       {compliance && compliance.total > 0 && (
         <div className="card-premium p-4">
           <div className="flex items-center justify-between mb-3">
-            <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-200">🛡️ Compliance Health</h3>
+            <h3 className="text-sm font-semibold text-gray-700 dark:text-[#C8D8E4]">🛡️ Compliance Health</h3>
             <span className={`text-lg font-bold ${compliance.score >= 80 ? 'text-green-500' : compliance.score >= 60 ? 'text-amber-500' : 'text-red-500'}`}>
               {compliance.score}%
             </span>
@@ -986,7 +986,7 @@ export default function DashboardPage() {
       {reviewsDue.length > 0 && (
         <div className="card-premium p-4">
           <div className="flex items-center justify-between mb-3">
-            <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-200">📋 Reviews Due</h3>
+            <h3 className="text-sm font-semibold text-gray-700 dark:text-[#C8D8E4]">📋 Reviews Due</h3>
             <span className="badge badge-amber">{reviewsDue.length}</span>
           </div>
           <div className="space-y-2">
@@ -997,7 +997,7 @@ export default function DashboardPage() {
               const overdue = daysLeft !== null && daysLeft < 0
               return (
                 <div key={r.id} className="flex items-center justify-between text-xs">
-                  <span className="text-gray-700 dark:text-gray-300 truncate max-w-[140px]">
+                  <span className="text-gray-700 dark:text-[#C8D8E4] truncate max-w-[140px]">
                     {r.firstName} {r.lastName}
                   </span>
                   <div className="flex items-center gap-1.5 shrink-0 ml-2">
@@ -1034,7 +1034,7 @@ export default function DashboardPage() {
                 </div>
                 <div className="min-w-0">
                   <p className="text-sm font-semibold text-gray-900 dark:text-white truncate">{c.name}</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 truncate">
+                  <p className="text-xs text-gray-500 dark:text-[#9BB0BC] truncate">
                     {c.type === 'birthday'
                       ? 'Birthday'
                       : `${c.yearsCount} year anniversary`}

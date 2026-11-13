@@ -131,17 +131,17 @@ const fmtMoney = (v: string | null) => v ? `$${parseFloat(v).toLocaleString('en-
 const displayName = (p: Participant) => `${p.firstName} ${p.lastName}`
 
 const goalStatusColor: Record<string, string> = {
-  not_started: 'bg-gray-100 text-gray-700 dark:bg-[#0E3D52]/60 dark:text-gray-300',
+  not_started: 'bg-gray-100 text-gray-700 dark:bg-[#0E3D52]/60 dark:text-[#C8D8E4]',
   in_progress:  'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/30 dark:text-[#7dcfd7]',
   achieved:     'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300',
   on_hold:      'bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300',
   discontinued: 'bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300',
 }
 const planStatusColor: Record<string, string> = {
-  draft:    'bg-gray-100 text-gray-700 dark:bg-[#0E3D52]/60 dark:text-gray-300',
+  draft:    'bg-gray-100 text-gray-700 dark:bg-[#0E3D52]/60 dark:text-[#C8D8E4]',
   active:   'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300',
   expired:  'bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300',
-  archived: 'bg-gray-100 text-gray-600 dark:bg-[#0E3D52]/60 dark:text-gray-400',
+  archived: 'bg-gray-100 text-gray-600 dark:bg-[#0E3D52]/60 dark:text-[#8aaabb]',
 }
 
 // ─── Main Page ────────────────────────────────────────────────────────────────
@@ -411,13 +411,13 @@ export default function ParticipantsPage() {
           />
           <div className="flex gap-2">
             <select value={filterActive} onChange={e => setFilterActive(e.target.value as 'all' | 'active' | 'inactive')}
-              className="flex-1 px-2 py-1.5 text-xs border border-gray-300 dark:border-[#1A6080]/40 rounded-lg bg-white dark:bg-[#0E3D52]/60 text-gray-700 dark:text-gray-300">
+              className="flex-1 px-2 py-1.5 text-xs border border-gray-300 dark:border-[#1A6080]/40 rounded-lg bg-white dark:bg-[#0E3D52]/60 text-gray-700 dark:text-[#C8D8E4]">
               <option value="active">Active</option>
               <option value="inactive">Inactive</option>
               <option value="all">All</option>
             </select>
             <select value={filterFunding} onChange={e => setFilterFunding(e.target.value)}
-              className="flex-1 px-2 py-1.5 text-xs border border-gray-300 dark:border-[#1A6080]/40 rounded-lg bg-white dark:bg-[#0E3D52]/60 text-gray-700 dark:text-gray-300">
+              className="flex-1 px-2 py-1.5 text-xs border border-gray-300 dark:border-[#1A6080]/40 rounded-lg bg-white dark:bg-[#0E3D52]/60 text-gray-700 dark:text-[#C8D8E4]">
               <option value="">All Funding</option>
               {FUNDING_BODIES.map(f => <option key={f} value={f}>{f}</option>)}
             </select>
@@ -442,10 +442,10 @@ export default function ParticipantsPage() {
                 {!p.isActive && <span className="text-xs bg-red-100 text-red-600 dark:bg-red-900 dark:text-red-300 px-1.5 py-0.5 rounded">Inactive</span>}
               </div>
               <div className="flex items-center gap-2 mt-0.5">
-                <span className="text-xs text-gray-500 dark:text-gray-400">{p.fundingBody}</span>
-                {p.ndisNumber && <span className="text-xs text-gray-400 dark:text-gray-500">· {p.ndisNumber}</span>}
+                <span className="text-xs text-gray-500 dark:text-[#9BB0BC]">{p.fundingBody}</span>
+                {p.ndisNumber && <span className="text-xs text-gray-400 dark:text-[#9BB0BC]">· {p.ndisNumber}</span>}
               </div>
-              {p.supportLevel && <div className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">{p.supportLevel} Support</div>}
+              {p.supportLevel && <div className="text-xs text-gray-400 dark:text-[#9BB0BC] mt-0.5">{p.supportLevel} Support</div>}
             </button>
           ))}
         </div>
@@ -453,7 +453,7 @@ export default function ParticipantsPage() {
 
       {/* ── Right: Detail Panel ────────────────────────────────────────────── */}
       {!selected ? (
-        <div className="flex-1 flex items-center justify-center text-gray-400 dark:text-gray-500">
+        <div className="flex-1 flex items-center justify-center text-gray-400 dark:text-[#9BB0BC]">
           <div className="text-center">
             <div className="w-14 h-14 rounded-2xl bg-[#0E3D52]/[0.07] dark:bg-[#4ebac4]/10 flex items-center justify-center mb-4 mx-auto ring-1 ring-[#0E3D52]/10 dark:ring-[#4ebac4]/15"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-[#1A6080] dark:text-[#4ebac4] opacity-70"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
             <p className="text-lg font-medium">Select a participant</p>
@@ -469,10 +469,10 @@ export default function ParticipantsPage() {
               <div>
                 <h2 className="page-premium-title">
                   {displayName(selected)}
-                  {selected.preferredName && <span className="text-gray-500 dark:text-gray-400 font-normal ml-2">({selected.preferredName})</span>}
+                  {selected.preferredName && <span className="text-gray-500 dark:text-[#9BB0BC] font-normal ml-2">({selected.preferredName})</span>}
                 </h2>
-                <div className="flex flex-wrap items-center gap-3 mt-1 text-sm text-gray-500 dark:text-gray-400">
-                  {selected.ndisNumber && <span>NDIS: <strong className="text-gray-700 dark:text-gray-300">{selected.ndisNumber}</strong></span>}
+                <div className="flex flex-wrap items-center gap-3 mt-1 text-sm text-gray-500 dark:text-[#9BB0BC]">
+                  {selected.ndisNumber && <span>NDIS: <strong className="text-gray-700 dark:text-[#C8D8E4]">{selected.ndisNumber}</strong></span>}
                   <span className="px-2 py-0.5 bg-[#E0EEF4] dark:bg-[#0E3D52]/30 text-[#0E3D52] dark:text-[#7dcfd7] rounded text-xs font-medium">{selected.fundingBody}</span>
                   {selected.supportLevel && <span className="px-2 py-0.5 bg-[#E0EEF4] dark:bg-[#0E3D52] text-[#0E3D52] dark:text-[#4ebac4] rounded text-xs">{selected.supportLevel} Support</span>}
                   {!selected.isActive && <span className="px-2 py-0.5 bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 rounded text-xs">Inactive</span>}
@@ -480,7 +480,7 @@ export default function ParticipantsPage() {
               </div>
               <div className="flex items-center gap-2">
                 <button onClick={openEdit}
-                  className="px-3 py-1.5 text-sm border border-gray-300 dark:border-[#1A6080]/40 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors">
+                  className="px-3 py-1.5 text-sm border border-gray-300 dark:border-[#1A6080]/40 text-gray-700 dark:text-[#C8D8E4] rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors">
                   Edit
                 </button>
                 {selected.isActive && (
@@ -498,7 +498,7 @@ export default function ParticipantsPage() {
                 <button key={tab} onClick={() => changeTab(tab)}
                   className={`px-4 py-2 text-sm font-medium rounded-t-lg capitalize transition-colors ${activeTab === tab
                     ? 'bg-[#EDF1F5] dark:bg-[#070F1A] border border-b-0 border-gray-200 dark:border-[#1A6080]/30 text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4]'
-                    : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'}`}>
+                    : 'text-gray-500 dark:text-[#9BB0BC] hover:text-gray-700 dark:hover:text-gray-300'}`}>
                   {tab === 'support-plans' ? 'Support Plans' : tab.charAt(0).toUpperCase() + tab.slice(1)}
                 </button>
               ))}
@@ -526,7 +526,7 @@ export default function ParticipantsPage() {
                 {selected.notes && (
                   <div className="col-span-2">
                     <Section title="Notes">
-                      <p className="text-sm text-gray-700 dark:text-gray-300 whitespace-pre-wrap">{selected.notes}</p>
+                      <p className="text-sm text-gray-700 dark:text-[#C8D8E4] whitespace-pre-wrap">{selected.notes}</p>
                     </Section>
                   </div>
                 )}
@@ -557,19 +557,19 @@ export default function ParticipantsPage() {
                         <div className="flex items-start justify-between gap-2">
                           <div>
                             <p className="font-medium text-gray-900 dark:text-white">{g.title}</p>
-                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{GOAL_CATEGORY_LABELS[g.goalCategory] || g.goalCategory}</p>
+                            <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-0.5">{GOAL_CATEGORY_LABELS[g.goalCategory] || g.goalCategory}</p>
                           </div>
                           <span className={`text-xs px-2 py-0.5 rounded-full font-medium flex-shrink-0 ${goalStatusColor[g.status] || ''}`}>
                             {GOAL_STATUS_LABELS[g.status] || g.status}
                           </span>
                         </div>
-                        {g.description && <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">{g.description}</p>}
-                        <div className="flex flex-wrap gap-4 mt-2 text-xs text-gray-400 dark:text-gray-500">
+                        {g.description && <p className="text-sm text-gray-600 dark:text-[#9BB0BC] mt-2">{g.description}</p>}
+                        <div className="flex flex-wrap gap-4 mt-2 text-xs text-gray-400 dark:text-[#9BB0BC]">
                           {g.targetDate && <span>Target: {fmtDate(g.targetDate)}</span>}
                           {g.achievedDate && <span>Achieved: {fmtDate(g.achievedDate)}</span>}
                           {g.createdBy && <span>By: {g.createdBy}</span>}
                         </div>
-                        {g.progressNotes && <p className="text-sm text-gray-600 dark:text-gray-400 mt-2 italic">{g.progressNotes}</p>}
+                        {g.progressNotes && <p className="text-sm text-gray-600 dark:text-[#9BB0BC] mt-2 italic">{g.progressNotes}</p>}
                       </div>
                     ))}
                   </div>
@@ -594,27 +594,27 @@ export default function ParticipantsPage() {
                         <div className="flex items-start justify-between gap-2">
                           <div>
                             <p className="font-medium text-gray-900 dark:text-white">{p.title}</p>
-                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{PLAN_TYPE_LABELS[p.planType] || p.planType} Plan</p>
+                            <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-0.5">{PLAN_TYPE_LABELS[p.planType] || p.planType} Plan</p>
                           </div>
                           <span className={`text-xs px-2 py-0.5 rounded-full font-medium flex-shrink-0 ${planStatusColor[p.status] || ''}`}>
                             {PLAN_STATUS_LABELS[p.status] || p.status}
                           </span>
                         </div>
                         <div className="grid grid-cols-3 gap-4 mt-3 text-xs">
-                          <div><span className="text-gray-400">Start:</span> <span className="text-gray-700 dark:text-gray-300">{fmtDate(p.planStartDate)}</span></div>
-                          <div><span className="text-gray-400">End:</span> <span className="text-gray-700 dark:text-gray-300">{fmtDate(p.planEndDate)}</span></div>
-                          <div><span className="text-gray-400">Review:</span> <span className="text-gray-700 dark:text-gray-300">{fmtDate(p.reviewDate)}</span></div>
+                          <div><span className="text-gray-400">Start:</span> <span className="text-gray-700 dark:text-[#C8D8E4]">{fmtDate(p.planStartDate)}</span></div>
+                          <div><span className="text-gray-400">End:</span> <span className="text-gray-700 dark:text-[#C8D8E4]">{fmtDate(p.planEndDate)}</span></div>
+                          <div><span className="text-gray-400">Review:</span> <span className="text-gray-700 dark:text-[#C8D8E4]">{fmtDate(p.reviewDate)}</span></div>
                         </div>
                         {p.totalBudget && (
-                          <div className="mt-2 text-xs"><span className="text-gray-400">Total Budget:</span> <span className="font-semibold text-gray-700 dark:text-gray-300">{fmtMoney(p.totalBudget)}</span></div>
+                          <div className="mt-2 text-xs"><span className="text-gray-400">Total Budget:</span> <span className="font-semibold text-gray-700 dark:text-[#C8D8E4]">{fmtMoney(p.totalBudget)}</span></div>
                         )}
                         {(p.coordinatorName || p.coordinatorOrg) && (
-                          <div className="mt-2 text-xs text-gray-500 dark:text-gray-400">
+                          <div className="mt-2 text-xs text-gray-500 dark:text-[#9BB0BC]">
                             Coordinator: {p.coordinatorName}{p.coordinatorOrg ? ` — ${p.coordinatorOrg}` : ''}
                             {p.coordinatorEmail && <span className="ml-1">({p.coordinatorEmail})</span>}
                           </div>
                         )}
-                        {p.notes && <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">{p.notes}</p>}
+                        {p.notes && <p className="text-sm text-gray-600 dark:text-[#9BB0BC] mt-2">{p.notes}</p>}
                       </div>
                     ))}
                   </div>
@@ -638,7 +638,7 @@ export default function ParticipantsPage() {
                       <div key={n.id} className="card-premium p-4">
                         <div className="flex items-start justify-between gap-2 mb-2">
                           <div className="flex items-center gap-2">
-                            <span className="text-xs px-2 py-0.5 bg-gray-100 dark:bg-[#0E3D52]/60 text-gray-600 dark:text-gray-300 rounded-full">
+                            <span className="text-xs px-2 py-0.5 bg-gray-100 dark:bg-[#0E3D52]/60 text-gray-600 dark:text-[#C8D8E4] rounded-full">
                               {NOTE_TYPE_LABELS[n.noteType] || n.noteType}
                             </span>
                             <span className="text-xs px-2 py-0.5 bg-[#E0EEF4] dark:bg-[#0E3D52]/20 text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#7dcfd7] rounded-full">
@@ -648,8 +648,8 @@ export default function ParticipantsPage() {
                           <span className="text-xs text-gray-400">{fmtDate(n.createdAt)}</span>
                         </div>
                         {n.title && <p className="font-medium text-gray-900 dark:text-white mb-1">{n.title}</p>}
-                        <p className="text-sm text-gray-700 dark:text-gray-300 whitespace-pre-wrap">{n.content}</p>
-                        {n.createdBy && <p className="text-xs text-gray-400 dark:text-gray-500 mt-2">— {n.createdBy}</p>}
+                        <p className="text-sm text-gray-700 dark:text-[#C8D8E4] whitespace-pre-wrap">{n.content}</p>
+                        {n.createdBy && <p className="text-xs text-gray-400 dark:text-[#9BB0BC] mt-2">— {n.createdBy}</p>}
                       </div>
                     ))}
                   </div>
@@ -677,18 +677,18 @@ export default function ParticipantsPage() {
                               {c.firstName} {c.lastName || ''}
                               {c.isPrimary && <span className="ml-2 text-xs bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 px-1.5 py-0.5 rounded-full">Primary</span>}
                             </p>
-                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                            <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-0.5">
                               {CONTACT_TYPE_LABELS[c.contactType] || c.contactType}
                               {c.relationship && ` · ${c.relationship}`}
                             </p>
                           </div>
                         </div>
                         <div className="mt-2 space-y-0.5 text-sm">
-                          {c.phone && <p className="text-gray-600 dark:text-gray-400">📞 {c.phone}</p>}
-                          {c.email && <p className="text-gray-600 dark:text-gray-400">✉ {c.email}</p>}
-                          {c.address && <p className="text-xs text-gray-400 dark:text-gray-500 mt-1">{c.address}</p>}
+                          {c.phone && <p className="text-gray-600 dark:text-[#9BB0BC]">📞 {c.phone}</p>}
+                          {c.email && <p className="text-gray-600 dark:text-[#9BB0BC]">✉ {c.email}</p>}
+                          {c.address && <p className="text-xs text-gray-400 dark:text-[#9BB0BC] mt-1">{c.address}</p>}
                         </div>
-                        {c.notes && <p className="text-xs text-gray-400 dark:text-gray-500 mt-2 italic">{c.notes}</p>}
+                        {c.notes && <p className="text-xs text-gray-400 dark:text-[#9BB0BC] mt-2 italic">{c.notes}</p>}
                       </div>
                     ))}
                   </div>
@@ -940,7 +940,7 @@ export default function ParticipantsPage() {
                 <input type="checkbox" checked={contactForm.isPrimary}
                   onChange={e => setContactForm(f => ({ ...f, isPrimary: e.target.checked }))}
                   className="w-4 h-4 text-[#0E3D52] dark:text-[#4ebac4] rounded" />
-                <span className="text-sm text-gray-700 dark:text-gray-300">Primary contact</span>
+                <span className="text-sm text-gray-700 dark:text-[#C8D8E4]">Primary contact</span>
               </label>
             </div>
           </div>
@@ -956,7 +956,7 @@ export default function ParticipantsPage() {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="card-premium p-4">
-      <h4 className="text-xs font-semibold text-gray-400 dark:text-gray-500  mb-3">{title}</h4>
+      <h4 className="text-xs font-semibold text-gray-400 dark:text-[#9BB0BC]  mb-3">{title}</h4>
       <div className="space-y-2">{children}</div>
     </div>
   )
@@ -965,8 +965,8 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 function Field({ label, value }: { label: string; value: string | null | undefined }) {
   return (
     <div className="flex justify-between items-start gap-2">
-      <span className="text-xs text-gray-400 dark:text-gray-500 flex-shrink-0">{label}</span>
-      <span className="text-sm text-gray-700 dark:text-gray-300 text-right">{value || '—'}</span>
+      <span className="text-xs text-gray-400 dark:text-[#9BB0BC] flex-shrink-0">{label}</span>
+      <span className="text-sm text-gray-700 dark:text-[#C8D8E4] text-right">{value || '—'}</span>
     </div>
   )
 }
@@ -984,7 +984,7 @@ function Empty({ label }: { label: string }) {
 }
 
 function Label({ children }: { children: React.ReactNode }) {
-  return <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">{children}</label>
+  return <label className="block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1">{children}</label>
 }
 
 function Input({ value, onChange, type = 'text', placeholder }: {
@@ -1026,7 +1026,7 @@ function Modal({ title, onClose, onSave, saving, error, children, wide }: {
         <div className="flex-1 overflow-y-auto px-6 py-4">{children}</div>
         {error && <p className="px-6 text-sm text-red-600 dark:text-red-400 pb-2">{error}</p>}
         <div className="flex justify-end gap-3 px-6 py-4 border-t border-gray-200 dark:border-[#1A6080]/30">
-          <button onClick={onClose} className="px-4 py-2 text-sm border border-gray-300 dark:border-[#1A6080]/40 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors">
+          <button onClick={onClose} className="px-4 py-2 text-sm border border-gray-300 dark:border-[#1A6080]/40 text-gray-700 dark:text-[#C8D8E4] rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors">
             Cancel
           </button>
           <button onClick={onSave} disabled={saving}

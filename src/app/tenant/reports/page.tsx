@@ -89,14 +89,14 @@ function HeadcountCharts({ summary }: { summary: Summary }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
       <div className="card-premium p-4">
-        <p className="text-xs font-semibold text-gray-500  mb-4 dark:text-gray-400">Active vs Inactive</p>
+        <p className="text-xs font-semibold text-gray-500  mb-4 dark:text-[#8aaabb]">Active vs Inactive</p>
         <BarChart data={[
           { label: 'Active',   value: summary.active   ?? 0, color: '#10b981' },
           { label: 'Inactive', value: summary.inactive ?? 0, color: '#6b7280' },
         ]} />
       </div>
       <div className="card-premium p-4">
-        <p className="text-xs font-semibold text-gray-500  mb-4 dark:text-gray-400">Employment Type</p>
+        <p className="text-xs font-semibold text-gray-500  mb-4 dark:text-[#8aaabb]">Employment Type</p>
         <DonutChart data={[
           { label: 'Full-time',  value: summary.fullTime   ?? 0, color: '#0E3D52' },
           { label: 'Part-time',  value: summary.partTime   ?? 0, color: '#06b6d4' },
@@ -112,7 +112,7 @@ function LeaveCharts({ summary }: { summary: Summary }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
       <div className="card-premium p-4">
-        <p className="text-xs font-semibold text-gray-500  mb-4 dark:text-gray-400">By Status</p>
+        <p className="text-xs font-semibold text-gray-500  mb-4 dark:text-[#8aaabb]">By Status</p>
         <DonutChart data={[
           { label: 'Approved', value: summary.approved ?? 0, color: '#10b981' },
           { label: 'Pending',  value: summary.pending  ?? 0, color: '#f59e0b' },
@@ -120,7 +120,7 @@ function LeaveCharts({ summary }: { summary: Summary }) {
         ].filter(d => d.value > 0)} />
       </div>
       <div className="card-premium p-4">
-        <p className="text-xs font-semibold text-gray-500  mb-4 dark:text-gray-400">Days Taken</p>
+        <p className="text-xs font-semibold text-gray-500  mb-4 dark:text-[#8aaabb]">Days Taken</p>
         <BarChart data={[
           { label: 'Approved Days', value: summary.totalDays ?? 0, color: '#10b981' },
         ]} />
@@ -132,7 +132,7 @@ function LeaveCharts({ summary }: { summary: Summary }) {
 function ComplianceCharts({ summary }: { summary: Summary }) {
   return (
     <div className="card-premium p-4">
-      <p className="text-xs font-semibold text-gray-500  mb-4 dark:text-gray-400">Status Breakdown</p>
+      <p className="text-xs font-semibold text-gray-500  mb-4 dark:text-[#8aaabb]">Status Breakdown</p>
       <div className="flex flex-wrap gap-8 items-start">
         <DonutChart data={[
           { label: 'Green',   value: summary.green   ?? 0, color: '#10b981' },
@@ -155,7 +155,7 @@ function ComplianceCharts({ summary }: { summary: Summary }) {
 function TurnoverCharts({ summary }: { summary: Summary }) {
   return (
     <div className="card-premium p-4">
-      <p className="text-xs font-semibold text-gray-500  mb-4 dark:text-gray-400">Separation Type</p>
+      <p className="text-xs font-semibold text-gray-500  mb-4 dark:text-[#8aaabb]">Separation Type</p>
       <BarChart data={[
         { label: 'Voluntary',   value: summary.voluntary   ?? 0, color: '#f59e0b' },
         { label: 'Involuntary', value: summary.involuntary ?? 0, color: '#ef4444' },
@@ -169,14 +169,14 @@ function WHSCharts({ summary }: { summary: Summary }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
       <div className="card-premium p-4">
-        <p className="text-xs font-semibold text-gray-500  mb-4 dark:text-gray-400">Open vs Closed</p>
+        <p className="text-xs font-semibold text-gray-500  mb-4 dark:text-[#8aaabb]">Open vs Closed</p>
         <BarChart data={[
           { label: 'Open',   value: summary.open   ?? 0, color: '#ef4444' },
           { label: 'Closed', value: summary.closed ?? 0, color: '#10b981' },
         ]} />
       </div>
       <div className="card-premium p-4">
-        <p className="text-xs font-semibold text-gray-500  mb-4 dark:text-gray-400">Severity</p>
+        <p className="text-xs font-semibold text-gray-500  mb-4 dark:text-[#8aaabb]">Severity</p>
         <BarChart data={[
           { label: 'Critical', value: summary.critical ?? 0, color: '#7f1d1d' },
           { label: 'High',     value: summary.high     ?? 0, color: '#ef4444' },
@@ -190,14 +190,14 @@ function TrainingGapCharts({ summary }: { summary: Summary }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
       <div className="card-premium p-4">
-        <p className="text-xs font-semibold text-gray-500  mb-4 dark:text-gray-400">Compliance</p>
+        <p className="text-xs font-semibold text-gray-500  mb-4 dark:text-[#8aaabb]">Compliance</p>
         <DonutChart data={[
           { label: 'Compliant',   value: summary.employeesCompliant ?? 0, color: '#10b981' },
           { label: 'Has Gaps',    value: summary.employeesWithGaps  ?? 0, color: '#ef4444' },
         ].filter(d => d.value > 0)} />
       </div>
       <div className="card-premium p-4">
-        <p className="text-xs font-semibold text-gray-500  mb-4 dark:text-gray-400">Gap Totals</p>
+        <p className="text-xs font-semibold text-gray-500  mb-4 dark:text-[#8aaabb]">Gap Totals</p>
         <BarChart data={[
           { label: 'Mandatory Courses', value: summary.mandatoryCourses  ?? 0, color: '#0E3D52' },
           { label: 'Total Gaps',        value: summary.totalGaps         ?? 0, color: '#ef4444' },
@@ -213,7 +213,7 @@ function PayrollCharts({ summary }: { summary: Summary }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
       <div className="card-premium p-4">
-        <p className="text-xs font-semibold text-gray-500  mb-4 dark:text-gray-400">Pay Run Status</p>
+        <p className="text-xs font-semibold text-gray-500  mb-4 dark:text-[#8aaabb]">Pay Run Status</p>
         <DonutChart data={[
           { label: 'Pending',  value: summary.pending  ?? 0, color: '#f59e0b' },
           { label: 'Approved', value: summary.approved ?? 0, color: '#06b6d4' },
@@ -221,7 +221,7 @@ function PayrollCharts({ summary }: { summary: Summary }) {
         ].filter(d => d.value > 0)} />
       </div>
       <div className="card-premium p-4">
-        <p className="text-xs font-semibold text-gray-500  mb-4 dark:text-gray-400">Financials</p>
+        <p className="text-xs font-semibold text-gray-500  mb-4 dark:text-[#8aaabb]">Financials</p>
         <div className="space-y-3">
           {[
             { label: 'Total Gross', value: summary.totalGross ?? 0, color: '#0E3D52' },
@@ -232,7 +232,7 @@ function PayrollCharts({ summary }: { summary: Summary }) {
             return (
               <div key={item.label}>
                 <div className="flex justify-between text-xs mb-1">
-                  <span className="text-gray-500 dark:text-gray-400">{item.label}</span>
+                  <span className="text-gray-500 dark:text-[#9BB0BC]">{item.label}</span>
                   <span className="text-gray-200 font-mono">{fmt(item.value)}</span>
                 </div>
                 <div className="h-2 bg-[#0E3D52]/30 rounded-full overflow-hidden">
@@ -339,14 +339,14 @@ export default function ReportsPage() {
     <div className="h-full flex flex-col">
       <div className="px-6 py-4 border-b border-gray-200 bg-white dark:bg-[#0F1E2E] dark:border-[#1A6080]/30">
         <h1 className="text-xl font-semibold text-gray-900 dark:text-white">Reports</h1>
-        <p className="text-sm text-gray-500 mt-0.5 dark:text-gray-400">Generate and export HR reports</p>
+        <p className="text-sm text-gray-500 mt-0.5 dark:text-[#8aaabb]">Generate and export HR reports</p>
       </div>
 
       <div className="flex flex-1 overflow-hidden">
         {/* Sidebar */}
         <div className="w-64 border-r border-gray-200 bg-white flex flex-col dark:bg-[#0F1E2E] dark:border-[#1A6080]/30">
           <div className="p-4 border-b border-gray-100 dark:border-[#1A6080]/20">
-            <p className="text-xs font-semibold  text-gray-600 dark:text-gray-400 mb-3">Report Type</p>
+            <p className="text-xs font-semibold  text-gray-600 dark:text-[#9BB0BC] mb-3">Report Type</p>
             <div className="space-y-1">
               {REPORTS.map(r => (
                 <button key={r.id} onClick={() => { setSelected(r.id); setRan(false); setData([]); setSummary({}) }}
@@ -358,13 +358,13 @@ export default function ReportsPage() {
           </div>
 
           <div className="p-4 space-y-3">
-            <p className="text-xs font-semibold  text-gray-600 dark:text-gray-400">Date Range</p>
+            <p className="text-xs font-semibold  text-gray-600 dark:text-[#9BB0BC]">Date Range</p>
             <div>
-              <label className="text-xs text-gray-500 mb-1 block dark:text-gray-400">From</label>
+              <label className="text-xs text-gray-500 mb-1 block dark:text-[#8aaabb]">From</label>
               <input type="date" className="input-premium" value={dateFrom} onChange={e => setDateFrom(e.target.value)} />
             </div>
             <div>
-              <label className="text-xs text-gray-500 mb-1 block dark:text-gray-400">To</label>
+              <label className="text-xs text-gray-500 mb-1 block dark:text-[#8aaabb]">To</label>
               <input type="date" className="input-premium" value={dateTo} onChange={e => setDateTo(e.target.value)} />
             </div>
             <button onClick={run} disabled={loading}
@@ -381,12 +381,12 @@ export default function ReportsPage() {
               <div>
                 <p className="text-5xl mb-4">{report.icon}</p>
                 <h2 className="text-lg font-semibold text-gray-900 dark:text-white">{report.label}</h2>
-                <p className="text-sm text-gray-500 mt-1 mb-6 dark:text-gray-400">{report.description}</p>
+                <p className="text-sm text-gray-500 mt-1 mb-6 dark:text-[#8aaabb]">{report.description}</p>
                 <button onClick={run} className="px-6 py-2.5 bg-[#0E3D52] text-white rounded-lg text-sm font-medium hover:bg-[#1A6080]">Run Report</button>
               </div>
             </div>
           ) : loading ? (
-            <div className="flex items-center justify-center h-full text-gray-600 dark:text-gray-400 text-sm">Generating report…</div>
+            <div className="flex items-center justify-center h-full text-gray-600 dark:text-[#9BB0BC] text-sm">Generating report…</div>
           ) : (
             <div className="p-6 space-y-6">
               {/* Summary cards */}
@@ -395,7 +395,7 @@ export default function ReportsPage() {
                   {Object.entries(summary).map(([k, v]) => (
                     <div key={k} className="card-premium p-4 text-center">
                       <p className="page-premium-title">{v}</p>
-                      <p className="text-xs text-gray-500 capitalize mt-0.5 dark:text-gray-400">{k.replace(/([A-Z])/g,' $1').toLowerCase()}</p>
+                      <p className="text-xs text-gray-500 capitalize mt-0.5 dark:text-[#8aaabb]">{k.replace(/([A-Z])/g,' $1').toLowerCase()}</p>
                     </div>
                   ))}
                 </div>
@@ -408,7 +408,7 @@ export default function ReportsPage() {
 
               {/* Export + row count */}
               <div className="flex items-center justify-between flex-wrap gap-2">
-                <p className="text-sm text-gray-600 dark:text-gray-400"><span className="font-medium">{data.length}</span> records</p>
+                <p className="text-sm text-gray-600 dark:text-[#9BB0BC]"><span className="font-medium">{data.length}</span> records</p>
                 <div className="flex gap-2">
                   <button onClick={() => downloadPdf(data, report.label, summary)}
                     disabled={data.length === 0}
@@ -417,7 +417,7 @@ export default function ReportsPage() {
                   </button>
                   <button onClick={() => downloadCsv(data, `${selected}-report.csv`)}
                     disabled={data.length === 0}
-                    className="px-4 py-2 border border-gray-200 bg-white rounded-lg text-sm text-gray-700 hover:bg-gray-50 disabled:opacity-50 dark:bg-[#0F1E2E] dark:text-gray-300 dark:border-[#1A6080]/30">
+                    className="px-4 py-2 border border-gray-200 bg-white rounded-lg text-sm text-gray-700 hover:bg-gray-50 disabled:opacity-50 dark:bg-[#0F1E2E] dark:text-[#C8D8E4] dark:border-[#1A6080]/30">
                     ⬇ Export CSV
                   </button>
                 </div>
@@ -425,7 +425,7 @@ export default function ReportsPage() {
 
               {/* Table */}
               {data.length === 0 ? (
-                <div className="card-premium py-12 text-center text-sm text-gray-600 dark:text-gray-400">No data for this period</div>
+                <div className="card-premium py-12 text-center text-sm text-gray-600 dark:text-[#9BB0BC]">No data for this period</div>
               ) : (
                 <div className="card-premium overflow-hidden">
                   <div className="overflow-x-auto">
@@ -434,7 +434,7 @@ export default function ReportsPage() {
                       <thead>
                         <tr className="border-b border-gray-100 bg-gray-50 dark:bg-[#0A1929] dark:border-[#1A6080]/20">
                           {columns.map(c => (
-                            <th key={c} className="px-4 py-3 text-left text-xs font-semibold text-gray-500  whitespace-nowrap dark:text-gray-400">
+                            <th key={c} className="px-4 py-3 text-left text-xs font-semibold text-gray-500  whitespace-nowrap dark:text-[#8aaabb]">
                               {c.replace(/([A-Z])/g,' $1').replace(/^./,s=>s.toUpperCase())}
                             </th>
                           ))}
@@ -444,7 +444,7 @@ export default function ReportsPage() {
                         {data.map((row, i) => (
                           <tr key={i}>
                             {columns.map(c => (
-                              <td key={c} className="px-4 py-3 text-gray-700 whitespace-nowrap dark:text-gray-300">
+                              <td key={c} className="px-4 py-3 text-gray-700 whitespace-nowrap dark:text-[#C8D8E4]">
                                 {row[c] instanceof Date
                                   ? (row[c] as Date).toLocaleDateString()
                                   : typeof row[c] === 'boolean'

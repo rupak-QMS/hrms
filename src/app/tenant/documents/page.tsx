@@ -117,7 +117,7 @@ const expColor = (exp: string | null) => {
 }
 
 const INPUT = 'input-premium'
-const LABEL = 'block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1'
+const LABEL = 'block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1'
 
 // ── DocPreviewModal ───────────────────────────────────────────────────────────
 function DocPreviewModal({ doc, onClose }: { doc: Doc; onClose: () => void }) {
@@ -146,12 +146,12 @@ function DocPreviewModal({ doc, onClose }: { doc: Doc; onClose: () => void }) {
             <span className="text-lg shrink-0">{mimeIcon(doc.mimeType)}</span>
             <h2 className="text-sm font-semibold text-gray-900 dark:text-white truncate">{doc.title}</h2>
             {doc.fileName && (
-              <span className="text-xs text-gray-500 dark:text-gray-400 truncate hidden sm:block">— {doc.fileName}</span>
+              <span className="text-xs text-gray-500 dark:text-[#9BB0BC] truncate hidden sm:block">— {doc.fileName}</span>
             )}
           </div>
           <button
             onClick={onClose}
-            className="ml-3 shrink-0 p-1.5 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 hover:text-gray-800 dark:hover:text-white transition-colors"
+            className="ml-3 shrink-0 p-1.5 rounded-lg text-gray-500 dark:text-[#9BB0BC] hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 hover:text-gray-800 dark:hover:text-white transition-colors"
             aria-label="Close preview"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -181,8 +181,8 @@ function DocPreviewModal({ doc, onClose }: { doc: Doc; onClose: () => void }) {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
                 </svg>
               </div>
-              <p className="text-sm font-medium text-gray-700 dark:text-gray-300">Preview not available</p>
-              <p className="text-xs text-gray-500 dark:text-gray-400">
+              <p className="text-sm font-medium text-gray-700 dark:text-[#C8D8E4]">Preview not available</p>
+              <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">
                 {doc.mimeType ? `File type: ${doc.mimeType}` : 'Unknown file type'}
               </p>
               <a
@@ -382,7 +382,7 @@ export default function DocumentsPage() {
       <div className="flex items-center justify-between flex-wrap gap-3">
         <div>
           <h1 className="text-2xl font-bold text-foreground">Document Management</h1>
-          <p className="text-sm text-gray-600 dark:text-gray-400 mt-0.5">Centralised register with expiry tracking and Vercel Blob storage</p>
+          <p className="text-sm text-gray-600 dark:text-[#9BB0BC] mt-0.5">Centralised register with expiry tracking and Vercel Blob storage</p>
         </div>
         <button
           onClick={() => { setShowForm(v => !v) }}
@@ -402,7 +402,7 @@ export default function DocumentsPage() {
           { label: 'Expired',        value: stats.expired,       color: stats.expired > 0 ? 'text-red-400' : 'text-gray-600' },
         ].map(s => (
           <div key={s.label} className="card-premium p-4">
-            <p className="text-xs text-gray-500 dark:text-gray-400">{s.label}</p>
+            <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{s.label}</p>
             <p className={`text-2xl font-bold mt-1 ${s.color}`}>{s.value}</p>
           </div>
         ))}
@@ -504,7 +504,7 @@ export default function DocumentsPage() {
               {saving ? 'Saving…' : 'Add to Register'}
             </button>
             <button type="button" onClick={() => setShowForm(false)}
-              className="px-5 py-2 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-white text-sm rounded-lg">
+              className="px-5 py-2 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:text-white text-sm rounded-lg">
               Cancel
             </button>
           </div>
@@ -536,14 +536,14 @@ export default function DocumentsPage() {
           className={`px-3 py-1.5 text-xs rounded-lg border font-medium transition-colors whitespace-nowrap ${
             expiryFilter
               ? 'bg-amber-500 text-white border-amber-500'
-              : 'bg-white dark:bg-[#0F1E2E] border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-amber-400 hover:text-amber-600'
+              : 'bg-white dark:bg-[#0F1E2E] border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:border-amber-400 hover:text-amber-600'
           }`}
         >
           ⚠️ Expiring soon
         </button>
         {(filterCat || filterStat || search || expiryFilter) && (
           <button onClick={() => { setFilterCat(''); setFilterStat(''); setSearch(''); setExpiryFilter(false); load('', '', false) }}
-            className="text-xs text-gray-600 dark:text-gray-400 hover:text-white px-3 py-2 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg">
+            className="text-xs text-gray-600 dark:text-[#9BB0BC] hover:text-white px-3 py-2 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg">
             Clear
           </button>
         )}
@@ -552,16 +552,16 @@ export default function DocumentsPage() {
 
       {/* Document list */}
       {loading ? (
-        <div className="text-center py-12 text-gray-500 dark:text-gray-400">Loading…</div>
+        <div className="text-center py-12 text-gray-500 dark:text-[#9BB0BC]">Loading…</div>
       ) : filtered.length === 0 ? (
         <div className="card-premium py-16 text-center">
           <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-[#0A1929] mx-auto mb-3">
-                <svg className="w-6 h-6 text-gray-600 dark:text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <svg className="w-6 h-6 text-gray-600 dark:text-[#9BB0BC] dark:text-[#9BB0BC]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
                 </svg>
               </div>
-          <p className="text-gray-600 dark:text-gray-300 font-medium">No documents found</p>
-          <p className="text-sm text-gray-600 mt-1 dark:text-gray-400">
+          <p className="text-gray-600 dark:text-[#C8D8E4] font-medium">No documents found</p>
+          <p className="text-sm text-gray-600 mt-1 dark:text-[#8aaabb]">
             {filterCat || filterStat ? 'Try clearing filters' : 'Add a document to build your compliance register'}
           </p>
         </div>
@@ -573,7 +573,7 @@ export default function DocumentsPage() {
               <button
                 onClick={() => bulkUpdateStatus('archived')}
                 disabled={bulkDocLoading}
-                className="px-3 py-1 text-xs rounded-lg bg-gray-100 dark:bg-[#0A1929] text-gray-700 dark:text-gray-300 hover:bg-gray-200 disabled:opacity-50"
+                className="px-3 py-1 text-xs rounded-lg bg-gray-100 dark:bg-[#0A1929] text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-200 disabled:opacity-50"
               >
                 {bulkDocLoading ? 'Working…' : '📦 Archive'}
               </button>
@@ -631,27 +631,27 @@ export default function DocumentsPage() {
                             {d.title}
                           </a>
                         ) : (
-                          <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{d.title}</span>
+                          <span className="text-sm font-medium text-gray-700 dark:text-[#C8D8E4]">{d.title}</span>
                         )}
                         {d.fileName && isRealUrl(d.blobUrl) && (
-                          <p className="text-xs text-gray-600 dark:text-gray-400">{d.fileName} {fmtSize(d.fileSizeBytes)}</p>
+                          <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">{d.fileName} {fmtSize(d.fileSizeBytes)}</p>
                         )}
                         {!isRealUrl(d.blobUrl) && (
                           <p className="text-xs text-amber-500 mt-0.5">⚠ No file attached — upload a file to enable viewing</p>
                         )}
-                        {d.notes && <p className="text-xs text-gray-500 dark:text-gray-500 mt-0.5 italic">{d.notes}</p>}
+                        {d.notes && <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-0.5 italic">{d.notes}</p>}
                       </div>
                     </div>
                   </td>
                   <td className="px-4 py-3">
-                    <span className="text-xs bg-gray-100 dark:bg-[#0A1929] text-gray-600 dark:text-gray-400 px-2 py-0.5 rounded-full whitespace-nowrap">
+                    <span className="text-xs bg-gray-100 dark:bg-[#0A1929] text-gray-600 dark:text-[#9BB0BC] px-2 py-0.5 rounded-full whitespace-nowrap">
                       {d.category}
                     </span>
                   </td>
-                  <td className="px-4 py-3 text-xs text-gray-600 dark:text-gray-400">
+                  <td className="px-4 py-3 text-xs text-gray-600 dark:text-[#9BB0BC]">
                     {d.employeeFirstName
                       ? `${d.employeeFirstName} ${d.employeeLastName}`
-                      : <span className="text-gray-600 dark:text-gray-400">Org-wide</span>}
+                      : <span className="text-gray-600 dark:text-[#9BB0BC]">Org-wide</span>}
                   </td>
                   <td className="px-4 py-3">
                     <span className={`text-xs px-2.5 py-0.5 rounded-full border font-medium ${STATUS_STYLE[d.status] ?? 'badge badge-gray'}`}>
@@ -699,7 +699,7 @@ export default function DocumentsPage() {
                       )}
                       {d.status !== 'archived' && (
                         <button onClick={() => updateStatus(d.id, 'archived')}
-                          className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-[#1A6080]/40 px-2 py-1 rounded transition">
+                          className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:border-[#1A6080]/40 px-2 py-1 rounded transition">
                           Archive
                         </button>
                       )}
@@ -749,7 +749,7 @@ export default function DocumentsPage() {
                           {editSaving ? 'Saving…' : 'Save Changes'}
                         </button>
                         <button onClick={() => setEditing(null)}
-                          className="px-4 py-1.5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-white text-xs rounded-lg transition">
+                          className="px-4 py-1.5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:text-white text-xs rounded-lg transition">
                           Cancel
                         </button>
                       </div>
@@ -762,7 +762,7 @@ export default function DocumentsPage() {
           </table>
           </div>
           <div className="px-4 py-3 border-t border-gray-200 dark:border-[#1A6080]/20">
-            <p className="text-xs text-gray-600 dark:text-gray-400">{filtered.length} document{filtered.length !== 1 ? 's' : ''} shown</p>
+            <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">{filtered.length} document{filtered.length !== 1 ? 's' : ''} shown</p>
           </div>
         </div>
       )}

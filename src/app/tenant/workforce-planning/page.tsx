@@ -93,7 +93,7 @@ function fmt(d: string | null): string {
 function StatCard({ label, value, color }: { label: string; value: number | string; color: string }) {
   return (
     <div className="card-premium p-4">
-      <p className="text-xs text-gray-500 dark:text-gray-400">{label}</p>
+      <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{label}</p>
       <p className={`text-2xl font-bold mt-1 ${color}`}>{value}</p>
     </div>
   )
@@ -274,7 +274,7 @@ export default function WorkforcePlanningPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-foreground">Workforce Planning</h1>
-          <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">
+          <p className="text-gray-500 dark:text-[#9BB0BC] text-sm mt-1">
             Headcount targets, live workforce snapshot, and position management
           </p>
         </div>
@@ -300,7 +300,7 @@ export default function WorkforcePlanningPage() {
             className={`px-5 py-2 rounded-lg text-sm font-medium transition ${
               tab === t
                 ? 'bg-white dark:bg-[#0E3D52]/60 text-gray-900 dark:text-white shadow-sm'
-                : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                : 'text-gray-500 dark:text-[#9BB0BC] hover:text-gray-900 dark:hover:text-white'
             }`}
           >
             {t === 'overview' ? 'Overview' : 'Headcount Plans'}
@@ -311,7 +311,7 @@ export default function WorkforcePlanningPage() {
       {/* ── OVERVIEW TAB ─────────────────────────────────────────────────────── */}
       {tab === 'overview' && (
         wfLoading ? (
-          <p className="text-gray-500 dark:text-gray-400 text-sm">Loading…</p>
+          <p className="text-gray-500 dark:text-[#9BB0BC] text-sm">Loading…</p>
         ) : !wf ? (
           <p className="text-red-400 text-sm">Failed to load workforce data.</p>
         ) : (
@@ -335,8 +335,8 @@ export default function WorkforcePlanningPage() {
                   return (
                     <div key={key}>
                       <div className="flex justify-between text-xs mb-1.5">
-                        <span className="text-gray-600 dark:text-gray-300 font-medium">{cfg.label}</span>
-                        <span className="text-gray-500 dark:text-gray-400">{count} · {pct}%</span>
+                        <span className="text-gray-600 dark:text-[#C8D8E4] font-medium">{cfg.label}</span>
+                        <span className="text-gray-500 dark:text-[#9BB0BC]">{count} · {pct}%</span>
                       </div>
                       <div className="h-2 bg-gray-100 dark:bg-[#0E3D52]/60 rounded-full overflow-hidden">
                         <div className={`h-full rounded-full ${cfg.bg} transition-all duration-500`} style={{ width: `${pct}%` }} />
@@ -369,9 +369,9 @@ export default function WorkforcePlanningPage() {
                         const fillRate = d.positions > 0 ? Math.round((d.count / d.positions) * 100) : null
                         return (
                           <tr key={d.id} className="hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/30">
-                            <td className="px-5 py-3 text-gray-700 dark:text-gray-200 font-medium">{d.name}</td>
-                            <td className="px-5 py-3 text-gray-600 dark:text-gray-300">{d.count}</td>
-                            <td className="px-5 py-3 text-gray-600 dark:text-gray-400">{d.positions}</td>
+                            <td className="px-5 py-3 text-gray-700 dark:text-[#C8D8E4] font-medium">{d.name}</td>
+                            <td className="px-5 py-3 text-gray-600 dark:text-[#C8D8E4]">{d.count}</td>
+                            <td className="px-5 py-3 text-gray-600 dark:text-[#9BB0BC]">{d.positions}</td>
                             <td className="px-5 py-3">
                               {fillRate === null ? (
                                 <span className="text-gray-400 text-xs">—</span>
@@ -383,7 +383,7 @@ export default function WorkforcePlanningPage() {
                                       style={{ width: `${Math.min(fillRate, 100)}%` }}
                                     />
                                   </div>
-                                  <span className="text-xs text-gray-500 dark:text-gray-400">{fillRate}%</span>
+                                  <span className="text-xs text-gray-500 dark:text-[#9BB0BC]">{fillRate}%</span>
                                 </div>
                               )}
                             </td>
@@ -419,16 +419,16 @@ export default function WorkforcePlanningPage() {
                             {e.firstName[0]}{e.lastName[0]}
                           </div>
                           <div className="flex-1 min-w-0">
-                            <p className="text-sm text-gray-700 dark:text-gray-200 font-medium truncate">
+                            <p className="text-sm text-gray-700 dark:text-[#C8D8E4] font-medium truncate">
                               {e.firstName} {e.lastName}
                             </p>
-                            <p className="text-xs text-gray-500 dark:text-gray-400 truncate">
+                            <p className="text-xs text-gray-500 dark:text-[#9BB0BC] truncate">
                               {e.positionId ? posMap[e.positionId] : '—'}
                               {e.departmentId ? ` · ${deptMap[e.departmentId]}` : ''}
                             </p>
                           </div>
                           <div className="text-right shrink-0">
-                            <p className="text-xs text-gray-500 dark:text-gray-400">{fmt(e.startDate)}</p>
+                            <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{fmt(e.startDate)}</p>
                             {cfg && (
                               <span className={`text-[10px] px-1.5 py-0.5 rounded ${cfg.bg} text-white`}>
                                 {cfg.label}
@@ -467,7 +467,7 @@ export default function WorkforcePlanningPage() {
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="text-xs text-gray-500 dark:text-gray-400 mb-1 block">Department</label>
+                  <label className="text-xs text-gray-500 dark:text-[#9BB0BC] mb-1 block">Department</label>
                   <select
                     value={form.departmentId}
                     onChange={e => setForm(f => ({ ...f, departmentId: e.target.value, positionId: '' }))}
@@ -479,7 +479,7 @@ export default function WorkforcePlanningPage() {
                 </div>
 
                 <div>
-                  <label className="text-xs text-gray-500 dark:text-gray-400 mb-1 block">Position</label>
+                  <label className="text-xs text-gray-500 dark:text-[#9BB0BC] mb-1 block">Position</label>
                   <select
                     value={form.positionId}
                     onChange={e => setForm(f => ({ ...f, positionId: e.target.value }))}
@@ -491,7 +491,7 @@ export default function WorkforcePlanningPage() {
                 </div>
 
                 <div>
-                  <label className="text-xs text-gray-500 dark:text-gray-400 mb-1 block">Planned Count *</label>
+                  <label className="text-xs text-gray-500 dark:text-[#9BB0BC] mb-1 block">Planned Count *</label>
                   <input
                     required type="number" min={1}
                     value={form.plannedCount}
@@ -501,7 +501,7 @@ export default function WorkforcePlanningPage() {
                 </div>
 
                 <div>
-                  <label className="text-xs text-gray-500 dark:text-gray-400 mb-1 block">Current Count</label>
+                  <label className="text-xs text-gray-500 dark:text-[#9BB0BC] mb-1 block">Current Count</label>
                   <input
                     type="number" min={0}
                     value={form.currentCount}
@@ -511,7 +511,7 @@ export default function WorkforcePlanningPage() {
                 </div>
 
                 <div>
-                  <label className="text-xs text-gray-500 dark:text-gray-400 mb-1 block">Vacancies</label>
+                  <label className="text-xs text-gray-500 dark:text-[#9BB0BC] mb-1 block">Vacancies</label>
                   <input
                     type="number" min={0}
                     value={form.vacancyCount}
@@ -521,7 +521,7 @@ export default function WorkforcePlanningPage() {
                 </div>
 
                 <div>
-                  <label className="text-xs text-gray-500 dark:text-gray-400 mb-1 block">Target Date</label>
+                  <label className="text-xs text-gray-500 dark:text-[#9BB0BC] mb-1 block">Target Date</label>
                   <input
                     type="date"
                     value={form.targetDate}
@@ -532,7 +532,7 @@ export default function WorkforcePlanningPage() {
 
                 {editingId && (
                   <div>
-                    <label className="text-xs text-gray-500 dark:text-gray-400 mb-1 block">Status</label>
+                    <label className="text-xs text-gray-500 dark:text-[#9BB0BC] mb-1 block">Status</label>
                     <select
                       value={form.status}
                       onChange={e => setForm(f => ({ ...f, status: e.target.value }))}
@@ -547,7 +547,7 @@ export default function WorkforcePlanningPage() {
               </div>
 
               <div>
-                <label className="text-xs text-gray-500 dark:text-gray-400 mb-1 block">Notes</label>
+                <label className="text-xs text-gray-500 dark:text-[#9BB0BC] mb-1 block">Notes</label>
                 <textarea
                   rows={2}
                   value={form.notes}
@@ -568,7 +568,7 @@ export default function WorkforcePlanningPage() {
                 <button
                   type="button"
                   onClick={cancelForm}
-                  className="text-sm px-4 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 transition"
+                  className="text-sm px-4 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 transition"
                 >
                   Cancel
                 </button>
@@ -608,7 +608,7 @@ export default function WorkforcePlanningPage() {
 
           {/* Plans table */}
           {plansLoading ? (
-            <p className="text-gray-500 dark:text-gray-400 text-sm">Loading…</p>
+            <p className="text-gray-500 dark:text-[#9BB0BC] text-sm">Loading…</p>
           ) : visiblePlans.length === 0 ? (
             <div className="card-premium py-14 text-center">
               <div className="w-12 h-12 rounded-xl bg-gray-100 dark:bg-[#0A1929] flex items-center justify-center mx-auto mb-3">
@@ -617,11 +617,11 @@ export default function WorkforcePlanningPage() {
                     d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
                 </svg>
               </div>
-              <p className="text-gray-600 dark:text-gray-300 font-medium">
+              <p className="text-gray-600 dark:text-[#C8D8E4] font-medium">
                 {plans.length === 0 ? 'No headcount plans yet' : 'No plans match the filters'}
               </p>
               {plans.length === 0 && (
-                <p className="text-gray-500 text-sm mt-1 dark:text-gray-400">
+                <p className="text-gray-500 text-sm mt-1 dark:text-[#8aaabb]">
                   Click "+ Add Plan" to create your first headcount plan.
                 </p>
               )}
@@ -644,17 +644,17 @@ export default function WorkforcePlanningPage() {
                     return (
                       <tr key={p.id} className="hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/30">
                         <td className="px-4 py-3">
-                          <p className="text-gray-700 dark:text-gray-200 font-medium">
+                          <p className="text-gray-700 dark:text-[#C8D8E4] font-medium">
                             {p.positionTitle ?? 'General'}
                           </p>
                           {p.departmentName && (
-                            <p className="text-xs text-gray-500 dark:text-gray-400">{p.departmentName}</p>
+                            <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{p.departmentName}</p>
                           )}
                           {p.notes && (
                             <p className="text-xs text-gray-400 mt-0.5 truncate max-w-[180px]">{p.notes}</p>
                           )}
                         </td>
-                        <td className="px-4 py-3 text-gray-600 dark:text-gray-300">{p.plannedCount}</td>
+                        <td className="px-4 py-3 text-gray-600 dark:text-[#C8D8E4]">{p.plannedCount}</td>
                         <td className="px-4 py-3 text-green-400 font-medium">{p.currentCount}</td>
                         <td className="px-4 py-3">
                           <span className={p.vacancyCount > 0 ? 'text-amber-400 font-medium' : 'text-gray-500'}>
@@ -669,10 +669,10 @@ export default function WorkforcePlanningPage() {
                                 style={{ width: `${Math.min(fillPct, 100)}%` }}
                               />
                             </div>
-                            <span className="text-xs text-gray-500 dark:text-gray-400">{fillPct}%</span>
+                            <span className="text-xs text-gray-500 dark:text-[#9BB0BC]">{fillPct}%</span>
                           </div>
                         </td>
-                        <td className="px-4 py-3 text-gray-500 dark:text-gray-400 text-xs">
+                        <td className="px-4 py-3 text-gray-500 dark:text-[#9BB0BC] text-xs">
                           {p.targetDate ? fmt(p.targetDate) : '—'}
                         </td>
                         <td className="px-4 py-3">
@@ -685,21 +685,21 @@ export default function WorkforcePlanningPage() {
                             {p.status === 'open' && (
                               <button
                                 onClick={() => markFilled(p.id)}
-                                className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-green-700 hover:text-green-400 px-2 py-1 rounded transition"
+                                className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:border-green-700 hover:text-green-400 px-2 py-1 rounded transition"
                               >
                                 Mark Filled
                               </button>
                             )}
                             <button
                               onClick={() => openEdit(p)}
-                              className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-[#0E3D52] hover:text-[#1A6080] dark:text-[#4ebac4] px-2 py-1 rounded transition"
+                              className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:border-[#0E3D52] hover:text-[#1A6080] dark:text-[#4ebac4] px-2 py-1 rounded transition"
                             >
                               Edit
                             </button>
                             <button
                               onClick={() => deletePlan(p.id)}
                               disabled={isDeleting}
-                              className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-red-700 hover:text-red-400 px-2 py-1 rounded transition disabled:opacity-50"
+                              className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:border-red-700 hover:text-red-400 px-2 py-1 rounded transition disabled:opacity-50"
                             >
                               {isDeleting ? '…' : 'Delete'}
                             </button>

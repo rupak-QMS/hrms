@@ -19,7 +19,7 @@ type Tenant = { id: string; name: string }
 
 const ACTION_COLORS: Record<string, string> = {
   login:    'bg-[#E0EEF4] dark:bg-[#E0EEF4] dark:bg-[#0E3D52]/25 text-[#0E3D52] dark:text-[#4ebac4]',
-  logout:   'bg-gray-200 dark:bg-[#0E3D52]/60 text-gray-600 dark:text-gray-300',
+  logout:   'bg-gray-200 dark:bg-[#0E3D52]/60 text-gray-600 dark:text-[#C8D8E4]',
   create:   'bg-green-50 dark:bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300',
   update:   'bg-yellow-50 dark:bg-yellow-100 dark:bg-yellow-900/50 text-yellow-700 dark:text-yellow-300',
   delete:   'bg-red-50 dark:bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300',
@@ -30,7 +30,7 @@ const ACTION_COLORS: Record<string, string> = {
 
 function actionColor(action: string) {
   const key = Object.keys(ACTION_COLORS).find(k => action.toLowerCase().includes(k))
-  return key ? ACTION_COLORS[key] : 'bg-gray-200 dark:bg-[#0E3D52]/60 text-gray-600 dark:text-gray-300'
+  return key ? ACTION_COLORS[key] : 'bg-gray-200 dark:bg-[#0E3D52]/60 text-gray-600 dark:text-[#C8D8E4]'
 }
 
 function formatDate(iso: string) {
@@ -108,7 +108,7 @@ export default function AuditLogsPage() {
       <div className="flex items-center justify-between flex-wrap gap-3">
         <div>
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Platform Audit Log</h1>
-          <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">Tamper-evident log of all actions across all tenants</p>
+          <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Tamper-evident log of all actions across all tenants</p>
         </div>
         <button
           onClick={exportCSV}
@@ -160,7 +160,7 @@ export default function AuditLogsPage() {
           </button>
           <button
             onClick={() => { setSearch(''); setTenantId(''); setFrom(''); setTo('') }}
-            className="border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white text-sm px-4 py-1.5 rounded-lg transition"
+            className="border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#C8D8E4] hover:text-gray-900 dark:text-white text-sm px-4 py-1.5 rounded-lg transition"
           >
             Clear
           </button>
@@ -173,22 +173,22 @@ export default function AuditLogsPage() {
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-gray-200 dark:border-[#1A6080]/20">
-                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 ">Date / Time</th>
-                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 ">Tenant</th>
-                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 ">Action</th>
-                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 ">Resource</th>
-                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 ">IP Address</th>
-                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 ">Detail</th>
+                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-[#9BB0BC] ">Date / Time</th>
+                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-[#9BB0BC] ">Tenant</th>
+                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-[#9BB0BC] ">Action</th>
+                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-[#9BB0BC] ">Resource</th>
+                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-[#9BB0BC] ">IP Address</th>
+                <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-[#9BB0BC] ">Detail</th>
               </tr>
             </thead>
             <tbody>
               {loading ? (
                 <tr>
-                  <td colSpan={6} className="px-4 py-12 text-center text-gray-500 dark:text-gray-400">Loading…</td>
+                  <td colSpan={6} className="px-4 py-12 text-center text-gray-500 dark:text-[#9BB0BC]">Loading…</td>
                 </tr>
               ) : logs.length === 0 ? (
                 <tr>
-                  <td colSpan={6} className="px-4 py-12 text-center text-gray-500 dark:text-gray-400">
+                  <td colSpan={6} className="px-4 py-12 text-center text-gray-500 dark:text-[#9BB0BC]">
                     <div className="text-4xl mb-2"></div>
                     No audit events found
                   </td>
@@ -200,16 +200,16 @@ export default function AuditLogsPage() {
                     className="border-b border-gray-200 dark:border-[#1A6080]/20/50 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30/30 transition cursor-pointer"
                     onClick={() => setExpanded(expanded === log.id ? null : log.id)}
                   >
-                    <td className="px-4 py-3 text-gray-600 dark:text-gray-300 whitespace-nowrap text-xs">{formatDate(log.createdAt)}</td>
-                    <td className="px-4 py-3 text-gray-600 dark:text-gray-300 text-xs">{log.tenantName ?? '—'}</td>
+                    <td className="px-4 py-3 text-gray-600 dark:text-[#C8D8E4] whitespace-nowrap text-xs">{formatDate(log.createdAt)}</td>
+                    <td className="px-4 py-3 text-gray-600 dark:text-[#C8D8E4] text-xs">{log.tenantName ?? '—'}</td>
                     <td className="px-4 py-3">
                       <span className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${actionColor(log.action)}`}>
                         {log.action}
                       </span>
                     </td>
-                    <td className="px-4 py-3 text-gray-600 dark:text-gray-300 text-xs font-mono">{log.resource}</td>
-                    <td className="px-4 py-3 text-gray-500 text-xs font-mono dark:text-gray-400">{log.ipAddress ?? '—'}</td>
-                    <td className="px-4 py-3 text-gray-500 text-xs dark:text-gray-400">
+                    <td className="px-4 py-3 text-gray-600 dark:text-[#C8D8E4] text-xs font-mono">{log.resource}</td>
+                    <td className="px-4 py-3 text-gray-500 text-xs font-mono dark:text-[#8aaabb]">{log.ipAddress ?? '—'}</td>
+                    <td className="px-4 py-3 text-gray-500 text-xs dark:text-[#8aaabb]">
                       {(log.oldValues || log.newValues) ? (
                         <span className="text-[#0E3D52] dark:text-[#4ebac4]">{expanded === log.id ? '▲ hide' : '▼ show'}</span>
                       ) : '—'}
@@ -222,7 +222,7 @@ export default function AuditLogsPage() {
                           {log.oldValues && (
                             <div>
                               <p className="text-red-600 dark:text-red-400 font-semibold mb-1">Before</p>
-                              <pre className="text-gray-600 dark:text-gray-400 whitespace-pre-wrap break-all">
+                              <pre className="text-gray-600 dark:text-[#9BB0BC] whitespace-pre-wrap break-all">
                                 {JSON.stringify(log.oldValues, null, 2)}
                               </pre>
                             </div>
@@ -230,7 +230,7 @@ export default function AuditLogsPage() {
                           {log.newValues && (
                             <div>
                               <p className="text-green-600 dark:text-green-400 font-semibold mb-1">After</p>
-                              <pre className="text-gray-600 dark:text-gray-400 whitespace-pre-wrap break-all">
+                              <pre className="text-gray-600 dark:text-[#9BB0BC] whitespace-pre-wrap break-all">
                                 {JSON.stringify(log.newValues, null, 2)}
                               </pre>
                             </div>
@@ -247,19 +247,19 @@ export default function AuditLogsPage() {
 
         {/* Pagination */}
         <div className="flex items-center justify-between px-4 py-3 border-t border-gray-200 dark:border-[#1A6080]/20">
-          <span className="text-xs text-gray-500 dark:text-gray-400">Page {page} · 50 rows per page</span>
+          <span className="text-xs text-gray-500 dark:text-[#9BB0BC]">Page {page} · 50 rows per page</span>
           <div className="flex gap-2">
             <button
               onClick={() => load(page - 1)}
               disabled={page <= 1 || loading}
-              className="text-xs px-3 py-1.5 rounded border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white disabled:opacity-40 transition"
+              className="text-xs px-3 py-1.5 rounded border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#C8D8E4] hover:text-gray-900 dark:text-white disabled:opacity-40 transition"
             >
               ← Prev
             </button>
             <button
               onClick={() => load(page + 1)}
               disabled={logs.length < 50 || loading}
-              className="text-xs px-3 py-1.5 rounded border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white disabled:opacity-40 transition"
+              className="text-xs px-3 py-1.5 rounded border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#C8D8E4] hover:text-gray-900 dark:text-white disabled:opacity-40 transition"
             >
               Next →
             </button>

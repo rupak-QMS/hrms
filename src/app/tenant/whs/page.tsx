@@ -161,7 +161,7 @@ export default function WhsPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-foreground">WHS & Injury Management</h1>
-          <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">Report incidents, track investigations and corrective actions</p>
+          <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Report incidents, track investigations and corrective actions</p>
         </div>
         <div className="flex items-center gap-2">
           <ExportButton onClick={exportIncidents} disabled={incidents.length === 0} />
@@ -183,7 +183,7 @@ export default function WhsPage() {
           { label: 'High',          value: stats.high,          color: 'text-orange-400' },
         ].map(s => (
           <div key={s.label} className="card-premium p-4">
-            <p className="text-xs text-gray-600 dark:text-gray-400">{s.label}</p>
+            <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">{s.label}</p>
             <p className={`text-2xl font-bold mt-1 ${s.color}`}>{s.value}</p>
           </div>
         ))}
@@ -195,43 +195,43 @@ export default function WhsPage() {
           <h3 className="text-sm font-semibold text-red-300">Report New Incident</h3>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Reported By (Employee) *</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Reported By (Employee) *</label>
               <select required value={form.reportedBy} onChange={e => setForm(f => ({ ...f, reportedBy: e.target.value }))} className={INPUT}>
                 <option value="">— Select —</option>
                 {employees.map(e => <option key={e.id} value={e.id}>{e.firstName} {e.lastName}</option>)}
               </select>
             </div>
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Injured Employee (if applicable)</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Injured Employee (if applicable)</label>
               <select value={form.employeeId} onChange={e => setForm(f => ({ ...f, employeeId: e.target.value }))} className={INPUT}>
                 <option value="">— None / Not applicable —</option>
                 {employees.map(e => <option key={e.id} value={e.id}>{e.firstName} {e.lastName}</option>)}
               </select>
             </div>
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Incident Type *</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Incident Type *</label>
               <select required value={form.type} onChange={e => setForm(f => ({ ...f, type: e.target.value }))} className={INPUT}>
                 {INCIDENT_TYPES.map(t => <option key={t.value} value={t.value}>{t.label}</option>)}
               </select>
             </div>
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Severity *</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Severity *</label>
               <select required value={form.severity} onChange={e => setForm(f => ({ ...f, severity: e.target.value }))} className={INPUT}>
                 {SEVERITIES.map(s => <option key={s.value} value={s.value}>{s.label}</option>)}
               </select>
             </div>
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Date & Time *</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Date & Time *</label>
               <input required type="datetime-local" value={form.occurredAt}
                 onChange={e => setForm(f => ({ ...f, occurredAt: e.target.value }))} className={INPUT} />
             </div>
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Location</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Location</label>
               <input value={form.location} onChange={e => setForm(f => ({ ...f, location: e.target.value }))}
                 placeholder="e.g. Client home, office, vehicle" className={INPUT} />
             </div>
             <div className="col-span-2">
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Description *</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Description *</label>
               <textarea required value={form.description}
                 onChange={e => setForm(f => ({ ...f, description: e.target.value }))}
                 rows={3} placeholder="Describe what happened, injuries sustained, witnesses…" className={INPUT} />
@@ -269,15 +269,15 @@ export default function WhsPage() {
       </div>
 
       {/* Incident list */}
-      {loading ? <div className="text-gray-600 dark:text-gray-400 text-sm">Loading…</div> : incidents.length === 0 ? (
+      {loading ? <div className="text-gray-600 dark:text-[#9BB0BC] text-sm">Loading…</div> : incidents.length === 0 ? (
         <div className="card-premium py-14 text-center">
           <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-[#0A1929] mx-auto mb-3">
-                <svg className="w-6 h-6 text-gray-600 dark:text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <svg className="w-6 h-6 text-gray-600 dark:text-[#9BB0BC] dark:text-[#9BB0BC]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
                 </svg>
               </div>
-          <p className="text-gray-600 dark:text-gray-300 font-medium">No incidents recorded</p>
-          <p className="text-gray-500 text-sm mt-1 dark:text-gray-400">Use the "Report Incident" button to log a new event.</p>
+          <p className="text-gray-600 dark:text-[#C8D8E4] font-medium">No incidents recorded</p>
+          <p className="text-gray-500 text-sm mt-1 dark:text-[#8aaabb]">Use the "Report Incident" button to log a new event.</p>
         </div>
       ) : (
         <div className="space-y-3">
@@ -305,8 +305,8 @@ export default function WhsPage() {
                         {inc.status.charAt(0).toUpperCase() + inc.status.slice(1)}
                       </span>
                     </div>
-                    <p className="text-gray-600 dark:text-gray-400 text-xs truncate">{inc.description}</p>
-                    <p className="text-gray-600 text-xs mt-0.5 dark:text-gray-400">
+                    <p className="text-gray-600 dark:text-[#9BB0BC] text-xs truncate">{inc.description}</p>
+                    <p className="text-gray-600 text-xs mt-0.5 dark:text-[#8aaabb]">
                       {inc.location && `${inc.location} · `}
                       {new Date(inc.occurredAt).toLocaleDateString('en-AU', { day:'numeric', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit' })}
                       {(inc.employeeFirstName) && ` · ${inc.employeeFirstName} ${inc.employeeLastName}`}
@@ -320,18 +320,18 @@ export default function WhsPage() {
                     >
                       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
                     </button>
-                    <span className="text-gray-500 text-xs dark:text-gray-400">{isOpen ? '▲' : '▼'}</span>
+                    <span className="text-gray-500 text-xs dark:text-[#8aaabb]">{isOpen ? '▲' : '▼'}</span>
                   </div>
                 </div>
 
                 {/* Expanded detail */}
                 {isOpen && (
                   <div className="border-t border-gray-200 dark:border-[#1A6080]/20 px-5 py-4 space-y-4">
-                    <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{inc.description}</p>
+                    <p className="text-sm text-gray-600 dark:text-[#C8D8E4] leading-relaxed">{inc.description}</p>
 
                     {/* Status actions */}
                     <div className="flex gap-2 flex-wrap">
-                      <span className="text-xs text-gray-500 self-center dark:text-gray-400">Move to:</span>
+                      <span className="text-xs text-gray-500 self-center dark:text-[#8aaabb]">Move to:</span>
                       {inc.status !== 'investigating' && (
                         <button onClick={() => updateStatus(inc.id, 'investigating')}
                           className="text-xs border border-amber-400 dark:border-amber-800 text-amber-600 dark:text-amber-300 hover:bg-amber-50 dark:hover:bg-amber-900/30 px-3 py-1.5 rounded-lg transition">
@@ -346,7 +346,7 @@ export default function WhsPage() {
                       )}
                       {inc.status === 'closed' && (
                         <button onClick={() => updateStatus(inc.id, 'open')}
-                          className="text-xs border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-white px-3 py-1.5 rounded-lg transition">
+                          className="text-xs border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:text-white px-3 py-1.5 rounded-lg transition">
                           Reopen
                         </button>
                       )}
@@ -354,7 +354,7 @@ export default function WhsPage() {
 
                     {/* Corrective actions */}
                     <div>
-                      <p className="text-xs font-semibold text-gray-500  mb-2 dark:text-gray-400">Corrective Actions</p>
+                      <p className="text-xs font-semibold text-gray-500  mb-2 dark:text-[#8aaabb]">Corrective Actions</p>
                       {inc.correctiveActions.length > 0 && (
                         <ul className="space-y-1 mb-2">
                           {inc.correctiveActions.map(a => (
@@ -394,7 +394,7 @@ function ActionInput({ onAdd }: { onAdd: (a: string) => void }) {
         placeholder="Add corrective action… (press Enter)"
         className="flex-1 input-premium py-1.5 text-xs" />
       <button type="button" onClick={() => { if (val.trim()) { onAdd(val.trim()); setVal('') } }}
-        className="text-xs bg-gray-200 dark:bg-[#0E3D52]/60 hover:bg-[#0E3D52]/80 text-gray-600 dark:text-gray-300 px-3 py-1.5 rounded-lg transition">
+        className="text-xs bg-gray-200 dark:bg-[#0E3D52]/60 hover:bg-[#0E3D52]/80 text-gray-600 dark:text-[#C8D8E4] px-3 py-1.5 rounded-lg transition">
         Add
       </button>
     </div>

@@ -209,7 +209,7 @@ export default function ContractsPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-foreground">Employment Contracts</h1>
-          <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">Create, send, and track employment contracts and onboarding documents</p>
+          <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Create, send, and track employment contracts and onboarding documents</p>
         </div>
         <div className="flex items-center gap-2">
           <ExportButton onClick={handleExport} disabled={filtered.length === 0} />
@@ -229,7 +229,7 @@ export default function ContractsPage() {
           { label: 'Signed', value: stats.signed, color: 'text-green-400' },
         ].map(s => (
           <div key={s.label} className="card-premium p-4">
-            <p className="text-xs text-gray-600 dark:text-gray-400">{s.label}</p>
+            <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">{s.label}</p>
             <p className={`text-2xl font-bold mt-1 ${s.color}`}>{s.value}</p>
           </div>
         ))}
@@ -241,14 +241,14 @@ export default function ContractsPage() {
           <h3 className="text-sm font-semibold text-[#4ebac4]">Create New Contract</h3>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Employee *</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Employee *</label>
               <select required value={form.employeeId} onChange={e => setForm(f => ({ ...f, employeeId: e.target.value }))} className={INPUT}>
                 <option value="">— Select —</option>
                 {employees.map(e => <option key={e.id} value={e.id}>{e.firstName} {e.lastName}</option>)}
               </select>
             </div>
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Contract Type *</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Contract Type *</label>
               <select required value={form.type} onChange={e => setForm(f => ({ ...f, type: e.target.value }))} className={INPUT}>
                 {CONTRACT_TYPES.map(t => <option key={t.value} value={t.value}>{t.label}</option>)}
               </select>
@@ -289,7 +289,7 @@ export default function ContractsPage() {
       </div>
 
       {loading ? (
-        <div className="text-gray-600 dark:text-gray-400 text-sm">Loading…</div>
+        <div className="text-gray-600 dark:text-[#9BB0BC] text-sm">Loading…</div>
       ) : filtered.length === 0 ? (
         <div className="card-premium">
           <EmptyState
@@ -314,7 +314,7 @@ export default function ContractsPage() {
                   <div className="flex-1 min-w-0 cursor-pointer" onClick={() => setExpanded(isOpen ? null : c.id)}>
                     <div className="flex items-center gap-2 flex-wrap mb-0.5">
                       <span className="text-foreground font-medium text-sm">{c.employeeFirstName} {c.employeeLastName}</span>
-                      <span className="text-xs text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-[#0A1929] px-2 py-0.5 rounded-full">
+                      <span className="text-xs text-gray-600 dark:text-[#9BB0BC] bg-gray-100 dark:bg-[#0A1929] px-2 py-0.5 rounded-full">
                         {CONTRACT_TYPES.find(t => t.value === c.type)?.label ?? c.type}
                       </span>
                       <span className={`text-xs px-2.5 py-0.5 rounded-full border font-medium ${STATUS_STYLE[c.status] ?? 'badge badge-gray'}`}>
@@ -324,14 +324,14 @@ export default function ContractsPage() {
                         <span className={`text-xs font-medium ${endColor}`}>{endLabel}</span>
                       )}
                     </div>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">{c.employeeEmail}</p>
+                    <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{c.employeeEmail}</p>
                   </div>
                   <div className="flex items-center gap-2 shrink-0">
                     <div className="text-right cursor-pointer" onClick={() => setExpanded(isOpen ? null : c.id)}>
                       {c.signedAt && <p className="text-xs text-green-400">Signed {new Date(c.signedAt).toLocaleDateString('en-AU')}</p>}
                       {c.sentAt && !c.signedAt && <p className="text-xs text-[#4ebac4]">Sent {new Date(c.sentAt).toLocaleDateString('en-AU')}</p>}
-                      {!c.sentAt && <p className="text-xs text-gray-600 dark:text-gray-400">{new Date(c.createdAt).toLocaleDateString('en-AU')}</p>}
-                      <p className="text-xs text-gray-600 mt-0.5 dark:text-gray-400">{isOpen ? '▲' : '▼'}</p>
+                      {!c.sentAt && <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">{new Date(c.createdAt).toLocaleDateString('en-AU')}</p>}
+                      <p className="text-xs text-gray-600 mt-0.5 dark:text-[#8aaabb]">{isOpen ? '▲' : '▼'}</p>
                     </div>
                     {/* Edit / Delete actions */}
                     <button
@@ -381,7 +381,7 @@ export default function ContractsPage() {
                           </button>
                         )}
                         <button onClick={() => patch(c.id, { status: 'void' })}
-                          className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-red-700 hover:text-red-400 px-3 py-1.5 rounded-lg transition">
+                          className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:border-red-700 hover:text-red-400 px-3 py-1.5 rounded-lg transition">
                           Void
                         </button>
                       </div>
@@ -389,7 +389,7 @@ export default function ContractsPage() {
 
                     {/* Document upload / link */}
                     <div>
-                      <p className="text-xs font-semibold text-gray-500  mb-2 dark:text-gray-400">Contract Document</p>
+                      <p className="text-xs font-semibold text-gray-500  mb-2 dark:text-[#8aaabb]">Contract Document</p>
                       <FileUpload
                         accept=".pdf,.doc,.docx"
                         currentUrl={c.pdfUrl}
@@ -401,7 +401,7 @@ export default function ContractsPage() {
                     {/* Signed PDF upload */}
                     {(c.status === 'signed' || c.signedPdfUrl) && (
                       <div>
-                        <p className="text-xs font-semibold text-gray-500  mb-2 dark:text-gray-400">Signed Copy</p>
+                        <p className="text-xs font-semibold text-gray-500  mb-2 dark:text-[#8aaabb]">Signed Copy</p>
                         <FileUpload
                           accept=".pdf"
                           currentUrl={c.signedPdfUrl}
@@ -413,14 +413,14 @@ export default function ContractsPage() {
 
                     {/* Tax & super */}
                     <div>
-                      <p className="text-xs font-semibold text-gray-500  mb-2 dark:text-gray-400">Tax & Superannuation</p>
+                      <p className="text-xs font-semibold text-gray-500  mb-2 dark:text-[#8aaabb]">Tax & Superannuation</p>
                       <div className="grid grid-cols-2 gap-3">
                         <label className="flex items-center gap-2 cursor-pointer">
                           <input type="checkbox"
                             checked={ts.tfn}
                             onChange={e => setTaxSuper(prev => ({ ...prev, [c.id]: { ...ts, tfn: e.target.checked } }))}
                             className="accent-green-500 w-4 h-4" />
-                          <span className="text-sm text-gray-600 dark:text-gray-300">TFN Provided</span>
+                          <span className="text-sm text-gray-600 dark:text-[#C8D8E4]">TFN Provided</span>
                         </label>
                         <div>
                           <input value={ts.fund}
@@ -429,7 +429,7 @@ export default function ContractsPage() {
                         </div>
                       </div>
                       <button onClick={() => saveTaxSuper(c.id)}
-                        className="mt-2 text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:border-[#0E3D52] px-3 py-1.5 rounded-lg transition">
+                        className="mt-2 text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#C8D8E4] hover:border-[#0E3D52] px-3 py-1.5 rounded-lg transition">
                         Save Tax & Super
                       </button>
                     </div>
@@ -437,7 +437,7 @@ export default function ContractsPage() {
                     {/* Notes (read-only preview) */}
                     {c.notes && (
                       <div>
-                        <p className="text-xs font-semibold text-gray-500  mb-1 dark:text-gray-400">Notes</p>
+                        <p className="text-xs font-semibold text-gray-500  mb-1 dark:text-[#8aaabb]">Notes</p>
                         <p className="text-sm text-gray-400 whitespace-pre-wrap">{c.notes}</p>
                       </div>
                     )}
@@ -448,7 +448,7 @@ export default function ContractsPage() {
                         <span className="text-xl">✅</span>
                         <div>
                           <p className="text-sm font-semibold text-green-300">Contract Executed</p>
-                          {c.signedAt && <p className="text-xs text-gray-600 dark:text-gray-400">Signed {new Date(c.signedAt).toLocaleDateString('en-AU')}</p>}
+                          {c.signedAt && <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">Signed {new Date(c.signedAt).toLocaleDateString('en-AU')}</p>}
                         </div>
                       </div>
                     )}
@@ -473,35 +473,35 @@ export default function ContractsPage() {
             <form onSubmit={saveEdit} className="space-y-4">
               <div className="grid grid-cols-2 gap-3">
                 <div className="col-span-2">
-                  <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Contract Type</label>
+                  <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Contract Type</label>
                   <select value={editForm.type} onChange={e => setEditForm(f => ({ ...f, type: e.target.value }))} className={INPUT}>
                     {CONTRACT_TYPES.map(t => <option key={t.value} value={t.value}>{t.label}</option>)}
                   </select>
                 </div>
                 <div>
-                  <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">End Date</label>
+                  <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">End Date</label>
                   <input type="date" value={editForm.endDate} onChange={e => setEditForm(f => ({ ...f, endDate: e.target.value }))} className={INPUT} />
                 </div>
                 <div>
-                  <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Super Fund</label>
+                  <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Super Fund</label>
                   <input value={editForm.superFund} onChange={e => setEditForm(f => ({ ...f, superFund: e.target.value }))} placeholder="Super fund name" className={INPUT} />
                 </div>
                 <div>
-                  <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Bank BSB</label>
+                  <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Bank BSB</label>
                   <input value={editForm.bankBsb} onChange={e => setEditForm(f => ({ ...f, bankBsb: e.target.value }))} placeholder="000-000" className={INPUT} />
                 </div>
                 <div>
-                  <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Bank Account</label>
+                  <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Bank Account</label>
                   <input value={editForm.bankAccount} onChange={e => setEditForm(f => ({ ...f, bankAccount: e.target.value }))} placeholder="Account number" className={INPUT} />
                 </div>
                 <div className="col-span-2">
                   <label className="flex items-center gap-2 cursor-pointer">
                     <input type="checkbox" checked={editForm.tfnProvided} onChange={e => setEditForm(f => ({ ...f, tfnProvided: e.target.checked }))} className="accent-green-500 w-4 h-4" />
-                    <span className="text-sm text-gray-600 dark:text-gray-300">TFN Provided</span>
+                    <span className="text-sm text-gray-600 dark:text-[#C8D8E4]">TFN Provided</span>
                   </label>
                 </div>
                 <div className="col-span-2">
-                  <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Notes</label>
+                  <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Notes</label>
                   <textarea
                     value={editForm.notes}
                     onChange={e => setEditForm(f => ({ ...f, notes: e.target.value }))}

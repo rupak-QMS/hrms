@@ -121,7 +121,7 @@ function SubmitModal({ onClose, onSaved }: { onClose: () => void; onSaved: () =>
           {error && <div className="p-3 bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-300 rounded-lg text-sm">{error}</div>}
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Title *</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Title *</label>
             <input
               required value={form.title} onChange={e => setForm(f => ({ ...f, title: e.target.value }))}
               placeholder="e.g. Flight to Sydney — Client Meeting"
@@ -131,7 +131,7 @@ function SubmitModal({ onClose, onSaved }: { onClose: () => void; onSaved: () =>
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Category *</label>
+              <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Category *</label>
               <select
                 required value={form.category} onChange={e => setForm(f => ({ ...f, category: e.target.value }))}
                 className="w-full border dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-[#0E3D52]/60 text-gray-900 dark:text-white"
@@ -140,7 +140,7 @@ function SubmitModal({ onClose, onSaved }: { onClose: () => void; onSaved: () =>
               </select>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Amount (AUD) *</label>
+              <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Amount (AUD) *</label>
               <input
                 required type="number" min="0.01" step="0.01" value={form.amount}
                 onChange={e => setForm(f => ({ ...f, amount: e.target.value }))}
@@ -151,7 +151,7 @@ function SubmitModal({ onClose, onSaved }: { onClose: () => void; onSaved: () =>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Expense Date *</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Expense Date *</label>
             <input
               required type="date" value={form.expenseDate}
               onChange={e => setForm(f => ({ ...f, expenseDate: e.target.value }))}
@@ -160,7 +160,7 @@ function SubmitModal({ onClose, onSaved }: { onClose: () => void; onSaved: () =>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Description</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Description</label>
             <textarea
               rows={3} value={form.description}
               onChange={e => setForm(f => ({ ...f, description: e.target.value }))}
@@ -170,18 +170,18 @@ function SubmitModal({ onClose, onSaved }: { onClose: () => void; onSaved: () =>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Receipt (optional)</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Receipt (optional)</label>
             <input ref={fileRef} type="file" accept=".pdf,.jpg,.jpeg,.png" className="hidden"
               onChange={e => setFile(e.target.files?.[0] ?? null)} />
             <button type="button" onClick={() => fileRef.current?.click()}
-              className="w-full border-2 border-dashed dark:border-[#1A6080]/40 rounded-lg p-4 text-center text-sm text-gray-500 dark:text-gray-400 hover:border-[#1A6080] transition-colors">
+              className="w-full border-2 border-dashed dark:border-[#1A6080]/40 rounded-lg p-4 text-center text-sm text-gray-500 dark:text-[#9BB0BC] hover:border-[#1A6080] transition-colors">
               {file ? `✓ ${file.name}` : '📎 Click to attach receipt (PDF/JPG/PNG)'}
             </button>
           </div>
 
           <div className="flex gap-3 pt-2">
             <button type="button" onClick={onClose}
-              className="flex-1 px-4 py-2 text-sm border dark:border-[#1A6080]/40 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40">
+              className="flex-1 px-4 py-2 text-sm border dark:border-[#1A6080]/40 rounded-lg text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40">
               Cancel
             </button>
             <button type="submit" disabled={saving}
@@ -235,28 +235,28 @@ function ReviewModal({ claim, onClose, onSaved }: { claim: Claim; onClose: () =>
           {/* Claim summary */}
           <div className="bg-gray-50 dark:bg-[#0E3D52]/60/50 rounded-lg p-4 space-y-2 text-sm">
             <div className="flex justify-between">
-              <span className="text-gray-500 dark:text-gray-400">Employee</span>
+              <span className="text-gray-500 dark:text-[#9BB0BC]">Employee</span>
               <span className="font-medium text-gray-900 dark:text-white">{claim.employeeFirstName} {claim.employeeLastName}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-gray-500 dark:text-gray-400">Claim</span>
+              <span className="text-gray-500 dark:text-[#9BB0BC]">Claim</span>
               <span className="font-medium text-gray-900 dark:text-white">{claim.title}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-gray-500 dark:text-gray-400">Category</span>
+              <span className="text-gray-500 dark:text-[#9BB0BC]">Category</span>
               <span className="font-medium text-gray-900 dark:text-white">{CAT_LABELS[claim.category] ?? claim.category}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-gray-500 dark:text-gray-400">Amount</span>
+              <span className="text-gray-500 dark:text-[#9BB0BC]">Amount</span>
               <span className="font-semibold text-lg text-gray-900 dark:text-white">{fmt(claim.amount, claim.currency)}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-gray-500 dark:text-gray-400">Date</span>
+              <span className="text-gray-500 dark:text-[#9BB0BC]">Date</span>
               <span className="text-gray-900 dark:text-white">{fmtDate(claim.expenseDate)}</span>
             </div>
             {claim.description && (
               <div className="pt-2 border-t dark:border-[#1A6080]/40">
-                <p className="text-gray-600 dark:text-gray-300 text-xs">{claim.description}</p>
+                <p className="text-gray-600 dark:text-[#C8D8E4] text-xs">{claim.description}</p>
               </div>
             )}
             {claim.receiptUrl && (
@@ -272,7 +272,7 @@ function ReviewModal({ claim, onClose, onSaved }: { claim: Claim; onClose: () =>
           {claim.status === 'pending' && (
             <>
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Review Notes (optional)</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Review Notes (optional)</label>
                 <textarea
                   rows={3} value={notes} onChange={e => setNotes(e.target.value)}
                   placeholder="Add notes for the employee..."
@@ -300,7 +300,7 @@ function ReviewModal({ claim, onClose, onSaved }: { claim: Claim; onClose: () =>
           )}
 
           {(claim.status === 'rejected' || claim.status === 'paid') && claim.reviewNotes && (
-            <div className="text-sm text-gray-500 dark:text-gray-400">
+            <div className="text-sm text-gray-500 dark:text-[#9BB0BC]">
               <span className="font-medium">Review Notes:</span> {claim.reviewNotes}
             </div>
           )}
@@ -415,7 +415,7 @@ export default function ExpensesPage() {
           { label: 'Total Claims',   value: claims.length, sub: fmt(claims.reduce((s, c) => s + Number(c.amount), 0)), color: 'gray' },
         ].map(card => (
           <div key={card.label} className="card-premium p-4">
-            <p className="text-xs text-gray-500 dark:text-gray-400">{card.label}</p>
+            <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{card.label}</p>
             <p className="text-2xl font-bold text-gray-900 dark:text-white mt-1">{card.value}</p>
             <p className="page-premium-subtitle mt-0.5">{card.sub}</p>
           </div>
@@ -447,9 +447,9 @@ export default function ExpensesPage() {
       {/* Table */}
       <div className="card-premium shadow-sm overflow-hidden">
         {loading ? (
-          <div className="flex items-center justify-center h-48 text-gray-500 dark:text-gray-400">Loading…</div>
+          <div className="flex items-center justify-center h-48 text-gray-500 dark:text-[#9BB0BC]">Loading…</div>
         ) : filtered.length === 0 ? (
-          <div className="flex flex-col items-center justify-center h-48 text-gray-500 dark:text-gray-400">
+          <div className="flex flex-col items-center justify-center h-48 text-gray-500 dark:text-[#9BB0BC]">
             <p className="text-lg">No claims found</p>
             <p className="text-sm mt-1">Submit your first expense claim to get started</p>
           </div>
@@ -459,7 +459,7 @@ export default function ExpensesPage() {
             <thead className="bg-gray-50 dark:bg-[#0E3D52]/60/50 border-b dark:border-[#1A6080]/30">
               <tr>
                 {['Employee', 'Claim', 'Category', 'Amount', 'Date', 'Status', ''].map(h => (
-                  <th key={h} className="text-left px-4 py-3 text-xs font-medium text-gray-500 dark:text-gray-400 ">
+                  <th key={h} className="text-left px-4 py-3 text-xs font-medium text-gray-500 dark:text-[#9BB0BC] ">
                     {h}
                   </th>
                 ))}
@@ -477,13 +477,13 @@ export default function ExpensesPage() {
                     <div className="font-medium text-gray-900 dark:text-white max-w-[200px] truncate">{c.title}</div>
                     {c.description && <div className="text-xs text-gray-400 truncate max-w-[200px]">{c.description}</div>}
                   </td>
-                  <td className="px-4 py-3 text-gray-600 dark:text-gray-300">
+                  <td className="px-4 py-3 text-gray-600 dark:text-[#C8D8E4]">
                     {CAT_LABELS[c.category] ?? c.category}
                   </td>
                   <td className="px-4 py-3 font-semibold text-gray-900 dark:text-white whitespace-nowrap">
                     {fmt(c.amount, c.currency)}
                   </td>
-                  <td className="px-4 py-3 text-gray-600 dark:text-gray-300 whitespace-nowrap">
+                  <td className="px-4 py-3 text-gray-600 dark:text-[#C8D8E4] whitespace-nowrap">
                     {fmtDate(c.expenseDate)}
                   </td>
                   <td className="px-4 py-3">

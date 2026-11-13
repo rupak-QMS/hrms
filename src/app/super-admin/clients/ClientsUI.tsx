@@ -23,7 +23,7 @@ type ConfirmState = {
 const TIER_COLORS: Record<string, string> = {
   enterprise:   'bg-[#E0EEF4] dark:bg-[#0E3D52] text-[#0E3D52] dark:text-[#9ccfda]',
   professional: 'bg-[#E0EEF4] dark:bg-[#0E3D52]/30 text-[#0E3D52] dark:text-[#7dcfd7]',
-  starter:      'bg-gray-100 dark:bg-[#0E3D52]/60 text-gray-600 dark:text-gray-300',
+  starter:      'bg-gray-100 dark:bg-[#0E3D52]/60 text-gray-600 dark:text-[#C8D8E4]',
 }
 
 function ConfirmModal({ state, onConfirm, onCancel }: {
@@ -39,7 +39,7 @@ function ConfirmModal({ state, onConfirm, onCancel }: {
         <h3 className="text-base font-semibold text-gray-900 dark:text-white mb-2">
           {isDelete ? 'Delete client?' : 'Login as tenant?'}
         </h3>
-        <p className="text-sm text-gray-600 dark:text-gray-400 mb-5">
+        <p className="text-sm text-gray-600 dark:text-[#9BB0BC] mb-5">
           {isDelete
             ? `Delete "${state.clientName}"? This cannot be undone.`
             : `Open ${state.clientName}'s portal as an impersonated user. You will get a 1-hour session.`}
@@ -47,7 +47,7 @@ function ConfirmModal({ state, onConfirm, onCancel }: {
         <div className="flex gap-3 justify-end">
           <button
             onClick={onCancel}
-            className="px-4 py-2 text-sm rounded-lg border border-gray-300 dark:border-[#1A6080]/40 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 transition"
+            className="px-4 py-2 text-sm rounded-lg border border-gray-300 dark:border-[#1A6080]/40 text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 transition"
           >
             Cancel
           </button>
@@ -144,7 +144,7 @@ export default function ClientsUI({ initialClients, dbError }: { initialClients:
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Clients</h1>
-          <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">
+          <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">
             {clients.length} client{clients.length !== 1 ? 's' : ''} · {clients.filter(c => c.isActive).length} active
           </p>
         </div>
@@ -169,14 +169,14 @@ export default function ClientsUI({ initialClients, dbError }: { initialClients:
           <thead>
             <tr className="border-b border-gray-200 dark:border-[#1A6080]/20 text-left">
               {['Client', 'Slug / URL', 'Tier', 'Status', 'Theme', 'Actions'].map(h => (
-                <th key={h} className="px-5 py-3 text-xs font-semibold  text-gray-500 dark:text-gray-400">{h}</th>
+                <th key={h} className="px-5 py-3 text-xs font-semibold  text-gray-500 dark:text-[#9BB0BC]">{h}</th>
               ))}
             </tr>
           </thead>
           <tbody>
             {filtered.length === 0 ? (
               <tr>
-                <td colSpan={6} className="px-5 py-8 text-center text-gray-500 dark:text-gray-400">
+                <td colSpan={6} className="px-5 py-8 text-center text-gray-500 dark:text-[#9BB0BC]">
                   {clients.length === 0 ? (
                     <>No clients yet. <Link href="/super-admin/clients/new" className="text-[#0E3D52] dark:text-[#4ebac4] hover:underline">Add one →</Link></>
                   ) : 'No clients match your search.'}
@@ -202,7 +202,7 @@ export default function ClientsUI({ initialClients, dbError }: { initialClients:
                     )}
                     <div>
                       <span className="font-medium text-gray-900 dark:text-white">{c.name}</span>
-                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                      <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-0.5">
                         Since {new Date(c.createdAt).toLocaleDateString('en-AU', { month: 'short', year: 'numeric' })}
                       </p>
                     </div>
@@ -210,7 +210,7 @@ export default function ClientsUI({ initialClients, dbError }: { initialClients:
                 </td>
                 <td className="px-5 py-3.5">
                   <code className="text-[#0E3D52] dark:text-[#7dcfd7] text-xs">{c.slug}</code>
-                  <p className="text-gray-500 dark:text-gray-400 text-xs mt-0.5">{c.slug}-hrmsapp.vercel.app</p>
+                  <p className="text-gray-500 dark:text-[#9BB0BC] text-xs mt-0.5">{c.slug}-hrmsapp.vercel.app</p>
                 </td>
                 <td className="px-5 py-3.5">
                   <span className={`inline-block text-xs px-2 py-0.5 rounded-full font-medium ${TIER_COLORS[c.tier] ?? TIER_COLORS.starter}`}>
@@ -237,7 +237,7 @@ export default function ClientsUI({ initialClients, dbError }: { initialClients:
                       style={{ backgroundColor: c.primaryColor || '#6d28d9' }}
                       title={c.primaryColor}
                     />
-                    <span className="text-xs text-gray-500 dark:text-gray-400">{c.primaryColor || 'default'}</span>
+                    <span className="text-xs text-gray-500 dark:text-[#9BB0BC]">{c.primaryColor || 'default'}</span>
                   </div>
                 </td>
                 <td className="px-5 py-3.5">

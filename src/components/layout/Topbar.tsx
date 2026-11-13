@@ -7,7 +7,7 @@ export default function Topbar() {
     <header className="h-14 bg-white border-b border-gray-200 flex items-center justify-between px-6 flex-shrink-0 dark:bg-[#0F1E2E] dark:border-[#1A6080]/30">
       {/* Search */}
       <div className="relative w-72">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-600 dark:text-gray-400" />
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-600 dark:text-[#9BB0BC]" />
         <input
           type="search"
           placeholder="Search employees, documents…"
@@ -18,7 +18,7 @@ export default function Topbar() {
       {/* Right */}
       <div className="flex items-center gap-4">
         {/* Tenant selector */}
-        <button className="flex items-center gap-1.5 text-sm text-gray-600 border border-gray-200 rounded-lg px-3 py-1.5 hover:bg-gray-50 dark:text-gray-400 dark:border-[#1A6080]/30">
+        <button className="flex items-center gap-1.5 text-sm text-gray-600 border border-gray-200 rounded-lg px-3 py-1.5 hover:bg-gray-50 dark:text-[#8aaabb] dark:border-[#1A6080]/30">
           <span className="w-2 h-2 bg-green-500 rounded-full" />
           Yahweh Care
           <ChevronDown className="h-3.5 w-3.5" />
@@ -26,7 +26,7 @@ export default function Topbar() {
 
         {/* Notifications */}
         <button className="relative p-2 rounded-lg hover:bg-gray-100">
-          <Bell className="h-5 w-5 text-gray-600 dark:text-gray-400" />
+          <Bell className="h-5 w-5 text-gray-600 dark:text-[#9BB0BC]" />
           <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full" />
         </button>
 
@@ -35,7 +35,7 @@ export default function Topbar() {
           <div className="w-8 h-8 rounded-full bg-brand-600 flex items-center justify-center text-white text-xs font-semibold">
             SM
           </div>
-          <ChevronDown className="h-3.5 w-3.5 text-gray-500 dark:text-gray-400" />
+          <ChevronDown className="h-3.5 w-3.5 text-gray-500 dark:text-[#9BB0BC]" />
         </button>
       </div>
     </header>

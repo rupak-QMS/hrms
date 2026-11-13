@@ -40,7 +40,7 @@ interface RunEntry {
 }
 
 const STATUS_COLORS: Record<string, string> = {
-  draft:       'bg-gray-100 text-gray-700 dark:bg-[#0E3D52]/60 dark:text-gray-300',
+  draft:       'bg-gray-100 text-gray-700 dark:bg-[#0E3D52]/60 dark:text-[#C8D8E4]',
   processing:  'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400',
   finalised:   'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/20 dark:text-[#4ebac4]',
   paid:        'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400',
@@ -312,9 +312,9 @@ export default function PayrollFinancePage() {
         </div>
         <div className="flex-1 overflow-y-auto">
           {loading ? (
-            <div className="p-4 text-sm text-gray-500 dark:text-gray-400">Loading…</div>
+            <div className="p-4 text-sm text-gray-500 dark:text-[#9BB0BC]">Loading…</div>
           ) : runs.length === 0 ? (
-            <div className="p-6 text-center text-gray-400 dark:text-gray-500 text-sm">No payroll runs yet</div>
+            <div className="p-6 text-center text-gray-400 dark:text-[#9BB0BC] text-sm">No payroll runs yet</div>
           ) : (
             runs.map(run => (
               <div
@@ -326,7 +326,7 @@ export default function PayrollFinancePage() {
                 <div className="flex items-start justify-between gap-2">
                   <div className="min-w-0">
                     <p className="font-medium text-gray-900 dark:text-white text-sm truncate">{run.name}</p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                    <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-0.5">
                       {fmtDate(run.periodStart)} – {fmtDate(run.periodEnd)}
                     </p>
                   </div>
@@ -334,9 +334,9 @@ export default function PayrollFinancePage() {
                     {STATUS_LABELS[run.status] || run.status}
                   </span>
                 </div>
-                <div className="mt-2 flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
+                <div className="mt-2 flex items-center justify-between text-xs text-gray-500 dark:text-[#9BB0BC]">
                   <span>{FREQ_LABELS[run.frequency] || run.frequency}</span>
-                  <span className="font-medium text-gray-700 dark:text-gray-300">{fmt(run.totalNet)} net</span>
+                  <span className="font-medium text-gray-700 dark:text-[#C8D8E4]">{fmt(run.totalNet)} net</span>
                 </div>
               </div>
             ))
@@ -347,7 +347,7 @@ export default function PayrollFinancePage() {
       {/* RIGHT PANEL — run detail */}
       <div className="flex-1 flex flex-col overflow-hidden">
         {!selected ? (
-          <div className="flex-1 flex items-center justify-center text-gray-400 dark:text-gray-500">
+          <div className="flex-1 flex items-center justify-center text-gray-400 dark:text-[#9BB0BC]">
             <div className="text-center">
               <div className="text-5xl mb-3">💰</div>
               <p className="text-lg font-medium">Select a payroll run</p>
@@ -415,11 +415,11 @@ export default function PayrollFinancePage() {
                     <>
                       <button
                         onClick={() => exportAba(selected.id, selected.name)}
-                        className="px-4 py-2 border border-gray-200 dark:border-[#1A6080]/40 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40"
+                        className="px-4 py-2 border border-gray-200 dark:border-[#1A6080]/40 text-gray-700 dark:text-[#C8D8E4] text-sm font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40"
                       >📄 Re-export ABA</button>
                       <button
                         onClick={() => generatePayslips(selected.id)}
-                        className="px-4 py-2 border border-gray-200 dark:border-[#1A6080]/40 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40"
+                        className="px-4 py-2 border border-gray-200 dark:border-[#1A6080]/40 text-gray-700 dark:text-[#C8D8E4] text-sm font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40"
                       >📑 Payslip PDFs</button>
                     </>
                   )}
@@ -464,8 +464,8 @@ export default function PayrollFinancePage() {
               {!hasEntries && selected.status === 'draft' ? (
                 <div className="bg-white dark:bg-[#0A1929] rounded-xl border border-dashed border-[#b8d4e0] dark:border-[#1A6080] p-10 text-center">
                   <div className="text-4xl mb-3">⚡</div>
-                  <p className="text-gray-700 dark:text-gray-300 font-medium">Ready to calculate</p>
-                  <p className="text-sm text-gray-400 dark:text-gray-500 mt-1 mb-4">
+                  <p className="text-gray-700 dark:text-[#C8D8E4] font-medium">Ready to calculate</p>
+                  <p className="text-sm text-gray-400 dark:text-[#9BB0BC] mt-1 mb-4">
                     Click <strong>Calculate Pay</strong> to run AU-compliant payroll for all active employees.<br />
                     PAYG withholding, Medicare levy, and 11.5% super will be computed automatically.
                   </p>
@@ -476,11 +476,11 @@ export default function PayrollFinancePage() {
                   >{processing ? 'Calculating…' : '⚡ Calculate Pay'}</button>
                 </div>
               ) : entriesLoading ? (
-                <div className="text-sm text-gray-500 dark:text-gray-400">Loading entries…</div>
+                <div className="text-sm text-gray-500 dark:text-[#9BB0BC]">Loading entries…</div>
               ) : (
                 <>
                   <div className="flex items-center justify-between mb-3">
-                    <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300">
+                    <h3 className="text-sm font-semibold text-gray-700 dark:text-[#C8D8E4]">
                       Employee Entries ({entries.length})
                     </h3>
                     {selected.status === 'draft' && hasEntries && (
@@ -493,7 +493,7 @@ export default function PayrollFinancePage() {
                         <thead className="bg-gray-50 dark:bg-[#0E3D52]/60">
                           <tr>
                             {['Employee', 'Type', 'Hours', 'Gross', 'PAYG Tax', 'Medicare', 'Super', 'Net Pay'].map(h => (
-                              <th key={h} className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400">{h}</th>
+                              <th key={h} className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-[#9BB0BC]">{h}</th>
                             ))}
                           </tr>
                         </thead>
@@ -504,8 +504,8 @@ export default function PayrollFinancePage() {
                                 <p className="font-medium text-gray-900 dark:text-white">{e.firstName} {e.lastName}</p>
                                 <p className="text-xs text-gray-400">{e.employeeNumber}</p>
                               </td>
-                              <td className="px-4 py-3 text-gray-500 dark:text-gray-400 capitalize text-sm">{e.employmentType || '—'}</td>
-                              <td className="px-4 py-3 text-gray-700 dark:text-gray-300 text-sm tabular-nums">{parseFloat(e.hoursWorked || '0').toFixed(1)}h</td>
+                              <td className="px-4 py-3 text-gray-500 dark:text-[#9BB0BC] capitalize text-sm">{e.employmentType || '—'}</td>
+                              <td className="px-4 py-3 text-gray-700 dark:text-[#C8D8E4] text-sm tabular-nums">{parseFloat(e.hoursWorked || '0').toFixed(1)}h</td>
                               <td className="px-4 py-3 font-medium text-gray-900 dark:text-white text-sm tabular-nums">{fmt(e.grossPay)}</td>
                               <td className="px-4 py-3 text-red-600 dark:text-red-400 text-sm tabular-nums">{fmt(e.paygWithholding)}</td>
                               <td className="px-4 py-3 text-orange-600 dark:text-orange-400 text-sm tabular-nums">{fmt(e.medicareLevy)}</td>
@@ -517,7 +517,7 @@ export default function PayrollFinancePage() {
                         {/* Totals footer */}
                         <tfoot className="bg-gray-50 dark:bg-[#0E3D52]/60 border-t-2 border-gray-200 dark:border-[#1A6080]/40">
                           <tr>
-                            <td colSpan={3} className="px-4 py-3 text-xs font-bold text-gray-600 dark:text-gray-300">Totals</td>
+                            <td colSpan={3} className="px-4 py-3 text-xs font-bold text-gray-600 dark:text-[#C8D8E4]">Totals</td>
                             <td className="px-4 py-3 font-bold text-gray-900 dark:text-white text-sm tabular-nums">{fmt(selected.totalGross)}</td>
                             <td className="px-4 py-3 font-bold text-red-600 dark:text-red-400 text-sm tabular-nums">
                               {fmt(entries.reduce((s, e) => s + parseFloat(e.paygWithholding || '0'), 0))}
@@ -555,31 +555,31 @@ export default function PayrollFinancePage() {
             </div>
             <form onSubmit={handleCreate} className="p-6 space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Run Name *</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Run Name *</label>
                 <input required value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
                   placeholder="e.g. Fortnight 1 – Nov 2026"
                   className="w-full border border-gray-200 dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-[#0E3D52]/60 text-gray-900 dark:text-white" />
               </div>
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Period Start *</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Period Start *</label>
                   <input required type="date" value={form.periodStart} onChange={e => setForm(f => ({ ...f, periodStart: e.target.value }))}
                     className="w-full border border-gray-200 dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-[#0E3D52]/60 text-gray-900 dark:text-white" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Period End *</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Period End *</label>
                   <input required type="date" value={form.periodEnd} onChange={e => setForm(f => ({ ...f, periodEnd: e.target.value }))}
                     className="w-full border border-gray-200 dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-[#0E3D52]/60 text-gray-900 dark:text-white" />
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Pay Date</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Pay Date</label>
                   <input type="date" value={form.payDate} onChange={e => setForm(f => ({ ...f, payDate: e.target.value }))}
                     className="w-full border border-gray-200 dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-[#0E3D52]/60 text-gray-900 dark:text-white" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Frequency</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Frequency</label>
                   <select value={form.frequency} onChange={e => setForm(f => ({ ...f, frequency: e.target.value }))}
                     className="w-full border border-gray-200 dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-[#0E3D52]/60 text-gray-900 dark:text-white">
                     <option value="weekly">Weekly</option>
@@ -589,13 +589,13 @@ export default function PayrollFinancePage() {
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Notes</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Notes</label>
                 <textarea rows={2} value={form.notes} onChange={e => setForm(f => ({ ...f, notes: e.target.value }))}
                   className="w-full border border-gray-200 dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-[#0E3D52]/60 text-gray-900 dark:text-white resize-none" />
               </div>
               <div className="flex gap-3 pt-2">
                 <button type="button" onClick={() => setShowModal(false)}
-                  className="flex-1 px-4 py-2 border border-gray-200 dark:border-[#1A6080]/40 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40">
+                  className="flex-1 px-4 py-2 border border-gray-200 dark:border-[#1A6080]/40 rounded-lg text-sm font-medium text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40">
                   Cancel
                 </button>
                 <button type="submit" disabled={submitting}

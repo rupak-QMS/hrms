@@ -39,7 +39,7 @@ const MODULES_LIST = [
 type Tab = 'fill' | 'upload'
 
 const INPUT = 'w-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-[#4ebac4]/50 focus:outline-none focus:border-[#0E3D52]'
-const LABEL = 'block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1'
+const LABEL = 'block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1'
 
 const INITIAL = {
   tradingName: '', legalName: '', registrationNumber: '', industry: '',
@@ -147,13 +147,13 @@ export default function IntakePage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Client Intake Form</h1>
-          <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">
+          <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">
             Fill in online and submit, or download as JSON for the client to complete offline
           </p>
         </div>
         <div className="flex gap-2">
           <button onClick={downloadPrintable}
-            className="px-3 py-2 text-xs border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 rounded-lg hover:text-gray-900 dark:text-white transition">
+            className="px-3 py-2 text-xs border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#C8D8E4] rounded-lg hover:text-gray-900 dark:text-white transition">
             Print / PDF
           </button>
           <button onClick={downloadJSON}
@@ -167,7 +167,7 @@ export default function IntakePage() {
       <div className="flex border-b border-gray-200 dark:border-[#1A6080]/20">
         {([['fill', 'Fill Online'], ['upload', 'Upload Completed Form']] as [Tab, string][]).map(([id, label]) => (
           <button key={id} onClick={() => setTab(id)}
-            className={`px-5 py-2.5 text-sm font-medium border-b-2 transition ${tab === id ? 'border-[#0E3D52] text-[#0E3D52] dark:text-[#4ebac4]' : 'border-transparent text-gray-600 dark:text-gray-400 hover:text-gray-600 dark:text-gray-300'}`}>
+            className={`px-5 py-2.5 text-sm font-medium border-b-2 transition ${tab === id ? 'border-[#0E3D52] text-[#0E3D52] dark:text-[#4ebac4]' : 'border-transparent text-gray-600 dark:text-[#9BB0BC] hover:text-gray-600 dark:text-[#C8D8E4]'}`}>
             {label}
           </button>
         ))}
@@ -180,7 +180,7 @@ export default function IntakePage() {
         <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-8 text-center space-y-4">
           <div className="text-4xl"></div>
           <p className="text-gray-900 dark:text-white font-medium">Upload a completed intake form</p>
-          <p className="text-gray-600 dark:text-gray-400 text-sm">
+          <p className="text-gray-600 dark:text-[#9BB0BC] text-sm">
             Share the <strong>Download Form</strong> button above with the client.
             They fill it and return the JSON file. Upload it here to auto-populate the form.
           </p>
@@ -197,7 +197,7 @@ export default function IntakePage() {
 
           {/* Organisation */}
           <section className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6 space-y-4">
-            <h2 className="text-xs font-semibold text-gray-500  dark:text-gray-400">Organisation</h2>
+            <h2 className="text-xs font-semibold text-gray-500  dark:text-[#8aaabb]">Organisation</h2>
             <div className="grid grid-cols-2 gap-4">
               <div><label className={LABEL}>Trading Name *</label>
                 <input required value={form.tradingName} onChange={e => { set('tradingName', e.target.value); if (!form.legalName) set('legalName', e.target.value) }}
@@ -223,7 +223,7 @@ export default function IntakePage() {
 
           {/* Region */}
           <section className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6 space-y-4">
-            <h2 className="text-xs font-semibold text-gray-500  dark:text-gray-400">Region & Address</h2>
+            <h2 className="text-xs font-semibold text-gray-500  dark:text-[#8aaabb]">Region & Address</h2>
             <div className="grid grid-cols-3 gap-4">
               <div><label className={LABEL}>Country *</label>
                 <select value={form.country} onChange={e => handleCountry(e.target.value)} className={INPUT}>
@@ -251,7 +251,7 @@ export default function IntakePage() {
 
           {/* Contacts */}
           <section className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6 space-y-4">
-            <h2 className="text-xs font-semibold text-gray-500  dark:text-gray-400">Primary Contact</h2>
+            <h2 className="text-xs font-semibold text-gray-500  dark:text-[#8aaabb]">Primary Contact</h2>
             <div className="grid grid-cols-2 gap-4">
               <div><label className={LABEL}>Full Name *</label>
                 <input required value={form.contactName} onChange={e => set('contactName', e.target.value)}
@@ -267,7 +267,7 @@ export default function IntakePage() {
                   placeholder="+61 400 000 000" className={INPUT} /></div>
             </div>
             <div className="border-t border-gray-200 dark:border-[#1A6080]/20 pt-4">
-              <p className="text-xs text-gray-500 mb-3 dark:text-gray-400">Billing Contact (leave blank to use above)</p>
+              <p className="text-xs text-gray-500 mb-3 dark:text-[#8aaabb]">Billing Contact (leave blank to use above)</p>
               <div className="grid grid-cols-2 gap-4">
                 <div><label className={LABEL}>Billing Email</label>
                   <input type="email" value={form.billingEmail} onChange={e => set('billingEmail', e.target.value)}
@@ -282,19 +282,19 @@ export default function IntakePage() {
           {/* Required Modules */}
           <section className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6 space-y-4">
             <div className="flex items-center justify-between">
-              <h2 className="text-xs font-semibold text-gray-500  dark:text-gray-400">Required Modules</h2>
+              <h2 className="text-xs font-semibold text-gray-500  dark:text-[#8aaabb]">Required Modules</h2>
               <div className="flex gap-2 text-xs">
                 <button type="button" onClick={() => setForm(f => ({ ...f, selectedModules: MODULES_LIST.map(m => m.id) }))}
                   className="text-[#4ebac4] hover:text-[#0E3D52] dark:text-[#7dcfd7]">Select All</button>
-                <span className="text-gray-600 dark:text-gray-400">·</span>
+                <span className="text-gray-600 dark:text-[#9BB0BC]">·</span>
                 <button type="button" onClick={() => setForm(f => ({ ...f, selectedModules: [] }))}
-                  className="text-gray-600 dark:text-gray-400 hover:text-gray-600 dark:text-gray-300">Clear</button>
+                  className="text-gray-600 dark:text-[#9BB0BC] hover:text-gray-600 dark:text-[#C8D8E4]">Clear</button>
               </div>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
               {MODULES_LIST.map(m => (
                 <label key={m.id} className={`flex items-center gap-2 p-2 rounded-lg border cursor-pointer text-xs transition ${
-                  form.selectedModules.includes(m.id) ? 'border-[#0E3D52] bg-[#E0EEF4] dark:bg-[#E0EEF4] dark:bg-[#0E3D52]/20 text-[#0E3D52] dark:text-[#7dcfd7]' : 'border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-[#1A6080]/40'
+                  form.selectedModules.includes(m.id) ? 'border-[#0E3D52] bg-[#E0EEF4] dark:bg-[#E0EEF4] dark:bg-[#0E3D52]/20 text-[#0E3D52] dark:text-[#7dcfd7]' : 'border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:border-[#1A6080]/40'
                 }`}>
                   <input type="checkbox" checked={form.selectedModules.includes(m.id)} onChange={() => toggleModule(m.id)}
                     className="accent-[#0E3D52]" />
@@ -302,12 +302,12 @@ export default function IntakePage() {
                 </label>
               ))}
             </div>
-            <p className="text-xs text-gray-500 dark:text-gray-400">{form.selectedModules.length} of {MODULES_LIST.length} modules selected</p>
+            <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{form.selectedModules.length} of {MODULES_LIST.length} modules selected</p>
           </section>
 
           {/* Admin Account */}
           <section className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6 space-y-4">
-            <h2 className="text-xs font-semibold text-gray-500  dark:text-gray-400">Portal Admin Account</h2>
+            <h2 className="text-xs font-semibold text-gray-500  dark:text-[#8aaabb]">Portal Admin Account</h2>
             <div className="grid grid-cols-2 gap-4">
               <div><label className={LABEL}>Admin Email</label>
                 <input type="email" value={form.adminEmail} onChange={e => set('adminEmail', e.target.value)}
@@ -325,7 +325,7 @@ export default function IntakePage() {
 
           {/* Notes */}
           <section className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6">
-            <h2 className="text-xs font-semibold text-gray-500  mb-3 dark:text-gray-400">Internal Notes</h2>
+            <h2 className="text-xs font-semibold text-gray-500  mb-3 dark:text-[#8aaabb]">Internal Notes</h2>
             <textarea value={form.notes} onChange={e => set('notes', e.target.value)} rows={3}
               placeholder="Any special requirements, SLA agreements, go-live dates…"
               className="w-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-[#4ebac4]/50 focus:outline-none focus:border-[#0E3D52] resize-none" />
@@ -337,7 +337,7 @@ export default function IntakePage() {
               {loading ? 'Creating Client…' : 'Create Client & Send Welcome Email →'}
             </button>
             <button type="button" onClick={downloadJSON}
-              className="border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white text-sm px-4 py-2.5 rounded-lg transition">
+              className="border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#C8D8E4] hover:text-gray-900 dark:text-white text-sm px-4 py-2.5 rounded-lg transition">
               ⬇ Save as Draft
             </button>
           </div>

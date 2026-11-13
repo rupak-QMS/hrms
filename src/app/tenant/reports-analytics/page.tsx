@@ -348,15 +348,15 @@ export default function ReportsAnalyticsPage() {
       <div className="w-72 flex-shrink-0 border-r border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] flex flex-col">
         <div className="p-4 border-b border-gray-200 dark:border-[#1A6080]/30">
           <h2 className="text-lg font-semibold text-gray-900 dark:text-white">📊 Reports</h2>
-          <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Choose a report to run</p>
+          <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-1">Choose a report to run</p>
           {/* Tabs */}
           <div className="flex gap-1 mt-3 bg-gray-100 dark:bg-[#0E3D52]/60 rounded-lg p-0.5">
             <button onClick={() => setActiveTab('run')}
-              className={`flex-1 text-xs py-1 rounded-md font-medium transition-all ${activeTab === 'run' ? 'bg-white dark:bg-[#0E3D52]/80 text-gray-900 dark:text-white shadow-sm' : 'text-gray-500 dark:text-gray-400'}`}>
+              className={`flex-1 text-xs py-1 rounded-md font-medium transition-all ${activeTab === 'run' ? 'bg-white dark:bg-[#0E3D52]/80 text-gray-900 dark:text-white shadow-sm' : 'text-gray-500 dark:text-[#9BB0BC]'}`}>
               All Reports
             </button>
             <button onClick={() => setActiveTab('saved')}
-              className={`flex-1 text-xs py-1 rounded-md font-medium transition-all ${activeTab === 'saved' ? 'bg-white dark:bg-[#0E3D52]/80 text-gray-900 dark:text-white shadow-sm' : 'text-gray-500 dark:text-gray-400'}`}>
+              className={`flex-1 text-xs py-1 rounded-md font-medium transition-all ${activeTab === 'saved' ? 'bg-white dark:bg-[#0E3D52]/80 text-gray-900 dark:text-white shadow-sm' : 'text-gray-500 dark:text-[#9BB0BC]'}`}>
               Saved ({savedReports.length})
             </button>
           </div>
@@ -366,7 +366,7 @@ export default function ReportsAnalyticsPage() {
           {activeTab === 'run' ? (
             GROUPS.map(group => (
               <div key={group}>
-                <p className="text-[10px] font-semibold text-gray-400 dark:text-gray-500  px-1 mb-1">{group}</p>
+                <p className="text-[10px] font-semibold text-gray-400 dark:text-[#9BB0BC]  px-1 mb-1">{group}</p>
                 <div className="space-y-1">
                   {REPORT_CONFIGS.filter(r => r.group === group).map(cfg => (
                     <button
@@ -378,7 +378,7 @@ export default function ReportsAnalyticsPage() {
                         <span className="text-xl">{cfg.icon}</span>
                         <div>
                           <p className="text-sm font-medium text-gray-900 dark:text-white">{cfg.label}</p>
-                          <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{cfg.description}</p>
+                          <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-0.5">{cfg.description}</p>
                         </div>
                       </div>
                     </button>
@@ -391,7 +391,7 @@ export default function ReportsAnalyticsPage() {
               {loadingSaved ? (
                 <p className="text-xs text-gray-400 text-center py-4">Loading…</p>
               ) : savedReports.length === 0 ? (
-                <div className="text-center py-6 text-gray-400 dark:text-gray-500">
+                <div className="text-center py-6 text-gray-400 dark:text-[#9BB0BC]">
                   <p className="text-2xl mb-1">💾</p>
                   <p className="text-xs">No saved reports yet</p>
                 </div>
@@ -403,7 +403,7 @@ export default function ReportsAnalyticsPage() {
                       <div className="flex items-start justify-between gap-2">
                         <div className="flex-1 min-w-0">
                           <p className="text-sm font-medium text-gray-900 dark:text-white truncate">{r.name}</p>
-                          <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{cfg?.label || r.reportType}</p>
+                          <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-0.5">{cfg?.label || r.reportType}</p>
                           {r.lastRunAt && (
                             <p className="text-xs text-gray-400 mt-0.5">
                               Last run {new Date(r.lastRunAt).toLocaleDateString('en-AU')}
@@ -433,7 +433,7 @@ export default function ReportsAnalyticsPage() {
       {/* RIGHT: Report output */}
       <div className="flex-1 flex flex-col overflow-hidden">
         {!selected ? (
-          <div className="flex-1 flex items-center justify-center text-gray-400 dark:text-gray-500">
+          <div className="flex-1 flex items-center justify-center text-gray-400 dark:text-[#9BB0BC]">
             <div className="text-center">
               <div className="w-14 h-14 rounded-2xl bg-[#0E3D52]/[0.07] dark:bg-[#4ebac4]/10 flex items-center justify-center mb-4 mx-auto ring-1 ring-[#0E3D52]/10 dark:ring-[#4ebac4]/15"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-[#1A6080] dark:text-[#4ebac4] opacity-70"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
               <p className="text-lg font-medium">Select a report</p>
@@ -456,16 +456,16 @@ export default function ReportsAnalyticsPage() {
                     <>
                       <button
                         onClick={() => exportCSV(columns, results, `${selected.type}_${new Date().toISOString().split('T')[0]}.csv`)}
-                        className="px-3 py-2 border border-gray-200 dark:border-[#1A6080]/40 text-sm font-medium text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40">
+                        className="px-3 py-2 border border-gray-200 dark:border-[#1A6080]/40 text-sm font-medium text-gray-700 dark:text-[#C8D8E4] rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40">
                         ⬇ CSV
                       </button>
                       <button
                         onClick={() => exportPDF(selected.label, columns, results, filters)}
-                        className="px-3 py-2 border border-gray-200 dark:border-[#1A6080]/40 text-sm font-medium text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40">
+                        className="px-3 py-2 border border-gray-200 dark:border-[#1A6080]/40 text-sm font-medium text-gray-700 dark:text-[#C8D8E4] rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40">
                         🖨 PDF
                       </button>
                       <button onClick={() => setSaveModal(true)}
-                        className="px-3 py-2 border border-gray-200 dark:border-[#1A6080]/40 text-sm font-medium text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40">
+                        className="px-3 py-2 border border-gray-200 dark:border-[#1A6080]/40 text-sm font-medium text-gray-700 dark:text-[#C8D8E4] rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40">
                         💾 Save
                       </button>
                     </>
@@ -482,7 +482,7 @@ export default function ReportsAnalyticsPage() {
                 <div className="flex items-end gap-4 mt-4 flex-wrap">
                   {selected.filters.map(f => (
                     <div key={f.key}>
-                      <label className="block text-xs font-medium text-gray-500 dark:text-gray-400 mb-1">{f.label}</label>
+                      <label className="block text-xs font-medium text-gray-500 dark:text-[#9BB0BC] mb-1">{f.label}</label>
                       {f.type === 'select' ? (
                         <select
                           value={filters[f.key] || ''}
@@ -512,7 +512,7 @@ export default function ReportsAnalyticsPage() {
               )}
 
               {running && (
-                <div className="flex items-center justify-center py-16 text-gray-400 dark:text-gray-500">
+                <div className="flex items-center justify-center py-16 text-gray-400 dark:text-[#9BB0BC]">
                   <div className="text-center">
                     <div className="text-3xl mb-2">⏳</div>
                     <p className="text-sm">Running report…</p>
@@ -521,7 +521,7 @@ export default function ReportsAnalyticsPage() {
               )}
 
               {!running && results === null && !error && (
-                <div className="flex items-center justify-center py-16 text-gray-400 dark:text-gray-500">
+                <div className="flex items-center justify-center py-16 text-gray-400 dark:text-[#9BB0BC]">
                   <div className="text-center">
                     <div className="text-3xl mb-2">▶</div>
                     <p className="text-sm">Click &ldquo;Run Report&rdquo; to see results</p>
@@ -530,7 +530,7 @@ export default function ReportsAnalyticsPage() {
               )}
 
               {!running && results !== null && results.length === 0 && (
-                <div className="rounded-xl border border-dashed border-[#b8d4e0] dark:border-[#1A6080]/40 bg-[#E0EEF4]/30 dark:bg-[#0E3D52]/05 p-8 text-center text-gray-400 dark:text-gray-500 text-sm">
+                <div className="rounded-xl border border-dashed border-[#b8d4e0] dark:border-[#1A6080]/40 bg-[#E0EEF4]/30 dark:bg-[#0E3D52]/05 p-8 text-center text-gray-400 dark:text-[#9BB0BC] text-sm">
                   No data found for the selected filters
                 </div>
               )}
@@ -538,7 +538,7 @@ export default function ReportsAnalyticsPage() {
               {!running && results !== null && results.length > 0 && (
                 <>
                   <div className="flex items-center justify-between mb-3">
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                    <p className="text-sm text-gray-500 dark:text-[#9BB0BC]">
                       {results.length} row{results.length !== 1 ? 's' : ''}
                     </p>
                     {/* Leave Liability total */}
@@ -556,7 +556,7 @@ export default function ReportsAnalyticsPage() {
                       <thead className="bg-gray-50 dark:bg-[#0E3D52]/60">
                         <tr>
                           {columns.map(col => (
-                            <th key={col} className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 whitespace-nowrap">
+                            <th key={col} className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-[#9BB0BC] whitespace-nowrap">
                               {prettyKey(col)}
                             </th>
                           ))}
@@ -566,7 +566,7 @@ export default function ReportsAnalyticsPage() {
                         {results.map((row, i) => (
                           <tr key={i} className="hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40/50">
                             {columns.map(col => (
-                              <td key={col} className="px-4 py-3 text-gray-700 dark:text-gray-300 whitespace-nowrap capitalize">
+                              <td key={col} className="px-4 py-3 text-gray-700 dark:text-[#C8D8E4] whitespace-nowrap capitalize">
                                 {formatValue(col, row[col])}
                               </td>
                             ))}
@@ -595,14 +595,14 @@ export default function ReportsAnalyticsPage() {
               placeholder="Report name…"
               className="w-full border border-gray-200 dark:border-[#1A6080]/40 rounded-lg px-3 py-2 text-sm bg-white dark:bg-[#0E3D52]/60 text-gray-900 dark:text-white mb-3"
             />
-            <label className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 mb-4 cursor-pointer">
+            <label className="flex items-center gap-2 text-sm text-gray-700 dark:text-[#C8D8E4] mb-4 cursor-pointer">
               <input type="checkbox" checked={saveShared} onChange={e => setSaveShared(e.target.checked)}
                 className="rounded border-gray-300 dark:border-[#1A6080]/40" />
               Share with all users in this organisation
             </label>
             <div className="flex gap-3">
               <button onClick={() => setSaveModal(false)}
-                className="flex-1 px-4 py-2 border border-gray-200 dark:border-[#1A6080]/40 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40">
+                className="flex-1 px-4 py-2 border border-gray-200 dark:border-[#1A6080]/40 rounded-lg text-sm font-medium text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40">
                 Cancel
               </button>
               <button onClick={saveReport} disabled={saving || !saveName}

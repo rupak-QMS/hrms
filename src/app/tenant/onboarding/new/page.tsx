@@ -56,13 +56,13 @@ export default function NewOnboardingPage() {
     }
   }
 
-  if (fetching) return <div className="text-gray-600 dark:text-gray-400">Loading employees…</div>
+  if (fetching) return <div className="text-gray-600 dark:text-[#9BB0BC]">Loading employees…</div>
 
   return (
     <div className="max-w-2xl space-y-6">
       <div>
         <h1 className="text-2xl font-bold text-foreground">Start Onboarding</h1>
-        <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">Create an onboarding record for a new employee</p>
+        <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Create an onboarding record for a new employee</p>
       </div>
 
       {error && <div className="bg-red-50 dark:bg-red-900/50 border border-red-200 dark:border-red-700 rounded-lg p-3 text-sm text-red-600 dark:text-red-300">{error}</div>}
@@ -71,7 +71,7 @@ export default function NewOnboardingPage() {
 
         {/* Employee */}
         <div>
-          <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-1">Employee *</label>
+          <label className="block text-sm font-medium text-gray-600 dark:text-[#C8D8E4] mb-1">Employee *</label>
           <select required value={form.employeeId}
             onChange={e => setForm(f => ({ ...f, employeeId: e.target.value }))}
             className={INPUT}>
@@ -89,7 +89,7 @@ export default function NewOnboardingPage() {
 
         {/* Stage */}
         <div>
-          <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">Starting Stage *</label>
+          <label className="block text-sm font-medium text-gray-600 dark:text-[#C8D8E4] mb-2">Starting Stage *</label>
           <div className="space-y-2">
             {STAGES.map(s => (
               <label key={s.value} className={`flex items-center gap-3 p-3 rounded-lg border cursor-pointer transition ${
@@ -99,7 +99,7 @@ export default function NewOnboardingPage() {
                   onChange={() => setForm(f => ({ ...f, stage: s.value }))} />
                 <div>
                   <p className="text-sm font-medium text-foreground">{s.label}</p>
-                  <p className="text-xs text-gray-600 dark:text-gray-400">{s.desc}</p>
+                  <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">{s.desc}</p>
                 </div>
               </label>
             ))}
@@ -108,7 +108,7 @@ export default function NewOnboardingPage() {
 
         {/* Buddy */}
         <div>
-          <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-1">Buddy (optional)</label>
+          <label className="block text-sm font-medium text-gray-600 dark:text-[#C8D8E4] mb-1">Buddy (optional)</label>
           <select value={form.buddyId}
             onChange={e => setForm(f => ({ ...f, buddyId: e.target.value }))}
             className={INPUT}>
@@ -119,12 +119,12 @@ export default function NewOnboardingPage() {
                 <option key={e.id} value={e.id}>{e.firstName} {e.lastName}</option>
               ))}
           </select>
-          <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">Assign an existing employee as their onboarding buddy.</p>
+          <p className="text-xs text-gray-500 mt-1 dark:text-[#8aaabb]">Assign an existing employee as their onboarding buddy.</p>
         </div>
 
         {/* Notes */}
         <div>
-          <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-1">Notes (optional)</label>
+          <label className="block text-sm font-medium text-gray-600 dark:text-[#C8D8E4] mb-1">Notes (optional)</label>
           <textarea value={form.notes}
             onChange={e => setForm(f => ({ ...f, notes: e.target.value }))}
             rows={3} placeholder="Any special requirements or notes for this onboarding…"
@@ -137,7 +137,7 @@ export default function NewOnboardingPage() {
             {loading ? 'Creating…' : 'Create Onboarding Record →'}
           </button>
           <button type="button" onClick={() => router.back()}
-            className="border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:text-white text-sm px-4 py-2.5 rounded-lg transition">
+            className="border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#C8D8E4] hover:text-white text-sm px-4 py-2.5 rounded-lg transition">
             Cancel
           </button>
         </div>

@@ -58,7 +58,7 @@ export default function SystemHealthPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white">System Health</h1>
-          <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">
+          <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">
             Real-time platform status ·{' '}
             {loading ? 'Checking…' : lastChecked ? `Last checked ${lastChecked.toLocaleTimeString('en-AU')}` : error ? `Failed: ${error}` : 'Not checked'}
           </p>
@@ -66,7 +66,7 @@ export default function SystemHealthPage() {
         <button
           onClick={refresh}
           disabled={loading}
-          className="bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 hover:border-gray-500 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white text-sm px-4 py-2 rounded-lg transition disabled:opacity-50"
+          className="bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 hover:border-gray-500 text-gray-600 dark:text-[#C8D8E4] hover:text-gray-900 dark:text-white text-sm px-4 py-2 rounded-lg transition disabled:opacity-50"
         >
           {loading ? '⟳ Checking…' : '⟳ Refresh'}
         </button>
@@ -107,17 +107,17 @@ export default function SystemHealthPage() {
           return (
             <div key={key} className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-5">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-sm font-semibold text-gray-700 dark:text-gray-200">
+                <span className="text-sm font-semibold text-gray-700 dark:text-[#C8D8E4]">
                   {CHECK_LABELS[key] ?? key}
                 </span>
                 <span className={`text-xs px-2 py-0.5 rounded-full border font-medium ${cs.badge}`}>
                   {cs.label}
                 </span>
               </div>
-              <p className="text-xs text-gray-600 dark:text-gray-400">{check.message}</p>
+              <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">{check.message}</p>
               {check.latencyMs !== undefined && (
                 <div className="mt-3">
-                  <div className="flex items-center justify-between text-xs text-gray-500 mb-1 dark:text-gray-400">
+                  <div className="flex items-center justify-between text-xs text-gray-500 mb-1 dark:text-[#8aaabb]">
                     <span>Latency</span>
                     <span className={check.latencyMs < 300 ? 'text-green-600 dark:text-green-400' : check.latencyMs < 1000 ? 'text-yellow-600 dark:text-yellow-400' : 'text-red-600 dark:text-red-400'}>
                       {check.latencyMs}ms
@@ -139,7 +139,7 @@ export default function SystemHealthPage() {
       {/* Platform Info */}
       {data?.platform && (
         <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6">
-          <h2 className="text-sm font-semibold text-gray-600 dark:text-gray-400  mb-4">Platform Information</h2>
+          <h2 className="text-sm font-semibold text-gray-600 dark:text-[#9BB0BC]  mb-4">Platform Information</h2>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {[
               { label: 'Node.js',      value: data.platform.nodeVersion },
@@ -148,8 +148,8 @@ export default function SystemHealthPage() {
               { label: 'App URL',      value: data.platform.appUrl },
             ].map(row => (
               <div key={row.label} className="space-y-1">
-                <p className="text-xs text-gray-500 dark:text-gray-400">{row.label}</p>
-                <p className="text-sm text-gray-700 dark:text-gray-200 font-mono bg-gray-100 dark:bg-[#0A1929] px-2 py-1 rounded truncate">{row.value}</p>
+                <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{row.label}</p>
+                <p className="text-sm text-gray-700 dark:text-[#C8D8E4] font-mono bg-gray-100 dark:bg-[#0A1929] px-2 py-1 rounded truncate">{row.value}</p>
               </div>
             ))}
           </div>
@@ -158,7 +158,7 @@ export default function SystemHealthPage() {
 
       {/* Infrastructure summary */}
       <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6">
-        <h2 className="text-sm font-semibold text-gray-600 dark:text-gray-400  mb-4">Infrastructure Stack</h2>
+        <h2 className="text-sm font-semibold text-gray-600 dark:text-[#9BB0BC]  mb-4">Infrastructure Stack</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {[
             { name: 'Azure App Service',       role: 'Next.js + .NET 8 API hosting',   tier: 'Basic B3',        status: 'ok' as const },
@@ -171,9 +171,9 @@ export default function SystemHealthPage() {
             <div key={svc.name} className="flex items-start gap-3 bg-gray-100 dark:bg-[#0A1929]/40 rounded-lg p-3">
               <div className={`w-2 h-2 rounded-full mt-1.5 shrink-0 ${STATUS_STYLES[svc.status].dot}`} />
               <div>
-                <p className="text-sm font-medium text-gray-700 dark:text-gray-200">{svc.name}</p>
-                <p className="text-xs text-gray-500 dark:text-gray-400">{svc.role}</p>
-                <p className="text-xs text-gray-600 mt-0.5 dark:text-gray-400">{svc.tier}</p>
+                <p className="text-sm font-medium text-gray-700 dark:text-[#C8D8E4]">{svc.name}</p>
+                <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{svc.role}</p>
+                <p className="text-xs text-gray-600 mt-0.5 dark:text-[#8aaabb]">{svc.tier}</p>
               </div>
             </div>
           ))}

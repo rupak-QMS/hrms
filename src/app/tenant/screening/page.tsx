@@ -25,7 +25,7 @@ const STATUS_COLORS: Record<string, string> = {
   green:   'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300',
   amber:   'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/40 dark:text-yellow-300',
   red:     'bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300',
-  pending: 'bg-gray-100 text-gray-600 dark:bg-[#0E3D52]/60 dark:text-gray-400',
+  pending: 'bg-gray-100 text-gray-600 dark:bg-[#0E3D52]/60 dark:text-[#8aaabb]',
 }
 
 const STATUS_DOT: Record<string, string> = {
@@ -213,7 +213,7 @@ export default function ScreeningPage() {
       <div className="px-6 py-4 border-b border-gray-200 bg-white dark:bg-[#0F1E2E] dark:border-[#1A6080]/30 flex items-center justify-between gap-3">
         <div>
           <h1 className="text-xl font-semibold text-gray-900 dark:text-white">Screening &amp; Checks</h1>
-          <p className="text-sm text-gray-500 mt-0.5 dark:text-gray-400">Police checks, WWCC, NDIS screening, working rights</p>
+          <p className="text-sm text-gray-500 mt-0.5 dark:text-[#8aaabb]">Police checks, WWCC, NDIS screening, working rights</p>
         </div>
         <div className="flex items-center gap-2">
           <ExportButton onClick={handleExport} disabled={records.length === 0} />
@@ -233,12 +233,12 @@ export default function ScreeningPage() {
           { label: 'Clear',          value: stats.green,       cls: 'text-green-600 dark:text-green-400' },
           { label: 'Amber',          value: stats.amber,       cls: 'text-yellow-600 dark:text-yellow-400' },
           { label: 'Expired/Failed', value: stats.red,         cls: 'text-red-600 dark:text-red-400' },
-          { label: 'Pending',        value: stats.pending,     cls: 'text-gray-500 dark:text-gray-400' },
+          { label: 'Pending',        value: stats.pending,     cls: 'text-gray-500 dark:text-[#9BB0BC]' },
           { label: 'Expiring ≤30d',  value: stats.expiringSoon,cls: 'text-orange-600 dark:text-orange-400' },
         ].map(s => (
           <div key={s.label} className="text-center">
             <p className={`text-xl font-bold ${s.cls}`}>{s.value}</p>
-            <p className="text-xs text-gray-500 dark:text-gray-400">{s.label}</p>
+            <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{s.label}</p>
           </div>
         ))}
       </div>
@@ -276,7 +276,7 @@ export default function ScreeningPage() {
       <div className="flex-1 overflow-auto bg-white dark:bg-[#0F1E2E]">
         {loading ? (
           <div className="flex items-center justify-center h-48">
-            <p className="text-sm text-gray-500 dark:text-gray-400">Loading…</p>
+            <p className="text-sm text-gray-500 dark:text-[#9BB0BC]">Loading…</p>
           </div>
         ) : records.length === 0 ? (
           <EmptyState
@@ -289,12 +289,12 @@ export default function ScreeningPage() {
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-gray-100 dark:border-[#1A6080]/20 bg-gray-50 dark:bg-[#0A1929]/60">
-                <th className="text-left px-4 py-3 font-medium text-gray-600 dark:text-gray-400">Employee</th>
-                <th className="text-left px-4 py-3 font-medium text-gray-600 dark:text-gray-400">Check Type</th>
-                <th className="text-left px-4 py-3 font-medium text-gray-600 dark:text-gray-400">Status</th>
-                <th className="text-left px-4 py-3 font-medium text-gray-600 dark:text-gray-400">Reference #</th>
-                <th className="text-left px-4 py-3 font-medium text-gray-600 dark:text-gray-400">Issued</th>
-                <th className="text-left px-4 py-3 font-medium text-gray-600 dark:text-gray-400">Expiry</th>
+                <th className="text-left px-4 py-3 font-medium text-gray-600 dark:text-[#9BB0BC]">Employee</th>
+                <th className="text-left px-4 py-3 font-medium text-gray-600 dark:text-[#9BB0BC]">Check Type</th>
+                <th className="text-left px-4 py-3 font-medium text-gray-600 dark:text-[#9BB0BC]">Status</th>
+                <th className="text-left px-4 py-3 font-medium text-gray-600 dark:text-[#9BB0BC]">Reference #</th>
+                <th className="text-left px-4 py-3 font-medium text-gray-600 dark:text-[#9BB0BC]">Issued</th>
+                <th className="text-left px-4 py-3 font-medium text-gray-600 dark:text-[#9BB0BC]">Expiry</th>
                 <th className="px-4 py-3" />
               </tr>
             </thead>
@@ -306,17 +306,17 @@ export default function ScreeningPage() {
                 >
                   <td className="px-4 py-3">
                     <p className="font-medium text-gray-900 dark:text-white">{r.firstName} {r.lastName}</p>
-                    {r.email && <p className="text-xs text-gray-400 dark:text-gray-500">{r.email}</p>}
+                    {r.email && <p className="text-xs text-gray-400 dark:text-[#9BB0BC]">{r.email}</p>}
                   </td>
-                  <td className="px-4 py-3 capitalize text-gray-700 dark:text-gray-300">{r.checkType.replace(/_/g, ' ')}</td>
+                  <td className="px-4 py-3 capitalize text-gray-700 dark:text-[#C8D8E4]">{r.checkType.replace(/_/g, ' ')}</td>
                   <td className="px-4 py-3">
                     <span className={`inline-flex items-center gap-1.5 text-xs px-2 py-1 rounded-full font-medium ${STATUS_COLORS[r.status] ?? ''}`}>
                       <span className={`w-1.5 h-1.5 rounded-full ${STATUS_DOT[r.status] ?? 'bg-gray-400'}`} />
                       {STATUS_LABELS[r.status] ?? r.status}
                     </span>
                   </td>
-                  <td className="px-4 py-3 text-gray-600 dark:text-gray-400">{r.referenceNumber ?? '—'}</td>
-                  <td className="px-4 py-3 text-gray-600 dark:text-gray-400">
+                  <td className="px-4 py-3 text-gray-600 dark:text-[#9BB0BC]">{r.referenceNumber ?? '—'}</td>
+                  <td className="px-4 py-3 text-gray-600 dark:text-[#9BB0BC]">
                     {r.issuedDate ? new Date(r.issuedDate).toLocaleDateString('en-AU') : '—'}
                   </td>
                   <td className={`px-4 py-3 text-xs ${expiryColorClass(r.expiryDate)}`}>
@@ -368,39 +368,39 @@ export default function ScreeningPage() {
             </div>
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Employee *</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Employee *</label>
                 <select className="input-premium" value={form.employeeId} onChange={e => setForm(f => ({ ...f, employeeId: e.target.value }))}>
                   <option value="">Select employee…</option>
                   {employees.map(e => <option key={e.id} value={e.id}>{e.firstName} {e.lastName}</option>)}
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Check Type *</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Check Type *</label>
                 <select className="input-premium" value={form.checkType} onChange={e => setForm(f => ({ ...f, checkType: e.target.value }))}>
                   {CHECK_TYPES.map(t => <option key={t} value={t}>{t.replace(/_/g, ' ')}</option>)}
                 </select>
               </div>
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Reference #</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Reference #</label>
                   <input className="input-premium" placeholder="Optional" value={form.referenceNumber} onChange={e => setForm(f => ({ ...f, referenceNumber: e.target.value }))} />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Issued Date</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Issued Date</label>
                   <input type="date" className="input-premium" value={form.issuedDate} onChange={e => setForm(f => ({ ...f, issuedDate: e.target.value }))} />
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Expiry Date</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Expiry Date</label>
                 <input type="date" className="input-premium" value={form.expiryDate} onChange={e => setForm(f => ({ ...f, expiryDate: e.target.value }))} />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Notes</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Notes</label>
                 <textarea rows={2} className="input-premium resize-none" placeholder="Optional notes" value={form.notes} onChange={e => setForm(f => ({ ...f, notes: e.target.value }))} />
               </div>
             </div>
             <div className="flex gap-3 mt-6">
-              <button onClick={() => setShowCreate(false)} className="flex-1 px-4 py-2 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
+              <button onClick={() => setShowCreate(false)} className="flex-1 px-4 py-2 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg text-sm text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
                 Cancel
               </button>
               <button onClick={create} disabled={saving || !form.employeeId} className="flex-1 btn-primary disabled:opacity-50 transition">
@@ -423,19 +423,19 @@ export default function ScreeningPage() {
                 </svg>
               </button>
             </div>
-            <p className="text-sm text-gray-500 dark:text-gray-400 mb-5">
+            <p className="text-sm text-gray-500 dark:text-[#9BB0BC] mb-5">
               {editRecord.firstName} {editRecord.lastName}
             </p>
             <div className="space-y-4">
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Check Type</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Check Type</label>
                   <select className="input-premium" value={editForm.checkType} onChange={e => setEditForm(f => ({ ...f, checkType: e.target.value }))}>
                     {CHECK_TYPES.map(t => <option key={t} value={t}>{t.replace(/_/g, ' ')}</option>)}
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Status</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Status</label>
                   <select className="input-premium" value={editForm.status} onChange={e => setEditForm(f => ({ ...f, status: e.target.value }))}>
                     <option value="pending">Pending</option>
                     <option value="amber">Amber — Submitted</option>
@@ -445,16 +445,16 @@ export default function ScreeningPage() {
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Reference #</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Reference #</label>
                 <input className="input-premium" placeholder="Optional" value={editForm.referenceNumber} onChange={e => setEditForm(f => ({ ...f, referenceNumber: e.target.value }))} />
               </div>
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Issued Date</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Issued Date</label>
                   <input type="date" className="input-premium" value={editForm.issuedDate} onChange={e => setEditForm(f => ({ ...f, issuedDate: e.target.value }))} />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Expiry Date</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Expiry Date</label>
                   <input type="date" className="input-premium" value={editForm.expiryDate} onChange={e => setEditForm(f => ({ ...f, expiryDate: e.target.value }))} />
                 </div>
               </div>
@@ -464,17 +464,17 @@ export default function ScreeningPage() {
                 </p>
               )}
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Notes</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Notes</label>
                 <textarea rows={3} className="input-premium resize-none" value={editForm.notes} onChange={e => setEditForm(f => ({ ...f, notes: e.target.value }))} />
               </div>
               {editRecord.verifiedAt && (
-                <p className="text-xs text-gray-500 dark:text-gray-400">
+                <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">
                   Verified: {new Date(editRecord.verifiedAt).toLocaleString('en-AU')}
                 </p>
               )}
             </div>
             <div className="flex gap-3 mt-6">
-              <button onClick={() => setEditRecord(null)} className="flex-1 px-4 py-2 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
+              <button onClick={() => setEditRecord(null)} className="flex-1 px-4 py-2 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg text-sm text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
                 Cancel
               </button>
               <button onClick={saveEdit} disabled={saving} className="flex-1 btn-primary disabled:opacity-50 transition">

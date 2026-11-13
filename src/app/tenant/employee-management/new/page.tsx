@@ -18,22 +18,22 @@ const EMPLOYMENT_TYPES = [
 
 const SECTION = ({ title, children }: { title: string; children: React.ReactNode }) => (
   <div className="bg-white dark:bg-[#0F1E2E] border border-gray-100 dark:border-[#1A6080]/30 rounded-xl p-6 space-y-4">
-    <h2 className="text-sm font-semibold text-gray-500 dark:text-gray-400 ">{title}</h2>
+    <h2 className="text-sm font-semibold text-gray-500 dark:text-[#9BB0BC] ">{title}</h2>
     {children}
   </div>
 )
 
 const FIELD = ({ label, required, children }: { label: string; required?: boolean; children: React.ReactNode }) => (
   <div>
-    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+    <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">
       {label}{required && <span className="text-red-500 ml-0.5">*</span>}
     </label>
     {children}
   </div>
 )
 
-const INPUT_CLS = 'w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2.5 text-sm text-gray-800 dark:text-gray-200 placeholder-gray-400 focus:outline-none focus:border-[#0E3D52] transition'
-const SELECT_CLS = 'w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2.5 text-sm text-gray-700 dark:text-gray-300 focus:outline-none focus:border-[#0E3D52] transition'
+const INPUT_CLS = 'w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2.5 text-sm text-gray-800 dark:text-[#C8D8E4] placeholder-gray-400 focus:outline-none focus:border-[#0E3D52] transition'
+const SELECT_CLS = 'w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2.5 text-sm text-gray-700 dark:text-[#C8D8E4] focus:outline-none focus:border-[#0E3D52] transition'
 
 export default function NewEmployeePage() {
   const router = useRouter()
@@ -115,13 +115,13 @@ export default function NewEmployeePage() {
       <div className="flex items-center gap-3">
         <Link
           href="/tenant/employee-management"
-          className="text-gray-600 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-700 dark:text-gray-200 transition"
+          className="text-gray-600 dark:text-[#9BB0BC] hover:text-gray-600 dark:hover:text-gray-700 dark:text-[#C8D8E4] transition"
         >
           ← Back
         </Link>
         <div>
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Add Employee</h1>
-          <p className="text-sm text-gray-500 mt-0.5 dark:text-gray-400">Fill in the employee's details below</p>
+          <p className="text-sm text-gray-500 mt-0.5 dark:text-[#8aaabb]">Fill in the employee's details below</p>
         </div>
       </div>
 
@@ -227,8 +227,8 @@ export default function NewEmployeePage() {
               style={{ width: 18, height: 18, transform: form.ndisWorker ? 'translateX(18px)' : 'translateX(0)' }}
             />
           </div>
-          <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-            NDIS Worker <span className="text-xs text-gray-600 dark:text-gray-400 font-normal">(requires additional compliance screening)</span>
+          <span className="text-sm font-medium text-gray-700 dark:text-[#C8D8E4]">
+            NDIS Worker <span className="text-xs text-gray-600 dark:text-[#9BB0BC] font-normal">(requires additional compliance screening)</span>
           </span>
         </label>
       </SECTION>
@@ -245,7 +245,7 @@ export default function NewEmployeePage() {
         </button>
         <Link
           href="/tenant/employee-management"
-          className="px-6 py-2.5 rounded-xl text-sm font-semibold text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-[#0A1929] hover:bg-gray-200 dark:hover:bg-[#0E3D52]/40 transition"
+          className="px-6 py-2.5 rounded-xl text-sm font-semibold text-gray-600 dark:text-[#9BB0BC] bg-gray-100 dark:bg-[#0A1929] hover:bg-gray-200 dark:hover:bg-[#0E3D52]/40 transition"
         >
           Cancel
         </Link>

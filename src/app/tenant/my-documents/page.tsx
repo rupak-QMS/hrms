@@ -75,7 +75,7 @@ function expiryBadge(exp: string | null) {
 }
 
 const INPUT = 'input-premium'
-const LABEL = 'block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1'
+const LABEL = 'block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1'
 
 // Require expiry for certain categories
 const EXPIRY_CATS = new Set([
@@ -182,7 +182,7 @@ export default function MyDocumentsPage() {
       <div className="flex items-start justify-between flex-wrap gap-3">
         <div>
           <h1 className="text-2xl font-bold text-foreground">My Documents</h1>
-          <p className="text-sm text-gray-600 dark:text-gray-400 mt-0.5">Upload personal compliance documents for HR review</p>
+          <p className="text-sm text-gray-600 dark:text-[#9BB0BC] mt-0.5">Upload personal compliance documents for HR review</p>
         </div>
         {linked && (
           <button
@@ -198,12 +198,12 @@ export default function MyDocumentsPage() {
       {!loading && !linked && (
         <div className="card-premium p-10 text-center space-y-3">
           <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-[#0A1929] mx-auto mb-3">
-                <svg className="w-6 h-6 text-gray-600 dark:text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <svg className="w-6 h-6 text-gray-600 dark:text-[#9BB0BC] dark:text-[#9BB0BC]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
                 </svg>
               </div>
-          <p className="text-gray-600 dark:text-gray-300 font-medium">Account not linked to an employee record</p>
-          <p className="text-sm text-gray-500 dark:text-gray-400">Contact HR to link your account before uploading documents.</p>
+          <p className="text-gray-600 dark:text-[#C8D8E4] font-medium">Account not linked to an employee record</p>
+          <p className="text-sm text-gray-500 dark:text-[#9BB0BC]">Contact HR to link your account before uploading documents.</p>
         </div>
       )}
 
@@ -276,7 +276,7 @@ export default function MyDocumentsPage() {
               {saving ? 'Uploading…' : 'Submit for Review'}
             </button>
             <button type="button" onClick={() => setShowForm(false)}
-              className="px-5 py-2 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-white text-sm rounded-lg">
+              className="px-5 py-2 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:text-white text-sm rounded-lg">
               Cancel
             </button>
           </div>
@@ -284,7 +284,7 @@ export default function MyDocumentsPage() {
       )}
 
       {loading ? (
-        <div className="text-center py-12 text-gray-500 dark:text-gray-400">Loading…</div>
+        <div className="text-center py-12 text-gray-500 dark:text-[#9BB0BC]">Loading…</div>
       ) : linked && docs.length === 0 ? (
         <EmptyState
           icon="📁"
@@ -340,8 +340,8 @@ function DocSection({
     <div className="space-y-3">
       <div className="flex items-center gap-2">
         <h2 className="text-sm font-semibold text-foreground">{title}</h2>
-        <span className="text-xs text-gray-600 dark:text-gray-400">({docs.length})</span>
-        {note && <span className="text-xs text-gray-500 ml-1 dark:text-gray-400">— {note}</span>}
+        <span className="text-xs text-gray-600 dark:text-[#9BB0BC]">({docs.length})</span>
+        {note && <span className="text-xs text-gray-500 ml-1 dark:text-[#8aaabb]">— {note}</span>}
       </div>
       <div className="grid gap-3">
         {docs.map(d => {
@@ -360,7 +360,7 @@ function DocSection({
                     {ss?.label ?? d.status}
                   </span>
                 </div>
-                <p className="text-xs text-gray-500 mt-0.5 dark:text-gray-400">
+                <p className="text-xs text-gray-500 mt-0.5 dark:text-[#8aaabb]">
                   {d.category}
                   {d.fileName && <span className="ml-2">· {d.fileName} {fmtSize(d.fileSizeBytes)}</span>}
                 </p>
@@ -369,10 +369,10 @@ function DocSection({
                     {badge.text}
                   </span>
                 )}
-                {d.notes && <p className="text-xs text-gray-600 mt-1 italic dark:text-gray-400">{d.notes}</p>}
+                {d.notes && <p className="text-xs text-gray-600 mt-1 italic dark:text-[#8aaabb]">{d.notes}</p>}
               </div>
               <div className="flex flex-col items-end gap-2 shrink-0">
-                <span className="text-xs text-gray-600 dark:text-gray-400">
+                <span className="text-xs text-gray-600 dark:text-[#9BB0BC]">
                   {new Date(d.createdAt).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}
                 </span>
                 {onWithdraw && d.status === 'pending_review' && (

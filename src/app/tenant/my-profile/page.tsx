@@ -34,7 +34,7 @@ type EmergencyContact = {
 }
 
 const INPUT = 'input-premium'
-const LABEL = 'block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1'
+const LABEL = 'block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1'
 const ROW   = 'flex justify-between items-center py-2.5 border-b border-gray-200 dark:border-[#1A6080]/20 last:border-0'
 
 // ── 2FA Section ───────────────────────────────────────────────────────────────
@@ -106,7 +106,7 @@ function TwoFactorSection() {
   return (
     <div className="card-premium p-6">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-sm font-semibold text-gray-600 dark:text-gray-400 ">Two-Factor Authentication</h2>
+        <h2 className="text-sm font-semibold text-gray-600 dark:text-[#9BB0BC] ">Two-Factor Authentication</h2>
         <span className={`text-xs px-2.5 py-1 rounded-full border font-medium ${enabled ? 'badge badge-green' : 'badge badge-gray'}`}>
           {enabled ? 'Enabled' : 'Disabled'}
         </span>
@@ -114,7 +114,7 @@ function TwoFactorSection() {
 
       {step === 'idle' && (
         <>
-          <p className="text-sm text-gray-500 mb-4 dark:text-gray-400">
+          <p className="text-sm text-gray-500 mb-4 dark:text-[#8aaabb]">
             {enabled
               ? 'Your account is protected with an authenticator app (Google Authenticator, Authy, etc.).'
               : 'Add an extra layer of security. You\'ll need an authenticator app (Google Authenticator, Authy, etc.).'}
@@ -135,14 +135,14 @@ function TwoFactorSection() {
 
       {step === 'setup' && qrCode && (
         <div className="space-y-4">
-          <p className="text-sm text-gray-600 dark:text-gray-400">Scan this QR code with your authenticator app, then enter the 6-digit code below.</p>
+          <p className="text-sm text-gray-600 dark:text-[#9BB0BC]">Scan this QR code with your authenticator app, then enter the 6-digit code below.</p>
           <div className="flex justify-center">
             <div className="bg-white p-3 rounded-xl inline-block dark:bg-[#0F1E2E]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={qrCode} alt="TOTP QR Code" width={180} height={180} />
             </div>
           </div>
-          <p className="text-xs text-gray-600 text-center dark:text-gray-400">
+          <p className="text-xs text-gray-600 text-center dark:text-[#8aaabb]">
             Can&apos;t scan? Enter the secret manually: <code className="text-[#1A6080] dark:text-[#4ebac4] font-mono">{secret}</code>
           </p>
           <input
@@ -160,7 +160,7 @@ function TwoFactorSection() {
               {busy ? 'Verifying…' : 'Verify & Enable'}
             </button>
             <button onClick={cancelStep}
-              className="px-5 py-2.5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-white text-sm rounded-lg">
+              className="px-5 py-2.5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:text-white text-sm rounded-lg">
               Cancel
             </button>
           </div>
@@ -169,7 +169,7 @@ function TwoFactorSection() {
 
       {step === 'disable' && (
         <div className="space-y-4">
-          <p className="text-sm text-gray-600 dark:text-gray-400">Enter the 6-digit code from your authenticator app to confirm disabling 2FA.</p>
+          <p className="text-sm text-gray-600 dark:text-[#9BB0BC]">Enter the 6-digit code from your authenticator app to confirm disabling 2FA.</p>
           <input
             type="text"
             inputMode="numeric"
@@ -185,7 +185,7 @@ function TwoFactorSection() {
               {busy ? 'Processing…' : 'Confirm Disable'}
             </button>
             <button onClick={cancelStep}
-              className="px-5 py-2.5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-white text-sm rounded-lg">
+              className="px-5 py-2.5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:text-white text-sm rounded-lg">
               Cancel
             </button>
           </div>
@@ -343,12 +343,12 @@ export default function MyProfilePage() {
       <div className="p-6 max-w-2xl mx-auto">
         <div className="card-premium p-10 text-center">
           <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-[#0A1929] mx-auto mb-3">
-                <svg className="w-6 h-6 text-gray-600 dark:text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <svg className="w-6 h-6 text-gray-600 dark:text-[#9BB0BC] dark:text-[#9BB0BC]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
                 </svg>
               </div>
           <h2 className="text-lg font-semibold text-foreground mb-2">Profile Not Linked</h2>
-          <p className="text-gray-600 dark:text-gray-400 text-sm">
+          <p className="text-gray-600 dark:text-[#9BB0BC] text-sm">
             Your user account has not yet been linked to an employee profile.
             Please contact your HR administrator to set this up.
           </p>
@@ -398,7 +398,7 @@ export default function MyProfilePage() {
             <h1 className="text-2xl font-bold text-foreground">
               {profile.preferredName || profile.firstName} {profile.lastName}
             </h1>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
+            <p className="text-sm text-gray-600 dark:text-[#9BB0BC]">
               #{profile.employeeNumber} · {profile.entityName ?? 'HRMS'} ·{' '}
               <span className={`${profile.isActive ? 'text-green-400' : 'text-red-400'}`}>
                 {profile.isActive ? 'Active' : 'Inactive'}
@@ -443,12 +443,12 @@ export default function MyProfilePage() {
                 {saving ? 'Saving…' : 'Save Changes'}
               </button>
               <button type="button" onClick={() => setEditing(false)}
-                className="px-5 py-2.5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-white text-sm rounded-lg">
+                className="px-5 py-2.5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:text-white text-sm rounded-lg">
                 Cancel
               </button>
             </div>
           </form>
-          <p className="text-xs text-gray-600 mt-3 dark:text-gray-400">
+          <p className="text-xs text-gray-600 mt-3 dark:text-[#8aaabb]">
             Name, employment type, salary, and start date are managed by HR and cannot be self-updated.
           </p>
         </div>
@@ -456,25 +456,25 @@ export default function MyProfilePage() {
 
       {/* Personal Information */}
       <div className="card-premium p-6">
-        <h2 className="text-sm font-semibold text-gray-600 dark:text-gray-400  mb-4">Personal Information</h2>
-        <div className={ROW}><span className="text-gray-500 text-sm dark:text-gray-400">Full Name</span><span className="text-foreground text-sm font-medium">{profile.firstName} {profile.lastName}</span></div>
-        <div className={ROW}><span className="text-gray-500 text-sm dark:text-gray-400">Preferred Name</span><span className="text-foreground text-sm">{profile.preferredName || '—'}</span></div>
-        <div className={ROW}><span className="text-gray-500 text-sm dark:text-gray-400">Email</span><span className="text-foreground text-sm">{profile.email}</span></div>
-        <div className={ROW}><span className="text-gray-500 text-sm dark:text-gray-400">Phone</span><span className="text-foreground text-sm">{profile.phone || '—'}</span></div>
-        <div className={ROW}><span className="text-gray-500 text-sm dark:text-gray-400">Address</span><span className="text-foreground text-sm text-right max-w-xs">{profile.address || '—'}</span></div>
+        <h2 className="text-sm font-semibold text-gray-600 dark:text-[#9BB0BC]  mb-4">Personal Information</h2>
+        <div className={ROW}><span className="text-gray-500 text-sm dark:text-[#8aaabb]">Full Name</span><span className="text-foreground text-sm font-medium">{profile.firstName} {profile.lastName}</span></div>
+        <div className={ROW}><span className="text-gray-500 text-sm dark:text-[#8aaabb]">Preferred Name</span><span className="text-foreground text-sm">{profile.preferredName || '—'}</span></div>
+        <div className={ROW}><span className="text-gray-500 text-sm dark:text-[#8aaabb]">Email</span><span className="text-foreground text-sm">{profile.email}</span></div>
+        <div className={ROW}><span className="text-gray-500 text-sm dark:text-[#8aaabb]">Phone</span><span className="text-foreground text-sm">{profile.phone || '—'}</span></div>
+        <div className={ROW}><span className="text-gray-500 text-sm dark:text-[#8aaabb]">Address</span><span className="text-foreground text-sm text-right max-w-xs">{profile.address || '—'}</span></div>
         {profile.dateOfBirth && (
-          <div className={ROW}><span className="text-gray-500 text-sm dark:text-gray-400">Date of Birth</span><span className="text-foreground text-sm">{fmt(profile.dateOfBirth)}</span></div>
+          <div className={ROW}><span className="text-gray-500 text-sm dark:text-[#8aaabb]">Date of Birth</span><span className="text-foreground text-sm">{fmt(profile.dateOfBirth)}</span></div>
         )}
       </div>
 
       {/* Employment Details */}
       <div className="card-premium p-6">
-        <h2 className="text-sm font-semibold text-gray-600 dark:text-gray-400  mb-4">Employment Details</h2>
-        <div className={ROW}><span className="text-gray-500 text-sm dark:text-gray-400">Employee Number</span><span className="text-foreground text-sm font-mono">#{profile.employeeNumber}</span></div>
-        <div className={ROW}><span className="text-gray-500 text-sm dark:text-gray-400">Organisation</span><span className="text-foreground text-sm">{profile.entityName || '—'}</span></div>
-        <div className={ROW}><span className="text-gray-500 text-sm dark:text-gray-400">Employment Type</span><span className="text-foreground text-sm">{employmentTypeLabel[profile.employmentType] ?? profile.employmentType}</span></div>
-        <div className={ROW}><span className="text-gray-500 text-sm dark:text-gray-400">Start Date</span><span className="text-foreground text-sm">{fmt(profile.startDate)}</span></div>
-        <div className={ROW}><span className="text-gray-500 text-sm dark:text-gray-400">Status</span>
+        <h2 className="text-sm font-semibold text-gray-600 dark:text-[#9BB0BC]  mb-4">Employment Details</h2>
+        <div className={ROW}><span className="text-gray-500 text-sm dark:text-[#8aaabb]">Employee Number</span><span className="text-foreground text-sm font-mono">#{profile.employeeNumber}</span></div>
+        <div className={ROW}><span className="text-gray-500 text-sm dark:text-[#8aaabb]">Organisation</span><span className="text-foreground text-sm">{profile.entityName || '—'}</span></div>
+        <div className={ROW}><span className="text-gray-500 text-sm dark:text-[#8aaabb]">Employment Type</span><span className="text-foreground text-sm">{employmentTypeLabel[profile.employmentType] ?? profile.employmentType}</span></div>
+        <div className={ROW}><span className="text-gray-500 text-sm dark:text-[#8aaabb]">Start Date</span><span className="text-foreground text-sm">{fmt(profile.startDate)}</span></div>
+        <div className={ROW}><span className="text-gray-500 text-sm dark:text-[#8aaabb]">Status</span>
           <span className={profile.isActive ? 'badge badge-green' : 'badge badge-red'}>
             {profile.isActive ? 'Active' : 'Inactive'}
           </span>
@@ -484,7 +484,7 @@ export default function MyProfilePage() {
       {/* Emergency Contacts */}
       <div className="card-premium p-6">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-sm font-semibold text-gray-600 dark:text-gray-400 ">Emergency Contacts</h2>
+          <h2 className="text-sm font-semibold text-gray-600 dark:text-[#9BB0BC] ">Emergency Contacts</h2>
           {editingContact !== 'new' && (
             <button
               onClick={() => { setEditingContact('new'); setContactForm(BLANK_CONTACT); setContactError('') }}
@@ -497,7 +497,7 @@ export default function MyProfilePage() {
         {/* Inline add/edit form */}
         {editingContact && (
           <form onSubmit={saveContact} className="bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-xl p-4 mb-4 space-y-3">
-            <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 ">
+            <p className="text-xs font-semibold text-gray-600 dark:text-[#9BB0BC] ">
               {editingContact === 'new' ? 'New Emergency Contact' : 'Edit Contact'}
             </p>
             {contactError && <p className="text-xs text-red-400 bg-red-900/20 border border-red-800 rounded-lg px-3 py-2">{contactError}</p>}
@@ -523,7 +523,7 @@ export default function MyProfilePage() {
                   placeholder="jane@example.com" className={INPUT} />
               </div>
             </div>
-            <label className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 cursor-pointer select-none">
+            <label className="flex items-center gap-2 text-sm text-gray-700 dark:text-[#C8D8E4] cursor-pointer select-none">
               <input type="checkbox" checked={contactForm.isPrimary} onChange={e => setContactForm(f => ({ ...f, isPrimary: e.target.checked }))}
                 className="rounded border-[#1A6080]/40" />
               Set as primary contact
@@ -534,7 +534,7 @@ export default function MyProfilePage() {
                 {contactSaving ? 'Saving…' : editingContact === 'new' ? 'Add Contact' : 'Save Changes'}
               </button>
               <button type="button" onClick={() => { setEditingContact(null); setContactForm(BLANK_CONTACT) }}
-                className="px-4 py-2 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 text-sm rounded-lg hover:text-white transition">
+                className="px-4 py-2 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] text-sm rounded-lg hover:text-white transition">
                 Cancel
               </button>
             </div>
@@ -542,7 +542,7 @@ export default function MyProfilePage() {
         )}
 
         {contacts.length === 0 && editingContact !== 'new' ? (
-          <p className="text-gray-600 text-sm text-center py-4 dark:text-gray-400">No emergency contacts on file. Add one using the button above.</p>
+          <p className="text-gray-600 text-sm text-center py-4 dark:text-[#8aaabb]">No emergency contacts on file. Add one using the button above.</p>
         ) : (
           <div className="space-y-3">
             {contacts.map(c => (
@@ -556,13 +556,13 @@ export default function MyProfilePage() {
                   </div>
                   <div className="flex gap-2">
                     <button onClick={() => openEditContact(c)}
-                      className="text-xs text-gray-500 hover:text-[#1A6080] dark:text-[#4ebac4] transition dark:text-gray-400">Edit</button>
+                      className="text-xs text-gray-500 hover:text-[#1A6080] dark:text-[#4ebac4] transition dark:text-[#8aaabb]">Edit</button>
                     <button onClick={() => deleteContact(c.id)}
-                      className="text-xs text-gray-500 hover:text-red-400 transition dark:text-gray-400">Remove</button>
+                      className="text-xs text-gray-500 hover:text-red-400 transition dark:text-[#8aaabb]">Remove</button>
                   </div>
                 </div>
-                {c.relationship && <p className="text-xs text-gray-500 mb-1 dark:text-gray-400">{c.relationship}</p>}
-                <div className="flex gap-4 text-xs text-gray-600 dark:text-gray-400">
+                {c.relationship && <p className="text-xs text-gray-500 mb-1 dark:text-[#8aaabb]">{c.relationship}</p>}
+                <div className="flex gap-4 text-xs text-gray-600 dark:text-[#9BB0BC]">
                   {c.phone && <span>{c.phone}</span>}
                   {c.email && <span>{c.email}</span>}
                 </div>

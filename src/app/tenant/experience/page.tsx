@@ -205,7 +205,7 @@ export default function ExperiencePage() {
       <div className="flex items-start justify-between flex-wrap gap-3">
         <div>
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Work History</h1>
-          <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Employee experience and employment history records</p>
+          <p className="text-sm text-gray-500 dark:text-[#9BB0BC] mt-1">Employee experience and employment history records</p>
         </div>
         <div className="flex gap-2">
           <ExportButton onClick={handleExport} disabled={records.length === 0} />
@@ -221,15 +221,15 @@ export default function ExperiencePage() {
       {/* Stats */}
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
         <div className="card-premium p-4">
-          <p className="text-xs text-gray-500 dark:text-gray-400">Total Records</p>
+          <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Total Records</p>
           <p className="text-2xl font-bold text-gray-900 dark:text-white mt-1">{totalRecords}</p>
         </div>
         <div className="card-premium p-4">
-          <p className="text-xs text-gray-500 dark:text-gray-400">Employees</p>
+          <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Employees</p>
           <p className="text-2xl font-bold text-gray-900 dark:text-white mt-1">{uniqueEmps}</p>
         </div>
         <div className="card-premium p-4 col-span-2 sm:col-span-1">
-          <p className="text-xs text-gray-500 dark:text-gray-400">Avg Tenure</p>
+          <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Avg Tenure</p>
           <p className="text-2xl font-bold text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4] mt-1">{totalRecords ? avgTenureLabel : '—'}</p>
         </div>
       </div>
@@ -284,25 +284,25 @@ export default function ExperiencePage() {
                     <td className="px-4 py-3 font-medium text-gray-900 dark:text-white text-sm whitespace-nowrap">
                       {r.firstName} {r.lastName}
                     </td>
-                    <td className="px-4 py-3 text-gray-700 dark:text-gray-300 text-sm">{r.companyName}</td>
-                    <td className="px-4 py-3 text-gray-700 dark:text-gray-300 text-sm">{r.jobTitle}</td>
+                    <td className="px-4 py-3 text-gray-700 dark:text-[#C8D8E4] text-sm">{r.companyName}</td>
+                    <td className="px-4 py-3 text-gray-700 dark:text-[#C8D8E4] text-sm">{r.jobTitle}</td>
                     <td className="px-4 py-3">
-                      <span className="text-xs px-2 py-0.5 rounded-full border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400">
+                      <span className="text-xs px-2 py-0.5 rounded-full border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC]">
                         {EMP_TYPE_LABELS[r.employmentType] ?? r.employmentType}
                       </span>
                     </td>
-                    <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-400 whitespace-nowrap">
+                    <td className="px-4 py-3 text-sm text-gray-600 dark:text-[#9BB0BC] whitespace-nowrap">
                       {durationLabel(r.startDate, r.endDate, r.isCurrent)}
                       {r.isCurrent && (
                         <span className="ml-1.5 text-xs px-1.5 py-0.5 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-full">Current</span>
                       )}
                     </td>
-                    <td className="px-4 py-3 text-sm text-gray-500 dark:text-gray-400">{r.location ?? '—'}</td>
+                    <td className="px-4 py-3 text-sm text-gray-500 dark:text-[#9BB0BC]">{r.location ?? '—'}</td>
                     <td className="px-4 py-3">
                       <div className="flex gap-1">
                         <button
                           onClick={() => openEdit(r)}
-                          className="text-xs px-2 py-1 rounded border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:border-gray-400 dark:hover:border-gray-500 transition"
+                          className="text-xs px-2 py-1 rounded border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:text-gray-900 dark:hover:text-white hover:border-gray-400 dark:hover:border-gray-500 transition"
                         >
                           Edit
                         </button>
@@ -319,7 +319,7 @@ export default function ExperiencePage() {
               </tbody>
             </table>
           </div>
-          <div className="px-4 py-3 border-t border-gray-100 dark:border-[#1A6080]/20 text-xs text-gray-500 dark:text-gray-500">
+          <div className="px-4 py-3 border-t border-gray-100 dark:border-[#1A6080]/20 text-xs text-gray-500 dark:text-[#9BB0BC]">
             {records.length} record{records.length !== 1 ? 's' : ''}
             {typeFilter && ` · filtered by ${EMP_TYPE_LABELS[typeFilter]}`}
             {search && ` · "${search}"`}
@@ -341,7 +341,7 @@ export default function ExperiencePage() {
               {/* Employee */}
               {!editRecord && (
                 <div>
-                  <label className="text-xs text-gray-500 dark:text-gray-400 mb-1 block">Employee *</label>
+                  <label className="text-xs text-gray-500 dark:text-[#9BB0BC] mb-1 block">Employee *</label>
                   <select
                     required
                     value={form.employeeId}
@@ -358,7 +358,7 @@ export default function ExperiencePage() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="text-xs text-gray-500 dark:text-gray-400 mb-1 block">Company Name *</label>
+                  <label className="text-xs text-gray-500 dark:text-[#9BB0BC] mb-1 block">Company Name *</label>
                   <input
                     required
                     value={form.companyName}
@@ -368,7 +368,7 @@ export default function ExperiencePage() {
                   />
                 </div>
                 <div>
-                  <label className="text-xs text-gray-500 dark:text-gray-400 mb-1 block">Job Title *</label>
+                  <label className="text-xs text-gray-500 dark:text-[#9BB0BC] mb-1 block">Job Title *</label>
                   <input
                     required
                     value={form.jobTitle}
@@ -378,7 +378,7 @@ export default function ExperiencePage() {
                   />
                 </div>
                 <div>
-                  <label className="text-xs text-gray-500 dark:text-gray-400 mb-1 block">Employment Type</label>
+                  <label className="text-xs text-gray-500 dark:text-[#9BB0BC] mb-1 block">Employment Type</label>
                   <select
                     value={form.employmentType}
                     onChange={e => setForm(f => ({ ...f, employmentType: e.target.value }))}
@@ -388,7 +388,7 @@ export default function ExperiencePage() {
                   </select>
                 </div>
                 <div>
-                  <label className="text-xs text-gray-500 dark:text-gray-400 mb-1 block">Location</label>
+                  <label className="text-xs text-gray-500 dark:text-[#9BB0BC] mb-1 block">Location</label>
                   <input
                     value={form.location}
                     onChange={e => setForm(f => ({ ...f, location: e.target.value }))}
@@ -397,7 +397,7 @@ export default function ExperiencePage() {
                   />
                 </div>
                 <div>
-                  <label className="text-xs text-gray-500 dark:text-gray-400 mb-1 block">Start Date *</label>
+                  <label className="text-xs text-gray-500 dark:text-[#9BB0BC] mb-1 block">Start Date *</label>
                   <input
                     required
                     type="date"
@@ -407,7 +407,7 @@ export default function ExperiencePage() {
                   />
                 </div>
                 <div>
-                  <label className="text-xs text-gray-500 dark:text-gray-400 mb-1 block">End Date</label>
+                  <label className="text-xs text-gray-500 dark:text-[#9BB0BC] mb-1 block">End Date</label>
                   <input
                     type="date"
                     value={form.endDate}
@@ -418,7 +418,7 @@ export default function ExperiencePage() {
                 </div>
               </div>
 
-              <label className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 cursor-pointer select-none">
+              <label className="flex items-center gap-2 text-sm text-gray-700 dark:text-[#C8D8E4] cursor-pointer select-none">
                 <input
                   type="checkbox"
                   checked={form.isCurrent}
@@ -429,7 +429,7 @@ export default function ExperiencePage() {
               </label>
 
               <div>
-                <label className="text-xs text-gray-500 dark:text-gray-400 mb-1 block">Description / Key Responsibilities</label>
+                <label className="text-xs text-gray-500 dark:text-[#9BB0BC] mb-1 block">Description / Key Responsibilities</label>
                 <textarea
                   rows={3}
                   value={form.description}
@@ -441,7 +441,7 @@ export default function ExperiencePage() {
 
               {!form.isCurrent && (
                 <div>
-                  <label className="text-xs text-gray-500 dark:text-gray-400 mb-1 block">Reason for Leaving</label>
+                  <label className="text-xs text-gray-500 dark:text-[#9BB0BC] mb-1 block">Reason for Leaving</label>
                   <input
                     value={form.reasonForLeaving}
                     onChange={e => setForm(f => ({ ...f, reasonForLeaving: e.target.value }))}
@@ -455,7 +455,7 @@ export default function ExperiencePage() {
                 <button
                   type="button"
                   onClick={() => setShowModal(false)}
-                  className="px-4 py-2 text-sm border border-gray-300 dark:border-[#1A6080]/40 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition"
+                  className="px-4 py-2 text-sm border border-gray-300 dark:border-[#1A6080]/40 rounded-lg text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition"
                 >
                   Cancel
                 </button>

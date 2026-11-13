@@ -69,7 +69,7 @@ export default function CompetencyPage() {
       <div className="px-6 py-4 border-b border-gray-200 bg-white flex items-center justify-between dark:bg-[#0A1929] dark:border-[#1A6080]/30">
         <div>
           <h1 className="text-xl font-semibold text-gray-900 dark:text-white">Competency & Skills</h1>
-          <p className="text-sm text-gray-500 mt-0.5 dark:text-gray-400">Skill matrix and competency assessments per employee</p>
+          <p className="text-sm text-gray-500 mt-0.5 dark:text-[#8aaabb]">Skill matrix and competency assessments per employee</p>
         </div>
         <div className="flex gap-2">
           {tab === 'library' && (
@@ -95,7 +95,7 @@ export default function CompetencyPage() {
         {tab === 'matrix' && (
           <div className="space-y-4">
             <div className="max-w-sm">
-              <label className="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300">Select Employee</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1 dark:text-[#C8D8E4]">Select Employee</label>
               <select className="input-premium" value={selectedEmp} onChange={e => setSelectedEmp(e.target.value)}>
                 <option value="">Choose employee…</option>
                 {employees.map(e => <option key={e.id} value={e.id}>{e.firstName} {e.lastName}</option>)}
@@ -103,11 +103,11 @@ export default function CompetencyPage() {
             </div>
 
             {selectedEmp && (
-              loading ? <p className="text-sm text-gray-600 dark:text-gray-400">Loading…</p> :
+              loading ? <p className="text-sm text-gray-600 dark:text-[#9BB0BC]">Loading…</p> :
               assessments.length === 0 ? (
-                <div className="text-center py-12 text-gray-600 dark:text-gray-400">
+                <div className="text-center py-12 text-gray-600 dark:text-[#9BB0BC]">
                   <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-[#0A1929] mx-auto mb-3">
-                <svg className="w-6 h-6 text-gray-600 dark:text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <svg className="w-6 h-6 text-gray-600 dark:text-[#9BB0BC] dark:text-[#9BB0BC]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
                 </svg>
               </div>
@@ -120,7 +120,7 @@ export default function CompetencyPage() {
                       <div className="flex items-start justify-between gap-2">
                         <div>
                           <p className="text-sm font-medium text-gray-900 dark:text-white">{a.competencyName}</p>
-                          {a.competencyCategory && <p className="text-xs text-gray-600 dark:text-gray-400 capitalize">{a.competencyCategory}</p>}
+                          {a.competencyCategory && <p className="text-xs text-gray-600 dark:text-[#9BB0BC] capitalize">{a.competencyCategory}</p>}
                         </div>
                         {a.outcome && (
                           <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-medium ${OUTCOME_COLORS[a.outcome] ?? 'bg-gray-100 text-gray-500'}`}>
@@ -128,9 +128,9 @@ export default function CompetencyPage() {
                           </span>
                         )}
                       </div>
-                      {a.assessedAt && <p className="text-xs text-gray-500 dark:text-gray-400">Assessed: {new Date(a.assessedAt).toLocaleDateString()}</p>}
+                      {a.assessedAt && <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Assessed: {new Date(a.assessedAt).toLocaleDateString()}</p>}
                       {a.expiryDate && <p className="text-xs text-orange-600">Expires: {new Date(a.expiryDate).toLocaleDateString()}</p>}
-                      {a.evidence && <p className="text-xs text-gray-500 truncate dark:text-gray-400">{a.evidence}</p>}
+                      {a.evidence && <p className="text-xs text-gray-500 truncate dark:text-[#8aaabb]">{a.evidence}</p>}
                     </div>
                   ))}
                 </div>
@@ -142,9 +142,9 @@ export default function CompetencyPage() {
         {tab === 'library' && (
           <div className="space-y-6">
             {categories.length === 0 && competencies.length === 0 ? (
-              <div className="text-center py-12 text-gray-600 dark:text-gray-400">
+              <div className="text-center py-12 text-gray-600 dark:text-[#9BB0BC]">
                 <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-[#0A1929] mx-auto mb-3">
-                <svg className="w-6 h-6 text-gray-600 dark:text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <svg className="w-6 h-6 text-gray-600 dark:text-[#9BB0BC] dark:text-[#9BB0BC]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
                 </svg>
               </div>
@@ -153,12 +153,12 @@ export default function CompetencyPage() {
             ) : (
               (categories.length > 0 ? categories : [null]).map(cat => (
                 <div key={cat ?? 'uncategorised'}>
-                  <h3 className="text-xs font-semibold  text-gray-600 dark:text-gray-400 mb-3">{cat ?? 'Uncategorised'}</h3>
+                  <h3 className="text-xs font-semibold  text-gray-600 dark:text-[#9BB0BC] mb-3">{cat ?? 'Uncategorised'}</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                     {competencies.filter(c => c.category === cat).map(c => (
                       <div key={c.id} className="border border-gray-200 rounded-lg p-4 dark:border-[#1A6080]/30">
                         <p className="text-sm font-medium text-gray-900 dark:text-white">{c.name}</p>
-                        {c.description && <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">{c.description}</p>}
+                        {c.description && <p className="text-xs text-gray-500 mt-1 dark:text-[#8aaabb]">{c.description}</p>}
                       </div>
                     ))}
                   </div>
@@ -180,7 +180,7 @@ export default function CompetencyPage() {
               <textarea className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm resize-none dark:border-[#1A6080]/30" rows={2} placeholder="Description" value={compForm.description} onChange={e => setCompForm(f => ({...f, description:e.target.value}))} />
             </div>
             <div className="flex gap-3 mt-5">
-              <button onClick={() => setShowAddComp(false)} className="flex-1 px-4 py-2 border border-gray-200 rounded-lg text-sm text-gray-600 dark:text-gray-400 dark:border-[#1A6080]/30">Cancel</button>
+              <button onClick={() => setShowAddComp(false)} className="flex-1 px-4 py-2 border border-gray-200 rounded-lg text-sm text-gray-600 dark:text-[#9BB0BC] dark:border-[#1A6080]/30">Cancel</button>
               <button onClick={addCompetency} disabled={saving || !compForm.name} className="flex-1 btn-primary">{saving ? 'Adding…' : 'Add'}</button>
             </div>
           </div>
@@ -202,15 +202,15 @@ export default function CompetencyPage() {
                 <option value="not_yet_competent">Not Yet Competent</option>
               </select>
               <div className="grid grid-cols-2 gap-2">
-                <div><label className="text-xs text-gray-500 mb-1 block dark:text-gray-400">Assessed Date</label>
+                <div><label className="text-xs text-gray-500 mb-1 block dark:text-[#8aaabb]">Assessed Date</label>
                   <input type="date" className="input-premium" value={assessForm.assessedAt} onChange={e => setAssessForm(f => ({...f, assessedAt:e.target.value}))} /></div>
-                <div><label className="text-xs text-gray-500 mb-1 block dark:text-gray-400">Expiry Date</label>
+                <div><label className="text-xs text-gray-500 mb-1 block dark:text-[#8aaabb]">Expiry Date</label>
                   <input type="date" className="input-premium" value={assessForm.expiryDate} onChange={e => setAssessForm(f => ({...f, expiryDate:e.target.value}))} /></div>
               </div>
               <input className="input-premium" placeholder="Evidence reference" value={assessForm.evidence} onChange={e => setAssessForm(f => ({...f, evidence:e.target.value}))} />
             </div>
             <div className="flex gap-3 mt-5">
-              <button onClick={() => setShowAssess(false)} className="flex-1 px-4 py-2 border border-gray-200 rounded-lg text-sm text-gray-600 dark:text-gray-400 dark:border-[#1A6080]/30">Cancel</button>
+              <button onClick={() => setShowAssess(false)} className="flex-1 px-4 py-2 border border-gray-200 rounded-lg text-sm text-gray-600 dark:text-[#9BB0BC] dark:border-[#1A6080]/30">Cancel</button>
               <button onClick={addAssessment} disabled={saving || !assessForm.competencyId} className="flex-1 btn-primary">{saving ? 'Saving…' : 'Record'}</button>
             </div>
           </div>

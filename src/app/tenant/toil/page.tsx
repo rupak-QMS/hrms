@@ -242,7 +242,7 @@ export default function ToilPage() {
                 <tr><td colSpan={6} className="py-8 text-center text-gray-400">No TOIL balances yet. Record an accrual to get started.</td></tr>
               )}
               {balances.map(b => (
-                <tr key={b.id} className="text-gray-700 dark:text-gray-300">
+                <tr key={b.id} className="text-gray-700 dark:text-[#C8D8E4]">
                   <td className="py-3 pr-4">
                     <div className="font-medium">{b.employeeName ?? b.employeeId}</div>
                     {b.employeeEmail && <div className="text-xs text-gray-400">{b.employeeEmail}</div>}
@@ -312,7 +312,7 @@ export default function ToilPage() {
                     <tr><td colSpan={8} className="py-8 text-center text-gray-400">No entries found</td></tr>
                   )}
                   {entries.filter(e => !searchEntries || e.workDate.includes(searchEntries) || (e.description ?? '').toLowerCase().includes(searchEntries.toLowerCase()) || (ENTRY_TYPE_LABEL[e.entryType] ?? '').toLowerCase().includes(searchEntries.toLowerCase())).map(e => (
-                    <tr key={e.id} className="group text-gray-700 dark:text-gray-300">
+                    <tr key={e.id} className="group text-gray-700 dark:text-[#C8D8E4]">
                       <td className="py-2.5 pr-4">{e.workDate}</td>
                       <td className="py-2.5 pr-4">
                         <span className={`font-medium capitalize ${TYPE_COLORS[e.entryType] ?? ''}`}>
@@ -405,7 +405,7 @@ export default function ToilPage() {
                   </button>
                   <button
                     onClick={() => { setRejecting(null); setRejectReason('') }}
-                    className="px-3 py-1.5 border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 text-xs rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition"
+                    className="px-3 py-1.5 border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] text-xs rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition"
                   >
                     Cancel
                   </button>
@@ -426,7 +426,7 @@ export default function ToilPage() {
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Record TOIL</h3>
             <div className="space-y-3">
               <div>
-                <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Employee *</label>
+                <label className="block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1">Employee *</label>
                 <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                   value={form.employeeId} onChange={e => setForm(f => ({ ...f, employeeId: e.target.value }))}>
                   <option value="">Select employee…</option>
@@ -437,7 +437,7 @@ export default function ToilPage() {
               </div>
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Entry Type</label>
+                  <label className="block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1">Entry Type</label>
                   <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                     value={form.entryType} onChange={e => setForm(f => ({ ...f, entryType: e.target.value }))}>
                     <option value="accrual">Accrual (overtime worked)</option>
@@ -447,19 +447,19 @@ export default function ToilPage() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Work Date *</label>
+                  <label className="block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1">Work Date *</label>
                   <input type="date" className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                     value={form.workDate} onChange={e => setForm(f => ({ ...f, workDate: e.target.value }))} />
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Hours *</label>
+                  <label className="block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1">Hours *</label>
                   <input type="number" step="0.25" min="0.25" className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                     value={form.hours} onChange={e => setForm(f => ({ ...f, hours: e.target.value }))} placeholder="e.g. 2.5" />
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Multiplier</label>
+                  <label className="block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1">Multiplier</label>
                   <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                     value={form.multiplier} onChange={e => setForm(f => ({ ...f, multiplier: e.target.value }))}>
                     <option value="1.0">1.0× (standard)</option>
@@ -469,7 +469,7 @@ export default function ToilPage() {
                 </div>
               </div>
               <div>
-                <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Description</label>
+                <label className="block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1">Description</label>
                 <input className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                   value={form.description} onChange={e => setForm(f => ({ ...f, description: e.target.value }))} placeholder="e.g. Emergency on-call weekend coverage" />
               </div>
@@ -481,7 +481,7 @@ export default function ToilPage() {
             </div>
             <div className="flex gap-2 mt-5">
               <button onClick={() => setShowModal(false)}
-                className="flex-1 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
+                className="flex-1 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 text-sm text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
                 Cancel
               </button>
               <button onClick={saveEntry} disabled={saving || !form.employeeId || !form.workDate || !form.hours}

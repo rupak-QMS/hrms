@@ -220,15 +220,15 @@ export default function EssAnnouncementsPage() {
 
       {/* Content */}
       {loading ? (
-        <div className="flex justify-center py-16 text-gray-400 dark:text-gray-500">Loading…</div>
+        <div className="flex justify-center py-16 text-gray-400 dark:text-[#9BB0BC]">Loading…</div>
       ) : error ? (
         <div className="card-premium p-6 text-red-600 dark:text-red-400">{error}</div>
       ) : filtered.length === 0 ? (
         <div className="card-premium p-12 text-center">
-          <svg className="w-10 h-10 mx-auto mb-3 text-gray-300 dark:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg className="w-10 h-10 mx-auto mb-3 text-gray-300 dark:text-[#9BB0BC]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
           </svg>
-          <p className="text-gray-500 dark:text-gray-400">No announcements found</p>
+          <p className="text-gray-500 dark:text-[#9BB0BC]">No announcements found</p>
           <button onClick={openCreate} className="mt-3 text-sm text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4] hover:underline">
             Create your first announcement
           </button>
@@ -346,7 +346,7 @@ export default function EssAnnouncementsPage() {
               <div className="flex justify-end gap-3 pt-2">
                 <button
                   onClick={() => { setShowModal(false); setSaveError('') }}
-                  className="px-4 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/40 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition-colors"
+                  className="px-4 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/40 text-sm text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition-colors"
                 >
                   Cancel
                 </button>
@@ -368,14 +368,14 @@ export default function EssAnnouncementsPage() {
         <div className="modal-overlay">
           <div className="card-premium w-full max-w-sm shadow-lg p-6 space-y-4">
             <h2 className="text-base font-semibold text-gray-900 dark:text-white">Delete announcement?</h2>
-            <p className="text-sm text-gray-500 dark:text-gray-400">This cannot be undone.</p>
+            <p className="text-sm text-gray-500 dark:text-[#9BB0BC]">This cannot be undone.</p>
             {deleteError && (
               <p className="text-sm text-red-600 dark:text-red-400">{deleteError}</p>
             )}
             <div className="flex justify-end gap-3">
               <button
                 onClick={() => { setDeleteId(null); setDeleteError('') }}
-                className="px-4 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/40 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition-colors"
+                className="px-4 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/40 text-sm text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition-colors"
               >
                 Cancel
               </button>
@@ -424,24 +424,24 @@ function AnnouncementTable({
             <tr key={a.id}>
               <td>
                 <div className="font-medium text-gray-900 dark:text-white">{a.title}</div>
-                <div className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">{a.body}</div>
+                <div className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-0.5 line-clamp-1">{a.body}</div>
               </td>
               <td>
                 <span className={priorityBadge(a.priority)}>
                   {a.priority.charAt(0).toUpperCase() + a.priority.slice(1)}
                 </span>
               </td>
-              <td className="text-gray-600 dark:text-gray-300 capitalize">
+              <td className="text-gray-600 dark:text-[#C8D8E4] capitalize">
                 {a.targetRole ?? 'All'}
               </td>
-              <td className="text-gray-600 dark:text-gray-300">{formatDate(a.publishedAt)}</td>
-              <td className="text-gray-600 dark:text-gray-300">{formatDate(a.expiresAt)}</td>
-              <td className="text-gray-500 dark:text-gray-400 text-xs">{a.createdBy ?? '—'}</td>
+              <td className="text-gray-600 dark:text-[#C8D8E4]">{formatDate(a.publishedAt)}</td>
+              <td className="text-gray-600 dark:text-[#C8D8E4]">{formatDate(a.expiresAt)}</td>
+              <td className="text-gray-500 dark:text-[#9BB0BC] text-xs">{a.createdBy ?? '—'}</td>
               <td className="text-right">
                 <div className="flex justify-end gap-2">
                   <button
                     onClick={() => onEdit(a)}
-                    className="text-xs px-2.5 py-1 rounded-md border border-gray-300 dark:border-[#1A6080]/40 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition-colors"
+                    className="text-xs px-2.5 py-1 rounded-md border border-gray-300 dark:border-[#1A6080]/40 text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition-colors"
                   >
                     Edit
                   </button>

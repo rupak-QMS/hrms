@@ -62,7 +62,7 @@ const COMPLIANCE_BADGE: Record<string, { label: string; cls: string }> = {
   green:   { label: 'Compliant',     cls: 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400' },
   amber:   { label: 'Needs Review',  cls: 'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-400' },
   red:     { label: 'Non-Compliant', cls: 'bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-400' },
-  pending: { label: 'Pending',       cls: 'bg-gray-100 text-gray-600 dark:bg-[#0A1929] dark:text-gray-400' },
+  pending: { label: 'Pending',       cls: 'bg-gray-100 text-gray-600 dark:bg-[#0A1929] dark:text-[#8aaabb]' },
 }
 
 const EMP_TYPE_LABEL: Record<string, string> = {
@@ -79,8 +79,8 @@ const age  = (d: string | null) => {
 function Row({ label, value }: { label: string; value: React.ReactNode }) {
   return (
     <div className="flex flex-col sm:flex-row sm:items-center gap-1 py-3 border-b border-gray-50 dark:border-[#1A6080]/20 last:border-0">
-      <span className="sm:w-44 text-xs font-medium text-gray-600 dark:text-gray-400  shrink-0">{label}</span>
-      <span className="text-sm text-gray-800 dark:text-gray-200">{value ?? '—'}</span>
+      <span className="sm:w-44 text-xs font-medium text-gray-600 dark:text-[#9BB0BC]  shrink-0">{label}</span>
+      <span className="text-sm text-gray-800 dark:text-[#C8D8E4]">{value ?? '—'}</span>
     </div>
   )
 }
@@ -603,7 +603,7 @@ export default function EmployeeProfilePage() {
   if (!emp)    return (
     <div className="flex flex-col items-center justify-center py-20 gap-3">
       <span className="text-5xl"></span>
-      <p className="text-gray-500 dark:text-gray-400">Employee not found</p>
+      <p className="text-gray-500 dark:text-[#9BB0BC]">Employee not found</p>
       <Link href="/tenant/employee-management" className="text-sm text-[#1A6080] dark:text-[#4ebac4]">← Back to Employees</Link>
     </div>
   )
@@ -616,7 +616,7 @@ export default function EmployeeProfilePage() {
     <div className="space-y-6 max-w-5xl">
 
       {/* Back */}
-      <Link href="/tenant/employee-management" className="inline-flex items-center gap-1.5 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-700 dark:text-gray-200 transition">
+      <Link href="/tenant/employee-management" className="inline-flex items-center gap-1.5 text-sm text-gray-600 dark:text-[#9BB0BC] hover:text-gray-600 dark:hover:text-gray-700 dark:text-[#C8D8E4] transition">
         ← All Employees
       </Link>
 
@@ -648,13 +648,13 @@ export default function EmployeeProfilePage() {
               )}
             </div>
             {emp.preferredName && (
-              <p className="text-sm text-gray-600 dark:text-gray-400 mt-0.5">Goes by "{emp.preferredName}"</p>
+              <p className="text-sm text-gray-600 dark:text-[#9BB0BC] mt-0.5">Goes by "{emp.preferredName}"</p>
             )}
             <div className="flex flex-wrap gap-2 mt-3">
-              <span className="px-2.5 py-1 rounded-lg text-xs font-medium bg-gray-100 dark:bg-[#0A1929] text-gray-600 dark:text-gray-300">
+              <span className="px-2.5 py-1 rounded-lg text-xs font-medium bg-gray-100 dark:bg-[#0A1929] text-gray-600 dark:text-[#C8D8E4]">
                 {emp.employeeNumber}
               </span>
-              <span className="px-2.5 py-1 rounded-lg text-xs font-medium bg-gray-100 dark:bg-[#0A1929] text-gray-600 dark:text-gray-300">
+              <span className="px-2.5 py-1 rounded-lg text-xs font-medium bg-gray-100 dark:bg-[#0A1929] text-gray-600 dark:text-[#C8D8E4]">
                 {EMP_TYPE_LABEL[emp.employmentType] ?? emp.employmentType}
               </span>
               {emp.positionTitle && (
@@ -704,7 +704,7 @@ export default function EmployeeProfilePage() {
         return (
           <div className="card-premium mb-4">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Profile completeness</span>
+              <span className="text-sm font-medium text-gray-700 dark:text-[#C8D8E4]">Profile completeness</span>
               <span className={`text-sm font-bold ${pct >= 80 ? 'text-green-600 dark:text-green-400' : pct >= 50 ? 'text-amber-600 dark:text-amber-400' : 'text-red-600 dark:text-red-400'}`}>
                 {pct}%
               </span>
@@ -715,7 +715,7 @@ export default function EmployeeProfilePage() {
             {missing.length > 0 && (
               <div className="flex flex-wrap gap-1.5">
                 {missing.map(m => (
-                  <span key={m} className="text-[11px] px-2 py-0.5 rounded-full bg-gray-100 dark:bg-[#0A1929] text-gray-500 dark:text-gray-400">
+                  <span key={m} className="text-[11px] px-2 py-0.5 rounded-full bg-gray-100 dark:bg-[#0A1929] text-gray-500 dark:text-[#9BB0BC]">
                     + {m}
                   </span>
                 ))}
@@ -734,7 +734,7 @@ export default function EmployeeProfilePage() {
             className={`px-4 py-2.5 text-sm font-medium border-b-2 -mb-px transition ${
               tab === t
                 ? 'border-current text-gray-900 dark:text-white'
-                : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
+                : 'border-transparent text-gray-500 dark:text-[#9BB0BC] hover:text-gray-700 dark:hover:text-gray-300'
             }`}
             style={tab === t ? { borderColor: 'var(--primary)', color: 'var(--primary)' } : {}}
           >
@@ -785,7 +785,7 @@ export default function EmployeeProfilePage() {
         {tab === 'Emergency Contacts' && (
           <div className="space-y-4">
             <div className="flex items-center justify-between">
-              <p className="text-sm text-gray-500 dark:text-gray-400">People to contact in an emergency</p>
+              <p className="text-sm text-gray-500 dark:text-[#9BB0BC]">People to contact in an emergency</p>
               <button
                 onClick={openAddContact}
                 className="px-3 py-1.5 rounded-lg text-sm font-medium text-white transition hover:opacity-90"
@@ -806,39 +806,39 @@ export default function EmployeeProfilePage() {
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                       {editingContact ? 'Edit Contact' : 'Add Emergency Contact'}
                     </h3>
-                    <button type="button" onClick={() => setShowContactForm(false)} className="text-gray-600 dark:text-gray-400 hover:text-gray-600 text-xl leading-none">×</button>
+                    <button type="button" onClick={() => setShowContactForm(false)} className="text-gray-600 dark:text-[#9BB0BC] hover:text-gray-600 text-xl leading-none">×</button>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Full Name *</label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Full Name *</label>
                     <input required value={contactForm.name} onChange={e => { markDirty(); setContactForm(f => ({ ...f, name: e.target.value })) }}
-                      className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none focus:border-[#0E3D52]"
+                      className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-[#C8D8E4] focus:outline-none focus:border-[#0E3D52]"
                       placeholder="e.g. John Smith" />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Relationship</label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Relationship</label>
                     <input value={contactForm.relationship} onChange={e => { markDirty(); setContactForm(f => ({ ...f, relationship: e.target.value })) }}
-                      className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none focus:border-[#0E3D52]"
+                      className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-[#C8D8E4] focus:outline-none focus:border-[#0E3D52]"
                       placeholder="e.g. Spouse, Parent, Sibling" />
                   </div>
                   <div className="grid grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Phone</label>
+                      <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Phone</label>
                       <input value={contactForm.phone} onChange={e => { markDirty(); setContactForm(f => ({ ...f, phone: e.target.value })) }}
-                        className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none focus:border-[#0E3D52]"
+                        className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-[#C8D8E4] focus:outline-none focus:border-[#0E3D52]"
                         placeholder="+61 4xx xxx xxx" />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+                      <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Email</label>
                       <input type="email" value={contactForm.email} onChange={e => { markDirty(); setContactForm(f => ({ ...f, email: e.target.value })) }}
-                        className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none focus:border-[#0E3D52]"
+                        className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-[#C8D8E4] focus:outline-none focus:border-[#0E3D52]"
                         placeholder="john@example.com" />
                     </div>
                   </div>
                   <label className="flex items-center gap-2 cursor-pointer">
                     <input type="checkbox" checked={contactForm.isPrimary} onChange={e => { markDirty(); setContactForm(f => ({ ...f, isPrimary: e.target.checked })) }}
                       className="w-4 h-4 rounded accent-blue-600" />
-                    <span className="text-sm text-gray-700 dark:text-gray-300">Primary emergency contact</span>
+                    <span className="text-sm text-gray-700 dark:text-[#C8D8E4]">Primary emergency contact</span>
                   </label>
 
                   {contactError && (
@@ -854,7 +854,7 @@ export default function EmployeeProfilePage() {
                       {contactSaving ? 'Saving…' : editingContact ? 'Save Changes' : 'Add Contact'}
                     </button>
                     <button type="button" onClick={() => { markClean(); setShowContactForm(false) }}
-                      className="px-4 py-2 border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 text-sm rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30">
+                      className="px-4 py-2 border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] text-sm rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30">
                       Cancel
                     </button>
                   </div>
@@ -864,11 +864,11 @@ export default function EmployeeProfilePage() {
 
             {/* Contact list */}
             {!contactsLoaded ? (
-              <p className="text-sm text-gray-600 dark:text-gray-400 py-4">Loading…</p>
+              <p className="text-sm text-gray-600 dark:text-[#9BB0BC] py-4">Loading…</p>
             ) : contacts.length === 0 ? (
               <div className="text-center py-10 bg-gray-50 dark:bg-[#0A1929]/50 rounded-xl">
                 <p className="text-3xl mb-2"></p>
-                <p className="text-sm text-gray-500 dark:text-gray-400">No emergency contacts added yet</p>
+                <p className="text-sm text-gray-500 dark:text-[#9BB0BC]">No emergency contacts added yet</p>
                 <button onClick={openAddContact} className="mt-3 text-sm font-medium text-[#1A6080] dark:text-[#4ebac4] hover:text-[#0E3D52]">
                   + Add first contact
                 </button>
@@ -890,20 +890,20 @@ export default function EmployeeProfilePage() {
                           <span className="text-xs px-2 py-0.5 rounded-full bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/20 dark:text-[#7dcfd7] font-medium">Primary</span>
                         )}
                         {c.relationship && (
-                          <span className="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-[#0E3D52]/60 text-gray-600 dark:text-gray-300">{c.relationship}</span>
+                          <span className="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-[#0E3D52]/60 text-gray-600 dark:text-[#C8D8E4]">{c.relationship}</span>
                         )}
                       </div>
-                      <div className="flex flex-wrap gap-3 mt-1 text-sm text-gray-500 dark:text-gray-400">
+                      <div className="flex flex-wrap gap-3 mt-1 text-sm text-gray-500 dark:text-[#9BB0BC]">
                         {c.phone && <span>{c.phone}</span>}
                         {c.email && <span>{c.email}</span>}
                       </div>
                     </div>
                     <div className="flex gap-2 shrink-0">
-                      <button onClick={() => openEditContact(c)} className="text-xs text-gray-600 dark:text-gray-400 hover:text-[#1A6080] dark:text-[#4ebac4] transition px-1" title="Edit"></button>
+                      <button onClick={() => openEditContact(c)} className="text-xs text-gray-600 dark:text-[#9BB0BC] hover:text-[#1A6080] dark:text-[#4ebac4] transition px-1" title="Edit"></button>
                       <button
                         onClick={() => deleteContact(c.id)}
                         disabled={deletingContact === c.id}
-                        className="text-xs text-gray-600 dark:text-gray-400 hover:text-red-500 disabled:opacity-40 transition px-1"
+                        className="text-xs text-gray-600 dark:text-[#9BB0BC] hover:text-red-500 disabled:opacity-40 transition px-1"
                         title="Delete"
                       >
                         {deletingContact === c.id ? '…' : ''}
@@ -921,7 +921,7 @@ export default function EmployeeProfilePage() {
             {/* Overall status + change */}
             <div className="flex items-center justify-between flex-wrap gap-3">
               <div>
-                <p className="text-xs font-medium text-gray-600 dark:text-gray-400  mb-1.5">Overall Status</p>
+                <p className="text-xs font-medium text-gray-600 dark:text-[#9BB0BC]  mb-1.5">Overall Status</p>
                 <span className={`inline-flex px-3 py-1 rounded-full text-sm font-medium ${badge.cls}`}>
                   {badge.label}
                 </span>
@@ -944,13 +944,13 @@ export default function EmployeeProfilePage() {
 
             {/* Screening records */}
             <div>
-              <p className="text-xs font-medium text-gray-600 dark:text-gray-400  mb-3">Screening Checks</p>
+              <p className="text-xs font-medium text-gray-600 dark:text-[#9BB0BC]  mb-3">Screening Checks</p>
               {!screeningLoaded ? (
-                <p className="text-sm text-gray-600 dark:text-gray-400">Loading…</p>
+                <p className="text-sm text-gray-600 dark:text-[#9BB0BC]">Loading…</p>
               ) : screening.length === 0 ? (
                 <div className="rounded-xl bg-gray-50 dark:bg-[#0A1929] p-6 text-center">
                   <p className="text-3xl mb-2"></p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">No screening records yet</p>
+                  <p className="text-sm text-gray-500 dark:text-[#9BB0BC]">No screening records yet</p>
                   <a href="/tenant/compliance" className="mt-2 inline-block text-xs text-[#1A6080] dark:text-[#4ebac4] hover:underline">
                     Add via Compliance module →
                   </a>
@@ -962,7 +962,7 @@ export default function EmployeeProfilePage() {
                       green:'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400',
                       amber:'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-400',
                       red:'bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-400',
-                      pending:'bg-gray-100 text-gray-600 dark:bg-[#0E3D52]/60 dark:text-gray-400',
+                      pending:'bg-gray-100 text-gray-600 dark:bg-[#0E3D52]/60 dark:text-[#8aaabb]',
                     }
                     // Compute expiry countdown badge
                     let countdownBadge: { label: string; cls: string } | null = null
@@ -981,8 +981,8 @@ export default function EmployeeProfilePage() {
                     return (
                       <div key={sr.id} className="flex items-center gap-4 p-3 bg-gray-50 dark:bg-[#0A1929] rounded-xl">
                         <div className="flex-1 min-w-0">
-                          <p className="text-sm font-medium text-gray-800 dark:text-gray-200">{sr.checkType}</p>
-                          <div className="flex flex-wrap gap-2 mt-0.5 text-xs text-gray-600 dark:text-gray-400">
+                          <p className="text-sm font-medium text-gray-800 dark:text-[#C8D8E4]">{sr.checkType}</p>
+                          <div className="flex flex-wrap gap-2 mt-0.5 text-xs text-gray-600 dark:text-[#9BB0BC]">
                             {sr.referenceNumber && <span>Ref: {sr.referenceNumber}</span>}
                             {sr.issuedDate && <span>Issued: {fmt(sr.issuedDate)}</span>}
                             {sr.expiryDate && <span>Expires: {fmt(sr.expiryDate)}</span>}
@@ -1010,7 +1010,7 @@ export default function EmployeeProfilePage() {
         {tab === 'Documents' && (
           <div className="space-y-4">
             <div className="flex items-center justify-between">
-              <p className="text-xs font-medium text-gray-600 dark:text-gray-400 ">Employee Documents</p>
+              <p className="text-xs font-medium text-gray-600 dark:text-[#9BB0BC] ">Employee Documents</p>
               <a
                 href="/tenant/documents"
                 className="text-xs text-[#1A6080] dark:text-[#4ebac4] hover:underline"
@@ -1019,11 +1019,11 @@ export default function EmployeeProfilePage() {
               </a>
             </div>
             {!docsLoaded ? (
-              <p className="text-sm text-gray-600 dark:text-gray-400">Loading…</p>
+              <p className="text-sm text-gray-600 dark:text-[#9BB0BC]">Loading…</p>
             ) : docs.length === 0 ? (
               <div className="rounded-xl bg-gray-50 dark:bg-[#0A1929] p-6 text-center">
                 <p className="text-3xl mb-2"></p>
-                <p className="text-sm text-gray-500 dark:text-gray-400">No documents uploaded for this employee</p>
+                <p className="text-sm text-gray-500 dark:text-[#9BB0BC]">No documents uploaded for this employee</p>
               </div>
             ) : (
               <div className="space-y-2">
@@ -1031,7 +1031,7 @@ export default function EmployeeProfilePage() {
                   const statusStyle: Record<string, string> = {
                     active:'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400',
                     expired:'bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-400',
-                    archived:'bg-gray-100 text-gray-500 dark:bg-[#0E3D52]/60 dark:text-gray-400',
+                    archived:'bg-gray-100 text-gray-500 dark:bg-[#0E3D52]/60 dark:text-[#8aaabb]',
                     pending_review:'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-400',
                   }
                   const size = doc.fileSizeBytes ? `${(doc.fileSizeBytes / 1024).toFixed(0)} KB` : ''
@@ -1041,8 +1041,8 @@ export default function EmployeeProfilePage() {
                         {doc.mimeType?.includes('pdf') ? '' : doc.mimeType?.includes('image') ? '' : ''}
                       </span>
                       <div className="flex-1 min-w-0">
-                        <p className="text-sm font-medium text-gray-800 dark:text-gray-200 truncate">{doc.title}</p>
-                        <div className="flex gap-2 mt-0.5 text-xs text-gray-600 dark:text-gray-400">
+                        <p className="text-sm font-medium text-gray-800 dark:text-[#C8D8E4] truncate">{doc.title}</p>
+                        <div className="flex gap-2 mt-0.5 text-xs text-gray-600 dark:text-[#9BB0BC]">
                           <span>{doc.category}</span>
                           {size && <span>{size}</span>}
                           {doc.expiryDate && <span>Expires: {fmt(doc.expiryDate)}</span>}
@@ -1074,7 +1074,7 @@ export default function EmployeeProfilePage() {
           <div className="space-y-5">
             {/* Header */}
             <div className="flex items-center justify-between">
-              <p className="text-sm text-gray-500 dark:text-gray-400">Course enrolments and completion records</p>
+              <p className="text-sm text-gray-500 dark:text-[#9BB0BC]">Course enrolments and completion records</p>
               <button
                 onClick={() => { setEnrolCourseId(''); setShowEnrolModal(true) }}
                 className="px-3 py-1.5 rounded-lg text-sm font-medium text-white transition hover:opacity-90"
@@ -1101,7 +1101,7 @@ export default function EmployeeProfilePage() {
                         </option>
                       ))}
                   </select>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">★ = mandatory training</p>
+                  <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">★ = mandatory training</p>
                   <div className="flex gap-3">
                     <button
                       disabled={!enrolCourseId || enrolSaving}
@@ -1145,7 +1145,7 @@ export default function EmployeeProfilePage() {
             {!trainingLoaded ? (
               <p className="text-sm text-gray-400 py-8 text-center">Loading…</p>
             ) : training.length === 0 ? (
-              <div className="text-center py-12 text-gray-400 dark:text-gray-500">
+              <div className="text-center py-12 text-gray-400 dark:text-[#9BB0BC]">
                 <p className="text-4xl mb-2">🎓</p>
                 <p className="text-sm">No training records yet. Click &quot;Enrol in Course&quot; to get started.</p>
               </div>
@@ -1206,7 +1206,7 @@ export default function EmployeeProfilePage() {
               </div>
             )}
 
-            <p className="text-xs text-gray-600 dark:text-gray-500 text-right">
+            <p className="text-xs text-gray-600 dark:text-[#9BB0BC] text-right">
               <a href="/tenant/training" className="hover:text-[#1A6080] dark:hover:text-[#4ebac4] transition">View full Training module →</a>
             </p>
           </div>
@@ -1217,7 +1217,7 @@ export default function EmployeeProfilePage() {
           <div className="space-y-5">
             {/* Header */}
             <div className="flex items-center justify-between">
-              <p className="text-sm text-gray-500 dark:text-gray-400">Promotions, designation changes and salary reviews</p>
+              <p className="text-sm text-gray-500 dark:text-[#9BB0BC]">Promotions, designation changes and salary reviews</p>
               <button
                 onClick={() => {
                   setPromoForm({ type: 'promotion', proposedTitle: emp?.positionTitle ?? '', proposedSalary: emp?.annualSalary ?? '', effectiveDate: '', justification: '' })
@@ -1233,7 +1233,7 @@ export default function EmployeeProfilePage() {
             {!promotionsLoaded ? (
               <p className="text-sm text-gray-400 py-8 text-center">Loading…</p>
             ) : promotions.length === 0 ? (
-              <div className="text-center py-12 text-gray-400 dark:text-gray-500">
+              <div className="text-center py-12 text-gray-400 dark:text-[#9BB0BC]">
                 <div className="w-14 h-14 rounded-2xl bg-[#0E3D52]/[0.07] dark:bg-[#4ebac4]/10 flex items-center justify-center mb-4 mx-auto ring-1 ring-[#0E3D52]/10 dark:ring-[#4ebac4]/15"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-[#1A6080] dark:text-[#4ebac4] opacity-70"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
                 <p className="text-sm">No promotion records yet.</p>
               </div>
@@ -1244,7 +1244,7 @@ export default function EmployeeProfilePage() {
                 const pct = (increase && p.currentSalary) ? ((increase / Number(p.currentSalary)) * 100).toFixed(1) : null
 
                 const STATUS_STYLE: Record<string, string> = {
-                  pending:      'bg-gray-100 text-gray-600 dark:bg-[#0A1929] dark:text-gray-400',
+                  pending:      'bg-gray-100 text-gray-600 dark:bg-[#0A1929] dark:text-[#8aaabb]',
                   under_review: 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/20 dark:text-[#7dcfd7]',
                   approved:     'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300',
                   rejected:     'bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300',
@@ -1264,7 +1264,7 @@ export default function EmployeeProfilePage() {
                             {p.status.replace('_', ' ')}
                           </span>
                         </div>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                        <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-0.5">
                           Raised {fmt(p.createdAt)}{p.raisedByName ? ` by ${p.raisedByName}` : ''}
                           {p.effectiveDate ? ` · Effective ${fmt(p.effectiveDate)}` : ''}
                         </p>
@@ -1274,30 +1274,30 @@ export default function EmployeeProfilePage() {
                     {/* Details grid */}
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                       {p.currentTitle && <div className="bg-gray-50 dark:bg-[#0A1929]/50 rounded-lg p-3">
-                        <p className="text-xs text-gray-500 dark:text-gray-400">Current Title</p>
+                        <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Current Title</p>
                         <p className="text-xs font-medium text-gray-800 dark:text-white mt-0.5">{p.currentTitle}</p>
                       </div>}
                       <div className="bg-gray-50 dark:bg-[#0A1929]/50 rounded-lg p-3">
-                        <p className="text-xs text-gray-500 dark:text-gray-400">Proposed Title</p>
+                        <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Proposed Title</p>
                         <p className="text-xs font-medium text-gray-800 dark:text-white mt-0.5">{p.proposedTitle}</p>
                       </div>
                       {p.currentSalary && <div className="bg-gray-50 dark:bg-[#0A1929]/50 rounded-lg p-3">
-                        <p className="text-xs text-gray-500 dark:text-gray-400">Current Salary</p>
+                        <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Current Salary</p>
                         <p className="text-xs font-medium text-gray-800 dark:text-white mt-0.5">${Number(p.currentSalary).toLocaleString()}</p>
                       </div>}
                       {p.proposedSalary && <div className="bg-gray-50 dark:bg-[#0A1929]/50 rounded-lg p-3">
-                        <p className="text-xs text-gray-500 dark:text-gray-400">Proposed Salary</p>
+                        <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Proposed Salary</p>
                         <p className="text-xs font-medium text-green-600 dark:text-green-400 mt-0.5">
                           ${Number(p.proposedSalary).toLocaleString()}
-                          {pct ? <span className="text-gray-500 dark:text-gray-400"> (+{pct}%)</span> : null}
+                          {pct ? <span className="text-gray-500 dark:text-[#9BB0BC]"> (+{pct}%)</span> : null}
                         </p>
                       </div>}
                     </div>
 
                     {/* Justification */}
                     <div>
-                      <p className="text-xs font-medium text-gray-500 dark:text-gray-400  mb-1">Justification</p>
-                      <p className="text-sm text-gray-700 dark:text-gray-300">{p.justification}</p>
+                      <p className="text-xs font-medium text-gray-500 dark:text-[#9BB0BC]  mb-1">Justification</p>
+                      <p className="text-sm text-gray-700 dark:text-[#C8D8E4]">{p.justification}</p>
                     </div>
 
                     {/* Review notes */}
@@ -1343,7 +1343,7 @@ export default function EmployeeProfilePage() {
                       {/* Letter buttons */}
                       <div className="flex flex-wrap gap-1.5 ml-auto">
                         <button onClick={() => printNominationLetter(p)}
-                          className="px-2.5 py-1.5 text-xs font-medium border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 rounded-lg transition">
+                          className="px-2.5 py-1.5 text-xs font-medium border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#C8D8E4] hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 rounded-lg transition">
                           🖨 Nomination Letter
                         </button>
                         {['approved','implemented'].includes(p.status) && (
@@ -1385,7 +1385,7 @@ export default function EmployeeProfilePage() {
                 onChange={e => { markDirty(); setNoteContent(e.target.value) }}
                 placeholder="Add a note about this employee…"
                 rows={3}
-                className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-xl px-4 py-3 text-sm text-gray-800 dark:text-gray-200 placeholder-gray-400 dark:placeholder-[#4ebac4]/50 focus:outline-none focus:border-[#0E3D52] resize-y"
+                className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-xl px-4 py-3 text-sm text-gray-800 dark:text-[#C8D8E4] placeholder-gray-400 dark:placeholder-[#4ebac4]/50 focus:outline-none focus:border-[#0E3D52] resize-y"
               />
               <div className="flex justify-end">
                 <button
@@ -1424,11 +1424,11 @@ export default function EmployeeProfilePage() {
 
             {/* Notes list */}
             {!notesLoaded ? (
-              <p className="text-sm text-gray-500 dark:text-gray-400 py-4">Loading…</p>
+              <p className="text-sm text-gray-500 dark:text-[#9BB0BC] py-4">Loading…</p>
             ) : notes.length === 0 ? (
               <div className="text-center py-12 bg-gray-50 dark:bg-[#0A1929]/50 rounded-xl">
                 <p className="text-3xl mb-2">📝</p>
-                <p className="text-sm text-gray-500 dark:text-gray-400">No notes yet. Add the first one above.</p>
+                <p className="text-sm text-gray-500 dark:text-[#9BB0BC]">No notes yet. Add the first one above.</p>
               </div>
             ) : (
               <div className="space-y-3">
@@ -1457,10 +1457,10 @@ export default function EmployeeProfilePage() {
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 flex-wrap mb-1">
-                          <span className="text-xs font-medium text-gray-700 dark:text-gray-300">{note.authorEmail}</span>
-                          <span className="text-xs text-gray-400 dark:text-gray-500">{relTime}</span>
+                          <span className="text-xs font-medium text-gray-700 dark:text-[#C8D8E4]">{note.authorEmail}</span>
+                          <span className="text-xs text-gray-400 dark:text-[#9BB0BC]">{relTime}</span>
                         </div>
-                        <p className="text-sm text-gray-800 dark:text-gray-200 whitespace-pre-wrap">{note.content}</p>
+                        <p className="text-sm text-gray-800 dark:text-[#C8D8E4] whitespace-pre-wrap">{note.content}</p>
                       </div>
                       {isOwn && (
                         <button
@@ -1503,12 +1503,12 @@ export default function EmployeeProfilePage() {
                 {reviewModal.action === 'implemented' ? 'Implement Promotion' : `${reviewModal.action === 'approved' ? 'Approve' : 'Reject'} Nomination`}
               </h3>
               {reviewModal.action === 'implemented' ? (
-                <p className="text-sm text-gray-500 dark:text-gray-400">
+                <p className="text-sm text-gray-500 dark:text-[#9BB0BC]">
                   This will update the employee&apos;s salary record to the proposed amount and mark the case as implemented.
                 </p>
               ) : (
                 <div>
-                  <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">
+                  <label className="block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1">
                     {reviewModal.action === 'approved' ? 'Approval Notes (optional)' : 'Reason for Rejection *'}
                   </label>
                   <textarea
@@ -1550,7 +1550,7 @@ export default function EmployeeProfilePage() {
               <form onSubmit={raisePromotion} className="p-5 space-y-4">
                 {/* Type */}
                 <div>
-                  <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Request Type</label>
+                  <label className="block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1">Request Type</label>
                   <select
                     value={promoForm.type}
                     onChange={e => {
@@ -1570,7 +1570,7 @@ export default function EmployeeProfilePage() {
                 {/* Proposed title — hidden for salary_hike */}
                 {promoForm.type !== 'salary_hike' && (
                   <div>
-                    <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Proposed Title *</label>
+                    <label className="block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1">Proposed Title *</label>
                     <input
                       required
                       value={promoForm.proposedTitle}
@@ -1585,17 +1585,17 @@ export default function EmployeeProfilePage() {
                 {promoForm.type !== 'designation' && (
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">
+                      <label className="block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1">
                         Current Salary ($)
                       </label>
                       <input
                         readOnly
                         value={emp?.annualSalary ? Math.round(Number(emp.annualSalary)) : ''}
-                        className="w-full bg-gray-200 dark:bg-[#0E3D52]/60 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-500 dark:text-gray-400"
+                        className="w-full bg-gray-200 dark:bg-[#0E3D52]/60 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-500 dark:text-[#9BB0BC]"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">
+                      <label className="block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1">
                         Proposed Salary ($) *
                       </label>
                       <input
@@ -1612,7 +1612,7 @@ export default function EmployeeProfilePage() {
 
                 {/* Effective date */}
                 <div>
-                  <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Effective Date</label>
+                  <label className="block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1">Effective Date</label>
                   <input
                     type="date"
                     value={promoForm.effectiveDate}
@@ -1623,7 +1623,7 @@ export default function EmployeeProfilePage() {
 
                 {/* Justification */}
                 <div>
-                  <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Justification / Reason *</label>
+                  <label className="block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1">Justification / Reason *</label>
                   <textarea
                     required
                     value={promoForm.justification}

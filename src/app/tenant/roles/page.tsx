@@ -150,12 +150,12 @@ export default function RolesPage() {
     <div className="space-y-4">
       <div>
         <h1 className="text-2xl font-bold text-foreground">Roles & Access</h1>
-        <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">Manage portal users and their access roles</p>
+        <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Manage portal users and their access roles</p>
       </div>
       <div className="flex flex-col items-center justify-center h-64 card-premium gap-3">
         <span className="text-4xl">🔒</span>
         <p className="text-gray-900 dark:text-white font-semibold">Access Restricted</p>
-        <p className="text-sm text-gray-500 dark:text-gray-400 text-center max-w-xs">
+        <p className="text-sm text-gray-500 dark:text-[#9BB0BC] text-center max-w-xs">
           User role management is restricted to HR Officers and Directors. Contact your HR administrator for assistance.
         </p>
       </div>
@@ -167,7 +167,7 @@ export default function RolesPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-foreground">Roles & Access</h1>
-          <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">Manage portal users and their access roles</p>
+          <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Manage portal users and their access roles</p>
         </div>
         <PermissionGate permission="roles:write">
           <button onClick={() => { setShowForm(v => !v); setForm({ email: '', role: 'employee', password: generatePassword() }) }}
@@ -181,15 +181,15 @@ export default function RolesPage() {
       {/* Stats */}
       <div className="grid grid-cols-3 gap-3">
         <div className="card-premium p-4">
-          <p className="text-xs text-gray-600 dark:text-gray-400">Total Users</p>
+          <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">Total Users</p>
           <p className="text-2xl font-bold text-foreground mt-1">{users.length}</p>
         </div>
         <div className="card-premium p-4">
-          <p className="text-xs text-gray-600 dark:text-gray-400">Active</p>
+          <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">Active</p>
           <p className="text-2xl font-bold text-green-600 dark:text-green-400 mt-1">{activeCount}</p>
         </div>
         <div className="card-premium p-4">
-          <p className="text-xs text-gray-600 dark:text-gray-400">Suspended</p>
+          <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">Suspended</p>
           <p className="text-2xl font-bold text-red-500 dark:text-red-400 mt-1">{inactiveCount}</p>
         </div>
       </div>
@@ -197,7 +197,7 @@ export default function RolesPage() {
       {/* Role breakdown */}
       {Object.keys(roleCounts).length > 0 && (
         <div className="card-premium p-4">
-          <p className="text-xs font-semibold text-gray-500  mb-3 dark:text-gray-400">Breakdown by Role</p>
+          <p className="text-xs font-semibold text-gray-500  mb-3 dark:text-[#8aaabb]">Breakdown by Role</p>
           <div className="flex flex-wrap gap-2">
             {Object.entries(roleCounts).map(([role, count]) => (
               <span key={role} className={`text-xs px-3 py-1 rounded-full border ${ROLE_STYLE[role] ?? 'badge badge-gray'}`}>
@@ -214,31 +214,31 @@ export default function RolesPage() {
           <h3 className="text-sm font-semibold text-[#0E3D52] dark:text-[#4ebac4]">Invite new portal user</h3>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Email *</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Email *</label>
               <input required type="email" value={form.email}
                 onChange={e => setForm(f => ({ ...f, email: e.target.value }))} className={INPUT} />
             </div>
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Role *</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Role *</label>
               <select value={form.role} onChange={e => setForm(f => ({ ...f, role: e.target.value }))} className={INPUT}>
                 {ROLES.map(r => <option key={r} value={r}>{ROLE_LABEL[r] ?? r}</option>)}
               </select>
             </div>
             <div className="col-span-2">
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Temporary Password</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Temporary Password</label>
               <div className="flex gap-2">
                 <input value={form.password} onChange={e => setForm(f => ({ ...f, password: e.target.value }))}
                   className={`${INPUT} font-mono`} />
                 <button type="button" onClick={copyPw}
-                  className="shrink-0 text-xs bg-gray-200 dark:bg-[#0E3D52]/60 hover:bg-[#0E3D52]/80 text-gray-600 dark:text-gray-300 px-3 py-2 rounded-lg transition">
+                  className="shrink-0 text-xs bg-gray-200 dark:bg-[#0E3D52]/60 hover:bg-[#0E3D52]/80 text-gray-600 dark:text-[#C8D8E4] px-3 py-2 rounded-lg transition">
                   {copied || 'Copy'}
                 </button>
                 <button type="button" onClick={() => setForm(f => ({ ...f, password: generatePassword() }))}
-                  className="shrink-0 text-xs bg-gray-200 dark:bg-[#0E3D52]/60 hover:bg-[#0E3D52]/80 text-gray-600 dark:text-gray-300 px-3 py-2 rounded-lg transition">
+                  className="shrink-0 text-xs bg-gray-200 dark:bg-[#0E3D52]/60 hover:bg-[#0E3D52]/80 text-gray-600 dark:text-[#C8D8E4] px-3 py-2 rounded-lg transition">
                   ↺
                 </button>
               </div>
-              <p className="text-xs text-gray-600 mt-1 dark:text-gray-400">Share this password with the user — they should change it after first login.</p>
+              <p className="text-xs text-gray-600 mt-1 dark:text-[#8aaabb]">Share this password with the user — they should change it after first login.</p>
             </div>
           </div>
           <button type="submit" disabled={saving}
@@ -249,14 +249,14 @@ export default function RolesPage() {
       )}
 
       {/* User table */}
-      {loading ? <p className="text-gray-600 dark:text-gray-400 text-sm">Loading…</p> : users.length === 0 ? (
+      {loading ? <p className="text-gray-600 dark:text-[#9BB0BC] text-sm">Loading…</p> : users.length === 0 ? (
         <div className="card-premium py-14 text-center">
           <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-[#0A1929] mx-auto mb-3">
-                <svg className="w-6 h-6 text-gray-600 dark:text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <svg className="w-6 h-6 text-gray-600 dark:text-[#9BB0BC] dark:text-[#9BB0BC]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
                 </svg>
               </div>
-          <p className="text-gray-600 dark:text-gray-300 font-medium">No portal users yet</p>
+          <p className="text-gray-600 dark:text-[#C8D8E4] font-medium">No portal users yet</p>
         </div>
       ) : (
         <div className="card-premium overflow-hidden">
@@ -272,7 +272,7 @@ export default function RolesPage() {
             <tbody className="divide-y divide-gray-200 dark:divide-[#1A6080]/20/60">
               {users.map(u => (
                 <tr key={u.id} className={`hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30/30 ${!u.isActive ? 'opacity-50' : ''}`}>
-                  <td className="px-4 py-3 text-gray-700 dark:text-gray-200 font-mono text-xs">{u.email}</td>
+                  <td className="px-4 py-3 text-gray-700 dark:text-[#C8D8E4] font-mono text-xs">{u.email}</td>
                   <td className="px-4 py-3">
                     <PermissionGate permission="roles:write"
                       fallback={
@@ -289,7 +289,7 @@ export default function RolesPage() {
                           <button onClick={() => changeRole(u.id, editRole)}
                             className="text-xs bg-[#0E3D52] hover:bg-[#1A6080] text-white px-2 py-1 rounded transition"></button>
                           <button onClick={() => setEditId(null)}
-                            className="text-xs text-gray-500 dark:text-gray-400 hover:text-foreground px-1"></button>
+                            className="text-xs text-gray-500 dark:text-[#9BB0BC] hover:text-foreground px-1"></button>
                         </div>
                       ) : (
                         <button onClick={() => { setEditId(u.id); setEditRole(u.role) }}
@@ -300,11 +300,11 @@ export default function RolesPage() {
                     </PermissionGate>
                   </td>
                   <td className="px-4 py-3">
-                    <span className={`text-xs ${u.totpEnabled ? 'text-green-600 dark:text-green-400' : 'text-gray-500 dark:text-gray-600'}`}>
+                    <span className={`text-xs ${u.totpEnabled ? 'text-green-600 dark:text-green-400' : 'text-gray-500 dark:text-[#9BB0BC]'}`}>
                       {u.totpEnabled ? 'On' : 'Off'}
                     </span>
                   </td>
-                  <td className="px-4 py-3 text-gray-500 text-xs dark:text-gray-400">
+                  <td className="px-4 py-3 text-gray-500 text-xs dark:text-[#8aaabb]">
                     {u.lastLoginAt ? new Date(u.lastLoginAt).toLocaleDateString('en-AU') : 'Never'}
                   </td>
                   <td className="px-4 py-3">

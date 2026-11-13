@@ -60,7 +60,7 @@ function Field({
 }: { label: string; required?: boolean; children: React.ReactNode }) {
   return (
     <div>
-      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+      <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">
         {label}{required && <span className="text-red-500 ml-1">*</span>}
       </label>
       {children}
@@ -73,7 +73,7 @@ function Input(props: React.InputHTMLAttributes<HTMLInputElement>) {
     <input
       {...props}
       className={`w-full px-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-[#1A6080]/30
-        bg-white dark:bg-[#0A1929] text-gray-900 dark:text-gray-100
+        bg-white dark:bg-[#0A1929] text-gray-900 dark:text-[#E8F0F5]
         focus:outline-none focus:ring-2 focus:ring-[#0E3D52]/20 ${props.className ?? ''}`}
     />
   )
@@ -86,7 +86,7 @@ function Select({
     <select
       {...props}
       className="w-full px-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-[#1A6080]/30
-        bg-white dark:bg-[#0A1929] text-gray-900 dark:text-gray-100
+        bg-white dark:bg-[#0A1929] text-gray-900 dark:text-[#E8F0F5]
         focus:outline-none focus:ring-2 focus:ring-[#0E3D52]/20"
     >
       {children}
@@ -105,8 +105,8 @@ function Toggle({
         <div className={`absolute top-1 left-1 w-4 h-4 rounded-full bg-white shadow transition-transform ${checked ? 'translate-x-4' : ''}`} />
       </div>
       <div>
-        <p className="text-sm font-medium text-gray-800 dark:text-gray-200">{label}</p>
-        {help && <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{help}</p>}
+        <p className="text-sm font-medium text-gray-800 dark:text-[#C8D8E4]">{label}</p>
+        {help && <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-0.5">{help}</p>}
       </div>
     </label>
   )
@@ -193,12 +193,12 @@ export default function EssOnboardingPage() {
           </svg>
         </div>
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Onboarding Submitted!</h1>
-        <p className="text-gray-600 dark:text-gray-400 mb-6">
+        <p className="text-gray-600 dark:text-[#9BB0BC] mb-6">
           Your onboarding information has been submitted for HR review.
           You&apos;ll be notified once it has been processed.
         </p>
         {data.submittedAt && (
-          <p className="text-sm text-gray-500 dark:text-gray-400">
+          <p className="text-sm text-gray-500 dark:text-[#9BB0BC]">
             Submitted: {new Date(data.submittedAt).toLocaleString()}
           </p>
         )}
@@ -232,7 +232,7 @@ export default function EssOnboardingPage() {
                   ? 'bg-[#0E3D52] text-white'
                   : step > s.id
                     ? 'text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4] hover:bg-[#E0EEF4] dark:hover:bg-[#0E3D52]/30 cursor-pointer'
-                    : 'text-gray-400 dark:text-gray-600 cursor-default'
+                    : 'text-gray-400 dark:text-[#9BB0BC] cursor-default'
                 }`}
             >
               <span>{s.icon}</span>
@@ -260,7 +260,7 @@ export default function EssOnboardingPage() {
         <button
           onClick={() => setStep(s => Math.max(1, s - 1))}
           disabled={step === 1}
-          className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300
+          className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-[#C8D8E4]
             border border-gray-200 dark:border-[#1A6080]/30 rounded-lg hover:bg-gray-50
             dark:hover:bg-[#0E3D52]/30 disabled:opacity-40 disabled:cursor-not-allowed transition"
         >
@@ -276,7 +276,7 @@ export default function EssOnboardingPage() {
           <button
             onClick={() => save()}
             disabled={saving}
-            className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300
+            className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-[#C8D8E4]
               border border-gray-200 dark:border-[#1A6080]/30 rounded-lg hover:bg-gray-50
               dark:hover:bg-[#0E3D52]/30 disabled:opacity-60 transition"
           >
@@ -313,7 +313,7 @@ function Step1Personal({ data, set }: { data: OnboardingData; set: (p: Partial<O
   return (
     <div>
       <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">Personal Details</h2>
-      <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+      <p className="text-sm text-gray-500 dark:text-[#9BB0BC] mb-6">
         Basic personal information. Your legal name is already on file — only provide what&apos;s different.
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -358,7 +358,7 @@ function Step1Personal({ data, set }: { data: OnboardingData; set: (p: Partial<O
               value={data.address ?? ''}
               onChange={e => set({ address: e.target.value })}
               className="w-full px-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-[#1A6080]/30
-                bg-white dark:bg-[#0A1929] text-gray-900 dark:text-gray-100
+                bg-white dark:bg-[#0A1929] text-gray-900 dark:text-[#E8F0F5]
                 focus:outline-none focus:ring-2 focus:ring-[#0E3D52]/20 resize-none"
             />
           </Field>
@@ -373,7 +373,7 @@ function Step2Tax({ data, set }: { data: OnboardingData; set: (p: Partial<Onboar
   return (
     <div>
       <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">Tax (TFN) Declaration</h2>
-      <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+      <p className="text-sm text-gray-500 dark:text-[#9BB0BC] mb-6">
         This information is required for payroll. It is treated as an ATO Tax File Number Declaration.
       </p>
 
@@ -413,7 +413,7 @@ function Step2Tax({ data, set }: { data: OnboardingData; set: (p: Partial<Onboar
         </Field>
 
         <div className="space-y-4 pt-2">
-          <p className="text-sm font-medium text-gray-700 dark:text-gray-300">Additional Declarations</p>
+          <p className="text-sm font-medium text-gray-700 dark:text-[#C8D8E4]">Additional Declarations</p>
           <Toggle
             label="Claim the tax-free threshold"
             checked={data.taxFreeThreshold ?? false}
@@ -437,7 +437,7 @@ function Step3Super({ data, set }: { data: OnboardingData; set: (p: Partial<Onbo
   return (
     <div>
       <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">Superannuation</h2>
-      <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+      <p className="text-sm text-gray-500 dark:text-[#9BB0BC] mb-6">
         Nominate your super fund. If you don&apos;t nominate, contributions will go to the employer&apos;s default fund.
       </p>
 
@@ -501,7 +501,7 @@ function Step4Bank({ data, set }: { data: OnboardingData; set: (p: Partial<Onboa
   return (
     <div>
       <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">Bank Details</h2>
-      <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+      <p className="text-sm text-gray-500 dark:text-[#9BB0BC] mb-6">
         Your salary will be deposited into this account. Ensure all details are correct.
       </p>
 
@@ -564,7 +564,7 @@ function Step5Emergency({ data, set }: { data: OnboardingData; set: (p: Partial<
   return (
     <div>
       <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">Emergency Contact</h2>
-      <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+      <p className="text-sm text-gray-500 dark:text-[#9BB0BC] mb-6">
         Someone we can contact in case of a workplace emergency. Please provide at least one phone number.
       </p>
 

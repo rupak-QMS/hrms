@@ -342,7 +342,7 @@ export default function RecruitmentPage() {
           >
             <h3 className="text-base font-semibold text-gray-900 dark:text-white">Edit Requisition</h3>
             <div>
-              <label className="text-xs text-gray-500 dark:text-gray-400 mb-1 block">Job Title *</label>
+              <label className="text-xs text-gray-500 dark:text-[#9BB0BC] mb-1 block">Job Title *</label>
               <input
                 required value={editForm.title}
                 onChange={e => setEditForm(f => ({ ...f, title: e.target.value }))}
@@ -350,7 +350,7 @@ export default function RecruitmentPage() {
               />
             </div>
             <div>
-              <label className="text-xs text-gray-500 dark:text-gray-400 mb-1 block">Description</label>
+              <label className="text-xs text-gray-500 dark:text-[#9BB0BC] mb-1 block">Description</label>
               <textarea
                 rows={4} value={editForm.description}
                 onChange={e => setEditForm(f => ({ ...f, description: e.target.value }))}
@@ -360,7 +360,7 @@ export default function RecruitmentPage() {
             </div>
             <div className="flex gap-3 justify-end">
               <button type="button" onClick={() => setEditingReq(null)}
-                className="px-4 py-2 text-sm rounded-lg border border-gray-300 dark:border-[#1A6080]/40 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 transition">
+                className="px-4 py-2 text-sm rounded-lg border border-gray-300 dark:border-[#1A6080]/40 text-gray-600 dark:text-[#C8D8E4] hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 transition">
                 Cancel
               </button>
               <button type="submit" disabled={savingEdit}
@@ -376,7 +376,7 @@ export default function RecruitmentPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-foreground">Recruitment & ATS</h1>
-          <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">Manage job requisitions and candidate pipelines</p>
+          <p className="text-gray-500 dark:text-[#9BB0BC] text-sm mt-1">Manage job requisitions and candidate pipelines</p>
         </div>
         <div className="flex gap-2">
           {tab === 'jobs' && (
@@ -405,7 +405,7 @@ export default function RecruitmentPage() {
           { label: 'Hired',        value: stats.hired,    color: 'text-teal-400' },
         ].map(s => (
           <div key={s.label} className="card-premium p-4">
-            <p className="text-xs text-gray-500 dark:text-gray-400">{s.label}</p>
+            <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{s.label}</p>
             <p className={`text-2xl font-bold mt-1 ${s.color}`}>{s.value}</p>
           </div>
         ))}
@@ -424,7 +424,7 @@ export default function RecruitmentPage() {
             className={`px-4 py-2 rounded-lg text-sm font-medium transition disabled:opacity-40 disabled:cursor-not-allowed ${
               tab === t
                 ? 'bg-white dark:bg-[#0E3D52]/60 text-gray-900 dark:text-white shadow-sm'
-                : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                : 'text-gray-500 dark:text-[#9BB0BC] hover:text-gray-900 dark:hover:text-white'
             }`}
           >
             {t === 'jobs' ? 'Job Requisitions' : t === 'pipeline' ? `Pipeline${selectedReq ? ` — ${selectedReq.title}` : ''}` : 'Candidates'}
@@ -441,13 +441,13 @@ export default function RecruitmentPage() {
             <form onSubmit={createReq} className="card-premium border-[#0E3D52]/30 p-5 space-y-3">
               <h3 className="text-sm font-semibold text-[#4ebac4]">Create Job Requisition</h3>
               <div>
-                <label className="text-xs text-gray-500 dark:text-gray-400 mb-1 block">Job Title *</label>
+                <label className="text-xs text-gray-500 dark:text-[#9BB0BC] mb-1 block">Job Title *</label>
                 <input required value={reqForm.title}
                   onChange={e => setReqForm(f => ({ ...f, title: e.target.value }))}
                   placeholder="e.g. Support Worker — Community" className={INPUT} />
               </div>
               <div>
-                <label className="text-xs text-gray-500 dark:text-gray-400 mb-1 block">Description</label>
+                <label className="text-xs text-gray-500 dark:text-[#9BB0BC] mb-1 block">Description</label>
                 <textarea value={reqForm.description}
                   onChange={e => setReqForm(f => ({ ...f, description: e.target.value }))}
                   rows={3} placeholder="Role summary, key responsibilities, requirements…" className={INPUT} />
@@ -484,7 +484,7 @@ export default function RecruitmentPage() {
 
           {/* Jobs list */}
           {loading ? (
-            <p className="text-gray-500 dark:text-gray-400 text-sm">Loading…</p>
+            <p className="text-gray-500 dark:text-[#9BB0BC] text-sm">Loading…</p>
           ) : visibleReqs.length === 0 ? (
             <div className="card-premium py-14 text-center">
               <div className="w-12 h-12 rounded-xl bg-gray-100 dark:bg-[#0A1929] flex items-center justify-center mx-auto mb-3">
@@ -492,7 +492,7 @@ export default function RecruitmentPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0" />
                 </svg>
               </div>
-              <p className="text-gray-600 dark:text-gray-300 font-medium">
+              <p className="text-gray-600 dark:text-[#C8D8E4] font-medium">
                 {requisitions.length === 0 ? 'No requisitions yet' : 'No jobs match the current filters'}
               </p>
             </div>
@@ -509,9 +509,9 @@ export default function RecruitmentPage() {
                         </span>
                       </div>
                       {r.description && (
-                        <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mt-0.5">{r.description}</p>
+                        <p className="text-sm text-gray-500 dark:text-[#9BB0BC] line-clamp-2 mt-0.5">{r.description}</p>
                       )}
-                      <div className="flex items-center gap-4 mt-2 text-xs text-gray-500 dark:text-gray-400">
+                      <div className="flex items-center gap-4 mt-2 text-xs text-gray-500 dark:text-[#9BB0BC]">
                         <span>Created {fmt(r.createdAt)}</span>
                         <span className="text-[#4ebac4]">{r.applicationCount} application{r.applicationCount !== 1 ? 's' : ''}</span>
                         <span className="text-teal-400">{r.hiredCount} hired</span>
@@ -526,7 +526,7 @@ export default function RecruitmentPage() {
                       </button>
                       <button
                         onClick={() => { setEditingReq(r); setEditForm({ title: r.title, description: r.description ?? '' }) }}
-                        className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-[#0E3D52] hover:text-[#4ebac4] px-3 py-1.5 rounded-lg transition">
+                        className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:border-[#0E3D52] hover:text-[#4ebac4] px-3 py-1.5 rounded-lg transition">
                         Edit
                       </button>
                       {r.status === 'draft' && (
@@ -537,20 +537,20 @@ export default function RecruitmentPage() {
                       )}
                       {r.status === 'open' && (
                         <button onClick={() => updateReqStatus(r.id, 'closed')}
-                          className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-red-700 hover:text-red-400 px-3 py-1.5 rounded-lg transition">
+                          className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:border-red-700 hover:text-red-400 px-3 py-1.5 rounded-lg transition">
                           Close Role
                         </button>
                       )}
                       {r.status === 'closed' && (
                         <button onClick={() => updateReqStatus(r.id, 'open')}
-                          className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-green-700 hover:text-green-400 px-3 py-1.5 rounded-lg transition">
+                          className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:border-green-700 hover:text-green-400 px-3 py-1.5 rounded-lg transition">
                           Reopen
                         </button>
                       )}
                       <button
                         onClick={() => deleteReq(r.id)}
                         disabled={deletingReq === r.id}
-                        className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-red-700 hover:text-red-400 px-3 py-1.5 rounded-lg transition disabled:opacity-50">
+                        className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:border-red-700 hover:text-red-400 px-3 py-1.5 rounded-lg transition disabled:opacity-50">
                         {deletingReq === r.id ? '…' : 'Delete'}
                       </button>
                     </div>
@@ -572,27 +572,27 @@ export default function RecruitmentPage() {
               <h3 className="text-sm font-semibold text-[#4ebac4]">Add Candidate to Pipeline</h3>
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="text-xs text-gray-500 dark:text-gray-400 mb-1 block">First Name *</label>
+                  <label className="text-xs text-gray-500 dark:text-[#9BB0BC] mb-1 block">First Name *</label>
                   <input required value={appForm.firstName}
                     onChange={e => setAppForm(f => ({ ...f, firstName: e.target.value }))} className={INPUT} />
                 </div>
                 <div>
-                  <label className="text-xs text-gray-500 dark:text-gray-400 mb-1 block">Last Name *</label>
+                  <label className="text-xs text-gray-500 dark:text-[#9BB0BC] mb-1 block">Last Name *</label>
                   <input required value={appForm.lastName}
                     onChange={e => setAppForm(f => ({ ...f, lastName: e.target.value }))} className={INPUT} />
                 </div>
                 <div>
-                  <label className="text-xs text-gray-500 dark:text-gray-400 mb-1 block">Email *</label>
+                  <label className="text-xs text-gray-500 dark:text-[#9BB0BC] mb-1 block">Email *</label>
                   <input required type="email" value={appForm.email}
                     onChange={e => setAppForm(f => ({ ...f, email: e.target.value }))} className={INPUT} />
                 </div>
                 <div>
-                  <label className="text-xs text-gray-500 dark:text-gray-400 mb-1 block">Phone</label>
+                  <label className="text-xs text-gray-500 dark:text-[#9BB0BC] mb-1 block">Phone</label>
                   <input value={appForm.phone}
                     onChange={e => setAppForm(f => ({ ...f, phone: e.target.value }))} className={INPUT} />
                 </div>
                 <div>
-                  <label className="text-xs text-gray-500 dark:text-gray-400 mb-1 block">Source</label>
+                  <label className="text-xs text-gray-500 dark:text-[#9BB0BC] mb-1 block">Source</label>
                   <select value={appForm.source}
                     onChange={e => setAppForm(f => ({ ...f, source: e.target.value }))} className={INPUT}>
                     <option value="">— Select —</option>
@@ -601,7 +601,7 @@ export default function RecruitmentPage() {
                 </div>
               </div>
               <div>
-                <label className="text-xs text-gray-500 dark:text-gray-400 mb-1 block">Initial Notes</label>
+                <label className="text-xs text-gray-500 dark:text-[#9BB0BC] mb-1 block">Initial Notes</label>
                 <textarea value={appForm.notes}
                   onChange={e => setAppForm(f => ({ ...f, notes: e.target.value }))}
                   rows={2} placeholder="First impressions, referral context…" className={INPUT} />
@@ -623,8 +623,8 @@ export default function RecruitmentPage() {
           {/* Kanban board */}
           {applications.length === 0 ? (
             <div className="card-premium py-14 text-center">
-              <p className="text-gray-600 dark:text-gray-300 font-medium">No candidates in pipeline</p>
-              <p className="text-gray-500 text-sm mt-1 dark:text-gray-400">Click "+ Add Candidate" to get started.</p>
+              <p className="text-gray-600 dark:text-[#C8D8E4] font-medium">No candidates in pipeline</p>
+              <p className="text-gray-500 text-sm mt-1 dark:text-[#8aaabb]">Click "+ Add Candidate" to get started.</p>
             </div>
           ) : (
             <div className="overflow-x-auto pb-4">
@@ -663,7 +663,7 @@ export default function RecruitmentPage() {
                                   </p>
                                   <p className="text-xs text-gray-500 truncate">{a.candidateEmail}</p>
                                   {a.candidateSource && (
-                                    <p className="text-xs text-gray-600 dark:text-gray-500 mt-0.5">via {a.candidateSource}</p>
+                                    <p className="text-xs text-gray-600 dark:text-[#9BB0BC] mt-0.5">via {a.candidateSource}</p>
                                   )}
                                   {a.interviewScore && (
                                     <p className="text-xs text-amber-400 mt-0.5">⭐ {a.interviewScore}/10</p>
@@ -773,8 +773,8 @@ export default function RecruitmentPage() {
 
           {candidates.length === 0 ? (
             <div className="card-premium py-14 text-center">
-              <p className="text-gray-600 dark:text-gray-300 font-medium">No candidates yet</p>
-              <p className="text-gray-500 text-sm mt-1 dark:text-gray-400">
+              <p className="text-gray-600 dark:text-[#C8D8E4] font-medium">No candidates yet</p>
+              <p className="text-gray-500 text-sm mt-1 dark:text-[#8aaabb]">
                 Candidates appear here once added to a pipeline.
               </p>
             </div>
@@ -797,19 +797,19 @@ export default function RecruitmentPage() {
                           <div className="w-7 h-7 rounded-full bg-[#0E3D52] flex items-center justify-center text-white text-xs font-bold shrink-0">
                             {c.firstName[0]}{c.lastName[0]}
                           </div>
-                          <span className="text-gray-700 dark:text-gray-200 font-medium">{c.firstName} {c.lastName}</span>
+                          <span className="text-gray-700 dark:text-[#C8D8E4] font-medium">{c.firstName} {c.lastName}</span>
                         </div>
                       </td>
-                      <td className="px-5 py-3 text-gray-500 dark:text-gray-400">{c.email}</td>
-                      <td className="px-5 py-3 text-gray-500 dark:text-gray-400">{c.phone ?? '—'}</td>
+                      <td className="px-5 py-3 text-gray-500 dark:text-[#9BB0BC]">{c.email}</td>
+                      <td className="px-5 py-3 text-gray-500 dark:text-[#9BB0BC]">{c.phone ?? '—'}</td>
                       <td className="px-5 py-3">
                         {c.source ? (
-                          <span className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 px-2 py-0.5 rounded-full">
+                          <span className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] px-2 py-0.5 rounded-full">
                             {c.source}
                           </span>
                         ) : <span className="text-gray-400">—</span>}
                       </td>
-                      <td className="px-5 py-3 text-gray-500 dark:text-gray-400 text-xs">{fmt(c.createdAt)}</td>
+                      <td className="px-5 py-3 text-gray-500 dark:text-[#9BB0BC] text-xs">{fmt(c.createdAt)}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -829,7 +829,7 @@ export default function RecruitmentPage() {
               <div className="text-center space-y-4">
                 <div className="w-16 h-16 rounded-2xl bg-green-50 dark:bg-green-900/20 flex items-center justify-center mb-4 mx-auto ring-1 ring-green-200 dark:ring-green-800"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-green-500"><polyline points="20 6 9 17 4 12"/></svg></div>
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Employee Created!</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
+                <p className="text-sm text-gray-600 dark:text-[#9BB0BC]">
                   <strong>{convertApp.candidateFirstName} {convertApp.candidateLastName}</strong> has been added as an employee
                   {convertResult.employeeNumber ? ` (${convertResult.employeeNumber})` : ''}.
                 </p>
@@ -837,7 +837,7 @@ export default function RecruitmentPage() {
                 <div className="flex gap-3 pt-2">
                   <button
                     onClick={() => setConvertApp(null)}
-                    className="flex-1 px-4 py-2 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition"
+                    className="flex-1 px-4 py-2 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg text-sm text-gray-600 dark:text-[#C8D8E4] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition"
                   >Close</button>
                   <a
                     href="/tenant/employees"
@@ -857,7 +857,7 @@ export default function RecruitmentPage() {
 
                 <div className="space-y-3">
                   <div>
-                    <label className="text-xs font-medium text-gray-600 dark:text-gray-400 mb-1 block">Start Date *</label>
+                    <label className="text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1 block">Start Date *</label>
                     <input
                       type="date" required
                       value={convertForm.startDate}
@@ -866,7 +866,7 @@ export default function RecruitmentPage() {
                     />
                   </div>
                   <div>
-                    <label className="text-xs font-medium text-gray-600 dark:text-gray-400 mb-1 block">Employment Type</label>
+                    <label className="text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1 block">Employment Type</label>
                     <select
                       value={convertForm.employmentType}
                       onChange={e => setConvertForm(f => ({ ...f, employmentType: e.target.value }))}
@@ -878,7 +878,7 @@ export default function RecruitmentPage() {
                       <option value="contractor">Contractor</option>
                     </select>
                   </div>
-                  <label className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 cursor-pointer">
+                  <label className="flex items-center gap-2 text-sm text-gray-700 dark:text-[#C8D8E4] cursor-pointer">
                     <input
                       type="checkbox"
                       checked={convertForm.createOnboarding}
@@ -896,7 +896,7 @@ export default function RecruitmentPage() {
                   <button
                     type="button"
                     onClick={() => { setConvertApp(null); setConvertError('') }}
-                    className="flex-1 px-4 py-2 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition"
+                    className="flex-1 px-4 py-2 border border-gray-200 dark:border-[#1A6080]/30 rounded-lg text-sm text-gray-600 dark:text-[#C8D8E4] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition"
                   >Cancel</button>
                   <button
                     disabled={!convertForm.startDate || convertSaving}

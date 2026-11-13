@@ -35,7 +35,7 @@ const PRESET_THEMES = [
 ]
 
 const INPUT = 'w-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-[#4ebac4]/50 focus:outline-none focus:border-[#0E3D52]'
-const LABEL = 'block text-sm font-medium text-gray-600 dark:text-gray-300 mb-1'
+const LABEL = 'block text-sm font-medium text-gray-600 dark:text-[#C8D8E4] mb-1'
 
 type TabId = 'general' | 'branding' | 'theme' | 'errorPages' | 'config'
 
@@ -248,7 +248,7 @@ function EditClientInner() {
     setTimeout(() => setSuccess(''), 3000)
   }
 
-  if (loading) return <div className="text-gray-600 dark:text-gray-400 p-6">Loading client…</div>
+  if (loading) return <div className="text-gray-600 dark:text-[#9BB0BC] p-6">Loading client…</div>
 
   const tierChanged = form.tier !== originalTier
   const TABS: { id: TabId; label: string }[] = [
@@ -275,7 +275,7 @@ function EditClientInner() {
           )}
           <div>
             <h1 className="text-2xl font-bold text-gray-900 dark:text-white">{form.name}</h1>
-            <p className="text-gray-600 dark:text-gray-400 text-sm">{form.slug} · {form.tier}</p>
+            <p className="text-gray-600 dark:text-[#9BB0BC] text-sm">{form.slug} · {form.tier}</p>
           </div>
         </div>
         <div className="flex gap-2">
@@ -307,7 +307,7 @@ function EditClientInner() {
       <div className="flex overflow-x-auto border-b border-gray-200 dark:border-[#1A6080]/20 gap-0">
         {TABS.map(t => (
           <button key={t.id} onClick={() => setActiveTab(t.id)}
-            className={`shrink-0 px-4 py-2.5 text-sm font-medium border-b-2 transition whitespace-nowrap ${activeTab === t.id ? 'border-[#0E3D52] text-[#0E3D52] dark:text-[#4ebac4]' : 'border-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'}`}>
+            className={`shrink-0 px-4 py-2.5 text-sm font-medium border-b-2 transition whitespace-nowrap ${activeTab === t.id ? 'border-[#0E3D52] text-[#0E3D52] dark:text-[#4ebac4]' : 'border-transparent text-gray-600 dark:text-[#9BB0BC] hover:text-gray-900 dark:hover:text-gray-200'}`}>
             {t.label}
           </button>
         ))}
@@ -321,7 +321,7 @@ function EditClientInner() {
           <div className="flex items-center justify-between pb-4 border-b border-gray-200 dark:border-[#1A6080]/20">
             <div>
               <p className="text-sm font-medium text-gray-900 dark:text-white">Account Status</p>
-              <p className="text-xs text-gray-600 dark:text-gray-400 mt-0.5">Inactive clients cannot log in</p>
+              <p className="text-xs text-gray-600 dark:text-[#9BB0BC] mt-0.5">Inactive clients cannot log in</p>
             </div>
             <button type="button" onClick={() => setForm(f => ({ ...f, isActive: !f.isActive }))}
               className={`relative inline-flex h-6 w-11 rounded-full transition-colors ${form.isActive ? 'bg-green-600' : 'bg-gray-200 dark:bg-[#0E3D52]/60'}`}>
@@ -332,7 +332,7 @@ function EditClientInner() {
           <div>
             <label className={LABEL}>Organisation Name</label>
             <input required value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))} className={INPUT} />
-            <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">This name appears on the client login page and throughout their portal.</p>
+            <p className="text-xs text-gray-500 mt-1 dark:text-[#8aaabb]">This name appears on the client login page and throughout their portal.</p>
           </div>
 
           <div>
@@ -340,7 +340,7 @@ function EditClientInner() {
             <input required value={form.slug}
               onChange={e => setForm(f => ({ ...f, slug: e.target.value.toLowerCase().replace(/[^a-z0-9-]/g, '') }))}
               className={INPUT} />
-            <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">
+            <p className="text-xs text-gray-500 mt-1 dark:text-[#8aaabb]">
               Portal URL: <span className="text-[#0E3D52] dark:text-[#4ebac4]">{form.slug}.yourdomain.com</span>
             </p>
           </div>
@@ -356,11 +356,11 @@ function EditClientInner() {
                   <div className="flex-1">
                     <div className="flex items-center justify-between">
                       <p className="text-sm font-medium text-gray-900 dark:text-white">{t.label}</p>
-                      <span className="text-xs text-gray-600 dark:text-gray-400">{t.modules} modules</span>
+                      <span className="text-xs text-gray-600 dark:text-[#9BB0BC]">{t.modules} modules</span>
                     </div>
-                    <p className="text-xs text-gray-600 dark:text-gray-400 mt-0.5">{t.desc}</p>
+                    <p className="text-xs text-gray-600 dark:text-[#9BB0BC] mt-0.5">{t.desc}</p>
                   </div>
-                  {originalTier === t.value && <span className="text-xs text-gray-500 shrink-0 mt-0.5 dark:text-gray-400">current</span>}
+                  {originalTier === t.value && <span className="text-xs text-gray-500 shrink-0 mt-0.5 dark:text-[#8aaabb]">current</span>}
                 </label>
               ))}
             </div>
@@ -368,7 +368,7 @@ function EditClientInner() {
 
           {/* Deployment URL read-only summary */}
           <div className="rounded-lg bg-gray-100 dark:bg-[#0A1929]/60 border border-gray-300 dark:border-[#1A6080]/30 px-4 py-3">
-            <p className="text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Vercel Deployment URL</p>
+            <p className="text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1">Vercel Deployment URL</p>
             {deploymentUrl ? (
               <div className="flex items-center gap-2">
                 <a href={deploymentUrl} target="_blank" rel="noopener noreferrer"
@@ -381,7 +381,7 @@ function EditClientInner() {
                 </a>
               </div>
             ) : (
-              <p className="text-sm text-gray-500 italic dark:text-gray-400">
+              <p className="text-sm text-gray-500 italic dark:text-[#8aaabb]">
                 Not set — add it in the <button type="button" onClick={() => setActiveTab('config')} className="underline text-[#0E3D52] dark:text-[#4ebac4]">Configuration tab</button>.
               </p>
             )}
@@ -393,7 +393,7 @@ function EditClientInner() {
               {saving ? 'Saving…' : 'Save Changes'}
             </button>
             <button type="button" onClick={() => router.push('/super-admin/clients')}
-              className="border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white text-sm px-4 py-2.5 rounded-lg transition">
+              className="border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#C8D8E4] hover:text-gray-900 dark:hover:text-white text-sm px-4 py-2.5 rounded-lg transition">
               ← Clients
             </button>
           </div>
@@ -404,7 +404,7 @@ function EditClientInner() {
       {activeTab === 'branding' && (
         <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6 space-y-6">
           <div>
-            <p className="text-sm font-medium text-gray-600 dark:text-gray-300 mb-3">Organisation Logo</p>
+            <p className="text-sm font-medium text-gray-600 dark:text-[#C8D8E4] mb-3">Organisation Logo</p>
             <div className="flex items-start gap-4">
               <div className="w-24 h-24 rounded-xl bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 flex items-center justify-center overflow-hidden shrink-0">
                 {logoUrl ? (
@@ -426,7 +426,7 @@ function EditClientInner() {
                     Remove Logo
                   </button>
                 )}
-                <p className="text-xs text-gray-500 dark:text-gray-400">PNG, JPG, SVG or WebP · max 512 KB · Recommended: 200×60px on transparent background</p>
+                <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">PNG, JPG, SVG or WebP · max 512 KB · Recommended: 200×60px on transparent background</p>
               </div>
             </div>
           </div>
@@ -434,11 +434,11 @@ function EditClientInner() {
           <div>
             <label className={LABEL}>Portal Display Name</label>
             <input value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))} className={INPUT} />
-            <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">Shown on login page, browser tab, and portal header.</p>
+            <p className="text-xs text-gray-500 mt-1 dark:text-[#8aaabb]">Shown on login page, browser tab, and portal header.</p>
           </div>
 
           <div className="rounded-xl overflow-hidden border border-gray-300 dark:border-[#1A6080]/30">
-            <div className="bg-gray-100 dark:bg-[#0A1929] px-3 py-2 text-xs text-gray-500 font-medium dark:text-gray-400">Login page preview</div>
+            <div className="bg-gray-100 dark:bg-[#0A1929] px-3 py-2 text-xs text-gray-500 font-medium dark:text-[#8aaabb]">Login page preview</div>
             <div className="bg-gray-50 dark:bg-[#070F1A] flex items-center justify-center py-8 px-4">
               <div className="w-64 space-y-3 text-center">
                 {logoUrl ? (
@@ -450,7 +450,7 @@ function EditClientInner() {
                   </div>
                 )}
                 <p className="text-gray-900 dark:text-white font-bold text-lg">{form.name || 'Your Organisation'}</p>
-                <p className="text-gray-600 dark:text-gray-400 text-xs">Sign in to {form.name || 'your organisation'}</p>
+                <p className="text-gray-600 dark:text-[#9BB0BC] text-xs">Sign in to {form.name || 'your organisation'}</p>
                 <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-3 space-y-2 mt-2">
                   <div className="h-7 bg-gray-100 dark:bg-[#0A1929] rounded-lg" />
                   <div className="h-7 bg-gray-100 dark:bg-[#0A1929] rounded-lg" />
@@ -485,13 +485,13 @@ function EditClientInner() {
       {activeTab === 'theme' && (
         <div className="space-y-5">
           <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-5">
-            <p className="text-sm font-medium text-gray-600 dark:text-gray-300 mb-3">Preset Themes</p>
+            <p className="text-sm font-medium text-gray-600 dark:text-[#C8D8E4] mb-3">Preset Themes</p>
             <div className="flex flex-wrap gap-2">
               {PRESET_THEMES.map(p => (
                 <button key={p.label}
                   onClick={() => { setForm(f => ({ ...f, primaryColor: p.primaryColor })); setTheme(t => ({ ...t, accentColor: p.accentColor })) }}
                   className={`flex items-center gap-2 px-3 py-1.5 rounded-full border text-xs font-medium transition ${
-                    form.primaryColor === p.primaryColor ? 'border-[#0E3D52] bg-[#E0EEF4] dark:bg-[#0E3D52]/20 text-[#0E3D52] dark:text-[#7dcfd7]' : 'border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-gray-500'}`}>
+                    form.primaryColor === p.primaryColor ? 'border-[#0E3D52] bg-[#E0EEF4] dark:bg-[#0E3D52]/20 text-[#0E3D52] dark:text-[#7dcfd7]' : 'border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:border-gray-500'}`}>
                   <span className="w-3 h-3 rounded-full" style={{ background: p.primaryColor }} />
                   {p.label}
                 </button>
@@ -511,7 +511,7 @@ function EditClientInner() {
                     onChange={e => setForm(f => ({ ...f, primaryColor: e.target.value }))}
                     className="flex-1 bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
                 </div>
-                <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">Sidebar, header accent, buttons</p>
+                <p className="text-xs text-gray-500 mt-1 dark:text-[#8aaabb]">Sidebar, header accent, buttons</p>
               </div>
               <div>
                 <label className={LABEL}>Accent Colour</label>
@@ -523,7 +523,7 @@ function EditClientInner() {
                     onChange={e => setTheme(t => ({ ...t, accentColor: e.target.value }))}
                     className="flex-1 bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
                 </div>
-                <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">Badges, highlights, secondary elements</p>
+                <p className="text-xs text-gray-500 mt-1 dark:text-[#8aaabb]">Badges, highlights, secondary elements</p>
               </div>
             </div>
 
@@ -532,7 +532,7 @@ function EditClientInner() {
               <div className="flex flex-wrap gap-2">
                 {FONT_OPTIONS.map(f => (
                   <button key={f} onClick={() => setTheme(t => ({ ...t, fontFamily: f }))}
-                    className={`px-3 py-1.5 rounded-lg border text-sm transition ${theme.fontFamily === f ? 'border-[#0E3D52] bg-[#E0EEF4] dark:bg-[#0E3D52]/20 text-[#0E3D52] dark:text-[#7dcfd7]' : 'border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-[#1A6080]/40'}`}
+                    className={`px-3 py-1.5 rounded-lg border text-sm transition ${theme.fontFamily === f ? 'border-[#0E3D52] bg-[#E0EEF4] dark:bg-[#0E3D52]/20 text-[#0E3D52] dark:text-[#7dcfd7]' : 'border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:border-[#1A6080]/40'}`}
                     style={{ fontFamily: f }}>
                     {f}
                   </button>
@@ -545,7 +545,7 @@ function EditClientInner() {
               <div className="flex gap-2">
                 {RADIUS_OPTIONS.map(r => (
                   <button key={r.value} onClick={() => setTheme(t => ({ ...t, borderRadius: r.value }))}
-                    className={`flex-1 py-2 text-xs border transition ${theme.borderRadius === r.value ? 'border-[#0E3D52] bg-[#E0EEF4] dark:bg-[#0E3D52]/20 text-[#0E3D52] dark:text-[#7dcfd7]' : 'border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-[#1A6080]/40'}`}
+                    className={`flex-1 py-2 text-xs border transition ${theme.borderRadius === r.value ? 'border-[#0E3D52] bg-[#E0EEF4] dark:bg-[#0E3D52]/20 text-[#0E3D52] dark:text-[#7dcfd7]' : 'border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:border-[#1A6080]/40'}`}
                     style={{ borderRadius: r.value }}>
                     {r.label}
                   </button>
@@ -555,8 +555,8 @@ function EditClientInner() {
 
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-600 dark:text-gray-300">Dark Sidebar</p>
-                <p className="text-xs text-gray-500 dark:text-gray-400">Use dark background for sidebar navigation</p>
+                <p className="text-sm font-medium text-gray-600 dark:text-[#C8D8E4]">Dark Sidebar</p>
+                <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Use dark background for sidebar navigation</p>
               </div>
               <button onClick={() => setTheme(t => ({ ...t, sidebarDark: !t.sidebarDark }))}
                 className={`relative inline-flex h-6 w-11 rounded-full transition-colors ${theme.sidebarDark ? 'bg-[#0E3D52]' : 'bg-gray-200 dark:bg-[#0E3D52]/60'}`}>
@@ -566,7 +566,7 @@ function EditClientInner() {
 
             {/* Live mini-preview */}
             <div className="rounded-xl overflow-hidden border border-gray-300 dark:border-[#1A6080]/30" style={{ fontFamily: theme.fontFamily }}>
-              <div className="bg-gray-100 dark:bg-[#0A1929] px-3 py-1.5 text-xs text-gray-500 dark:text-gray-400">Live preview</div>
+              <div className="bg-gray-100 dark:bg-[#0A1929] px-3 py-1.5 text-xs text-gray-500 dark:text-[#9BB0BC]">Live preview</div>
               <div className="flex h-48">
                 <div className="w-32 flex flex-col text-white text-xs" style={{ background: theme.sidebarDark ? '#111827' : form.primaryColor }}>
                   <div className="px-3 py-2.5 border-b border-white/10 font-bold truncate" style={{ borderRadius: theme.borderRadius }}>
@@ -586,13 +586,13 @@ function EditClientInner() {
                         style={{ background: s.bg, borderRadius: theme.borderRadius }}>{s.label}</div>
                     ))}
                   </div>
-                  <div className="text-xs text-gray-600 dark:text-gray-400">Recent Activity</div>
-                  <div className="bg-white dark:bg-[#0F1E2E] rounded p-2 text-xs text-gray-500 dark:text-gray-400" style={{ borderRadius: theme.borderRadius }}>John Smith — Leave Approved</div>
+                  <div className="text-xs text-gray-600 dark:text-[#9BB0BC]">Recent Activity</div>
+                  <div className="bg-white dark:bg-[#0F1E2E] rounded p-2 text-xs text-gray-500 dark:text-[#9BB0BC]" style={{ borderRadius: theme.borderRadius }}>John Smith — Leave Approved</div>
                   <button className="text-xs text-white px-3 py-1 font-medium"
                     style={{ background: form.primaryColor, borderRadius: theme.borderRadius }}>+ Add Employee</button>
                 </div>
               </div>
-              <div className="bg-white dark:bg-[#0F1E2E] border-t border-gray-200 dark:border-[#1A6080]/20 px-3 py-1.5 text-xs text-gray-500 dark:text-gray-400">
+              <div className="bg-white dark:bg-[#0F1E2E] border-t border-gray-200 dark:border-[#1A6080]/20 px-3 py-1.5 text-xs text-gray-500 dark:text-[#9BB0BC]">
                 {theme.fontFamily} · radius {theme.borderRadius} · {theme.sidebarDark ? 'dark' : 'colour'} sidebar
               </div>
             </div>
@@ -610,7 +610,7 @@ function EditClientInner() {
         <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-6 space-y-5">
           <div>
             <p className="text-sm font-semibold text-gray-900 dark:text-white mb-1">404 Page Content</p>
-            <p className="text-xs text-gray-500 dark:text-gray-400">Customise what users see when they hit a page that doesn't exist. Changes are live immediately — no redeploy needed.</p>
+            <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Customise what users see when they hit a page that doesn't exist. Changes are live immediately — no redeploy needed.</p>
           </div>
 
           <div>
@@ -637,7 +637,7 @@ function EditClientInner() {
 
           {/* Live mini-preview */}
           <div className="rounded-xl overflow-hidden border border-gray-300 dark:border-[#1A6080]/30">
-            <div className="bg-gray-100 dark:bg-[#0A1929] px-3 py-1.5 text-xs text-gray-500 dark:text-gray-400 font-medium">404 page preview</div>
+            <div className="bg-gray-100 dark:bg-[#0A1929] px-3 py-1.5 text-xs text-gray-500 dark:text-[#9BB0BC] font-medium">404 page preview</div>
             <div className="bg-gray-50 dark:bg-[#070F1A] flex flex-col items-center justify-center py-8 px-4 text-center gap-2">
               {logoUrl ? (
                 <img src={logoUrl} alt="Logo" className="h-10 object-contain mb-1" />
@@ -647,14 +647,14 @@ function EditClientInner() {
                   {form.name[0] ?? 'H'}
                 </div>
               )}
-              <p className="text-5xl font-extrabold text-gray-200 dark:text-gray-700 select-none">404</p>
+              <p className="text-5xl font-extrabold text-gray-200 dark:text-[#8aaabb] select-none">404</p>
               <p className="text-base font-semibold text-gray-900 dark:text-white">{notFound.headline || 'Page not found'}</p>
-              <p className="text-xs text-gray-500 dark:text-gray-400 max-w-xs">{notFound.message}</p>
+              <p className="text-xs text-gray-500 dark:text-[#9BB0BC] max-w-xs">{notFound.message}</p>
               <div className="flex gap-2 mt-2">
                 <span className="inline-flex items-center px-4 py-2 rounded-lg text-xs font-medium text-white" style={{ background: form.primaryColor }}>
                   {notFound.ctaLabel}
                 </span>
-                <span className="inline-flex items-center px-4 py-2 rounded-lg text-xs font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30">
+                <span className="inline-flex items-center px-4 py-2 rounded-lg text-xs font-medium text-gray-700 dark:text-[#C8D8E4] bg-white dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30">
                   Back to login
                 </span>
               </div>
@@ -676,7 +676,7 @@ function EditClientInner() {
           <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-5 space-y-4">
             <div>
               <p className="text-sm font-semibold text-gray-900 dark:text-white">Deployment</p>
-              <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">The public URL for this client's portal — used in email notification links.</p>
+              <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-0.5">The public URL for this client's portal — used in email notification links.</p>
             </div>
             <div>
               <label className={LABEL}>Portal URL</label>
@@ -686,7 +686,7 @@ function EditClientInner() {
                 className={INPUT}
                 placeholder="https://yahwehcare-hrmsapp.vercel.app"
               />
-              <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">Include the full URL with https://</p>
+              <p className="text-xs text-gray-500 mt-1 dark:text-[#8aaabb]">Include the full URL with https://</p>
             </div>
           </div>
 
@@ -694,7 +694,7 @@ function EditClientInner() {
           <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-5 space-y-4">
             <div>
               <p className="text-sm font-semibold text-gray-900 dark:text-white">Email Settings</p>
-              <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Controls the From / Reply-To addresses on all emails sent for this client.</p>
+              <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-0.5">Controls the From / Reply-To addresses on all emails sent for this client.</p>
             </div>
             <div>
               <label className={LABEL}>From Address</label>
@@ -704,7 +704,7 @@ function EditClientInner() {
                 className={INPUT}
                 placeholder='Yahweh Care HR <noreply@yahwehcare.com.au>'
               />
-              <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">Format: <code className="text-xs text-gray-600 dark:text-gray-400">Name &lt;email@domain.com&gt;</code></p>
+              <p className="text-xs text-gray-500 mt-1 dark:text-[#8aaabb]">Format: <code className="text-xs text-gray-600 dark:text-[#9BB0BC]">Name &lt;email@domain.com&gt;</code></p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
@@ -733,17 +733,17 @@ function EditClientInner() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-semibold text-gray-900 dark:text-white">Email Provider</p>
-                <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Leave blank to use the platform default Resend key. Set a per-client key for complete email isolation.</p>
+                <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-0.5">Leave blank to use the platform default Resend key. Set a per-client key for complete email isolation.</p>
               </div>
               {/* SMTP toggle */}
               <div className="flex items-center gap-2 shrink-0">
-                <span className="text-xs text-gray-600 dark:text-gray-400">Resend</span>
+                <span className="text-xs text-gray-600 dark:text-[#9BB0BC]">Resend</span>
                 <button
                   onClick={() => setSmtpConfig(c => ({ ...c, useSmtp: !c.useSmtp }))}
                   className={`relative inline-flex h-6 w-11 rounded-full transition-colors ${smtpConfig.useSmtp ? 'bg-[#0E3D52]' : 'bg-gray-200 dark:bg-[#0E3D52]/60'}`}>
                   <span className={`inline-block h-5 w-5 mt-0.5 rounded-full bg-white shadow transition-transform ${smtpConfig.useSmtp ? 'translate-x-5' : 'translate-x-0.5'}`} />
                 </button>
-                <span className="text-xs text-gray-600 dark:text-gray-400">SMTP</span>
+                <span className="text-xs text-gray-600 dark:text-[#9BB0BC]">SMTP</span>
               </div>
             </div>
 
@@ -760,11 +760,11 @@ function EditClientInner() {
                     autoComplete="off"
                   />
                   <button type="button" onClick={() => setResendKeyVisible(v => !v)}
-                    className="shrink-0 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-lg text-xs transition">
+                    className="shrink-0 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-lg text-xs transition">
                     {resendKeyVisible ? 'Hide' : 'Show'}
                   </button>
                 </div>
-                <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">
+                <p className="text-xs text-gray-500 mt-1 dark:text-[#8aaabb]">
                   Get your key at <a href="https://resend.com/api-keys" target="_blank" rel="noopener noreferrer" className="text-[#0E3D52] dark:text-[#4ebac4] underline">resend.com/api-keys</a>. Stored securely in tenant settings.
                 </p>
               </div>
@@ -799,7 +799,7 @@ function EditClientInner() {
                       autoComplete="new-password"
                     />
                     <button type="button" onClick={() => setSmtpPassVisible(v => !v)}
-                      className="shrink-0 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-lg text-xs transition">
+                      className="shrink-0 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-lg text-xs transition">
                       {smtpPassVisible ? 'Hide' : 'Show'}
                     </button>
                   </div>
@@ -812,7 +812,7 @@ function EditClientInner() {
           <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-5 space-y-4">
             <div>
               <p className="text-sm font-semibold text-gray-900 dark:text-white">Feature Limits</p>
-              <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Optional caps enforced by the tenant portal. Leave blank for unlimited.</p>
+              <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-0.5">Optional caps enforced by the tenant portal. Leave blank for unlimited.</p>
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div>
@@ -844,7 +844,7 @@ function EditClientInner() {
                 className={INPUT}
                 placeholder="pdf,docx,xlsx,png,jpg"
               />
-              <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">Comma-separated extensions without dots. Controls what employees can upload in documents and HR modules.</p>
+              <p className="text-xs text-gray-500 mt-1 dark:text-[#8aaabb]">Comma-separated extensions without dots. Controls what employees can upload in documents and HR modules.</p>
             </div>
           </div>
 
@@ -860,7 +860,7 @@ function EditClientInner() {
 
 export default function EditClientPage() {
   return (
-    <Suspense fallback={<div className="text-gray-600 dark:text-gray-400 p-6">Loading…</div>}>
+    <Suspense fallback={<div className="text-gray-600 dark:text-[#9BB0BC] p-6">Loading…</div>}>
       <EditClientInner />
     </Suspense>
   )

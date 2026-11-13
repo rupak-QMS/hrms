@@ -40,7 +40,7 @@ const STATUS_COLOR: Record<Status, string> = {
   in_progress: 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/15 dark:text-[#4ebac4]',
   pending:     'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400',
   resolved:    'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400',
-  closed:      'bg-gray-100 text-gray-500 dark:bg-[#0A1929] dark:text-gray-400',
+  closed:      'bg-gray-100 text-gray-500 dark:bg-[#0A1929] dark:text-[#8aaabb]',
 }
 
 function fmtMins(mins: number | null): string {
@@ -113,7 +113,7 @@ export default function HelpdeskPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-xl font-bold text-gray-900 dark:text-white">Helpdesk</h1>
-          <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">Support tickets &amp; SLA tracking</p>
+          <p className="text-sm text-gray-500 dark:text-[#9BB0BC] mt-0.5">Support tickets &amp; SLA tracking</p>
         </div>
         <button onClick={() => setShowNew(true)}
           className="inline-flex items-center gap-2 px-4 py-2 bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm font-medium rounded-lg transition">
@@ -132,7 +132,7 @@ export default function HelpdeskPage() {
             { label: 'Avg Resolve Time',value: fmtMins(stats.avgResolveMins), color: 'text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4]', bg: 'bg-[#E0EEF4] dark:bg-[#0E3D52]/15' },
           ].map(c => (
             <div key={c.label} className={`rounded-xl p-4 ${c.bg} border border-black/[0.04] dark:border-white/[0.06]`}>
-              <p className="text-xs text-gray-500 dark:text-gray-400 font-medium">{c.label}</p>
+              <p className="text-xs text-gray-500 dark:text-[#9BB0BC] font-medium">{c.label}</p>
               <p className={`text-2xl font-bold mt-1 ${c.color}`}>{c.value}</p>
             </div>
           ))}
@@ -161,7 +161,7 @@ export default function HelpdeskPage() {
           <option value="medium">Medium</option>
           <option value="low">Low</option>
         </select>
-        <span className="ml-auto text-xs text-gray-400 dark:text-gray-500 self-center">{total} ticket{total !== 1 ? 's' : ''}</span>
+        <span className="ml-auto text-xs text-gray-400 dark:text-[#9BB0BC] self-center">{total} ticket{total !== 1 ? 's' : ''}</span>
       </div>
 
       {/* Ticket Table */}
@@ -178,18 +178,18 @@ export default function HelpdeskPage() {
             <thead>
               <tr className="border-b border-gray-100 dark:border-[#1A6080]/20">
                 {['Ticket', 'Title', 'Category', 'Priority', 'Status', 'SLA', 'Age'].map(h => (
-                  <th key={h} className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 ">{h}</th>
+                  <th key={h} className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-[#9BB0BC] ">{h}</th>
                 ))}
               </tr>
             </thead>
             <tbody>
               {tickets.map(t => (
                 <tr key={t.id} className="border-b border-gray-50 dark:border-[#1A6080]/20/50 hover:bg-gray-50 dark:hover:bg-white/[0.02] transition-colors">
-                  <td className="px-4 py-3 font-mono text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap">{t.ticketNumber}</td>
+                  <td className="px-4 py-3 font-mono text-xs text-gray-500 dark:text-[#9BB0BC] whitespace-nowrap">{t.ticketNumber}</td>
                   <td className="px-4 py-3 max-w-xs">
                     <p className="font-medium text-gray-900 dark:text-white truncate">{t.title}</p>
                   </td>
-                  <td className="px-4 py-3 capitalize text-gray-600 dark:text-gray-400">{t.category}</td>
+                  <td className="px-4 py-3 capitalize text-gray-600 dark:text-[#9BB0BC]">{t.category}</td>
                   <td className="px-4 py-3">
                     <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium ${PRIORITY_COLOR[t.priority]}`}>
                       {t.priority === 'critical' && <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />}
@@ -209,12 +209,12 @@ export default function HelpdeskPage() {
                           style={{ width: `${t.slaUsedPct}%` }}
                         />
                       </div>
-                      <span className={`text-xs whitespace-nowrap font-medium ${t.isBreached ? 'text-red-500' : 'text-gray-500 dark:text-gray-400'}`}>
+                      <span className={`text-xs whitespace-nowrap font-medium ${t.isBreached ? 'text-red-500' : 'text-gray-500 dark:text-[#9BB0BC]'}`}>
                         {t.isBreached ? '🔴 Breached' : `${t.slaUsedPct}% of ${SLA_LABEL[t.priority]}`}
                       </span>
                     </div>
                   </td>
-                  <td className="px-4 py-3 text-gray-500 dark:text-gray-400 whitespace-nowrap">{fmtAge(t.createdAt)}</td>
+                  <td className="px-4 py-3 text-gray-500 dark:text-[#9BB0BC] whitespace-nowrap">{fmtAge(t.createdAt)}</td>
                 </tr>
               ))}
             </tbody>
@@ -227,7 +227,7 @@ export default function HelpdeskPage() {
         <div className="flex justify-center gap-2">
           <button disabled={page === 1} onClick={() => setPage(p => p - 1)}
             className="px-3 py-1.5 text-sm border border-gray-200 dark:border-[#1A6080]/30 rounded-lg disabled:opacity-40 hover:bg-gray-50 dark:hover:bg-white/[0.04] transition">← Prev</button>
-          <span className="px-3 py-1.5 text-sm text-gray-500 dark:text-gray-400">Page {page} of {pages}</span>
+          <span className="px-3 py-1.5 text-sm text-gray-500 dark:text-[#9BB0BC]">Page {page} of {pages}</span>
           <button disabled={page === pages} onClick={() => setPage(p => p + 1)}
             className="px-3 py-1.5 text-sm border border-gray-200 dark:border-[#1A6080]/30 rounded-lg disabled:opacity-40 hover:bg-gray-50 dark:hover:bg-white/[0.04] transition">Next →</button>
         </div>
@@ -240,18 +240,18 @@ export default function HelpdeskPage() {
             <h2 className="text-base font-semibold text-gray-900 dark:text-white mb-4">New Support Ticket</h2>
             <div className="space-y-3">
               <div>
-                <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Title *</label>
+                <label className="block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1">Title *</label>
                 <input value={newForm.title} onChange={e => setNewForm(f => ({ ...f, title: e.target.value }))}
                   className="w-full input-premium focus:ring-2 focus:ring-[#0E3D52]/30" placeholder="Brief summary of the issue" />
               </div>
               <div>
-                <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Description *</label>
+                <label className="block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1">Description *</label>
                 <textarea value={newForm.description} onChange={e => setNewForm(f => ({ ...f, description: e.target.value }))} rows={4}
                   className="w-full input-premium focus:ring-2 focus:ring-[#0E3D52]/30 resize-none" placeholder="Describe the issue in detail…" />
               </div>
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Category</label>
+                  <label className="block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1">Category</label>
                   <select value={newForm.category} onChange={e => setNewForm(f => ({ ...f, category: e.target.value }))}
                     className="w-full input-premium focus:ring-2 focus:ring-[#0E3D52]/30">
                     <option value="it">IT</option>
@@ -263,7 +263,7 @@ export default function HelpdeskPage() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Priority</label>
+                  <label className="block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1">Priority</label>
                   <select value={newForm.priority} onChange={e => setNewForm(f => ({ ...f, priority: e.target.value }))}
                     className="w-full input-premium focus:ring-2 focus:ring-[#0E3D52]/30">
                     <option value="low">Low (72h SLA)</option>
@@ -275,7 +275,7 @@ export default function HelpdeskPage() {
               </div>
             </div>
             <div className="flex gap-3 mt-5">
-              <button onClick={() => setShowNew(false)} className="flex-1 px-4 py-2 text-sm border border-gray-200 dark:border-[#1A6080]/30 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/[0.04] transition">Cancel</button>
+              <button onClick={() => setShowNew(false)} className="flex-1 px-4 py-2 text-sm border border-gray-200 dark:border-[#1A6080]/30 rounded-lg text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:hover:bg-white/[0.04] transition">Cancel</button>
               <button onClick={submit} disabled={submitting || !newForm.title || !newForm.description}
                 className="flex-1 px-4 py-2 text-sm bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-50 text-white rounded-lg font-medium transition">
                 {submitting ? 'Submitting…' : 'Submit Ticket'}

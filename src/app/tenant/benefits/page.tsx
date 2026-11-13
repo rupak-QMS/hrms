@@ -35,7 +35,7 @@ const BENEFIT_TYPES = [
 ]
 
 const INPUT = 'input-premium'
-const LABEL = 'block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1'
+const LABEL = 'block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1'
 
 const BLANK_FORM = { employeeId: '', type: 'eap', description: '', startDate: '', endDate: '', notes: '' }
 
@@ -192,7 +192,7 @@ export default function BenefitsPage() {
       <div className="flex items-center justify-between flex-wrap gap-3">
         <div>
           <h1 className="text-2xl font-bold text-foreground">Employee Benefits</h1>
-          <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">Track and manage benefit assignments across the team</p>
+          <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Track and manage benefit assignments across the team</p>
         </div>
         <div className="flex items-center gap-2">
         <ExportButton onClick={exportBenefits} disabled={benefits.length === 0} />
@@ -212,7 +212,7 @@ export default function BenefitsPage() {
           { label: 'Expired',        value: stats.expired,  color: 'text-gray-500' },
         ].map(s => (
           <div key={s.label} className="card-premium p-4">
-            <p className="text-xs text-gray-500 dark:text-gray-400">{s.label}</p>
+            <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{s.label}</p>
             <p className={`text-2xl font-bold mt-1 ${s.color}`}>{s.value}</p>
           </div>
         ))}
@@ -268,7 +268,7 @@ export default function BenefitsPage() {
               {saving ? 'Saving…' : editingId ? 'Save Changes' : 'Assign Benefit'}
             </button>
             <button type="button" onClick={cancelForm}
-              className="px-4 py-2 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-white text-sm rounded-lg transition">
+              className="px-4 py-2 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:text-white text-sm rounded-lg transition">
               Cancel
             </button>
           </div>
@@ -305,7 +305,7 @@ export default function BenefitsPage() {
           {(['list', 'grouped'] as const).map(v => (
             <button key={v} onClick={() => setView(v)}
               className={`px-3 py-1.5 rounded-md text-xs font-medium transition capitalize ${
-                view === v ? 'bg-white dark:bg-[#0F1E2E] text-white shadow-sm' : 'text-gray-500 dark:text-gray-400 hover:text-gray-300'
+                view === v ? 'bg-white dark:bg-[#0F1E2E] text-white shadow-sm' : 'text-gray-500 dark:text-[#9BB0BC] hover:text-gray-300'
               }`}>
               {v === 'list' ? '☰ List' : '⊞ Grouped'}
             </button>
@@ -315,12 +315,12 @@ export default function BenefitsPage() {
 
       {/* Content */}
       {loading ? (
-        <div className="text-center py-12 text-gray-500 dark:text-gray-400">Loading…</div>
+        <div className="text-center py-12 text-gray-500 dark:text-[#9BB0BC]">Loading…</div>
       ) : filtered.length === 0 ? (
         <div className="card-premium py-14 text-center">
           <div className="text-4xl mb-3">🎁</div>
-          <p className="text-gray-600 dark:text-gray-300 font-medium">No benefits found</p>
-          <p className="text-gray-500 text-sm mt-1 dark:text-gray-400">
+          <p className="text-gray-600 dark:text-[#C8D8E4] font-medium">No benefits found</p>
+          <p className="text-gray-500 text-sm mt-1 dark:text-[#8aaabb]">
             {benefits.length > 0 ? 'Try adjusting your filters' : 'Assign a benefit to get started'}
           </p>
         </div>
@@ -332,7 +332,7 @@ export default function BenefitsPage() {
             <thead>
               <tr>
                 {['Employee', 'Benefit', 'Status', 'Period', 'Description', 'Actions'].map(h => (
-                  <th key={h} className="px-4 py-3 text-xs font-semibold  text-gray-600 dark:text-gray-400">{h}</th>
+                  <th key={h} className="px-4 py-3 text-xs font-semibold  text-gray-600 dark:text-[#9BB0BC]">{h}</th>
                 ))}
               </tr>
             </thead>
@@ -356,7 +356,7 @@ export default function BenefitsPage() {
                         {STATUS_LABEL[status]}
                       </span>
                     </td>
-                    <td className="px-4 py-3.5 text-xs text-gray-500 dark:text-gray-400">
+                    <td className="px-4 py-3.5 text-xs text-gray-500 dark:text-[#9BB0BC]">
                       {b.startDate ? fmt(b.startDate) : '—'}
                       {b.endDate ? ` → ${fmt(b.endDate)}` : b.startDate ? ' → ongoing' : ''}
                     </td>
@@ -391,7 +391,7 @@ export default function BenefitsPage() {
                 style={{ borderLeft: `4px solid ${group.color}` }}>
                 <span className="text-xl">{group.emoji}</span>
                 <p className="text-sm font-semibold text-foreground">{group.label}</p>
-                <span className="ml-auto text-xs text-gray-500 dark:text-gray-400">{group.items.length} assigned</span>
+                <span className="ml-auto text-xs text-gray-500 dark:text-[#9BB0BC]">{group.items.length} assigned</span>
               </div>
               <div className="divide-y divide-gray-100 dark:divide-[#1A6080]/20/50">
                 {group.items.map(b => {
@@ -400,8 +400,8 @@ export default function BenefitsPage() {
                     <div key={b.id} className="flex items-center gap-4 px-5 py-3.5">
                       <div className="flex-1 min-w-0">
                         <p className="text-sm text-foreground font-medium">{b.employeeFirstName} {b.employeeLastName}</p>
-                        {b.description && <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{b.description}</p>}
-                        <p className="text-xs text-gray-600 dark:text-gray-500 mt-0.5">
+                        {b.description && <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-0.5">{b.description}</p>}
+                        <p className="text-xs text-gray-600 dark:text-[#9BB0BC] mt-0.5">
                           {b.startDate ? fmt(b.startDate) : 'No start'}
                           {b.endDate ? ` → ${fmt(b.endDate)}` : ' → ongoing'}
                         </p>

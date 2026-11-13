@@ -65,7 +65,7 @@ const STATUS_ICON: Record<string, string> = {
 }
 
 const INPUT = 'input-premium'
-const LABEL = 'block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1'
+const LABEL = 'block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1'
 
 function calcDays(start: string, end: string): number {
   if (!start || !end) return 0
@@ -197,7 +197,7 @@ export default function MyLeavePage() {
       <div className="p-6 max-w-2xl mx-auto">
         <div className="card-premium p-10 text-center">
           <p className="text-lg font-semibold text-foreground mb-2">Profile Not Linked</p>
-          <p className="text-gray-600 dark:text-gray-400 text-sm">
+          <p className="text-gray-600 dark:text-[#9BB0BC] text-sm">
             Your account is not linked to an employee record. Contact HR to set this up.
           </p>
         </div>
@@ -213,7 +213,7 @@ export default function MyLeavePage() {
         <div>
           <h1 className="text-2xl font-bold text-foreground">My Leave</h1>
           {employee && (
-            <p className="text-sm text-gray-600 dark:text-gray-400 mt-0.5">
+            <p className="text-sm text-gray-600 dark:text-[#9BB0BC] mt-0.5">
               {employee.firstName} {employee.lastName}
             </p>
           )}
@@ -235,7 +235,7 @@ export default function MyLeavePage() {
             { label: 'Pending Review', value: stats.pending,           color: 'text-amber-400' },
           ].map(s => (
             <div key={s.label} className="card-premium p-4">
-              <p className="text-xs text-gray-500 dark:text-gray-400">{s.label}</p>
+              <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{s.label}</p>
               <p className={`text-2xl font-bold mt-1 ${s.color}`}>{s.value}</p>
             </div>
           ))}
@@ -250,7 +250,7 @@ export default function MyLeavePage() {
         ] as { id: 'history' | 'balances'; label: string }[]).map(t => (
           <button key={t.id} onClick={() => setTab(t.id)}
             className={`px-5 py-2 rounded-lg text-sm font-medium transition ${
-              tab === t.id ? 'bg-white dark:bg-[#0F1E2E] text-white shadow-sm' : 'text-gray-500 dark:text-gray-400 hover:text-gray-300'
+              tab === t.id ? 'bg-white dark:bg-[#0F1E2E] text-white shadow-sm' : 'text-gray-500 dark:text-[#9BB0BC] hover:text-gray-300'
             }`}>
             {t.label}
           </button>
@@ -329,7 +329,7 @@ export default function MyLeavePage() {
                 {saving ? 'Submitting…' : 'Submit Request'}
               </button>
               <button type="button" onClick={() => { setShowForm(false); setFormError(null) }}
-                className="px-5 py-2.5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-white text-sm rounded-lg">
+                className="px-5 py-2.5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:text-white text-sm rounded-lg">
                 Cancel
               </button>
             </div>
@@ -363,7 +363,7 @@ export default function MyLeavePage() {
                       <p className="text-sm font-medium text-foreground">
                         {leaveTypes.find(t => t.key === r.leaveType)?.label ?? r.leaveType}
                       </p>
-                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                      <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-0.5">
                         {fmt(r.startDate)} → {fmt(r.endDate)}
                         <span className="ml-2 text-[#1A6080] dark:text-[#4ebac4]">{r.totalDays}d</span>
                       </p>
@@ -384,25 +384,25 @@ export default function MyLeavePage() {
                     <div className="px-5 pb-4 border-t border-gray-200 dark:border-[#1A6080]/20 pt-3 space-y-3">
                       <div className="grid grid-cols-2 gap-4 text-sm">
                         <div>
-                          <p className="text-xs text-gray-500 dark:text-gray-400">Requested on</p>
+                          <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Requested on</p>
                           <p className="text-foreground">{fmt(r.createdAt)}</p>
                         </div>
                         {r.reviewedAt && (
                           <div>
-                            <p className="text-xs text-gray-500 dark:text-gray-400">Reviewed on</p>
+                            <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Reviewed on</p>
                             <p className="text-foreground">{fmt(r.reviewedAt)}</p>
                           </div>
                         )}
                         {r.reason && (
                           <div className="col-span-2">
-                            <p className="text-xs text-gray-500 dark:text-gray-400">Reason</p>
-                            <p className="text-gray-600 dark:text-gray-300">{r.reason}</p>
+                            <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Reason</p>
+                            <p className="text-gray-600 dark:text-[#C8D8E4]">{r.reason}</p>
                           </div>
                         )}
                         {r.reviewNote && (
                           <div className="col-span-2">
-                            <p className="text-xs text-gray-500 dark:text-gray-400">Manager note</p>
-                            <p className="text-gray-600 dark:text-gray-300 italic">"{r.reviewNote}"</p>
+                            <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Manager note</p>
+                            <p className="text-gray-600 dark:text-[#C8D8E4] italic">"{r.reviewNote}"</p>
                           </div>
                         )}
                       </div>
@@ -426,10 +426,10 @@ export default function MyLeavePage() {
       {/* ─── BALANCES TAB ────────────────────────────────────────────────── */}
       {tab === 'balances' && (
         loadingBal ? (
-          <div className="text-center py-12 text-gray-500 dark:text-gray-400">Calculating balances…</div>
+          <div className="text-center py-12 text-gray-500 dark:text-[#9BB0BC]">Calculating balances…</div>
         ) : balances.length === 0 ? (
           <div className="card-premium py-12 text-center">
-            <p className="text-gray-500 dark:text-gray-400">No leave types configured. Contact HR.</p>
+            <p className="text-gray-500 dark:text-[#9BB0BC]">No leave types configured. Contact HR.</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -448,27 +448,27 @@ export default function MyLeavePage() {
                     <span className="text-2xl">{b.emoji}</span>
                     <div>
                       <p className="text-sm font-semibold text-foreground">{b.label}</p>
-                      {b.accrualNote && <p className="text-xs text-gray-600 mt-0.5 dark:text-gray-400">{b.accrualNote}</p>}
+                      {b.accrualNote && <p className="text-xs text-gray-600 mt-0.5 dark:text-[#8aaabb]">{b.accrualNote}</p>}
                     </div>
                   </div>
 
                   <div className="grid grid-cols-2 gap-2 text-sm">
                     <div className="bg-gray-100 dark:bg-[#0A1929]/60 rounded-lg px-3 py-2">
-                      <p className="text-xs text-gray-500 dark:text-gray-400">Entitlement</p>
+                      <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Entitlement</p>
                       <p className="font-semibold text-foreground">
                         {b.entitlement == null || b.entitlement >= 999 ? '∞' : `${b.entitlement}d`}
                       </p>
                     </div>
                     <div className="bg-gray-100 dark:bg-[#0A1929]/60 rounded-lg px-3 py-2">
-                      <p className="text-xs text-gray-500 dark:text-gray-400">Taken</p>
+                      <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Taken</p>
                       <p className="font-semibold text-foreground">{b.taken}d</p>
                     </div>
                     <div className="bg-gray-100 dark:bg-[#0A1929]/60 rounded-lg px-3 py-2">
-                      <p className="text-xs text-gray-500 dark:text-gray-400">Pending</p>
+                      <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Pending</p>
                       <p className="font-semibold text-yellow-400">{b.pending}d</p>
                     </div>
                     <div className="bg-gray-100 dark:bg-[#0A1929]/60 rounded-lg px-3 py-2">
-                      <p className="text-xs text-gray-500 dark:text-gray-400">Remaining</p>
+                      <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Remaining</p>
                       <p className={`font-semibold ${remainingColor}`}>
                         {b.remaining == null ? '∞' : `${b.remaining}d`}
                       </p>
@@ -477,7 +477,7 @@ export default function MyLeavePage() {
 
                   {pct != null && (
                     <div>
-                      <div className="flex justify-between text-xs text-gray-600 mb-1 dark:text-gray-400">
+                      <div className="flex justify-between text-xs text-gray-600 mb-1 dark:text-[#8aaabb]">
                         <span>Used</span><span>{pct}%</span>
                       </div>
                       <div className="h-1.5 bg-gray-100 dark:bg-[#0A1929] rounded-full overflow-hidden">
@@ -496,7 +496,7 @@ export default function MyLeavePage() {
                       setForm(f => ({ ...f, leaveType: b.key }))
                       setShowForm(true); setFormError(null)
                     }}
-                    className="w-full text-xs py-1.5 border border-gray-200 dark:border-[#1A6080]/30 text-gray-500 dark:text-gray-400 hover:text-white hover:border-[#0E3D52] rounded-lg transition">
+                    className="w-full text-xs py-1.5 border border-gray-200 dark:border-[#1A6080]/30 text-gray-500 dark:text-[#9BB0BC] hover:text-white hover:border-[#0E3D52] rounded-lg transition">
                     Request {b.label}
                   </button>
                 </div>

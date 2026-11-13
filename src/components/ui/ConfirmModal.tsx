@@ -30,7 +30,7 @@ export default function ConfirmModal({
           <span className="modal-title">{danger ? '⚠ Confirm Action' : 'Confirm'}</span>
         </div>
         <div className="modal-body">
-          <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{message}</p>
+          <p className="text-sm text-gray-600 dark:text-[#C8D8E4] leading-relaxed">{message}</p>
         </div>
         <div className="modal-footer">
           <button onClick={onClose} className="btn-ghost">

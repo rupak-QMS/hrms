@@ -66,12 +66,12 @@ export default function MyPayslipsPage() {
       <div className="p-6 max-w-2xl mx-auto">
         <div className="card-premium p-10 text-center">
           <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-[#0A1929] mx-auto mb-3">
-                <svg className="w-6 h-6 text-gray-600 dark:text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <svg className="w-6 h-6 text-gray-600 dark:text-[#9BB0BC] dark:text-[#9BB0BC]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
                 </svg>
               </div>
           <h2 className="text-lg font-semibold text-white mb-2">Profile Not Linked</h2>
-          <p className="text-gray-600 dark:text-gray-400 text-sm">
+          <p className="text-gray-600 dark:text-[#9BB0BC] text-sm">
             Your user account is not yet linked to an employee record.
             Contact your HR administrator to set this up before you can view payslips.
           </p>
@@ -91,7 +91,7 @@ export default function MyPayslipsPage() {
       <div>
         <h1 className="text-2xl font-bold text-foreground">My Payslips</h1>
         {employee && (
-          <p className="text-sm text-gray-600 dark:text-gray-400 mt-0.5">
+          <p className="text-sm text-gray-600 dark:text-[#9BB0BC] mt-0.5">
             {employee.firstName} {employee.lastName} · {employee.email}
           </p>
         )}
@@ -101,15 +101,15 @@ export default function MyPayslipsPage() {
       {payslips.length > 0 && (
         <div className="grid grid-cols-3 gap-3">
           <div className="card-premium p-4">
-            <p className="text-xs text-gray-500 dark:text-gray-400">Total Pay Runs</p>
+            <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Total Pay Runs</p>
             <p className="text-xl font-bold text-white mt-0.5">{payslips.length}</p>
           </div>
           <div className="card-premium p-4">
-            <p className="text-xs text-gray-500 dark:text-gray-400">Net Received (Paid)</p>
+            <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Net Received (Paid)</p>
             <p className="text-xl font-bold text-green-400 mt-0.5">{fmt(totalPaid)}</p>
           </div>
           <div className="card-premium p-4">
-            <p className="text-xs text-gray-500 dark:text-gray-400">Super Accumulated</p>
+            <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Super Accumulated</p>
             <p className="text-xl font-bold text-[#1A6080] dark:text-[#4ebac4] mt-0.5">{fmt(totalSuper)}</p>
           </div>
         </div>
@@ -119,12 +119,12 @@ export default function MyPayslipsPage() {
       {payslips.length === 0 ? (
         <div className="card-premium p-12 text-center">
           <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-[#0A1929] mx-auto mb-3">
-                <svg className="w-6 h-6 text-gray-600 dark:text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <svg className="w-6 h-6 text-gray-600 dark:text-[#9BB0BC] dark:text-[#9BB0BC]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
                 </svg>
               </div>
-          <p className="text-gray-600 dark:text-gray-400 font-medium">No payslips yet</p>
-          <p className="text-sm text-gray-600 mt-1 dark:text-gray-400">Your pay runs will appear here once they are processed.</p>
+          <p className="text-gray-600 dark:text-[#9BB0BC] font-medium">No payslips yet</p>
+          <p className="text-sm text-gray-600 mt-1 dark:text-[#8aaabb]">Your pay runs will appear here once they are processed.</p>
         </div>
       ) : (
         <div className="space-y-3">
@@ -145,13 +145,13 @@ export default function MyPayslipsPage() {
                       <p className="text-sm font-medium text-foreground">
                         {fmtDate(p.periodStart)} → {fmtDate(p.periodEnd)}
                       </p>
-                      <p className="text-xs text-gray-500 mt-0.5 dark:text-gray-400">Created {fmtDate(p.createdAt)}</p>
+                      <p className="text-xs text-gray-500 mt-0.5 dark:text-[#8aaabb]">Created {fmtDate(p.createdAt)}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3 shrink-0">
                     <div className="text-right">
                       <p className="text-sm font-bold text-green-400">{fmt(p.netPay)}</p>
-                      <p className="text-xs text-gray-500 dark:text-gray-400">net pay</p>
+                      <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">net pay</p>
                     </div>
                     <span className={`capitalize ${STATUS_STYLE[p.status] ?? 'badge badge-gray'}`}>
                       {p.status}
@@ -167,7 +167,7 @@ export default function MyPayslipsPage() {
                       🖨
                     </a>
                     <svg
-                      className={`w-4 h-4 text-gray-500 transition-transform dark:text-gray-400 ${isOpen ? 'rotate-180' : ''}`}
+                      className={`w-4 h-4 text-gray-500 transition-transform dark:text-[#8aaabb] ${isOpen ? 'rotate-180' : ''}`}
                       fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
@@ -180,24 +180,24 @@ export default function MyPayslipsPage() {
                   <div className="border-t border-gray-200 dark:border-[#1A6080]/20 px-5 py-4 space-y-2">
                     <div className="grid grid-cols-2 gap-x-8 gap-y-2 text-sm">
                       <div className="flex justify-between">
-                        <span className="text-gray-500 dark:text-gray-400">Gross Pay</span>
+                        <span className="text-gray-500 dark:text-[#9BB0BC]">Gross Pay</span>
                         <span className="text-white font-mono">{fmt(p.grossPay)}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-gray-500 dark:text-gray-400">PAYG Withholding</span>
+                        <span className="text-gray-500 dark:text-[#9BB0BC]">PAYG Withholding</span>
                         <span className="text-red-400 font-mono">-{fmt(p.paygWithholding)}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-gray-500 dark:text-gray-400">Medicare Levy</span>
+                        <span className="text-gray-500 dark:text-[#9BB0BC]">Medicare Levy</span>
                         <span className="text-orange-400 font-mono">-{fmt(p.medicareLevy)}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-gray-500 dark:text-gray-400">Superannuation</span>
+                        <span className="text-gray-500 dark:text-[#9BB0BC]">Superannuation</span>
                         <span className="text-[#1A6080] dark:text-[#4ebac4] font-mono">{fmt(p.superContribution)}</span>
                       </div>
                     </div>
                     <div className="border-t border-gray-200 dark:border-[#1A6080]/20 pt-2 flex justify-between text-sm">
-                      <span className="text-gray-600 dark:text-gray-400 font-medium">Net Pay</span>
+                      <span className="text-gray-600 dark:text-[#9BB0BC] font-medium">Net Pay</span>
                       <span className="text-green-400 font-bold font-mono text-base">{fmt(p.netPay)}</span>
                     </div>
                     {p.exportedToXero && (
@@ -212,8 +212,8 @@ export default function MyPayslipsPage() {
       )}
 
       {payslips.length > 0 && (
-        <div className="bg-gray-100 dark:bg-[#0A1929]/40 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-4 text-xs text-gray-500 dark:text-gray-400">
-          <p className="font-medium text-gray-600 dark:text-gray-400 mb-1">Year-to-Date Summary (Paid runs)</p>
+        <div className="bg-gray-100 dark:bg-[#0A1929]/40 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-4 text-xs text-gray-500 dark:text-[#9BB0BC]">
+          <p className="font-medium text-gray-600 dark:text-[#9BB0BC] mb-1">Year-to-Date Summary (Paid runs)</p>
           <div className="flex gap-6">
             <span>Gross: <span className="text-foreground">{fmt(totalGross)}</span></span>
             <span>Net: <span className="text-green-400">{fmt(totalPaid)}</span></span>

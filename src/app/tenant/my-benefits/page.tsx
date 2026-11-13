@@ -90,7 +90,7 @@ export default function MyBenefitsPage() {
       <div className="p-6 max-w-2xl mx-auto">
         <div className="card-premium p-10 text-center">
           <p className="text-lg font-semibold text-white mb-2">Profile Not Linked</p>
-          <p className="text-gray-600 dark:text-gray-400 text-sm">
+          <p className="text-gray-600 dark:text-[#9BB0BC] text-sm">
             Your account is not linked to an employee record. Contact HR to set this up.
           </p>
         </div>
@@ -109,7 +109,7 @@ export default function MyBenefitsPage() {
       <div>
         <h1 className="text-2xl font-bold text-foreground">My Benefits</h1>
         {employee && (
-          <p className="text-sm text-gray-600 dark:text-gray-400 mt-0.5">
+          <p className="text-sm text-gray-600 dark:text-[#9BB0BC] mt-0.5">
             {employee.firstName} {employee.lastName} · {activeBenefits.length} active benefit{activeBenefits.length !== 1 ? 's' : ''}
           </p>
         )}
@@ -129,8 +129,8 @@ export default function MyBenefitsPage() {
       {benefits.length === 0 && (
         <div className="card-premium py-16 text-center">
           <div className="text-4xl mb-3">🎁</div>
-          <p className="text-gray-600 dark:text-gray-300 font-medium">No benefits assigned yet</p>
-          <p className="text-gray-500 text-sm mt-1 dark:text-gray-400">
+          <p className="text-gray-600 dark:text-[#C8D8E4] font-medium">No benefits assigned yet</p>
+          <p className="text-gray-500 text-sm mt-1 dark:text-[#8aaabb]">
             Benefits will appear here once HR assigns them to your profile.
           </p>
         </div>
@@ -155,9 +155,9 @@ export default function MyBenefitsPage() {
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-semibold text-foreground">{info?.label ?? b.type}</p>
                     {b.description && (
-                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 truncate">{b.description}</p>
+                      <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-0.5 truncate">{b.description}</p>
                     )}
-                    <p className="text-xs text-gray-500 dark:text-gray-500 mt-0.5">
+                    <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-0.5">
                       {b.startDate ? `From ${fmt(b.startDate)}` : 'No start date'}
                       {b.endDate ? ` · Ends ${fmt(b.endDate)}` : ' · Ongoing'}
                     </p>
@@ -182,31 +182,31 @@ export default function MyBenefitsPage() {
                   <div className="border-t border-gray-100 dark:border-[#1A6080]/20 px-5 py-4 space-y-3">
                     {/* Program detail */}
                     <div className="bg-gray-50 dark:bg-[#0A1929]/40 rounded-lg p-3">
-                      <p className="text-xs text-gray-500 dark:text-gray-400 mb-1 font-medium ">About this benefit</p>
+                      <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mb-1 font-medium ">About this benefit</p>
                       <p className="text-sm text-gray-300">{info?.detail ?? 'Contact HR for details on this benefit.'}</p>
                     </div>
                     {/* Your specific details */}
                     {b.description && (
                       <div>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 mb-0.5 font-medium">Your details</p>
+                        <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mb-0.5 font-medium">Your details</p>
                         <p className="text-sm text-gray-300">{b.description}</p>
                       </div>
                     )}
                     <div className="flex gap-6 text-xs">
                       <div>
-                        <p className="text-gray-500 dark:text-gray-400">Start Date</p>
+                        <p className="text-gray-500 dark:text-[#9BB0BC]">Start Date</p>
                         <p className="text-foreground font-medium">{fmt(b.startDate)}</p>
                       </div>
                       <div>
-                        <p className="text-gray-500 dark:text-gray-400">End Date</p>
+                        <p className="text-gray-500 dark:text-[#9BB0BC]">End Date</p>
                         <p className="text-foreground font-medium">{b.endDate ? fmt(b.endDate) : 'Ongoing'}</p>
                       </div>
                       <div>
-                        <p className="text-gray-500 dark:text-gray-400">Assigned</p>
+                        <p className="text-gray-500 dark:text-[#9BB0BC]">Assigned</p>
                         <p className="text-foreground font-medium">{fmt(b.createdAt.slice(0, 10))}</p>
                       </div>
                     </div>
-                    <p className="text-xs text-gray-600 dark:text-gray-500">
+                    <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">
                       Questions about this benefit? Contact your HR team.
                     </p>
                   </div>
@@ -229,7 +229,7 @@ export default function MyBenefitsPage() {
                   className={`flex items-center gap-3 px-5 py-3 text-sm ${i > 0 ? 'border-t border-gray-100 dark:border-[#1A6080]/20' : ''}`}>
                   <span>{info?.emoji}</span>
                   <span className="text-gray-500">{info?.label ?? b.type}</span>
-                  <span className="ml-auto text-xs text-gray-600 dark:text-gray-600">Ended {fmt(b.endDate)}</span>
+                  <span className="ml-auto text-xs text-gray-600 dark:text-[#9BB0BC]">Ended {fmt(b.endDate)}</span>
                 </div>
               )
             })}

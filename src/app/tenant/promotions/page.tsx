@@ -40,7 +40,7 @@ const EVENT_ICON: Record<string, string> = {
 }
 
 const INPUT = 'input-premium'
-const LABEL = 'block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1'
+const LABEL = 'block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1'
 const TEXTAREA = INPUT + ' min-h-[80px] resize-y'
 
 export default function PromotionsPage() {
@@ -171,7 +171,7 @@ export default function PromotionsPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-foreground">Promotions</h1>
-          <p className="text-gray-600 dark:text-gray-400 text-sm mt-0.5">Raise, review and track promotion cases</p>
+          <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-0.5">Raise, review and track promotion cases</p>
         </div>
         <div className="flex items-center gap-2">
         <ExportButton onClick={exportPromotions} disabled={promotions.length === 0} />
@@ -197,7 +197,7 @@ export default function PromotionsPage() {
         ].map(([label, value, border]) => (
           <div key={label as string} className={`card-premium p-3 text-center ${border}`}>
             <p className="text-xl font-bold text-white">{value}</p>
-            <p className="text-xs text-gray-600 dark:text-gray-400 mt-0.5">{label}</p>
+            <p className="text-xs text-gray-600 dark:text-[#9BB0BC] mt-0.5">{label}</p>
           </div>
         ))}
       </div>
@@ -215,11 +215,11 @@ export default function PromotionsPage() {
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
         {/* List */}
         <div className="lg:col-span-2 space-y-2">
-          {loading ? <p className="text-gray-500 text-sm text-center py-8 dark:text-gray-400">Loading…</p>
+          {loading ? <p className="text-gray-500 text-sm text-center py-8 dark:text-[#8aaabb]">Loading…</p>
           : promotions.length === 0 ? (
-            <div className="text-center py-12 text-gray-600 dark:text-gray-400">
+            <div className="text-center py-12 text-gray-600 dark:text-[#9BB0BC]">
               <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-[#0A1929] mx-auto mb-3">
-                <svg className="w-6 h-6 text-gray-600 dark:text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <svg className="w-6 h-6 text-gray-600 dark:text-[#9BB0BC] dark:text-[#9BB0BC]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
                 </svg>
               </div>
@@ -245,11 +245,11 @@ export default function PromotionsPage() {
                   </button>
                 </div>
               </div>
-              <p className="text-xs text-gray-600 dark:text-gray-400">{p.currentTitle || '—'} → <span className="text-[#4ebac4]">{p.proposedTitle}</span></p>
+              <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">{p.currentTitle || '—'} → <span className="text-[#4ebac4]">{p.proposedTitle}</span></p>
               {salaryDiff(p.currentSalary, p.proposedSalary) && (
                 <p className="text-xs text-green-400 mt-0.5">{salaryDiff(p.currentSalary, p.proposedSalary)}</p>
               )}
-              <p className="text-xs text-gray-600 mt-1 dark:text-gray-400">Raised by {p.raisedByName ?? '—'} · {fmt(p.createdAt)}</p>
+              <p className="text-xs text-gray-600 mt-1 dark:text-[#8aaabb]">Raised by {p.raisedByName ?? '—'} · {fmt(p.createdAt)}</p>
             </div>
           ))}
         </div>
@@ -259,11 +259,11 @@ export default function PromotionsPage() {
           {!selected ? (
             <div className="card-premium p-10 text-center">
               <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-[#0A1929] mx-auto mb-3">
-                <svg className="w-6 h-6 text-gray-600 dark:text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <svg className="w-6 h-6 text-gray-600 dark:text-[#9BB0BC] dark:text-[#9BB0BC]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
                 </svg>
               </div>
-              <p className="text-gray-500 text-sm dark:text-gray-400">Select a case to view details, approve, or reject</p>
+              <p className="text-gray-500 text-sm dark:text-[#8aaabb]">Select a case to view details, approve, or reject</p>
             </div>
           ) : (
             <div className="space-y-4">
@@ -274,7 +274,7 @@ export default function PromotionsPage() {
                     <h2 className="text-lg font-bold text-foreground">
                       {selected.employeeFirstName} {selected.employeeLastName}
                     </h2>
-                    <p className="text-xs text-gray-600 dark:text-gray-400">{selected.employeeEmail}</p>
+                    <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">{selected.employeeEmail}</p>
                   </div>
                   <span className={`text-xs px-2.5 py-1 rounded-full border font-medium ${STATUS_STYLE[selected.status] ?? ''}`}>
                     {STATUS_LABEL[selected.status] ?? selected.status}
@@ -284,9 +284,9 @@ export default function PromotionsPage() {
                 {/* Promotion comparison */}
                 <div className="grid grid-cols-2 gap-3 mb-4">
                   <div className="bg-gray-100 dark:bg-[#0A1929]/60 rounded-xl p-3">
-                    <p className="text-xs text-gray-500 mb-1 dark:text-gray-400">Current</p>
+                    <p className="text-xs text-gray-500 mb-1 dark:text-[#8aaabb]">Current</p>
                     <p className="text-sm font-semibold text-foreground">{selected.currentTitle || '—'}</p>
-                    {selected.currentSalary && <p className="text-xs text-gray-600 dark:text-gray-400 mt-0.5">${selected.currentSalary.toLocaleString()} / yr</p>}
+                    {selected.currentSalary && <p className="text-xs text-gray-600 dark:text-[#9BB0BC] mt-0.5">${selected.currentSalary.toLocaleString()} / yr</p>}
                   </div>
                   <div className="bg-[#f0f7fb] dark:bg-[#0E3D52]/30 border border-[#b8d4e0] dark:border-[#1A6080]/50 rounded-xl p-3">
                     <p className="text-xs text-[#1A6080] dark:text-[#4ebac4] mb-1">Proposed →</p>
@@ -302,21 +302,21 @@ export default function PromotionsPage() {
                 )}
 
                 <div className="grid grid-cols-2 gap-3 text-xs mb-4">
-                  <div><p className="text-gray-500 dark:text-gray-400">Effective Date</p><p className="text-white mt-0.5">{fmt(selected.effectiveDate)}</p></div>
-                  <div><p className="text-gray-500 dark:text-gray-400">Raised By</p><p className="text-white mt-0.5">{selected.raisedByName ?? '—'}</p></div>
-                  <div><p className="text-gray-500 dark:text-gray-400">Raised On</p><p className="text-white mt-0.5">{fmt(selected.createdAt)}</p></div>
-                  {selected.reviewedBy && <div><p className="text-gray-500 dark:text-gray-400">Reviewed By</p><p className="text-white mt-0.5">{selected.reviewedBy}</p></div>}
+                  <div><p className="text-gray-500 dark:text-[#9BB0BC]">Effective Date</p><p className="text-white mt-0.5">{fmt(selected.effectiveDate)}</p></div>
+                  <div><p className="text-gray-500 dark:text-[#9BB0BC]">Raised By</p><p className="text-white mt-0.5">{selected.raisedByName ?? '—'}</p></div>
+                  <div><p className="text-gray-500 dark:text-[#9BB0BC]">Raised On</p><p className="text-white mt-0.5">{fmt(selected.createdAt)}</p></div>
+                  {selected.reviewedBy && <div><p className="text-gray-500 dark:text-[#9BB0BC]">Reviewed By</p><p className="text-white mt-0.5">{selected.reviewedBy}</p></div>}
                 </div>
 
                 <div className="bg-gray-100 dark:bg-[#0A1929]/60 rounded-xl p-3 mb-4">
-                  <p className="text-xs text-gray-500 mb-1 dark:text-gray-400">Justification</p>
-                  <p className="text-sm text-gray-700 dark:text-gray-200 whitespace-pre-wrap">{selected.justification}</p>
+                  <p className="text-xs text-gray-500 mb-1 dark:text-[#8aaabb]">Justification</p>
+                  <p className="text-sm text-gray-700 dark:text-[#C8D8E4] whitespace-pre-wrap">{selected.justification}</p>
                 </div>
 
                 {selected.reviewNotes && (
                   <div className="bg-gray-100 dark:bg-[#0A1929]/60 rounded-xl p-3 mb-4">
-                    <p className="text-xs text-gray-500 mb-1 dark:text-gray-400">Review Notes</p>
-                    <p className="text-sm text-gray-700 dark:text-gray-200">{selected.reviewNotes}</p>
+                    <p className="text-xs text-gray-500 mb-1 dark:text-[#8aaabb]">Review Notes</p>
+                    <p className="text-sm text-gray-700 dark:text-[#C8D8E4]">{selected.reviewNotes}</p>
                   </div>
                 )}
 
@@ -353,7 +353,7 @@ export default function PromotionsPage() {
 
               {/* Add note */}
               <div className="card-premium p-4">
-                <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Add Note</p>
+                <p className="text-xs font-semibold text-gray-600 dark:text-[#9BB0BC] mb-2">Add Note</p>
                 <div className="flex gap-2">
                   <input value={inlineNote} onChange={e=>setInlineNote(e.target.value)}
                     placeholder="Add a note to this case…"
@@ -367,9 +367,9 @@ export default function PromotionsPage() {
 
               {/* History timeline */}
               <div className="card-premium p-5">
-                <p className="text-xs font-semibold text-gray-600 dark:text-gray-400  mb-4">Timeline</p>
+                <p className="text-xs font-semibold text-gray-600 dark:text-[#9BB0BC]  mb-4">Timeline</p>
                 {events.length === 0 ? (
-                  <p className="text-gray-600 text-sm text-center py-4 dark:text-gray-400">No events yet</p>
+                  <p className="text-gray-600 text-sm text-center py-4 dark:text-[#8aaabb]">No events yet</p>
                 ) : (
                   <div className="space-y-3">
                     {events.map((ev, i) => (
@@ -383,10 +383,10 @@ export default function PromotionsPage() {
                         <div className="flex-1 pb-1">
                           <div className="flex items-center justify-between gap-2">
                             <p className="text-xs font-medium text-white capitalize">{ev.event.replace(/_/g,' ')}</p>
-                            <p className="text-xs text-gray-600 shrink-0 dark:text-gray-400">{fmt(ev.createdAt)}</p>
+                            <p className="text-xs text-gray-600 shrink-0 dark:text-[#8aaabb]">{fmt(ev.createdAt)}</p>
                           </div>
-                          {ev.note        && <p className="text-xs text-gray-600 dark:text-gray-400 mt-0.5">{ev.note}</p>}
-                          {ev.performedBy && <p className="text-xs text-gray-600 mt-0.5 dark:text-gray-400">by {ev.performedBy}</p>}
+                          {ev.note        && <p className="text-xs text-gray-600 dark:text-[#9BB0BC] mt-0.5">{ev.note}</p>}
+                          {ev.performedBy && <p className="text-xs text-gray-600 mt-0.5 dark:text-[#8aaabb]">by {ev.performedBy}</p>}
                         </div>
                       </div>
                     ))}
@@ -407,7 +407,7 @@ export default function PromotionsPage() {
           <div className="card-premium w-full max-w-xl max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-[#1A6080]/20">
               <h2 className="text-lg font-bold text-foreground">Raise Promotion Case</h2>
-              <button onClick={()=>setShowForm(false)} className="text-gray-600 dark:text-gray-400 hover:text-white text-xl">×</button>
+              <button onClick={()=>setShowForm(false)} className="text-gray-600 dark:text-[#9BB0BC] hover:text-white text-xl">×</button>
             </div>
             <form onSubmit={submitForm} className="p-6 space-y-4">
               <div>
@@ -460,7 +460,7 @@ export default function PromotionsPage() {
                   {saving ? 'Submitting…' : 'Raise Promotion Case'}
                 </button>
                 <button type="button" onClick={()=>setShowForm(false)}
-                  className="px-5 py-2.5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-white text-sm rounded-lg">
+                  className="px-5 py-2.5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:text-white text-sm rounded-lg">
                   Cancel
                 </button>
               </div>

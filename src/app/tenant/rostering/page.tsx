@@ -88,10 +88,10 @@ const SHIFT_COLOURS: Record<string, { bg: string; text: string; border: string }
 }
 
 const STATUS_BADGE: Record<string, string> = {
-  draft:     'bg-gray-100 text-gray-600 dark:bg-[#0A1929] dark:text-gray-400',
+  draft:     'bg-gray-100 text-gray-600 dark:bg-[#0A1929] dark:text-[#8aaabb]',
   published: 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400',
   confirmed: 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/20 dark:text-[#4ebac4]',
-  completed: 'bg-gray-200 text-gray-500 dark:bg-[#0E3D52]/60 dark:text-gray-400',
+  completed: 'bg-gray-200 text-gray-500 dark:bg-[#0E3D52]/60 dark:text-[#8aaabb]',
   cancelled: 'bg-red-100 text-red-600 dark:bg-red-900/40 dark:text-red-400',
 }
 
@@ -174,15 +174,15 @@ function AvailabilityModal({
         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-[#1A6080]/20">
           <div>
             <h2 className="text-lg font-bold text-gray-900 dark:text-white">Availability</h2>
-            <p className="text-sm text-gray-500 dark:text-gray-400">{employeeName}</p>
+            <p className="text-sm text-gray-500 dark:text-[#9BB0BC]">{employeeName}</p>
           </div>
-          <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 text-gray-600 dark:text-gray-400">✕</button>
+          <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 text-gray-600 dark:text-[#9BB0BC]">✕</button>
         </div>
 
         {/* Existing slots */}
         <div className="px-6 pt-4">
           {slots.length === 0 ? (
-            <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">No availability set yet.</p>
+            <p className="text-sm text-gray-500 dark:text-[#9BB0BC] mb-4">No availability set yet.</p>
           ) : (
             <ul className="space-y-2 mb-4">
               {slots.map(slot => (
@@ -199,21 +199,21 @@ function AvailabilityModal({
 
         {/* Add slot form */}
         <form onSubmit={handleSave} className="px-6 pb-6 space-y-4">
-          <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 ">Add / update slot</p>
+          <p className="text-xs font-semibold text-gray-500 dark:text-[#9BB0BC] ">Add / update slot</p>
           {error && <p className="text-sm text-red-600 bg-red-50 dark:bg-red-900/20 rounded-lg px-3 py-2">{error}</p>}
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Day</label>
+              <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-[#8aaabb]">Day</label>
               <select value={form.dayOfWeek} onChange={e => setForm(f => ({ ...f, dayOfWeek: Number(e.target.value) }))}
-                className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
+                className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-[#C8D8E4] focus:outline-none">
                 {DAYS.map((d, i) => <option key={i} value={i}>{d}</option>)}
               </select>
             </div>
             <div>
-              <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Status</label>
+              <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-[#8aaabb]">Status</label>
               <select value={form.isAvailable ? 'yes' : 'no'} onChange={e => setForm(f => ({ ...f, isAvailable: e.target.value === 'yes' }))}
-                className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
+                className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-[#C8D8E4] focus:outline-none">
                 <option value="yes">Available</option>
                 <option value="no">Unavailable</option>
               </select>
@@ -222,26 +222,26 @@ function AvailabilityModal({
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">From</label>
+              <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-[#8aaabb]">From</label>
               <input type="time" value={form.startTime} onChange={e => setForm(f => ({ ...f, startTime: e.target.value }))}
-                className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none" />
+                className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-[#C8D8E4] focus:outline-none" />
             </div>
             <div>
-              <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">To</label>
+              <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-[#8aaabb]">To</label>
               <input type="time" value={form.endTime} onChange={e => setForm(f => ({ ...f, endTime: e.target.value }))}
-                className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none" />
+                className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-[#C8D8E4] focus:outline-none" />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Note (optional)</label>
+            <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-[#8aaabb]">Note (optional)</label>
             <input type="text" value={form.note} onChange={e => setForm(f => ({ ...f, note: e.target.value }))} placeholder="e.g. Prefer mornings"
-              className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none" />
+              className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-[#C8D8E4] focus:outline-none" />
           </div>
 
           <div className="flex gap-3 pt-1">
             <button type="button" onClick={onClose}
-              className="flex-1 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
+              className="flex-1 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
               Close
             </button>
             <button type="submit" disabled={saving}
@@ -289,10 +289,10 @@ function FillTimesheetsModal({
       <div className="card-premium w-full max-w-md shadow-lg">
         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-[#1A6080]/20">
           <h2 className="text-lg font-bold text-gray-900 dark:text-white">Fill Timesheets</h2>
-          <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 text-gray-600 dark:text-gray-400">✕</button>
+          <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 text-gray-600 dark:text-[#9BB0BC]">✕</button>
         </div>
         <div className="p-6 space-y-4">
-          <p className="text-sm text-gray-600 dark:text-gray-400">
+          <p className="text-sm text-gray-600 dark:text-[#9BB0BC]">
             Auto-create timesheet entries from <strong>published, confirmed, and completed</strong> shifts for the week of{' '}
             <strong>{fmtDate(weekStart)} — {fmtDate(addDays(weekStart, 6))}</strong>.
             Shifts that already have a timesheet are skipped.
@@ -305,26 +305,26 @@ function FillTimesheetsModal({
               <div className="grid grid-cols-3 text-center py-3">
                 <div>
                   <p className="text-2xl font-bold text-green-600 dark:text-green-400">{result.created}</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">Created</p>
+                  <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Created</p>
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-gray-500 dark:text-gray-400">{result.skipped}</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">Skipped</p>
+                  <p className="text-2xl font-bold text-gray-500 dark:text-[#9BB0BC]">{result.skipped}</p>
+                  <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Skipped</p>
                 </div>
                 <div>
                   <p className="text-2xl font-bold text-red-500">{result.failed}</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">Failed</p>
+                  <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Failed</p>
                 </div>
               </div>
               {result.message && (
-                <p className="px-4 py-3 text-sm text-gray-600 dark:text-gray-400">{result.message}</p>
+                <p className="px-4 py-3 text-sm text-gray-600 dark:text-[#9BB0BC]">{result.message}</p>
               )}
             </div>
           )}
 
           <div className="flex gap-3">
             <button onClick={onClose}
-              className="flex-1 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
+              className="flex-1 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
               {result ? 'Close' : 'Cancel'}
             </button>
             {!result && (
@@ -426,16 +426,16 @@ function ShiftModal({
           <h2 className="text-lg font-bold text-gray-900 dark:text-white">
             {mode === 'create' ? 'Add Shift' : 'Edit Shift'}
           </h2>
-          <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 text-gray-600 dark:text-gray-400">✕</button>
+          <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 text-gray-600 dark:text-[#9BB0BC]">✕</button>
         </div>
 
         <form onSubmit={handleSave} className="p-6 space-y-4">
           {error && <p className="text-sm text-red-600 bg-red-50 dark:bg-red-900/20 rounded-lg px-3 py-2">{error}</p>}
 
           <div>
-            <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Employee *</label>
+            <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-[#8aaabb]">Employee *</label>
             <select value={form.employeeId} onChange={f('employeeId')} required
-              className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
+              className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-[#C8D8E4] focus:outline-none">
               <option value="">Select employee…</option>
               {employees.map(e => (
                 <option key={e.id} value={e.id}>{e.firstName} {e.lastName}</option>
@@ -444,9 +444,9 @@ function ShiftModal({
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">NDIS Participant</label>
+            <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-[#8aaabb]">NDIS Participant</label>
             <select value={form.participantId} onChange={f('participantId')}
-              className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
+              className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-[#C8D8E4] focus:outline-none">
               <option value="">No participant linked</option>
               {participants.map(p => (
                 <option key={p.id} value={p.id}>
@@ -458,14 +458,14 @@ function ShiftModal({
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Date *</label>
+              <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-[#8aaabb]">Date *</label>
               <input type="date" value={form.date} onChange={f('date')} required
-                className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none" />
+                className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-[#C8D8E4] focus:outline-none" />
             </div>
             <div>
-              <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Shift Type</label>
+              <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-[#8aaabb]">Shift Type</label>
               <select value={form.shiftType} onChange={f('shiftType')}
-                className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
+                className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-[#C8D8E4] focus:outline-none">
                 <option value="standard">Standard</option>
                 <option value="sleepover">Sleepover</option>
                 <option value="active_night">Active Night</option>
@@ -476,29 +476,29 @@ function ShiftModal({
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Start</label>
+              <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-[#8aaabb]">Start</label>
               <div className="flex gap-1">
                 <select value={form.startHour} onChange={f('startHour')}
-                  className="flex-1 bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-2 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
+                  className="flex-1 bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-2 py-2 text-sm text-gray-800 dark:text-[#C8D8E4] focus:outline-none">
                   {hours.map(h => <option key={h}>{h}</option>)}
                 </select>
-                <span className="self-center text-gray-600 dark:text-gray-400 text-sm">:</span>
+                <span className="self-center text-gray-600 dark:text-[#9BB0BC] text-sm">:</span>
                 <select value={form.startMin} onChange={f('startMin')}
-                  className="flex-1 bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-2 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
+                  className="flex-1 bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-2 py-2 text-sm text-gray-800 dark:text-[#C8D8E4] focus:outline-none">
                   {mins.map(m => <option key={m}>{m}</option>)}
                 </select>
               </div>
             </div>
             <div>
-              <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">End</label>
+              <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-[#8aaabb]">End</label>
               <div className="flex gap-1">
                 <select value={form.endHour} onChange={f('endHour')}
-                  className="flex-1 bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-2 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
+                  className="flex-1 bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-2 py-2 text-sm text-gray-800 dark:text-[#C8D8E4] focus:outline-none">
                   {hours.map(h => <option key={h}>{h}</option>)}
                 </select>
-                <span className="self-center text-gray-600 dark:text-gray-400 text-sm">:</span>
+                <span className="self-center text-gray-600 dark:text-[#9BB0BC] text-sm">:</span>
                 <select value={form.endMin} onChange={f('endMin')}
-                  className="flex-1 bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-2 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none">
+                  className="flex-1 bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-2 py-2 text-sm text-gray-800 dark:text-[#C8D8E4] focus:outline-none">
                   {mins.map(m => <option key={m}>{m}</option>)}
                 </select>
               </div>
@@ -507,21 +507,21 @@ function ShiftModal({
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Location</label>
+              <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-[#8aaabb]">Location</label>
               <input type="text" value={form.location} onChange={f('location')} placeholder="Site / address"
-                className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none" />
+                className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-[#C8D8E4] focus:outline-none" />
             </div>
             <div>
-              <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Client Site</label>
+              <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-[#8aaabb]">Client Site</label>
               <input type="text" value={form.clientSite} onChange={f('clientSite')} placeholder="Property name"
-                className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none" />
+                className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-[#C8D8E4] focus:outline-none" />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-gray-400">Notes</label>
+            <label className="block text-xs font-semibold text-gray-500 mb-1  dark:text-[#8aaabb]">Notes</label>
             <textarea value={form.notes} onChange={f('notes')} rows={2} placeholder="Care instructions, special notes…"
-              className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none resize-none" />
+              className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-[#C8D8E4] focus:outline-none resize-none" />
           </div>
 
           <ConfirmModal state={confirmState} onClose={() => setConfirmState(null)} />
@@ -539,7 +539,7 @@ function ShiftModal({
               </button>
             )}
             <button type="button" onClick={onClose}
-              className="flex-1 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
+              className="flex-1 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
               Cancel
             </button>
             <button type="submit" disabled={saving}
@@ -793,13 +793,13 @@ export default function RosteringPage() {
         <div className="flex items-center gap-2 flex-wrap">
           <div className="flex items-center card-premium overflow-hidden">
             <button onClick={() => setWeekStart(w => addDays(w, -7))}
-              className="px-3 py-2 text-gray-500 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition text-sm dark:text-gray-400">←</button>
+              className="px-3 py-2 text-gray-500 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition text-sm dark:text-[#8aaabb]">←</button>
             <button onClick={() => setWeekStart(getMondayOf(new Date()))}
-              className="px-3 py-2 text-xs font-medium text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 border-x border-gray-200 dark:border-[#1A6080]/30 transition">
+              className="px-3 py-2 text-xs font-medium text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 border-x border-gray-200 dark:border-[#1A6080]/30 transition">
               Today
             </button>
             <button onClick={() => setWeekStart(w => addDays(w, 7))}
-              className="px-3 py-2 text-gray-500 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition text-sm dark:text-gray-400">→</button>
+              className="px-3 py-2 text-gray-500 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition text-sm dark:text-[#8aaabb]">→</button>
           </div>
 
           {/* Availability toggle */}
@@ -813,7 +813,7 @@ export default function RosteringPage() {
             <>
               {/* Fill timesheets */}
               <button onClick={() => setShowFill(true)}
-                className="px-3 py-2 rounded-xl text-sm font-semibold border border-gray-300 dark:border-[#1A6080]/40 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
+                className="px-3 py-2 rounded-xl text-sm font-semibold border border-gray-300 dark:border-[#1A6080]/40 text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
                 📋 Fill Timesheets
               </button>
 
@@ -841,11 +841,11 @@ export default function RosteringPage() {
           { label: 'Total hours', value: `${totalHours.toFixed(1)}h`,                          color: 'text-[#0E3D52] dark:text-[#4ebac4]' },
           { label: 'Draft',       value: draftCount,                                           color: 'text-amber-600 dark:text-amber-400' },
           { label: 'Published',   value: shifts.filter(s => s.status === 'published').length,  color: 'text-green-600 dark:text-green-400' },
-          { label: 'Staff',       value: new Set(shifts.map(s => s.employeeId)).size,          color: 'text-gray-700 dark:text-gray-300' },
+          { label: 'Staff',       value: new Set(shifts.map(s => s.employeeId)).size,          color: 'text-gray-700 dark:text-[#C8D8E4]' },
         ].map(c => (
           <div key={c.label} className="card-premium px-4 py-2 flex items-center gap-2">
             <span className={`text-lg font-bold ${c.color}`}>{c.value}</span>
-            <span className="text-xs text-gray-600 dark:text-gray-400">{c.label}</span>
+            <span className="text-xs text-gray-600 dark:text-[#9BB0BC]">{c.label}</span>
           </div>
         ))}
       </div>
@@ -853,23 +853,23 @@ export default function RosteringPage() {
       {/* Calendar */}
       <div className="card-premium overflow-hidden">
         {loading ? (
-          <div className="flex items-center justify-center py-20 text-gray-600 dark:text-gray-400 text-sm">Loading roster…</div>
+          <div className="flex items-center justify-center py-20 text-gray-600 dark:text-[#9BB0BC] text-sm">Loading roster…</div>
         ) : (
           <div className="overflow-x-auto">
             <table className="table-premium">
               <thead>
                 <tr>
-                  <th className="w-36 px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400  bg-gray-50 dark:bg-[#0A1929] border-b border-r border-gray-100 dark:border-[#1A6080]/30">
+                  <th className="w-36 px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-[#9BB0BC]  bg-gray-50 dark:bg-[#0A1929] border-b border-r border-gray-100 dark:border-[#1A6080]/30">
                     Employee
                   </th>
                   {weekDays.map((day, i) => {
                     const isToday = isoDate(day) === isoDate(new Date())
                     return (
                       <th key={i} className={`px-2 py-3 text-center bg-gray-50 dark:bg-[#0A1929] border-b border-gray-100 dark:border-[#1A6080]/30 ${i < 6 ? 'border-r border-gray-100 dark:border-[#1A6080]/30' : ''}`}>
-                        <div className={`text-xs font-semibold  ${isToday ? 'text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4]' : 'text-gray-500 dark:text-gray-400'}`}>
+                        <div className={`text-xs font-semibold  ${isToday ? 'text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4]' : 'text-gray-500 dark:text-[#9BB0BC]'}`}>
                           {DAYS[i]}
                         </div>
-                        <div className={`text-sm font-bold mt-0.5 ${isToday ? 'text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4]' : 'text-gray-700 dark:text-gray-200'}`}>
+                        <div className={`text-sm font-bold mt-0.5 ${isToday ? 'text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4]' : 'text-gray-700 dark:text-[#C8D8E4]'}`}>
                           {day.getDate()}
                         </div>
                       </th>
@@ -898,8 +898,8 @@ export default function RosteringPage() {
                             {emp.firstName[0]}{emp.lastName[0]}
                           </div>
                           <div className="min-w-0">
-                            <p className="text-sm font-medium text-gray-800 dark:text-gray-200 truncate">{emp.firstName}</p>
-                            <p className="text-xs text-gray-600 dark:text-gray-400 truncate">{emp.lastName}</p>
+                            <p className="text-sm font-medium text-gray-800 dark:text-[#C8D8E4] truncate">{emp.firstName}</p>
+                            <p className="text-xs text-gray-600 dark:text-[#9BB0BC] truncate">{emp.lastName}</p>
                           </div>
                         </div>
                         {/* Availability button under name */}
@@ -933,7 +933,7 @@ export default function RosteringPage() {
                               })}
                               <PermissionGate permission="rostering:write">
                                 <button onClick={() => openCreate(day, emp.id)}
-                                  className="w-full py-1 text-[11px] text-gray-400 dark:text-gray-600 hover:text-gray-500 dark:hover:text-gray-400 transition text-center rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30">
+                                  className="w-full py-1 text-[11px] text-gray-400 dark:text-[#9BB0BC] hover:text-gray-500 dark:hover:text-gray-400 transition text-center rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30">
                                   + add
                                 </button>
                               </PermissionGate>
@@ -958,7 +958,7 @@ export default function RosteringPage() {
                                   {slot.isAvailable ? `${slot.startTime}–${slot.endTime}` : '✕'}
                                 </span>
                               ) : (
-                                <span className="text-[10px] text-gray-400 dark:text-gray-600">—</span>
+                                <span className="text-[10px] text-gray-400 dark:text-[#9BB0BC]">—</span>
                               )}
                             </td>
                           )

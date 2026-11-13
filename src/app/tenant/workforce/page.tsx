@@ -29,7 +29,7 @@ export default function WorkforcePage() {
     <div className="h-full flex flex-col">
       <div className="px-6 py-4 border-b border-gray-200 bg-white dark:bg-[#0F1E2E] dark:border-[#1A6080]/30">
         <h1 className="text-xl font-semibold text-gray-900 dark:text-white">Workforce Planning</h1>
-        <p className="text-sm text-gray-500 mt-0.5 dark:text-gray-400">Headcount overview, departments, and positions</p>
+        <p className="text-sm text-gray-500 mt-0.5 dark:text-[#8aaabb]">Headcount overview, departments, and positions</p>
       </div>
 
       <div className="flex-1 overflow-y-auto p-6 space-y-6">
@@ -47,7 +47,7 @@ export default function WorkforcePage() {
             ].map(s => (
               <div key={s.label} className="card-premium p-4">
                 <p className={`text-2xl font-bold ${s.cls}`}>{s.value}</p>
-                <p className="text-xs text-gray-500 mt-0.5 dark:text-gray-400">{s.label}</p>
+                <p className="text-xs text-gray-500 mt-0.5 dark:text-[#8aaabb]">{s.label}</p>
               </div>
             ))}
           </div>
@@ -59,7 +59,7 @@ export default function WorkforcePage() {
             <h2 className="text-sm font-semibold text-gray-900 dark:text-white">Headcount by Department</h2>
           </div>
           {depts.length === 0 ? (
-            <p className="p-6 text-sm text-gray-600 dark:text-gray-400">No departments configured</p>
+            <p className="p-6 text-sm text-gray-600 dark:text-[#9BB0BC]">No departments configured</p>
           ) : (
             <div className="table-responsive">
             <table className="table-premium">
@@ -73,12 +73,12 @@ export default function WorkforcePage() {
                 {depts.map(d => (
                   <tr key={d.id}>
                     <td className="px-5 py-3 font-medium text-gray-900 dark:text-white">{d.name}</td>
-                    <td className="px-5 py-3 text-gray-700 dark:text-gray-300">{d.count}</td>
-                    <td className="px-5 py-3 text-gray-700 dark:text-gray-300">{d.positions}</td>
+                    <td className="px-5 py-3 text-gray-700 dark:text-[#C8D8E4]">{d.count}</td>
+                    <td className="px-5 py-3 text-gray-700 dark:text-[#C8D8E4]">{d.positions}</td>
                     <td className="px-5 py-3">
                       {d.positions > d.count ? (
                         <span className="text-xs px-2 py-0.5 bg-amber-100 text-amber-700 rounded-full">{d.positions - d.count} open</span>
-                      ) : <span className="text-xs text-gray-600 dark:text-gray-400">—</span>}
+                      ) : <span className="text-xs text-gray-600 dark:text-[#9BB0BC]">—</span>}
                     </td>
                   </tr>
                 ))}
@@ -94,13 +94,13 @@ export default function WorkforcePage() {
             <h2 className="text-sm font-semibold text-gray-900 dark:text-white">All Positions</h2>
           </div>
           {positions.length === 0 ? (
-            <p className="p-6 text-sm text-gray-600 dark:text-gray-400">No positions defined</p>
+            <p className="p-6 text-sm text-gray-600 dark:text-[#9BB0BC]">No positions defined</p>
           ) : (
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 p-4">
               {positions.map(p => (
                 <div key={p.id} className="border border-gray-100 rounded-lg p-3 dark:border-[#1A6080]/20">
                   <p className="text-sm font-medium text-gray-900 dark:text-white">{p.title}</p>
-                  <p className="text-xs text-gray-600 dark:text-gray-400 mt-0.5">{depts.find(d => d.id === p.departmentId)?.name ?? 'Unassigned'}</p>
+                  <p className="text-xs text-gray-600 dark:text-[#9BB0BC] mt-0.5">{depts.find(d => d.id === p.departmentId)?.name ?? 'Unassigned'}</p>
                 </div>
               ))}
             </div>

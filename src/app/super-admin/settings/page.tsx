@@ -106,7 +106,7 @@ export default function PlatformSettingsPage() {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Platform Settings</h1>
-        <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">Global configuration for the HRMS platform</p>
+        <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Global configuration for the HRMS platform</p>
       </div>
 
       {loadError && (
@@ -131,7 +131,7 @@ export default function PlatformSettingsPage() {
               className={`w-full flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm text-left transition ${
                 activeSection === s.key
                   ? 'bg-[#E0EEF4] dark:bg-[#E0EEF4] dark:bg-[#0E3D52]/50 text-gray-900 dark:text-white border border-[#b8d4e0] dark:border-[#1A6080]'
-                  : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:bg-[#0A1929] hover:text-gray-900 dark:text-white'
+                  : 'text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-100 dark:bg-[#0A1929] hover:text-gray-900 dark:text-white'
               }`}
             >
               <span>{s.icon}</span>
@@ -169,7 +169,7 @@ export default function PlatformSettingsPage() {
 
               {/* Platform info (read-only) */}
               <div className="border-t border-gray-200 dark:border-[#1A6080]/20 pt-4 space-y-2">
-                <h3 className="text-xs font-semibold text-gray-600 dark:text-gray-400  mb-3">Platform Info</h3>
+                <h3 className="text-xs font-semibold text-gray-600 dark:text-[#9BB0BC]  mb-3">Platform Info</h3>
                 <InfoRow label="Version"         value="v1.0.0" />
                 <InfoRow label="Framework"       value="Next.js 15 + .NET 8" />
                 <InfoRow label="Database"        value="PostgreSQL (Neon Serverless)" />
@@ -206,7 +206,7 @@ export default function PlatformSettingsPage() {
               </Field>
               <div className="pt-2">
                 <button
-                  className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 hover:border-gray-500 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white px-4 py-2 rounded-lg transition"
+                  className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 hover:border-gray-500 text-gray-600 dark:text-[#C8D8E4] hover:text-gray-900 dark:text-white px-4 py-2 rounded-lg transition"
                   onClick={() => alert('Test email sent (not wired in this UI demo)')}
                 >
                   Send Test Email
@@ -226,8 +226,8 @@ export default function PlatformSettingsPage() {
               </Field>
               <div className="flex items-center justify-between py-2">
                 <div>
-                  <p className="text-sm font-medium text-gray-700 dark:text-gray-200">Require 2FA for All Users</p>
-                  <p className="text-xs text-gray-500 mt-0.5 dark:text-gray-400">Enforce TOTP authentication platform-wide (Google Authenticator)</p>
+                  <p className="text-sm font-medium text-gray-700 dark:text-[#C8D8E4]">Require 2FA for All Users</p>
+                  <p className="text-xs text-gray-500 mt-0.5 dark:text-[#8aaabb]">Enforce TOTP authentication platform-wide (Google Authenticator)</p>
                 </div>
                 <Toggle value={require2FA} onChange={setRequire2FA} />
               </div>
@@ -244,8 +244,8 @@ export default function PlatformSettingsPage() {
               )}
               <div className="flex items-center justify-between py-2">
                 <div>
-                  <p className="text-sm font-medium text-gray-700 dark:text-gray-200">Enable Maintenance Mode</p>
-                  <p className="text-xs text-gray-500 mt-0.5 dark:text-gray-400">Blocks all tenant access while allowing super admin login</p>
+                  <p className="text-sm font-medium text-gray-700 dark:text-[#C8D8E4]">Enable Maintenance Mode</p>
+                  <p className="text-xs text-gray-500 mt-0.5 dark:text-[#8aaabb]">Blocks all tenant access while allowing super admin login</p>
                 </div>
                 <Toggle value={maintenanceMode} onChange={setMaintenanceMode} />
               </div>
@@ -270,7 +270,7 @@ export default function PlatformSettingsPage() {
             </button>
             <button
               onClick={() => setActiveSection(activeSection)}
-              className="border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white text-sm px-4 py-2.5 rounded-lg transition"
+              className="border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#C8D8E4] hover:text-gray-900 dark:text-white text-sm px-4 py-2.5 rounded-lg transition"
             >
               Cancel
             </button>
@@ -286,8 +286,8 @@ export default function PlatformSettingsPage() {
 function Field({ label, hint, children }: { label: string; hint?: string; children: React.ReactNode }) {
   return (
     <div>
-      <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-1">{label}</label>
-      {hint && <p className="text-xs text-gray-500 mb-1.5 dark:text-gray-400">{hint}</p>}
+      <label className="block text-sm font-medium text-gray-600 dark:text-[#C8D8E4] mb-1">{label}</label>
+      {hint && <p className="text-xs text-gray-500 mb-1.5 dark:text-[#8aaabb]">{hint}</p>}
       {children}
     </div>
   )
@@ -324,8 +324,8 @@ function Toggle({ value, onChange }: { value: boolean; onChange: (v: boolean) =>
 function InfoRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-center justify-between py-1.5 text-sm">
-      <span className="text-gray-600 dark:text-gray-400">{label}</span>
-      <span className="text-gray-700 dark:text-gray-200 font-mono text-xs bg-gray-100 dark:bg-[#0A1929] px-2 py-0.5 rounded">{value}</span>
+      <span className="text-gray-600 dark:text-[#9BB0BC]">{label}</span>
+      <span className="text-gray-700 dark:text-[#C8D8E4] font-mono text-xs bg-gray-100 dark:bg-[#0A1929] px-2 py-0.5 rounded">{value}</span>
     </div>
   )
 }

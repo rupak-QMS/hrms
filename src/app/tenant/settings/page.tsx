@@ -28,7 +28,7 @@ type Settings = {
 }
 
 const INPUT = 'input-premium'
-const LABEL = 'block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1'
+const LABEL = 'block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1'
 
 type Tab = 'branding' | 'domain' | 'email' | 'notifications' | 'integrations' | 'leave'
 
@@ -231,7 +231,7 @@ export default function TenantSettingsPage() {
     <div className="max-w-2xl space-y-6">
       <div>
         <h1 className="text-2xl font-bold text-foreground">Portal Settings</h1>
-        <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">Configure your branding, domain, email delivery, and notifications</p>
+        <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Configure your branding, domain, email delivery, and notifications</p>
       </div>
 
       {saved && (
@@ -260,7 +260,7 @@ export default function TenantSettingsPage() {
         ))}
       </div>
 
-      {loading ? <p className="text-gray-600 dark:text-gray-400 text-sm">Loading…</p> : (
+      {loading ? <p className="text-gray-600 dark:text-[#9BB0BC] text-sm">Loading…</p> : (
         <>
 
           {/* ── BRANDING TAB ── */}
@@ -271,7 +271,7 @@ export default function TenantSettingsPage() {
               <div className="card-premium p-6 space-y-5">
                 <div>
                   <p className="text-sm font-medium text-foreground mb-1">Organisation Logo</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">Shown in the sidebar header. PNG, JPG, SVG or WebP · max 512 KB · Recommended: transparent background, min 200px wide.</p>
+                  <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Shown in the sidebar header. PNG, JPG, SVG or WebP · max 512 KB · Recommended: transparent background, min 200px wide.</p>
                 </div>
 
                 <div className="flex items-start gap-5">
@@ -318,7 +318,7 @@ export default function TenantSettingsPage() {
                   <input value={portalName}
                     onChange={e => setPortalName(e.target.value)}
                     placeholder="e.g. Yahweh Care" className={INPUT} />
-                  <p className="text-xs text-gray-500 mt-1.5 dark:text-gray-400">
+                  <p className="text-xs text-gray-500 mt-1.5 dark:text-[#8aaabb]">
                     This name appears in the sidebar, login page, browser tab, and email notifications.
                     It replaces &quot;HRMS&quot; everywhere in your portal.
                   </p>
@@ -326,7 +326,7 @@ export default function TenantSettingsPage() {
 
                 {/* Live sidebar preview */}
                 <div className="rounded-xl overflow-hidden border border-gray-300 dark:border-[#1A6080]/30">
-                  <div className="bg-gray-100 dark:bg-[#0A1929] px-3 py-1.5 text-xs text-gray-500 dark:text-gray-400">Sidebar preview</div>
+                  <div className="bg-gray-100 dark:bg-[#0A1929] px-3 py-1.5 text-xs text-gray-500 dark:text-[#9BB0BC]">Sidebar preview</div>
                   <div className="bg-white dark:bg-[#0F1E2E] p-4">
                     <div className="w-56 bg-gray-100 dark:bg-[#0A1929] rounded-lg overflow-hidden">
                       <div className="px-4 py-3 border-b border-white/10" style={{ background: '#111827' }}>
@@ -379,7 +379,7 @@ export default function TenantSettingsPage() {
                 <input value={domain.customDomain ?? ''} placeholder="hr.yourcompany.com.au"
                   onChange={e => setSettings(s => ({ ...s, domain: { ...s.domain, customDomain: e.target.value } }))}
                   className={INPUT} />
-                <p className="text-xs text-gray-600 mt-1 dark:text-gray-400">Leave blank to use your default subdomain.</p>
+                <p className="text-xs text-gray-600 mt-1 dark:text-[#8aaabb]">Leave blank to use your default subdomain.</p>
               </div>
 
               <div>
@@ -388,7 +388,7 @@ export default function TenantSettingsPage() {
                   <input value={domain.subdomain ?? ''} placeholder="yahweh-care"
                     onChange={e => setSettings(s => ({ ...s, domain: { ...s.domain, subdomain: e.target.value } }))}
                     className={`${INPUT} flex-1`} />
-                  <span className="text-gray-500 text-sm shrink-0 dark:text-gray-400">.yourhrms.com.au</span>
+                  <span className="text-gray-500 text-sm shrink-0 dark:text-[#8aaabb]">.yourhrms.com.au</span>
                 </div>
               </div>
 
@@ -398,8 +398,8 @@ export default function TenantSettingsPage() {
                     onChange={e => setSettings(s => ({ ...s, domain: { ...s.domain, wwwRedirect: e.target.checked } }))}
                     className="accent-[#0E3D52] w-4 h-4" />
                   <div>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">Redirect www → root domain</p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">www.yourdomain.com → yourdomain.com</p>
+                    <p className="text-sm text-gray-600 dark:text-[#C8D8E4]">Redirect www → root domain</p>
+                    <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">www.yourdomain.com → yourdomain.com</p>
                   </div>
                 </label>
                 <label className="flex items-center gap-3 cursor-pointer">
@@ -407,8 +407,8 @@ export default function TenantSettingsPage() {
                     onChange={e => setSettings(s => ({ ...s, domain: { ...s.domain, sslForced: e.target.checked } }))}
                     className="accent-[#0E3D52] w-4 h-4" />
                   <div>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">Force HTTPS</p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">Redirect HTTP requests to HTTPS</p>
+                    <p className="text-sm text-gray-600 dark:text-[#C8D8E4]">Force HTTPS</p>
+                    <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Redirect HTTP requests to HTTPS</p>
                   </div>
                 </label>
               </div>
@@ -450,7 +450,7 @@ export default function TenantSettingsPage() {
               </div>
 
               <div className="border-t border-gray-200 dark:border-[#1A6080]/20 pt-4">
-                <p className="text-xs font-semibold text-gray-600 dark:text-gray-400  mb-4">SMTP Server</p>
+                <p className="text-xs font-semibold text-gray-600 dark:text-[#9BB0BC]  mb-4">SMTP Server</p>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className={LABEL}>SMTP Host</label>
@@ -481,7 +481,7 @@ export default function TenantSettingsPage() {
                   <input type="checkbox" checked={email.useTLS ?? true}
                     onChange={e => setSettings(s => ({ ...s, email: { ...s.email, useTLS: e.target.checked } }))}
                     className="accent-[#0E3D52] w-4 h-4" />
-                  <span className="text-sm text-gray-600 dark:text-gray-300">Use TLS / STARTTLS</span>
+                  <span className="text-sm text-gray-600 dark:text-[#C8D8E4]">Use TLS / STARTTLS</span>
                 </label>
               </div>
 
@@ -498,7 +498,7 @@ export default function TenantSettingsPage() {
 
               {/* Employee Lifecycle */}
               <div>
-                <p className="text-xs font-semibold text-gray-600 dark:text-gray-400  mb-3">Employee Lifecycle</p>
+                <p className="text-xs font-semibold text-gray-600 dark:text-[#9BB0BC]  mb-3">Employee Lifecycle</p>
                 <div className="space-y-3">
                   {[
                     { key: 'emailWelcome',    label: 'User invitation welcome',    desc: 'Send login credentials when a new portal user is invited' },
@@ -509,7 +509,7 @@ export default function TenantSettingsPage() {
                       <input type="checkbox" className="accent-[#0E3D52] w-4 h-4 mt-0.5"
                         checked={(notif as any)[n.key] ?? true}
                         onChange={e => setSettings(s => ({ ...s, notifications: { ...s.notifications, [n.key]: e.target.checked } }))} />
-                      <div><p className="text-sm text-gray-600 dark:text-gray-300">{n.label}</p><p className="text-xs text-gray-500 dark:text-gray-400">{n.desc}</p></div>
+                      <div><p className="text-sm text-gray-600 dark:text-[#C8D8E4]">{n.label}</p><p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{n.desc}</p></div>
                     </label>
                   ))}
                 </div>
@@ -517,7 +517,7 @@ export default function TenantSettingsPage() {
 
               {/* Compliance & Documents */}
               <div className="border-t border-gray-200 dark:border-[#1A6080]/20 pt-5">
-                <p className="text-xs font-semibold text-gray-600 dark:text-gray-400  mb-3">Compliance & Documents</p>
+                <p className="text-xs font-semibold text-gray-600 dark:text-[#9BB0BC]  mb-3">Compliance & Documents</p>
                 <div className="space-y-3">
                   {[
                     { key: 'emailDocExpiry',  label: 'Document expiry alerts (to employee)', desc: 'Notify employee when their compliance document is expiring or has expired' },
@@ -527,7 +527,7 @@ export default function TenantSettingsPage() {
                       <input type="checkbox" className="accent-[#0E3D52] w-4 h-4 mt-0.5"
                         checked={(notif as any)[n.key] ?? true}
                         onChange={e => setSettings(s => ({ ...s, notifications: { ...s.notifications, [n.key]: e.target.checked } }))} />
-                      <div><p className="text-sm text-gray-600 dark:text-gray-300">{n.label}</p><p className="text-xs text-gray-500 dark:text-gray-400">{n.desc}</p></div>
+                      <div><p className="text-sm text-gray-600 dark:text-[#C8D8E4]">{n.label}</p><p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{n.desc}</p></div>
                     </label>
                   ))}
                 </div>
@@ -535,7 +535,7 @@ export default function TenantSettingsPage() {
 
               {/* Payroll & Contracts */}
               <div className="border-t border-gray-200 dark:border-[#1A6080]/20 pt-5">
-                <p className="text-xs font-semibold text-gray-600 dark:text-gray-400  mb-3">Payroll & Contracts</p>
+                <p className="text-xs font-semibold text-gray-600 dark:text-[#9BB0BC]  mb-3">Payroll & Contracts</p>
                 <div className="space-y-3">
                   {[
                     { key: 'emailPayroll',   label: 'Payslip notifications',   desc: 'Email employee when their pay run is marked as paid' },
@@ -545,7 +545,7 @@ export default function TenantSettingsPage() {
                       <input type="checkbox" className="accent-[#0E3D52] w-4 h-4 mt-0.5"
                         checked={(notif as any)[n.key] ?? true}
                         onChange={e => setSettings(s => ({ ...s, notifications: { ...s.notifications, [n.key]: e.target.checked } }))} />
-                      <div><p className="text-sm text-gray-600 dark:text-gray-300">{n.label}</p><p className="text-xs text-gray-500 dark:text-gray-400">{n.desc}</p></div>
+                      <div><p className="text-sm text-gray-600 dark:text-[#C8D8E4]">{n.label}</p><p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{n.desc}</p></div>
                     </label>
                   ))}
                 </div>
@@ -553,7 +553,7 @@ export default function TenantSettingsPage() {
 
               {/* HR Processes */}
               <div className="border-t border-gray-200 dark:border-[#1A6080]/20 pt-5">
-                <p className="text-xs font-semibold text-gray-600 dark:text-gray-400  mb-3">HR Processes</p>
+                <p className="text-xs font-semibold text-gray-600 dark:text-[#9BB0BC]  mb-3">HR Processes</p>
                 <div className="space-y-3">
                   {[
                     { key: 'emailGrievance',  label: 'Grievance alerts',           desc: 'Confirm to lodger; alert HR when a grievance is submitted or resolved' },
@@ -564,7 +564,7 @@ export default function TenantSettingsPage() {
                       <input type="checkbox" className="accent-[#0E3D52] w-4 h-4 mt-0.5"
                         checked={(notif as any)[n.key] ?? true}
                         onChange={e => setSettings(s => ({ ...s, notifications: { ...s.notifications, [n.key]: e.target.checked } }))} />
-                      <div><p className="text-sm text-gray-600 dark:text-gray-300">{n.label}</p><p className="text-xs text-gray-500 dark:text-gray-400">{n.desc}</p></div>
+                      <div><p className="text-sm text-gray-600 dark:text-[#C8D8E4]">{n.label}</p><p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{n.desc}</p></div>
                     </label>
                   ))}
                 </div>
@@ -572,7 +572,7 @@ export default function TenantSettingsPage() {
 
               {/* Development */}
               <div className="border-t border-gray-200 dark:border-[#1A6080]/20 pt-5">
-                <p className="text-xs font-semibold text-gray-600 dark:text-gray-400  mb-3">Development & Training</p>
+                <p className="text-xs font-semibold text-gray-600 dark:text-[#9BB0BC]  mb-3">Development & Training</p>
                 <div className="space-y-3">
                   {[
                     { key: 'emailPerformance', label: 'Performance review notifications', desc: 'Notify employee when review is scheduled or completed' },
@@ -582,7 +582,7 @@ export default function TenantSettingsPage() {
                       <input type="checkbox" className="accent-[#0E3D52] w-4 h-4 mt-0.5"
                         checked={(notif as any)[n.key] ?? true}
                         onChange={e => setSettings(s => ({ ...s, notifications: { ...s.notifications, [n.key]: e.target.checked } }))} />
-                      <div><p className="text-sm text-gray-600 dark:text-gray-300">{n.label}</p><p className="text-xs text-gray-500 dark:text-gray-400">{n.desc}</p></div>
+                      <div><p className="text-sm text-gray-600 dark:text-[#C8D8E4]">{n.label}</p><p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{n.desc}</p></div>
                     </label>
                   ))}
                 </div>
@@ -590,7 +590,7 @@ export default function TenantSettingsPage() {
 
               {/* Culture */}
               <div className="border-t border-gray-200 dark:border-[#1A6080]/20 pt-5">
-                <p className="text-xs font-semibold text-gray-600 dark:text-gray-400  mb-3">Culture & Recruitment</p>
+                <p className="text-xs font-semibold text-gray-600 dark:text-[#9BB0BC]  mb-3">Culture & Recruitment</p>
                 <div className="space-y-3">
                   {[
                     { key: 'emailRecognition', label: 'Recognition awards',       desc: 'Notify employee when they receive a recognition award' },
@@ -600,7 +600,7 @@ export default function TenantSettingsPage() {
                       <input type="checkbox" className="accent-[#0E3D52] w-4 h-4 mt-0.5"
                         checked={(notif as any)[n.key] ?? true}
                         onChange={e => setSettings(s => ({ ...s, notifications: { ...s.notifications, [n.key]: e.target.checked } }))} />
-                      <div><p className="text-sm text-gray-600 dark:text-gray-300">{n.label}</p><p className="text-xs text-gray-500 dark:text-gray-400">{n.desc}</p></div>
+                      <div><p className="text-sm text-gray-600 dark:text-[#C8D8E4]">{n.label}</p><p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{n.desc}</p></div>
                     </label>
                   ))}
                 </div>
@@ -608,12 +608,12 @@ export default function TenantSettingsPage() {
 
               {/* Slack */}
               <div className="border-t border-gray-200 dark:border-[#1A6080]/20 pt-5">
-                <p className="text-xs font-semibold text-gray-600 dark:text-gray-400  mb-3">Slack Integration</p>
+                <p className="text-xs font-semibold text-gray-600 dark:text-[#9BB0BC]  mb-3">Slack Integration</p>
                 <label className={LABEL}>Incoming Webhook URL</label>
                 <input value={notif.slackWebhook ?? ''} placeholder="https://hooks.slack.com/services/..."
                   onChange={e => setSettings(s => ({ ...s, notifications: { ...s.notifications, slackWebhook: e.target.value } }))}
                   className={INPUT} />
-                <p className="text-xs text-gray-600 mt-1 dark:text-gray-400">
+                <p className="text-xs text-gray-600 mt-1 dark:text-[#8aaabb]">
                   Create an Incoming Webhook in your Slack workspace to receive HR alerts in a dedicated channel.
                 </p>
               </div>
@@ -629,7 +629,7 @@ export default function TenantSettingsPage() {
           {tab === 'leave' && (
             <div className="space-y-5">
               <div className="flex items-center justify-between">
-                <p className="text-sm text-gray-500 dark:text-gray-400">
+                <p className="text-sm text-gray-500 dark:text-[#9BB0BC]">
                   Configure entitlements and rules for each leave type. Changes apply to all future balance calculations.
                 </p>
                 <button
@@ -677,7 +677,7 @@ export default function TenantSettingsPage() {
                           <span className="text-xl">{lt.emoji}</span>
                           <div>
                             <p className="text-sm font-semibold text-foreground">{lt.label}</p>
-                            <p className="text-xs text-gray-500 dark:text-gray-400">{lt.accrualNote}</p>
+                            <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{lt.accrualNote}</p>
                           </div>
                         </div>
                         {/* Active toggle */}
@@ -783,29 +783,29 @@ export default function TenantSettingsPage() {
                     <div className="w-10 h-10 rounded-xl bg-[#13B5EA] flex items-center justify-center text-white font-black text-lg shrink-0">X</div>
                     <div>
                       <p className="text-sm font-semibold text-foreground">Xero Accounting</p>
-                      <p className="text-xs text-gray-500 dark:text-gray-400">Export payroll runs as manual journal entries to your Xero ledger</p>
+                      <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Export payroll runs as manual journal entries to your Xero ledger</p>
                     </div>
                   </div>
                   {xeroLoading ? (
-                    <span className="text-xs text-gray-500 dark:text-gray-400">Checking…</span>
+                    <span className="text-xs text-gray-500 dark:text-[#9BB0BC]">Checking…</span>
                   ) : xeroStatus?.connected ? (
                     <span className="text-xs px-2 py-1 rounded-full bg-green-50 dark:bg-green-900/40 border border-green-200 dark:border-green-700 text-green-700 dark:text-green-300">
                       {xeroStatus.tokenExpired ? 'Token expired' : '● Connected'}
                     </span>
                   ) : (
-                    <span className="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400">Not connected</span>
+                    <span className="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC]">Not connected</span>
                   )}
                 </div>
 
                 {xeroStatus?.connected && (
                   <div className="bg-gray-100 dark:bg-[#0A1929]/60 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg p-3 text-sm space-y-1">
                     <div className="flex justify-between">
-                      <span className="text-gray-600 dark:text-gray-400">Organisation</span>
+                      <span className="text-gray-600 dark:text-[#9BB0BC]">Organisation</span>
                       <span className="text-foreground font-medium">{xeroStatus.orgName}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600 dark:text-gray-400">Xero Tenant ID</span>
-                      <span className="text-gray-600 dark:text-gray-300 font-mono text-xs">{xeroStatus.xeroTenantId}</span>
+                      <span className="text-gray-600 dark:text-[#9BB0BC]">Xero Tenant ID</span>
+                      <span className="text-gray-600 dark:text-[#C8D8E4] font-mono text-xs">{xeroStatus.xeroTenantId}</span>
                     </div>
                   </div>
                 )}
@@ -817,7 +817,7 @@ export default function TenantSettingsPage() {
                 )}
 
                 <div className="border-t border-gray-200 dark:border-[#1A6080]/20 pt-4">
-                  <p className="text-xs text-gray-500 mb-3 dark:text-gray-400">
+                  <p className="text-xs text-gray-500 mb-3 dark:text-[#8aaabb]">
                     When you export a pay run to Xero, a Manual Journal is created with these account codes:
                     <br />
                     <span className="font-mono">493</span> Wages &amp; Salaries (DR) ·
@@ -864,24 +864,24 @@ export default function TenantSettingsPage() {
                     <div className="w-10 h-10 rounded-xl bg-[#7B2D8B] flex items-center justify-center text-white font-black text-lg shrink-0">M</div>
                     <div>
                       <p className="text-sm font-semibold text-foreground">MYOB AccountRight</p>
-                      <p className="text-xs text-gray-500 dark:text-gray-400">Export payroll runs as General Journal Transactions to your MYOB ledger</p>
+                      <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Export payroll runs as General Journal Transactions to your MYOB ledger</p>
                     </div>
                   </div>
                   {myobLoading ? (
-                    <span className="text-xs text-gray-500 dark:text-gray-400">Checking…</span>
+                    <span className="text-xs text-gray-500 dark:text-[#9BB0BC]">Checking…</span>
                   ) : myobStatus?.connected ? (
                     <span className="text-xs px-2 py-1 rounded-full bg-green-50 dark:bg-green-900/40 border border-green-200 dark:border-green-700 text-green-700 dark:text-green-300">
                       {myobStatus.tokenExpired ? 'Token expired' : '● Connected'}
                     </span>
                   ) : (
-                    <span className="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400">Not connected</span>
+                    <span className="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC]">Not connected</span>
                   )}
                 </div>
 
                 {myobStatus?.connected && (
                   <div className="bg-gray-100 dark:bg-[#0A1929]/60 border border-gray-300 dark:border-[#1A6080]/30 rounded-lg p-3 text-sm space-y-1">
                     <div className="flex justify-between">
-                      <span className="text-gray-600 dark:text-gray-400">Company File</span>
+                      <span className="text-gray-600 dark:text-[#9BB0BC]">Company File</span>
                       <span className="text-foreground font-medium">{myobStatus.companyFileName}</span>
                     </div>
                   </div>
@@ -894,7 +894,7 @@ export default function TenantSettingsPage() {
                 )}
 
                 <div className="border-t border-gray-200 dark:border-[#1A6080]/20 pt-4">
-                  <p className="text-xs text-gray-500 mb-3 dark:text-gray-400">
+                  <p className="text-xs text-gray-500 mb-3 dark:text-[#8aaabb]">
                     When you export a pay run to MYOB, a General Journal Transaction is created with these account codes:
                     <br />
                     <span className="font-mono">6-1000</span> Wages &amp; Salaries (DR) ·
@@ -929,7 +929,7 @@ export default function TenantSettingsPage() {
 
               {/* Future integrations placeholder */}
               <div className="card-premium border-dashed p-6 text-center">
-                <p className="text-gray-500 text-sm dark:text-gray-400">More integrations coming soon — ADP, Workday, myGov</p>
+                <p className="text-gray-500 text-sm dark:text-[#8aaabb]">More integrations coming soon — ADP, Workday, myGov</p>
               </div>
             </div>
           )}

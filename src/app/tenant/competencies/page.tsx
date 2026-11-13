@@ -138,7 +138,7 @@ export default function CompetencyPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-foreground">Competency Management</h1>
-          <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">Define competency frameworks and track employee assessments</p>
+          <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Define competency frameworks and track employee assessments</p>
         </div>
         <div className="flex gap-2">
           <ExportButton onClick={exportCompetencies} disabled={competencies.length === 0} />
@@ -167,7 +167,7 @@ export default function CompetencyPage() {
           { label: 'Expired',           value: stats.expired,     color: 'text-red-500' },
         ].map(s => (
           <div key={s.label} className="card-premium p-4">
-            <p className="text-xs text-gray-600 dark:text-gray-400">{s.label}</p>
+            <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">{s.label}</p>
             <p className={`text-2xl font-bold mt-1 ${s.color}`}>{s.value}</p>
           </div>
         ))}
@@ -189,18 +189,18 @@ export default function CompetencyPage() {
           <h3 className="text-sm font-semibold text-[#4ebac4]">Add Competency to Framework</h3>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Name *</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Name *</label>
               <input required value={compForm.name} onChange={e => setCompForm(f => ({ ...f, name: e.target.value }))}
                 placeholder="e.g. Manual Handling, Medication Administration" className={INPUT} />
             </div>
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Category</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Category</label>
               <input value={compForm.category} onChange={e => setCompForm(f => ({ ...f, category: e.target.value }))}
                 placeholder="e.g. Clinical, Safety, Leadership" className={INPUT} />
             </div>
           </div>
           <div>
-            <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Description</label>
+            <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Description</label>
             <textarea value={compForm.description} onChange={e => setCompForm(f => ({ ...f, description: e.target.value }))}
               rows={2} placeholder="What this competency covers…" className={INPUT} />
           </div>
@@ -217,49 +217,49 @@ export default function CompetencyPage() {
           <h3 className="text-sm font-semibold text-[#4ebac4]">Record Competency Assessment</h3>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Employee *</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Employee *</label>
               <select required value={assForm.employeeId} onChange={e => setAssForm(f => ({ ...f, employeeId: e.target.value }))} className={INPUT}>
                 <option value="">— Select —</option>
                 {employees.map(e => <option key={e.id} value={e.id}>{e.firstName} {e.lastName}</option>)}
               </select>
             </div>
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Competency *</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Competency *</label>
               <select required value={assForm.competencyId} onChange={e => setAssForm(f => ({ ...f, competencyId: e.target.value }))} className={INPUT}>
                 <option value="">— Select —</option>
                 {competencies.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
               </select>
             </div>
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Assessor</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Assessor</label>
               <select value={assForm.assessorId} onChange={e => setAssForm(f => ({ ...f, assessorId: e.target.value }))} className={INPUT}>
                 <option value="">— Self / Not specified —</option>
                 {employees.map(e => <option key={e.id} value={e.id}>{e.firstName} {e.lastName}</option>)}
               </select>
             </div>
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Outcome *</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Outcome *</label>
               <select required value={assForm.outcome} onChange={e => setAssForm(f => ({ ...f, outcome: e.target.value }))} className={INPUT}>
                 <option value="competent">Competent</option>
                 <option value="not_yet_competent">Not Yet Competent</option>
               </select>
             </div>
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Assessed Date</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Assessed Date</label>
               <input type="date" value={assForm.assessedAt} onChange={e => setAssForm(f => ({ ...f, assessedAt: e.target.value }))} className={INPUT} />
             </div>
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Expiry Date</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Expiry Date</label>
               <input type="date" value={assForm.expiryDate} onChange={e => setAssForm(f => ({ ...f, expiryDate: e.target.value }))} className={INPUT} />
             </div>
           </div>
           <div>
-            <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Evidence</label>
+            <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Evidence</label>
             <input value={assForm.evidence} onChange={e => setAssForm(f => ({ ...f, evidence: e.target.value }))}
               placeholder="e.g. Certificate number, observation reference…" className={INPUT} />
           </div>
           <div>
-            <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Notes</label>
+            <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Notes</label>
             <textarea value={assForm.notes} onChange={e => setAssForm(f => ({ ...f, notes: e.target.value }))}
               rows={2} placeholder="Additional notes…" className={INPUT} />
           </div>
@@ -279,24 +279,24 @@ export default function CompetencyPage() {
         />
       )}
 
-      {loading ? <div className="text-gray-600 dark:text-gray-400 text-sm">Loading…</div> : (
+      {loading ? <div className="text-gray-600 dark:text-[#9BB0BC] text-sm">Loading…</div> : (
         <>
           {tab === 'library' && (
             Object.keys(grouped).length === 0 ? (
               <div className="card-premium py-14 text-center">
                 <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-[#0A1929] mx-auto mb-3">
-                <svg className="w-6 h-6 text-gray-600 dark:text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <svg className="w-6 h-6 text-gray-600 dark:text-[#9BB0BC] dark:text-[#9BB0BC]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
                 </svg>
               </div>
-                <p className="text-gray-600 dark:text-gray-300 font-medium">No competencies defined</p>
-                <p className="text-gray-500 text-sm mt-1 dark:text-gray-400">Add your competency framework to begin assessments.</p>
+                <p className="text-gray-600 dark:text-[#C8D8E4] font-medium">No competencies defined</p>
+                <p className="text-gray-500 text-sm mt-1 dark:text-[#8aaabb]">Add your competency framework to begin assessments.</p>
               </div>
             ) : (
               <div className="space-y-4">
                 {Object.entries(grouped).map(([cat, comps]) => (
                   <div key={cat}>
-                    <h3 className="text-xs font-semibold text-gray-500  mb-2 px-1 dark:text-gray-400">{cat}</h3>
+                    <h3 className="text-xs font-semibold text-gray-500  mb-2 px-1 dark:text-[#8aaabb]">{cat}</h3>
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
                       {comps.map(c => {
                         const compAss = assessments.filter(a => a.competencyId === c.id)
@@ -306,7 +306,7 @@ export default function CompetencyPage() {
                             <div className="flex items-start justify-between gap-2">
                               <p className="text-sm font-medium text-foreground">{c.name}</p>
                               <div className="flex items-center gap-2 shrink-0">
-                                <span className="text-xs text-gray-500 dark:text-gray-400">{pass}/{compAss.length} competent</span>
+                                <span className="text-xs text-gray-500 dark:text-[#9BB0BC]">{pass}/{compAss.length} competent</span>
                                 <button
                                   onClick={() => setConfirm({ message: `Delete competency "${c.name}"?`, confirmLabel: 'Delete', onConfirm: () => deleteCompetency(c.id) })}
                                   className="opacity-0 group-hover:opacity-100 transition-opacity text-gray-500 hover:text-red-400"
@@ -316,7 +316,7 @@ export default function CompetencyPage() {
                                 </button>
                               </div>
                             </div>
-                            {c.description && <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">{c.description}</p>}
+                            {c.description && <p className="text-xs text-gray-500 mt-1 dark:text-[#8aaabb]">{c.description}</p>}
                           </div>
                         )
                       })}
@@ -340,11 +340,11 @@ export default function CompetencyPage() {
               {assessments.length === 0 ? (
                 <div className="card-premium py-14 text-center">
                   <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-[#0A1929] mx-auto mb-3">
-                <svg className="w-6 h-6 text-gray-600 dark:text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <svg className="w-6 h-6 text-gray-600 dark:text-[#9BB0BC] dark:text-[#9BB0BC]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
                 </svg>
               </div>
-                  <p className="text-gray-600 dark:text-gray-300 font-medium">No assessments recorded</p>
+                  <p className="text-gray-600 dark:text-[#C8D8E4] font-medium">No assessments recorded</p>
                 </div>
               ) : (
                 <div className="card-premium overflow-hidden">
@@ -367,22 +367,22 @@ export default function CompetencyPage() {
                         const emp  = employees.find(e => e.id === a.employeeId)
                         return (
                           <tr key={a.id} className="group hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30/40">
-                            <td className="px-4 py-3 text-gray-700 dark:text-gray-200">{emp ? `${emp.firstName} ${emp.lastName}` : '—'}</td>
-                            <td className="px-4 py-3 text-gray-600 dark:text-gray-300">{comp?.name ?? '—'}</td>
+                            <td className="px-4 py-3 text-gray-700 dark:text-[#C8D8E4]">{emp ? `${emp.firstName} ${emp.lastName}` : '—'}</td>
+                            <td className="px-4 py-3 text-gray-600 dark:text-[#C8D8E4]">{comp?.name ?? '—'}</td>
                             <td className="px-4 py-3">
                               {a.outcome ? (
                                 <span className={`text-xs px-2.5 py-0.5 rounded-full border font-medium ${OUTCOME_STYLE[a.outcome] ?? 'badge badge-gray'}`}>
                                   {a.outcome === 'competent' ? 'Competent' : 'Not Yet'}
                                 </span>
-                              ) : <span className="text-gray-600 dark:text-gray-400">Pending</span>}
+                              ) : <span className="text-gray-600 dark:text-[#9BB0BC]">Pending</span>}
                             </td>
-                            <td className="px-4 py-3 text-gray-600 dark:text-gray-400 text-xs">
+                            <td className="px-4 py-3 text-gray-600 dark:text-[#9BB0BC] text-xs">
                               {a.assessedAt ? new Date(a.assessedAt).toLocaleDateString('en-AU') : '—'}
                             </td>
                             <td className={`px-4 py-3 text-xs font-medium ${expColor(a.expiryDate)}`}>
                               {a.expiryDate ? new Date(a.expiryDate + 'T00:00:00').toLocaleDateString('en-AU') : '—'}
                             </td>
-                            <td className="px-4 py-3 text-gray-500 text-xs dark:text-gray-400">
+                            <td className="px-4 py-3 text-gray-500 text-xs dark:text-[#8aaabb]">
                               {a.assessorFirstName ? `${a.assessorFirstName} ${a.assessorLastName}` : '—'}
                             </td>
                             <td className="px-4 py-3">

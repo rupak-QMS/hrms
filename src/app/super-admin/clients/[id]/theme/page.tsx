@@ -14,6 +14,6 @@ export default function ThemeRedirectPage() {
   }, [id, router])
 
   return (
-    <div className="text-gray-600 dark:text-gray-400 p-6 text-sm">Redirecting to theme editor…</div>
+    <div className="text-gray-600 dark:text-[#9BB0BC] p-6 text-sm">Redirecting to theme editor…</div>
   )
 }

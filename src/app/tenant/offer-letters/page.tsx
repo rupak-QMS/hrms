@@ -42,7 +42,7 @@ const EMP_TYPES = [
 ]
 
 const INPUT = 'input-premium'
-const LABEL = 'block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1'
+const LABEL = 'block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1'
 
 type CustomTemplate = {
   id: string; name: string; content: string; fileUrl: string | null; createdAt: string
@@ -531,7 +531,7 @@ export default function OfferLettersPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-foreground">Offer Letters</h1>
-          <p className="text-gray-600 dark:text-gray-400 text-sm mt-0.5">Generate, send and track candidate offer letters</p>
+          <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-0.5">Generate, send and track candidate offer letters</p>
         </div>
         <button onClick={initForm}
           className="px-4 py-2 bg-[#0E3D52] hover:bg-[#1A6080] text-white text-sm font-medium rounded-lg transition">
@@ -551,7 +551,7 @@ export default function OfferLettersPage() {
         ].map(s => (
           <div key={s.label} className={`card-premium p-3 text-center ${s.col}`}>
             <p className="text-xl font-bold text-white">{s.value}</p>
-            <p className="text-xs text-gray-600 dark:text-gray-400 mt-0.5">{s.label}</p>
+            <p className="text-xs text-gray-600 dark:text-[#9BB0BC] mt-0.5">{s.label}</p>
           </div>
         ))}
       </div>
@@ -573,7 +573,7 @@ export default function OfferLettersPage() {
         {/* List */}
         <div className="lg:col-span-2 space-y-2">
           {loading ? (
-            <p className="text-gray-500 text-sm text-center py-8 dark:text-gray-400">Loading…</p>
+            <p className="text-gray-500 text-sm text-center py-8 dark:text-[#8aaabb]">Loading…</p>
           ) : offers.length === 0 ? (
             <EmptyState
               icon="✉️"
@@ -590,9 +590,9 @@ export default function OfferLettersPage() {
                   {o.status}
                 </span>
               </div>
-              <p className="text-xs text-gray-600 dark:text-gray-400 truncate">{o.position}{o.department ? ` · ${o.department}` : ''}</p>
-              <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">{o.candidateEmail}</p>
-              <p className="text-xs text-gray-600 mt-1 dark:text-gray-400">{fmt(o.createdAt)}{o.salaryAmount ? ` · $${o.salaryAmount.toLocaleString()} p/a` : ''}</p>
+              <p className="text-xs text-gray-600 dark:text-[#9BB0BC] truncate">{o.position}{o.department ? ` · ${o.department}` : ''}</p>
+              <p className="text-xs text-gray-500 mt-1 dark:text-[#8aaabb]">{o.candidateEmail}</p>
+              <p className="text-xs text-gray-600 mt-1 dark:text-[#8aaabb]">{fmt(o.createdAt)}{o.salaryAmount ? ` · $${o.salaryAmount.toLocaleString()} p/a` : ''}</p>
             </div>
           ))}
         </div>
@@ -606,7 +606,7 @@ export default function OfferLettersPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
                 </svg>
               </div>
-              <p className="text-gray-500 text-sm dark:text-gray-400">Select an offer letter to view details and history</p>
+              <p className="text-gray-500 text-sm dark:text-[#8aaabb]">Select an offer letter to view details and history</p>
             </div>
           ) : (
             <div className="space-y-4">
@@ -616,7 +616,7 @@ export default function OfferLettersPage() {
                   <div>
                     <h2 className="text-lg font-bold text-foreground">{selected.candidateName}</h2>
                     <p className="text-sm text-[#1A6080] dark:text-[#4ebac4]">{selected.position}</p>
-                    <p className="text-xs text-gray-600 dark:text-gray-400">{selected.candidateEmail}</p>
+                    <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">{selected.candidateEmail}</p>
                   </div>
                   <span className={`text-xs px-2.5 py-1 rounded-full border font-medium ${STATUS_STYLE[selected.status] ?? ''}`}>
                     {selected.status}
@@ -635,7 +635,7 @@ export default function OfferLettersPage() {
                     { label:'Rejected',        value: fmt(selected.rejectedAt) },
                   ].map(r => (
                     <div key={r.label} className="bg-gray-100 dark:bg-[#0A1929]/60 rounded-lg p-2.5">
-                      <p className="text-xs text-gray-500 dark:text-gray-400">{r.label}</p>
+                      <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{r.label}</p>
                       <p className="text-white text-xs font-medium mt-0.5">{r.value}</p>
                     </div>
                   ))}
@@ -667,7 +667,7 @@ export default function OfferLettersPage() {
                   )}
                   {['draft','sent'].includes(selected.status) && (
                     <button onClick={() => updateStatus('withdrawn')}
-                      className="flex-1 py-2 text-xs font-medium border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-white rounded-lg transition">
+                      className="flex-1 py-2 text-xs font-medium border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:text-white rounded-lg transition">
                       ↩ Withdraw
                     </button>
                   )}
@@ -683,15 +683,15 @@ export default function OfferLettersPage() {
               {/* Candidate acceptance link */}
               {selected.acceptanceToken && ['draft','sent'].includes(selected.status) && (
                 <div className="card-premium p-4">
-                  <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">📎 Candidate Acceptance Link</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mb-3">
+                  <p className="text-xs font-semibold text-gray-600 dark:text-[#9BB0BC] mb-1">📎 Candidate Acceptance Link</p>
+                  <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mb-3">
                     Share this link with the candidate. They can view, sign and accept or decline the offer online — no login required.
                   </p>
                   <div className="flex gap-2 items-center mb-3">
                     <input
                       readOnly
                       value={candidateUrl(selected.acceptanceToken)}
-                      className="flex-1 text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-gray-900 dark:text-gray-200 font-mono"
+                      className="flex-1 text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-gray-900 dark:text-[#C8D8E4] font-mono"
                     />
                     <button
                       onClick={copyLink}
@@ -715,7 +715,7 @@ export default function OfferLettersPage() {
 
               {/* Add note */}
               <div className="card-premium p-4">
-                <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Add Note</p>
+                <p className="text-xs font-semibold text-gray-600 dark:text-[#9BB0BC] mb-2">Add Note</p>
                 <div className="flex gap-2">
                   <input value={noteText} onChange={e=>setNoteText(e.target.value)}
                     placeholder="Internal note…"
@@ -730,8 +730,8 @@ export default function OfferLettersPage() {
               {/* Letter preview */}
               {selected.templateContent && (
                 <div className="card-premium p-5">
-                  <p className="text-xs font-semibold text-gray-600 dark:text-gray-400  mb-3">Letter Preview</p>
-                  <pre className="text-xs text-gray-700 dark:text-gray-300 whitespace-pre-wrap font-sans leading-relaxed max-h-64 overflow-y-auto">
+                  <p className="text-xs font-semibold text-gray-600 dark:text-[#9BB0BC]  mb-3">Letter Preview</p>
+                  <pre className="text-xs text-gray-700 dark:text-[#C8D8E4] whitespace-pre-wrap font-sans leading-relaxed max-h-64 overflow-y-auto">
                     {selected.templateContent}
                   </pre>
                 </div>
@@ -739,9 +739,9 @@ export default function OfferLettersPage() {
 
               {/* History timeline */}
               <div className="card-premium p-5">
-                <p className="text-xs font-semibold text-gray-600 dark:text-gray-400  mb-4">History</p>
+                <p className="text-xs font-semibold text-gray-600 dark:text-[#9BB0BC]  mb-4">History</p>
                 {events.length === 0 ? (
-                  <p className="text-gray-600 text-sm text-center py-4 dark:text-gray-400">No events yet</p>
+                  <p className="text-gray-600 text-sm text-center py-4 dark:text-[#8aaabb]">No events yet</p>
                 ) : (
                   <div className="space-y-3">
                     {events.map((ev, i) => (
@@ -755,10 +755,10 @@ export default function OfferLettersPage() {
                         <div className="flex-1 pb-1">
                           <div className="flex items-center justify-between gap-2">
                             <p className="text-xs font-medium text-white capitalize">{ev.event.replace(/_/g,' ')}</p>
-                            <p className="text-xs text-gray-600 shrink-0 dark:text-gray-400">{fmt(ev.createdAt)}</p>
+                            <p className="text-xs text-gray-600 shrink-0 dark:text-[#8aaabb]">{fmt(ev.createdAt)}</p>
                           </div>
-                          {ev.note && <p className="text-xs text-gray-600 dark:text-gray-400 mt-0.5">{ev.note}</p>}
-                          {ev.performedBy && <p className="text-xs text-gray-600 mt-0.5 dark:text-gray-400">by {ev.performedBy}</p>}
+                          {ev.note && <p className="text-xs text-gray-600 dark:text-[#9BB0BC] mt-0.5">{ev.note}</p>}
+                          {ev.performedBy && <p className="text-xs text-gray-600 mt-0.5 dark:text-[#8aaabb]">by {ev.performedBy}</p>}
                         </div>
                       </div>
                     ))}
@@ -776,7 +776,7 @@ export default function OfferLettersPage() {
           <div className="card-premium w-full max-w-2xl max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-[#1A6080]/20">
               <h2 className="text-lg font-bold text-foreground">New Offer Letter</h2>
-              <button onClick={()=>{ setShowForm(false); setFormError('') }} className="text-gray-600 dark:text-gray-400 hover:text-white text-xl">×</button>
+              <button onClick={()=>{ setShowForm(false); setFormError('') }} className="text-gray-600 dark:text-[#9BB0BC] hover:text-white text-xl">×</button>
             </div>
             <form onSubmit={submit} className="p-6 space-y-4">
               <div className="grid grid-cols-2 gap-4">
@@ -888,7 +888,7 @@ export default function OfferLettersPage() {
                   {saving ? 'Creating…' : 'Create Offer Letter'}
                 </button>
                 <button type="button" onClick={()=>{ setShowForm(false); setFormError('') }}
-                  className="px-5 py-2.5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-white text-sm rounded-lg">
+                  className="px-5 py-2.5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:text-white text-sm rounded-lg">
                   Cancel
                 </button>
               </div>
@@ -902,7 +902,7 @@ export default function OfferLettersPage() {
           <div className="card-premium w-full max-w-xl max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between p-5 border-b border-gray-200 dark:border-[#1A6080]/20">
               <h2 className="text-base font-bold text-white">Upload Offer Template</h2>
-              <button onClick={() => setShowUpload(false)} className="text-gray-600 dark:text-gray-400 hover:text-white text-xl">×</button>
+              <button onClick={() => setShowUpload(false)} className="text-gray-600 dark:text-[#9BB0BC] hover:text-white text-xl">×</button>
             </div>
             <div className="p-5 space-y-4">
               {/* Merge tag guide */}
@@ -1009,7 +1009,7 @@ export default function OfferLettersPage() {
                 <button
                   type="button"
                   onClick={() => setShowUpload(false)}
-                  className="px-5 py-2.5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-white text-sm rounded-lg transition">
+                  className="px-5 py-2.5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:text-white text-sm rounded-lg transition">
                   Cancel
                 </button>
               </div>

@@ -166,7 +166,7 @@ export default function GrievancesPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-foreground">Grievances & Investigations</h1>
-          <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">Lodge and manage grievances, misconduct, and NDIS safeguarding concerns</p>
+          <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Lodge and manage grievances, misconduct, and NDIS safeguarding concerns</p>
         </div>
         <div className="flex items-center gap-2">
           <ExportButton onClick={exportGrievances} disabled={records.length === 0} />
@@ -188,7 +188,7 @@ export default function GrievancesPage() {
           { label: 'High',     value: stats.high,     color: 'text-orange-400' },
         ].map(s => (
           <div key={s.label} className="card-premium p-4">
-            <p className="text-xs text-gray-600 dark:text-gray-400">{s.label}</p>
+            <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">{s.label}</p>
             <p className={`text-2xl font-bold mt-1 ${s.color}`}>{s.value}</p>
           </div>
         ))}
@@ -201,19 +201,19 @@ export default function GrievancesPage() {
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Type *</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Type *</label>
               <select required value={form.type} onChange={e => setForm(f => ({ ...f, type: e.target.value }))} className={INPUT}>
                 {TYPES.map(t => <option key={t.value} value={t.value}>{t.label}</option>)}
               </select>
             </div>
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Risk Rating</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Risk Rating</label>
               <select value={form.riskRating} onChange={e => setForm(f => ({ ...f, riskRating: e.target.value }))} className={INPUT}>
                 {RISK_RATINGS.map(r => <option key={r.value} value={r.value}>{r.label}</option>)}
               </select>
             </div>
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Lodged By</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Lodged By</label>
               <select value={form.isAnonymous ? '__anon__' : form.lodgedBy}
                 onChange={e => {
                   if (e.target.value === '__anon__') setForm(f => ({ ...f, isAnonymous: true, lodgedBy: '' }))
@@ -226,7 +226,7 @@ export default function GrievancesPage() {
               </select>
             </div>
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Subject (person complaint is about)</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Subject (person complaint is about)</label>
               <select value={form.subjectId} onChange={e => setForm(f => ({ ...f, subjectId: e.target.value }))} className={INPUT}>
                 <option value="">— Not specified —</option>
                 {employees.map(e => <option key={e.id} value={e.id}>{e.firstName} {e.lastName}</option>)}
@@ -235,7 +235,7 @@ export default function GrievancesPage() {
           </div>
 
           <div>
-            <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Description *</label>
+            <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Description *</label>
             <textarea required value={form.description}
               onChange={e => setForm(f => ({ ...f, description: e.target.value }))}
               rows={4} placeholder="Describe the incident or concern in detail. Include dates, locations and any witnesses…"
@@ -275,15 +275,15 @@ export default function GrievancesPage() {
       </div>
 
       {/* Records */}
-      {loading ? <div className="text-gray-600 dark:text-gray-400 text-sm">Loading…</div> : records.length === 0 ? (
+      {loading ? <div className="text-gray-600 dark:text-[#9BB0BC] text-sm">Loading…</div> : records.length === 0 ? (
         <div className="card-premium py-14 text-center">
           <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-[#0A1929] mx-auto mb-3">
-                <svg className="w-6 h-6 text-gray-600 dark:text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <svg className="w-6 h-6 text-gray-600 dark:text-[#9BB0BC] dark:text-[#9BB0BC]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
                 </svg>
               </div>
-          <p className="text-gray-600 dark:text-gray-300 font-medium">No grievances on record</p>
-          <p className="text-gray-500 text-sm mt-1 dark:text-gray-400">Lodge a concern or report to begin an investigation.</p>
+          <p className="text-gray-600 dark:text-[#C8D8E4] font-medium">No grievances on record</p>
+          <p className="text-gray-500 text-sm mt-1 dark:text-[#8aaabb]">Lodge a concern or report to begin an investigation.</p>
         </div>
       ) : (
         <div className="space-y-3">
@@ -311,11 +311,11 @@ export default function GrievancesPage() {
                       <span className={`text-xs px-2.5 py-0.5 rounded-full border font-medium ${STATUS_STYLE[g.status] ?? 'badge badge-gray'}`}>
                         {STATUS_FLOW.find(s => s.value === g.status)?.label ?? g.status}
                       </span>
-                      {g.isAnonymous && <span className="text-xs text-gray-500 bg-gray-100 dark:bg-[#0A1929] px-2 py-0.5 rounded-full dark:text-gray-400">Anonymous</span>}
+                      {g.isAnonymous && <span className="text-xs text-gray-500 bg-gray-100 dark:bg-[#0A1929] px-2 py-0.5 rounded-full dark:text-[#8aaabb]">Anonymous</span>}
                     </div>
-                    <p className="text-gray-600 dark:text-gray-400 text-xs truncate">{g.description}</p>
+                    <p className="text-gray-600 dark:text-[#9BB0BC] text-xs truncate">{g.description}</p>
                     {g.subjectFirstName && (
-                      <p className="text-gray-600 text-xs mt-0.5 dark:text-gray-400">Subject: {g.subjectFirstName} {g.subjectLastName}</p>
+                      <p className="text-gray-600 text-xs mt-0.5 dark:text-[#8aaabb]">Subject: {g.subjectFirstName} {g.subjectLastName}</p>
                     )}
                   </div>
                   <div className="text-right shrink-0 flex items-center gap-2">
@@ -327,19 +327,19 @@ export default function GrievancesPage() {
                       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
                     </button>
                     <div>
-                      <p className="text-xs text-gray-500 dark:text-gray-400">{new Date(g.createdAt).toLocaleDateString('en-AU')}</p>
-                      <p className="text-xs text-gray-600 mt-0.5 dark:text-gray-400">{isOpen ? '▲' : '▼'}</p>
+                      <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{new Date(g.createdAt).toLocaleDateString('en-AU')}</p>
+                      <p className="text-xs text-gray-600 mt-0.5 dark:text-[#8aaabb]">{isOpen ? '▲' : '▼'}</p>
                     </div>
                   </div>
                 </div>
 
                 {isOpen && (
                   <div className="border-t border-gray-200 dark:border-[#1A6080]/20 px-5 py-4 space-y-4">
-                    <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-wrap">{g.description}</p>
+                    <p className="text-sm text-gray-600 dark:text-[#C8D8E4] leading-relaxed whitespace-pre-wrap">{g.description}</p>
 
                     {/* Stage timeline */}
                     <div>
-                      <p className="text-xs font-semibold text-gray-500  mb-2 dark:text-gray-400">Investigation Stage</p>
+                      <p className="text-xs font-semibold text-gray-500  mb-2 dark:text-[#8aaabb]">Investigation Stage</p>
                       <div className="flex items-center gap-0.5">
                         {STATUS_FLOW.map((s, i) => (
                           <div key={s.value} className="flex items-center flex-1">
@@ -351,9 +351,9 @@ export default function GrievancesPage() {
                         ))}
                       </div>
                       <div className="flex justify-between mt-1">
-                        <span className="text-xs text-gray-600 dark:text-gray-400">New</span>
+                        <span className="text-xs text-gray-600 dark:text-[#9BB0BC]">New</span>
                         <span className="text-xs text-[#1A6080] dark:text-[#4ebac4]">{STATUS_FLOW.find(s => s.value === g.status)?.label}</span>
-                        <span className="text-xs text-gray-600 dark:text-gray-400">Closed</span>
+                        <span className="text-xs text-gray-600 dark:text-[#9BB0BC]">Closed</span>
                       </div>
                     </div>
 
@@ -385,8 +385,8 @@ export default function GrievancesPage() {
                     {g.outcome && (
                       <div className="bg-green-50 dark:bg-green-950/40 border border-green-200 dark:border-green-800/50 rounded-lg p-3">
                         <p className="text-xs font-semibold text-green-400 mb-1">Outcome</p>
-                        <p className="text-sm text-gray-600 dark:text-gray-300">{g.outcome}</p>
-                        {g.closedAt && <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">Closed {new Date(g.closedAt).toLocaleDateString('en-AU')}</p>}
+                        <p className="text-sm text-gray-600 dark:text-[#C8D8E4]">{g.outcome}</p>
+                        {g.closedAt && <p className="text-xs text-gray-500 mt-1 dark:text-[#8aaabb]">Closed {new Date(g.closedAt).toLocaleDateString('en-AU')}</p>}
                       </div>
                     )}
                   </div>

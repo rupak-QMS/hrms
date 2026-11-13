@@ -93,7 +93,7 @@ export default function CommandPalette() {
         </div>
         <div className="max-h-[60vh] overflow-y-auto">
           {!hasResults && !isEmpty && query.length < 2 && <div className="px-4 py-6 text-center text-xs text-gray-400">Type at least 2 characters to search</div>}
-          {isEmpty && <div className="px-4 py-8 text-center text-sm text-gray-400">No results for <span className="font-medium text-gray-600 dark:text-gray-300">"{query}"</span></div>}
+          {isEmpty && <div className="px-4 py-8 text-center text-sm text-gray-400">No results for <span className="font-medium text-gray-600 dark:text-[#C8D8E4]">"{query}"</span></div>}
           {hasResults && groups.map(g => {
             const groupItems = items.filter(i => i.kind === g.kind)
             if (groupItems.length === 0) return null
@@ -107,7 +107,7 @@ export default function CommandPalette() {
                       <span className="text-lg flex-shrink-0">{item.icon}</span>
                       <div className="flex-1 min-w-0">
                         <p className={`text-sm font-medium truncate ${active ? 'text-[#0E3D52] dark:text-[#4ebac4]' : 'text-gray-900 dark:text-white'}`}>{item.label}</p>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 truncate">{item.sub}</p>
+                        <p className="text-xs text-gray-500 dark:text-[#9BB0BC] truncate">{item.sub}</p>
                       </div>
                       {active && <span className="text-xs text-[#4ebac4] flex-shrink-0">↵ open</span>}
                     </button>

@@ -34,14 +34,14 @@ export default function ForgotPasswordPage() {
             <span className="text-white text-xl"></span>
           </div>
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Forgot your password?</h1>
-          <p className="text-sm text-gray-500 mt-1 dark:text-gray-400">Enter your email and we'll send a reset link.</p>
+          <p className="text-sm text-gray-500 mt-1 dark:text-[#8aaabb]">Enter your email and we'll send a reset link.</p>
         </div>
 
         {status === 'sent' ? (
           <div className="bg-white border border-gray-200 rounded-xl p-8 text-center shadow-sm dark:bg-[#0F1E2E] dark:border-[#1A6080]/40">
             <div className="text-4xl mb-3"></div>
             <h2 className="text-lg font-semibold text-gray-900 mb-2 dark:text-white">Check your email</h2>
-            <p className="text-sm text-gray-500 leading-relaxed dark:text-gray-400">
+            <p className="text-sm text-gray-500 leading-relaxed dark:text-[#8aaabb]">
               If an account exists for <strong>{email}</strong>, you'll receive a reset link shortly.
               The link expires in 1 hour.
             </p>
@@ -52,7 +52,7 @@ export default function ForgotPasswordPage() {
         ) : (
           <form onSubmit={submit} className="bg-white border border-gray-200 rounded-xl p-8 shadow-sm space-y-4 dark:bg-[#0F1E2E] dark:border-[#1A6080]/40">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300">Email address</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1 dark:text-[#C8D8E4]">Email address</label>
               <input
                 type="email"
                 required
@@ -74,7 +74,7 @@ export default function ForgotPasswordPage() {
               {status === 'loading' ? 'Sending…' : 'Send reset link'}
             </button>
 
-            <p className="text-center text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-center text-sm text-gray-500 dark:text-[#9BB0BC]">
               <Link href="/login" className="text-brand-600 hover:underline">Back to sign in</Link>
             </p>
           </form>

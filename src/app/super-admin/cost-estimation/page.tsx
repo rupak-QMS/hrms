@@ -61,7 +61,7 @@ export default function CostEstimationPage() {
   const totalMonthlyAUD = filtered.reduce((s, c) => s + c.totalMonthlyAUD, 0)
   const totalAnnualAUD  = filtered.reduce((s, c) => s + c.totalAnnualAUD,  0)
 
-  if (loading) return <div className="text-gray-600 dark:text-gray-400 text-sm p-6">Loading cost estimates…</div>
+  if (loading) return <div className="text-gray-600 dark:text-[#9BB0BC] text-sm p-6">Loading cost estimates…</div>
 
   return (
     <div className="space-y-6">
@@ -69,14 +69,14 @@ export default function CostEstimationPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-xl font-bold text-gray-900 dark:text-white">Cost Estimation</h1>
-          <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">
+          <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">
             Approximate platform cost per client based on enabled modules, headcount, and country currency.
           </p>
         </div>
         <div className="text-right">
-          <p className="text-xs text-gray-500 dark:text-gray-400">Total portfolio (monthly)</p>
+          <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Total portfolio (monthly)</p>
           <p className="text-lg font-bold text-[#0E3D52] dark:text-[#7dcfd7]">{fmtAUD(totalMonthlyAUD)}</p>
-          <p className="text-xs text-gray-500 dark:text-gray-400">{fmtAUD(totalAnnualAUD)} / year</p>
+          <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{fmtAUD(totalAnnualAUD)} / year</p>
         </div>
       </div>
 
@@ -84,19 +84,19 @@ export default function CostEstimationPage() {
       <div className="grid grid-cols-4 gap-4">
         <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-4 text-center">
           <p className="text-2xl font-bold text-gray-900 dark:text-white">{clients.length}</p>
-          <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">Total clients</p>
+          <p className="text-xs text-gray-600 dark:text-[#9BB0BC] mt-1">Total clients</p>
         </div>
         <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-4 text-center">
           <p className="text-2xl font-bold text-green-600 dark:text-green-400">{clients.filter(c => c.isActive).length}</p>
-          <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">Active</p>
+          <p className="text-xs text-gray-600 dark:text-[#9BB0BC] mt-1">Active</p>
         </div>
         <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-4 text-center">
           <p className="text-2xl font-bold text-[#0E3D52] dark:text-[#4ebac4]">{fmtAUD(totalMonthlyAUD)}</p>
-          <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">Monthly (AUD)</p>
+          <p className="text-xs text-gray-600 dark:text-[#9BB0BC] mt-1">Monthly (AUD)</p>
         </div>
         <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-4 text-center">
           <p className="text-2xl font-bold text-[#0E3D52] dark:text-[#4ebac4]">{fmtAUD(totalAnnualAUD)}</p>
-          <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">Annual (AUD)</p>
+          <p className="text-xs text-gray-600 dark:text-[#9BB0BC] mt-1">Annual (AUD)</p>
         </div>
       </div>
 
@@ -105,7 +105,7 @@ export default function CostEstimationPage() {
         <div className="flex rounded-lg overflow-hidden border border-gray-300 dark:border-[#1A6080]/30">
           {(['all', 'active', 'inactive'] as const).map(f => (
             <button key={f} onClick={() => setFilter(f)}
-              className={`px-3 py-1.5 text-xs capitalize ${filter === f ? 'bg-[#0E3D52] text-white' : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:text-white'}`}>
+              className={`px-3 py-1.5 text-xs capitalize ${filter === f ? 'bg-[#0E3D52] text-white' : 'text-gray-600 dark:text-[#9BB0BC] hover:text-gray-900 dark:text-white'}`}>
               {f}
             </button>
           ))}
@@ -118,7 +118,7 @@ export default function CostEstimationPage() {
           <option value="headcount">Sort: Headcount ↓</option>
           <option value="name">Sort: Name A–Z</option>
         </select>
-        <p className="text-xs text-gray-500 ml-auto dark:text-gray-400">{filtered.length} client{filtered.length !== 1 ? 's' : ''}</p>
+        <p className="text-xs text-gray-500 ml-auto dark:text-[#8aaabb]">{filtered.length} client{filtered.length !== 1 ? 's' : ''}</p>
       </div>
 
       {/* Client list */}
@@ -135,37 +135,37 @@ export default function CostEstimationPage() {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
                     <p className="text-sm font-semibold text-gray-900 dark:text-white truncate">{client.name}</p>
-                    <span className={`text-xs px-1.5 py-0.5 rounded ${client.isActive ? 'bg-green-50 dark:bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300' : 'bg-gray-100 dark:bg-[#0A1929] text-gray-600 dark:text-gray-400'}`}>
+                    <span className={`text-xs px-1.5 py-0.5 rounded ${client.isActive ? 'bg-green-50 dark:bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300' : 'bg-gray-100 dark:bg-[#0A1929] text-gray-600 dark:text-[#9BB0BC]'}`}>
                       {client.isActive ? 'Active' : 'Inactive'}
                     </span>
-                    <span className="text-xs px-1.5 py-0.5 rounded bg-gray-100 dark:bg-[#0A1929] text-gray-600 dark:text-gray-400 capitalize">{client.tier}</span>
+                    <span className="text-xs px-1.5 py-0.5 rounded bg-gray-100 dark:bg-[#0A1929] text-gray-600 dark:text-[#9BB0BC] capitalize">{client.tier}</span>
                   </div>
-                  <p className="text-xs text-gray-500 mt-0.5 dark:text-gray-400">{client.countryName} · {client.currency} · {client.headcount || '—'} staff · {client.enabledModules} modules</p>
+                  <p className="text-xs text-gray-500 mt-0.5 dark:text-[#8aaabb]">{client.countryName} · {client.currency} · {client.headcount || '—'} staff · {client.enabledModules} modules</p>
                 </div>
 
                 {/* Per seat */}
                 <div className="text-right hidden sm:block">
-                  <p className="text-xs text-gray-500 dark:text-gray-400">Per seat / month</p>
+                  <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Per seat / month</p>
                   <p className="text-sm font-semibold text-gray-900 dark:text-white">{fmt(client.perSeatMonthlyCurr, client.symbol)}</p>
-                  {!sameAUD && <p className="text-xs text-gray-600 dark:text-gray-400">{fmtAUD(client.perSeatMonthlyAUD)} AUD</p>}
+                  {!sameAUD && <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">{fmtAUD(client.perSeatMonthlyAUD)} AUD</p>}
                 </div>
 
                 {/* Monthly */}
                 <div className="text-right hidden md:block">
-                  <p className="text-xs text-gray-500 dark:text-gray-400">Monthly</p>
+                  <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Monthly</p>
                   <p className="text-sm font-semibold text-[#0E3D52] dark:text-[#7dcfd7]">{fmt(client.totalMonthlyCurr, client.symbol)}</p>
-                  {!sameAUD && <p className="text-xs text-gray-600 dark:text-gray-400">{fmtAUD(client.totalMonthlyAUD)}</p>}
+                  {!sameAUD && <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">{fmtAUD(client.totalMonthlyAUD)}</p>}
                 </div>
 
                 {/* Annual */}
                 <div className="text-right">
-                  <p className="text-xs text-gray-500 dark:text-gray-400">Annual</p>
+                  <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Annual</p>
                   <p className="text-base font-bold text-gray-900 dark:text-white">{fmt(client.totalAnnualCurr, client.symbol)}</p>
-                  {!sameAUD && <p className="text-xs text-gray-600 dark:text-gray-400">{fmtAUD(client.totalAnnualAUD)}</p>}
+                  {!sameAUD && <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">{fmtAUD(client.totalAnnualAUD)}</p>}
                 </div>
 
                 {/* Expand toggle */}
-                <div className="text-gray-500 text-xs ml-2 dark:text-gray-400">
+                <div className="text-gray-500 text-xs ml-2 dark:text-[#8aaabb]">
                   {isExp ? '▲' : '▼'}
                 </div>
               </div>
@@ -174,7 +174,7 @@ export default function CostEstimationPage() {
               {isExp && (
                 <div className="border-t border-gray-200 dark:border-[#1A6080]/20 px-5 pb-5 pt-4">
                   <div className="flex items-center justify-between mb-3">
-                    <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 ">Module Breakdown</p>
+                    <p className="text-xs font-semibold text-gray-600 dark:text-[#9BB0BC] ">Module Breakdown</p>
                     <Link href={`/super-admin/clients/${client.id}/integrations`}
                       className="text-xs text-[#4ebac4] hover:text-[#0E3D52] dark:text-[#7dcfd7]">
                       View Integrations →
@@ -182,7 +182,7 @@ export default function CostEstimationPage() {
                   </div>
 
                   {client.moduleBreakdown.length === 0 ? (
-                    <p className="text-xs text-gray-500 dark:text-gray-400">No modules enabled yet.</p>
+                    <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">No modules enabled yet.</p>
                   ) : (
                     <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
                       {client.moduleBreakdown
@@ -191,7 +191,7 @@ export default function CostEstimationPage() {
                           const mCurr = m.priceAUD === 0 ? 0 : Math.round(m.priceAUD * (client.totalMonthlyCurr / Math.max(client.totalMonthlyAUD, 0.01)) * 100) / 100
                           return (
                             <div key={m.id} className="bg-gray-100 dark:bg-[#0A1929] rounded-lg px-3 py-2 flex items-center justify-between gap-2">
-                              <span className="text-xs text-gray-600 dark:text-gray-300 truncate">{m.name}</span>
+                              <span className="text-xs text-gray-600 dark:text-[#C8D8E4] truncate">{m.name}</span>
                               <span className="text-xs font-semibold text-gray-900 dark:text-white shrink-0">
                                 {m.priceAUD === 0 ? 'Free' : `${client.symbol}${mCurr.toFixed(2)}`}
                               </span>
@@ -205,19 +205,19 @@ export default function CostEstimationPage() {
                   {client.headcount > 0 && (
                     <div className="mt-4 flex gap-6 text-xs border-t border-gray-200 dark:border-[#1A6080]/20 pt-3">
                       <div>
-                        <span className="text-gray-500 dark:text-gray-400">Headcount: </span>
+                        <span className="text-gray-500 dark:text-[#9BB0BC]">Headcount: </span>
                         <span className="text-gray-900 dark:text-white font-semibold">{client.headcount}</span>
                       </div>
                       <div>
-                        <span className="text-gray-500 dark:text-gray-400">Per seat/mo: </span>
+                        <span className="text-gray-500 dark:text-[#9BB0BC]">Per seat/mo: </span>
                         <span className="text-gray-900 dark:text-white font-semibold">{fmt(client.perSeatMonthlyCurr, client.symbol)}</span>
                       </div>
                       <div>
-                        <span className="text-gray-500 dark:text-gray-400">Monthly total: </span>
+                        <span className="text-gray-500 dark:text-[#9BB0BC]">Monthly total: </span>
                         <span className="text-[#0E3D52] dark:text-[#7dcfd7] font-semibold">{fmt(client.totalMonthlyCurr, client.symbol)}</span>
                       </div>
                       <div>
-                        <span className="text-gray-500 dark:text-gray-400">Annual total: </span>
+                        <span className="text-gray-500 dark:text-[#9BB0BC]">Annual total: </span>
                         <span className="text-gray-900 dark:text-white font-bold">{fmt(client.totalAnnualCurr, client.symbol)}</span>
                       </div>
                     </div>
@@ -237,11 +237,11 @@ export default function CostEstimationPage() {
 
       {filtered.length === 0 && (
         <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-10 text-center">
-          <p className="text-gray-600 dark:text-gray-400 text-sm">No clients found.</p>
+          <p className="text-gray-600 dark:text-[#9BB0BC] text-sm">No clients found.</p>
         </div>
       )}
 
-      <p className="text-xs text-gray-600 mt-4 dark:text-gray-400">
+      <p className="text-xs text-gray-600 mt-4 dark:text-[#8aaabb]">
         * Estimates based on per-module pricing in local currency using AUD base rates. Actual invoicing may vary.
         Currency conversion rates are approximate.
       </p>

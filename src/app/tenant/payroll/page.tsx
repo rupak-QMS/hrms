@@ -338,7 +338,7 @@ export default function PayrollPage() {
               </button>
             ) : (
               <a href="/tenant/settings?tab=integrations"
-                className="px-3 py-2 rounded-xl text-xs border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-white transition">
+                className="px-3 py-2 rounded-xl text-xs border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:text-white transition">
                 Connect Xero
               </a>
             )
@@ -357,7 +357,7 @@ export default function PayrollPage() {
               </button>
             ) : (
               <a href="/tenant/settings?tab=integrations"
-                className="px-3 py-2 rounded-xl text-xs border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-white transition">
+                className="px-3 py-2 rounded-xl text-xs border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:text-white transition">
                 Connect MYOB
               </a>
             )
@@ -392,7 +392,7 @@ export default function PayrollPage() {
             { label: 'Total Super', value: `$${Number(stats.totalSuper ?? 0).toLocaleString('en-AU', { minimumFractionDigits: 2 })}`, color: 'text-[#1A6080] dark:text-[#4ebac4]' },
           ].map(s => (
             <div key={s.label} className="card-premium p-4">
-              <p className="text-xs text-gray-500 dark:text-gray-400">{s.label}</p>
+              <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{s.label}</p>
               <p className={`text-lg font-bold mt-0.5 ${s.color}`}>{s.value}</p>
             </div>
           ))}
@@ -403,7 +403,7 @@ export default function PayrollPage() {
       <div className="flex gap-2 items-center flex-wrap">
         {['', 'pending', 'approved', 'paid'].map(s => (
           <button key={s} onClick={() => setStatusFilter(s)}
-            className={`px-3 py-1.5 rounded-lg text-xs font-medium transition border ${statusFilter === s ? 'border-transparent text-white' : 'border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 bg-white dark:bg-[#0F1E2E]'}`}
+            className={`px-3 py-1.5 rounded-lg text-xs font-medium transition border ${statusFilter === s ? 'border-transparent text-white' : 'border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] bg-white dark:bg-[#0F1E2E]'}`}
             style={statusFilter === s ? { background: 'var(--primary)' } : {}}>
             {s === '' ? 'All' : s.charAt(0).toUpperCase() + s.slice(1)}
           </button>
@@ -419,29 +419,29 @@ export default function PayrollPage() {
             <thead>
               <tr className="border-b border-gray-200 dark:border-[#1A6080]/20 bg-gray-50 dark:bg-[#0A1929]/50">
                 {['Employee', 'Period', 'Gross', 'PAYG Tax', 'Medicare', 'Super', 'Net Pay', 'Status', ''].map(h => (
-                  <th key={h} className={`px-4 py-3 font-medium text-gray-500 dark:text-gray-400 ${h && h !== 'Employee' && h !== 'Period' && h !== 'Status' ? 'text-right' : 'text-left'}`}>{h}</th>
+                  <th key={h} className={`px-4 py-3 font-medium text-gray-500 dark:text-[#9BB0BC] ${h && h !== 'Employee' && h !== 'Period' && h !== 'Status' ? 'text-right' : 'text-left'}`}>{h}</th>
                 ))}
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100 dark:divide-[#1A6080]/20">
               {loading ? (
-                <tr><td colSpan={9} className="px-4 py-10 text-center text-gray-600 dark:text-gray-400 text-sm">Loading…</td></tr>
+                <tr><td colSpan={9} className="px-4 py-10 text-center text-gray-600 dark:text-[#9BB0BC] text-sm">Loading…</td></tr>
               ) : records.length === 0 ? (
                 <tr><td colSpan={9} className="px-4 py-12 text-center">
                   <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-[#0A1929] mx-auto mb-3">
-                <svg className="w-6 h-6 text-gray-600 dark:text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <svg className="w-6 h-6 text-gray-600 dark:text-[#9BB0BC] dark:text-[#9BB0BC]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
                 </svg>
               </div>
-                  <p className="text-gray-500 dark:text-gray-400 text-sm">No pay runs yet — create your first one.</p>
+                  <p className="text-gray-500 dark:text-[#9BB0BC] text-sm">No pay runs yet — create your first one.</p>
                 </td></tr>
               ) : records.map(r => (
                 <tr key={r.id} className="hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/40 transition">
                   <td className="px-4 py-3">
                     <p className="font-medium text-gray-900 dark:text-white">{r.employeeFirstName} {r.employeeLastName}</p>
-                    <p className="text-xs text-gray-600 dark:text-gray-400">{r.employeeEmail}</p>
+                    <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">{r.employeeEmail}</p>
                   </td>
-                  <td className="px-4 py-3 text-gray-600 dark:text-gray-300 text-xs whitespace-nowrap">{r.periodStart} → {r.periodEnd}</td>
+                  <td className="px-4 py-3 text-gray-600 dark:text-[#C8D8E4] text-xs whitespace-nowrap">{r.periodStart} → {r.periodEnd}</td>
                   <td className="px-4 py-3 text-right font-mono text-gray-900 dark:text-white">{fmt(r.grossPay)}</td>
                   <td className="px-4 py-3 text-right font-mono text-red-400">{fmt(r.paygWithholding)}</td>
                   <td className="px-4 py-3 text-right font-mono text-orange-400">{fmt(r.medicareLevy)}</td>
@@ -474,7 +474,7 @@ export default function PayrollPage() {
                           {myobExporting.has(r.id) ? '…' : '⬆ MYOB'}
                         </button>
                       )}
-                      <button onClick={() => setSelected(r)} className="text-xs px-2 py-1 rounded border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition">View</button>
+                      <button onClick={() => setSelected(r)} className="text-xs px-2 py-1 rounded border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:text-gray-900 dark:hover:text-white transition">View</button>
                       {r.status === 'pending'  && <button onClick={() => updateStatus(r.id, 'approved')} className="text-xs px-2 py-1 rounded border border-[#1A6080]/60 text-[#4ebac4] hover:bg-[#0E3D52]/20 transition">Approve</button>}
                       {r.status === 'approved' && <button onClick={() => updateStatus(r.id, 'paid')}     className="text-xs px-2 py-1 rounded border border-green-700 text-green-400 hover:bg-green-900/20 transition">Mark Paid</button>}
                       {r.status === 'pending'  && (
@@ -501,13 +501,13 @@ export default function PayrollPage() {
           <div className="card-premium w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-lg">
             <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 dark:border-[#1A6080]/20">
               <h2 className="font-semibold text-gray-900 dark:text-white">New Pay Run</h2>
-              <button onClick={() => { setShowModal(false); setPreview(null) }} className="text-gray-600 dark:text-gray-400 hover:text-gray-600 dark:hover:text-white text-xl"></button>
+              <button onClick={() => { setShowModal(false); setPreview(null) }} className="text-gray-600 dark:text-[#9BB0BC] hover:text-gray-600 dark:hover:text-white text-xl"></button>
             </div>
             <div className="px-6 py-5 space-y-5">
               {error && <div className="bg-red-50 dark:bg-red-900/30 border border-red-300 dark:border-red-800 rounded-lg px-3 py-2 text-sm text-red-600 dark:text-red-300">{error}</div>}
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Employee *</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Employee *</label>
                 <select value={form.employeeId} onChange={e => setForm(f => ({ ...f, employeeId: e.target.value }))}
                   className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2.5 text-sm text-gray-900 dark:text-white">
                   <option value="">Select employee…</option>
@@ -517,19 +517,19 @@ export default function PayrollPage() {
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Period Start *</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Period Start *</label>
                   <input type="date" value={form.periodStart} onChange={e => setForm(f => ({ ...f, periodStart: e.target.value }))}
                     className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2.5 text-sm text-gray-900 dark:text-white" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Period End *</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Period End *</label>
                   <input type="date" value={form.periodEnd} onChange={e => setForm(f => ({ ...f, periodEnd: e.target.value }))}
                     className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2.5 text-sm text-gray-900 dark:text-white" />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Pay Frequency</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Pay Frequency</label>
                 <select value={form.frequency} onChange={e => setForm(f => ({ ...f, frequency: e.target.value as any }))}
                   className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2.5 text-sm text-gray-900 dark:text-white">
                   <option value="weekly">Weekly</option>
@@ -539,11 +539,11 @@ export default function PayrollPage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Pay Basis</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-2">Pay Basis</label>
                 <div className="flex gap-2">
                   {(['hourly', 'salary'] as const).map(t => (
                     <button key={t} onClick={() => setForm(f => ({ ...f, payType: t }))}
-                      className={`px-4 py-2 rounded-lg text-sm font-medium transition border ${form.payType === t ? 'text-white border-transparent' : 'border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300'}`}
+                      className={`px-4 py-2 rounded-lg text-sm font-medium transition border ${form.payType === t ? 'text-white border-transparent' : 'border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#C8D8E4]'}`}
                       style={form.payType === t ? { background: 'var(--primary)' } : {}}>
                       {t === 'hourly' ? '⏱ Hourly' : 'Annual Salary'}
                     </button>
@@ -554,13 +554,13 @@ export default function PayrollPage() {
               {form.payType === 'hourly' ? (
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Hours Worked *</label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Hours Worked *</label>
                     <input type="number" min="0" step="0.5" placeholder="76" value={form.hoursWorked}
                       onChange={e => setForm(f => ({ ...f, hoursWorked: e.target.value }))}
                       className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2.5 text-sm text-gray-900 dark:text-white" />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Hourly Rate (AUD) *</label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Hourly Rate (AUD) *</label>
                     <input type="number" min="0" step="0.01" placeholder="32.50" value={form.hourlyRate}
                       onChange={e => setForm(f => ({ ...f, hourlyRate: e.target.value }))}
                       className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2.5 text-sm text-gray-900 dark:text-white" />
@@ -568,7 +568,7 @@ export default function PayrollPage() {
                 </div>
               ) : (
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Annual Salary (AUD) *</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Annual Salary (AUD) *</label>
                   <input type="number" min="0" step="100" placeholder="75000" value={form.annualSalary}
                     onChange={e => setForm(f => ({ ...f, annualSalary: e.target.value }))}
                     className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2.5 text-sm text-gray-900 dark:text-white" />
@@ -577,13 +577,13 @@ export default function PayrollPage() {
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Taxable Allowances</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Taxable Allowances</label>
                   <input type="number" min="0" step="0.01" value={form.allowances}
                     onChange={e => setForm(f => ({ ...f, allowances: e.target.value }))}
                     className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2.5 text-sm text-gray-900 dark:text-white" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Pre-tax Deductions</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-[#C8D8E4] mb-1">Pre-tax Deductions</label>
                   <input type="number" min="0" step="0.01" value={form.deductions}
                     onChange={e => setForm(f => ({ ...f, deductions: e.target.value }))}
                     className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2.5 text-sm text-gray-900 dark:text-white" />
@@ -607,7 +607,7 @@ export default function PayrollPage() {
                       { label: 'Net Pay',            value: preview.netPay,           color: 'text-green-500', bold: true },
                     ].map(row => (
                       <div key={row.label} className={`flex justify-between ${row.bold ? 'border-t border-gray-200 dark:border-[#1A6080]/30 pt-1.5 font-semibold' : ''}`}>
-                        <span className="text-gray-600 dark:text-gray-400">{row.label}</span>
+                        <span className="text-gray-600 dark:text-[#9BB0BC]">{row.label}</span>
                         <span className={row.color}>{row.neg ? '−' : ''}{fmt(row.value)}</span>
                       </div>
                     ))}
@@ -615,9 +615,9 @@ export default function PayrollPage() {
                   <div className="border-t border-gray-200 dark:border-[#1A6080]/30 pt-3 space-y-1">
                     <div className="flex justify-between text-sm">
                       <span className="text-[#1A6080] dark:text-[#4ebac4]">Employer Super (11.5%)</span>
-                      <span className="text-[#4ebac4] font-medium">{fmt(preview.superContribution)} <span className="text-xs text-gray-500 dark:text-gray-400">(on top)</span></span>
+                      <span className="text-[#4ebac4] font-medium">{fmt(preview.superContribution)} <span className="text-xs text-gray-500 dark:text-[#9BB0BC]">(on top)</span></span>
                     </div>
-                    <div className="flex justify-between text-xs text-gray-600 dark:text-gray-400">
+                    <div className="flex justify-between text-xs text-gray-600 dark:text-[#9BB0BC]">
                       <span>Annualised gross / Effective tax rate</span>
                       <span>{fmt(preview.annualisedGross)} / {preview.effectiveTaxRate}%</span>
                     </div>
@@ -644,7 +644,7 @@ export default function PayrollPage() {
             <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 dark:border-[#1A6080]/20">
               <div>
                 <h2 className="font-semibold text-gray-900 dark:text-white">⚡ Bulk Pay Run</h2>
-                <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Creates pay runs for all active employees with salary or hourly rate set</p>
+                <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-0.5">Creates pay runs for all active employees with salary or hourly rate set</p>
               </div>
               <button onClick={() => { setShowBulk(false); setBulkResult(null) }} className="text-gray-400 hover:text-white text-xl">✕</button>
             </div>
@@ -790,14 +790,14 @@ export default function PayrollPage() {
                   className="text-xs px-3 py-1.5 rounded-lg border border-[#1A6080] text-[#4ebac4] hover:bg-[#0E3D52]/30 transition">
                   🖨 Print
                 </a>
-                <button onClick={() => setSelected(null)} className="text-gray-600 dark:text-gray-400 hover:text-white text-xl ml-1">×</button>
+                <button onClick={() => setSelected(null)} className="text-gray-600 dark:text-[#9BB0BC] hover:text-white text-xl ml-1">×</button>
               </div>
             </div>
             <div className="px-6 py-5 space-y-3 text-sm">
-              <div className="flex justify-between"><span className="text-gray-500 dark:text-gray-400">Employee</span><span className="font-medium text-gray-900 dark:text-white">{selected.employeeFirstName} {selected.employeeLastName}</span></div>
-              <div className="flex justify-between"><span className="text-gray-500 dark:text-gray-400">Period</span><span className="text-gray-900 dark:text-white">{selected.periodStart} → {selected.periodEnd}</span></div>
+              <div className="flex justify-between"><span className="text-gray-500 dark:text-[#9BB0BC]">Employee</span><span className="font-medium text-gray-900 dark:text-white">{selected.employeeFirstName} {selected.employeeLastName}</span></div>
+              <div className="flex justify-between"><span className="text-gray-500 dark:text-[#9BB0BC]">Period</span><span className="text-gray-900 dark:text-white">{selected.periodStart} → {selected.periodEnd}</span></div>
               {selected.hoursWorked && (
-                <div className="flex justify-between"><span className="text-gray-500 dark:text-gray-400">Hours @ Rate</span><span className="text-gray-900 dark:text-white">{selected.hoursWorked}h @ {fmt(selected.hourlyRate)}/hr</span></div>
+                <div className="flex justify-between"><span className="text-gray-500 dark:text-[#9BB0BC]">Hours @ Rate</span><span className="text-gray-900 dark:text-white">{selected.hoursWorked}h @ {fmt(selected.hourlyRate)}/hr</span></div>
               )}
               <div className="border-t border-gray-200 dark:border-[#1A6080]/30 pt-3 space-y-2">
                 {[
@@ -807,7 +807,7 @@ export default function PayrollPage() {
                   { label: 'Net Pay',          value: selected.netPay,          color: 'text-green-400 font-bold text-base' },
                 ].map(row => (
                   <div key={row.label} className="flex justify-between">
-                    <span className="text-gray-500 dark:text-gray-400">{row.label}</span>
+                    <span className="text-gray-500 dark:text-[#9BB0BC]">{row.label}</span>
                     <span className={row.color}>{fmt(row.value)}</span>
                   </div>
                 ))}

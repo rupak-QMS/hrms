@@ -286,33 +286,33 @@ export default function AssetsPage() {
             <form onSubmit={saveEdit} className="space-y-3">
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Name *</label>
+                  <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Name *</label>
                   <input required value={editForm.name} onChange={e => setEditForm(f => ({ ...f, name: e.target.value }))} className={INPUT} />
                 </div>
                 <div>
-                  <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Category *</label>
+                  <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Category *</label>
                   <select value={editForm.category} onChange={e => setEditForm(f => ({ ...f, category: e.target.value }))} className={INPUT}>
                     {ASSET_CATEGORIES.map(c => <option key={c} value={c}>{c}</option>)}
                   </select>
                 </div>
                 <div>
-                  <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Serial Number</label>
+                  <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Serial Number</label>
                   <input value={editForm.serialNumber} onChange={e => setEditForm(f => ({ ...f, serialNumber: e.target.value }))} className={INPUT} />
                 </div>
                 <div>
-                  <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Status</label>
+                  <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Status</label>
                   <select value={editForm.status} onChange={e => setEditForm(f => ({ ...f, status: e.target.value }))} className={INPUT}>
                     {STATUSES.map(s => <option key={s} value={s}>{s}</option>)}
                   </select>
                 </div>
                 <div className="col-span-2">
-                  <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Notes</label>
+                  <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Notes</label>
                   <input value={editForm.notes} onChange={e => setEditForm(f => ({ ...f, notes: e.target.value }))} className={INPUT} />
                 </div>
               </div>
               <div className="flex justify-end gap-3 pt-1">
                 <button type="button" onClick={() => setEditAsset(null)}
-                  className="px-4 py-2 text-sm rounded-lg border border-gray-300 dark:border-[#1A6080]/40 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
+                  className="px-4 py-2 text-sm rounded-lg border border-gray-300 dark:border-[#1A6080]/40 text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
                   Cancel
                 </button>
                 <button type="submit" disabled={saving}
@@ -329,7 +329,7 @@ export default function AssetsPage() {
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Asset Management</h1>
-          <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">Track equipment, uniforms, and PPE assigned to employees</p>
+          <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Track equipment, uniforms, and PPE assigned to employees</p>
         </div>
         <div className="flex items-center gap-2">
           {tab === 'assets'
@@ -356,7 +356,7 @@ export default function AssetsPage() {
         ].slice(0,4).map(s => (
           <button key={s.label} onClick={() => { setTab('assets'); setFilterStatus(filterStatus === s.filter ? '' : s.filter) }}
             className={`card-premium p-4 text-left transition hover:ring-1 hover:ring-[#0E3D52]/50 ${filterStatus === s.filter ? 'ring-1 ring-[#0E3D52]' : ''}`}>
-            <p className="text-xs text-gray-600 dark:text-gray-400">{s.label}</p>
+            <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">{s.label}</p>
             <p className={`text-2xl font-bold mt-1 ${s.color}`}>{s.value}</p>
           </button>
         ))}
@@ -410,21 +410,21 @@ export default function AssetsPage() {
         <form onSubmit={createAsset} className="card-premium border-[#0E3D52]/30 p-5 space-y-3">
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Name *</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Name *</label>
               <input required value={assetForm.name} onChange={e => setAssetForm(f => ({ ...f, name: e.target.value }))} className={INPUT} />
             </div>
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Category *</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Category *</label>
               <select value={assetForm.category} onChange={e => setAssetForm(f => ({ ...f, category: e.target.value }))} className={INPUT}>
                 {ASSET_CATEGORIES.map(c => <option key={c} value={c}>{c}</option>)}
               </select>
             </div>
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Serial Number</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Serial Number</label>
               <input value={assetForm.serialNumber} onChange={e => setAssetForm(f => ({ ...f, serialNumber: e.target.value }))} className={INPUT} />
             </div>
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Notes</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Notes</label>
               <input value={assetForm.notes} onChange={e => setAssetForm(f => ({ ...f, notes: e.target.value }))} className={INPUT} />
             </div>
           </div>
@@ -437,7 +437,7 @@ export default function AssetsPage() {
 
       {/* Content */}
       {loading ? (
-        <p className="text-gray-600 dark:text-gray-400 text-sm">Loading…</p>
+        <p className="text-gray-600 dark:text-[#9BB0BC] text-sm">Loading…</p>
       ) : (
         <>
           {/* Assets table */}
@@ -464,12 +464,12 @@ export default function AssetsPage() {
                       />
                     ) : filteredAssets.map(a => (
                       <tr key={a.id} className="hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/30">
-                        <td className="px-4 py-3 text-gray-700 dark:text-gray-200 font-medium">{a.name}</td>
-                        <td className="px-4 py-3 text-gray-600 dark:text-gray-400 text-xs">{a.category}</td>
-                        <td className="px-4 py-3 text-gray-500 text-xs font-mono dark:text-gray-400">{a.serialNumber ?? '—'}</td>
-                        <td className="px-4 py-3 text-gray-600 dark:text-gray-400 text-xs">{assignedEmployee(a.id) ?? '—'}</td>
+                        <td className="px-4 py-3 text-gray-700 dark:text-[#C8D8E4] font-medium">{a.name}</td>
+                        <td className="px-4 py-3 text-gray-600 dark:text-[#9BB0BC] text-xs">{a.category}</td>
+                        <td className="px-4 py-3 text-gray-500 text-xs font-mono dark:text-[#8aaabb]">{a.serialNumber ?? '—'}</td>
+                        <td className="px-4 py-3 text-gray-600 dark:text-[#9BB0BC] text-xs">{assignedEmployee(a.id) ?? '—'}</td>
                         <td className="px-4 py-3">
-                          <span className={`text-xs px-2 py-0.5 rounded-full border font-medium ${STATUS_BADGE[a.status] ?? 'bg-gray-100 dark:bg-[#0A1929] text-gray-600 dark:text-gray-400 border-gray-300 dark:border-[#1A6080]/30'}`}>
+                          <span className={`text-xs px-2 py-0.5 rounded-full border font-medium ${STATUS_BADGE[a.status] ?? 'bg-gray-100 dark:bg-[#0A1929] text-gray-600 dark:text-[#9BB0BC] border-gray-300 dark:border-[#1A6080]/30'}`}>
                             {a.status}
                           </span>
                         </td>
@@ -482,12 +482,12 @@ export default function AssetsPage() {
                               </button>
                             )}
                             <button onClick={() => openEdit(a)}
-                              className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:border-[#4ebac4] hover:text-[#1A6080] dark:text-[#4ebac4] px-2 py-1 rounded transition">
+                              className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#C8D8E4] hover:border-[#4ebac4] hover:text-[#1A6080] dark:text-[#4ebac4] px-2 py-1 rounded transition">
                               Edit
                             </button>
                             {a.status !== 'retired' && (
                               <button onClick={() => retire(a.id)}
-                                className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-500 dark:text-gray-400 hover:border-red-400 hover:text-red-400 px-2 py-1 rounded transition">
+                                className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-500 dark:text-[#9BB0BC] hover:border-red-400 hover:text-red-400 px-2 py-1 rounded transition">
                                 Retire
                               </button>
                             )}
@@ -536,12 +536,12 @@ export default function AssetsPage() {
                     <div className="flex-1">
                       <div className="flex items-center gap-2">
                         <span className="text-gray-900 dark:text-white font-medium text-sm">{asset?.name ?? 'Unknown'}</span>
-                        <span className="text-xs text-gray-500 bg-gray-100 dark:bg-[#0A1929] px-2 py-0.5 rounded-full dark:text-gray-400">{asset?.category}</span>
+                        <span className="text-xs text-gray-500 bg-gray-100 dark:bg-[#0A1929] px-2 py-0.5 rounded-full dark:text-[#8aaabb]">{asset?.category}</span>
                         {a.condition && (
-                          <span className="text-xs text-gray-500 dark:text-gray-400">· {a.condition}</span>
+                          <span className="text-xs text-gray-500 dark:text-[#9BB0BC]">· {a.condition}</span>
                         )}
                       </div>
-                      <p className="text-xs text-gray-500 mt-0.5 dark:text-gray-400">
+                      <p className="text-xs text-gray-500 mt-0.5 dark:text-[#8aaabb]">
                         → {a.employeeFirstName} {a.employeeLastName} · Issued {new Date(a.issuedAt).toLocaleDateString('en-AU')}
                       </p>
                     </div>

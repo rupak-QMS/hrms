@@ -196,7 +196,7 @@ function ScreeningTab() {
           { label: 'Expired/Red',  value: stats.red + stats.expired, color: 'text-red-400' },
         ].map(s => (
           <div key={s.label} className="card-premium p-4">
-            <p className="text-xs text-gray-600 dark:text-gray-400">{s.label}</p>
+            <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">{s.label}</p>
             <p className={`text-3xl font-bold mt-1 ${s.color}`}>{s.value}</p>
           </div>
         ))}
@@ -228,33 +228,33 @@ function ScreeningTab() {
           <h3 className="text-sm font-semibold text-[#4ebac4]">New Screening Check</h3>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Employee *</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Employee *</label>
               <select required value={form.employeeId} onChange={e => setForm(f => ({ ...f, employeeId: e.target.value }))} className={INPUT}>
                 <option value="">— Select —</option>
                 {employees.map(e => <option key={e.id} value={e.id}>{e.firstName} {e.lastName}</option>)}
               </select>
             </div>
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Check Type *</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Check Type *</label>
               <select required value={form.checkType} onChange={e => setForm(f => ({ ...f, checkType: e.target.value }))} className={INPUT}>
                 {CHECK_TYPES.map(t => <option key={t}>{t}</option>)}
               </select>
             </div>
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Reference No.</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Reference No.</label>
               <input value={form.referenceNumber} onChange={e => setForm(f => ({ ...f, referenceNumber: e.target.value }))}
                 placeholder="e.g. NWS-12345" className={INPUT} />
             </div>
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Issued Date</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Issued Date</label>
               <input type="date" value={form.issuedDate} onChange={e => setForm(f => ({ ...f, issuedDate: e.target.value }))} className={INPUT} />
             </div>
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Expiry Date</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Expiry Date</label>
               <input type="date" value={form.expiryDate} onChange={e => setForm(f => ({ ...f, expiryDate: e.target.value }))} className={INPUT} />
             </div>
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Notes</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Notes</label>
               <input value={form.notes} onChange={e => setForm(f => ({ ...f, notes: e.target.value }))}
                 placeholder="Optional notes" className={INPUT} />
             </div>
@@ -267,12 +267,12 @@ function ScreeningTab() {
       )}
 
       {/* Table */}
-      {loading ? <div className="text-gray-600 dark:text-gray-400 text-sm">Loading…</div> : (
+      {loading ? <div className="text-gray-600 dark:text-[#9BB0BC] text-sm">Loading…</div> : (
         <div className="card-premium overflow-hidden">
           {records.length === 0 ? (
             <div className="py-12 text-center">
               <p className="text-3xl mb-2"></p>
-              <p className="text-gray-600 dark:text-gray-400 text-sm">No screening records. Add the first check above.</p>
+              <p className="text-gray-600 dark:text-[#9BB0BC] text-sm">No screening records. Add the first check above.</p>
             </div>
           ) : (
           <div className="table-responsive">
@@ -296,10 +296,10 @@ function ScreeningTab() {
                     <tr key={r.id} className="cursor-default">
                       <td className="px-5 py-3.5">
                         <p className="text-foreground font-medium text-sm">{r.employeeFirstName} {r.employeeLastName}</p>
-                        <p className="text-gray-500 text-xs dark:text-gray-400">{r.employeeEmail}</p>
+                        <p className="text-gray-500 text-xs dark:text-[#8aaabb]">{r.employeeEmail}</p>
                       </td>
                       <td className="px-5 py-3.5">
-                        <span className="text-gray-600 dark:text-gray-300 text-sm">{r.checkType}</span>
+                        <span className="text-gray-600 dark:text-[#C8D8E4] text-sm">{r.checkType}</span>
                         {r.employeeNdis && <span className="ml-2 text-xs bg-[#E0EEF4] dark:bg-[#0E3D52]/20 text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#7dcfd7] px-1.5 py-0.5 rounded">NDIS</span>}
                       </td>
                       <td className="px-5 py-3.5">
@@ -434,7 +434,7 @@ function TrackingTab() {
           { label: 'Red',   value: stats.red,     color: 'text-red-400' },
         ].map(s => (
           <div key={s.label} className="card-premium p-4">
-            <p className="text-xs text-gray-600 dark:text-gray-400">{s.label}</p>
+            <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">{s.label}</p>
             <p className={`text-3xl font-bold mt-1 ${s.color}`}>{s.value}</p>
           </div>
         ))}
@@ -452,23 +452,23 @@ function TrackingTab() {
           <h3 className="text-sm font-semibold text-[#4ebac4]">New Compliance Item</h3>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Employee *</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Employee *</label>
               <select required value={form.employeeId} onChange={e => setForm(f => ({ ...f, employeeId: e.target.value }))} className={INPUT}>
                 <option value="">— Select —</option>
                 {employees.map(e => <option key={e.id} value={e.id}>{e.firstName} {e.lastName}</option>)}
               </select>
             </div>
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Item Type *</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Item Type *</label>
               <input required value={form.itemType} onChange={e => setForm(f => ({ ...f, itemType: e.target.value }))}
                 placeholder="e.g. NDIS Renewal, Annual Declaration" className={INPUT} />
             </div>
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Due Date</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Due Date</label>
               <input type="date" value={form.dueDate} onChange={e => setForm(f => ({ ...f, dueDate: e.target.value }))} className={INPUT} />
             </div>
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Notes</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Notes</label>
               <input value={form.notes} onChange={e => setForm(f => ({ ...f, notes: e.target.value }))} placeholder="Optional" className={INPUT} />
             </div>
           </div>
@@ -479,12 +479,12 @@ function TrackingTab() {
         </form>
       )}
 
-      {loading ? <div className="text-gray-600 dark:text-gray-400 text-sm">Loading…</div> : (
+      {loading ? <div className="text-gray-600 dark:text-[#9BB0BC] text-sm">Loading…</div> : (
         <div className="card-premium overflow-hidden">
           {records.length === 0 ? (
             <div className="py-12 text-center">
               <p className="text-3xl mb-2"></p>
-              <p className="text-gray-600 dark:text-gray-400 text-sm">No compliance tracking items yet.</p>
+              <p className="text-gray-600 dark:text-[#9BB0BC] text-sm">No compliance tracking items yet.</p>
             </div>
           ) : (
           <div className="table-responsive">
@@ -504,18 +504,18 @@ function TrackingTab() {
                   <tr key={r.id}>
                     <td className="px-5 py-3.5">
                       <p className="text-foreground font-medium">{r.employeeFirstName} {r.employeeLastName}</p>
-                      <p className="text-gray-500 text-xs dark:text-gray-400">{r.employeeEmail}</p>
+                      <p className="text-gray-500 text-xs dark:text-[#8aaabb]">{r.employeeEmail}</p>
                     </td>
-                    <td className="px-5 py-3.5 text-gray-600 dark:text-gray-300">{r.itemType}</td>
+                    <td className="px-5 py-3.5 text-gray-600 dark:text-[#C8D8E4]">{r.itemType}</td>
                     <td className="px-5 py-3.5">
                       <span className={`capitalize ${STATUS_BADGE[r.status] ?? STATUS_BADGE.pending}`}>
                         {statusLabel(r.status)}
                       </span>
                     </td>
-                    <td className="px-5 py-3.5 text-gray-600 dark:text-gray-400 text-xs">
+                    <td className="px-5 py-3.5 text-gray-600 dark:text-[#9BB0BC] text-xs">
                       {r.dueDate ? new Date(r.dueDate).toLocaleDateString('en-AU', { day:'numeric', month:'short', year:'numeric' }) : '—'}
                     </td>
-                    <td className="px-5 py-3.5 text-gray-500 text-xs dark:text-gray-400">
+                    <td className="px-5 py-3.5 text-gray-500 text-xs dark:text-[#8aaabb]">
                       {r.lastCheckedAt ? new Date(r.lastCheckedAt).toLocaleDateString('en-AU') : '—'}
                     </td>
                     <td className="px-5 py-3.5">
@@ -622,19 +622,19 @@ function LockTab() {
           <h3 className="text-sm font-semibold text-amber-300">Grant Temporary Exception</h3>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Employee *</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Employee *</label>
               <select required value={form.employeeId} onChange={e => setForm(f => ({ ...f, employeeId: e.target.value }))} className={INPUT}>
                 <option value="">— Select —</option>
                 {employees.map(e => <option key={e.id} value={e.id}>{e.firstName} {e.lastName}</option>)}
               </select>
             </div>
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Exception Expires *</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Exception Expires *</label>
               <input required type="date" value={form.expiresAt} onChange={e => setForm(f => ({ ...f, expiresAt: e.target.value }))} className={INPUT} />
             </div>
           </div>
           <div>
-            <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Reason *</label>
+            <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Reason *</label>
             <textarea required value={form.reason} onChange={e => setForm(f => ({ ...f, reason: e.target.value }))}
               rows={2} placeholder="Reason for granting exception…" className={INPUT} />
           </div>
@@ -645,7 +645,7 @@ function LockTab() {
         </form>
       )}
 
-      {loading ? <div className="text-gray-600 dark:text-gray-400 text-sm">Loading…</div> : (
+      {loading ? <div className="text-gray-600 dark:text-[#9BB0BC] text-sm">Loading…</div> : (
         <div className="space-y-4">
           {active.length > 0 && (
             <div>
@@ -655,11 +655,11 @@ function LockTab() {
                   <div key={r.id} className="flex items-center gap-4 px-5 py-4 border-b border-gray-200 dark:border-[#1A6080]/20/50 last:border-0">
                     <div className="flex-1">
                       <p className="text-foreground font-medium text-sm">{r.employeeFirstName} {r.employeeLastName}</p>
-                      <p className="text-gray-600 dark:text-gray-400 text-xs mt-0.5">{r.reason}</p>
+                      <p className="text-gray-600 dark:text-[#9BB0BC] text-xs mt-0.5">{r.reason}</p>
                     </div>
                     <div className="text-right shrink-0">
                       <p className="text-xs text-amber-300">Expires {new Date(r.expiresAt).toLocaleDateString('en-AU')}</p>
-                      <p className="text-xs text-gray-500 dark:text-gray-400">Approved {new Date(r.approvedAt).toLocaleDateString('en-AU')}</p>
+                      <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Approved {new Date(r.approvedAt).toLocaleDateString('en-AU')}</p>
                     </div>
                     <button onClick={() => revoke(r.id)}
                       className="text-xs text-red-400 hover:text-red-300 border border-red-800 px-2.5 py-1 rounded-lg transition">
@@ -678,10 +678,10 @@ function LockTab() {
                 {inactive.slice(0,5).map(r => (
                   <div key={r.id} className="flex items-center gap-4 px-5 py-3 border-b border-gray-200 dark:border-[#1A6080]/20/50 last:border-0">
                     <div className="flex-1">
-                      <p className="text-gray-600 dark:text-gray-300 text-sm">{r.employeeFirstName} {r.employeeLastName}</p>
-                      <p className="text-gray-500 text-xs dark:text-gray-400">{r.reason}</p>
+                      <p className="text-gray-600 dark:text-[#C8D8E4] text-sm">{r.employeeFirstName} {r.employeeLastName}</p>
+                      <p className="text-gray-500 text-xs dark:text-[#8aaabb]">{r.reason}</p>
                     </div>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">Expired {new Date(r.expiresAt).toLocaleDateString('en-AU')}</p>
+                    <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Expired {new Date(r.expiresAt).toLocaleDateString('en-AU')}</p>
                   </div>
                 ))}
               </div>
@@ -691,7 +691,7 @@ function LockTab() {
           {records.length === 0 && (
             <div className="card-premium py-12 text-center">
               <p className="text-3xl mb-2"></p>
-              <p className="text-gray-600 dark:text-gray-400 text-sm">No lock exceptions on record.</p>
+              <p className="text-gray-600 dark:text-[#9BB0BC] text-sm">No lock exceptions on record.</p>
             </div>
           )}
         </div>

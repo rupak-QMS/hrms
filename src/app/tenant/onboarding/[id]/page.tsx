@@ -219,7 +219,7 @@ export default function OnboardingDetailPage() {
     }
   }
 
-  if (!rec) return <div className="text-gray-600 dark:text-gray-400">Loading…</div>
+  if (!rec) return <div className="text-gray-600 dark:text-[#9BB0BC]">Loading…</div>
 
   const checklist = rec.checklist ?? []
   const done      = checklist.filter(t => t.done).length
@@ -246,7 +246,7 @@ export default function OnboardingDetailPage() {
             <h1 className="text-2xl font-bold text-foreground">
               {rec.employeeFirstName} {rec.employeeLastName}
             </h1>
-            <p className="text-gray-600 dark:text-gray-400 text-sm">{rec.employeeEmail}</p>
+            <p className="text-gray-600 dark:text-[#9BB0BC] text-sm">{rec.employeeEmail}</p>
           </div>
         </div>
         <div className="flex gap-2 items-center">
@@ -255,7 +255,7 @@ export default function OnboardingDetailPage() {
             {rec.status === 'in_progress' ? 'In Progress' : rec.status.charAt(0).toUpperCase() + rec.status.slice(1)}
           </span>
           <Link href="/tenant/onboarding"
-            className="text-xs border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-white px-3 py-1.5 rounded-lg transition">
+            className="text-xs border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:text-white px-3 py-1.5 rounded-lg transition">
             ← Back
           </Link>
         </div>
@@ -267,14 +267,14 @@ export default function OnboardingDetailPage() {
       <div className="card-premium p-5 space-y-4">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">Overall Progress</p>
+            <p className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1">Overall Progress</p>
             <p className="text-2xl font-bold text-foreground">{pct}%
-              <span className="text-sm font-normal text-gray-600 dark:text-gray-400 ml-2">{done}/{checklist.length} tasks</span>
+              <span className="text-sm font-normal text-gray-600 dark:text-[#9BB0BC] ml-2">{done}/{checklist.length} tasks</span>
             </p>
           </div>
           {rec.employeeStartDate && (
             <div className="text-right">
-              <p className="text-xs text-gray-600 dark:text-gray-400">Start Date</p>
+              <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">Start Date</p>
               <p className="text-sm text-white">
                 {new Date(rec.employeeStartDate).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}
               </p>
@@ -298,7 +298,7 @@ export default function OnboardingDetailPage() {
                 }`}>
                   {i < stageIdx ? '' : i + 1}
                 </div>
-                <p className="text-[10px] text-gray-600 dark:text-gray-400 text-center leading-tight">{label}</p>
+                <p className="text-[10px] text-gray-600 dark:text-[#9BB0BC] text-center leading-tight">{label}</p>
               </div>
               {i < STAGES.length - 1 && (
                 <div className={`h-0.5 flex-1 mx-1 rounded ${i < stageIdx ? 'bg-green-600' : 'bg-[#0E3D52]/70'}`} />
@@ -385,7 +385,7 @@ export default function OnboardingDetailPage() {
               </button>
             </div>
           ) : rec.notes ? (
-            <p className="text-sm text-gray-600 dark:text-gray-300 whitespace-pre-wrap">{rec.notes}</p>
+            <p className="text-sm text-gray-600 dark:text-[#C8D8E4] whitespace-pre-wrap">{rec.notes}</p>
           ) : (
             <p className="text-sm text-gray-500 italic">No notes yet.</p>
           )}
@@ -428,7 +428,7 @@ export default function OnboardingDetailPage() {
               <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${CATEGORY_COLOR[category] ?? 'bg-[#0E3D52]/70 text-gray-300'}`}>
                 {category.charAt(0).toUpperCase() + category.slice(1)}
               </span>
-              <span className="text-xs text-gray-500 dark:text-gray-400">
+              <span className="text-xs text-gray-500 dark:text-[#9BB0BC]">
                 {items.filter(t => t.done).length}/{items.length}
               </span>
             </div>

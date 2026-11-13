@@ -142,7 +142,7 @@ export default function SupervisionPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-foreground">Supervision Management</h1>
-          <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">Schedule and track employee supervision sessions and action items</p>
+          <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Schedule and track employee supervision sessions and action items</p>
         </div>
         <div className="flex items-center gap-2">
           <ExportButton onClick={exportSupervision} disabled={records.length === 0} />
@@ -162,7 +162,7 @@ export default function SupervisionPage() {
           { label: 'Overdue',   value: stats.overdue,   color: 'text-red-400' },
         ].map(s => (
           <div key={s.label} className="card-premium p-4">
-            <p className="text-xs text-gray-600 dark:text-gray-400">{s.label}</p>
+            <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">{s.label}</p>
             <p className={`text-2xl font-bold mt-1 ${s.color}`}>{s.value}</p>
           </div>
         ))}
@@ -174,32 +174,32 @@ export default function SupervisionPage() {
           <h3 className="text-sm font-semibold text-[#4ebac4]">Schedule Supervision Session</h3>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Employee *</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Employee *</label>
               <select required value={form.employeeId} onChange={e => setForm(f => ({ ...f, employeeId: e.target.value }))} className={INPUT}>
                 <option value="">— Select —</option>
                 {employees.map(e => <option key={e.id} value={e.id}>{e.firstName} {e.lastName}</option>)}
               </select>
             </div>
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Supervisor *</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Supervisor *</label>
               <select required value={form.supervisorId} onChange={e => setForm(f => ({ ...f, supervisorId: e.target.value }))} className={INPUT}>
                 <option value="">— Select —</option>
                 {employees.map(e => <option key={e.id} value={e.id}>{e.firstName} {e.lastName}</option>)}
               </select>
             </div>
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Scheduled Date *</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Scheduled Date *</label>
               <input required type="date" value={form.scheduledDate} onChange={e => setForm(f => ({ ...f, scheduledDate: e.target.value }))} className={INPUT} />
             </div>
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Type</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Type</label>
               <select value={form.type} onChange={e => setForm(f => ({ ...f, type: e.target.value }))} className={INPUT}>
                 {SUP_TYPES.map(t => <option key={t.value} value={t.value}>{t.label}</option>)}
               </select>
             </div>
           </div>
           <div>
-            <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Initial Notes</label>
+            <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Initial Notes</label>
             <textarea value={form.notes} onChange={e => setForm(f => ({ ...f, notes: e.target.value }))}
               rows={2} placeholder="Agenda items, topics to cover…" className={INPUT} />
           </div>
@@ -226,15 +226,15 @@ export default function SupervisionPage() {
         </select>
       </div>
 
-      {loading ? <div className="text-gray-600 dark:text-gray-400 text-sm">Loading…</div> : records.length === 0 ? (
+      {loading ? <div className="text-gray-600 dark:text-[#9BB0BC] text-sm">Loading…</div> : records.length === 0 ? (
         <div className="card-premium py-14 text-center">
           <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-[#0A1929] mx-auto mb-3">
-                <svg className="w-6 h-6 text-gray-600 dark:text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <svg className="w-6 h-6 text-gray-600 dark:text-[#9BB0BC] dark:text-[#9BB0BC]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
                 </svg>
               </div>
-          <p className="text-gray-600 dark:text-gray-300 font-medium">No supervision sessions</p>
-          <p className="text-gray-500 text-sm mt-1 dark:text-gray-400">Schedule a session to begin tracking.</p>
+          <p className="text-gray-600 dark:text-[#C8D8E4] font-medium">No supervision sessions</p>
+          <p className="text-gray-500 text-sm mt-1 dark:text-[#8aaabb]">Schedule a session to begin tracking.</p>
         </div>
       ) : (
         <div className="space-y-3">
@@ -253,14 +253,14 @@ export default function SupervisionPage() {
                       <span className="text-foreground font-medium text-sm">
                         {r.employeeFirstName} {r.employeeLastName}
                       </span>
-                      <span className="text-xs text-gray-500 bg-gray-100 dark:bg-[#0A1929] px-2 py-0.5 rounded-full dark:text-gray-400">
+                      <span className="text-xs text-gray-500 bg-gray-100 dark:bg-[#0A1929] px-2 py-0.5 rounded-full dark:text-[#8aaabb]">
                         {SUP_TYPES.find(t => t.value === r.type)?.label ?? r.type ?? 'Regular'}
                       </span>
                       <span className={`text-xs px-2.5 py-0.5 rounded-full border font-medium ${STATUS_STYLE[r.status] ?? 'badge badge-gray'}`}>
                         {overdue ? '️ Overdue' : r.status.charAt(0).toUpperCase() + r.status.slice(1)}
                       </span>
                     </div>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                    <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">
                       Supervisor: {supervisor ? `${supervisor.firstName} ${supervisor.lastName}` : '—'}
                     </p>
                   </div>
@@ -269,9 +269,9 @@ export default function SupervisionPage() {
                       {new Date(r.scheduledDate + 'T00:00:00').toLocaleDateString('en-AU')}
                     </p>
                     {r.actionItems.length > 0 && (
-                      <p className="text-xs text-gray-500 mt-0.5 dark:text-gray-400">{r.actionItems.length} action{r.actionItems.length !== 1 ? 's' : ''}</p>
+                      <p className="text-xs text-gray-500 mt-0.5 dark:text-[#8aaabb]">{r.actionItems.length} action{r.actionItems.length !== 1 ? 's' : ''}</p>
                     )}
-                    <p className="text-xs text-gray-600 mt-0.5 dark:text-gray-400">{isOpen ? '▲' : '▼'}</p>
+                    <p className="text-xs text-gray-600 mt-0.5 dark:text-[#8aaabb]">{isOpen ? '▲' : '▼'}</p>
                   </div>
                 </div>
 
@@ -279,24 +279,24 @@ export default function SupervisionPage() {
                   <div className="border-t border-gray-200 dark:border-[#1A6080]/20 px-5 py-4 space-y-4">
                     {r.notes && (
                       <div>
-                        <p className="text-xs font-semibold text-gray-500  mb-1 dark:text-gray-400">Session Notes</p>
-                        <p className="text-sm text-gray-600 dark:text-gray-300 whitespace-pre-wrap">{r.notes}</p>
+                        <p className="text-xs font-semibold text-gray-500  mb-1 dark:text-[#8aaabb]">Session Notes</p>
+                        <p className="text-sm text-gray-600 dark:text-[#C8D8E4] whitespace-pre-wrap">{r.notes}</p>
                       </div>
                     )}
 
                     {/* Action items */}
                     <div>
-                      <p className="text-xs font-semibold text-gray-500  mb-2 dark:text-gray-400">Action Items</p>
+                      <p className="text-xs font-semibold text-gray-500  mb-2 dark:text-[#8aaabb]">Action Items</p>
                       {r.actionItems.length === 0 ? (
-                        <p className="text-xs text-gray-600 italic dark:text-gray-400">No action items yet.</p>
+                        <p className="text-xs text-gray-600 italic dark:text-[#8aaabb]">No action items yet.</p>
                       ) : (
                         <ul className="space-y-1.5 mb-2">
                           {r.actionItems.map((item, i) => (
-                            <li key={i} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-[#0A1929]/50 rounded-lg px-3 py-2">
+                            <li key={i} className="flex items-start gap-2 text-sm text-gray-600 dark:text-[#C8D8E4] bg-gray-100 dark:bg-[#0A1929]/50 rounded-lg px-3 py-2">
                               <span className="text-[#1A6080] dark:text-[#4ebac4] shrink-0">•</span>
                               <span className="flex-1">{item}</span>
                               {r.status !== 'completed' && (
-                                <button onClick={() => removeAction(r.id, r.actionItems, i)} className="text-gray-600 hover:text-red-400 text-xs dark:text-gray-400"></button>
+                                <button onClick={() => removeAction(r.id, r.actionItems, i)} className="text-gray-600 hover:text-red-400 text-xs dark:text-[#8aaabb]"></button>
                               )}
                             </li>
                           ))}
@@ -311,7 +311,7 @@ export default function SupervisionPage() {
                             placeholder="Add action item… (Enter to add)"
                             className="flex-1 input-premium py-1.5 text-xs" />
                           <button onClick={() => addAction(r.id, r.actionItems)}
-                            className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:border-[#0E3D52] px-3 py-1.5 rounded-lg transition">
+                            className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#C8D8E4] hover:border-[#0E3D52] px-3 py-1.5 rounded-lg transition">
                             Add
                           </button>
                         </div>
@@ -326,7 +326,7 @@ export default function SupervisionPage() {
                           Mark Session Complete
                         </button>
                         {r.conductedAt && (
-                          <span className="ml-3 text-xs text-gray-500 dark:text-gray-400">
+                          <span className="ml-3 text-xs text-gray-500 dark:text-[#9BB0BC]">
                             Conducted {new Date(r.conductedAt).toLocaleDateString('en-AU')}
                           </span>
                         )}

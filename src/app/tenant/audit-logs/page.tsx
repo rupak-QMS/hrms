@@ -58,13 +58,13 @@ export default function AuditLogsPage() {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold text-foreground">Audit Log</h1>
-        <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">Immutable record of all system actions — who did what, and when</p>
+        <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Immutable record of all system actions — who did what, and when</p>
       </div>
 
       {/* Filters */}
       <div className="flex gap-3 flex-wrap items-end">
         <div>
-          <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Resource</label>
+          <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Resource</label>
           <select value={filterResource} onChange={e => setFilterResource(e.target.value)}
             className="input-premium focus:outline-none focus:border-[#0E3D52] min-w-32">
             <option value="">All</option>
@@ -72,7 +72,7 @@ export default function AuditLogsPage() {
           </select>
         </div>
         <div>
-          <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Action</label>
+          <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Action</label>
           <select value={filterAction} onChange={e => setFilterAction(e.target.value)}
             className="input-premium focus:outline-none focus:border-[#0E3D52]">
             <option value="">All</option>
@@ -80,7 +80,7 @@ export default function AuditLogsPage() {
           </select>
         </div>
         <div>
-          <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Since</label>
+          <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Since</label>
           <input type="date" value={filterSince} onChange={e => setFilterSince(e.target.value)}
             className="input-premium focus:outline-none focus:border-[#0E3D52]" />
         </div>
@@ -90,21 +90,21 @@ export default function AuditLogsPage() {
         </button>
         {(filterResource || filterAction || filterSince) && (
           <button onClick={() => { setFilterResource(''); setFilterAction(''); setFilterSince(''); setPage(0); load('','','',0) }}
-            className="text-xs text-gray-600 dark:text-gray-400 hover:text-white px-3 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/30 hover:border-[#1A6080]/40 transition">
+            className="text-xs text-gray-600 dark:text-[#9BB0BC] hover:text-white px-3 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/30 hover:border-[#1A6080]/40 transition">
             Clear
           </button>
         )}
       </div>
 
-      {loading ? <div className="text-gray-600 dark:text-gray-400 text-sm">Loading…</div> : logs.length === 0 ? (
+      {loading ? <div className="text-gray-600 dark:text-[#9BB0BC] text-sm">Loading…</div> : logs.length === 0 ? (
         <div className="card-premium py-14 text-center">
           <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-[#0A1929] mx-auto mb-3">
-                <svg className="w-6 h-6 text-gray-600 dark:text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <svg className="w-6 h-6 text-gray-600 dark:text-[#9BB0BC] dark:text-[#9BB0BC]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
                 </svg>
               </div>
-          <p className="text-gray-600 dark:text-gray-300 font-medium">No audit entries found</p>
-          <p className="text-gray-500 text-sm mt-1 dark:text-gray-400">Entries appear as users interact with the system.</p>
+          <p className="text-gray-600 dark:text-[#C8D8E4] font-medium">No audit entries found</p>
+          <p className="text-gray-500 text-sm mt-1 dark:text-[#8aaabb]">Entries appear as users interact with the system.</p>
         </div>
       ) : (
         <>
@@ -130,11 +130,11 @@ export default function AuditLogsPage() {
                       <tr key={log.id}
                         onClick={() => hasDetails && setExpanded(isOpen ? null : log.id)}
                         className={`hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30/40 ${hasDetails ? 'cursor-pointer' : ''}`}>
-                        <td className="px-4 py-3 text-gray-600 dark:text-gray-400 text-xs font-mono whitespace-nowrap">
+                        <td className="px-4 py-3 text-gray-600 dark:text-[#9BB0BC] text-xs font-mono whitespace-nowrap">
                           {new Date(log.createdAt).toLocaleString('en-AU', { day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit',second:'2-digit' })}
                         </td>
                         <td className="px-4 py-3">
-                          <p className="text-gray-700 dark:text-gray-200 text-xs">{log.userEmail ?? '—'}</p>
+                          <p className="text-gray-700 dark:text-[#C8D8E4] text-xs">{log.userEmail ?? '—'}</p>
                         </td>
                         <td className="px-4 py-3">
                           <span className={`text-xs px-2 py-0.5 rounded-full border font-medium ${actionColor(log.action)}`}>
@@ -142,11 +142,11 @@ export default function AuditLogsPage() {
                           </span>
                         </td>
                         <td className="px-4 py-3">
-                          <p className="text-gray-600 dark:text-gray-300 text-xs">{log.resource}</p>
-                          {log.resourceId && <p className="text-gray-600 text-xs font-mono dark:text-gray-400">{log.resourceId.slice(0,8)}…</p>}
+                          <p className="text-gray-600 dark:text-[#C8D8E4] text-xs">{log.resource}</p>
+                          {log.resourceId && <p className="text-gray-600 text-xs font-mono dark:text-[#8aaabb]">{log.resourceId.slice(0,8)}…</p>}
                         </td>
-                        <td className="px-4 py-3 text-gray-500 text-xs font-mono dark:text-gray-400">{log.ipAddress ?? '—'}</td>
-                        <td className="px-4 py-3 text-gray-600 text-xs dark:text-gray-400">
+                        <td className="px-4 py-3 text-gray-500 text-xs font-mono dark:text-[#8aaabb]">{log.ipAddress ?? '—'}</td>
+                        <td className="px-4 py-3 text-gray-600 text-xs dark:text-[#8aaabb]">
                           {hasDetails ? (isOpen ? '▲' : '▼') : ''}
                         </td>
                       </tr>
@@ -157,7 +157,7 @@ export default function AuditLogsPage() {
                               {log.oldValues !== null && (
                                 <div>
                                   <p className="text-xs font-semibold text-red-400 mb-1">Before</p>
-                                  <pre className="text-xs text-gray-600 dark:text-gray-400 bg-white dark:bg-[#0F1E2E] rounded-lg p-3 overflow-x-auto max-h-48">
+                                  <pre className="text-xs text-gray-600 dark:text-[#9BB0BC] bg-white dark:bg-[#0F1E2E] rounded-lg p-3 overflow-x-auto max-h-48">
                                     {formatValue(log.oldValues)}
                                   </pre>
                                 </div>
@@ -165,7 +165,7 @@ export default function AuditLogsPage() {
                               {log.newValues !== null && (
                                 <div>
                                   <p className="text-xs font-semibold text-green-400 mb-1">After</p>
-                                  <pre className="text-xs text-gray-600 dark:text-gray-400 bg-white dark:bg-[#0F1E2E] rounded-lg p-3 overflow-x-auto max-h-48">
+                                  <pre className="text-xs text-gray-600 dark:text-[#9BB0BC] bg-white dark:bg-[#0F1E2E] rounded-lg p-3 overflow-x-auto max-h-48">
                                     {formatValue(log.newValues)}
                                   </pre>
                                 </div>
@@ -184,16 +184,16 @@ export default function AuditLogsPage() {
 
           {/* Pagination */}
           <div className="flex gap-3 justify-between items-center">
-            <span className="text-xs text-gray-500 dark:text-gray-400">Showing {logs.length} entries · Page {page + 1}</span>
+            <span className="text-xs text-gray-500 dark:text-[#9BB0BC]">Showing {logs.length} entries · Page {page + 1}</span>
             <div className="flex gap-2">
               <button disabled={page === 0}
                 onClick={() => { const p = page - 1; setPage(p); load(filterResource, filterAction, filterSince, p) }}
-                className="text-xs px-3 py-1.5 rounded-lg border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-[#0E3D52] hover:text-[#4ebac4] disabled:opacity-40 disabled:cursor-not-allowed transition">
+                className="text-xs px-3 py-1.5 rounded-lg border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:border-[#0E3D52] hover:text-[#4ebac4] disabled:opacity-40 disabled:cursor-not-allowed transition">
                 ← Prev
               </button>
               <button disabled={logs.length < PAGE}
                 onClick={() => { const p = page + 1; setPage(p); load(filterResource, filterAction, filterSince, p) }}
-                className="text-xs px-3 py-1.5 rounded-lg border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-[#0E3D52] hover:text-[#4ebac4] disabled:opacity-40 disabled:cursor-not-allowed transition">
+                className="text-xs px-3 py-1.5 rounded-lg border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:border-[#0E3D52] hover:text-[#4ebac4] disabled:opacity-40 disabled:cursor-not-allowed transition">
                 Next →
               </button>
             </div>

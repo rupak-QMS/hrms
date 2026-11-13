@@ -70,28 +70,28 @@ export default function ModulesPage() {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Module Analytics</h1>
-        <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">Usage of all 28 feature modules across {tenantCount} client{tenantCount !== 1 ? 's' : ''}</p>
+        <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Usage of all 28 feature modules across {tenantCount} client{tenantCount !== 1 ? 's' : ''}</p>
       </div>
 
       {/* Summary cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-4">
-          <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">Total Modules</p>
+          <p className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1">Total Modules</p>
           <p className="text-2xl font-bold text-gray-900 dark:text-white">28</p>
         </div>
         <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-4">
-          <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">Active Toggles</p>
+          <p className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1">Active Toggles</p>
           <p className="text-2xl font-bold text-green-600 dark:text-green-400">{totalEnabled}</p>
-          <p className="text-xs text-gray-500 mt-0.5 dark:text-gray-400">of {maxPossible} possible</p>
+          <p className="text-xs text-gray-500 mt-0.5 dark:text-[#8aaabb]">of {maxPossible} possible</p>
         </div>
         <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-4">
-          <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">Avg Modules/Client</p>
+          <p className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1">Avg Modules/Client</p>
           <p className="text-2xl font-bold text-[#0E3D52] dark:text-[#4ebac4]">
             {tenantCount ? Math.round(totalEnabled / tenantCount) : 0}
           </p>
         </div>
         <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-4">
-          <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">Platform Adoption</p>
+          <p className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1">Platform Adoption</p>
           <p className="text-2xl font-bold text-[#1A6080] dark:text-[#4ebac4]">
             {maxPossible ? Math.round((totalEnabled / maxPossible) * 100) : 0}%
           </p>
@@ -107,7 +107,7 @@ export default function ModulesPage() {
             className={`text-xs px-3 py-1.5 rounded-full border transition ${
               categoryFilter === cat
                 ? 'bg-[#1A6080] border-[#0E3D52] text-white'
-                : 'border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:text-white hover:border-gray-500'
+                : 'border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:text-gray-900 dark:text-white hover:border-gray-500'
             }`}
           >
             {cat}
@@ -120,16 +120,16 @@ export default function ModulesPage() {
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-gray-200 dark:border-[#1A6080]/20">
-              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400  w-8">#</th>
-              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 ">Module</th>
-              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 ">Category</th>
-              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400 ">Adoption</th>
-              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-gray-400  w-48">Usage</th>
+              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-[#9BB0BC]  w-8">#</th>
+              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-[#9BB0BC] ">Module</th>
+              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-[#9BB0BC] ">Category</th>
+              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-[#9BB0BC] ">Adoption</th>
+              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-600 dark:text-[#9BB0BC]  w-48">Usage</th>
             </tr>
           </thead>
           <tbody>
             {loading ? (
-              <tr><td colSpan={5} className="px-4 py-12 text-center text-gray-500 dark:text-gray-400">Loading…</td></tr>
+              <tr><td colSpan={5} className="px-4 py-12 text-center text-gray-500 dark:text-[#9BB0BC]">Loading…</td></tr>
             ) : fetchError ? (
               <tr>
                 <td colSpan={5} className="px-4 py-12 text-center">
@@ -144,18 +144,18 @@ export default function ModulesPage() {
                   className="border-b border-gray-200 dark:border-[#1A6080]/20/50 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30/20 cursor-pointer transition"
                   onClick={() => setExpanded(expanded === mod.id ? null : mod.id)}
                 >
-                  <td className="px-4 py-3 text-gray-600 text-xs dark:text-gray-400">{mod.id}</td>
-                  <td className="px-4 py-3 text-gray-700 dark:text-gray-200 font-medium">{mod.name}</td>
+                  <td className="px-4 py-3 text-gray-600 text-xs dark:text-[#8aaabb]">{mod.id}</td>
+                  <td className="px-4 py-3 text-gray-700 dark:text-[#C8D8E4] font-medium">{mod.name}</td>
                   <td className="px-4 py-3">
                     <span className={`text-xs px-2 py-0.5 rounded border ${CATEGORY_COLORS[mod.category] ?? ''}`}>
                       {mod.category}
                     </span>
                   </td>
                   <td className="px-4 py-3">
-                    <span className={`text-sm font-semibold ${mod.percentage === 100 ? 'text-green-600 dark:text-green-400' : mod.percentage > 50 ? 'text-[#1A6080] dark:text-[#4ebac4]' : 'text-gray-600 dark:text-gray-400'}`}>
+                    <span className={`text-sm font-semibold ${mod.percentage === 100 ? 'text-green-600 dark:text-green-400' : mod.percentage > 50 ? 'text-[#1A6080] dark:text-[#4ebac4]' : 'text-gray-600 dark:text-[#9BB0BC]'}`}>
                       {mod.enabledCount}/{tenantCount}
                     </span>
-                    <span className="text-xs text-gray-500 ml-1 dark:text-gray-400">({mod.percentage}%)</span>
+                    <span className="text-xs text-gray-500 ml-1 dark:text-[#8aaabb]">({mod.percentage}%)</span>
                   </td>
                   <td className="px-4 py-3">
                     <div className="flex items-center gap-2">
@@ -174,10 +174,10 @@ export default function ModulesPage() {
                 {expanded === mod.id && mod.enabledFor.length > 0 && (
                   <tr key={`${mod.id}-clients`} className="bg-gray-100 dark:bg-[#0A1929]/20 border-b border-gray-200 dark:border-[#1A6080]/20/50">
                     <td colSpan={5} className="px-6 py-2">
-                      <p className="text-xs text-gray-500 mb-1 dark:text-gray-400">Enabled for:</p>
+                      <p className="text-xs text-gray-500 mb-1 dark:text-[#8aaabb]">Enabled for:</p>
                       <div className="flex flex-wrap gap-1.5">
                         {mod.enabledFor.map(name => (
-                          <span key={name} className="text-xs bg-gray-100 dark:bg-[#0A1929] text-gray-600 dark:text-gray-300 px-2 py-0.5 rounded">
+                          <span key={name} className="text-xs bg-gray-100 dark:bg-[#0A1929] text-gray-600 dark:text-[#C8D8E4] px-2 py-0.5 rounded">
                             {name}
                           </span>
                         ))}

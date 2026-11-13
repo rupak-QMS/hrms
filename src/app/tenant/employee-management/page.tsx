@@ -78,9 +78,9 @@ EMP001,Jane,Smith,jane.smith@example.com,full_time,2026-01-15,,+61400000001,Yahw
         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-[#1A6080]/20">
           <div>
             <h2 className="text-lg font-bold text-gray-900 dark:text-white">Import Employees</h2>
-            <p className="text-xs text-gray-500 mt-0.5 dark:text-gray-400">Upload a CSV to bulk-add employees</p>
+            <p className="text-xs text-gray-500 mt-0.5 dark:text-[#8aaabb]">Upload a CSV to bulk-add employees</p>
           </div>
-          <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 text-gray-500 transition dark:text-gray-400"></button>
+          <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 text-gray-500 transition dark:text-[#8aaabb]"></button>
         </div>
 
         <div className="p-6 space-y-5">
@@ -92,7 +92,7 @@ EMP001,Jane,Smith,jane.smith@example.com,full_time,2026-01-15,,+61400000001,Yahw
                 <div className="flex justify-center gap-6 mt-3 text-sm">
                   <span className="text-green-600 font-semibold">{result.imported} imported</span>
                   {result.skipped > 0 && <span className="text-amber-600 font-semibold">{result.skipped} skipped</span>}
-                  <span className="text-gray-600 dark:text-gray-400">{result.total} total rows</span>
+                  <span className="text-gray-600 dark:text-[#9BB0BC]">{result.total} total rows</span>
                 </div>
               </div>
               {result.errors.length > 0 && (
@@ -118,7 +118,7 @@ EMP001,Jane,Smith,jane.smith@example.com,full_time,2026-01-15,,+61400000001,Yahw
                 </div>
                 <div className="border border-gray-200 dark:border-[#1A6080]/30 rounded-xl overflow-hidden">
                   <table className="w-full text-xs">
-                    <thead className="bg-gray-50 dark:bg-[#0A1929] text-gray-500 dark:text-gray-400">
+                    <thead className="bg-gray-50 dark:bg-[#0A1929] text-gray-500 dark:text-[#9BB0BC]">
                       <tr>
                         <th className="text-left px-3 py-2">Row</th>
                         <th className="text-left px-3 py-2">Employee #</th>
@@ -155,7 +155,7 @@ EMP001,Jane,Smith,jane.smith@example.com,full_time,2026-01-15,,+61400000001,Yahw
                 </div>
               )}
               <div className="flex gap-3">
-                <button onClick={() => { setPreview(null); setStatus('idle') }} className="flex-1 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 dark:border-[#1A6080]/30 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
+                <button onClick={() => { setPreview(null); setStatus('idle') }} className="flex-1 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 dark:border-[#1A6080]/30 text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
                   Back
                 </button>
                 {preview.imported > 0 && (
@@ -193,18 +193,18 @@ EMP001,Jane,Smith,jane.smith@example.com,full_time,2026-01-15,,+61400000001,Yahw
                 {file ? (
                   <>
                     <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-[#0A1929] mx-auto mb-3">
-                <svg className="w-6 h-6 text-gray-600 dark:text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <svg className="w-6 h-6 text-gray-600 dark:text-[#9BB0BC] dark:text-[#9BB0BC]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
                 </svg>
               </div>
-                    <p className="text-sm font-medium text-gray-800 dark:text-gray-200">{file.name}</p>
-                    <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">{(file.size / 1024).toFixed(1)} KB · Click to change</p>
+                    <p className="text-sm font-medium text-gray-800 dark:text-[#C8D8E4]">{file.name}</p>
+                    <p className="text-xs text-gray-600 dark:text-[#9BB0BC] mt-1">{(file.size / 1024).toFixed(1)} KB · Click to change</p>
                   </>
                 ) : (
                   <>
                     <p className="text-3xl mb-2"></p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">Click to select a CSV file</p>
-                    <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">Max 5 MB</p>
+                    <p className="text-sm text-gray-500 dark:text-[#9BB0BC]">Click to select a CSV file</p>
+                    <p className="text-xs text-gray-600 dark:text-[#9BB0BC] mt-1">Max 5 MB</p>
                   </>
                 )}
               </div>
@@ -214,7 +214,7 @@ EMP001,Jane,Smith,jane.smith@example.com,full_time,2026-01-15,,+61400000001,Yahw
               )}
 
               <div className="flex gap-3">
-                <button onClick={onClose} className="flex-1 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
+                <button onClick={onClose} className="flex-1 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
                   Cancel
                 </button>
                 <button
@@ -417,12 +417,12 @@ export default function EmployeeManagementPage() {
     <div className="space-y-4">
       <div>
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Employees</h1>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">Manage your workforce</p>
+        <p className="text-sm text-gray-500 dark:text-[#9BB0BC] mt-0.5">Manage your workforce</p>
       </div>
       <div className="flex flex-col items-center justify-center h-64 card-premium gap-3">
         <span className="text-4xl">👥</span>
         <p className="text-gray-900 dark:text-white font-semibold">Access Restricted</p>
-        <p className="text-sm text-gray-500 dark:text-gray-400 text-center max-w-xs">
+        <p className="text-sm text-gray-500 dark:text-[#9BB0BC] text-center max-w-xs">
           The employee directory is available to managers and above. View your own profile under <strong>My Profile</strong>.
         </p>
       </div>
@@ -433,12 +433,12 @@ export default function EmployeeManagementPage() {
     <div className="space-y-4">
       <div>
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Employees</h1>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">Manage your workforce</p>
+        <p className="text-sm text-gray-500 dark:text-[#9BB0BC] mt-0.5">Manage your workforce</p>
       </div>
       <div className="flex flex-col items-center justify-center h-64 card-premium gap-3">
         <div className="w-14 h-14 rounded-2xl bg-amber-50 dark:bg-amber-900/20 flex items-center justify-center mb-4 mx-auto ring-1 ring-amber-200 dark:ring-amber-800"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-amber-500"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
         <p className="text-gray-900 dark:text-white font-semibold">Unable to load employees</p>
-        <p className="text-sm text-gray-500 dark:text-gray-400 text-center max-w-xs">{fetchError}</p>
+        <p className="text-sm text-gray-500 dark:text-[#9BB0BC] text-center max-w-xs">{fetchError}</p>
         <button
           onClick={() => { setFetchError(null); fetchEmployees() }}
           className="mt-2 px-4 py-2 rounded-lg bg-brand-600 text-white text-sm font-medium hover:bg-brand-700 transition-colors"
@@ -470,7 +470,7 @@ export default function EmployeeManagementPage() {
           <div className="flex items-center gap-2">
             <button
               onClick={() => setShowImport(true)}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold border border-gray-200 dark:border-[#1A6080]/30 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold border border-gray-200 dark:border-[#1A6080]/30 text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition"
             >
               Import CSV
             </button>
@@ -494,7 +494,7 @@ export default function EmployeeManagementPage() {
           ...(!isYPC ? [{ label: 'NDIS', value: ndisCount, icon: '', cls: 'text-[#0E3D52] dark:text-[#4ebac4]' }] : []),
         ].map(s => (
           <div key={s.label} className="card-premium p-4">
-            <p className="text-xs text-gray-500 dark:text-gray-400">{s.label}</p>
+            <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{s.label}</p>
             <p className={`text-2xl font-bold mt-1 ${s.cls}`}>{s.value}</p>
           </div>
         ))}
@@ -507,12 +507,12 @@ export default function EmployeeManagementPage() {
           placeholder="Search name, email, emp #…"
           value={search}
           onChange={e => setSearch(e.target.value)}
-          className="flex-1 min-w-[200px] bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 placeholder-gray-400 focus:outline-none focus:border-[#0E3D52] dark:placeholder-[#4ebac4]/50"
+          className="flex-1 min-w-[200px] bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-[#C8D8E4] placeholder-gray-400 focus:outline-none focus:border-[#0E3D52] dark:placeholder-[#4ebac4]/50"
         />
         <select
           value={status}
           onChange={e => setStatus(e.target.value)}
-          className="bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-700 dark:text-gray-300 focus:outline-none"
+          className="bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-700 dark:text-[#C8D8E4] focus:outline-none"
         >
           <option value="">All Status</option>
           <option value="active">Active</option>
@@ -521,7 +521,7 @@ export default function EmployeeManagementPage() {
         <select
           value={empType}
           onChange={e => setEmpType(e.target.value)}
-          className="bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-700 dark:text-gray-300 focus:outline-none"
+          className="bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-700 dark:text-[#C8D8E4] focus:outline-none"
         >
           <option value="">All Types</option>
           {Object.entries(EMP_TYPE_LABEL).map(([v, l]) => (
@@ -531,7 +531,7 @@ export default function EmployeeManagementPage() {
         {(search || status || empType) && (
           <button
             onClick={() => { setSearch(''); setStatus(''); setEmpType('') }}
-            className="px-3 py-2 text-sm text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 transition"
+            className="px-3 py-2 text-sm text-gray-500 hover:text-gray-700 dark:text-[#8aaabb] dark:hover:text-gray-300 transition"
           >
             Clear
           </button>
@@ -542,11 +542,11 @@ export default function EmployeeManagementPage() {
       {/* Table */}
       <div className="card-premium overflow-hidden">
         {loading ? (
-          <div className="flex items-center justify-center py-16 text-gray-600 dark:text-gray-400 text-sm">Loading…</div>
+          <div className="flex items-center justify-center py-16 text-gray-600 dark:text-[#9BB0BC] text-sm">Loading…</div>
         ) : employees.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20 gap-3">
             <span className="text-5xl"></span>
-            <p className="text-gray-500 dark:text-gray-400 text-sm font-medium">
+            <p className="text-gray-500 dark:text-[#9BB0BC] text-sm font-medium">
               {search || status || empType ? 'No employees match your filters' : 'No employees yet'}
             </p>
             {!search && !status && !empType && (
@@ -570,7 +570,7 @@ export default function EmployeeManagementPage() {
                   {bulkLoading ? 'Working…' : 'Deactivate'}
                 </button>
               </PermissionGate>
-              <button onClick={bulkExport} className="px-3 py-1 text-xs rounded-lg bg-white dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 text-gray-700 dark:text-gray-300 hover:bg-gray-50">
+              <button onClick={bulkExport} className="px-3 py-1 text-xs rounded-lg bg-white dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50">
                 Export selected
               </button>
               <button onClick={() => setSelected(new Set())} className="ml-auto text-xs text-[#1A6080] hover:text-[#0E3D52] dark:text-[#4ebac4]">Clear</button>
@@ -621,7 +621,7 @@ export default function EmployeeManagementPage() {
                           className="rounded border-gray-300 dark:border-[#1A6080]/40"
                         />
                       </td>
-                      <td className="px-4 py-3 font-mono text-xs text-gray-500 dark:text-gray-400">{emp.employeeNumber}</td>
+                      <td className="px-4 py-3 font-mono text-xs text-gray-500 dark:text-[#9BB0BC]">{emp.employeeNumber}</td>
                       <td className="px-4 py-3">
                         <div className="flex items-center gap-3">
                           {emp.photoUrl ? (
@@ -640,19 +640,19 @@ export default function EmployeeManagementPage() {
                               {fullName}
                               {emp.ndisWorker && !isYPC && <span className="ml-1.5 text-xs text-[#0E3D52] dark:text-[#4ebac4]">NDIS</span>}
                             </p>
-                            <p className="text-xs text-gray-600 dark:text-gray-400">{emp.email}</p>
+                            <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">{emp.email}</p>
                           </div>
                         </div>
                       </td>
                       <td className="px-4 py-3">
-                        <p className="text-gray-700 dark:text-gray-300">{emp.positionTitle ?? '—'}</p>
-                        <p className="text-xs text-gray-600 dark:text-gray-400">{emp.departmentName ?? '—'}</p>
+                        <p className="text-gray-700 dark:text-[#C8D8E4]">{emp.positionTitle ?? '—'}</p>
+                        <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">{emp.departmentName ?? '—'}</p>
                       </td>
-                      <td className="px-4 py-3 text-gray-600 dark:text-gray-400 whitespace-nowrap">
+                      <td className="px-4 py-3 text-gray-600 dark:text-[#9BB0BC] whitespace-nowrap">
                         {EMP_TYPE_LABEL[emp.employmentType] ?? emp.employmentType}
                       </td>
-                      <td className="px-4 py-3 text-gray-600 dark:text-gray-400 text-xs">{emp.entityName ?? '—'}</td>
-                      <td className="px-4 py-3 text-gray-600 dark:text-gray-400 whitespace-nowrap">
+                      <td className="px-4 py-3 text-gray-600 dark:text-[#9BB0BC] text-xs">{emp.entityName ?? '—'}</td>
+                      <td className="px-4 py-3 text-gray-600 dark:text-[#9BB0BC] whitespace-nowrap">
                         {emp.startDate ? new Date(emp.startDate).toLocaleDateString('en-AU') : '—'}
                       </td>
                       <td className="px-4 py-3">
@@ -667,7 +667,7 @@ export default function EmployeeManagementPage() {
                       </td>
                       <td className="px-4 py-3" onClick={e => e.stopPropagation()}>
                         <PermissionGate permission="employees:write" fallback={
-                          <span className="inline-flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400">
+                          <span className="inline-flex items-center gap-1.5 text-xs text-gray-500 dark:text-[#9BB0BC]">
                             <span className={`w-1.5 h-1.5 rounded-full ${emp.isActive ? 'bg-green-500' : 'bg-gray-400'}`} />
                             {emp.isActive ? 'Active' : 'Inactive'}
                           </span>
@@ -700,7 +700,7 @@ export default function EmployeeManagementPage() {
                 })}
               </tbody>
             </table>
-            <div className="px-4 py-3 border-t border-black/[0.04] dark:border-white/[0.04] flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
+            <div className="px-4 py-3 border-t border-black/[0.04] dark:border-white/[0.04] flex items-center justify-between text-xs text-gray-500 dark:text-[#9BB0BC]">
               <span>{totalCount} employee{totalCount !== 1 ? 's' : ''} total</span>
               {totalPages > 1 && (
                 <div className="flex items-center gap-2">

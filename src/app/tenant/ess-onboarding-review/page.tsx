@@ -52,7 +52,7 @@ interface FullSubmission extends Submission {
 
 // ── badges ───────────────────────────────────────────────────────────────────
 const STATUS_BADGE: Record<string, string> = {
-  draft:             'bg-gray-100 text-gray-600 dark:bg-[#0A1929] dark:text-gray-400',
+  draft:             'bg-gray-100 text-gray-600 dark:bg-[#0A1929] dark:text-[#8aaabb]',
   submitted:         'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/20 dark:text-[#4ebac4]',
   hr_reviewed:       'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/30 dark:text-[#1A6080] dark:text-[#4ebac4]',
   completed:         'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400',
@@ -70,8 +70,8 @@ function DetailRow({ label, value }: { label: string; value?: string | boolean |
   if (value === undefined || value === null || value === '') return null
   return (
     <div className="flex gap-3 py-2 border-b border-gray-100 dark:border-[#1A6080]/20 last:border-0">
-      <span className="text-xs text-gray-500 dark:text-gray-400 w-44 shrink-0">{label}</span>
-      <span className="text-sm text-gray-900 dark:text-gray-100">
+      <span className="text-xs text-gray-500 dark:text-[#9BB0BC] w-44 shrink-0">{label}</span>
+      <span className="text-sm text-gray-900 dark:text-[#E8F0F5]">
         {typeof value === 'boolean' ? (value ? '✓ Yes' : '✗ No') : value}
       </span>
     </div>
@@ -161,7 +161,7 @@ export default function EssOnboardingReviewPage() {
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
         {kpis.map(k => (
           <div key={k.label} className="card-premium p-4">
-            <p className="text-xs text-gray-500 dark:text-gray-400">{k.label}</p>
+            <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{k.label}</p>
             <p className={`text-3xl font-bold mt-1 ${k.color}`}>{k.value}</p>
           </div>
         ))}
@@ -175,14 +175,14 @@ export default function EssOnboardingReviewPage() {
           value={search}
           onChange={e => setSearch(e.target.value)}
           className="flex-1 px-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-[#1A6080]/30
-            bg-white dark:bg-[#0F1E2E] text-gray-900 dark:text-gray-100
+            bg-white dark:bg-[#0F1E2E] text-gray-900 dark:text-[#E8F0F5]
             focus:outline-none focus:ring-2 focus:ring-[#0E3D52]/20"
         />
         <select
           value={statusFilter}
           onChange={e => setStatusFilter(e.target.value)}
           className="px-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-[#1A6080]/30
-            bg-white dark:bg-[#0F1E2E] text-gray-900 dark:text-gray-100
+            bg-white dark:bg-[#0F1E2E] text-gray-900 dark:text-[#E8F0F5]
             focus:outline-none focus:ring-2 focus:ring-[#0E3D52]/20"
         >
           <option value="all">All statuses</option>
@@ -200,7 +200,7 @@ export default function EssOnboardingReviewPage() {
             <div className="w-6 h-6 border-2 border-[#0E3D52] border-t-transparent rounded-full animate-spin" />
           </div>
         ) : submissions.length === 0 ? (
-          <div className="text-center py-16 text-gray-400 dark:text-gray-600">
+          <div className="text-center py-16 text-gray-400 dark:text-[#9BB0BC]">
             <div className="w-14 h-14 rounded-2xl bg-[#0E3D52]/[0.07] dark:bg-[#4ebac4]/10 flex items-center justify-center mb-4 mx-auto ring-1 ring-[#0E3D52]/10 dark:ring-[#4ebac4]/15"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-[#1A6080] dark:text-[#4ebac4] opacity-70"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
             <p className="font-medium">No submissions found</p>
             <p className="text-sm mt-1">Try a different filter</p>
@@ -211,7 +211,7 @@ export default function EssOnboardingReviewPage() {
             <thead>
               <tr className="border-b border-gray-200 dark:border-[#1A6080]/20">
                 {['Employee', 'Department', 'Status', 'Submitted', 'Reviewed By', ''].map(h => (
-                  <th key={h} className="text-left px-4 py-3 text-xs font-semibold text-gray-500 dark:text-gray-400 ">
+                  <th key={h} className="text-left px-4 py-3 text-xs font-semibold text-gray-500 dark:text-[#9BB0BC] ">
                     {h}
                   </th>
                 ))}
@@ -222,19 +222,19 @@ export default function EssOnboardingReviewPage() {
                 <tr key={sub.id} className="hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/50 transition">
                   <td className="px-4 py-3">
                     <p className="font-medium text-gray-900 dark:text-white">{sub.employeeName}</p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">{sub.employeeEmail}</p>
+                    <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{sub.employeeEmail}</p>
                     {sub.preferredName && <p className="text-xs text-gray-400">Prefers: {sub.preferredName}</p>}
                   </td>
                   <td className="px-4 py-3">
-                    <p className="text-gray-700 dark:text-gray-300">{sub.departmentId ?? '—'}</p>
+                    <p className="text-gray-700 dark:text-[#C8D8E4]">{sub.departmentId ?? '—'}</p>
                   </td>
                   <td className="px-4 py-3">
                     <StatusBadge status={sub.status} />
                   </td>
-                  <td className="px-4 py-3 text-gray-600 dark:text-gray-400">
+                  <td className="px-4 py-3 text-gray-600 dark:text-[#9BB0BC]">
                     {sub.submittedAt ? new Date(sub.submittedAt).toLocaleDateString() : '—'}
                   </td>
-                  <td className="px-4 py-3 text-gray-600 dark:text-gray-400">
+                  <td className="px-4 py-3 text-gray-600 dark:text-[#9BB0BC]">
                     {sub.reviewedBy
                       ? <><p>{sub.reviewedBy}</p><p className="text-xs">{sub.reviewedAt ? new Date(sub.reviewedAt).toLocaleDateString() : ''}</p></>
                       : '—'}
@@ -274,7 +274,7 @@ export default function EssOnboardingReviewPage() {
                 <div className="flex items-start justify-between mb-6">
                   <div>
                     <h2 className="page-premium-title">{selected.employeeName}</h2>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">{selected.employeeEmail}</p>
+                    <p className="text-sm text-gray-500 dark:text-[#9BB0BC]">{selected.employeeEmail}</p>
                     <div className="mt-2"><StatusBadge status={selected.status} /></div>
                   </div>
                   <button onClick={() => setSelected(null)} className="p-1 rounded-lg hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30 transition">
@@ -334,7 +334,7 @@ export default function EssOnboardingReviewPage() {
                     onChange={e => setHrNotes(e.target.value)}
                     placeholder="Add review notes or comments for payroll…"
                     className="w-full px-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-[#1A6080]/30
-                      bg-white dark:bg-[#0A1929] text-gray-900 dark:text-gray-100
+                      bg-white dark:bg-[#0A1929] text-gray-900 dark:text-[#E8F0F5]
                       focus:outline-none focus:ring-2 focus:ring-[#0E3D52]/20 resize-none"
                   />
                 </div>
@@ -373,7 +373,7 @@ export default function EssOnboardingReviewPage() {
                         setSaving(false)
                       }}
                       disabled={saving}
-                      className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300
+                      className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-[#C8D8E4]
                         border border-gray-200 dark:border-[#1A6080]/30 rounded-lg
                         hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 disabled:opacity-60 transition"
                     >
@@ -393,7 +393,7 @@ export default function EssOnboardingReviewPage() {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="mb-5">
-      <p className="text-xs font-semibold st text-gray-400 dark:text-gray-600 mb-2">{title}</p>
+      <p className="text-xs font-semibold st text-gray-400 dark:text-[#9BB0BC] mb-2">{title}</p>
       <div className="bg-gray-50 dark:bg-[#0A1929]/50 rounded-xl px-4 py-1">
         {children}
       </div>

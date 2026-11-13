@@ -227,7 +227,7 @@ export default function SeparationPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-foreground">Separation & Exit Management</h1>
-          <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">Manage employee departures, offboarding checklists, and exit interviews</p>
+          <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Manage employee departures, offboarding checklists, and exit interviews</p>
         </div>
         <div className="flex items-center gap-2">
           <ExportButton onClick={exportSeparationCsv} disabled={records.length === 0} />
@@ -249,7 +249,7 @@ export default function SeparationPage() {
           { label: 'Terminations', value: stats.termination, color: 'text-red-400' },
         ].map(s => (
           <div key={s.label} className="card-premium p-4">
-            <p className="text-xs text-gray-600 dark:text-gray-400">{s.label}</p>
+            <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">{s.label}</p>
             <p className={`text-2xl font-bold mt-1 ${s.color}`}>{s.value}</p>
           </div>
         ))}
@@ -262,7 +262,7 @@ export default function SeparationPage() {
             className={`px-4 py-2.5 text-sm font-medium border-b-2 -mb-px transition ${
               tab === t
                 ? 'border-[#0E3D52] text-[#1A6080] dark:text-[#4ebac4]'
-                : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'
+                : 'border-transparent text-gray-500 dark:text-[#9BB0BC] hover:text-gray-700 dark:hover:text-gray-200'
             }`}>
             {t}
           </button>
@@ -275,34 +275,34 @@ export default function SeparationPage() {
           {/* Key metrics */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="card-premium p-5">
-              <p className="text-xs text-gray-500 dark:text-gray-400  font-semibold mb-1">Active Offboardings</p>
+              <p className="text-xs text-gray-500 dark:text-[#9BB0BC]  font-semibold mb-1">Active Offboardings</p>
               <p className="text-3xl font-bold text-amber-400">{stats.active + stats.pending}</p>
-              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{stats.pending} pending · {stats.active} in progress</p>
+              <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-1">{stats.pending} pending · {stats.active} in progress</p>
             </div>
             <div className="card-premium p-5">
-              <p className="text-xs text-gray-500 dark:text-gray-400  font-semibold mb-1">Avg. Offboarding Days</p>
+              <p className="text-xs text-gray-500 dark:text-[#9BB0BC]  font-semibold mb-1">Avg. Offboarding Days</p>
               <p className="text-3xl font-bold text-[#1A6080] dark:text-[#4ebac4]">{avgDays !== null ? avgDays : '—'}</p>
-              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Based on {stats.completed} completed</p>
+              <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-1">Based on {stats.completed} completed</p>
             </div>
             <div className="card-premium p-5">
-              <p className="text-xs text-gray-500 dark:text-gray-400  font-semibold mb-1">Completion Rate</p>
+              <p className="text-xs text-gray-500 dark:text-[#9BB0BC]  font-semibold mb-1">Completion Rate</p>
               <p className="text-3xl font-bold text-green-400">
                 {stats.total ? Math.round((stats.completed / stats.total) * 100) : 0}%
               </p>
-              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{stats.completed} of {stats.total} fully offboarded</p>
+              <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-1">{stats.completed} of {stats.total} fully offboarded</p>
             </div>
           </div>
 
           {/* Type breakdown */}
           {typeBreakdown.length > 0 && (
             <div className="card-premium p-5">
-              <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-4">Separation by Type</h3>
+              <h3 className="text-sm font-semibold text-gray-700 dark:text-[#C8D8E4] mb-4">Separation by Type</h3>
               <div className="space-y-3">
                 {typeBreakdown.map(t => (
                   <div key={t.value}>
                     <div className="flex justify-between text-xs mb-1">
-                      <span className="text-gray-600 dark:text-gray-300">{t.label}</span>
-                      <span className="text-gray-500 dark:text-gray-400">{t.count} ({stats.total ? Math.round((t.count / stats.total) * 100) : 0}%)</span>
+                      <span className="text-gray-600 dark:text-[#C8D8E4]">{t.label}</span>
+                      <span className="text-gray-500 dark:text-[#9BB0BC]">{t.count} ({stats.total ? Math.round((t.count / stats.total) * 100) : 0}%)</span>
                     </div>
                     <div className="h-2 bg-gray-100 dark:bg-[#0A1929] rounded-full">
                       <div
@@ -346,10 +346,10 @@ export default function SeparationPage() {
           {/* Recent separations table */}
           <div className="card-premium overflow-hidden">
             <div className="px-5 py-4 border-b border-gray-200 dark:border-[#1A6080]/20">
-              <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-200">Recent Separations</h3>
+              <h3 className="text-sm font-semibold text-gray-700 dark:text-[#C8D8E4]">Recent Separations</h3>
             </div>
             {recent.length === 0 ? (
-              <p className="text-sm text-gray-500 dark:text-gray-400 text-center py-8">No separation records yet.</p>
+              <p className="text-sm text-gray-500 dark:text-[#9BB0BC] text-center py-8">No separation records yet.</p>
             ) : (
               <div className="table-responsive">
             <table className="table-premium">
@@ -369,7 +369,7 @@ export default function SeparationPage() {
                         onClick={() => { setTab('Records'); setTimeout(() => { setExpanded(r.id); loadEvents(r.id) }, 50) }}>
                         <td className="px-5 py-3 font-medium text-gray-900 dark:text-white">
                           {r.employeeFirstName} {r.employeeLastName}
-                          {r.employeeEmail && <p className="text-xs text-gray-500 dark:text-gray-400 font-normal">{r.employeeEmail}</p>}
+                          {r.employeeEmail && <p className="text-xs text-gray-500 dark:text-[#9BB0BC] font-normal">{r.employeeEmail}</p>}
                         </td>
                         <td className="px-5 py-3">
                           <span className={`text-xs px-2 py-0.5 rounded-full border font-medium ${TYPE_COLORS[r.type] ?? 'badge badge-gray'}`}>
@@ -381,7 +381,7 @@ export default function SeparationPage() {
                             {r.status.charAt(0).toUpperCase() + r.status.slice(1)}
                           </span>
                         </td>
-                        <td className="px-5 py-3 text-gray-600 dark:text-gray-300 text-xs">
+                        <td className="px-5 py-3 text-gray-600 dark:text-[#C8D8E4] text-xs">
                           {r.lastWorkingDay ? new Date(r.lastWorkingDay).toLocaleDateString('en-AU') : '—'}
                         </td>
                         <td className="px-5 py-3">
@@ -389,7 +389,7 @@ export default function SeparationPage() {
                             <div className="h-1.5 w-24 bg-gray-100 dark:bg-[#0A1929] rounded-full">
                               <div className={`h-1.5 rounded-full ${pct === 100 ? 'bg-green-500' : 'bg-[#f0f7fb]0'}`} style={{ width: `${pct}%` }} />
                             </div>
-                            <span className="text-xs text-gray-500 dark:text-gray-400">{pct}%</span>
+                            <span className="text-xs text-gray-500 dark:text-[#9BB0BC]">{pct}%</span>
                           </div>
                         </td>
                       </tr>
@@ -412,29 +412,29 @@ export default function SeparationPage() {
               <h3 className="text-sm font-semibold text-[#4ebac4]">Initiate Separation Process</h3>
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Employee *</label>
+                  <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Employee *</label>
                   <select required value={form.employeeId} onChange={e => setForm(f => ({ ...f, employeeId: e.target.value }))} className={INPUT}>
                     <option value="">— Select —</option>
                     {employees.map(e => <option key={e.id} value={e.id}>{e.firstName} {e.lastName}</option>)}
                   </select>
                 </div>
                 <div>
-                  <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Separation Type *</label>
+                  <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Separation Type *</label>
                   <select required value={form.type} onChange={e => setForm(f => ({ ...f, type: e.target.value }))} className={INPUT}>
                     {SEP_TYPES.map(t => <option key={t.value} value={t.value}>{t.label}</option>)}
                   </select>
                 </div>
                 <div>
-                  <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Notice Date</label>
+                  <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Notice Date</label>
                   <input type="date" value={form.noticeDate} onChange={e => setForm(f => ({ ...f, noticeDate: e.target.value }))} className={INPUT} />
                 </div>
                 <div>
-                  <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Last Working Day</label>
+                  <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Last Working Day</label>
                   <input type="date" value={form.lastWorkingDay} onChange={e => setForm(f => ({ ...f, lastWorkingDay: e.target.value }))} className={INPUT} />
                 </div>
               </div>
               <div>
-                <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Reason</label>
+                <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Reason</label>
                 <textarea value={form.reason} onChange={e => setForm(f => ({ ...f, reason: e.target.value }))}
                   rows={2} placeholder="Brief reason for separation…" className={INPUT} />
               </div>
@@ -481,7 +481,7 @@ export default function SeparationPage() {
 
           {/* Records list */}
           {loading ? (
-            <div className="text-gray-600 dark:text-gray-400 text-sm">Loading…</div>
+            <div className="text-gray-600 dark:text-[#9BB0BC] text-sm">Loading…</div>
           ) : records.length === 0 ? (
             <EmptyState
               icon="👋"
@@ -516,11 +516,11 @@ export default function SeparationPage() {
                             {r.status.charAt(0).toUpperCase() + r.status.slice(1)}
                           </span>
                         </div>
-                        {r.employeeEmail && <p className="text-xs text-gray-500 dark:text-gray-400">{r.employeeEmail}</p>}
+                        {r.employeeEmail && <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{r.employeeEmail}</p>}
                         {r.status !== 'completed' && (
                           <div className="mt-2">
                             <div className="flex justify-between mb-0.5">
-                              <span className="text-xs text-gray-500 dark:text-gray-400">Offboarding progress</span>
+                              <span className="text-xs text-gray-500 dark:text-[#9BB0BC]">Offboarding progress</span>
                               <span className={`text-xs font-medium ${pct === 100 ? 'text-green-400' : 'text-gray-400'}`}>{pct}%</span>
                             </div>
                             <div className="h-1.5 bg-gray-100 dark:bg-[#0A1929] rounded-full">
@@ -558,7 +558,7 @@ export default function SeparationPage() {
                         </button>
                         <button
                           onClick={() => { const next = isOpen ? null : r.id; setExpanded(next); if (next) loadEvents(next) }}
-                          className="text-gray-500 dark:text-gray-400 ml-1 text-sm">
+                          className="text-gray-500 dark:text-[#9BB0BC] ml-1 text-sm">
                           {isOpen ? '▲' : '▼'}
                         </button>
                       </div>
@@ -594,19 +594,19 @@ export default function SeparationPage() {
                         {editingId === r.id ? (
                           <div className="grid grid-cols-2 gap-3">
                             <div>
-                              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Notice Date</label>
+                              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Notice Date</label>
                               <input type="date" value={eField.noticeDate}
                                 onChange={e => setEditFields(p => ({ ...p, [r.id]: { ...eField, noticeDate: e.target.value } }))}
                                 className={INPUT} />
                             </div>
                             <div>
-                              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Last Working Day</label>
+                              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Last Working Day</label>
                               <input type="date" value={eField.lastWorkingDay}
                                 onChange={e => setEditFields(p => ({ ...p, [r.id]: { ...eField, lastWorkingDay: e.target.value } }))}
                                 className={INPUT} />
                             </div>
                             <div className="col-span-2">
-                              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Reason</label>
+                              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Reason</label>
                               <textarea value={eField.reason} rows={2}
                                 onChange={e => setEditFields(p => ({ ...p, [r.id]: { ...eField, reason: e.target.value } }))}
                                 className={INPUT} />
@@ -621,8 +621,8 @@ export default function SeparationPage() {
                                 { label: 'Entity',           value: r.employeeEntityName },
                               ].map(d => (
                                 <div key={d.label} className="bg-gray-100 dark:bg-[#0A1929]/60 rounded-lg p-3">
-                                  <p className="text-xs text-gray-500 mb-0.5 dark:text-gray-400">{d.label}</p>
-                                  <p className="text-sm text-gray-700 dark:text-gray-200">
+                                  <p className="text-xs text-gray-500 mb-0.5 dark:text-[#8aaabb]">{d.label}</p>
+                                  <p className="text-sm text-gray-700 dark:text-[#C8D8E4]">
                                     {d.value
                                       ? (d.value.length === 10 && d.value.includes('-')
                                           ? new Date(d.value + 'T00:00:00').toLocaleDateString('en-AU')
@@ -634,8 +634,8 @@ export default function SeparationPage() {
                             </div>
                             {r.reason && (
                               <div>
-                                <p className="text-xs font-semibold text-gray-500  mb-1 dark:text-gray-400">Reason</p>
-                                <p className="text-sm text-gray-600 dark:text-gray-300">{r.reason}</p>
+                                <p className="text-xs font-semibold text-gray-500  mb-1 dark:text-[#8aaabb]">Reason</p>
+                                <p className="text-sm text-gray-600 dark:text-[#C8D8E4]">{r.reason}</p>
                               </div>
                             )}
                           </>
@@ -643,7 +643,7 @@ export default function SeparationPage() {
 
                         {/* Offboarding checklist */}
                         <div>
-                          <p className="text-xs font-semibold text-gray-500  mb-2 dark:text-gray-400">Offboarding Checklist</p>
+                          <p className="text-xs font-semibold text-gray-500  mb-2 dark:text-[#8aaabb]">Offboarding Checklist</p>
                           <div className="space-y-2">
                             {[
                               { label: 'Assets Returned',       desc: 'Laptop, access cards, keys, uniforms, PPE', done: r.assetsReturned,      key: 'assetsReturned' },
@@ -659,8 +659,8 @@ export default function SeparationPage() {
                                   onChange={e => patch(r.id, { [item.key]: e.target.checked })}
                                   className="mt-0.5 accent-green-500 w-4 h-4 shrink-0" />
                                 <div>
-                                  <p className={`text-sm font-medium ${item.done ? 'text-green-300 line-through' : 'text-gray-700 dark:text-gray-200'}`}>{item.label}</p>
-                                  <p className="text-xs text-gray-500 mt-0.5 dark:text-gray-400">{item.desc}</p>
+                                  <p className={`text-sm font-medium ${item.done ? 'text-green-300 line-through' : 'text-gray-700 dark:text-[#C8D8E4]'}`}>{item.label}</p>
+                                  <p className="text-xs text-gray-500 mt-0.5 dark:text-[#8aaabb]">{item.desc}</p>
                                 </div>
                                 {item.done && <span className="ml-auto text-green-400 text-sm">✓</span>}
                               </label>
@@ -676,24 +676,24 @@ export default function SeparationPage() {
 
                         {/* Exit interview */}
                         <div>
-                          <p className="text-xs font-semibold text-gray-500  mb-2 dark:text-gray-400">Exit Interview</p>
+                          <p className="text-xs font-semibold text-gray-500  mb-2 dark:text-[#8aaabb]">Exit Interview</p>
                           {r.exitInterviewAt && r.status === 'completed' ? (
                             <div className="bg-gray-100 dark:bg-[#0A1929]/40 rounded-lg p-3 space-y-1">
-                              <p className="text-xs text-gray-500 dark:text-gray-400">Conducted {new Date(r.exitInterviewAt).toLocaleDateString('en-AU')}</p>
-                              {r.exitInterviewNotes && <p className="text-sm text-gray-600 dark:text-gray-300">{r.exitInterviewNotes}</p>}
+                              <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Conducted {new Date(r.exitInterviewAt).toLocaleDateString('en-AU')}</p>
+                              {r.exitInterviewNotes && <p className="text-sm text-gray-600 dark:text-[#C8D8E4]">{r.exitInterviewNotes}</p>}
                             </div>
                           ) : (
                             <div className="space-y-2">
                               <div className="grid grid-cols-2 gap-2">
                                 <div>
-                                  <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Interview Date</label>
+                                  <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Interview Date</label>
                                   <input type="date" value={iField.at}
                                     onChange={e => setInterviewFields(prev => ({ ...prev, [r.id]: { ...iField, at: e.target.value } }))}
                                     className={INPUT} />
                                 </div>
                               </div>
                               <div>
-                                <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Notes / Summary</label>
+                                <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Notes / Summary</label>
                                 <textarea value={iField.notes}
                                   onChange={e => setInterviewFields(prev => ({ ...prev, [r.id]: { ...iField, notes: e.target.value } }))}
                                   rows={3} placeholder="Key themes, feedback, suggestions from exit interview…"
@@ -713,14 +713,14 @@ export default function SeparationPage() {
                             <span className="text-2xl">🎉</span>
                             <div>
                               <p className="text-sm font-semibold text-green-300">Offboarding Complete</p>
-                              <p className="text-xs text-gray-600 dark:text-gray-400">All checklist items confirmed. Employee has been fully offboarded.</p>
+                              <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">All checklist items confirmed. Employee has been fully offboarded.</p>
                             </div>
                           </div>
                         )}
 
                         {/* Event history */}
                         <div>
-                          <p className="text-xs font-semibold text-gray-500  mb-3 dark:text-gray-400">History & Notes</p>
+                          <p className="text-xs font-semibold text-gray-500  mb-3 dark:text-[#8aaabb]">History & Notes</p>
                           <div className="flex gap-2 mb-4">
                             <input value={noteFields[r.id] ?? ''}
                               onChange={e => setNoteFields(prev => ({ ...prev, [r.id]: e.target.value }))}
@@ -735,7 +735,7 @@ export default function SeparationPage() {
                             </button>
                           </div>
                           {(sepEvents[r.id] ?? []).length === 0 ? (
-                            <p className="text-xs text-gray-600 text-center py-3 dark:text-gray-400">No events recorded yet.</p>
+                            <p className="text-xs text-gray-600 text-center py-3 dark:text-[#8aaabb]">No events recorded yet.</p>
                           ) : (
                             <div className="space-y-3">
                               {(sepEvents[r.id] ?? []).map((ev, i, arr) => (
@@ -749,12 +749,12 @@ export default function SeparationPage() {
                                   <div className="flex-1 pb-1">
                                     <div className="flex items-center justify-between gap-2">
                                       <p className="text-xs font-medium text-gray-900 dark:text-white capitalize">{ev.event.replace(/_/g, ' ')}</p>
-                                      <p className="text-xs text-gray-600 shrink-0 dark:text-gray-400">
+                                      <p className="text-xs text-gray-600 shrink-0 dark:text-[#8aaabb]">
                                         {new Date(ev.createdAt).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}
                                       </p>
                                     </div>
-                                    {ev.note        && <p className="text-xs text-gray-600 dark:text-gray-400 mt-0.5">{ev.note}</p>}
-                                    {ev.performedBy && <p className="text-xs text-gray-600 mt-0.5 dark:text-gray-400">by {ev.performedBy}</p>}
+                                    {ev.note        && <p className="text-xs text-gray-600 dark:text-[#9BB0BC] mt-0.5">{ev.note}</p>}
+                                    {ev.performedBy && <p className="text-xs text-gray-600 mt-0.5 dark:text-[#8aaabb]">by {ev.performedBy}</p>}
                                   </div>
                                 </div>
                               ))}

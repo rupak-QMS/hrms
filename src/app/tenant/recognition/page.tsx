@@ -203,7 +203,7 @@ export default function RecognitionPage() {
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div>
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Recognition & Rewards</h1>
-          <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">Celebrate employee achievements and peer nominations</p>
+          <p className="text-sm text-gray-500 dark:text-[#9BB0BC] mt-0.5">Celebrate employee achievements and peer nominations</p>
         </div>
         <div className="flex items-center gap-2">
           <ExportButton onClick={handleExport} disabled={filtered.length === 0} />
@@ -219,19 +219,19 @@ export default function RecognitionPage() {
       {/* Stats bar */}
       <div className="grid grid-cols-2 gap-4">
         <div className="card-premium p-4">
-          <p className="text-xs text-gray-500 dark:text-gray-400 font-medium ">This Month</p>
+          <p className="text-xs text-gray-500 dark:text-[#9BB0BC] font-medium ">This Month</p>
           <p className="text-3xl font-bold text-gray-900 dark:text-white mt-1">{thisMonthRecs.length}</p>
-          <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">recognitions</p>
+          <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-0.5">recognitions</p>
         </div>
         <div className="card-premium p-4">
-          <p className="text-xs text-gray-500 dark:text-gray-400 font-medium ">Top Recognized</p>
+          <p className="text-xs text-gray-500 dark:text-[#9BB0BC] font-medium ">Top Recognized</p>
           {topEmployee ? (
             <>
               <p className="text-base font-bold text-gray-900 dark:text-white mt-1 truncate">{topEmployee.name}</p>
-              <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{topEmployee.count} recognition{topEmployee.count !== 1 ? 's' : ''}</p>
+              <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-0.5">{topEmployee.count} recognition{topEmployee.count !== 1 ? 's' : ''}</p>
             </>
           ) : (
-            <p className="text-sm text-gray-400 dark:text-gray-500 mt-1">—</p>
+            <p className="text-sm text-gray-400 dark:text-[#9BB0BC] mt-1">—</p>
           )}
         </div>
       </div>
@@ -239,7 +239,7 @@ export default function RecognitionPage() {
       {/* Search + Filters */}
       <div className="flex flex-col sm:flex-row gap-3">
         <div className="relative flex-1">
-          <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 dark:text-[#9BB0BC]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
           </svg>
           <input
@@ -309,10 +309,10 @@ export default function RecognitionPage() {
                       </span>
                     </div>
                     {r.reason && (
-                      <p className="text-sm text-gray-600 dark:text-gray-300 mt-2 leading-relaxed line-clamp-3">"{r.reason}"</p>
+                      <p className="text-sm text-gray-600 dark:text-[#C8D8E4] mt-2 leading-relaxed line-clamp-3">"{r.reason}"</p>
                     )}
                     <div className="flex items-center justify-between mt-3">
-                      <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+                      <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-[#9BB0BC]">
                         <span>{new Date(r.createdAt).toLocaleDateString('en-AU')}</span>
                         {r.period && (
                           <>
@@ -367,11 +367,11 @@ export default function RecognitionPage() {
         <div className="modal-overlay backdrop-blur-sm p-4">
           <div className="card-premium p-6 max-w-sm w-full space-y-4">
             <h2 className="text-base font-semibold text-gray-900 dark:text-white">Delete Recognition</h2>
-            <p className="text-sm text-gray-600 dark:text-gray-300">
+            <p className="text-sm text-gray-600 dark:text-[#C8D8E4]">
               Delete recognition for <strong>{confirmDelete.recipientFirstName} {confirmDelete.recipientLastName}</strong>? This cannot be undone.
             </p>
             <div className="flex gap-2 justify-end">
-              <button onClick={() => setConfirmDelete(null)} className="text-sm px-4 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
+              <button onClick={() => setConfirmDelete(null)} className="text-sm px-4 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
                 Cancel
               </button>
               <button
@@ -425,14 +425,14 @@ function RecognitionModal({
         <form onSubmit={onSubmit} className="space-y-4">
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block font-medium">Recipient *</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block font-medium">Recipient *</label>
               <select required value={form.recipientId} onChange={set('recipientId')} className={INPUT}>
                 <option value="">— Select employee —</option>
                 {employees.map(e => <option key={e.id} value={e.id}>{e.firstName} {e.lastName}</option>)}
               </select>
             </div>
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block font-medium">Nominated By</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block font-medium">Nominated By</label>
               <select value={form.nominatedBy} onChange={set('nominatedBy')} className={INPUT}>
                 <option value="">— Management —</option>
                 {employees.map(e => <option key={e.id} value={e.id}>{e.firstName} {e.lastName}</option>)}
@@ -441,18 +441,18 @@ function RecognitionModal({
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block font-medium">Category *</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block font-medium">Category *</label>
               <select required value={form.type} onChange={set('type')} className={INPUT}>
                 {REC_TYPES.map(t => <option key={t.value} value={t.value}>{t.label}</option>)}
               </select>
             </div>
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block font-medium">Period</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block font-medium">Period</label>
               <input value={form.period} onChange={set('period')} placeholder="e.g. Q2-2026" className={INPUT} />
             </div>
           </div>
           <div>
-            <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block font-medium">Message / Reason</label>
+            <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block font-medium">Message / Reason</label>
             <textarea
               value={form.reason} onChange={set('reason')}
               rows={3} placeholder="Why are you recognising this person?"
@@ -465,10 +465,10 @@ function RecognitionModal({
               onChange={e => setForm(f => ({ ...f, isPublic: e.target.checked }))}
               className="rounded border-gray-300 dark:border-[#1A6080]/40 text-[#0E3D52]"
             />
-            <label htmlFor="isPublic" className="text-sm text-gray-700 dark:text-gray-300">Make public (visible to all staff)</label>
+            <label htmlFor="isPublic" className="text-sm text-gray-700 dark:text-[#C8D8E4]">Make public (visible to all staff)</label>
           </div>
           <div className="flex gap-2 justify-end pt-1">
-            <button type="button" onClick={onClose} className="text-sm px-4 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
+            <button type="button" onClick={onClose} className="text-sm px-4 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
               Cancel
             </button>
             <button type="submit" disabled={saving} className="text-sm px-5 py-2 rounded-lg bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white font-medium transition">

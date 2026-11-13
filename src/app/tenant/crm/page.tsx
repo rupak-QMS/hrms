@@ -222,7 +222,7 @@ function LeadsTab() {
       </div>
 
       {loading ? (
-        <div className="text-center py-10 text-gray-400 dark:text-gray-500">Loading…</div>
+        <div className="text-center py-10 text-gray-400 dark:text-[#9BB0BC]">Loading…</div>
       ) : (
         <div className="grid gap-3 overflow-x-auto pb-2" style={{ gridTemplateColumns: 'repeat(5, minmax(200px, 1fr))' }}>
           {LEAD_STAGES.map(stage => (
@@ -232,8 +232,8 @@ function LeadsTab() {
               className="bg-gray-50 dark:bg-[#0A1929]/60 rounded-xl p-3 min-h-[200px]">
               <div className="flex items-center gap-2 mb-2.5">
                 <div className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ background: stage.color }} />
-                <span className="font-semibold text-[13px] text-gray-700 dark:text-gray-300">{stage.label}</span>
-                <span className="ml-auto bg-gray-200 dark:bg-[#0E3D52]/60 text-gray-600 dark:text-gray-400 rounded-full px-2 py-0.5 text-[11px]">
+                <span className="font-semibold text-[13px] text-gray-700 dark:text-[#C8D8E4]">{stage.label}</span>
+                <span className="ml-auto bg-gray-200 dark:bg-[#0E3D52]/60 text-gray-600 dark:text-[#9BB0BC] rounded-full px-2 py-0.5 text-[11px]">
                   {stageLeads(stage.key).length}
                 </span>
               </div>
@@ -253,8 +253,8 @@ function LeadsTab() {
                     <div className="font-semibold text-[13px] text-gray-900 dark:text-white mb-0.5 pr-5">
                       {lead.firstName} {lead.lastName}
                     </div>
-                    {lead.company && <div className="text-[11px] text-gray-500 dark:text-gray-400">{lead.company}</div>}
-                    {lead.email   && <div className="text-[11px] text-gray-400 dark:text-gray-500 mt-0.5">{lead.email}</div>}
+                    {lead.company && <div className="text-[11px] text-gray-500 dark:text-[#9BB0BC]">{lead.company}</div>}
+                    {lead.email   && <div className="text-[11px] text-gray-400 dark:text-[#9BB0BC] mt-0.5">{lead.email}</div>}
                     {lead.source  && <div className="mt-1.5"><ColorBadge label={lead.source} color="#6b7280" /></div>}
                     {(lead.score ?? 0) > 0 && (
                       <div className="mt-1.5 text-[11px] text-amber-500 font-semibold">⭐ Score: {lead.score}</div>
@@ -262,7 +262,7 @@ function LeadsTab() {
                   </div>
                 ))}
                 {stageLeads(stage.key).length === 0 && (
-                  <div className="text-center text-gray-300 dark:text-gray-600 text-xs py-3">Drop here</div>
+                  <div className="text-center text-gray-300 dark:text-[#9BB0BC] text-xs py-3">Drop here</div>
                 )}
               </div>
             </div>
@@ -312,7 +312,7 @@ function LeadsTab() {
             <textarea className="input-premium min-h-[80px] resize-y" value={form.notes} onChange={e => setForm(p => ({ ...p, notes: e.target.value }))} placeholder="Add any notes…" />
           </Field>
           <div className="flex gap-2.5 justify-end mt-2">
-            <button onClick={() => setModal(false)} className="px-4 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/40 bg-white dark:bg-[#0A1929] text-gray-700 dark:text-gray-300 cursor-pointer text-sm hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors">Cancel</button>
+            <button onClick={() => setModal(false)} className="px-4 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/40 bg-white dark:bg-[#0A1929] text-gray-700 dark:text-[#C8D8E4] cursor-pointer text-sm hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors">Cancel</button>
             <button onClick={create} disabled={saving || !form.firstName.trim()}
               className="px-4 py-2 rounded-lg bg-[#0E3D52] hover:bg-[#1A6080] text-white border-none cursor-pointer font-semibold text-sm transition-colors disabled:opacity-50">
               {saving ? 'Creating…' : 'Create Lead'}
@@ -387,7 +387,7 @@ function ContactsTab() {
       </div>
 
       {loading ? (
-        <div className="text-center py-10 text-gray-400 dark:text-gray-500">Loading…</div>
+        <div className="text-center py-10 text-gray-400 dark:text-[#9BB0BC]">Loading…</div>
       ) : (
         <div className="table-responsive">
           <table className="table-premium">
@@ -459,7 +459,7 @@ function ContactsTab() {
             <textarea className="input-premium min-h-[80px] resize-y" value={form.notes} onChange={e => setForm(p => ({ ...p, notes: e.target.value }))} />
           </Field>
           <div className="flex gap-2.5 justify-end mt-2">
-            <button onClick={() => setModal(false)} className="px-4 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/40 bg-white dark:bg-[#0A1929] text-gray-700 dark:text-gray-300 cursor-pointer text-sm hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors">Cancel</button>
+            <button onClick={() => setModal(false)} className="px-4 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/40 bg-white dark:bg-[#0A1929] text-gray-700 dark:text-[#C8D8E4] cursor-pointer text-sm hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors">Cancel</button>
             <button onClick={create} disabled={saving || !form.firstName.trim()}
               className="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white border-none cursor-pointer font-semibold text-sm transition-colors disabled:opacity-50">
               {saving ? 'Creating…' : 'Create Contact'}
@@ -539,7 +539,7 @@ function AccountsTab() {
       </div>
 
       {loading ? (
-        <div className="text-center py-10 text-gray-400 dark:text-gray-500">Loading…</div>
+        <div className="text-center py-10 text-gray-400 dark:text-[#9BB0BC]">Loading…</div>
       ) : (
         <div className="grid gap-3.5" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))' }}>
           {accounts.map(a => (
@@ -552,15 +552,15 @@ function AccountsTab() {
                 <div className="w-10 h-10 rounded-xl bg-[#E0EEF4] dark:bg-[#0E3D52]/20 flex items-center justify-center flex-shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-[#1A6080] dark:text-[#4ebac4]"><rect x="2" y="7" width="20" height="14" rx="1"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
                 <div className="flex-1 min-w-0">
                   <div className="font-bold text-[15px] text-gray-900 dark:text-white truncate">{a.name}</div>
-                  {a.industry && <div className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{a.industry}</div>}
+                  {a.industry && <div className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-0.5">{a.industry}</div>}
                 </div>
               </div>
               <div className="flex gap-1.5 flex-wrap mb-2.5">
                 {a.type && <ColorBadge label={a.type} color={TYPE_COLORS[a.type] ?? '#6b7280'} />}
               </div>
-              {a.email && <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">📧 {a.email}</div>}
-              {a.phone && <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">📞 {a.phone}</div>}
-              {a.city  && <div className="text-xs text-gray-400 dark:text-gray-500">📍 {a.city}{a.country ? `, ${a.country}` : ''}</div>}
+              {a.email && <div className="text-xs text-gray-500 dark:text-[#9BB0BC] mb-1">📧 {a.email}</div>}
+              {a.phone && <div className="text-xs text-gray-500 dark:text-[#9BB0BC] mb-1">📞 {a.phone}</div>}
+              {a.city  && <div className="text-xs text-gray-400 dark:text-[#9BB0BC]">📍 {a.city}{a.country ? `, ${a.country}` : ''}</div>}
             </div>
           ))}
           {accounts.length === 0 && (
@@ -609,7 +609,7 @@ function AccountsTab() {
             <textarea className="input-premium min-h-[80px] resize-y" value={form.notes} onChange={e => setForm(p => ({ ...p, notes: e.target.value }))} />
           </Field>
           <div className="flex gap-2.5 justify-end mt-2">
-            <button onClick={() => setModal(false)} className="px-4 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/40 bg-white dark:bg-[#0A1929] text-gray-700 dark:text-gray-300 cursor-pointer text-sm hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors">Cancel</button>
+            <button onClick={() => setModal(false)} className="px-4 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/40 bg-white dark:bg-[#0A1929] text-gray-700 dark:text-[#C8D8E4] cursor-pointer text-sm hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors">Cancel</button>
             <button onClick={create} disabled={saving || !form.name.trim()}
               className="px-4 py-2 rounded-lg bg-[#0E3D52] hover:bg-[#1A6080] text-white border-none cursor-pointer font-semibold text-sm transition-colors disabled:opacity-50">
               {saving ? 'Creating…' : 'Create Account'}
@@ -692,7 +692,7 @@ function DealsTab() {
             const label = s === 'closed_won' ? '✅ Won' : s === 'prospecting' ? '🔍 Pipeline' : '📄 In Proposal'
             return total > 0 ? (
               <div key={s} className="bg-gray-100 dark:bg-[#0A1929] rounded-lg px-3 py-2 text-sm">
-                <span className="text-gray-500 dark:text-gray-400">{label}: </span>
+                <span className="text-gray-500 dark:text-[#9BB0BC]">{label}: </span>
                 <span className={`font-bold ${s === 'closed_won' ? 'text-emerald-600 dark:text-emerald-400' : 'text-gray-900 dark:text-white'}`}>{fmt(String(total))}</span>
               </div>
             ) : null
@@ -706,7 +706,7 @@ function DealsTab() {
       </div>
 
       {loading ? (
-        <div className="text-center py-10 text-gray-400 dark:text-gray-500">Loading…</div>
+        <div className="text-center py-10 text-gray-400 dark:text-[#9BB0BC]">Loading…</div>
       ) : (
         <div className="grid gap-2.5 overflow-x-auto pb-2" style={{ gridTemplateColumns: 'repeat(6, minmax(170px, 1fr))' }}>
           {DEAL_STAGES.map(stage => (
@@ -717,11 +717,11 @@ function DealsTab() {
               <div className="mb-2">
                 <div className="flex items-center gap-1.5 mb-0.5">
                   <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: stageColor(stage.key) }} />
-                  <span className="font-semibold text-[12px] text-gray-700 dark:text-gray-300">{stage.label}</span>
-                  <span className="ml-auto bg-gray-200 dark:bg-[#0E3D52]/60 text-gray-500 dark:text-gray-400 rounded-full px-1.5 text-[10px]">{stageDeals(stage.key).length}</span>
+                  <span className="font-semibold text-[12px] text-gray-700 dark:text-[#C8D8E4]">{stage.label}</span>
+                  <span className="ml-auto bg-gray-200 dark:bg-[#0E3D52]/60 text-gray-500 dark:text-[#9BB0BC] rounded-full px-1.5 text-[10px]">{stageDeals(stage.key).length}</span>
                 </div>
                 {stageValue(stage.key) > 0 && (
-                  <div className="text-[11px] text-gray-500 dark:text-gray-400 pl-3.5 font-semibold">{fmt(String(stageValue(stage.key)))}</div>
+                  <div className="text-[11px] text-gray-500 dark:text-[#9BB0BC] pl-3.5 font-semibold">{fmt(String(stageValue(stage.key)))}</div>
                 )}
               </div>
               <div className="flex flex-col gap-1.5">
@@ -736,9 +736,9 @@ function DealsTab() {
                       <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
                     </button>
                     <div className="font-semibold text-[12px] text-gray-900 dark:text-white mb-0.5 pr-4">{deal.title}</div>
-                    {deal.accountName && <div className="text-[11px] text-gray-500 dark:text-gray-400">{deal.accountName}</div>}
+                    {deal.accountName && <div className="text-[11px] text-gray-500 dark:text-[#9BB0BC]">{deal.accountName}</div>}
                     {deal.value      && <div className="text-[12px] text-emerald-600 dark:text-emerald-400 font-bold mt-1">{fmt(deal.value)}</div>}
-                    {deal.closeDate  && <div className="text-[10px] text-gray-400 dark:text-gray-500 mt-0.5">Close: {deal.closeDate}</div>}
+                    {deal.closeDate  && <div className="text-[10px] text-gray-400 dark:text-[#9BB0BC] mt-0.5">Close: {deal.closeDate}</div>}
                     <div className="mt-1 h-[3px] bg-gray-100 dark:bg-[#0E3D52]/60 rounded-full overflow-hidden">
                       <div className="h-full rounded-full" style={{ width: `${deal.probability ?? 0}%`, background: stageColor(stage.key) }} />
                     </div>
@@ -781,7 +781,7 @@ function DealsTab() {
             <textarea className="input-premium min-h-[80px] resize-y" value={form.notes} onChange={e => setForm(p => ({ ...p, notes: e.target.value }))} />
           </Field>
           <div className="flex gap-2.5 justify-end mt-2">
-            <button onClick={() => setModal(false)} className="px-4 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/40 bg-white dark:bg-[#0A1929] text-gray-700 dark:text-gray-300 cursor-pointer text-sm hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors">Cancel</button>
+            <button onClick={() => setModal(false)} className="px-4 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/40 bg-white dark:bg-[#0A1929] text-gray-700 dark:text-[#C8D8E4] cursor-pointer text-sm hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors">Cancel</button>
             <button onClick={create} disabled={saving || !form.title.trim()}
               className="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white border-none cursor-pointer font-semibold text-sm transition-colors disabled:opacity-50">
               {saving ? 'Creating…' : 'Create Deal'}
@@ -846,7 +846,7 @@ function ActivitiesTab() {
               className={`px-3.5 py-1.5 rounded-md border-none cursor-pointer font-semibold text-sm transition-all ${
                 filter === f
                   ? 'bg-white dark:bg-[#0E3D52]/60 text-gray-900 dark:text-white shadow-sm'
-                  : 'bg-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
+                  : 'bg-transparent text-gray-500 dark:text-[#9BB0BC] hover:text-gray-700 dark:hover:text-gray-300'
               }`}>
               {f.charAt(0).toUpperCase() + f.slice(1)}
             </button>
@@ -872,20 +872,20 @@ function ActivitiesTab() {
       </div>
 
       {loading ? (
-        <div className="text-center py-10 text-gray-400 dark:text-gray-500">Loading…</div>
+        <div className="text-center py-10 text-gray-400 dark:text-[#9BB0BC]">Loading…</div>
       ) : (
         <div className="flex flex-col gap-2">
           {activities.map(a => (
             <div key={a.id} className={`group card-premium p-3 px-4 flex items-center gap-3.5 transition-opacity ${a.isDone ? 'opacity-60' : ''}`}>
               <div className="text-xl">{ACTIVITY_ICONS[a.type] ?? '📋'}</div>
               <div className="flex-1 min-w-0">
-                <div className={`font-semibold text-sm ${a.isDone ? 'line-through text-gray-400 dark:text-gray-500' : 'text-gray-900 dark:text-white'}`}>
+                <div className={`font-semibold text-sm ${a.isDone ? 'line-through text-gray-400 dark:text-[#9BB0BC]' : 'text-gray-900 dark:text-white'}`}>
                   {a.subject}
                 </div>
-                <div className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">
+                <div className="text-xs text-gray-400 dark:text-[#9BB0BC] mt-0.5">
                   {a.type}{a.dueDate ? ` · Due: ${new Date(a.dueDate).toLocaleDateString('en-AU')}` : ''}{a.assignedTo ? ` · ${a.assignedTo}` : ''}
                 </div>
-                {a.notes && <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">{a.notes}</div>}
+                {a.notes && <div className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-1">{a.notes}</div>}
               </div>
               {!a.isDone && (
                 <button onClick={() => markDone(a.id)}
@@ -928,7 +928,7 @@ function ActivitiesTab() {
             <textarea className="input-premium min-h-[80px] resize-y" value={form.notes} onChange={e => setForm(p => ({ ...p, notes: e.target.value }))} />
           </Field>
           <div className="flex gap-2.5 justify-end mt-2">
-            <button onClick={() => setModal(false)} className="px-4 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/40 bg-white dark:bg-[#0A1929] text-gray-700 dark:text-gray-300 cursor-pointer text-sm hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors">Cancel</button>
+            <button onClick={() => setModal(false)} className="px-4 py-2 rounded-lg border border-gray-300 dark:border-[#1A6080]/40 bg-white dark:bg-[#0A1929] text-gray-700 dark:text-[#C8D8E4] cursor-pointer text-sm hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors">Cancel</button>
             <button onClick={create} disabled={saving || !form.subject.trim()}
               className="px-4 py-2 rounded-lg bg-amber-500 hover:bg-amber-600 text-white border-none cursor-pointer font-semibold text-sm transition-colors disabled:opacity-50">
               {saving ? 'Saving…' : 'Log Activity'}
@@ -960,7 +960,7 @@ export default function CRMPage() {
             className={`px-4 py-2.5 border-none bg-transparent cursor-pointer text-sm font-semibold whitespace-nowrap transition-colors -mb-0.5 border-b-2 ${
               tab === t.key
                 ? 'text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4] border-[#0E3D52] dark:border-[#1A6080]'
-                : 'text-gray-500 dark:text-gray-400 border-transparent hover:text-gray-700 dark:hover:text-gray-300'
+                : 'text-gray-500 dark:text-[#9BB0BC] border-transparent hover:text-gray-700 dark:hover:text-gray-300'
             }`}>
             {t.label}
           </button>

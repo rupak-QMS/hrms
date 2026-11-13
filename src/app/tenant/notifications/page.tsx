@@ -34,8 +34,8 @@ const TYPE_COLOR: Record<string, { bg: string; text: string }> = {
   recruitment:     { bg: 'bg-[#0E3D52]/[0.07] dark:bg-[#4ebac4]/10', text: 'text-[#1A6080] dark:text-[#4ebac4]' },
   training:        { bg: 'bg-[#E0EEF4] dark:bg-[#0E3D52]/15',    text: 'text-[#1A6080] dark:text-[#4ebac4]' },
   performance:     { bg: 'bg-[#0E3D52]/[0.07] dark:bg-[#4ebac4]/10', text: 'text-[#1A6080] dark:text-[#4ebac4]' },
-  system:          { bg: 'bg-gray-50 dark:bg-[#0A1929]',       text: 'text-gray-500 dark:text-gray-400' },
-  general:         { bg: 'bg-gray-50 dark:bg-[#0A1929]',       text: 'text-gray-500 dark:text-gray-400' },
+  system:          { bg: 'bg-gray-50 dark:bg-[#0A1929]',       text: 'text-gray-500 dark:text-[#9BB0BC]' },
+  general:         { bg: 'bg-gray-50 dark:bg-[#0A1929]',       text: 'text-gray-500 dark:text-[#9BB0BC]' },
 }
 function NotifIcon({ type }: { type: string }) {
   const c = TYPE_COLOR[type] ?? TYPE_COLOR.general
@@ -152,7 +152,7 @@ export default function NotificationsPage() {
         <div className="flex gap-2">
           {unread > 0 && (
             <button onClick={markAllRead}
-              className="text-sm px-3 py-1.5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-white rounded-lg transition">
+              className="text-sm px-3 py-1.5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:text-white rounded-lg transition">
               Mark all read
             </button>
           )}
@@ -168,12 +168,12 @@ export default function NotificationsPage() {
       {/* Email Alert Panel */}
       <div className="card-premium p-5">
         <h2 className="font-semibold text-gray-900 dark:text-white mb-1">Document Expiry Alerts</h2>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+        <p className="text-sm text-gray-500 dark:text-[#9BB0BC] mb-4">
           Scan for compliance documents expiring soon and email employees + compliance managers.
         </p>
 
         <div className="flex items-center gap-3 mb-4">
-          <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Notify if expiring within</label>
+          <label className="text-sm font-medium text-gray-700 dark:text-[#C8D8E4]">Notify if expiring within</label>
           <select value={daysAhead} onChange={e => setDaysAhead(Number(e.target.value))}
             className="bg-gray-50 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white">
             {[3, 7, 14, 30].map(d => <option key={d} value={d}>{d} days</option>)}
@@ -189,7 +189,7 @@ export default function NotificationsPage() {
             <p className="text-sm font-semibold text-gray-900 dark:text-white mb-1">
               {result.sent > 0 ? 'Alerts sent' : 'ℹ️ Scan complete'}
             </p>
-            <p className="text-sm text-gray-600 dark:text-gray-300">
+            <p className="text-sm text-gray-600 dark:text-[#C8D8E4]">
               Scanned <strong>{result.scanned}</strong> expiring document{result.scanned !== 1 ? 's' : ''} ·
               <strong className="text-green-600 dark:text-green-400"> {result.sent}</strong> email{result.sent !== 1 ? 's' : ''} sent
               {result.failed > 0 && <span className="text-red-400"> · {result.failed} failed</span>}
@@ -197,7 +197,7 @@ export default function NotificationsPage() {
             {result.details.sent.length > 0 && (
               <ul className="mt-2 space-y-0.5">
                 {result.details.sent.map((s, i) => (
-                  <li key={i} className="text-xs text-gray-500 dark:text-gray-400">{s}</li>
+                  <li key={i} className="text-xs text-gray-500 dark:text-[#9BB0BC]">{s}</li>
                 ))}
               </ul>
             )}
@@ -217,16 +217,16 @@ export default function NotificationsPage() {
           {running ? 'Scanning & sending…' : `Run expiry check (${daysAhead} days)`}
         </button>
 
-        <p className="text-xs text-gray-600 dark:text-gray-400 dark:text-gray-500 mt-3">
+        <p className="text-xs text-gray-600 dark:text-[#9BB0BC] dark:text-[#9BB0BC] mt-3">
           To automate this daily, add <code className="bg-gray-100 dark:bg-[#0A1929] px-1 py-0.5 rounded text-xs">vercel.json</code> with a cron job — see setup guide below.
         </p>
       </div>
 
       {/* Cron Setup Hint */}
       <div className="bg-gray-50 dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/30 rounded-xl p-5">
-        <h3 className="font-semibold text-gray-700 dark:text-gray-300 mb-2 text-sm">⏰ Automate with Vercel Cron</h3>
-        <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">Add this to <code>vercel.json</code> in your project root to run expiry alerts every day at 7am UTC:</p>
-        <pre className="bg-gray-100 dark:bg-[#0A1929] rounded-lg p-3 text-xs text-gray-700 dark:text-gray-300 overflow-x-auto">{`{
+        <h3 className="font-semibold text-gray-700 dark:text-[#C8D8E4] mb-2 text-sm">⏰ Automate with Vercel Cron</h3>
+        <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mb-2">Add this to <code>vercel.json</code> in your project root to run expiry alerts every day at 7am UTC:</p>
+        <pre className="bg-gray-100 dark:bg-[#0A1929] rounded-lg p-3 text-xs text-gray-700 dark:text-[#C8D8E4] overflow-x-auto">{`{
   "crons": [
     {
       "path": "/api/tenant/notifications/send",
@@ -234,7 +234,7 @@ export default function NotificationsPage() {
     }
   ]
 }`}</pre>
-        <p className="text-xs text-gray-600 dark:text-gray-400 mt-2">Also add <code>RESEND_API_KEY</code>, <code>RESEND_FROM</code>, and <code>APP_URL</code> to your Vercel environment variables.</p>
+        <p className="text-xs text-gray-600 dark:text-[#9BB0BC] mt-2">Also add <code>RESEND_API_KEY</code>, <code>RESEND_FROM</code>, and <code>APP_URL</code> to your Vercel environment variables.</p>
       </div>
 
       {/* In-app Notifications */}
@@ -247,13 +247,13 @@ export default function NotificationsPage() {
             <div className="flex gap-1 flex-wrap">
               <button
                 onClick={() => setTypeFilter('')}
-                className={`text-xs px-2.5 py-1 rounded-full border transition ${typeFilter === '' ? 'bg-[#0E3D52] border-[#0E3D52] text-white' : 'border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-white'}`}>
+                className={`text-xs px-2.5 py-1 rounded-full border transition ${typeFilter === '' ? 'bg-[#0E3D52] border-[#0E3D52] text-white' : 'border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:text-white'}`}>
                 All ({notifications.length})
               </button>
               {presentTypes.map(t => (
                 <button key={t}
                   onClick={() => setTypeFilter(t === typeFilter ? '' : t)}
-                  className={`text-xs px-2.5 py-1 rounded-full border transition flex items-center gap-1 ${typeFilter === t ? 'bg-[#0E3D52] border-[#0E3D52] text-white' : 'border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-white'}`}>
+                  className={`text-xs px-2.5 py-1 rounded-full border transition flex items-center gap-1 ${typeFilter === t ? 'bg-[#0E3D52] border-[#0E3D52] text-white' : 'border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:text-white'}`}>
                   {t.replace('_', ' ')}
                 </button>
               ))}
@@ -262,7 +262,7 @@ export default function NotificationsPage() {
         </div>
 
         {loading ? (
-          <div className="px-5 py-10 text-center text-gray-600 dark:text-gray-400 text-sm">Loading…</div>
+          <div className="px-5 py-10 text-center text-gray-600 dark:text-[#9BB0BC] text-sm">Loading…</div>
         ) : filtered.length === 0 ? (
           <EmptyState
             icon="🔔"
@@ -283,13 +283,13 @@ export default function NotificationsPage() {
                   <NotifIcon type={n.type ?? 'general'} />
                   <Wrapper {...(wrapperProps as any)} className={`flex-1 min-w-0 ${isClickable ? 'cursor-pointer' : ''}`}>
                     <div className="flex items-start justify-between gap-2">
-                      <p className={`text-sm font-medium leading-snug ${!n.isRead ? 'text-gray-900 dark:text-white' : 'text-gray-700 dark:text-gray-300'} ${isClickable ? 'hover:text-[#1A6080] dark:text-[#4ebac4] transition' : ''}`}>
+                      <p className={`text-sm font-medium leading-snug ${!n.isRead ? 'text-gray-900 dark:text-white' : 'text-gray-700 dark:text-[#C8D8E4]'} ${isClickable ? 'hover:text-[#1A6080] dark:text-[#4ebac4] transition' : ''}`}>
                         {n.title}
                         {isClickable && <span className="ml-1 text-[#0E3D52] dark:text-[#4ebac4] text-xs">→</span>}
                       </p>
-                      <span className="text-xs text-gray-500 dark:text-gray-500 shrink-0">{relativeTime(n.createdAt)}</span>
+                      <span className="text-xs text-gray-500 dark:text-[#9BB0BC] shrink-0">{relativeTime(n.createdAt)}</span>
                     </div>
-                    {n.body && <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 leading-relaxed">{n.body}</p>}
+                    {n.body && <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-0.5 leading-relaxed">{n.body}</p>}
                   </Wrapper>
                   <div className="flex items-start gap-1 shrink-0 ml-1">
                     {!n.isRead && (
@@ -300,7 +300,7 @@ export default function NotificationsPage() {
                       </button>
                     )}
                     <button onClick={() => dismiss(n.id)}
-                      className="text-xs text-gray-600 dark:text-gray-500 hover:text-red-400 transition px-1 py-0.5 opacity-0 group-hover:opacity-100"
+                      className="text-xs text-gray-600 dark:text-[#9BB0BC] hover:text-red-400 transition px-1 py-0.5 opacity-0 group-hover:opacity-100"
                       title="Dismiss">
                       ✕
                     </button>
@@ -312,7 +312,7 @@ export default function NotificationsPage() {
         )}
 
         {filtered.length > 0 && (
-          <div className="px-5 py-3 border-t border-gray-100 dark:border-[#1A6080]/20 text-xs text-gray-500 dark:text-gray-500">
+          <div className="px-5 py-3 border-t border-gray-100 dark:border-[#1A6080]/20 text-xs text-gray-500 dark:text-[#9BB0BC]">
             {filtered.length} notification{filtered.length !== 1 ? 's' : ''}
             {typeFilter && ` · filtered by ${typeFilter}`}
             {unread > 0 && ` · ${unread} unread`}

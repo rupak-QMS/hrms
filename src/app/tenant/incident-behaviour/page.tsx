@@ -88,7 +88,7 @@ function severityBadge(s: string) {
     minor:    'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/20 dark:text-[#7dcfd7]',
   }
   return (
-    <span className={`px-2 py-0.5 rounded text-xs font-medium ${map[s] ?? 'bg-gray-100 text-gray-700 dark:bg-[#0E3D52]/60 dark:text-gray-300'}`}>
+    <span className={`px-2 py-0.5 rounded text-xs font-medium ${map[s] ?? 'bg-gray-100 text-gray-700 dark:bg-[#0E3D52]/60 dark:text-[#C8D8E4]'}`}>
       {s.charAt(0).toUpperCase() + s.slice(1)}
     </span>
   )
@@ -101,11 +101,11 @@ function statusBadge(s: string) {
     closed:      'bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-300',
     active:      'bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-300',
     review:      'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/40 dark:text-yellow-300',
-    inactive:    'bg-gray-100 text-gray-700 dark:bg-[#0E3D52]/60 dark:text-gray-300',
+    inactive:    'bg-gray-100 text-gray-700 dark:bg-[#0E3D52]/60 dark:text-[#C8D8E4]',
     expired:     'bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-300',
   }
   return (
-    <span className={`px-2 py-0.5 rounded text-xs font-medium ${map[s] ?? 'bg-gray-100 text-gray-700 dark:bg-[#0E3D52]/60 dark:text-gray-300'}`}>
+    <span className={`px-2 py-0.5 rounded text-xs font-medium ${map[s] ?? 'bg-gray-100 text-gray-700 dark:bg-[#0E3D52]/60 dark:text-[#C8D8E4]'}`}>
       {s.charAt(0).toUpperCase() + s.slice(1)}
     </span>
   )
@@ -453,7 +453,7 @@ export default function IncidentBehaviourPage() {
   }
 
   const inputCls = 'input-premium'
-  const labelCls = 'block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1'
+  const labelCls = 'block text-xs font-medium text-gray-700 dark:text-[#C8D8E4] mb-1'
 
   // ─── Render ───────────────────────────────────────────────────────────────
   return (
@@ -475,7 +475,7 @@ export default function IncidentBehaviourPage() {
         </div>
         <div className="flex-1 overflow-y-auto">
           {participants.length === 0 ? (
-            <p className="p-4 text-sm text-gray-500 dark:text-gray-400">No participants found.</p>
+            <p className="p-4 text-sm text-gray-500 dark:text-[#9BB0BC]">No participants found.</p>
           ) : participants.map(p => (
             <button
               key={p.id}
@@ -486,7 +486,7 @@ export default function IncidentBehaviourPage() {
                 {p.preferredName || p.firstName} {p.lastName}
               </p>
               {p.ndisNumber && (
-                <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">NDIS: {p.ndisNumber}</p>
+                <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-0.5">NDIS: {p.ndisNumber}</p>
               )}
             </button>
           ))}
@@ -496,7 +496,7 @@ export default function IncidentBehaviourPage() {
       {/* ── Right Panel: Detail ───────────────────────────────────────────── */}
       <div className="flex-1 flex flex-col overflow-hidden">
         {!selectedId ? (
-          <div className="flex-1 flex items-center justify-center text-gray-500 dark:text-gray-400">
+          <div className="flex-1 flex items-center justify-center text-gray-500 dark:text-[#9BB0BC]">
             <div className="text-center">
               <div className="text-5xl mb-4">🚨</div>
               <p className="text-lg font-medium">Select a participant</p>
@@ -515,7 +515,7 @@ export default function IncidentBehaviourPage() {
                       : 'Participant'}
                   </h3>
                   {selectedParticipant?.ndisNumber && (
-                    <p className="text-sm text-gray-500 dark:text-gray-400">NDIS: {selectedParticipant.ndisNumber}</p>
+                    <p className="text-sm text-gray-500 dark:text-[#9BB0BC]">NDIS: {selectedParticipant.ndisNumber}</p>
                   )}
                 </div>
                 <div className="flex gap-2 flex-wrap">
@@ -562,11 +562,11 @@ export default function IncidentBehaviourPage() {
                     className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
                       activeTab === tab.key
                         ? 'bg-[#0E3D52] text-white'
-                        : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/40'
+                        : 'text-gray-600 dark:text-[#C8D8E4] hover:bg-gray-100 dark:hover:bg-[#0E3D52]/40'
                     }`}
                   >
                     {tab.label}
-                    <span className={`ml-1.5 text-xs px-1.5 py-0.5 rounded-full ${activeTab === tab.key ? 'bg-[#E0EEF4]0 text-white' : 'bg-gray-200 dark:bg-[#0E3D52]/80 text-gray-700 dark:text-gray-300'}`}>
+                    <span className={`ml-1.5 text-xs px-1.5 py-0.5 rounded-full ${activeTab === tab.key ? 'bg-[#E0EEF4]0 text-white' : 'bg-gray-200 dark:bg-[#0E3D52]/80 text-gray-700 dark:text-[#C8D8E4]'}`}>
                       {tab.count}
                     </span>
                   </button>
@@ -585,7 +585,7 @@ export default function IncidentBehaviourPage() {
                 /* ── Incidents Tab ─────────────────────────────────────────── */
                 activeTab === 'incidents' ? (
                   incidents.length === 0 ? (
-                    <div className="text-center py-12 text-gray-500 dark:text-gray-400">
+                    <div className="text-center py-12 text-gray-500 dark:text-[#9BB0BC]">
                       <div className="text-4xl mb-3">🚨</div>
                       <p>No incidents recorded</p>
                     </div>
@@ -597,26 +597,26 @@ export default function IncidentBehaviourPage() {
                             <div className="flex items-center gap-2 flex-wrap">
                               {severityBadge(inc.severity)}
                               {statusBadge(inc.status)}
-                              <span className="text-xs text-gray-500 dark:text-gray-400 capitalize">{inc.incidentType.replace(/_/g, ' ')}</span>
+                              <span className="text-xs text-gray-500 dark:text-[#9BB0BC] capitalize">{inc.incidentType.replace(/_/g, ' ')}</span>
                             </div>
                             <div className="flex items-center gap-2 flex-shrink-0">
                               <p className="text-sm font-medium text-gray-900 dark:text-white">{inc.incidentDate}</p>
-                              {inc.incidentTime && <p className="text-xs text-gray-500 dark:text-gray-400">{inc.incidentTime}</p>}
+                              {inc.incidentTime && <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{inc.incidentTime}</p>}
                               <button onClick={() => openEditIncident(inc)} className="text-xs px-2 py-1 text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4] hover:bg-[#E0EEF4] dark:hover:bg-[#0E3D52]/30 rounded transition">Edit</button>
                               <button onClick={() => deleteIncident(inc.id)} className="text-xs px-2 py-1 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded transition">Delete</button>
                             </div>
                           </div>
                           {inc.location && (
-                            <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">📍 {inc.location}</p>
+                            <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mb-2">📍 {inc.location}</p>
                           )}
-                          <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">{inc.description}</p>
+                          <p className="text-sm text-gray-700 dark:text-[#C8D8E4] mb-3">{inc.description}</p>
                           {inc.immediateAction && (
                             <div className="bg-[#E0EEF4] dark:bg-[#0E3D52]/20 rounded-lg p-3 mb-3">
                               <p className="text-xs font-medium text-[#0E3D52] dark:text-[#7dcfd7] mb-1">Immediate Action</p>
                               <p className="text-sm text-[#0E3D52] dark:text-[#7dcfd7]">{inc.immediateAction}</p>
                             </div>
                           )}
-                          <div className="flex flex-wrap gap-4 text-xs text-gray-500 dark:text-gray-400 mt-2">
+                          <div className="flex flex-wrap gap-4 text-xs text-gray-500 dark:text-[#9BB0BC] mt-2">
                             {inc.reportedBy && <span>Reported by: {inc.reportedBy}</span>}
                             {inc.reportedTo && <span>Reported to: {inc.reportedTo}</span>}
                             {inc.ndisReportable && <span className="text-red-600 dark:text-red-400 font-medium">⚠️ NDIS Reportable</span>}
@@ -637,7 +637,7 @@ export default function IncidentBehaviourPage() {
                 /* ── Behaviour Plans Tab ───────────────────────────────────── */
                 ) : activeTab === 'behaviour' ? (
                   behaviourPlans.length === 0 ? (
-                    <div className="text-center py-12 text-gray-500 dark:text-gray-400">
+                    <div className="text-center py-12 text-gray-500 dark:text-[#9BB0BC]">
                       <div className="text-4xl mb-3">🧠</div>
                       <p>No behaviour support plans</p>
                     </div>
@@ -654,7 +654,7 @@ export default function IncidentBehaviourPage() {
                             </div>
                           </div>
                           {plan.behaviourType && (
-                            <p className="text-xs text-gray-500 dark:text-gray-400 mb-3">Behaviour: {plan.behaviourType}</p>
+                            <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mb-3">Behaviour: {plan.behaviourType}</p>
                           )}
                           {[
                             { label: '⚡ Triggers',               value: plan.triggers },
@@ -665,11 +665,11 @@ export default function IncidentBehaviourPage() {
                             { label: '💚 Post-Incident Support',  value: plan.postIncidentSupport },
                           ].filter(x => x.value).map(x => (
                             <div key={x.label} className="mb-3 last:mb-0">
-                              <p className="text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">{x.label}</p>
-                              <p className="text-sm text-gray-800 dark:text-gray-200">{x.value}</p>
+                              <p className="text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1">{x.label}</p>
+                              <p className="text-sm text-gray-800 dark:text-[#C8D8E4]">{x.value}</p>
                             </div>
                           ))}
-                          <div className="flex flex-wrap gap-4 text-xs text-gray-500 dark:text-gray-400 mt-3 pt-3 border-t border-gray-100 dark:border-[#1A6080]/30">
+                          <div className="flex flex-wrap gap-4 text-xs text-gray-500 dark:text-[#9BB0BC] mt-3 pt-3 border-t border-gray-100 dark:border-[#1A6080]/30">
                             {plan.authorisedBy && <span>Authorised by: {plan.authorisedBy}</span>}
                             {plan.reviewDate && <span>Review: {plan.reviewDate}</span>}
                           </div>
@@ -681,7 +681,7 @@ export default function IncidentBehaviourPage() {
                 /* ── Restrictive Practices Tab ─────────────────────────────── */
                 ) : (
                   restrictivePractices.length === 0 ? (
-                    <div className="text-center py-12 text-gray-500 dark:text-gray-400">
+                    <div className="text-center py-12 text-gray-500 dark:text-[#9BB0BC]">
                       <div className="text-4xl mb-3">🔒</div>
                       <p>No restrictive practices recorded</p>
                     </div>
@@ -693,7 +693,7 @@ export default function IncidentBehaviourPage() {
                             <div>
                               <h4 className="font-semibold text-gray-900 dark:text-white">{rp.practiceType}</h4>
                               {rp.regulatoryApproval && rp.approvalReference && (
-                                <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Approval ref: {rp.approvalReference}</p>
+                                <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-0.5">Approval ref: {rp.approvalReference}</p>
                               )}
                             </div>
                             <div className="flex items-center gap-2">
@@ -705,8 +705,8 @@ export default function IncidentBehaviourPage() {
                               <button onClick={() => deleteRestrictivePractice(rp.id)} className="text-xs px-2 py-1 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded transition">Delete</button>
                             </div>
                           </div>
-                          <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">{rp.description}</p>
-                          <div className="grid grid-cols-2 gap-3 text-xs text-gray-500 dark:text-gray-400">
+                          <p className="text-sm text-gray-700 dark:text-[#C8D8E4] mb-3">{rp.description}</p>
+                          <div className="grid grid-cols-2 gap-3 text-xs text-gray-500 dark:text-[#9BB0BC]">
                             {rp.authorisedBy    && <span>Authorised by: {rp.authorisedBy}</span>}
                             {rp.authorisedDate  && <span>Authorised: {rp.authorisedDate}</span>}
                             {rp.expiryDate      && <span className={`${new Date(rp.expiryDate) < new Date() ? 'text-red-600 dark:text-red-400 font-medium' : ''}`}>Expires: {rp.expiryDate}</span>}
@@ -716,7 +716,7 @@ export default function IncidentBehaviourPage() {
                           </div>
                           {rp.notes && (
                             <div className="mt-3 pt-3 border-t border-gray-100 dark:border-[#1A6080]/30">
-                              <p className="text-xs text-gray-500 dark:text-gray-400">{rp.notes}</p>
+                              <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{rp.notes}</p>
                             </div>
                           )}
                         </div>
@@ -806,15 +806,15 @@ export default function IncidentBehaviourPage() {
                 <input type="text" placeholder="Names of witnesses" className={inputCls} value={incidentForm.witnesses} onChange={e => setIncidentForm(f => ({ ...f, witnesses: e.target.value }))} />
               </div>
               <div className="flex flex-wrap gap-4">
-                <label className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 cursor-pointer">
+                <label className="flex items-center gap-2 text-sm text-gray-700 dark:text-[#C8D8E4] cursor-pointer">
                   <input type="checkbox" checked={incidentForm.ndisReportable} onChange={e => setIncidentForm(f => ({ ...f, ndisReportable: e.target.checked }))} className="rounded" />
                   NDIS Reportable Incident
                 </label>
-                <label className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 cursor-pointer">
+                <label className="flex items-center gap-2 text-sm text-gray-700 dark:text-[#C8D8E4] cursor-pointer">
                   <input type="checkbox" checked={incidentForm.policeReport} onChange={e => setIncidentForm(f => ({ ...f, policeReport: e.target.checked }))} className="rounded" />
                   Police Report Made
                 </label>
-                <label className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 cursor-pointer">
+                <label className="flex items-center gap-2 text-sm text-gray-700 dark:text-[#C8D8E4] cursor-pointer">
                   <input type="checkbox" checked={incidentForm.followUpRequired} onChange={e => setIncidentForm(f => ({ ...f, followUpRequired: e.target.checked }))} className="rounded" />
                   Follow-Up Required
                 </label>
@@ -853,7 +853,7 @@ export default function IncidentBehaviourPage() {
               </div>
             </div>
             <div className="flex justify-end gap-3 p-6 border-t border-gray-200 dark:border-[#1A6080]/30">
-              <button onClick={() => { setShowIncidentModal(false); setEditIncidentId(null) }} className="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/40 rounded-lg">Cancel</button>
+              <button onClick={() => { setShowIncidentModal(false); setEditIncidentId(null) }} className="px-4 py-2 text-sm text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-100 dark:hover:bg-[#0E3D52]/40 rounded-lg">Cancel</button>
               <button onClick={submitIncident} disabled={saving || !incidentForm.incidentDate || !incidentForm.description}
                 className="px-4 py-2 text-sm bg-red-600 text-white rounded-lg hover:bg-red-700 disabled:opacity-50">
                 {saving ? 'Saving…' : editIncidentId ? 'Update Incident' : 'Log Incident'}
@@ -932,7 +932,7 @@ export default function IncidentBehaviourPage() {
               </div>
             </div>
             <div className="flex justify-end gap-3 p-6 border-t border-gray-200 dark:border-[#1A6080]/30">
-              <button onClick={() => { setShowBehaviourModal(false); setEditBehaviourId(null) }} className="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/40 rounded-lg">Cancel</button>
+              <button onClick={() => { setShowBehaviourModal(false); setEditBehaviourId(null) }} className="px-4 py-2 text-sm text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-100 dark:hover:bg-[#0E3D52]/40 rounded-lg">Cancel</button>
               <button onClick={submitBehaviourPlan} disabled={saving || !behaviourForm.planName}
                 className="px-4 py-2 text-sm bg-[#0E3D52] text-white rounded-lg hover:bg-[#1A6080] disabled:opacity-50">
                 {saving ? 'Saving…' : editBehaviourId ? 'Update Plan' : 'Save Plan'}
@@ -1000,7 +1000,7 @@ export default function IncidentBehaviourPage() {
                 </div>
               </div>
               <div>
-                <label className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 cursor-pointer mb-2">
+                <label className="flex items-center gap-2 text-sm text-gray-700 dark:text-[#C8D8E4] cursor-pointer mb-2">
                   <input type="checkbox" checked={restrictiveForm.regulatoryApproval} onChange={e => setRestrictiveForm(f => ({ ...f, regulatoryApproval: e.target.checked }))} className="rounded" />
                   Regulatory Approval Obtained
                 </label>
@@ -1024,7 +1024,7 @@ export default function IncidentBehaviourPage() {
               </div>
             </div>
             <div className="flex justify-end gap-3 p-6 border-t border-gray-200 dark:border-[#1A6080]/30">
-              <button onClick={() => { setShowRestrictiveModal(false); setEditRestrictiveId(null) }} className="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#0E3D52]/40 rounded-lg">Cancel</button>
+              <button onClick={() => { setShowRestrictiveModal(false); setEditRestrictiveId(null) }} className="px-4 py-2 text-sm text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-100 dark:hover:bg-[#0E3D52]/40 rounded-lg">Cancel</button>
               <button onClick={submitRestrictive} disabled={saving || !restrictiveForm.practiceType || !restrictiveForm.description}
                 className="px-4 py-2 text-sm bg-orange-600 text-white rounded-lg hover:bg-orange-700 disabled:opacity-50">
                 {saving ? 'Saving…' : editRestrictiveId ? 'Update Practice' : 'Save Practice'}

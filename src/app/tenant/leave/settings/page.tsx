@@ -80,7 +80,7 @@ export default function LeaveSettingsPage() {
       <div className="flex items-center justify-between flex-wrap gap-3">
         <div className="flex items-center gap-3">
           <Link href="/tenant/leave"
-            className="text-gray-500 hover:text-white transition dark:text-gray-400">
+            className="text-gray-500 hover:text-white transition dark:text-[#8aaabb]">
             ← Leave
           </Link>
           <h1 className="text-2xl font-bold text-foreground">Leave Settings</h1>
@@ -99,7 +99,7 @@ export default function LeaveSettingsPage() {
         </div>
       </div>
 
-      <p className="text-sm text-gray-500 dark:text-gray-400">
+      <p className="text-sm text-gray-500 dark:text-[#9BB0BC]">
         Configure leave type entitlements and availability for your organisation.
         Changes apply to all future balance calculations.
         Leave types are based on Australian Fair Work Act 2009 defaults.
@@ -112,9 +112,9 @@ export default function LeaveSettingsPage() {
       )}
 
       {loading ? (
-        <div className="text-center py-16 text-gray-500 dark:text-gray-400">Loading…</div>
+        <div className="text-center py-16 text-gray-500 dark:text-[#9BB0BC]">Loading…</div>
       ) : types.length === 0 ? (
-        <div className="text-center py-16 text-gray-500 dark:text-gray-400">No leave types found.</div>
+        <div className="text-center py-16 text-gray-500 dark:text-[#9BB0BC]">No leave types found.</div>
       ) : (
         <div className="space-y-4">
           {types.map(t => (
@@ -130,7 +130,7 @@ export default function LeaveSettingsPage() {
                   <span className="text-2xl">{t.emoji}</span>
                   <div>
                     <p className="text-sm font-semibold text-foreground">{t.label}</p>
-                    <p className="text-xs text-gray-600 mt-0.5 dark:text-gray-400">{t.accrualNote}</p>
+                    <p className="text-xs text-gray-600 mt-0.5 dark:text-[#8aaabb]">{t.accrualNote}</p>
                   </div>
                   {t._dirty && (
                     <span className="text-xs text-[#1A6080] dark:text-[#4ebac4] bg-[#0E3D52]/30 border border-[#1A6080] px-2 py-0.5 rounded-full">
@@ -139,7 +139,7 @@ export default function LeaveSettingsPage() {
                   )}
                 </div>
                 <label className="flex items-center gap-2.5 cursor-pointer select-none">
-                  <span className="text-xs text-gray-500 dark:text-gray-400">{t.isActive ? 'Active' : 'Inactive'}</span>
+                  <span className="text-xs text-gray-500 dark:text-[#9BB0BC]">{t.isActive ? 'Active' : 'Inactive'}</span>
                   <button
                     type="button"
                     onClick={() => update(t.key, 'isActive', !t.isActive)}
@@ -168,7 +168,7 @@ export default function LeaveSettingsPage() {
                         onChange={e => update(t.key, 'entitlementDaysFT', parseInt(e.target.value) || 0)}
                         className={INPUT}
                       />
-                      <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">0 = no entitlement · 999 = unlimited</p>
+                      <p className="text-xs text-gray-500 mt-1 dark:text-[#8aaabb]">0 = no entitlement · 999 = unlimited</p>
                     </div>
                     <div>
                       <label className={LABEL}>Part-Time Entitlement (days/year)</label>
@@ -180,7 +180,7 @@ export default function LeaveSettingsPage() {
                         onChange={e => update(t.key, 'entitlementDaysPT', parseInt(e.target.value) || 0)}
                         className={INPUT}
                       />
-                      <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">Usually same as FT (pro-rata calculated separately)</p>
+                      <p className="text-xs text-gray-500 mt-1 dark:text-[#8aaabb]">Usually same as FT (pro-rata calculated separately)</p>
                     </div>
                     <div>
                       <label className={LABEL}>Casual Entitlement (days/year)</label>
@@ -192,13 +192,13 @@ export default function LeaveSettingsPage() {
                         onChange={e => update(t.key, 'entitlementDaysCasual', parseInt(e.target.value) || 0)}
                         className={INPUT}
                       />
-                      <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">Often 0 or 2 per occasion</p>
+                      <p className="text-xs text-gray-500 mt-1 dark:text-[#8aaabb]">Often 0 or 2 per occasion</p>
                     </div>
                   </div>
 
                   {/* Carry-forward */}
                   <div className="border-t border-gray-100 dark:border-[#1A6080]/20 pt-4">
-                    <p className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-3">
+                    <p className="text-xs font-semibold text-gray-700 dark:text-[#C8D8E4] mb-3">
                       Year-end carry-forward
                     </p>
                     <div className="flex flex-wrap gap-3 items-start">
@@ -251,10 +251,10 @@ export default function LeaveSettingsPage() {
                                   />
                                 )}
                                 {isCapped && isChecked && (
-                                  <span className="text-xs text-gray-500 dark:text-gray-400">days</span>
+                                  <span className="text-xs text-gray-500 dark:text-[#9BB0BC]">days</span>
                                 )}
                               </div>
-                              <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{opt.desc}</p>
+                              <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-0.5">{opt.desc}</p>
                             </div>
                           </label>
                         )
@@ -269,11 +269,11 @@ export default function LeaveSettingsPage() {
       )}
 
       {!loading && types.length > 0 && (
-        <div className="bg-white dark:bg-[#0F1E2E]/60 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl px-5 py-4 text-xs text-gray-600 leading-relaxed dark:text-gray-400">
-          <p className="font-medium text-gray-500 mb-1 dark:text-gray-400">Notes</p>
-          <p>• Setting a type to <strong className="text-gray-600 dark:text-gray-400">Inactive</strong> hides it from the leave request form. Existing requests are not affected.</p>
+        <div className="bg-white dark:bg-[#0F1E2E]/60 border border-gray-200 dark:border-[#1A6080]/20 rounded-xl px-5 py-4 text-xs text-gray-600 leading-relaxed dark:text-[#8aaabb]">
+          <p className="font-medium text-gray-500 mb-1 dark:text-[#8aaabb]">Notes</p>
+          <p>• Setting a type to <strong className="text-gray-600 dark:text-[#9BB0BC]">Inactive</strong> hides it from the leave request form. Existing requests are not affected.</p>
           <p>• Entitlement changes apply to balance calculations going forward. Historical requests are recalculated on the next view.</p>
-          <p>• <strong className="text-gray-600 dark:text-gray-400">999</strong> is used internally to represent unlimited leave (e.g. Unpaid Leave). It displays as ∞ in the balances view.</p>
+          <p>• <strong className="text-gray-600 dark:text-[#9BB0BC]">999</strong> is used internally to represent unlimited leave (e.g. Unpaid Leave). It displays as ∞ in the balances view.</p>
         </div>
       )}
     </div>

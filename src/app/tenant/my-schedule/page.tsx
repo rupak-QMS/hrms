@@ -44,10 +44,10 @@ const SHIFT_TYPE_COLORS: Record<string, string> = {
 }
 
 const STATUS_STYLE: Record<string, string> = {
-  draft:     'bg-gray-100 text-gray-500 dark:bg-[#0A1929] dark:text-gray-400',
+  draft:     'bg-gray-100 text-gray-500 dark:bg-[#0A1929] dark:text-[#8aaabb]',
   published: 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400',
   confirmed: 'bg-teal-100 text-teal-700 dark:bg-teal-900/40 dark:text-teal-400',
-  completed: 'bg-gray-100 text-gray-500 dark:bg-[#0A1929] dark:text-gray-400',
+  completed: 'bg-gray-100 text-gray-500 dark:bg-[#0A1929] dark:text-[#8aaabb]',
   cancelled: 'bg-red-100 text-red-600 dark:bg-red-900/40 dark:text-red-400',
 }
 
@@ -223,17 +223,17 @@ export default function MySchedulePage() {
         {/* Week nav */}
         <div className="flex items-center gap-2">
           <button onClick={prevWeek}
-            className="p-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition text-gray-600 dark:text-gray-400">
+            className="p-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition text-gray-600 dark:text-[#9BB0BC]">
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
             </svg>
           </button>
           <button onClick={thisWeek}
-            className="px-3 py-1.5 text-sm font-medium rounded-lg border border-gray-200 dark:border-[#1A6080]/30 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition text-gray-700 dark:text-gray-300">
+            className="px-3 py-1.5 text-sm font-medium rounded-lg border border-gray-200 dark:border-[#1A6080]/30 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition text-gray-700 dark:text-[#C8D8E4]">
             Today
           </button>
           <button onClick={nextWeek}
-            className="p-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition text-gray-600 dark:text-gray-400">
+            className="p-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition text-gray-600 dark:text-[#9BB0BC]">
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
             </svg>
@@ -245,7 +245,7 @@ export default function MySchedulePage() {
       <div className="flex items-center gap-4 flex-wrap">
         <span className="text-base font-semibold text-gray-900 dark:text-white">{weekLabel}</span>
         {!loading && shifts.length > 0 && (
-          <span className="text-sm text-gray-500 dark:text-gray-400">
+          <span className="text-sm text-gray-500 dark:text-[#9BB0BC]">
             {shifts.length} shift{shifts.length !== 1 ? 's' : ''} · {weeklyHours.toFixed(1)}h scheduled
           </span>
         )}
@@ -292,8 +292,8 @@ export default function MySchedulePage() {
       ) : (
         <div className="bg-gray-50 dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl px-5 py-4 flex items-center justify-between gap-4 flex-wrap">
           <div>
-            <p className="text-sm font-medium text-gray-700 dark:text-gray-300">Not clocked in</p>
-            <p className="text-xs text-gray-500 dark:text-gray-400">Clock in when your shift starts</p>
+            <p className="text-sm font-medium text-gray-700 dark:text-[#C8D8E4]">Not clocked in</p>
+            <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Clock in when your shift starts</p>
           </div>
           <button onClick={() => clockIn()} disabled={clocking}
             className="px-4 py-2 rounded-xl text-sm font-semibold text-white disabled:opacity-60 transition hover:opacity-90"
@@ -319,7 +319,7 @@ export default function MySchedulePage() {
 
       {/* Schedule */}
       {loading ? (
-        <div className="card-premium py-16 text-center text-sm text-gray-500 dark:text-gray-400">
+        <div className="card-premium py-16 text-center text-sm text-gray-500 dark:text-[#9BB0BC]">
           Loading shifts…
         </div>
       ) : (
@@ -345,22 +345,22 @@ export default function MySchedulePage() {
                 }`}>
                   <div className="min-w-[2.5rem] text-center">
                     <p className={`text-[10px] font-semibold  ${
-                      today ? 'text-[#0E3D52] dark:text-[#4ebac4]' : 'text-gray-400 dark:text-gray-500'
+                      today ? 'text-[#0E3D52] dark:text-[#4ebac4]' : 'text-gray-400 dark:text-[#9BB0BC]'
                     }`}>
                       {WEEKDAYS[day.getDay()]}
                     </p>
                     <p className={`text-lg font-bold leading-none mt-0.5 ${
-                      today ? 'text-[#0E3D52] dark:text-[#4ebac4]' : isPast ? 'text-gray-400 dark:text-gray-600' : 'text-gray-900 dark:text-white'
+                      today ? 'text-[#0E3D52] dark:text-[#4ebac4]' : isPast ? 'text-gray-400 dark:text-[#9BB0BC]' : 'text-gray-900 dark:text-white'
                     }`}>
                       {day.getDate()}
                     </p>
                   </div>
                   <div className="flex-1">
-                    <p className={`text-xs font-medium ${today ? 'text-[#0E3D52] dark:text-[#4ebac4]' : 'text-gray-500 dark:text-gray-400'}`}>
+                    <p className={`text-xs font-medium ${today ? 'text-[#0E3D52] dark:text-[#4ebac4]' : 'text-gray-500 dark:text-[#9BB0BC]'}`}>
                       {today ? 'Today' : `${MONTHS[day.getMonth()]} ${day.getFullYear()}`}
                     </p>
                     {dayShifts.length > 0 && (
-                      <p className="text-xs text-gray-500 dark:text-gray-400">
+                      <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">
                         {dayShifts.length} shift{dayShifts.length !== 1 ? 's' : ''} ·{' '}
                         {dayShifts.reduce((sum, s) => {
                           return sum + (new Date(s.endTime).getTime() - new Date(s.startTime).getTime()) / 3_600_000
@@ -372,7 +372,7 @@ export default function MySchedulePage() {
 
                 {/* Shifts for this day */}
                 {dayShifts.length === 0 ? (
-                  <div className="px-5 py-4 text-sm text-gray-400 dark:text-gray-600 italic">No shifts scheduled</div>
+                  <div className="px-5 py-4 text-sm text-gray-400 dark:text-[#9BB0BC] italic">No shifts scheduled</div>
                 ) : (
                   <div className="divide-y divide-gray-100 dark:divide-[#1A6080]/20">
                     {dayShifts.map(shift => {
@@ -384,8 +384,8 @@ export default function MySchedulePage() {
                             <p className={`text-sm font-semibold ${isNow ? 'text-[#0E3D52] dark:text-[#4ebac4]' : 'text-gray-900 dark:text-white'}`}>
                               {fmtTime(shift.startTime)}
                             </p>
-                            <p className="text-xs text-gray-500 dark:text-gray-400">{fmtTime(shift.endTime)}</p>
-                            <p className="text-xs text-gray-400 dark:text-gray-600 mt-0.5">{fmtDuration(shift.startTime, shift.endTime)}</p>
+                            <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{fmtTime(shift.endTime)}</p>
+                            <p className="text-xs text-gray-400 dark:text-[#9BB0BC] mt-0.5">{fmtDuration(shift.startTime, shift.endTime)}</p>
                           </div>
 
                           {/* Vertical bar */}
@@ -412,14 +412,14 @@ export default function MySchedulePage() {
                               <p className="text-sm font-medium text-gray-900 dark:text-white mb-0.5">
                                 {shift.partFirst} {shift.partLast}
                                 {shift.partNdis && (
-                                  <span className="ml-2 text-xs text-gray-500 dark:text-gray-400 font-normal">NDIS {shift.partNdis}</span>
+                                  <span className="ml-2 text-xs text-gray-500 dark:text-[#9BB0BC] font-normal">NDIS {shift.partNdis}</span>
                                 )}
                               </p>
                             )}
 
                             {/* Location */}
                             {(shift.location || shift.clientSite) && (
-                              <p className="text-xs text-gray-500 dark:text-gray-400 flex items-center gap-1">
+                              <p className="text-xs text-gray-500 dark:text-[#9BB0BC] flex items-center gap-1">
                                 <svg className="w-3 h-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                   <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -430,7 +430,7 @@ export default function MySchedulePage() {
 
                             {/* Notes */}
                             {shift.notes && (
-                              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 italic">"{shift.notes}"</p>
+                              <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-1 italic">"{shift.notes}"</p>
                             )}
 
                             {/* Clock in button for today's shifts */}
@@ -458,8 +458,8 @@ export default function MySchedulePage() {
       {/* Empty state */}
       {!loading && shifts.length === 0 && !error && (
         <div className="text-center py-6">
-          <p className="text-sm text-gray-500 dark:text-gray-400">No shifts scheduled for this week.</p>
-          <p className="text-xs text-gray-400 dark:text-gray-600 mt-1">Contact your manager if you believe this is incorrect.</p>
+          <p className="text-sm text-gray-500 dark:text-[#9BB0BC]">No shifts scheduled for this week.</p>
+          <p className="text-xs text-gray-400 dark:text-[#9BB0BC] mt-1">Contact your manager if you believe this is incorrect.</p>
         </div>
       )}
     </div>

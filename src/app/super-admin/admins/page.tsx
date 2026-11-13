@@ -71,14 +71,14 @@ export default function AdminsPage() {
     setAdmins(a => a.filter(x => x.id !== admin.id))
   }
 
-  if (loading) return <div className="text-gray-600 dark:text-gray-400">Loading…</div>
+  if (loading) return <div className="text-gray-600 dark:text-[#9BB0BC]">Loading…</div>
 
   return (
     <div className="max-w-3xl space-y-6">
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Super Admins</h1>
-          <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">Platform-level administrator accounts</p>
+          <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Platform-level administrator accounts</p>
         </div>
         <button
           onClick={() => { setShowForm(v => !v); setFormError('') }}
@@ -107,7 +107,7 @@ export default function AdminsPage() {
           )}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div>
-              <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Full Name *</label>
+              <label className="block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1">Full Name *</label>
               <input
                 required
                 value={form.name}
@@ -117,7 +117,7 @@ export default function AdminsPage() {
               />
             </div>
             <div>
-              <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Email *</label>
+              <label className="block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1">Email *</label>
               <input
                 required
                 type="email"
@@ -128,7 +128,7 @@ export default function AdminsPage() {
               />
             </div>
             <div>
-              <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Password *</label>
+              <label className="block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1">Password *</label>
               <input
                 required
                 type="password"
@@ -151,7 +151,7 @@ export default function AdminsPage() {
             <button
               type="button"
               onClick={() => { setShowForm(false); setFormError('') }}
-              className="border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:text-white text-sm px-4 py-2 rounded-lg transition"
+              className="border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#C8D8E4] hover:text-gray-900 dark:text-white text-sm px-4 py-2 rounded-lg transition"
             >
               Cancel
             </button>
@@ -163,17 +163,17 @@ export default function AdminsPage() {
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-gray-200 dark:border-[#1A6080]/20 text-left">
-              <th className="px-5 py-3 text-xs font-semibold  text-gray-500 dark:text-gray-400">Admin</th>
-              <th className="px-5 py-3 text-xs font-semibold  text-gray-500 dark:text-gray-400">Status</th>
-              <th className="px-5 py-3 text-xs font-semibold  text-gray-500 dark:text-gray-400">Last Login</th>
-              <th className="px-5 py-3 text-xs font-semibold  text-gray-500 dark:text-gray-400">Added</th>
-              <th className="px-5 py-3 text-xs font-semibold  text-gray-500 dark:text-gray-400">Actions</th>
+              <th className="px-5 py-3 text-xs font-semibold  text-gray-500 dark:text-[#9BB0BC]">Admin</th>
+              <th className="px-5 py-3 text-xs font-semibold  text-gray-500 dark:text-[#9BB0BC]">Status</th>
+              <th className="px-5 py-3 text-xs font-semibold  text-gray-500 dark:text-[#9BB0BC]">Last Login</th>
+              <th className="px-5 py-3 text-xs font-semibold  text-gray-500 dark:text-[#9BB0BC]">Added</th>
+              <th className="px-5 py-3 text-xs font-semibold  text-gray-500 dark:text-[#9BB0BC]">Actions</th>
             </tr>
           </thead>
           <tbody>
             {admins.length === 0 && !fetchError && (
               <tr>
-                <td colSpan={5} className="px-5 py-10 text-center text-gray-500 text-sm dark:text-gray-400">
+                <td colSpan={5} className="px-5 py-10 text-center text-gray-500 text-sm dark:text-[#8aaabb]">
                   No super admins found.{' '}
                   <button onClick={() => setShowForm(true)} className="text-[#0E3D52] dark:text-[#4ebac4] hover:underline">Add the first one →</button>
                 </td>
@@ -188,7 +188,7 @@ export default function AdminsPage() {
                     </div>
                     <div>
                       <p className="text-gray-900 dark:text-white font-medium text-sm">{a.name}</p>
-                      <p className="text-gray-600 dark:text-gray-400 text-xs">{a.email}</p>
+                      <p className="text-gray-600 dark:text-[#9BB0BC] text-xs">{a.email}</p>
                     </div>
                   </div>
                 </td>
@@ -205,12 +205,12 @@ export default function AdminsPage() {
                     {a.isActive ? 'Active' : 'Inactive'}
                   </button>
                 </td>
-                <td className="px-5 py-3.5 text-gray-600 dark:text-gray-400 text-xs">
+                <td className="px-5 py-3.5 text-gray-600 dark:text-[#9BB0BC] text-xs">
                   {a.lastLoginAt
                     ? new Date(a.lastLoginAt).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })
                     : 'Never'}
                 </td>
-                <td className="px-5 py-3.5 text-gray-600 dark:text-gray-400 text-xs">
+                <td className="px-5 py-3.5 text-gray-600 dark:text-[#9BB0BC] text-xs">
                   {new Date(a.createdAt).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}
                 </td>
                 <td className="px-5 py-3.5">
@@ -222,7 +222,7 @@ export default function AdminsPage() {
                       Delete
                     </button>
                   ) : (
-                    <span className="text-xs text-gray-600 dark:text-gray-400">Last admin</span>
+                    <span className="text-xs text-gray-600 dark:text-[#9BB0BC]">Last admin</span>
                   )}
                 </td>
               </tr>

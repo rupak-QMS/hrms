@@ -133,7 +133,7 @@ export default function ReferralsPage() {
       <div className="grid grid-cols-2 gap-3">
         {!isEdit && (
           <div>
-            <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Referring Employee *</label>
+            <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Referring Employee *</label>
             <select required value={form.referrerId} onChange={e => setForm(f => ({ ...f, referrerId: e.target.value }))} className={INPUT}>
               <option value="">— Select —</option>
               {employees.map(e => <option key={e.id} value={e.id}>{e.firstName} {e.lastName}</option>)}
@@ -141,19 +141,19 @@ export default function ReferralsPage() {
           </div>
         )}
         <div>
-          <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Referred Person Name *</label>
+          <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Referred Person Name *</label>
           <input required value={form.referredName} onChange={e => setForm(f => ({ ...f, referredName: e.target.value }))} className={INPUT} />
         </div>
         <div>
-          <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Referred Email</label>
+          <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Referred Email</label>
           <input type="email" value={form.referredEmail} onChange={e => setForm(f => ({ ...f, referredEmail: e.target.value }))} className={INPUT} />
         </div>
         <div>
-          <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Bonus Amount ($)</label>
+          <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Bonus Amount ($)</label>
           <input type="number" step="0.01" value={form.bonusAmount} onChange={e => setForm(f => ({ ...f, bonusAmount: e.target.value }))} className={INPUT} />
         </div>
         <div className={isEdit ? 'col-span-2' : ''}>
-          <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Notes</label>
+          <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Notes</label>
           <textarea value={form.notes} onChange={e => setForm(f => ({ ...f, notes: e.target.value }))} rows={2} className={INPUT} />
         </div>
       </div>
@@ -169,7 +169,7 @@ export default function ReferralsPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-foreground">Referral Program</h1>
-          <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">Track employee referrals and bonus payments</p>
+          <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Track employee referrals and bonus payments</p>
         </div>
         <div className="flex items-center gap-2">
           <ExportButton onClick={doExport} disabled={filtered.length === 0} />
@@ -188,7 +188,7 @@ export default function ReferralsPage() {
           { label:'Bonus Paid', value:stats.bonusPaid, color:'text-[#1A6080] dark:text-[#4ebac4]' },
         ].map(s => (
           <div key={s.label} className="card-premium p-4">
-            <p className="text-xs text-gray-600 dark:text-gray-400">{s.label}</p>
+            <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">{s.label}</p>
             <p className={`text-2xl font-bold mt-1 ${s.color}`}>{s.value}</p>
           </div>
         ))}
@@ -217,7 +217,7 @@ export default function ReferralsPage() {
       )}
 
       {loading ? (
-        <p className="text-gray-600 dark:text-gray-400 text-sm">Loading…</p>
+        <p className="text-gray-600 dark:text-[#9BB0BC] text-sm">Loading…</p>
       ) : referrals.length === 0 ? (
         <div className="card-premium">
           <EmptyState icon="🤝" title="No referrals yet"
@@ -238,11 +238,11 @@ export default function ReferralsPage() {
                   <span className={`text-xs px-2 py-0.5 rounded-full border ${STATUS_STYLE[r.status] ?? 'badge badge-gray'}`}>{r.status}</span>
                   {r.bonusPaidAt && <span className="text-xs text-green-400">Bonus paid</span>}
                 </div>
-                <p className="text-xs text-gray-500 dark:text-gray-400">Referred by {r.referrerFirstName} {r.referrerLastName}
+                <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Referred by {r.referrerFirstName} {r.referrerLastName}
                   {r.bonusAmount && <span className="ml-2 text-[#1A6080] dark:text-[#4ebac4]">${Number(r.bonusAmount).toFixed(2)} bonus</span>}
-                  {r.referredEmail && <span className="ml-2 text-gray-600 dark:text-gray-500">{r.referredEmail}</span>}
+                  {r.referredEmail && <span className="ml-2 text-gray-600 dark:text-[#9BB0BC]">{r.referredEmail}</span>}
                 </p>
-                {r.notes && <p className="text-xs text-gray-500 dark:text-gray-500 mt-0.5 truncate max-w-xs">{r.notes}</p>}
+                {r.notes && <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-0.5 truncate max-w-xs">{r.notes}</p>}
               </div>
               <div className="flex gap-2 shrink-0 items-center">
                 {r.status === 'pending' && (
@@ -273,7 +273,7 @@ export default function ReferralsPage() {
             </div>
           ))}
           {filtered.length < referrals.length && (
-            <p className="text-xs text-gray-500 dark:text-gray-400 px-1">{filtered.length} of {referrals.length} referrals shown</p>
+            <p className="text-xs text-gray-500 dark:text-[#9BB0BC] px-1">{filtered.length} of {referrals.length} referrals shown</p>
           )}
         </div>
       )}

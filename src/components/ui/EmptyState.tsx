@@ -70,9 +70,9 @@ export default function EmptyState({
       <div className="w-12 h-12 rounded-xl bg-[#0E3D52]/[0.08] dark:bg-[#4ebac4]/10 flex items-center justify-center mb-4 ring-1 ring-[#0E3D52]/10 dark:ring-[#4ebac4]/15">
         <IconComponent className="w-6 h-6 text-[#1A6080] dark:text-[#4ebac4] opacity-70" strokeWidth={1.5} />
       </div>
-      <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">{title}</h3>
+      <h3 className="text-sm font-semibold text-gray-700 dark:text-[#C8D8E4] mb-1">{title}</h3>
       {message && (
-        <p className="text-xs text-gray-500 dark:text-gray-400 max-w-xs">{message}</p>
+        <p className="text-xs text-gray-500 dark:text-[#9BB0BC] max-w-xs">{message}</p>
       )}
       {action && (
         <button

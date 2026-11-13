@@ -69,7 +69,7 @@ function RatingButtons({ value, onChange, color = 'bg-[#0E3D52]' }: { value: num
     <div className="flex gap-1.5">
       {[1, 2, 3, 4, 5].map(n => (
         <button key={n} type="button" onClick={() => onChange(n)}
-          className={`flex-1 py-1.5 rounded text-xs font-medium transition ${value === n ? `${color} text-white` : 'bg-gray-200 dark:bg-[#0E3D52]/60 text-gray-600 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-[#0E3D52]/80'}`}>
+          className={`flex-1 py-1.5 rounded text-xs font-medium transition ${value === n ? `${color} text-white` : 'bg-gray-200 dark:bg-[#0E3D52]/60 text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-300 dark:hover:bg-[#0E3D52]/80'}`}>
           {n}
         </button>
       ))}
@@ -84,7 +84,7 @@ function ProgressBar({ value }: { value: number }) {
       <div className="flex-1 h-2 bg-gray-200 dark:bg-[#0E3D52]/60 rounded-full overflow-hidden">
         <div className={`h-2 rounded-full transition-all ${color}`} style={{ width: `${value}%` }} />
       </div>
-      <span className="text-xs text-gray-500 dark:text-gray-400 w-8 text-right">{value}%</span>
+      <span className="text-xs text-gray-500 dark:text-[#9BB0BC] w-8 text-right">{value}%</span>
     </div>
   )
 }
@@ -312,7 +312,7 @@ export default function PerformancePage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-foreground">Performance Management</h1>
-          <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">Probation check-ins, KPI reviews and performance plans</p>
+          <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Probation check-ins, KPI reviews and performance plans</p>
         </div>
         {tab === 'reviews' ? (
           <div className="flex items-center gap-2">
@@ -340,7 +340,7 @@ export default function PerformancePage() {
           { label: 'Probation',  value: stats.probation, color: 'text-amber-400' },
         ].map(s => (
           <div key={s.label} className="card-premium p-4">
-            <p className="text-xs text-gray-600 dark:text-gray-400">{s.label}</p>
+            <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">{s.label}</p>
             <p className={`text-2xl font-bold mt-1 ${s.color}`}>{s.value}</p>
           </div>
         ))}
@@ -351,7 +351,7 @@ export default function PerformancePage() {
         {(['reviews', 'goals'] as const).map(t => (
           <button key={t} onClick={() => setTab(t)}
             className={`px-5 py-2 rounded-lg text-sm font-medium transition capitalize ${
-              tab === t ? 'bg-white dark:bg-[#0F1E2E] text-white shadow-sm' : 'text-gray-500 dark:text-gray-400 hover:text-gray-300'
+              tab === t ? 'bg-white dark:bg-[#0F1E2E] text-white shadow-sm' : 'text-gray-500 dark:text-[#9BB0BC] hover:text-gray-300'
             }`}>
             {t === 'reviews' ? 'Reviews' : 'Goals'}
           </button>
@@ -367,20 +367,20 @@ export default function PerformancePage() {
               <h3 className="text-sm font-semibold text-[#4ebac4]">Schedule Review</h3>
               <div className="grid grid-cols-3 gap-3">
                 <div>
-                  <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Employee *</label>
+                  <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Employee *</label>
                   <select required value={form.employeeId} onChange={e => setForm(f => ({ ...f, employeeId: e.target.value }))} className={INPUT}>
                     <option value="">— Select —</option>
                     {employees.map(e => <option key={e.id} value={e.id}>{e.firstName} {e.lastName}</option>)}
                   </select>
                 </div>
                 <div>
-                  <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Review Type *</label>
+                  <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Review Type *</label>
                   <select required value={form.type} onChange={e => setForm(f => ({ ...f, type: e.target.value }))} className={INPUT}>
                     {REVIEW_TYPES.map(t => <option key={t.value} value={t.value}>{t.label}</option>)}
                   </select>
                 </div>
                 <div>
-                  <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Scheduled Date</label>
+                  <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Scheduled Date</label>
                   <input type="date" value={form.scheduledDate} onChange={e => setForm(f => ({ ...f, scheduledDate: e.target.value }))} className={INPUT} />
                 </div>
               </div>
@@ -413,14 +413,14 @@ export default function PerformancePage() {
                   ))}
                 </div>
                 <div>
-                  <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Overall Rating (override, 1–5)</label>
+                  <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Overall Rating (override, 1–5)</label>
                   <input type="number" min="1" max="5" step="0.1" value={editing.rating}
                     onChange={e => setEditing({ ...editing, rating: e.target.value })}
                     placeholder="Leave blank to auto-average KPIs"
                     className="w-32 bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
                 </div>
                 <div>
-                  <label className="text-xs text-gray-600 dark:text-gray-400 mb-2 block">Outcome</label>
+                  <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-2 block">Outcome</label>
                   <div className="flex gap-2 flex-wrap">
                     {OUTCOMES.map(o => (
                       <button key={o.value} type="button" onClick={() => setEditing({ ...editing, outcome: o.value })}
@@ -433,7 +433,7 @@ export default function PerformancePage() {
                   </div>
                 </div>
                 <div>
-                  <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Development Plan / Notes</label>
+                  <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Development Plan / Notes</label>
                   <textarea value={editing.plan} onChange={e => setEditing({ ...editing, plan: e.target.value })}
                     rows={3} placeholder="Goals, actions, training requirements…" className={INPUT} />
                 </div>
@@ -443,7 +443,7 @@ export default function PerformancePage() {
                     {saving ? 'Saving…' : 'Mark Complete'}
                   </button>
                   <button onClick={() => setEditing(null)}
-                    className="px-5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:text-white text-sm rounded-lg transition">
+                    className="px-5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#C8D8E4] hover:text-white text-sm rounded-lg transition">
                     Cancel
                   </button>
                 </div>
@@ -456,7 +456,7 @@ export default function PerformancePage() {
             <div className="modal-overlay overflow-y-auto">
               <div className="card-premium p-6 w-full max-w-xl space-y-4 my-4">
                 <h3 className="text-lg font-bold text-foreground">Employee Self-Assessment</h3>
-                <p className="text-xs text-gray-500 dark:text-gray-400">This input is shared with the reviewer ahead of the performance review.</p>
+                <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">This input is shared with the reviewer ahead of the performance review.</p>
                 {[
                   { key: 'strengths',    label: 'Key Strengths',           placeholder: 'What are you most proud of this period?' },
                   { key: 'improvements', label: 'Areas for Improvement',   placeholder: 'Where would you like to grow or develop?' },
@@ -464,7 +464,7 @@ export default function PerformancePage() {
                   { key: 'comments',     label: 'Additional Comments',     placeholder: 'Any other feedback for your manager…' },
                 ].map(({ key, label, placeholder }) => (
                   <div key={key}>
-                    <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">{label}</label>
+                    <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">{label}</label>
                     <textarea
                       value={(selfAssessForm as any)[key]}
                       onChange={e => setSelfAssessForm(f => ({ ...f, [key]: e.target.value }))}
@@ -477,7 +477,7 @@ export default function PerformancePage() {
                     {selfSaving ? 'Saving…' : 'Save Self-Assessment'}
                   </button>
                   <button onClick={() => setSelfAssessModal(null)}
-                    className="px-5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:text-white text-sm rounded-lg transition">
+                    className="px-5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#C8D8E4] hover:text-white text-sm rounded-lg transition">
                     Cancel
                   </button>
                 </div>
@@ -505,7 +505,7 @@ export default function PerformancePage() {
           </div>
 
           {/* Table */}
-          {loading ? <div className="text-gray-600 dark:text-gray-400 text-sm">Loading…</div> : reviews.length === 0 ? (
+          {loading ? <div className="text-gray-600 dark:text-[#9BB0BC] text-sm">Loading…</div> : reviews.length === 0 ? (
             <EmptyState
               icon="📊"
               title="No performance reviews"
@@ -519,7 +519,7 @@ export default function PerformancePage() {
                 <thead>
                   <tr>
                     {['Employee','Type','Status','Scheduled','Rating','Outcome','Actions'].map(h => (
-                      <th key={h} className="px-4 py-3 text-xs font-semibold  text-gray-600 dark:text-gray-400">{h}</th>
+                      <th key={h} className="px-4 py-3 text-xs font-semibold  text-gray-600 dark:text-[#9BB0BC]">{h}</th>
                     ))}
                   </tr>
                 </thead>
@@ -532,9 +532,9 @@ export default function PerformancePage() {
                         <tr key={r.id} className="border-b border-gray-200 dark:border-[#1A6080]/20/50 last:border-0 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/20 transition">
                           <td className="px-4 py-3.5">
                             <p className="text-foreground font-medium">{r.employeeFirstName} {r.employeeLastName}</p>
-                            <p className="text-gray-500 text-xs dark:text-gray-400">{r.employeeEmail}</p>
+                            <p className="text-gray-500 text-xs dark:text-[#8aaabb]">{r.employeeEmail}</p>
                           </td>
-                          <td className="px-4 py-3.5 text-gray-600 dark:text-gray-300 text-sm">
+                          <td className="px-4 py-3.5 text-gray-600 dark:text-[#C8D8E4] text-sm">
                             {REVIEW_TYPES.find(t => t.value === r.type)?.label ?? r.type}
                           </td>
                           <td className="px-4 py-3.5">
@@ -542,19 +542,19 @@ export default function PerformancePage() {
                               {r.status.charAt(0).toUpperCase() + r.status.slice(1)}
                             </span>
                           </td>
-                          <td className="px-4 py-3.5 text-gray-600 dark:text-gray-400 text-xs">
+                          <td className="px-4 py-3.5 text-gray-600 dark:text-[#9BB0BC] text-xs">
                             {r.scheduledDate ? new Date(r.scheduledDate).toLocaleDateString('en-AU', { day:'numeric', month:'short', year:'numeric' }) : '—'}
                           </td>
                           <td className="px-4 py-3.5">
                             {r.overallRating ? (
                               <div className="flex items-center gap-2">
                                 <span className="text-foreground font-semibold">{Number(r.overallRating).toFixed(1)}</span>
-                                <span className="text-xs text-gray-500 dark:text-gray-400">/5</span>
+                                <span className="text-xs text-gray-500 dark:text-[#9BB0BC]">/5</span>
                               </div>
                             ) : '—'}
                           </td>
                           <td className="px-4 py-3.5">
-                            {r.outcome ? <span className="text-xs text-gray-600 dark:text-gray-300">{OUTCOMES.find(o => o.value === r.outcome)?.label ?? r.outcome}</span> : '—'}
+                            {r.outcome ? <span className="text-xs text-gray-600 dark:text-[#C8D8E4]">{OUTCOMES.find(o => o.value === r.outcome)?.label ?? r.outcome}</span> : '—'}
                           </td>
                           <td className="px-4 py-3.5">
                             <div className="flex gap-2 flex-wrap">
@@ -646,40 +646,40 @@ export default function PerformancePage() {
               <h3 className="text-sm font-semibold text-[#4ebac4]">New Performance Goal</h3>
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Employee *</label>
+                  <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Employee *</label>
                   <select required value={goalForm.employeeId} onChange={e => setGoalForm(f => ({ ...f, employeeId: e.target.value }))} className={INPUT}>
                     <option value="">— Select —</option>
                     {employees.map(e => <option key={e.id} value={e.id}>{e.firstName} {e.lastName}</option>)}
                   </select>
                 </div>
                 <div>
-                  <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Title *</label>
+                  <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Title *</label>
                   <input required value={goalForm.title} onChange={e => setGoalForm(f => ({ ...f, title: e.target.value }))} placeholder="e.g. Complete advanced Excel training" className={INPUT} />
                 </div>
                 <div>
-                  <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Category</label>
+                  <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Category</label>
                   <select value={goalForm.category} onChange={e => setGoalForm(f => ({ ...f, category: e.target.value }))} className={INPUT}>
                     <option value="">— Select —</option>
                     {GOAL_CATEGORIES.map(c => <option key={c} value={c}>{c}</option>)}
                   </select>
                 </div>
                 <div>
-                  <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Target Date</label>
+                  <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Target Date</label>
                   <input type="date" value={goalForm.targetDate} onChange={e => setGoalForm(f => ({ ...f, targetDate: e.target.value }))} className={INPUT} />
                 </div>
                 <div className="col-span-2">
-                  <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Description</label>
+                  <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Description</label>
                   <textarea rows={2} value={goalForm.description} onChange={e => setGoalForm(f => ({ ...f, description: e.target.value }))} placeholder="Goal details and success criteria…" className={INPUT} />
                 </div>
                 <div>
-                  <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Linked Review (optional)</label>
+                  <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Linked Review (optional)</label>
                   <select value={goalForm.reviewId} onChange={e => setGoalForm(f => ({ ...f, reviewId: e.target.value }))} className={INPUT}>
                     <option value="">— None —</option>
                     {reviews.map(r => <option key={r.id} value={r.id}>{r.employeeFirstName} {r.employeeLastName} — {REVIEW_TYPES.find(t => t.value === r.type)?.label ?? r.type}</option>)}
                   </select>
                 </div>
                 <div>
-                  <label className="text-xs text-gray-600 dark:text-gray-400 mb-2 block">Initial Progress: {goalForm.progress}%</label>
+                  <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-2 block">Initial Progress: {goalForm.progress}%</label>
                   <input type="range" min={0} max={100} step={5} value={goalForm.progress}
                     onChange={e => setGoalForm(f => ({ ...f, progress: Number(e.target.value) }))}
                     className="w-full accent-[#0E3D52]" />
@@ -698,28 +698,28 @@ export default function PerformancePage() {
               <div className="card-premium p-6 w-full max-w-lg space-y-4 my-4">
                 <h3 className="text-lg font-bold text-foreground">Edit Goal</h3>
                 <div>
-                  <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Title</label>
+                  <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Title</label>
                   <input value={editingGoal.title} onChange={e => setEditingGoal({ ...editingGoal, title: e.target.value })} className={INPUT} />
                 </div>
                 <div>
-                  <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Description</label>
+                  <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Description</label>
                   <textarea rows={2} value={editingGoal.description ?? ''} onChange={e => setEditingGoal({ ...editingGoal, description: e.target.value })} className={INPUT} />
                 </div>
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Category</label>
+                    <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Category</label>
                     <select value={editingGoal.category ?? ''} onChange={e => setEditingGoal({ ...editingGoal, category: e.target.value })} className={INPUT}>
                       <option value="">— Select —</option>
                       {GOAL_CATEGORIES.map(c => <option key={c} value={c}>{c}</option>)}
                     </select>
                   </div>
                   <div>
-                    <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Target Date</label>
+                    <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Target Date</label>
                     <input type="date" value={editingGoal.targetDate ?? ''} onChange={e => setEditingGoal({ ...editingGoal, targetDate: e.target.value })} className={INPUT} />
                   </div>
                 </div>
                 <div>
-                  <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Status</label>
+                  <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Status</label>
                   <div className="flex gap-2 flex-wrap">
                     {GOAL_STATUSES.map(s => (
                       <button key={s.value} type="button" onClick={() => setEditingGoal({ ...editingGoal, status: s.value })}
@@ -730,24 +730,24 @@ export default function PerformancePage() {
                   </div>
                 </div>
                 <div>
-                  <label className="text-xs text-gray-600 dark:text-gray-400 mb-2 block">Progress: {editingGoal.progress}%</label>
+                  <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-2 block">Progress: {editingGoal.progress}%</label>
                   <input type="range" min={0} max={100} step={5} value={editingGoal.progress}
                     onChange={e => setEditingGoal({ ...editingGoal, progress: Number(e.target.value) })}
                     className="w-full accent-[#0E3D52]" />
                   <ProgressBar value={editingGoal.progress} />
                 </div>
                 <div>
-                  <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Self Rating (1–5)</label>
+                  <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Self Rating (1–5)</label>
                   <RatingButtons value={editingGoal.selfRating} onChange={n => setEditingGoal({ ...editingGoal, selfRating: n })} />
                   {editingGoal.selfRating && <p className="text-xs text-[#4ebac4] mt-1">{RATING_LABELS[editingGoal.selfRating]}</p>}
                 </div>
                 <div>
-                  <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Manager Rating (1–5)</label>
+                  <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Manager Rating (1–5)</label>
                   <RatingButtons value={editingGoal.managerRating} onChange={n => setEditingGoal({ ...editingGoal, managerRating: n })} color="bg-green-600" />
                   {editingGoal.managerRating && <p className="text-xs text-green-400 mt-1">{RATING_LABELS[editingGoal.managerRating]}</p>}
                 </div>
                 <div>
-                  <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Manager Note</label>
+                  <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Manager Note</label>
                   <textarea rows={2} value={editingGoal.managerNote ?? ''} onChange={e => setEditingGoal({ ...editingGoal, managerNote: e.target.value })}
                     placeholder="Feedback from manager…" className={INPUT} />
                 </div>
@@ -757,7 +757,7 @@ export default function PerformancePage() {
                     {goalSaving ? 'Saving…' : 'Save Changes'}
                   </button>
                   <button onClick={() => setEditingGoal(null)}
-                    className="px-5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:text-white text-sm rounded-lg transition">
+                    className="px-5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#C8D8E4] hover:text-white text-sm rounded-lg transition">
                     Cancel
                   </button>
                 </div>
@@ -781,7 +781,7 @@ export default function PerformancePage() {
           </div>
 
           {/* Goals list */}
-          {goalsLoading ? <div className="text-gray-600 dark:text-gray-400 text-sm">Loading…</div> : goals.length === 0 ? (
+          {goalsLoading ? <div className="text-gray-600 dark:text-[#9BB0BC] text-sm">Loading…</div> : goals.length === 0 ? (
             <EmptyState
               icon="🎯"
               title="No goals found"
@@ -803,7 +803,7 @@ export default function PerformancePage() {
                           <span className="text-xs px-2 py-0.5 rounded-full border border-[#1A6080]/30 text-gray-400">{g.category}</span>
                         )}
                       </div>
-                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{empName(g.employeeId)}</p>
+                      <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-0.5">{empName(g.employeeId)}</p>
                       {g.description && <p className="text-xs text-gray-400 mt-1">{g.description}</p>}
                     </div>
                     <div className="flex gap-2 shrink-0">
@@ -824,7 +824,7 @@ export default function PerformancePage() {
                   {/* Ratings + target date */}
                   <div className="flex items-center gap-4 flex-wrap text-xs">
                     {g.targetDate && (
-                      <span className="text-gray-500 dark:text-gray-400">
+                      <span className="text-gray-500 dark:text-[#9BB0BC]">
                         Target: {new Date(g.targetDate + 'T00:00:00').toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}
                       </span>
                     )}

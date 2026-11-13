@@ -82,13 +82,13 @@ export default function ClientIntegrationsPage() {
     setConfiguring(p.id)
   }
 
-  if (loading) return <div className="text-gray-600 dark:text-gray-400 text-sm p-6">Loading integrations…</div>
+  if (loading) return <div className="text-gray-600 dark:text-[#9BB0BC] text-sm p-6">Loading integrations…</div>
 
   return (
     <div className="space-y-6">
       <div>
         <h1 className="text-xl font-bold text-gray-900 dark:text-white">Payroll Integrations</h1>
-        <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">
+        <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">
           {tenantName} · <span className="text-[#0E3D52] dark:text-[#7dcfd7]">{country}</span> · {currency}
         </p>
       </div>
@@ -101,15 +101,15 @@ export default function ClientIntegrationsPage() {
 
       {providers.length === 0 && (
         <div className="bg-white dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl p-8 text-center">
-          <p className="text-gray-600 dark:text-gray-400 text-sm">No payroll providers are configured for country <strong className="text-gray-900 dark:text-white">{country}</strong>.</p>
-          <p className="text-gray-500 text-xs mt-1 dark:text-gray-400">Update the client country in their profile to see available integrations.</p>
+          <p className="text-gray-600 dark:text-[#9BB0BC] text-sm">No payroll providers are configured for country <strong className="text-gray-900 dark:text-white">{country}</strong>.</p>
+          <p className="text-gray-500 text-xs mt-1 dark:text-[#8aaabb]">Update the client country in their profile to see available integrations.</p>
         </div>
       )}
 
       {/* Connected */}
       {connectedProviders.length > 0 && (
         <div>
-          <h2 className="text-xs font-semibold text-gray-500  mb-3 dark:text-gray-400">Connected</h2>
+          <h2 className="text-xs font-semibold text-gray-500  mb-3 dark:text-[#8aaabb]">Connected</h2>
           <div className="space-y-3">
             {connectedProviders.map(p => {
               const cfg = integrations[p.id]
@@ -121,13 +121,13 @@ export default function ClientIntegrationsPage() {
                         style={{ background: p.color }}>{p.logo}</div>
                       <div>
                         <p className="text-sm font-semibold text-gray-900 dark:text-white">{p.name}</p>
-                        <p className="text-xs text-gray-600 dark:text-gray-400">{p.description}</p>
+                        <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">{p.description}</p>
                       </div>
                     </div>
                     <div className="flex gap-2 items-center">
                       <span className="text-xs px-2 py-0.5 rounded-full bg-green-50 dark:bg-green-100 dark:bg-green-900/40 border border-green-300 dark:border-green-700 text-green-700 dark:text-green-300">● Connected</span>
                       <button onClick={() => startConfig(p)}
-                        className="text-xs px-3 py-1.5 rounded border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:text-white transition">
+                        className="text-xs px-3 py-1.5 rounded border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:text-gray-900 dark:text-white transition">
                         Edit
                       </button>
                       <button onClick={() => disconnect(p)} disabled={saving === p.id}
@@ -138,12 +138,12 @@ export default function ClientIntegrationsPage() {
                   </div>
 
                   {cfg?.updatedAt && (
-                    <p className="text-xs text-gray-500 mt-2 dark:text-gray-400">Last updated: {new Date(cfg.updatedAt).toLocaleDateString('en-AU')}</p>
+                    <p className="text-xs text-gray-500 mt-2 dark:text-[#8aaabb]">Last updated: {new Date(cfg.updatedAt).toLocaleDateString('en-AU')}</p>
                   )}
 
                   <div className="mt-3 flex flex-wrap gap-1">
                     {p.features.map(f => (
-                      <span key={f} className="text-xs px-2 py-0.5 rounded bg-gray-100 dark:bg-[#0A1929] text-gray-600 dark:text-gray-300">{f}</span>
+                      <span key={f} className="text-xs px-2 py-0.5 rounded bg-gray-100 dark:bg-[#0A1929] text-gray-600 dark:text-[#C8D8E4]">{f}</span>
                     ))}
                   </div>
 
@@ -152,7 +152,7 @@ export default function ClientIntegrationsPage() {
                     <div className="mt-4 border-t border-gray-300 dark:border-[#1A6080]/30 pt-4 space-y-3">
                       {p.authType === 'api_key' && (
                         <div>
-                          <label className="block text-xs text-gray-600 dark:text-gray-400 mb-1">API Key</label>
+                          <label className="block text-xs text-gray-600 dark:text-[#9BB0BC] mb-1">API Key</label>
                           <input type="password" value={draft.apiKey ?? ''} onChange={e => setDraft(d => ({ ...d, apiKey: e.target.value }))}
                             placeholder="Enter API key…"
                             className="w-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
@@ -165,13 +165,13 @@ export default function ClientIntegrationsPage() {
                         </div>
                       )}
                       <div>
-                        <label className="block text-xs text-gray-600 dark:text-gray-400 mb-1">Organisation / Account ID</label>
+                        <label className="block text-xs text-gray-600 dark:text-[#9BB0BC] mb-1">Organisation / Account ID</label>
                         <input value={draft.orgId ?? ''} onChange={e => setDraft(d => ({ ...d, orgId: e.target.value }))}
                           placeholder="Org or account identifier"
                           className="w-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
                       </div>
                       <div>
-                        <label className="block text-xs text-gray-600 dark:text-gray-400 mb-1">Notes</label>
+                        <label className="block text-xs text-gray-600 dark:text-[#9BB0BC] mb-1">Notes</label>
                         <input value={draft.notes ?? ''} onChange={e => setDraft(d => ({ ...d, notes: e.target.value }))}
                           placeholder="Any setup notes…"
                           className="w-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
@@ -182,7 +182,7 @@ export default function ClientIntegrationsPage() {
                           {saving === p.id ? 'Saving…' : 'Save'}
                         </button>
                         <button onClick={() => setConfiguring(null)}
-                          className="px-4 py-2 text-xs border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:text-white rounded-lg">
+                          className="px-4 py-2 text-xs border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:text-gray-900 dark:text-white rounded-lg">
                           Cancel
                         </button>
                       </div>
@@ -198,7 +198,7 @@ export default function ClientIntegrationsPage() {
       {/* Available */}
       {otherProviders.length > 0 && (
         <div>
-          <h2 className="text-xs font-semibold text-gray-500  mb-3 dark:text-gray-400">
+          <h2 className="text-xs font-semibold text-gray-500  mb-3 dark:text-[#8aaabb]">
             Available for {country}
           </h2>
           <div className="space-y-3">
@@ -210,13 +210,13 @@ export default function ClientIntegrationsPage() {
                       style={{ background: p.color }}>{p.logo}</div>
                     <div>
                       <p className="text-sm font-semibold text-gray-900 dark:text-white">{p.name}</p>
-                      <p className="text-xs text-gray-600 dark:text-gray-400">{p.description}</p>
+                      <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">{p.description}</p>
                       <a href={p.website} target="_blank" rel="noopener noreferrer"
                         className="text-xs text-[#4ebac4] hover:text-[#0E3D52] dark:text-[#7dcfd7]">{p.website}</a>
                     </div>
                   </div>
                   <div className="flex gap-2 items-center">
-                    <span className="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400">
+                    <span className="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC]">
                       {p.authType === 'oauth2' ? 'OAuth2' : p.authType === 'api_key' ? 'API Key' : 'Manual'}
                     </span>
                     <button onClick={() => { startConfig(p) }}
@@ -229,7 +229,7 @@ export default function ClientIntegrationsPage() {
 
                 <div className="mt-3 flex flex-wrap gap-1">
                   {p.features.map(f => (
-                    <span key={f} className="text-xs px-2 py-0.5 rounded bg-gray-100 dark:bg-[#0A1929] text-gray-600 dark:text-gray-300">{f}</span>
+                    <span key={f} className="text-xs px-2 py-0.5 rounded bg-gray-100 dark:bg-[#0A1929] text-gray-600 dark:text-[#C8D8E4]">{f}</span>
                   ))}
                 </div>
 
@@ -237,11 +237,11 @@ export default function ClientIntegrationsPage() {
                   <div className="mt-4 border-t border-gray-300 dark:border-[#1A6080]/30 pt-4 space-y-3">
                     {p.authType === 'api_key' && (
                       <div>
-                        <label className="block text-xs text-gray-600 dark:text-gray-400 mb-1">API Key *</label>
+                        <label className="block text-xs text-gray-600 dark:text-[#9BB0BC] mb-1">API Key *</label>
                         <input type="password" value={draft.apiKey ?? ''} onChange={e => setDraft(d => ({ ...d, apiKey: e.target.value }))}
                           placeholder={`Enter your ${p.name} API key…`}
                           className="w-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
-                        <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">
+                        <p className="text-xs text-gray-500 mt-1 dark:text-[#8aaabb]">
                           Find your API key at{' '}
                           <a href={p.website} target="_blank" rel="noopener noreferrer" className="text-[#4ebac4] hover:text-[#0E3D52] dark:text-[#7dcfd7]">{p.website}</a>
                         </p>
@@ -260,13 +260,13 @@ export default function ClientIntegrationsPage() {
                       </div>
                     )}
                     <div>
-                      <label className="block text-xs text-gray-600 dark:text-gray-400 mb-1">Organisation / Account ID</label>
+                      <label className="block text-xs text-gray-600 dark:text-[#9BB0BC] mb-1">Organisation / Account ID</label>
                       <input value={draft.orgId ?? ''} onChange={e => setDraft(d => ({ ...d, orgId: e.target.value }))}
                         placeholder="Organisation or account identifier"
                         className="w-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
                     </div>
                     <div>
-                      <label className="block text-xs text-gray-600 dark:text-gray-400 mb-1">Notes</label>
+                      <label className="block text-xs text-gray-600 dark:text-[#9BB0BC] mb-1">Notes</label>
                       <input value={draft.notes ?? ''} onChange={e => setDraft(d => ({ ...d, notes: e.target.value }))}
                         placeholder="Setup notes, account manager name, etc."
                         className="w-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#0E3D52]" />
@@ -278,7 +278,7 @@ export default function ClientIntegrationsPage() {
                         {saving === p.id ? 'Connecting…' : `Connect ${p.name}`}
                       </button>
                       <button onClick={() => setConfiguring(null)}
-                        className="px-4 py-2 text-xs border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:text-white rounded-lg">
+                        className="px-4 py-2 text-xs border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:text-gray-900 dark:text-white rounded-lg">
                         Cancel
                       </button>
                     </div>

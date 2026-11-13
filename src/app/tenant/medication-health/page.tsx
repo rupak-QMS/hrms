@@ -144,7 +144,7 @@ const medStatusColor: Record<string, string> = {
   active:       'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300',
   paused:       'bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300',
   discontinued: 'bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300',
-  completed:    'bg-gray-100 text-gray-600 dark:bg-[#0E3D52]/60 dark:text-gray-400',
+  completed:    'bg-gray-100 text-gray-600 dark:bg-[#0E3D52]/60 dark:text-[#8aaabb]',
 }
 const outcomeColor: Record<string, string> = {
   given:   'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300',
@@ -162,7 +162,7 @@ const severityColor: Record<string, string> = {
 const apptStatusColor: Record<string, string> = {
   scheduled: 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/30 dark:text-[#7dcfd7]',
   completed: 'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300',
-  cancelled: 'bg-gray-100 text-gray-600 dark:bg-[#0E3D52]/60 dark:text-gray-400',
+  cancelled: 'bg-gray-100 text-gray-600 dark:bg-[#0E3D52]/60 dark:text-[#8aaabb]',
   missed:    'bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300',
 }
 
@@ -518,7 +518,7 @@ export default function MedicationHealthPage() {
             <button key={p.id} onClick={() => selectParticipant(p)}
               className={`w-full text-left px-4 py-3 border-b border-gray-100 dark:border-[#1A6080]/30 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors ${selected?.id === p.id ? 'bg-[#E0EEF4] dark:bg-[#0E3D52]/20 border-l-2 border-l-[#0E3D52]' : ''}`}>
               <p className="font-medium text-sm text-gray-900 dark:text-white">{displayName(p)}</p>
-              <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">{p.fundingBody}{p.ndisNumber ? ` · ${p.ndisNumber}` : ''}</p>
+              <p className="text-xs text-gray-400 dark:text-[#9BB0BC] mt-0.5">{p.fundingBody}{p.ndisNumber ? ` · ${p.ndisNumber}` : ''}</p>
             </button>
           ))}
         </div>
@@ -526,7 +526,7 @@ export default function MedicationHealthPage() {
 
       {/* ── Right: Detail panel ────────────────────────────────────────────── */}
       {!selected ? (
-        <div className="flex-1 flex items-center justify-center text-gray-400 dark:text-gray-500">
+        <div className="flex-1 flex items-center justify-center text-gray-400 dark:text-[#9BB0BC]">
           <div className="text-center">
             <div className="text-5xl mb-3">💊</div>
             <p className="text-lg font-medium">Select a participant</p>
@@ -559,7 +559,7 @@ export default function MedicationHealthPage() {
                   <button key={tab} onClick={() => changeTab(tab)}
                     className={`px-4 py-2 text-sm font-medium rounded-t-lg capitalize transition-colors ${activeTab === tab
                       ? 'bg-gray-50 dark:bg-[#0F1E2E] border border-b-0 border-gray-200 dark:border-[#1A6080]/30 text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4]'
-                      : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'}`}>
+                      : 'text-gray-500 dark:text-[#9BB0BC] hover:text-gray-700 dark:hover:text-gray-300'}`}>
                     {tab === 'medications' ? '💊 Medications' : tab === 'conditions' ? '🩺 Conditions' : '📅 Appointments'}
                   </button>
                 ))}
@@ -568,7 +568,7 @@ export default function MedicationHealthPage() {
 
             {logsFor && (
               <div className="mt-3 flex items-center gap-3">
-                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                <span className="text-sm font-medium text-gray-700 dark:text-[#C8D8E4]">
                   Admin log — {logsFor.medicationName} {logsFor.dosage || ''}
                 </span>
                 <span className={`text-xs px-2 py-0.5 rounded-full ${medStatusColor[logsFor.status] || ''}`}>
@@ -600,11 +600,11 @@ export default function MedicationHealthPage() {
                         </span>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-3 text-sm">
-                            <span className="text-gray-600 dark:text-gray-400">Scheduled: <strong className="text-gray-900 dark:text-white">{fmtDateTime(log.scheduledTime)}</strong></span>
+                            <span className="text-gray-600 dark:text-[#9BB0BC]">Scheduled: <strong className="text-gray-900 dark:text-white">{fmtDateTime(log.scheduledTime)}</strong></span>
                             {log.administeredAt && <span className="text-gray-400">Given: {fmtDateTime(log.administeredAt)}</span>}
                           </div>
                           {log.administeredBy && <p className="text-xs text-gray-400 mt-0.5">By: {log.administeredBy}</p>}
-                          {log.notes && <p className="text-sm text-gray-600 dark:text-gray-400 mt-1 italic">{log.notes}</p>}
+                          {log.notes && <p className="text-sm text-gray-600 dark:text-[#9BB0BC] mt-1 italic">{log.notes}</p>}
                         </div>
                       </div>
                     ))}
@@ -634,9 +634,9 @@ export default function MedicationHealthPage() {
                           <div>
                             <div className="flex items-center gap-2">
                               <p className="font-semibold text-gray-900 dark:text-white">{m.medicationName}</p>
-                              {m.dosage && <span className="text-sm text-gray-500 dark:text-gray-400">{m.dosage}</span>}
+                              {m.dosage && <span className="text-sm text-gray-500 dark:text-[#9BB0BC]">{m.dosage}</span>}
                             </div>
-                            {m.genericName && <p className="text-xs text-gray-400 dark:text-gray-500">({m.genericName})</p>}
+                            {m.genericName && <p className="text-xs text-gray-400 dark:text-[#9BB0BC]">({m.genericName})</p>}
                           </div>
                           <div className="flex items-center gap-2 flex-shrink-0">
                             <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${medStatusColor[m.status] || ''}`}>
@@ -656,9 +656,9 @@ export default function MedicationHealthPage() {
                           {m.requiresAssist && <Tag color="blue">Requires Assist</Tag>}
                           {m.refrigerated && <Tag color="blue">Refrigerated</Tag>}
                         </div>
-                        {m.indication && <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">Indication: {m.indication}</p>}
-                        {m.instructions && <p className="text-xs text-gray-600 dark:text-gray-400 mt-1 italic">{m.instructions}</p>}
-                        {m.prescribedBy && <p className="text-xs text-gray-400 dark:text-gray-500 mt-1">Prescribed by: {m.prescribedBy}</p>}
+                        {m.indication && <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-2">Indication: {m.indication}</p>}
+                        {m.instructions && <p className="text-xs text-gray-600 dark:text-[#9BB0BC] mt-1 italic">{m.instructions}</p>}
+                        {m.prescribedBy && <p className="text-xs text-gray-400 dark:text-[#9BB0BC] mt-1">Prescribed by: {m.prescribedBy}</p>}
                         <div className="flex items-center justify-between mt-3">
                           <div className="flex gap-4 text-xs text-gray-400">
                             {m.startDate && <span>Start: {fmtDate(m.startDate)}</span>}
@@ -703,7 +703,7 @@ export default function MedicationHealthPage() {
                           <div>
                             <p className="font-semibold text-gray-900 dark:text-white">{c.conditionName}</p>
                             <div className="flex items-center gap-2 mt-0.5">
-                              <span className="text-xs text-gray-500 dark:text-gray-400">{CONDITION_TYPE_LABELS[c.conditionType] || c.conditionType}</span>
+                              <span className="text-xs text-gray-500 dark:text-[#9BB0BC]">{CONDITION_TYPE_LABELS[c.conditionType] || c.conditionType}</span>
                               {c.icdCode && <span className="text-xs text-gray-400">ICD: {c.icdCode}</span>}
                             </div>
                           </div>
@@ -713,7 +713,7 @@ export default function MedicationHealthPage() {
                             </span>
                             <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${
                               c.status === 'active' ? 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/30 dark:text-[#7dcfd7]'
-                              : 'bg-gray-100 text-gray-600 dark:bg-[#0E3D52]/60 dark:text-gray-400'}`}>
+                              : 'bg-gray-100 text-gray-600 dark:bg-[#0E3D52]/60 dark:text-[#8aaabb]'}`}>
                               {CONDITION_STATUS_LABELS[c.status] || c.status}
                             </span>
                             <button onClick={() => openEditCond(c)} className="opacity-0 group-hover:opacity-100 text-xs px-2 py-1 text-[#0E3D52] dark:text-[#4ebac4] dark:text-[#4ebac4] hover:bg-[#E0EEF4] dark:hover:bg-[#0E3D52]/30 rounded transition">Edit</button>
@@ -723,11 +723,11 @@ export default function MedicationHealthPage() {
                             </button>
                           </div>
                         </div>
-                        {c.description && <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">{c.description}</p>}
+                        {c.description && <p className="text-sm text-gray-600 dark:text-[#9BB0BC] mt-2">{c.description}</p>}
                         {c.managementPlan && (
                           <div className="mt-2 p-2 bg-gray-50 dark:bg-[#0E3D52]/60 rounded-lg">
-                            <p className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-1">Management Plan</p>
-                            <p className="text-sm text-gray-700 dark:text-gray-300">{c.managementPlan}</p>
+                            <p className="text-xs font-medium text-gray-500 dark:text-[#9BB0BC] mb-1">Management Plan</p>
+                            <p className="text-sm text-gray-700 dark:text-[#C8D8E4]">{c.managementPlan}</p>
                           </div>
                         )}
                         <div className="flex gap-4 mt-2 text-xs text-gray-400">
@@ -764,12 +764,12 @@ export default function MedicationHealthPage() {
                               <p className="font-semibold text-gray-900 dark:text-white">
                                 {APPT_TYPE_LABELS[a.appointmentType] || a.appointmentType}
                               </p>
-                              <span className="text-sm text-gray-500 dark:text-gray-400 font-normal">
+                              <span className="text-sm text-gray-500 dark:text-[#9BB0BC] font-normal">
                                 {fmtDate(a.appointmentDate)}{a.appointmentTime ? ` at ${a.appointmentTime}` : ''}
                               </span>
                             </div>
                             {(a.providerName || a.providerOrg) && (
-                              <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">
+                              <p className="text-xs text-gray-400 dark:text-[#9BB0BC] mt-0.5">
                                 {a.providerName}{a.providerOrg ? ` — ${a.providerOrg}` : ''}
                               </p>
                             )}
@@ -790,7 +790,7 @@ export default function MedicationHealthPage() {
                           {a.requiresTransport && <Tag color="orange">Transport Needed</Tag>}
                           {a.supportWorkerNeeded && <Tag color="purple">Support Worker</Tag>}
                         </div>
-                        {a.purpose && <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">{a.purpose}</p>}
+                        {a.purpose && <p className="text-sm text-gray-600 dark:text-[#9BB0BC] mt-2">{a.purpose}</p>}
                         {a.outcome && (
                           <div className="mt-2 p-2 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
                             <p className="text-xs font-medium text-green-700 dark:text-green-300 mb-0.5">Outcome</p>
@@ -1036,7 +1036,7 @@ export default function MedicationHealthPage() {
 
 function Tag({ children, color = 'gray' }: { children: React.ReactNode; color?: 'gray' | 'blue' | 'orange' | 'purple' }) {
   const colors: Record<string, string> = {
-    gray:   'bg-gray-100 text-gray-600 dark:bg-[#0E3D52]/60 dark:text-gray-300',
+    gray:   'bg-gray-100 text-gray-600 dark:bg-[#0E3D52]/60 dark:text-[#C8D8E4]',
     blue:   'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/30 dark:text-[#7dcfd7]',
     orange: 'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-300',
     purple: 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52] dark:text-[#4ebac4]',
@@ -1057,7 +1057,7 @@ function Empty({ label }: { label: string }) {
 }
 
 function Label({ children }: { children: React.ReactNode }) {
-  return <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">{children}</label>
+  return <label className="block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1">{children}</label>
 }
 
 function Input({ value, onChange, type = 'text', placeholder }: {
@@ -1089,7 +1089,7 @@ function Checkbox({ label, checked, onChange }: { label: string; checked: boolea
   return (
     <label className="flex items-center gap-2 cursor-pointer">
       <input type="checkbox" checked={checked} onChange={e => onChange(e.target.checked)} className="w-4 h-4 text-[#0E3D52] dark:text-[#4ebac4] rounded" />
-      <span className="text-sm text-gray-700 dark:text-gray-300">{label}</span>
+      <span className="text-sm text-gray-700 dark:text-[#C8D8E4]">{label}</span>
     </label>
   )
 }
@@ -1108,7 +1108,7 @@ function Modal({ title, onClose, onSave, saving, error, children, wide }: {
         <div className="flex-1 overflow-y-auto px-6 py-4">{children}</div>
         {error && <p className="px-6 text-sm text-red-600 dark:text-red-400 pb-2">{error}</p>}
         <div className="flex justify-end gap-3 px-6 py-4 border-t border-gray-200 dark:border-[#1A6080]/30">
-          <button onClick={onClose} className="px-4 py-2 text-sm border border-gray-300 dark:border-[#1A6080]/40 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors">
+          <button onClick={onClose} className="px-4 py-2 text-sm border border-gray-300 dark:border-[#1A6080]/40 text-gray-700 dark:text-[#C8D8E4] rounded-lg hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors">
             Cancel
           </button>
           <button onClick={onSave} disabled={saving}

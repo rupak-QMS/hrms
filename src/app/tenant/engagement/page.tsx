@@ -142,18 +142,18 @@ export default function EngagementPage() {
       </div>
       <div className="grid grid-cols-2 gap-3">
         <div className="col-span-2">
-          <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Survey Title *</label>
+          <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Survey Title *</label>
           <input required value={form.title} onChange={e => setForm(f => ({ ...f, title: e.target.value }))} className={INPUT} />
         </div>
         <div>
-          <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Type</label>
+          <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Type</label>
           <select value={form.type} onChange={e => setForm(f => ({ ...f, type: e.target.value }))} className={INPUT}>
             {SURVEY_TYPES.map(t => <option key={t.value} value={t.value}>{t.label}</option>)}
           </select>
         </div>
         <label className="flex items-center gap-2 cursor-pointer pt-5">
           <input type="checkbox" checked={form.isAnonymous} onChange={e => setForm(f => ({ ...f, isAnonymous: e.target.checked }))} className="accent-[#0E3D52] w-4 h-4" />
-          <span className="text-sm text-gray-600 dark:text-gray-300">Anonymous responses</span>
+          <span className="text-sm text-gray-600 dark:text-[#C8D8E4]">Anonymous responses</span>
         </label>
       </div>
       <button type="submit" disabled={saving}
@@ -168,7 +168,7 @@ export default function EngagementPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-foreground">Employee Voice &amp; Surveys</h1>
-          <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">Create surveys, collect responses, and track engagement</p>
+          <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Create surveys, collect responses, and track engagement</p>
         </div>
         <div className="flex items-center gap-2">
           <ExportButton onClick={doExport} disabled={filtered.length === 0} />
@@ -204,7 +204,7 @@ export default function EngagementPage() {
       )}
 
       {loading ? (
-        <p className="text-gray-600 dark:text-gray-400 text-sm">Loading…</p>
+        <p className="text-gray-600 dark:text-[#9BB0BC] text-sm">Loading…</p>
       ) : surveys.length === 0 ? (
         <div className="card-premium">
           <EmptyState icon="📋" title="No surveys yet"
@@ -222,9 +222,9 @@ export default function EngagementPage() {
               <div className="flex items-start justify-between gap-2 mb-2">
                 <div>
                   <p className="text-foreground font-medium">{s.title}</p>
-                  <p className="text-xs text-gray-500 mt-0.5 dark:text-gray-400">
+                  <p className="text-xs text-gray-500 mt-0.5 dark:text-[#8aaabb]">
                     {typeLabel(s.type)}{s.isAnonymous && ' · Anonymous'}
-                    <span className="ml-2 text-gray-600 dark:text-gray-500">{new Date(s.createdAt).toLocaleDateString('en-AU')}</span>
+                    <span className="ml-2 text-gray-600 dark:text-[#9BB0BC]">{new Date(s.createdAt).toLocaleDateString('en-AU')}</span>
                   </p>
                 </div>
                 <span className={`text-xs px-2 py-0.5 rounded-full border shrink-0 ${s.isActive ? 'badge badge-green' : 'badge badge-gray'}`}>
@@ -238,12 +238,12 @@ export default function EngagementPage() {
                 </button>
                 {s.isActive && (
                   <button onClick={() => { setSelected(s); setShowResp(true) }}
-                    className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:border-[#0E3D52] px-3 py-1.5 rounded transition">
+                    className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#C8D8E4] hover:border-[#0E3D52] px-3 py-1.5 rounded transition">
                     + Record Response
                   </button>
                 )}
                 <button onClick={() => toggleActive(s.id, !s.isActive)}
-                  className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:border-[#1A6080]/40 px-3 py-1.5 rounded transition">
+                  className="text-xs bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:border-[#1A6080]/40 px-3 py-1.5 rounded transition">
                   {s.isActive ? 'Close' : 'Reopen'}
                 </button>
                 <button onClick={() => openEdit(s)}
@@ -269,7 +269,7 @@ export default function EngagementPage() {
           </div>
           {!selected.isAnonymous && (
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Employee</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Employee</label>
               <select value={respForm.employeeId} onChange={e => setRespForm(f => ({ ...f, employeeId: e.target.value }))} className={INPUT}>
                 <option value="">— Select —</option>
                 {employees.map(e => <option key={e.id} value={e.id}>{e.firstName} {e.lastName}</option>)}
@@ -277,7 +277,7 @@ export default function EngagementPage() {
             </div>
           )}
           <div>
-            <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Feedback / Response</label>
+            <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Feedback / Response</label>
             <textarea required value={respForm.freeText} onChange={e => setRespForm(f => ({ ...f, freeText: e.target.value }))}
               rows={4} placeholder="Employee feedback…" className={INPUT} />
           </div>
@@ -292,7 +292,7 @@ export default function EngagementPage() {
       {selected && responses.length > 0 && !showResp && (
         <div className="card-premium p-5">
           <div className="flex items-center justify-between mb-3">
-            <p className="text-sm font-semibold text-gray-600 dark:text-gray-300">Responses — {selected.title} ({responses.length})</p>
+            <p className="text-sm font-semibold text-gray-600 dark:text-[#C8D8E4]">Responses — {selected.title} ({responses.length})</p>
             <ExportButton label="Export Responses" onClick={() => exportCsv({
               filename: `responses-${selected.title.replace(/\s+/g,'-').toLowerCase()}`,
               columns: [
@@ -306,11 +306,11 @@ export default function EngagementPage() {
           <div className="space-y-3 max-h-80 overflow-y-auto">
             {responses.map(r => (
               <div key={r.id} className="bg-gray-100 dark:bg-[#0A1929]/50 rounded-lg p-3">
-                <p className="text-xs text-gray-500 mb-1 dark:text-gray-400">
+                <p className="text-xs text-gray-500 mb-1 dark:text-[#8aaabb]">
                   {selected.isAnonymous ? 'Anonymous' : `${r.employeeFirstName} ${r.employeeLastName}`}
                   <span className="ml-2">{new Date(r.submittedAt).toLocaleDateString('en-AU')}</span>
                 </p>
-                <p className="text-sm text-gray-600 dark:text-gray-300">
+                <p className="text-sm text-gray-600 dark:text-[#C8D8E4]">
                   {typeof r.answers === 'object' && r.answers !== null && 'feedback' in (r.answers as object)
                     ? (r.answers as {feedback: string}).feedback
                     : JSON.stringify(r.answers)}

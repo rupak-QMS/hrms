@@ -119,12 +119,12 @@ export default function DEIPage() {
         <p className="text-sm font-semibold text-[#4ebac4]">{isEdit ? 'Edit DEI Record' : 'Add DEI Data'}</p>
         <button type="button" onClick={() => { setShowForm(false); setEditRecord(null); setForm(BLANK_FORM) }} className="text-xs text-gray-500 hover:text-gray-300">✕ Cancel</button>
       </div>
-      <p className="text-xs text-gray-500 bg-gray-100 dark:bg-[#0A1929] rounded-lg p-3 dark:text-gray-400">
+      <p className="text-xs text-gray-500 bg-gray-100 dark:bg-[#0A1929] rounded-lg p-3 dark:text-[#8aaabb]">
         This information is self-reported and confidential. It is used only for aggregate reporting to support DEI initiatives.
       </p>
       {!isEdit && (
         <div>
-          <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Employee *</label>
+          <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Employee *</label>
           <select required value={form.employeeId} onChange={e => setForm(f => ({ ...f, employeeId: e.target.value }))} className={INPUT}>
             <option value="">— Select —</option>
             {employees.map(e => <option key={e.id} value={e.id}>{e.firstName} {e.lastName}</option>)}
@@ -133,14 +133,14 @@ export default function DEIPage() {
       )}
       <div className="grid grid-cols-2 gap-3">
         <div>
-          <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Gender Identity</label>
+          <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Gender Identity</label>
           <select value={form.gender} onChange={e => setForm(f => ({ ...f, gender: e.target.value }))} className={INPUT}>
             <option value="">Prefer not to say</option>
             {['Man','Woman','Non-binary','Gender diverse','Self-describe'].map(g => <option key={g} value={g}>{g}</option>)}
           </select>
         </div>
         <div>
-          <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Cultural Background</label>
+          <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Cultural Background</label>
           <input value={form.culturalBackground} onChange={e => setForm(f => ({ ...f, culturalBackground: e.target.value }))}
             placeholder="e.g. Australian, Vietnamese…" className={INPUT} />
         </div>
@@ -149,16 +149,16 @@ export default function DEIPage() {
         <label className="flex items-center gap-2 cursor-pointer">
           <input type="checkbox" checked={form.indigenousStatus ?? false}
             onChange={e => setForm(f => ({ ...f, indigenousStatus: e.target.checked }))} className="accent-[#0E3D52] w-4 h-4" />
-          <span className="text-sm text-gray-600 dark:text-gray-300">Aboriginal or Torres Strait Islander</span>
+          <span className="text-sm text-gray-600 dark:text-[#C8D8E4]">Aboriginal or Torres Strait Islander</span>
         </label>
         <label className="flex items-center gap-2 cursor-pointer">
           <input type="checkbox" checked={form.disabilityStatus ?? false}
             onChange={e => setForm(f => ({ ...f, disabilityStatus: e.target.checked }))} className="accent-[#0E3D52] w-4 h-4" />
-          <span className="text-sm text-gray-600 dark:text-gray-300">Living with a disability</span>
+          <span className="text-sm text-gray-600 dark:text-[#C8D8E4]">Living with a disability</span>
         </label>
       </div>
       <div>
-        <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Workplace Adjustments Required</label>
+        <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Workplace Adjustments Required</label>
         <textarea value={form.adjustmentsRequired} onChange={e => setForm(f => ({ ...f, adjustmentsRequired: e.target.value }))}
           rows={2} placeholder="e.g. Ergonomic chair, screen reader, flexible hours…" className={INPUT} />
       </div>
@@ -174,7 +174,7 @@ export default function DEIPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-foreground">Diversity, Equity &amp; Inclusion</h1>
-          <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">Self-reported diversity data to support equity and inclusion initiatives</p>
+          <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Self-reported diversity data to support equity and inclusion initiatives</p>
         </div>
         <div className="flex items-center gap-2">
           <ExportButton onClick={doExport} disabled={filtered.length === 0} />
@@ -188,21 +188,21 @@ export default function DEIPage() {
       {/* Summary cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
         <div className="card-premium p-4">
-          <p className="text-xs text-gray-600 dark:text-gray-400">Records</p>
+          <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">Records</p>
           <p className="text-2xl font-bold text-white mt-1">{summary.total}</p>
         </div>
         <div className="card-premium p-4">
-          <p className="text-xs text-gray-600 dark:text-gray-400">Indigenous / TSI</p>
+          <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">Indigenous / TSI</p>
           <p className="text-2xl font-bold text-amber-400 mt-1">{summary.indigenous}</p>
-          <p className="text-xs text-gray-500 mt-0.5 dark:text-gray-400">{pct(summary.indigenous)} of workforce</p>
+          <p className="text-xs text-gray-500 mt-0.5 dark:text-[#8aaabb]">{pct(summary.indigenous)} of workforce</p>
         </div>
         <div className="card-premium p-4">
-          <p className="text-xs text-gray-600 dark:text-gray-400">Disability</p>
+          <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">Disability</p>
           <p className="text-2xl font-bold text-[#4ebac4] mt-1">{summary.disability}</p>
-          <p className="text-xs text-gray-500 mt-0.5 dark:text-gray-400">{pct(summary.disability)} of workforce</p>
+          <p className="text-xs text-gray-500 mt-0.5 dark:text-[#8aaabb]">{pct(summary.disability)} of workforce</p>
         </div>
         <div className="card-premium p-4">
-          <p className="text-xs text-gray-600 dark:text-gray-400">Need Adjustments</p>
+          <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">Need Adjustments</p>
           <p className="text-2xl font-bold text-[#1A6080] dark:text-[#4ebac4] mt-1">{summary.adjustments}</p>
         </div>
       </div>
@@ -210,12 +210,12 @@ export default function DEIPage() {
       {/* Gender breakdown */}
       {Object.keys(summary.byGender).length > 0 && (
         <div className="card-premium p-4">
-          <p className="text-xs font-semibold text-gray-500  mb-3 dark:text-gray-400">Gender</p>
+          <p className="text-xs font-semibold text-gray-500  mb-3 dark:text-[#8aaabb]">Gender</p>
           <div className="flex flex-wrap gap-3">
             {Object.entries(summary.byGender).map(([g, n]) => (
               <div key={g} className="bg-gray-100 dark:bg-[#0A1929] rounded-lg px-4 py-2">
-                <p className="text-gray-600 dark:text-gray-300 text-sm font-medium">{g}</p>
-                <p className="text-white text-lg font-bold">{n} <span className="text-xs text-gray-500 dark:text-gray-400">{pct(n)}</span></p>
+                <p className="text-gray-600 dark:text-[#C8D8E4] text-sm font-medium">{g}</p>
+                <p className="text-white text-lg font-bold">{n} <span className="text-xs text-gray-500 dark:text-[#9BB0BC]">{pct(n)}</span></p>
               </div>
             ))}
           </div>
@@ -250,7 +250,7 @@ export default function DEIPage() {
       )}
 
       {loading ? (
-        <p className="text-gray-600 dark:text-gray-400 text-sm">Loading…</p>
+        <p className="text-gray-600 dark:text-[#9BB0BC] text-sm">Loading…</p>
       ) : records.length === 0 ? (
         <div className="card-premium">
           <EmptyState icon="🌏" title="No DEI data on record"
@@ -275,12 +275,12 @@ export default function DEIPage() {
               <tbody className="divide-y divide-gray-200 dark:divide-[#1A6080]/20/60">
                 {filtered.map(r => (
                   <tr key={r.id} className="hover:bg-gray-100 dark:hover:bg-[#0E3D52]/30/30 group">
-                    <td className="px-4 py-3 text-gray-700 dark:text-gray-200">{r.employeeFirstName} {r.employeeLastName}</td>
-                    <td className="px-4 py-3 text-gray-600 dark:text-gray-400">{r.gender ?? '—'}</td>
-                    <td className="px-4 py-3 text-gray-600 dark:text-gray-400 text-xs">{r.culturalBackground ?? '—'}</td>
-                    <td className="px-4 py-3">{r.indigenousStatus ? <span className="text-amber-400">Yes</span> : <span className="text-gray-600 dark:text-gray-400">—</span>}</td>
-                    <td className="px-4 py-3">{r.disabilityStatus ? <span className="text-[#4ebac4]">Yes</span> : <span className="text-gray-600 dark:text-gray-400">—</span>}</td>
-                    <td className="px-4 py-3 text-gray-600 dark:text-gray-400 text-xs max-w-xs truncate">{r.adjustmentsRequired ?? '—'}</td>
+                    <td className="px-4 py-3 text-gray-700 dark:text-[#C8D8E4]">{r.employeeFirstName} {r.employeeLastName}</td>
+                    <td className="px-4 py-3 text-gray-600 dark:text-[#9BB0BC]">{r.gender ?? '—'}</td>
+                    <td className="px-4 py-3 text-gray-600 dark:text-[#9BB0BC] text-xs">{r.culturalBackground ?? '—'}</td>
+                    <td className="px-4 py-3">{r.indigenousStatus ? <span className="text-amber-400">Yes</span> : <span className="text-gray-600 dark:text-[#9BB0BC]">—</span>}</td>
+                    <td className="px-4 py-3">{r.disabilityStatus ? <span className="text-[#4ebac4]">Yes</span> : <span className="text-gray-600 dark:text-[#9BB0BC]">—</span>}</td>
+                    <td className="px-4 py-3 text-gray-600 dark:text-[#9BB0BC] text-xs max-w-xs truncate">{r.adjustmentsRequired ?? '—'}</td>
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                         <button onClick={() => openEdit(r)}
@@ -295,7 +295,7 @@ export default function DEIPage() {
             </table>
           </div>
           {filtered.length < records.length && (
-            <p className="text-xs text-gray-500 dark:text-gray-400 px-4 py-2">{filtered.length} of {records.length} records shown</p>
+            <p className="text-xs text-gray-500 dark:text-[#9BB0BC] px-4 py-2">{filtered.length} of {records.length} records shown</p>
           )}
         </div>
       )}

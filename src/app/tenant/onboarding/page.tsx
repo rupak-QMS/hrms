@@ -153,7 +153,7 @@ export default function OnboardingPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-foreground">Onboarding & Induction</h1>
-          <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">Track new employee onboarding progress across all stages</p>
+          <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Track new employee onboarding progress across all stages</p>
         </div>
         <div className="flex items-center gap-2">
           <ExportButton onClick={exportOnboarding} disabled={records.length === 0} />
@@ -177,7 +177,7 @@ export default function OnboardingPage() {
             className={`card-premium p-5 text-left transition hover:border-[#1A6080] ${
               filterStatus === s.fs && tab === 'Pipeline' ? 'border-[#0E3D52]' : 'border-gray-200 dark:border-[#1A6080]/20'
             }`}>
-            <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">{s.label}</p>
+            <p className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1">{s.label}</p>
             <p className={`text-3xl font-bold ${s.color}`}>{s.value}</p>
           </button>
         ))}
@@ -190,7 +190,7 @@ export default function OnboardingPage() {
             className={`px-4 py-2.5 text-sm font-medium border-b-2 -mb-px transition ${
               tab === t
                 ? 'border-[#0E3D52] text-[#1A6080] dark:text-[#4ebac4]'
-                : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'
+                : 'border-transparent text-gray-500 dark:text-[#9BB0BC] hover:text-gray-700 dark:hover:text-gray-200'
             }`}>
             {t}
           </button>
@@ -204,28 +204,28 @@ export default function OnboardingPage() {
           {/* Metric row */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="card-premium p-5">
-              <p className="text-xs text-gray-500 dark:text-gray-400  font-semibold mb-1">Active Onboardings</p>
+              <p className="text-xs text-gray-500 dark:text-[#9BB0BC]  font-semibold mb-1">Active Onboardings</p>
               <p className="text-3xl font-bold text-[#4ebac4]">{stats.pending + stats.in_progress}</p>
-              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{stats.pending} pending · {stats.in_progress} in progress</p>
+              <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-1">{stats.pending} pending · {stats.in_progress} in progress</p>
             </div>
             <div className="card-premium p-5">
-              <p className="text-xs text-gray-500 dark:text-gray-400  font-semibold mb-1">Avg. Days to Complete</p>
+              <p className="text-xs text-gray-500 dark:text-[#9BB0BC]  font-semibold mb-1">Avg. Days to Complete</p>
               <p className="text-3xl font-bold text-[#1A6080] dark:text-[#4ebac4]">{avgDays !== null ? avgDays : '—'}</p>
-              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Based on {stats.completed} completed</p>
+              <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-1">Based on {stats.completed} completed</p>
             </div>
             <div className="card-premium p-5">
-              <p className="text-xs text-gray-500 dark:text-gray-400  font-semibold mb-1">Completion Rate</p>
+              <p className="text-xs text-gray-500 dark:text-[#9BB0BC]  font-semibold mb-1">Completion Rate</p>
               <p className="text-3xl font-bold text-green-400">
                 {stats.total ? Math.round((stats.completed / stats.total) * 100) : 0}%
               </p>
-              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{stats.completed} of {stats.total} fully onboarded</p>
+              <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-1">{stats.completed} of {stats.total} fully onboarded</p>
             </div>
           </div>
 
           {/* Stage funnel */}
           {Object.keys(stageBreakdown).length > 0 && (
             <div className="card-premium p-5">
-              <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-4">Pipeline by Stage</h3>
+              <h3 className="text-sm font-semibold text-gray-700 dark:text-[#C8D8E4] mb-4">Pipeline by Stage</h3>
               <div className="space-y-3">
                 {STAGES.map(s => {
                   const count = stageBreakdown[s.value] ?? 0
@@ -233,8 +233,8 @@ export default function OnboardingPage() {
                   return (
                     <div key={s.value}>
                       <div className="flex justify-between text-xs mb-1">
-                        <span className="text-gray-600 dark:text-gray-300">{s.label}</span>
-                        <span className="text-gray-500 dark:text-gray-400">{count} ({pct}%)</span>
+                        <span className="text-gray-600 dark:text-[#C8D8E4]">{s.label}</span>
+                        <span className="text-gray-500 dark:text-[#9BB0BC]">{count} ({pct}%)</span>
                       </div>
                       <div className="h-2 bg-gray-100 dark:bg-[#0A1929] rounded-full">
                         <div className={`h-2 rounded-full transition-all ${s.color}`} style={{ width: `${pct}%` }} />
@@ -278,7 +278,7 @@ export default function OnboardingPage() {
           {recentCompletions.length > 0 && (
             <div className="card-premium overflow-hidden">
               <div className="px-5 py-4 border-b border-gray-200 dark:border-[#1A6080]/20">
-                <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-200">Recent Completions</h3>
+                <h3 className="text-sm font-semibold text-gray-700 dark:text-[#C8D8E4]">Recent Completions</h3>
               </div>
               <ul className="divide-y divide-gray-100 dark:divide-[#1A6080]/20">
                 {recentCompletions.map(r => (
@@ -289,12 +289,12 @@ export default function OnboardingPage() {
                       </div>
                       <div>
                         <p className="text-sm font-medium text-gray-900 dark:text-white">{r.employeeFirstName} {r.employeeLastName}</p>
-                        <p className="text-xs text-gray-500 dark:text-gray-400">{r.employeeEmail}</p>
+                        <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{r.employeeEmail}</p>
                       </div>
                     </div>
                     <div className="text-right">
                       <p className="text-xs text-green-400 font-medium">✓ Completed</p>
-                      <p className="text-xs text-gray-500 dark:text-gray-400">
+                      <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">
                         {r.completedAt ? new Date(r.completedAt).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' }) : ''}
                       </p>
                     </div>
@@ -343,7 +343,7 @@ export default function OnboardingPage() {
             </select>
             {(search || filterStatus || filterStage) && (
               <button onClick={() => { setSearch(''); setFilterStatus(''); setFilterStage(''); load('', '', '') }}
-                className="text-xs text-gray-600 dark:text-gray-400 hover:text-white border border-gray-300 dark:border-[#1A6080]/30 px-3 py-2 rounded-lg transition">
+                className="text-xs text-gray-600 dark:text-[#9BB0BC] hover:text-white border border-gray-300 dark:border-[#1A6080]/30 px-3 py-2 rounded-lg transition">
                 Clear
               </button>
             )}
@@ -351,7 +351,7 @@ export default function OnboardingPage() {
 
           {/* Records */}
           {loading ? (
-            <div className="text-gray-600 dark:text-gray-400 text-sm">Loading…</div>
+            <div className="text-gray-600 dark:text-[#9BB0BC] text-sm">Loading…</div>
           ) : records.length === 0 ? (
             <EmptyState
               icon="🚀"
@@ -387,13 +387,13 @@ export default function OnboardingPage() {
                               {r.employeeFirstName} {r.employeeLastName}
                             </p>
                             {r.employeeEmail && (
-                              <p className="text-xs text-gray-500 dark:text-gray-400 truncate">{r.employeeEmail}</p>
+                              <p className="text-xs text-gray-500 dark:text-[#9BB0BC] truncate">{r.employeeEmail}</p>
                             )}
                           </div>
                           <span className={`text-xs px-2.5 py-0.5 rounded-full border font-medium ${STATUS_STYLE[r.status] ?? 'bg-[#0A1929] text-gray-300 border-[#1A6080]/30'}`}>
                             {r.status === 'in_progress' ? 'In Progress' : r.status.charAt(0).toUpperCase() + r.status.slice(1)}
                           </span>
-                          <span className="text-xs text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-[#0A1929] px-2 py-0.5 rounded-full">
+                          <span className="text-xs text-gray-500 dark:text-[#9BB0BC] bg-gray-100 dark:bg-[#0A1929] px-2 py-0.5 rounded-full">
                             {STAGE_LABELS[r.stage] ?? r.stage}
                           </span>
                         </div>
@@ -404,7 +404,7 @@ export default function OnboardingPage() {
                             <div className={`h-1.5 rounded-full transition-all ${pct === 100 ? 'bg-green-500' : 'bg-[#f0f7fb]0'}`}
                               style={{ width: `${pct}%` }} />
                           </div>
-                          <span className="text-xs text-gray-500 dark:text-gray-400">{done}/{tot} tasks</span>
+                          <span className="text-xs text-gray-500 dark:text-[#9BB0BC]">{done}/{tot} tasks</span>
                           {r.employeeStartDate && (
                             <span className="text-xs text-amber-400 font-medium hidden sm:block">
                               Start {new Date(r.employeeStartDate).toLocaleDateString('en-AU')}
@@ -427,7 +427,7 @@ export default function OnboardingPage() {
                         </button>
                         <button
                           onClick={() => setExpanded(isOpen ? null : r.id)}
-                          className="text-gray-500 dark:text-gray-400 ml-1 text-sm">
+                          className="text-gray-500 dark:text-[#9BB0BC] ml-1 text-sm">
                           {isOpen ? '▲' : '▼'}
                         </button>
                       </div>
@@ -439,7 +439,7 @@ export default function OnboardingPage() {
 
                         {/* Stage stepper */}
                         <div>
-                          <p className="text-xs font-semibold text-gray-500  mb-3 dark:text-gray-400">Stage Progress</p>
+                          <p className="text-xs font-semibold text-gray-500  mb-3 dark:text-[#8aaabb]">Stage Progress</p>
                           <div className="flex items-center gap-1">
                             {STAGES.map((s, i) => (
                               <div key={s.value} className="flex items-center flex-1">
@@ -451,7 +451,7 @@ export default function OnboardingPage() {
                                   }`}>
                                     {i < stageIdx ? '✓' : i + 1}
                                   </div>
-                                  <p className="text-[10px] text-gray-600 dark:text-gray-400 text-center leading-tight">{s.label}</p>
+                                  <p className="text-[10px] text-gray-600 dark:text-[#9BB0BC] text-center leading-tight">{s.label}</p>
                                 </div>
                                 {i < STAGES.length - 1 && (
                                   <div className={`h-0.5 flex-1 mx-1 rounded ${i < stageIdx ? 'bg-green-600' : 'bg-[#0E3D52]/70'}`} />
@@ -464,7 +464,7 @@ export default function OnboardingPage() {
                         {/* Checklist preview — first 5 items */}
                         {r.checklist?.length > 0 && (
                           <div>
-                            <p className="text-xs font-semibold text-gray-500  mb-2 dark:text-gray-400">Checklist Preview</p>
+                            <p className="text-xs font-semibold text-gray-500  mb-2 dark:text-[#8aaabb]">Checklist Preview</p>
                             <div className="space-y-1.5">
                               {r.checklist.slice(0, 5).map(item => (
                                 <div key={item.id} className="flex items-center gap-2.5">
@@ -473,7 +473,7 @@ export default function OnboardingPage() {
                                   }`}>
                                     {item.done && <span className="text-white text-[10px]">✓</span>}
                                   </div>
-                                  <span className={`text-xs ${item.done ? 'line-through text-gray-500' : 'text-gray-700 dark:text-gray-300'}`}>
+                                  <span className={`text-xs ${item.done ? 'line-through text-gray-500' : 'text-gray-700 dark:text-[#C8D8E4]'}`}>
                                     {item.task}
                                   </span>
                                   <span className={`text-[10px] px-1.5 py-0.5 rounded-full ml-auto ${CATEGORY_COLOR[item.category] ?? 'bg-[#0E3D52]/70 text-gray-300'}`}>
@@ -482,7 +482,7 @@ export default function OnboardingPage() {
                                 </div>
                               ))}
                               {r.checklist.length > 5 && (
-                                <p className="text-xs text-gray-500 dark:text-gray-400 pl-6">
+                                <p className="text-xs text-gray-500 dark:text-[#9BB0BC] pl-6">
                                   +{r.checklist.length - 5} more — <Link href={`/tenant/onboarding/${r.id}`} className="text-[#0E3D52] hover:text-[#1A6080] dark:text-[#4ebac4]">view all</Link>
                                 </p>
                               )}
@@ -498,16 +498,16 @@ export default function OnboardingPage() {
                             { label: 'Completed At', value: r.completedAt ? new Date(r.completedAt).toLocaleDateString('en-AU') : '—' },
                           ].map(d => (
                             <div key={d.label} className="bg-gray-100 dark:bg-[#0A1929]/60 rounded-lg p-3">
-                              <p className="text-xs text-gray-500 dark:text-gray-400 mb-0.5">{d.label}</p>
-                              <p className="text-sm text-gray-700 dark:text-gray-200">{d.value}</p>
+                              <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mb-0.5">{d.label}</p>
+                              <p className="text-sm text-gray-700 dark:text-[#C8D8E4]">{d.value}</p>
                             </div>
                           ))}
                         </div>
 
                         {r.notes && (
                           <div>
-                            <p className="text-xs font-semibold text-gray-500  mb-1 dark:text-gray-400">Notes</p>
-                            <p className="text-sm text-gray-600 dark:text-gray-300">{r.notes}</p>
+                            <p className="text-xs font-semibold text-gray-500  mb-1 dark:text-[#8aaabb]">Notes</p>
+                            <p className="text-sm text-gray-600 dark:text-[#C8D8E4]">{r.notes}</p>
                           </div>
                         )}
 

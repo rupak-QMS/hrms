@@ -80,17 +80,17 @@ export default async function NotFound() {
       )}
 
       {/* Ghost 404 */}
-      <p className="text-8xl font-extrabold tracking-tight text-gray-200 dark:text-gray-800 select-none mb-2">
+      <p className="text-8xl font-extrabold tracking-tight text-gray-200 dark:text-[#C8D8E4] select-none mb-2">
         404
       </p>
 
       {/* Headline */}
-      <h1 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-3 text-center">
+      <h1 className="text-2xl font-semibold text-gray-900 dark:text-[#E8F0F5] mb-3 text-center">
         {headline}
       </h1>
 
       {/* Custom or default message */}
-      <p className="text-gray-500 dark:text-gray-400 text-sm text-center max-w-xs mb-8">
+      <p className="text-gray-500 dark:text-[#9BB0BC] text-sm text-center max-w-xs mb-8">
         {message}
       </p>
 
@@ -105,7 +105,7 @@ export default async function NotFound() {
         </Link>
         <Link
           href="/login"
-          className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 shadow-sm hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors focus:outline-none"
+          className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-sm font-medium text-gray-700 dark:text-[#C8D8E4] bg-white dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 shadow-sm hover:bg-gray-50 dark:hover:bg-[#0E3D52]/40 transition-colors focus:outline-none"
         >
           Back to login
         </Link>
@@ -113,7 +113,7 @@ export default async function NotFound() {
 
       {/* Org name footer */}
       {branding && (
-        <p className="mt-12 text-xs text-gray-400 dark:text-gray-600">
+        <p className="mt-12 text-xs text-gray-400 dark:text-[#9BB0BC]">
           {orgName} · Powered by HRMS
         </p>
       )}

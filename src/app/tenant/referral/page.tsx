@@ -87,7 +87,7 @@ export default function ReferralPage() {
       <div className="px-6 py-4 border-b border-gray-200 bg-white flex items-center justify-between dark:bg-[#0F1E2E] dark:border-[#1A6080]/30">
         <div>
           <h1 className="text-xl font-semibold text-gray-900 dark:text-white">Referral Program</h1>
-          <p className="text-sm text-gray-500 mt-0.5 dark:text-gray-400">Track employee referrals and bonus payments</p>
+          <p className="text-sm text-gray-500 mt-0.5 dark:text-[#8aaabb]">Track employee referrals and bonus payments</p>
         </div>
         <div className="flex items-center gap-2">
           <ExportButton onClick={exportData} disabled={referrals.length === 0} />
@@ -97,19 +97,19 @@ export default function ReferralPage() {
 
       <div className="px-6 py-3 bg-gray-50 border-b border-gray-100 flex gap-6 dark:bg-[#0A1929] dark:border-[#1A6080]/20">
         {[{label:'Total',value:stats.total,cls:'text-gray-900 dark:text-white'},{label:'Pending',value:stats.pending,cls:'text-[#0E3D52] dark:text-[#4ebac4]'},{label:'Hired',value:stats.hired,cls:'text-green-600'},{label:'Bonus Paid',value:stats.paid,cls:'text-[#0E3D52]'}].map(s=>(
-          <div key={s.label} className="text-center"><p className={`text-xl font-bold ${s.cls}`}>{s.value}</p><p className="text-xs text-gray-500 dark:text-gray-400">{s.label}</p></div>
+          <div key={s.label} className="text-center"><p className={`text-xl font-bold ${s.cls}`}>{s.value}</p><p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{s.label}</p></div>
         ))}
       </div>
 
       <div className="flex-1 overflow-y-auto p-6">
-        {loading ? <p className="text-sm text-gray-600 dark:text-gray-400">Loading…</p> : referrals.length===0 ? (
-          <div className="text-center py-16 text-gray-600 dark:text-gray-400">
+        {loading ? <p className="text-sm text-gray-600 dark:text-[#9BB0BC]">Loading…</p> : referrals.length===0 ? (
+          <div className="text-center py-16 text-gray-600 dark:text-[#9BB0BC]">
             <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-100 dark:bg-[#0A1929] mx-auto mb-3">
-              <svg className="w-6 h-6 text-gray-600 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <svg className="w-6 h-6 text-gray-600 dark:text-[#9BB0BC]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
               </svg>
             </div>
-            <p className="font-medium text-gray-600 dark:text-gray-400">No referrals yet</p>
+            <p className="font-medium text-gray-600 dark:text-[#9BB0BC]">No referrals yet</p>
             <p className="text-sm mt-1">Add a referral when an employee refers a candidate.</p>
           </div>
         ) : (
@@ -119,7 +119,7 @@ export default function ReferralPage() {
                 <thead>
                   <tr className="border-b border-gray-100 bg-gray-50 dark:bg-[#0A1929] dark:border-[#1A6080]/20">
                     {['Referred By','Candidate','Status','Bonus','Submitted','Notes',''].map(h=>(
-                      <th key={h} className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400">{h}</th>
+                      <th key={h} className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-[#9BB0BC]">{h}</th>
                     ))}
                   </tr>
                 </thead>
@@ -129,7 +129,7 @@ export default function ReferralPage() {
                       <td className="px-4 py-3 font-medium text-gray-900 dark:text-white">{r.referrerFirstName} {r.referrerLastName}</td>
                       <td className="px-4 py-3">
                         <p className="text-gray-900 dark:text-white">{r.referredName}</p>
-                        {r.referredEmail && <p className="text-xs text-gray-600 dark:text-gray-400">{r.referredEmail}</p>}
+                        {r.referredEmail && <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">{r.referredEmail}</p>}
                       </td>
                       <td className="px-4 py-3">
                         <select className={`text-xs px-2 py-1 rounded-full font-medium border-0 ${STATUS_COLORS[r.status]??''}`}
@@ -148,8 +148,8 @@ export default function ReferralPage() {
                             className="text-xs px-2 py-1 bg-[#E0EEF4] text-[#0E3D52] rounded font-medium hover:bg-[#9ccfda]">Mark Paid</button>
                         ) : '—'}
                       </td>
-                      <td className="px-4 py-3 text-gray-600 dark:text-gray-400 text-xs">{new Date(r.createdAt).toLocaleDateString()}</td>
-                      <td className="px-4 py-3 text-gray-500 dark:text-gray-400 text-xs max-w-[200px] truncate">{r.notes ?? '—'}</td>
+                      <td className="px-4 py-3 text-gray-600 dark:text-[#9BB0BC] text-xs">{new Date(r.createdAt).toLocaleDateString()}</td>
+                      <td className="px-4 py-3 text-gray-500 dark:text-[#9BB0BC] text-xs max-w-[200px] truncate">{r.notes ?? '—'}</td>
                       <td className="px-4 py-3">
                         <button onClick={() => setDeleteTarget(r.id)}
                           className="text-xs text-red-400 hover:text-red-500 transition">Delete</button>
@@ -177,7 +177,7 @@ export default function ReferralPage() {
               <textarea className="input-premium resize-none" rows={2} placeholder="Notes" value={form.notes} onChange={e=>setForm(f=>({...f,notes:e.target.value}))}/>
             </div>
             <div className="flex gap-3 mt-5">
-              <button onClick={()=>setShowCreate(false)} className="flex-1 px-4 py-2 border border-gray-200 rounded-lg text-sm text-gray-600 dark:text-gray-400 dark:border-[#1A6080]/30">Cancel</button>
+              <button onClick={()=>setShowCreate(false)} className="flex-1 px-4 py-2 border border-gray-200 rounded-lg text-sm text-gray-600 dark:text-[#9BB0BC] dark:border-[#1A6080]/30">Cancel</button>
               <button onClick={create} disabled={saving||!form.referrerId||!form.referredName} className="flex-1 btn-primary">{saving?'Adding…':'Add'}</button>
             </div>
           </div>

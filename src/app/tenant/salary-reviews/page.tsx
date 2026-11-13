@@ -43,7 +43,7 @@ interface Employee {
 }
 
 const STATUS_COLORS: Record<string, string> = {
-  draft: 'bg-gray-100 text-gray-600 dark:bg-[#0A1929] dark:text-gray-400',
+  draft: 'bg-gray-100 text-gray-600 dark:bg-[#0A1929] dark:text-[#8aaabb]',
   submitted: 'bg-[#E0EEF4] text-[#0E3D52] dark:bg-[#0E3D52]/20 dark:text-[#7dcfd7]',
   under_review: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300',
   approved: 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300',
@@ -293,7 +293,7 @@ export default function SalaryReviewsPage() {
       {/* Detail panel */}
       <div className="flex-1 min-w-0">
         {!selected ? (
-          <div className="h-full flex items-center justify-center text-gray-400 dark:text-gray-600">
+          <div className="h-full flex items-center justify-center text-gray-400 dark:text-[#9BB0BC]">
             <div className="text-center">
               <div className="text-4xl mb-2">💰</div>
               <p className="text-sm">Select a review to see details</p>
@@ -366,7 +366,7 @@ export default function SalaryReviewsPage() {
               {selected.justification && (
                 <div>
                   <p className="text-xs font-semibold text-gray-500  mb-1">Justification</p>
-                  <p className="text-sm text-gray-700 dark:text-gray-300">{selected.justification}</p>
+                  <p className="text-sm text-gray-700 dark:text-[#C8D8E4]">{selected.justification}</p>
                 </div>
               )}
 
@@ -399,7 +399,7 @@ export default function SalaryReviewsPage() {
                 />
                 <button
                   onClick={() => saveHrNotes(selected.id)}
-                  className="mt-1 px-3 py-1.5 bg-gray-100 dark:bg-[#0E3D52]/60 text-gray-700 dark:text-gray-200 text-sm rounded-lg hover:bg-gray-200 dark:hover:bg-[#0E3D52]/80 transition"
+                  className="mt-1 px-3 py-1.5 bg-gray-100 dark:bg-[#0E3D52]/60 text-gray-700 dark:text-[#C8D8E4] text-sm rounded-lg hover:bg-gray-200 dark:hover:bg-[#0E3D52]/80 transition"
                 >
                   Save Notes
                 </button>
@@ -447,7 +447,7 @@ export default function SalaryReviewsPage() {
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">New Salary Review</h3>
             <div className="space-y-3">
               <div>
-                <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Employee *</label>
+                <label className="block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1">Employee *</label>
                 <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                   value={form.employeeId} onChange={e => setForm(f => ({ ...f, employeeId: e.target.value }))}>
                   <option value="">Select employee…</option>
@@ -458,26 +458,26 @@ export default function SalaryReviewsPage() {
               </div>
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Review Type</label>
+                  <label className="block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1">Review Type</label>
                   <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                     value={form.reviewType} onChange={e => setForm(f => ({ ...f, reviewType: e.target.value }))}>
                     {Object.entries(REVIEW_TYPE_LABEL).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
                   </select>
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Review Date *</label>
+                  <label className="block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1">Review Date *</label>
                   <input type="date" className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                     value={form.reviewDate} onChange={e => setForm(f => ({ ...f, reviewDate: e.target.value }))} />
                 </div>
               </div>
               <div className="grid grid-cols-3 gap-3">
                 <div className="col-span-2">
-                  <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Current Salary ($) *</label>
+                  <label className="block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1">Current Salary ($) *</label>
                   <input type="number" step="0.01" className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                     value={form.currentSalary} onChange={e => setForm(f => ({ ...f, currentSalary: e.target.value }))} />
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Basis</label>
+                  <label className="block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1">Basis</label>
                   <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                     value={form.currentBasis} onChange={e => setForm(f => ({ ...f, currentBasis: e.target.value }))}>
                     <option value="annual">Annual</option>
@@ -488,12 +488,12 @@ export default function SalaryReviewsPage() {
               </div>
               <div className="grid grid-cols-3 gap-3">
                 <div className="col-span-2">
-                  <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Proposed Salary ($)</label>
+                  <label className="block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1">Proposed Salary ($)</label>
                   <input type="number" step="0.01" className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                     value={form.proposedSalary} onChange={e => setForm(f => ({ ...f, proposedSalary: e.target.value }))} />
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Basis</label>
+                  <label className="block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1">Basis</label>
                   <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                     value={form.proposedBasis} onChange={e => setForm(f => ({ ...f, proposedBasis: e.target.value }))}>
                     <option value="annual">Annual</option>
@@ -503,7 +503,7 @@ export default function SalaryReviewsPage() {
                 </div>
               </div>
               <div>
-                <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Performance Rating</label>
+                <label className="block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1">Performance Rating</label>
                 <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                   value={form.performanceRating} onChange={e => setForm(f => ({ ...f, performanceRating: e.target.value }))}>
                   <option value="">— Not set —</option>
@@ -515,17 +515,17 @@ export default function SalaryReviewsPage() {
                 </select>
               </div>
               <div>
-                <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Effective Date</label>
+                <label className="block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1">Effective Date</label>
                 <input type="date" className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                   value={form.effectiveDate} onChange={e => setForm(f => ({ ...f, effectiveDate: e.target.value }))} />
               </div>
               <div>
-                <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Justification</label>
+                <label className="block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1">Justification</label>
                 <textarea className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white" rows={3}
                   value={form.justification} onChange={e => setForm(f => ({ ...f, justification: e.target.value }))} />
               </div>
               <div>
-                <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Status</label>
+                <label className="block text-xs font-medium text-gray-600 dark:text-[#9BB0BC] mb-1">Status</label>
                 <select className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 bg-white dark:bg-[#0A1929] text-sm text-gray-900 dark:text-white"
                   value={form.status} onChange={e => setForm(f => ({ ...f, status: e.target.value }))}>
                   <option value="draft">Draft</option>
@@ -535,7 +535,7 @@ export default function SalaryReviewsPage() {
             </div>
             <div className="flex gap-2 mt-5">
               <button onClick={() => setShowModal(false)}
-                className="flex-1 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
+                className="flex-1 py-2 rounded-lg border border-gray-200 dark:border-[#1A6080]/30 text-sm text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
                 Cancel
               </button>
               <button onClick={saveReview} disabled={saving || !form.employeeId || !form.reviewDate || !form.currentSalary}

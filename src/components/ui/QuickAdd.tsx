@@ -72,7 +72,7 @@ export default function QuickAdd() {
       >
         <div className="px-4 py-3 border-b border-gray-100 dark:border-[#1A6080]/20 flex items-center gap-2">
           <span className="text-lg">➕</span>
-          <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">Quick Add</span>
+          <span className="text-sm font-semibold text-gray-700 dark:text-[#C8D8E4]">Quick Add</span>
           <kbd className="ml-auto text-[10px] font-mono text-gray-400 bg-gray-100 dark:bg-[#0A1929] px-1.5 py-0.5 rounded border border-gray-200 dark:border-[#1A6080]/30">ESC</kbd>
         </div>
         <div className="py-1">

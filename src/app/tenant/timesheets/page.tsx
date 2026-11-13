@@ -92,7 +92,7 @@ function RejectModal({ onConfirm, onClose }: {
           <h3 className="font-bold text-gray-900 dark:text-white">Reject Timesheet</h3>
         </div>
         <div className="p-6 space-y-3">
-          <label className="block text-xs font-semibold text-gray-500  mb-1 dark:text-gray-400">
+          <label className="block text-xs font-semibold text-gray-500  mb-1 dark:text-[#8aaabb]">
             Reason *
           </label>
           <textarea
@@ -104,7 +104,7 @@ function RejectModal({ onConfirm, onClose }: {
           />
           <div className="flex gap-2 pt-1">
             <button onClick={onClose}
-              className="flex-1 py-2 rounded-xl text-sm font-semibold border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
+              className="flex-1 py-2 rounded-xl text-sm font-semibold border border-gray-200 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition">
               Cancel
             </button>
             <button
@@ -188,7 +188,7 @@ function ClockCard({ onAction }: { onAction: () => void }) {
 
   if (status === 'loading') {
     return (
-      <div className="card-premium p-6 text-sm text-gray-600 dark:text-gray-400">
+      <div className="card-premium p-6 text-sm text-gray-600 dark:text-[#9BB0BC]">
         Loading clock status…
       </div>
     )
@@ -202,16 +202,16 @@ function ClockCard({ onAction }: { onAction: () => void }) {
     }`}>
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
-          <p className="text-xs font-semibold text-gray-500 dark:text-gray-400  mb-1">
+          <p className="text-xs font-semibold text-gray-500 dark:text-[#9BB0BC]  mb-1">
             {status === 'clocked_in' ? 'Currently Clocked In' : 'Clock Status'}
           </p>
           {status === 'clocked_in' ? (
             <>
               <p className="text-3xl font-mono font-bold text-green-700 dark:text-green-400">{elapsed}</p>
-              <p className="text-sm text-gray-500 mt-1 dark:text-gray-400">Started {fmtTime(clockInTime)}</p>
+              <p className="text-sm text-gray-500 mt-1 dark:text-[#8aaabb]">Started {fmtTime(clockInTime)}</p>
             </>
           ) : (
-            <p className="text-xl font-semibold text-gray-700 dark:text-gray-300">Not clocked in</p>
+            <p className="text-xl font-semibold text-gray-700 dark:text-[#C8D8E4]">Not clocked in</p>
           )}
           {error && <p className="text-xs text-red-600 mt-1">{error}</p>}
         </div>
@@ -220,7 +220,7 @@ function ClockCard({ onAction }: { onAction: () => void }) {
           <div className="flex flex-col gap-2 min-w-[200px]">
             <div className="flex gap-2">
               <div className="flex-1">
-                <label className="text-xs text-gray-500 dark:text-gray-400">Break (mins)</label>
+                <label className="text-xs text-gray-500 dark:text-[#9BB0BC]">Break (mins)</label>
                 <input type="number" min="0" value={breakMins} onChange={e => setBreakMins(e.target.value)}
                   className="w-full input-premium py-1.5" />
               </div>
@@ -274,35 +274,35 @@ function TimesheetRow({
         </td>
       )}
       {isManager && (
-        <td className="px-4 py-3 text-sm text-gray-800 dark:text-gray-200 whitespace-nowrap">
+        <td className="px-4 py-3 text-sm text-gray-800 dark:text-[#C8D8E4] whitespace-nowrap">
           <div className="font-medium">{ts.empFirst} {ts.empLast}</div>
-          <div className="text-xs text-gray-600 dark:text-gray-400">{ts.empEmail}</div>
+          <div className="text-xs text-gray-600 dark:text-[#9BB0BC]">{ts.empEmail}</div>
         </td>
       )}
-      <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-300 whitespace-nowrap">
+      <td className="px-4 py-3 text-sm text-gray-600 dark:text-[#C8D8E4] whitespace-nowrap">
         {fmtDate(ts.clockIn)}
       </td>
-      <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-300 whitespace-nowrap">
+      <td className="px-4 py-3 text-sm text-gray-600 dark:text-[#C8D8E4] whitespace-nowrap">
         {fmtTime(ts.clockIn)}
       </td>
-      <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-300 whitespace-nowrap">
+      <td className="px-4 py-3 text-sm text-gray-600 dark:text-[#C8D8E4] whitespace-nowrap">
         {ts.clockOut ? fmtTime(ts.clockOut) : <span className="text-yellow-600 dark:text-yellow-400">Active</span>}
       </td>
-      <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-300 text-right whitespace-nowrap">
+      <td className="px-4 py-3 text-sm text-gray-600 dark:text-[#C8D8E4] text-right whitespace-nowrap">
         {ts.breakMinutes != null && ts.breakMinutes > 0 ? `${ts.breakMinutes}m` : '—'}
       </td>
-      <td className="px-4 py-3 text-sm font-semibold text-gray-800 dark:text-gray-200 text-right whitespace-nowrap">
+      <td className="px-4 py-3 text-sm font-semibold text-gray-800 dark:text-[#C8D8E4] text-right whitespace-nowrap">
         {ts.hoursWorked ? `${ts.hoursWorked}h` : '—'}
       </td>
-      <td className="px-4 py-3 text-sm text-gray-500 dark:text-gray-400">
+      <td className="px-4 py-3 text-sm text-gray-500 dark:text-[#9BB0BC]">
         {ts.shiftType && (
           <span className="inline-block text-xs px-1.5 py-0.5 rounded bg-gray-100 dark:bg-[#0A1929] mr-1">
             {ts.shiftType.replace(/_/g,' ')}
           </span>
         )}
         {ts.location && <span className="text-xs">{ts.location}</span>}
-        {ts.partFirst && <div className="text-xs text-gray-600 dark:text-gray-400">{ts.partFirst} {ts.partLast}</div>}
-        {ts.notes && <div className="text-xs text-gray-600 dark:text-gray-400 truncate max-w-[180px]">{ts.notes}</div>}
+        {ts.partFirst && <div className="text-xs text-gray-600 dark:text-[#9BB0BC]">{ts.partFirst} {ts.partLast}</div>}
+        {ts.notes && <div className="text-xs text-gray-600 dark:text-[#9BB0BC] truncate max-w-[180px]">{ts.notes}</div>}
       </td>
       <td className="px-4 py-3">
         <span className={`inline-block text-xs font-medium px-2 py-0.5 rounded-full ${c}`}>
@@ -330,7 +330,7 @@ function TimesheetRow({
               </>
             )}
             {ts.status === 'approved' && (
-              <span className="text-xs text-gray-600 dark:text-gray-400">{fmtDateTime(ts.approvedAt)}</span>
+              <span className="text-xs text-gray-600 dark:text-[#9BB0BC]">{fmtDateTime(ts.approvedAt)}</span>
             )}
             {ts.status === 'pending' && (
               <button onClick={() => onDelete(ts.id)}
@@ -492,17 +492,17 @@ export default function TimesheetsPage() {
           {/* Week nav */}
           <div className="flex items-center card-premium overflow-hidden">
             <button onClick={() => setWeekStart(w => addDays(w, -7))}
-              className="px-3 py-2 text-gray-500 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition text-sm dark:text-gray-400">←</button>
+              className="px-3 py-2 text-gray-500 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition text-sm dark:text-[#8aaabb]">←</button>
             <button onClick={() => setWeekStart(getMondayOf(new Date()))}
-              className="px-3 py-2 text-xs font-medium text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 border-x border-gray-200 dark:border-[#1A6080]/30 transition">
+              className="px-3 py-2 text-xs font-medium text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 border-x border-gray-200 dark:border-[#1A6080]/30 transition">
               This week
             </button>
             <button onClick={() => setWeekStart(w => addDays(w, 7))}
-              className="px-3 py-2 text-gray-500 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition text-sm dark:text-gray-400">→</button>
+              className="px-3 py-2 text-gray-500 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30 transition text-sm dark:text-[#8aaabb]">→</button>
           </div>
           {/* Status filter */}
           <select value={statusFilter} onChange={e => setStatusFilter(e.target.value)}
-            className="card-premium px-3 py-2 text-sm text-gray-700 dark:text-gray-300 focus:outline-none">
+            className="card-premium px-3 py-2 text-sm text-gray-700 dark:text-[#C8D8E4] focus:outline-none">
             <option value="">All statuses</option>
             <option value="pending">Pending (active)</option>
             <option value="submitted">Submitted</option>
@@ -539,7 +539,7 @@ export default function TimesheetsPage() {
         ].map(c => (
           <div key={c.label} className="card-premium px-4 py-2 flex items-center gap-2">
             <span className={`text-lg font-bold ${c.color}`}>{c.value}</span>
-            <span className="text-xs text-gray-600 dark:text-gray-400">{c.label}</span>
+            <span className="text-xs text-gray-600 dark:text-[#9BB0BC]">{c.label}</span>
           </div>
         ))}
       </div>
@@ -547,9 +547,9 @@ export default function TimesheetsPage() {
       {/* Table */}
       <div className="card-premium overflow-hidden">
         {loading ? (
-          <div className="flex items-center justify-center py-16 text-gray-600 dark:text-gray-400 text-sm">Loading timesheets…</div>
+          <div className="flex items-center justify-center py-16 text-gray-600 dark:text-[#9BB0BC] text-sm">Loading timesheets…</div>
         ) : timesheets.length === 0 ? (
-          <div className="flex flex-col items-center justify-center py-16 text-gray-600 dark:text-gray-400 text-sm gap-2">
+          <div className="flex flex-col items-center justify-center py-16 text-gray-600 dark:text-[#9BB0BC] text-sm gap-2">
             <span className="text-3xl"></span>
             <span>No timesheet entries this week.</span>
           </div>
@@ -570,19 +570,19 @@ export default function TimesheetsPage() {
                     </th>
                   )}
                   {isManager && (
-                    <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 ">
+                    <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-[#9BB0BC] ">
                       Employee
                     </th>
                   )}
-                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 ">Date</th>
-                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 ">Start</th>
-                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 ">End</th>
-                  <th className="px-4 py-3 text-right text-xs font-semibold text-gray-500 dark:text-gray-400 ">Break</th>
-                  <th className="px-4 py-3 text-right text-xs font-semibold text-gray-500 dark:text-gray-400 ">Hours</th>
-                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 ">Details</th>
-                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 ">Status</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-[#9BB0BC] ">Date</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-[#9BB0BC] ">Start</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-[#9BB0BC] ">End</th>
+                  <th className="px-4 py-3 text-right text-xs font-semibold text-gray-500 dark:text-[#9BB0BC] ">Break</th>
+                  <th className="px-4 py-3 text-right text-xs font-semibold text-gray-500 dark:text-[#9BB0BC] ">Hours</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-[#9BB0BC] ">Details</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-[#9BB0BC] ">Status</th>
                   {isManager && (
-                    <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 ">Action</th>
+                    <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 dark:text-[#9BB0BC] ">Action</th>
                   )}
                 </tr>
               </thead>
@@ -606,7 +606,7 @@ export default function TimesheetsPage() {
                     <td colSpan={5} className="px-4 py-2 section-label">
                       Total
                     </td>
-                    <td className="px-4 py-2 text-sm font-bold text-gray-800 dark:text-gray-200 text-right">
+                    <td className="px-4 py-2 text-sm font-bold text-gray-800 dark:text-[#C8D8E4] text-right">
                       {totalHours.toFixed(1)}h
                     </td>
                     <td colSpan={3} />

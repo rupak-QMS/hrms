@@ -53,7 +53,7 @@ function ProgressBar({ value }: { value: number }) {
       <div className="flex-1 h-2 bg-gray-200 dark:bg-[#0E3D52]/60 rounded-full overflow-hidden">
         <div className={`h-2 rounded-full transition-all ${color}`} style={{ width: `${value}%` }} />
       </div>
-      <span className="text-xs text-gray-500 dark:text-gray-400 w-8 text-right">{value}%</span>
+      <span className="text-xs text-gray-500 dark:text-[#9BB0BC] w-8 text-right">{value}%</span>
     </div>
   )
 }
@@ -134,7 +134,7 @@ export default function MyPerformancePage() {
       {/* Header */}
       <div>
         <h1 className="text-2xl font-bold text-foreground">My Performance</h1>
-        <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Your reviews, goals and self-assessments</p>
+        <p className="text-sm text-gray-600 dark:text-[#9BB0BC] mt-1">Your reviews, goals and self-assessments</p>
       </div>
 
       {/* Summary stats */}
@@ -146,7 +146,7 @@ export default function MyPerformancePage() {
           { label: 'Avg Progress',  value: `${avgProgress}%`, color: 'text-[#1A6080] dark:text-[#4ebac4]' },
         ].map(s => (
           <div key={s.label} className="card-premium p-4">
-            <p className="text-xs text-gray-600 dark:text-gray-400">{s.label}</p>
+            <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">{s.label}</p>
             <p className={`text-2xl font-bold mt-1 ${s.color}`}>{s.value}</p>
           </div>
         ))}
@@ -157,7 +157,7 @@ export default function MyPerformancePage() {
         {(['reviews', 'goals'] as const).map(t => (
           <button key={t} onClick={() => setTab(t)}
             className={`px-5 py-2 rounded-lg text-sm font-medium transition capitalize ${
-              tab === t ? 'bg-white dark:bg-[#0F1E2E] text-white shadow-sm' : 'text-gray-500 dark:text-gray-400 hover:text-gray-300'
+              tab === t ? 'bg-white dark:bg-[#0F1E2E] text-white shadow-sm' : 'text-gray-500 dark:text-[#9BB0BC] hover:text-gray-300'
             }`}>
             {t === 'reviews' ? 'My Reviews' : 'My Goals'}
           </button>
@@ -169,7 +169,7 @@ export default function MyPerformancePage() {
         <div className="modal-overlay overflow-y-auto">
           <div className="card-premium p-6 w-full max-w-xl space-y-4 my-4">
             <h3 className="text-lg font-bold text-foreground">My Self-Assessment</h3>
-            <p className="text-xs text-gray-500 dark:text-gray-400">Your input will be shared with your reviewer ahead of the performance meeting.</p>
+            <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">Your input will be shared with your reviewer ahead of the performance meeting.</p>
             {[
               { key: 'strengths',    label: 'Key Strengths',           placeholder: 'What are you most proud of this period?' },
               { key: 'improvements', label: 'Areas for Improvement',   placeholder: 'Where would you like to grow or develop?' },
@@ -177,7 +177,7 @@ export default function MyPerformancePage() {
               { key: 'comments',     label: 'Additional Comments',     placeholder: 'Any other feedback for your manager…' },
             ].map(({ key, label, placeholder }) => (
               <div key={key}>
-                <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">{label}</label>
+                <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">{label}</label>
                 <textarea value={(selfAssessForm as any)[key]}
                   onChange={e => setSelfAssessForm(f => ({ ...f, [key]: e.target.value }))}
                   rows={3} placeholder={placeholder} className={INPUT} />
@@ -189,7 +189,7 @@ export default function MyPerformancePage() {
                 {selfSaving ? 'Saving…' : 'Save Self-Assessment'}
               </button>
               <button onClick={() => setSelfAssessModal(null)}
-                className="px-5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:text-white text-sm rounded-lg transition">
+                className="px-5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#C8D8E4] hover:text-white text-sm rounded-lg transition">
                 Cancel
               </button>
             </div>
@@ -203,18 +203,18 @@ export default function MyPerformancePage() {
           <div className="card-premium p-6 w-full max-w-sm space-y-4">
             <h3 className="text-lg font-bold text-foreground">Update Progress</h3>
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-2 block">Progress: {updatingGoal.progress}%</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-2 block">Progress: {updatingGoal.progress}%</label>
               <input type="range" min={0} max={100} step={5} value={updatingGoal.progress}
                 onChange={e => setUpdatingGoal({ ...updatingGoal, progress: Number(e.target.value) })}
                 className="w-full accent-[#0E3D52] mb-2" />
               <ProgressBar value={updatingGoal.progress} />
             </div>
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">My Rating (1–5)</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">My Rating (1–5)</label>
               <div className="flex gap-1.5">
                 {[1,2,3,4,5].map(n => (
                   <button key={n} type="button" onClick={() => setUpdatingGoal({ ...updatingGoal, selfRating: n })}
-                    className={`flex-1 py-2 rounded text-xs font-medium transition ${updatingGoal.selfRating === n ? 'bg-[#0E3D52] text-white' : 'bg-gray-200 dark:bg-[#0E3D52]/60 text-gray-600 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-[#0E3D52]/80'}`}>
+                    className={`flex-1 py-2 rounded text-xs font-medium transition ${updatingGoal.selfRating === n ? 'bg-[#0E3D52] text-white' : 'bg-gray-200 dark:bg-[#0E3D52]/60 text-gray-600 dark:text-[#9BB0BC] hover:bg-gray-300 dark:hover:bg-[#0E3D52]/80'}`}>
                     {n}
                   </button>
                 ))}
@@ -227,7 +227,7 @@ export default function MyPerformancePage() {
                 {goalSaving ? 'Saving…' : 'Save'}
               </button>
               <button onClick={() => setUpdatingGoal(null)}
-                className="px-5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:text-white text-sm rounded-lg transition">
+                className="px-5 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#C8D8E4] hover:text-white text-sm rounded-lg transition">
                 Cancel
               </button>
             </div>
@@ -239,8 +239,8 @@ export default function MyPerformancePage() {
       {tab === 'reviews' && (
         reviews.length === 0 ? (
           <div className="card-premium py-14 text-center">
-            <p className="text-gray-600 dark:text-gray-300 font-medium">No reviews yet</p>
-            <p className="text-gray-500 text-sm mt-1 dark:text-gray-400">Your manager will schedule a review when it's time.</p>
+            <p className="text-gray-600 dark:text-[#C8D8E4] font-medium">No reviews yet</p>
+            <p className="text-gray-500 text-sm mt-1 dark:text-[#8aaabb]">Your manager will schedule a review when it's time.</p>
           </div>
         ) : (
           <div className="space-y-3">
@@ -261,7 +261,7 @@ export default function MyPerformancePage() {
                           {r.status.charAt(0).toUpperCase() + r.status.slice(1)}
                         </span>
                       </div>
-                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                      <p className="text-xs text-gray-500 dark:text-[#9BB0BC] mt-0.5">
                         {r.scheduledDate ? `Scheduled: ${new Date(r.scheduledDate + 'T00:00:00').toLocaleDateString('en-AU', { day:'numeric', month:'short', year:'numeric' })}` : `Created: ${new Date(r.createdAt).toLocaleDateString('en-AU')}`}
                       </p>
                     </div>
@@ -333,8 +333,8 @@ export default function MyPerformancePage() {
       {tab === 'goals' && (
         goals.length === 0 ? (
           <div className="card-premium py-14 text-center">
-            <p className="text-gray-600 dark:text-gray-300 font-medium">No goals set yet</p>
-            <p className="text-gray-500 text-sm mt-1 dark:text-gray-400">Your manager will assign goals or you can request them.</p>
+            <p className="text-gray-600 dark:text-[#C8D8E4] font-medium">No goals set yet</p>
+            <p className="text-gray-500 text-sm mt-1 dark:text-[#8aaabb]">Your manager will assign goals or you can request them.</p>
           </div>
         ) : (
           <div className="space-y-3">

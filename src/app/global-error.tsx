@@ -23,10 +23,10 @@ export default function GlobalError({
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
-          <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
+          <h2 className="text-xl font-semibold text-gray-900 dark:text-[#E8F0F5] mb-2">
             Something went wrong
           </h2>
-          <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+          <p className="text-sm text-gray-500 dark:text-[#9BB0BC] mb-6">
             An unexpected error occurred. Our team has been notified.
             {error.digest && (
               <span className="block mt-1 font-mono text-xs text-gray-400">

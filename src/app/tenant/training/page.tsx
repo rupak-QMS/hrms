@@ -50,7 +50,7 @@ export default function TrainingPage() {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold text-foreground">Training & LMS</h1>
-        <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">Manage courses, enrolments and completion records</p>
+        <p className="text-gray-600 dark:text-[#9BB0BC] text-sm mt-1">Manage courses, enrolments and completion records</p>
       </div>
 
       <div className="flex gap-1 card-premium p-1 w-fit">
@@ -173,25 +173,25 @@ function LibraryTab() {
           <h3 className="text-sm font-semibold text-[#4ebac4]">New Course</h3>
           <div className="grid grid-cols-2 gap-3">
             <div className="col-span-2">
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Course Title *</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Course Title *</label>
               <input required value={form.title} onChange={e => setForm(f => ({ ...f, title: e.target.value }))}
                 placeholder="e.g. NDIS Module 1 — Participant Rights" className={INPUT} />
             </div>
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Category</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Category</label>
               <select value={form.category} onChange={e => setForm(f => ({ ...f, category: e.target.value }))} className={INPUT}>
                 <option value="">— Select —</option>
                 {CATEGORIES.map(c => <option key={c}>{c}</option>)}
               </select>
             </div>
             <div>
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Validity (months)</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Validity (months)</label>
               <input type="number" min="1" value={form.validityMonths}
                 onChange={e => setForm(f => ({ ...f, validityMonths: e.target.value }))}
                 placeholder="Leave blank = no expiry" className={INPUT} />
             </div>
             <div className="col-span-2">
-              <label className="text-xs text-gray-600 dark:text-gray-400 mb-1 block">Description</label>
+              <label className="text-xs text-gray-600 dark:text-[#9BB0BC] mb-1 block">Description</label>
               <textarea value={form.description} onChange={e => setForm(f => ({ ...f, description: e.target.value }))}
                 rows={2} placeholder="Optional course description…" className={INPUT} />
             </div>
@@ -199,7 +199,7 @@ function LibraryTab() {
           <label className="flex items-center gap-2 cursor-pointer">
             <input type="checkbox" checked={form.isMandatory} onChange={e => setForm(f => ({ ...f, isMandatory: e.target.checked }))}
               className="w-4 h-4 rounded accent-[#0E3D52]" />
-            <span className="text-sm text-gray-600 dark:text-gray-300">Mandatory for all employees</span>
+            <span className="text-sm text-gray-600 dark:text-[#C8D8E4]">Mandatory for all employees</span>
           </label>
           <button type="submit" disabled={saving}
             className="bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm px-5 py-2 rounded-lg transition">
@@ -213,7 +213,7 @@ function LibraryTab() {
         <div className="modal-overlay">
           <div className="card-premium p-6 w-full max-w-md space-y-4">
             <h3 className="text-lg font-bold text-foreground">Enrol Employees</h3>
-            <p className="text-sm text-gray-600 dark:text-gray-400">Course: <span className="text-foreground font-medium">{enrollCourse.title}</span></p>
+            <p className="text-sm text-gray-600 dark:text-[#9BB0BC]">Course: <span className="text-foreground font-medium">{enrollCourse.title}</span></p>
             <div className="max-h-60 overflow-y-auto space-y-1 border border-gray-200 dark:border-[#1A6080]/20 rounded-lg p-2">
               {employees.map(e => (
                 <label key={e.id} className="flex items-center gap-2 px-2 py-1.5 rounded hover:bg-gray-100 dark:bg-[#0A1929] cursor-pointer">
@@ -221,18 +221,18 @@ function LibraryTab() {
                     checked={enrollIds.includes(e.id)}
                     onChange={ev => setEnrollIds(ids => ev.target.checked ? [...ids, e.id] : ids.filter(i => i !== e.id))}
                     className="accent-[#0E3D52]" />
-                  <span className="text-sm text-gray-700 dark:text-gray-200">{e.firstName} {e.lastName}</span>
+                  <span className="text-sm text-gray-700 dark:text-[#C8D8E4]">{e.firstName} {e.lastName}</span>
                 </label>
               ))}
             </div>
-            <p className="text-xs text-gray-500 dark:text-gray-400">{enrollIds.length} employee{enrollIds.length !== 1 ? 's' : ''} selected</p>
+            <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{enrollIds.length} employee{enrollIds.length !== 1 ? 's' : ''} selected</p>
             <div className="flex gap-2">
               <button onClick={enrol} disabled={enrolling || !enrollIds.length}
                 className="flex-1 bg-[#0E3D52] hover:bg-[#1A6080] disabled:opacity-60 text-white text-sm py-2 rounded-lg transition">
                 {enrolling ? 'Enrolling…' : 'Enrol Selected'}
               </button>
               <button onClick={() => { setEnrollCourse(null); setEnrollIds([]) }}
-                className="px-4 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-gray-300 hover:text-white text-sm rounded-lg transition">
+                className="px-4 border border-gray-300 dark:border-[#1A6080]/30 text-gray-600 dark:text-[#C8D8E4] hover:text-white text-sm rounded-lg transition">
                 Cancel
               </button>
             </div>
@@ -241,7 +241,7 @@ function LibraryTab() {
       )}
 
       {/* Course grid */}
-      {loading ? <div className="text-gray-600 dark:text-gray-400 text-sm">Loading…</div> : courseList.length === 0 ? (
+      {loading ? <div className="text-gray-600 dark:text-[#9BB0BC] text-sm">Loading…</div> : courseList.length === 0 ? (
         <EmptyState
           icon="🎓"
           title="No courses yet"
@@ -259,17 +259,17 @@ function LibraryTab() {
                       <span className="text-xs bg-red-100 dark:bg-red-900/60 text-red-600 dark:text-red-300 px-2 py-0.5 rounded-full font-medium">Mandatory</span>
                     )}
                     {c.category && (
-                      <span className="text-xs bg-gray-100 dark:bg-[#0A1929] text-gray-600 dark:text-gray-400 px-2 py-0.5 rounded-full">{c.category}</span>
+                      <span className="text-xs bg-gray-100 dark:bg-[#0A1929] text-gray-600 dark:text-[#9BB0BC] px-2 py-0.5 rounded-full">{c.category}</span>
                     )}
                   </div>
                   <h3 className="text-foreground font-semibold text-sm leading-snug">{c.title}</h3>
                 </div>
               </div>
               {c.description && (
-                <p className="text-gray-500 text-xs leading-relaxed line-clamp-2 dark:text-gray-400">{c.description}</p>
+                <p className="text-gray-500 text-xs leading-relaxed line-clamp-2 dark:text-[#8aaabb]">{c.description}</p>
               )}
               <div className="flex items-center justify-between pt-1 mt-auto">
-                <span className="text-xs text-gray-500 dark:text-gray-400">
+                <span className="text-xs text-gray-500 dark:text-[#9BB0BC]">
                   {c.validityMonths ? `Expires every ${c.validityMonths}mo` : 'No expiry'}
                 </span>
                 <div className="flex gap-2">
@@ -278,7 +278,7 @@ function LibraryTab() {
                     + Enrol
                   </button>
                   <button onClick={() => archiveCourse(c.id)}
-                    className="text-xs text-gray-500 hover:text-red-400 border border-gray-200 dark:border-[#1A6080]/20 px-2.5 py-1.5 rounded-lg transition dark:text-gray-400">
+                    className="text-xs text-gray-500 hover:text-red-400 border border-gray-200 dark:border-[#1A6080]/20 px-2.5 py-1.5 rounded-lg transition dark:text-[#8aaabb]">
                     Archive
                   </button>
                 </div>
@@ -378,7 +378,7 @@ function RecordsTab() {
           { label: 'Expiring',   value: stats.expiring,  color: 'text-amber-400' },
         ].map(s => (
           <div key={s.label} className="card-premium p-4">
-            <p className="text-xs text-gray-600 dark:text-gray-400">{s.label}</p>
+            <p className="text-xs text-gray-600 dark:text-[#9BB0BC]">{s.label}</p>
             <p className={`text-2xl font-bold mt-1 ${s.color}`}>{s.value}</p>
           </div>
         ))}
@@ -400,7 +400,7 @@ function RecordsTab() {
       </div>
 
       {/* Table */}
-      {loading ? <div className="text-gray-600 dark:text-gray-400 text-sm">Loading…</div> : records.length === 0 ? (
+      {loading ? <div className="text-gray-600 dark:text-[#9BB0BC] text-sm">Loading…</div> : records.length === 0 ? (
         <EmptyState
           icon="🎓"
           title="No training records"
@@ -430,12 +430,12 @@ function RecordsTab() {
                   <tr key={r.id}>
                     <td className="px-5 py-3.5">
                       <p className="text-foreground font-medium">{r.employeeFirstName} {r.employeeLastName}</p>
-                      <p className="text-gray-500 text-xs dark:text-gray-400">{r.employeeEmail}</p>
+                      <p className="text-gray-500 text-xs dark:text-[#8aaabb]">{r.employeeEmail}</p>
                     </td>
                     <td className="px-5 py-3.5">
-                      <p className="text-gray-700 dark:text-gray-200 text-sm">{r.courseTitle}</p>
+                      <p className="text-gray-700 dark:text-[#C8D8E4] text-sm">{r.courseTitle}</p>
                       <div className="flex items-center gap-1 mt-0.5">
-                        {r.courseCategory && <span className="text-xs text-gray-500 dark:text-gray-400">{r.courseCategory}</span>}
+                        {r.courseCategory && <span className="text-xs text-gray-500 dark:text-[#9BB0BC]">{r.courseCategory}</span>}
                         {r.courseMandatory && <span className="text-xs bg-red-100 dark:bg-red-900/40 text-red-600 dark:text-red-400 px-1.5 rounded">Mandatory</span>}
                       </div>
                     </td>
@@ -444,7 +444,7 @@ function RecordsTab() {
                         {r.status.charAt(0).toUpperCase() + r.status.slice(1)}
                       </span>
                     </td>
-                    <td className="px-5 py-3.5 text-gray-600 dark:text-gray-400 text-sm">
+                    <td className="px-5 py-3.5 text-gray-600 dark:text-[#9BB0BC] text-sm">
                       {r.score ? `${Number(r.score).toFixed(0)}%` : '—'}
                     </td>
                     <td className="px-5 py-3.5 text-xs">
@@ -464,7 +464,7 @@ function RecordsTab() {
                         </button>
                       )}
                       {r.status === 'completed' && (
-                        <span className="text-xs text-gray-500 dark:text-gray-400">
+                        <span className="text-xs text-gray-500 dark:text-[#9BB0BC]">
                           {r.completedAt ? new Date(r.completedAt).toLocaleDateString('en-AU') : 'Done'}
                         </span>
                       )}
@@ -538,7 +538,7 @@ function GapTab() {
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-sm text-gray-500 dark:text-gray-400">
+          <p className="text-sm text-gray-500 dark:text-[#9BB0BC]">
             {gaps.length === 0
               ? '✅ All employees are compliant with mandatory training'
               : `${gaps.length} employee${gaps.length !== 1 ? 's' : ''} have training gaps across ${mandatory.length} mandatory course${mandatory.length !== 1 ? 's' : ''}`}
@@ -546,7 +546,7 @@ function GapTab() {
         </div>
         {gaps.length > 0 && (
           <button onClick={exportCSV}
-            className="px-3 py-2 text-sm border border-gray-200 dark:border-[#1A6080]/30 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30">
+            className="px-3 py-2 text-sm border border-gray-200 dark:border-[#1A6080]/30 rounded-lg text-gray-700 dark:text-[#C8D8E4] hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30">
             ⬇ Export CSV
           </button>
         )}
@@ -575,7 +575,7 @@ function GapTab() {
                 <tr key={g.employeeId} className="hover:bg-gray-50 dark:hover:bg-[#0E3D52]/30/50">
                   <td className="px-5 py-3.5">
                     <p className="font-medium text-gray-900 dark:text-white">{g.firstName} {g.lastName}</p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">{g.email} · {g.employmentType?.replace(/_/g,' ')}</p>
+                    <p className="text-xs text-gray-500 dark:text-[#9BB0BC]">{g.email} · {g.employmentType?.replace(/_/g,' ')}</p>
                   </td>
                   <td className="px-5 py-3.5">
                     {g.missingCourses.length === 0 ? (
