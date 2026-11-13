@@ -179,7 +179,7 @@ export default function OfferPage({ params }: { params: Promise<{ token: string 
   if (error) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
-        <div className="bg-white rounded-2xl p-10 shadow-sm border border-gray-200 text-center max-w-md">
+        <div className="bg-white rounded-xl p-10 shadow-sm border border-gray-200 text-center max-w-md">
           <div className="text-5xl mb-4">🔗</div>
           <h1 className="text-xl font-bold text-gray-900 mb-2">Link unavailable</h1>
           <p className="text-sm text-gray-500">{error}</p>
@@ -398,7 +398,7 @@ function PageShell({ offer, color, children }: {
       <div className="w-full max-w-2xl space-y-6">
 
         {/* Header */}
-        <div className="rounded-2xl p-6 text-white flex items-center gap-4"
+        <div className="rounded-xl p-6 text-white flex items-center gap-4"
           style={{ background: `linear-gradient(135deg, ${color}, ${color}cc)` }}>
           {offer.logoUrl ? (
             <img src={offer.logoUrl} alt={offer.orgName ?? ''} className="h-12 max-w-[120px] object-contain bg-white/20 rounded-lg p-1" />
@@ -415,7 +415,7 @@ function PageShell({ offer, color, children }: {
         </div>
 
         {/* Content card */}
-        <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-6">
           {children}
         </div>
 

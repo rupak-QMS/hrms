@@ -253,7 +253,7 @@ export default function MySchedulePage() {
 
       {/* Clock status bar */}
       {openEntry ? (
-        <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-2xl px-5 py-4">
+        <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl px-5 py-4">
           <div className="flex items-center justify-between gap-4 flex-wrap">
             <div className="flex items-center gap-3">
               <span className="relative flex h-3 w-3">
@@ -290,7 +290,7 @@ export default function MySchedulePage() {
           )}
         </div>
       ) : (
-        <div className="bg-gray-50 dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-2xl px-5 py-4 flex items-center justify-between gap-4 flex-wrap">
+        <div className="bg-gray-50 dark:bg-[#0F1E2E] border border-gray-200 dark:border-[#1A6080]/20 rounded-xl px-5 py-4 flex items-center justify-between gap-4 flex-wrap">
           <div>
             <p className="text-sm font-medium text-gray-700 dark:text-gray-300">Not clocked in</p>
             <p className="text-xs text-gray-500 dark:text-gray-400">Clock in when your shift starts</p>

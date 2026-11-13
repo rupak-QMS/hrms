@@ -372,7 +372,7 @@ export default function GrievancesPage() {
                               value={outcomeText[g.id] ?? ''}
                               onChange={e => setOutcomeText(prev => ({ ...prev, [g.id]: e.target.value }))}
                               placeholder="Outcome / resolution notes…"
-                              className="flex-1 bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-1.5 text-xs text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-green-600" />
+                              className="flex-1 bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-1.5 text-xs text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-[#4ebac4]/50 focus:outline-none focus:border-green-600" />
                             <button onClick={() => close(g.id)}
                               className="text-xs bg-green-900/40 border border-green-800 text-green-300 hover:bg-green-900/60 px-3 py-1.5 rounded-lg transition whitespace-nowrap">
                               Close

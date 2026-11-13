@@ -89,7 +89,7 @@ const STATUS_STYLE: Record<string, string> = {
 }
 
 const MANAGER_ROLES = ['director', 'hr_officer', 'operations_manager', 'team_leader', 'compliance_manager']
-const INPUT  = 'w-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]'
+const INPUT  = 'w-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-[#4ebac4]/50 focus:outline-none focus:border-[#0E3D52]'
 const LABEL  = 'block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1'
 
 function calcDays(start: string, end: string): number {

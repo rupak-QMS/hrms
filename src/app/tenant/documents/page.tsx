@@ -410,7 +410,7 @@ export default function DocumentsPage() {
 
       {/* Expired alert */}
       {expiredActiveDocs.length > 0 && (
-        <div className="bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-700/60 rounded-2xl px-5 py-4 space-y-2">
+        <div className="bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-700/60 rounded-xl px-5 py-4 space-y-2">
           <p className="text-sm font-semibold text-red-300">{expiredActiveDocs.length} document{expiredActiveDocs.length > 1 ? 's' : ''} are expired but still marked active</p>
           <div className="flex flex-wrap gap-2">
             {expiredActiveDocs.slice(0, 5).map(d => (
@@ -426,7 +426,7 @@ export default function DocumentsPage() {
 
       {/* Expiring soon alert */}
       {expiringDocs.length > 0 && (
-        <div className="bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-700/50 rounded-2xl px-5 py-4 space-y-2">
+        <div className="bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-700/50 rounded-xl px-5 py-4 space-y-2">
           <p className="text-sm font-semibold text-amber-300">️ {expiringDocs.length} document{expiringDocs.length > 1 ? 's' : ''} expiring within 30 days</p>
           <div className="flex flex-wrap gap-2">
             {expiringDocs.map(d => {
@@ -515,7 +515,7 @@ export default function DocumentsPage() {
       <div className="flex gap-3 flex-wrap items-center">
         <input value={search} onChange={e => setSearch(e.target.value)}
           placeholder="Search title or employee…"
-          className="input-premium placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52] flex-1 min-w-48" />
+          className="input-premium placeholder-gray-400 dark:placeholder-[#4ebac4]/50 focus:outline-none focus:border-[#0E3D52] flex-1 min-w-48" />
         <select value={filterCat}
           onChange={e => { setFilterCat(e.target.value); load(e.target.value, filterStat) }}
           className="input-premium focus:outline-none focus:border-[#0E3D52]">

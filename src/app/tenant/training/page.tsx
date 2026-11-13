@@ -155,7 +155,7 @@ function LibraryTab() {
       <div className="flex gap-3 flex-wrap">
         <input value={search} onChange={e => { setSearch(e.target.value); load(e.target.value, filterCat) }}
           placeholder="Search courses…"
-          className="flex-1 min-w-48 input-premium placeholder-gray-400 dark:placeholder-gray-500 " />
+          className="flex-1 min-w-48 input-premium placeholder-gray-400 dark:placeholder-[#4ebac4]/50 " />
         <select value={filterCat} onChange={e => { setFilterCat(e.target.value); load(search, e.target.value) }}
           className="input-premium ">
           <option value="">All categories</option>
@@ -388,7 +388,7 @@ function RecordsTab() {
       <div className="flex gap-3 flex-wrap">
         <input value={search} onChange={e => { setSearch(e.target.value); load(e.target.value, filterStatus) }}
           placeholder="Search employee or course…"
-          className="flex-1 min-w-48 input-premium placeholder-gray-400 dark:placeholder-gray-500 " />
+          className="flex-1 min-w-48 input-premium placeholder-gray-400 dark:placeholder-[#4ebac4]/50 " />
         <select value={filterStatus} onChange={e => { setFilterStatus(e.target.value); load(search, e.target.value) }}
           className="input-premium ">
           <option value="">All statuses</option>

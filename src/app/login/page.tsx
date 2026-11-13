@@ -197,7 +197,7 @@ function LoginForm() {
             />
           ) : (
             <div
-              className="w-12 h-12 rounded-2xl mx-auto mb-5 flex items-center justify-center text-white text-xl font-bold"
+              className="w-12 h-12 rounded-xl mx-auto mb-5 flex items-center justify-center text-white text-xl font-bold"
               style={{
                 background: `linear-gradient(135deg, ${accent}, ${accent}bb)`,
                 boxShadow: isDark ? `0 0 32px ${accent}50, 0 0 8px ${accent}30` : `0 4px 16px ${accent}40`,
@@ -220,7 +220,7 @@ function LoginForm() {
 
         {/* Card */}
         <div
-          className="rounded-2xl p-6 backdrop-blur-xl"
+          className="rounded-xl p-6 backdrop-blur-xl"
           style={{
             background: cardBg,
             border: `1px solid ${cardBorder}`,

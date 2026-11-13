@@ -184,7 +184,7 @@ export default function ModulesPage() {
         placeholder="Search modules…"
         value={search}
         onChange={e => setSearch(e.target.value)}
-        className="w-full max-w-sm bg-white dark:bg-[#0F1E2E] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-4 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]"
+        className="w-full max-w-sm bg-white dark:bg-[#0F1E2E] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-4 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-[#4ebac4]/50 focus:outline-none focus:border-[#0E3D52]"
       />
 
       {/* Module categories */}

@@ -408,7 +408,7 @@ export default function PerformancePage() {
                       <input value={kpi.notes}
                         onChange={e => { const k = [...editing.kpis]; k[i] = { ...k[i], notes: e.target.value }; setEditing({ ...editing, kpis: k }) }}
                         placeholder="Notes for this area…"
-                        className="w-full bg-gray-200 dark:bg-[#0E3D52]/60 border border-[#1A6080]/40 rounded px-2 py-1 text-xs text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none" />
+                        className="w-full bg-gray-200 dark:bg-[#0E3D52]/60 border border-[#1A6080]/40 rounded px-2 py-1 text-xs text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-[#4ebac4]/50 focus:outline-none" />
                     </div>
                   ))}
                 </div>
@@ -489,7 +489,7 @@ export default function PerformancePage() {
           <div className="flex gap-3 flex-wrap">
             <input value={search} onChange={e => { setSearch(e.target.value); load(e.target.value, filterStatus, filterType) }}
               placeholder="Search employee…"
-              className="flex-1 min-w-48 input-premium placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]" />
+              className="flex-1 min-w-48 input-premium placeholder-gray-400 dark:placeholder-[#4ebac4]/50 focus:outline-none focus:border-[#0E3D52]" />
             <select value={filterStatus} onChange={e => { setFilterStatus(e.target.value); load(search, e.target.value, filterType) }}
               className="input-premium focus:outline-none focus:border-[#0E3D52]">
               <option value="">All statuses</option>

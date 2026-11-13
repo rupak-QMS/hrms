@@ -1385,7 +1385,7 @@ export default function EmployeeProfilePage() {
                 onChange={e => { markDirty(); setNoteContent(e.target.value) }}
                 placeholder="Add a note about this employee…"
                 rows={3}
-                className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-xl px-4 py-3 text-sm text-gray-800 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52] resize-y"
+                className="w-full bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-xl px-4 py-3 text-sm text-gray-800 dark:text-gray-200 placeholder-gray-400 dark:placeholder-[#4ebac4]/50 focus:outline-none focus:border-[#0E3D52] resize-y"
               />
               <div className="flex justify-end">
                 <button

@@ -195,7 +195,7 @@ function ClockCard({ onAction }: { onAction: () => void }) {
   }
 
   return (
-    <div className={`rounded-2xl border p-6 transition ${
+    <div className={`rounded-xl border p-6 transition ${
       status === 'clocked_in'
         ? 'bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800'
         : 'card-premium'

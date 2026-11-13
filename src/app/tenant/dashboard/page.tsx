@@ -277,7 +277,7 @@ function PersonalDashboard({ userName, tenantName, primaryColor, greetingText, e
     <div className="p-6 max-w-7xl mx-auto space-y-8">
       {/* Welcome banner */}
       <div
-        className="rounded-2xl p-6 text-white relative overflow-hidden"
+        className="rounded-xl p-6 text-white relative overflow-hidden"
         style={{
           background: `linear-gradient(135deg, ${primaryColor}f0, ${primaryColor}90)`,
           boxShadow: `0 8px 32px ${primaryColor}30`,
@@ -339,7 +339,7 @@ function PersonalDashboard({ userName, tenantName, primaryColor, greetingText, e
         </div>
       )}
       {!employeeLinked && !loadingPersonal && (
-        <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-2xl px-5 py-4 text-sm text-amber-700 dark:text-amber-300">
+        <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-xl px-5 py-4 text-sm text-amber-700 dark:text-amber-300">
           Your account isn&apos;t linked to an employee profile yet — leave balances won&apos;t show until an admin connects your account. Contact HR.
         </div>
       )}
@@ -565,7 +565,7 @@ export default function DashboardPage() {
 
       {/* Welcome banner */}
       <div
-        className="rounded-2xl p-6 text-white relative overflow-hidden"
+        className="rounded-xl p-6 text-white relative overflow-hidden"
         style={{
           background: `linear-gradient(135deg, ${primaryColor}f0, ${primaryColor}90)`,
           boxShadow: `0 8px 32px ${primaryColor}30`,

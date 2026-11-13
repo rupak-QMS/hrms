@@ -34,7 +34,7 @@ const PRESET_THEMES = [
   { label: 'Slate',    primaryColor: '#334155', accentColor: '#0ea5e9' },
 ]
 
-const INPUT = 'w-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#0E3D52]'
+const INPUT = 'w-full bg-gray-100 dark:bg-[#0A1929] border border-gray-300 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-[#4ebac4]/50 focus:outline-none focus:border-[#0E3D52]'
 const LABEL = 'block text-sm font-medium text-gray-600 dark:text-gray-300 mb-1'
 
 type TabId = 'general' | 'branding' | 'theme' | 'errorPages' | 'config'

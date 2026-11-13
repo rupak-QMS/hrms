@@ -507,7 +507,7 @@ export default function EmployeeManagementPage() {
           placeholder="Search name, email, emp #…"
           value={search}
           onChange={e => setSearch(e.target.value)}
-          className="flex-1 min-w-[200px] bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 placeholder-gray-400 focus:outline-none focus:border-[#0E3D52] dark:placeholder-gray-500"
+          className="flex-1 min-w-[200px] bg-gray-50 dark:bg-[#0A1929] border border-gray-200 dark:border-[#1A6080]/30 rounded-lg px-3 py-2 text-sm text-gray-800 dark:text-gray-200 placeholder-gray-400 focus:outline-none focus:border-[#0E3D52] dark:placeholder-[#4ebac4]/50"
         />
         <select
           value={status}
