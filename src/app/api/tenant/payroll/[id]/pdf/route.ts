@@ -10,7 +10,9 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 import { payrollRecords, employees, tenants } from '@/lib/db/schema'
-import { eq, and } from 'drizzle-orm'
+import { eq, and, lte, gte, sql } from 'drizzle-orm'
+import fs from 'fs'
+import path from 'path'
 import { apiGuard } from '@/lib/auth/apiGuard'
 import { put } from '@vercel/blob'
 import { getTenantEmailCtx, fireEmail } from '@/lib/email/emailHelper'
@@ -30,15 +32,33 @@ function fmtDate(d: string | null | undefined) {
   return new Date(d + 'T00:00:00').toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })
 }
 
+function resolveStaticLogo(orgName: string): string | null {
+  // Fallback: look for a bundled logo at public/logos/<slug>.png and embed as data URI
+  try {
+    const slug = orgName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+    const p = path.join(process.cwd(), 'public', 'logos', `${slug}.png`)
+    if (fs.existsSync(p)) {
+      return `data:image/png;base64,${fs.readFileSync(p).toString('base64')}`
+    }
+  } catch { /* ignore */ }
+  return null
+}
+
+type Ytd = { gross: number; payg: number; medicare: number; superC: number; net: number }
+
 function buildPayslipHtml(opts: {
   orgName:        string
+  orgAddress:     string | null
   abn:            string | null
   logoUrl:        string | null
-  primaryColor:   string
   employeeName:   string
-  employeeEmail:  string
+  employeeNumber: string | null
+  employeeAddress:string | null
+  employmentType: string | null
+  annualSalary:   string | null
   periodStart:    string
   periodEnd:      string
+  paymentDate:    string
   frequency:      string
   grossPay:       string | null
   paygWithholding:string | null
@@ -49,112 +69,139 @@ function buildPayslipHtml(opts: {
   hourlyRate:     string | null
   allowances:     number
   deductions:     number
-  effectiveTax:   number | null
+  ytd:            Ytd
   recordId:       string
 }) {
-  const color = opts.primaryColor || '#0E3D52'
-  const rows: { label: string; amount: string; bold?: boolean; indent?: boolean; negative?: boolean }[] = []
+  const o = opts
+  const empBasis = o.employmentType
+    ? o.employmentType.replace(/_/g, '-').replace(/\b\w/g, c => c.toUpperCase()) + ' employment'
+    : null
 
-  if (opts.hoursWorked && opts.hourlyRate) {
-    rows.push({ label: `Base Pay (${opts.hoursWorked} hrs × ${fmt(opts.hourlyRate)}/hr)`, amount: fmt(Number(opts.hoursWorked) * Number(opts.hourlyRate)) })
+  const salaryRows: string[] = []
+  if (o.hoursWorked && o.hourlyRate) {
+    salaryRows.push(`<tr>
+      <td class="lbl">Base hourly</td>
+      <td class="num">${Number(o.hoursWorked).toFixed(4)}</td>
+      <td class="num">${fmt(o.hourlyRate)}</td>
+      <td class="num">${fmt(Number(o.hoursWorked) * Number(o.hourlyRate))}</td>
+      <td class="num">${fmt(o.ytd.gross - o.allowances)}</td>
+    </tr>`)
   } else {
-    rows.push({ label: `Base Pay (${opts.frequency})`, amount: fmt(opts.grossPay) })
+    salaryRows.push(`<tr>
+      <td class="lbl">Base pay (${o.frequency})</td>
+      <td class="num"></td><td class="num"></td>
+      <td class="num">${fmt(o.grossPay)}</td>
+      <td class="num">${fmt(o.ytd.gross)}</td>
+    </tr>`)
+  }
+  if (o.allowances > 0) {
+    salaryRows.push(`<tr>
+      <td class="lbl">Allowances</td>
+      <td class="num"></td><td class="num"></td>
+      <td class="num">${fmt(o.allowances)}</td>
+      <td class="num"></td>
+    </tr>`)
   }
 
-  if (opts.allowances > 0) rows.push({ label: 'Allowances', amount: fmt(opts.allowances), indent: true })
-  rows.push({ label: 'Gross Pay', amount: fmt(opts.grossPay), bold: true })
-  rows.push({ label: 'PAYG Withholding', amount: fmt(opts.paygWithholding), negative: true })
-  rows.push({ label: 'Medicare Levy', amount: fmt(opts.medicareLevy), negative: true })
-  if (opts.deductions > 0) rows.push({ label: 'Other Deductions', amount: fmt(opts.deductions), negative: true })
-  rows.push({ label: 'Net Pay', amount: fmt(opts.netPay), bold: true })
+  const section = (title: string, rows: string, totalThis: string, totalYtd: string) => `
+    <table class="sec">
+      <thead><tr><th class="sec-title" colspan="3">${title}</th><th class="col-h">THIS PAY</th><th class="col-h">YTD</th></tr></thead>
+      <tbody>${rows}
+        <tr class="total"><td colspan="2"></td><td class="num total-lbl">TOTAL</td><td class="num b">${totalThis}</td><td class="num b">${totalYtd}</td></tr>
+      </tbody>
+    </table>`
 
-  const rowsHtml = rows.map(r => `
-    <tr style="border-bottom:1px solid #f3f4f6;">
-      <td style="padding:10px 0;${r.indent ? 'padding-left:16px;' : ''}color:${r.bold ? '#111827' : '#374151'};font-weight:${r.bold ? '600' : '400'};font-size:14px;">
-        ${r.label}
-      </td>
-      <td style="padding:10px 0;text-align:right;color:${r.negative ? '#dc2626' : r.bold ? '#111827' : '#374151'};font-weight:${r.bold ? '600' : '400'};font-size:14px;">
-        ${r.negative && r.amount !== '$0.00' ? '−' : ''}${r.amount}
-      </td>
-    </tr>
-  `).join('')
+  const taxRows = `<tr><td class="lbl">PAYG</td><td></td><td></td><td class="num">${fmt(o.paygWithholding)}</td><td class="num">${fmt(o.ytd.payg)}</td></tr>
+    ${Number(o.medicareLevy ?? 0) > 0 ? `<tr><td class="lbl">Medicare Levy</td><td></td><td></td><td class="num">${fmt(o.medicareLevy)}</td><td class="num">${fmt(o.ytd.medicare)}</td></tr>` : ''}`
+  const totalTaxThis = Number(o.paygWithholding ?? 0) + Number(o.medicareLevy ?? 0)
 
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Payslip — ${opts.employeeName}</title>
+<title>Payslip — ${o.employeeName}</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Helvetica Neue', Arial, sans-serif; background: #f9fafb; color: #111827; }
-  .page { max-width: 680px; margin: 40px auto; background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
-  .header { background: linear-gradient(135deg, ${color}, ${color}cc); padding: 32px; color: #fff; display: flex; align-items: center; gap: 20px; }
-  .header-text h1 { font-size: 22px; font-weight: 700; }
-  .header-text p { font-size: 13px; opacity: 0.8; margin-top: 2px; }
-  .logo { height: 48px; max-width: 120px; object-fit: contain; background: rgba(255,255,255,0.2); border-radius: 8px; padding: 6px; }
-  .logo-placeholder { width: 48px; height: 48px; background: rgba(255,255,255,0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 700; }
-  .meta { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 24px 32px; border-bottom: 1px solid #f3f4f6; }
-  .meta-item label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: #9ca3af; display: block; margin-bottom: 3px; }
-  .meta-item span { font-size: 14px; font-weight: 500; color: #111827; }
-  .breakdown { padding: 24px 32px; }
-  .breakdown h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; color: #9ca3af; margin-bottom: 12px; }
-  table { width: 100%; border-collapse: collapse; }
-  .net-box { margin: 24px 32px; background: ${color}10; border: 1.5px solid ${color}40; border-radius: 12px; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; }
-  .net-box .label { font-size: 13px; color: #6b7280; }
-  .net-box .amount { font-size: 28px; font-weight: 700; color: ${color}; }
-  .super-box { margin: 0 32px 24px; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 12px; padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; }
-  .super-box .label { font-size: 13px; color: #15803d; }
-  .super-box .amount { font-size: 16px; font-weight: 600; color: #15803d; }
-  .footer { padding: 20px 32px; background: #f9fafb; border-top: 1px solid #f3f4f6; display: flex; justify-content: space-between; align-items: center; }
-  .footer p { font-size: 11px; color: #9ca3af; }
-  @media print { body { background: #fff; } .page { box-shadow: none; margin: 0; border-radius: 0; } }
+  body { font-family: 'Source Sans Pro','Segoe UI',Arial,sans-serif; background:#fff; color:#1a1a1a; font-size:13px; }
+  .page { max-width: 780px; margin: 0 auto; padding: 36px 40px; }
+  .top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px; }
+  .logo { height:56px; max-width:220px; object-fit:contain; }
+  .org-name-text { font-size:22px; font-weight:700; color:#0E3D52; }
+  .box { background:#f1f1f1; padding:14px 18px; min-width:230px; }
+  .box h3 { font-size:12px; font-weight:700; letter-spacing:.02em; margin-bottom:6px; }
+  .box p { font-size:12.5px; line-height:1.45; }
+  .mid { display:flex; justify-content:space-between; align-items:flex-end; margin:26px 0 18px; }
+  .emp p { font-size:14px; line-height:1.5; }
+  .emp .name { font-weight:600; }
+  .strip { background:#ececec; display:flex; justify-content:space-between; padding:10px 16px; font-size:12.5px; margin-bottom:6px; }
+  .strip b { font-weight:700; }
+  table.sec { width:100%; border-collapse:collapse; margin-top:22px; }
+  .sec-title { text-align:left; font-size:12px; font-weight:700; padding:6px 0; border-bottom:1px solid #ccc; }
+  .col-h { text-align:right; font-size:11px; font-weight:700; color:#333; padding:6px 0; border-bottom:1px solid #ccc; width:95px; }
+  td { padding:7px 0; font-size:12.5px; }
+  td.lbl { color:#1a1a1a; }
+  td.num { text-align:right; font-variant-numeric: tabular-nums; }
+  tr.total td { background:#ececec; padding:8px 8px; }
+  td.total-lbl { font-size:11px; color:#555; }
+  .b { font-weight:700; }
+  .pay-details { margin-top:28px; }
+  .pay-details .hdr { display:flex; justify-content:space-between; font-size:12px; font-weight:700; border-bottom:1px solid #ccc; padding-bottom:6px; }
+  .pay-details .row { display:flex; justify-content:space-between; padding:8px 0; font-size:12.5px; }
+  .footer { margin-top:40px; display:flex; justify-content:space-between; font-size:10.5px; color:#999; border-top:1px solid #eee; padding-top:10px; }
+  @media print { .page { padding: 10mm 12mm; } }
 </style>
 </head>
 <body>
 <div class="page">
-  <div class="header">
-    ${opts.logoUrl
-      ? `<img class="logo" src="${opts.logoUrl}" alt="${opts.orgName}"/>`
-      : `<div class="logo-placeholder">${opts.orgName[0] ?? 'H'}</div>`}
-    <div class="header-text">
-      <h1>${opts.orgName}</h1>
-      <p>Pay Slip${opts.abn ? ` · ABN ${opts.abn}` : ''}</p>
+  <div class="top">
+    ${o.logoUrl ? `<img class="logo" src="${o.logoUrl}" alt="${o.orgName}"/>` : `<div class="org-name-text">${o.orgName}</div>`}
+    <div class="box">
+      <h3>PAID BY</h3>
+      <p>${o.orgName}${o.orgAddress ? `<br/>${o.orgAddress.replace(/\n/g, '<br/>')}` : ''}${o.abn ? `<br/>ABN ${o.abn}` : ''}</p>
     </div>
   </div>
 
-  <div class="meta">
-    <div class="meta-item"><label>Employee</label><span>${opts.employeeName}</span></div>
-    <div class="meta-item"><label>Email</label><span>${opts.employeeEmail}</span></div>
-    <div class="meta-item"><label>Pay Period</label><span>${fmtDate(opts.periodStart)} – ${fmtDate(opts.periodEnd)}</span></div>
-    <div class="meta-item"><label>Frequency</label><span style="text-transform:capitalize">${opts.frequency}</span></div>
-    ${opts.hoursWorked ? `<div class="meta-item"><label>Hours Worked</label><span>${opts.hoursWorked}</span></div>` : ''}
-    ${opts.effectiveTax != null ? `<div class="meta-item"><label>Effective Tax Rate</label><span>${opts.effectiveTax.toFixed(1)}%</span></div>` : ''}
-  </div>
-
-  <div class="breakdown">
-    <h2>Pay Breakdown</h2>
-    <table>
-      <tbody>${rowsHtml}</tbody>
-    </table>
-  </div>
-
-  <div class="net-box">
-    <div>
-      <div class="label">NET PAY</div>
-      <div style="font-size:12px;color:#9ca3af;margin-top:2px;">Payable to ${opts.employeeName}</div>
+  <div class="mid">
+    <div class="emp">
+      <p class="name">${o.employeeName}</p>
+      ${o.employeeAddress ? `<p>${o.employeeAddress.replace(/\n/g, '<br/>')}</p>` : ''}
+      ${o.employeeNumber ? `<p style="color:#777;font-size:12px;">Employee # ${o.employeeNumber}</p>` : ''}
     </div>
-    <div class="amount">${fmt(opts.netPay)}</div>
+    <div class="box">
+      <h3>EMPLOYMENT DETAILS</h3>
+      <p>Pay Frequency: ${o.frequency.charAt(0).toUpperCase() + o.frequency.slice(1)}
+      ${o.annualSalary ? `<br/>Annual Salary: ${fmt(o.annualSalary)}` : ''}
+      ${empBasis ? `<br/>Employment Basis: ${empBasis}` : ''}</p>
+    </div>
   </div>
 
-  ${Number(opts.superContrib ?? 0) > 0 ? `
-  <div class="super-box">
-    <span class="label">Superannuation Contribution (employer)</span>
-    <span class="amount">${fmt(opts.superContrib)}</span>
-  </div>` : ''}
+  <div class="strip">
+    <span>Pay Period: <b>${o.periodStart.split('-').reverse().join('/')} - ${o.periodEnd.split('-').reverse().join('/')}</b></span>
+    <span>Payment Date: <b>${o.paymentDate}</b></span>
+    <span>Total Earnings: <b>${fmt(o.grossPay)}</b></span>
+    <span>Net Pay: <b>${fmt(o.netPay)}</b></span>
+  </div>
+
+  ${section('SALARY & WAGES', salaryRows.join(''), fmt(o.grossPay), fmt(o.ytd.gross))}
+
+  ${o.deductions > 0 ? section('DEDUCTIONS',
+    `<tr><td class="lbl">Other Deductions</td><td></td><td></td><td class="num">${fmt(o.deductions)}</td><td class="num"></td></tr>`,
+    fmt(o.deductions), '') : ''}
+
+  ${section('TAX', taxRows, fmt(totalTaxThis), fmt(o.ytd.payg + o.ytd.medicare))}
+
+  ${Number(o.superContrib ?? 0) > 0 ? section('SUPERANNUATION',
+    `<tr><td class="lbl">SGC — Superannuation Guarantee</td><td></td><td></td><td class="num">${fmt(o.superContrib)}</td><td class="num">${fmt(o.ytd.superC)}</td></tr>`,
+    fmt(o.superContrib), fmt(o.ytd.superC)) : ''}
+
+  <div class="pay-details">
+    <div class="hdr"><span>PAYMENT DETAILS</span><span>AMOUNT</span></div>
+    <div class="row"><span>Net pay — ${o.employeeName}</span><span class="b">${fmt(o.netPay)}</span></div>
+  </div>
 
   <div class="footer">
-    <p>Payslip ID: ${opts.recordId.slice(0, 8).toUpperCase()} · Generated ${new Date().toLocaleDateString('en-AU', { dateStyle: 'long' })}</p>
+    <p>Payslip ID: ${o.recordId.slice(0, 8).toUpperCase()} · Generated ${new Date().toLocaleDateString('en-AU', { dateStyle: 'long' })}</p>
     <p>This is a computer-generated document.</p>
   </div>
 </div>
@@ -192,6 +239,10 @@ export async function POST(req: NextRequest, ctx: RouteContext) {
         empLast:           employees.lastName,
         empEmail:          employees.email,
         empEntityName:     employees.entityName,
+        empNumber:         employees.employeeNumber,
+        empAddress:        employees.address,
+        empType:           employees.employmentType,
+        empAnnualSalary:   employees.annualSalary,
         orgName:           tenants.name,
         orgLogo:           tenants.logoUrl,
         orgColor:          tenants.primaryColor,
@@ -204,6 +255,33 @@ export async function POST(req: NextRequest, ctx: RouteContext) {
 
     if (!row) return NextResponse.json({ error: 'Not found' }, { status: 404 })
 
+    // Year-to-date totals for the Australian financial year containing this period's end
+    const pe = new Date(row.periodEnd + 'T00:00:00')
+    const fyStartYear = pe.getMonth() >= 6 ? pe.getFullYear() : pe.getFullYear() - 1
+    const fyStart = `${fyStartYear}-07-01`
+    const [ytdRow] = await db
+      .select({
+        gross:    sql<string>`coalesce(sum(${payrollRecords.grossPay}), 0)`,
+        payg:     sql<string>`coalesce(sum(${payrollRecords.paygWithholding}), 0)`,
+        medicare: sql<string>`coalesce(sum(${payrollRecords.medicareLevy}), 0)`,
+        superC:   sql<string>`coalesce(sum(${payrollRecords.superContribution}), 0)`,
+        net:      sql<string>`coalesce(sum(${payrollRecords.netPay}), 0)`,
+      })
+      .from(payrollRecords)
+      .where(and(
+        eq(payrollRecords.tenantId, session.tenantId),
+        eq(payrollRecords.employeeId, row.employeeId),
+        gte(payrollRecords.periodStart, fyStart),
+        lte(payrollRecords.periodEnd, row.periodEnd),
+      ))
+    const ytd = {
+      gross:    Number(ytdRow?.gross ?? 0),
+      payg:     Number(ytdRow?.payg ?? 0),
+      medicare: Number(ytdRow?.medicare ?? 0),
+      superC:   Number(ytdRow?.superC ?? 0),
+      net:      Number(ytdRow?.net ?? 0),
+    }
+
     const pd          = (row.payslipData as Record<string, unknown>) ?? {}
     const allowances  = Number(pd.allowances ?? 0)
     const deductions  = Number(pd.deductions ?? 0)
@@ -214,16 +292,25 @@ export async function POST(req: NextRequest, ctx: RouteContext) {
     const employeeName = `${row.empFirst ?? ''} ${row.empLast ?? ''}`.trim() || 'Employee'
     const employeeEmail = row.empEmail ?? ''
 
+    const orgName    = row.orgName ?? 'Organisation'
+    const orgAddress = (row.orgAbn as Record<string, unknown>)?.address as string | null ?? null
+    const logoUrl    = row.orgLogo ?? resolveStaticLogo(orgName)
+    const paymentDate = new Date().toLocaleDateString('en-AU', { day: '2-digit', month: '2-digit', year: 'numeric' })
+
     // Build HTML payslip
     const html = buildPayslipHtml({
-      orgName:         row.orgName ?? 'Organisation',
+      orgName,
+      orgAddress,
       abn,
-      logoUrl:         row.orgLogo ?? null,
-      primaryColor:    row.orgColor ?? '#0E3D52',
+      logoUrl,
       employeeName,
-      employeeEmail,
+      employeeNumber:  row.empNumber ?? null,
+      employeeAddress: row.empAddress ?? null,
+      employmentType:  row.empType ?? null,
+      annualSalary:    row.empAnnualSalary ?? null,
       periodStart:     row.periodStart,
       periodEnd:       row.periodEnd,
+      paymentDate,
       frequency,
       grossPay:        row.grossPay,
       paygWithholding: row.paygWithholding,
@@ -234,9 +321,14 @@ export async function POST(req: NextRequest, ctx: RouteContext) {
       hourlyRate:      row.hourlyRate,
       allowances,
       deductions,
-      effectiveTax,
+      ytd,
       recordId:        row.id,
     })
+
+    // Preview mode: return the HTML directly without uploading (used for QA/local)
+    if (body.preview === true) {
+      return new NextResponse(html, { headers: { 'Content-Type': 'text/html' } })
+    }
 
     // Upload to Vercel Blob as HTML (renders perfectly in browser / iframe)
     const fileName  = `payslips/${session.tenantId}/${id}.html`
@@ -280,6 +372,7 @@ export async function POST(req: NextRequest, ctx: RouteContext) {
     return NextResponse.json({ ok: true, payslipUrl: blob.url })
   } catch (err) {
     console.error('POST /api/tenant/payroll/[id]/pdf', err)
-    return NextResponse.json({ error: 'Failed to generate payslip' }, { status: 500 })
+    const detail = err instanceof Error ? err.message : String(err)
+    return NextResponse.json({ error: 'Failed to generate payslip', detail }, { status: 500 })
   }
 }
