@@ -95,6 +95,46 @@ const NAV_ICONS: Record<string, IconName> = {
   'helpdesk':           'ticket',
 }
 
+
+// ── Nav grouping ──────────────────────────────────────────────
+type NavGroup = { id: string; label: string; keys: string[] }
+
+const NAV_GROUPS: NavGroup[] = [
+  { id: 'people', label: 'People', keys: [
+    'employee-management', 'onboarding', 'ess-onboarding', 'ess-onboarding-review',
+    'recruitment', 'contracts', 'offer-letters', 'contracting', 'separation',
+    'workforce-planning', 'workforce', 'organisation', 'promotions', 'salary-reviews',
+    'experience', 'competencies', 'competency', 'supervision', 'performance',
+    'training', 'screening',
+  ]},
+  { id: 'compliance', label: 'Compliance & Safety', keys: [
+    'compliance', 'documents', 'whs', 'grievances', 'audit-logs', 'roles',
+    'ndis-audits', 'ndis-incidents', 'participants', 'medication-health',
+    'incident-behaviour', 'schads',
+  ]},
+  { id: 'timepay', label: 'Time & Pay', keys: [
+    'rostering', 'roster-shifts', 'timesheets', 'payroll', 'payroll-finance',
+    'leave', 'public-holidays', 'toil', 'superannuation', 'expenses',
+  ]},
+  { id: 'culture', label: 'Culture & Workplace', keys: [
+    'benefits', 'recognition', 'referrals', 'referral', 'dei', 'engagement',
+    'helpdesk', 'assets', 'crm', 'ess-announcements', 'self-service',
+  ]},
+  { id: 'insights', label: 'Insights', keys: [
+    'analytics', 'reports', 'reports-analytics',
+  ]},
+]
+
+const MY_PORTAL_ITEMS = [
+  { key: 'my-schedule',     label: 'My Schedule' },
+  { key: 'my-profile',      label: 'My Profile' },
+  { key: 'my-payslips',     label: 'My Payslips' },
+  { key: 'my-documents',    label: 'My Documents' },
+  { key: 'my-performance',  label: 'My Performance' },
+  { key: 'my-leave',        label: 'My Leave' },
+  { key: 'my-benefits',     label: 'My Benefits' },
+]
+
 export default function TenantSidebar({
   navItems, sidebarBg, primaryColor, tenantName,
   logoUrl, userEmail, userInitial, userRole, borderRadius,
@@ -108,6 +148,54 @@ export default function TenantSidebar({
   const [trainingExpiryCount, setTrainingExpiryCount] = useState(0)
   const [screeningCount, setScreeningCount] = useState(0)
   const dropdownRef         = useRef<HTMLDivElement>(null)
+
+  // Tab + group state
+  const [activeTab, setActiveTab] = useState<'workspace' | 'portal'>('workspace')
+  const [expanded, setExpanded]   = useState<Record<string, boolean>>({})
+
+  // Restore persisted sidebar state
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('yh-sidebar')
+      if (saved) {
+        const s = JSON.parse(saved)
+        if (s.tab === 'portal' || s.tab === 'workspace') setActiveTab(s.tab)
+        if (s.expanded && typeof s.expanded === 'object') setExpanded(s.expanded)
+      }
+    } catch {}
+  }, [])
+
+  // Auto-select tab + expand group containing the active route
+  useEffect(() => {
+    const seg = pathname.split('/tenant/')[1]?.split('/')[0]
+    if (!seg) return
+    if (seg.startsWith('my-')) {
+      setActiveTab('portal')
+      return
+    }
+    const grp = NAV_GROUPS.find(g => g.keys.includes(seg))
+    if (grp) {
+      setActiveTab('workspace')
+      setExpanded(prev => prev[grp.id] ? prev : { ...prev, [grp.id]: true })
+    }
+  }, [pathname])
+
+  function persistSidebar(tab: 'workspace' | 'portal', exp: Record<string, boolean>) {
+    try { localStorage.setItem('yh-sidebar', JSON.stringify({ tab, expanded: exp })) } catch {}
+  }
+
+  function toggleGroup(id: string) {
+    setExpanded(prev => {
+      const next = { ...prev, [id]: !prev[id] }
+      persistSidebar(activeTab, next)
+      return next
+    })
+  }
+
+  function switchTab(tab: 'workspace' | 'portal') {
+    setActiveTab(tab)
+    persistSidebar(tab, expanded)
+  }
 
   useEffect(() => {
     fetch('/api/tenant/documents/expiry-count')
@@ -250,34 +338,93 @@ export default function TenantSidebar({
         )}
       </div>
 
-      {/* Nav */}
-      <nav className="flex-1 px-2.5 py-3 overflow-y-auto space-y-0.5">
-        <NavLink navKey="dashboard" label="Dashboard" />
-
-        {navItems.map(({ key, label, badge }) => (
-          <NavLink key={key} navKey={key} label={label} badge={key === 'documents' ? (expiryCount || badge) : key === 'training' ? (trainingExpiryCount || badge) : key === 'screening' ? (screeningCount || badge) : badge} />
-        ))}
-
-        {/* My Portal */}
-        <div className="pt-4 mt-1" style={{ borderTop: `1px solid ${borderClr}` }}>
-          <p
-            className="px-3 pb-2 text-[11px] font-medium"
-            style={{ color: labelColor }}
-          >
-            My Portal
-          </p>
-          {[
-            { key: 'my-schedule',     label: 'My Schedule' },
-            { key: 'my-profile',      label: 'My Profile' },
-            { key: 'my-payslips',     label: 'My Payslips' },
-            { key: 'my-documents',    label: 'My Documents' },
-            { key: 'my-performance',  label: 'My Performance' },
-            { key: 'my-leave',        label: 'My Leave' },
-            { key: 'my-benefits',     label: 'My Benefits' },
-          ].map(({ key, label }) => (
-            <NavLink key={key} navKey={key} label={label} />
+      {/* Tab switcher */}
+      <div className="px-2.5 pt-3">
+        <div
+          className="flex rounded-lg p-0.5"
+          style={{ background: 'rgba(0,0,0,0.25)' }}
+          role="tablist"
+        >
+          {([['workspace', 'Workspace'], ['portal', 'My Portal']] as const).map(([id, lbl]) => (
+            <button
+              key={id}
+              role="tab"
+              aria-selected={activeTab === id}
+              onClick={() => switchTab(id)}
+              className="flex-1 py-1.5 text-[12px] font-medium rounded-md transition-colors"
+              style={{
+                background: activeTab === id ? 'rgba(255,255,255,0.14)' : 'transparent',
+                color: activeTab === id ? '#ffffff' : mutedText,
+              }}
+            >
+              {lbl}
+            </button>
           ))}
         </div>
+      </div>
+
+      {/* Nav */}
+      <nav className="flex-1 px-2.5 py-3 overflow-y-auto space-y-0.5">
+        {activeTab === 'workspace' ? (
+          <>
+            <NavLink navKey="dashboard" label="Dashboard" />
+
+            {NAV_GROUPS.map(group => {
+              const items = navItems.filter(i => group.keys.includes(i.key))
+              if (items.length === 0) return null
+              const isOpen = !!expanded[group.id]
+              const groupBadge = items.reduce((sum, i) => {
+                const b = i.key === 'documents' ? (expiryCount || i.badge) : i.key === 'training' ? (trainingExpiryCount || i.badge) : i.key === 'screening' ? (screeningCount || i.badge) : i.badge
+                return sum + (b || 0)
+              }, 0)
+              return (
+                <div key={group.id} className="pt-1">
+                  <button
+                    onClick={() => toggleGroup(group.id)}
+                    aria-expanded={isOpen}
+                    className="w-full flex items-center gap-2 px-3 py-1.5 rounded-lg text-[11px] font-semibold uppercase tracking-[0.08em] transition-colors"
+                    style={{ color: isOpen ? 'rgba(255,255,255,0.65)' : labelColor }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.85)' }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = isOpen ? 'rgba(255,255,255,0.65)' : labelColor as string }}
+                  >
+                    <span className="flex-1 text-left">{group.label}</span>
+                    {!isOpen && groupBadge > 0 && (
+                      <span className="inline-flex items-center justify-center min-w-[16px] h-[16px] px-1 text-[9px] font-bold rounded-full normal-case tracking-normal"
+                        style={{ background: 'rgba(232,151,58,0.9)', color: '#fff' }}>
+                        {groupBadge > 99 ? '99+' : groupBadge}
+                      </span>
+                    )}
+                    <svg
+                      className="w-3 h-3 shrink-0 transition-transform duration-150"
+                      style={{ transform: isOpen ? 'rotate(90deg)' : 'rotate(0deg)' }}
+                      fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                  {isOpen && (
+                    <div className="space-y-0.5 pb-1">
+                      {items.map(({ key, label, badge }) => (
+                        <NavLink key={key} navKey={key} label={label} badge={key === 'documents' ? (expiryCount || badge) : key === 'training' ? (trainingExpiryCount || badge) : key === 'screening' ? (screeningCount || badge) : badge} />
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )
+            })}
+
+            {/* Ungrouped leftovers (safety net for new modules) */}
+            {navItems.filter(i => i.key !== 'dashboard' && !NAV_GROUPS.some(g => g.keys.includes(i.key))).map(({ key, label, badge }) => (
+              <NavLink key={key} navKey={key} label={label} badge={badge} />
+            ))}
+          </>
+        ) : (
+          <div className="space-y-0.5">
+            {MY_PORTAL_ITEMS.map(({ key, label }) => (
+              <NavLink key={key} navKey={key} label={label} />
+            ))}
+          </div>
+        )}
       </nav>
 
       {/* User section */}
