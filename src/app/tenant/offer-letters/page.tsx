@@ -497,27 +497,7 @@ export default function OfferLettersPage() {
 
   function printOffer() {
     if (!selected) return
-    const content = selected.templateContent || DEFAULT_TEMPLATE({ ...selected, orgName })
-    const win = window.open('', '_blank')
-    if (!win) return
-    win.document.write(`<!DOCTYPE html><html><head><title>Offer Letter — ${selected.candidateName}</title>
-    <style>
-      body { font-family: 'Times New Roman', serif; font-size: 12pt; line-height: 1.6; margin: 40px 60px; color: #111; }
-      h1 { font-size: 16pt; margin-bottom: 4px; }
-      .header { border-bottom: 2px solid #0E3D52; padding-bottom: 12px; margin-bottom: 24px; }
-      .meta { font-size: 10pt; color: #555; }
-      pre { font-family: inherit; white-space: pre-wrap; }
-      @media print { body { margin: 20px 40px; } }
-    </style></head><body>
-    <div class="header">
-      <h1>Offer Letter</h1>
-      <div class="meta">Date: ${new Date().toLocaleDateString('en-AU',{day:'numeric',month:'long',year:'numeric'})}&nbsp;&nbsp;|&nbsp;&nbsp;
-      Ref: ${selected.id.slice(0,8).toUpperCase()}</div>
-    </div>
-    <pre>${content}</pre>
-    <script>window.onload=()=>{window.print();}</script>
-    </body></html>`)
-    win.document.close()
+    window.open(`/api/tenant/offer-letters/${selected.id}/letter?print=1`, '_blank')
   }
 
   function fmt(d: string | null) {
